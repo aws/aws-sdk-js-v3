@@ -8,6 +8,12 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  getQueueUrlPlugin,
+  QueueUrlInputConfig,
+  QueueUrlResolvedConfig,
+  resolveQueueUrlConfig,
+} from "@aws-sdk/middleware-sdk-sqs";
+import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
@@ -311,6 +317,7 @@ export type SQSClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
+  QueueUrlInputConfig &
   UserAgentInputConfig &
   HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
@@ -331,6 +338,7 @@ export type SQSClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
+  QueueUrlResolvedConfig &
   UserAgentResolvedConfig &
   HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
@@ -435,16 +443,18 @@ export class SQSClient extends __Client<
     const _config_3 = resolveEndpointConfig(_config_2);
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveUserAgentConfig(_config_5);
-    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
-    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
-    super(_config_8);
-    this.config = _config_8;
+    const _config_6 = resolveQueueUrlConfig(_config_5);
+    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_8 = resolveHttpAuthSchemeConfig(_config_7);
+    const _config_9 = resolveRuntimeExtensions(_config_8, configuration?.extensions || []);
+    super(_config_9);
+    this.config = _config_9;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
+    this.middlewareStack.use(getQueueUrlPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
     this.middlewareStack.use(
       getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {

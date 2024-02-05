@@ -15,6 +15,7 @@
 
 package software.amazon.smithy.aws.typescript.codegen;
 
+import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_CONFIG;
 import static software.amazon.smithy.typescript.codegen.integration.RuntimeClientPlugin.Convention.HAS_MIDDLEWARE;
 
 import java.util.Collections;
@@ -58,6 +59,14 @@ public class AddSqsDependency implements TypeScriptIntegration {
                         .withConventions(AwsDependency.SQS_MIDDLEWARE.dependency, "ReceiveMessage",
                                          HAS_MIDDLEWARE)
                         .operationPredicate((m, s, o) -> o.getId().getName(s).equals("ReceiveMessage") && isSqs(s))
+                        .build(),
+                RuntimeClientPlugin.builder()
+                        .withConventions(
+                            AwsDependency.SQS_MIDDLEWARE.dependency,
+                            "QueueUrl",
+                            HAS_MIDDLEWARE, HAS_CONFIG
+                        )
+                        .servicePredicate((m, s) -> isSqs(s))
                         .build()
         );
     }

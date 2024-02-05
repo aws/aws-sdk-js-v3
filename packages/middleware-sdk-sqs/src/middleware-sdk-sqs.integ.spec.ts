@@ -4,6 +4,7 @@ import crypto from "crypto";
 import { Readable } from "stream";
 
 import sqsModel from "../../../codegen/sdk-codegen/aws-models/sqs.json";
+import { requireRequestsFrom } from "../../../private/aws-util-test/src";
 const useAwsQuery = !!sqsModel.shapes["com.amazonaws.sqs#AmazonSQS"].traits["aws.protocols#awsQuery"];
 
 let hashError = "";
@@ -286,6 +287,61 @@ describe("middleware-sdk-sqs", () => {
           });
 
         expect.hasAssertions();
+      });
+    });
+  });
+
+  describe("queue-url", () => {
+    it("should override resolved endpoint by default", async () => {
+      const client = new SQS({
+        region: "us-west-2",
+      });
+
+      requireRequestsFrom(client).toMatch({
+        hostname: "abc.com",
+        protocol: "https:",
+        path: "/",
+      });
+
+      await client.sendMessage({
+        QueueUrl: "https://abc.com/123/MyQueue",
+        MessageBody: "hello",
+      });
+    });
+
+    it("does not override endpoint if shut off with useQueueUrlAsEndpoint=false", async () => {
+      const client = new SQS({
+        region: "us-west-2",
+        useQueueUrlAsEndpoint: false,
+      });
+
+      requireRequestsFrom(client).toMatch({
+        hostname: "sqs.us-west-2.amazonaws.com",
+        protocol: "https:",
+        path: "/",
+      });
+
+      await client.sendMessage({
+        QueueUrl: "https://abc.com/123/MyQueue",
+        MessageBody: "hello",
+      });
+    });
+
+    it("does not override endpoint if custom endpoint given to client", async () => {
+      const client = new SQS({
+        region: "us-west-2",
+        endpoint: "https://custom-endpoint.com/",
+      });
+
+      requireRequestsFrom(client).toMatch({
+        hostname: "custom-endpoint.com",
+        protocol: "https:",
+        path: "/",
+      });
+
+      await client.sendMessage({
+        QueueUrl: "https://abc.com/123/MyQueue",
+        MessageBody: "hello",
       });
     });
   });
