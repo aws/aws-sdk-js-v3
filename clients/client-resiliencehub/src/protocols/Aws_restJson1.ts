@@ -2807,7 +2807,7 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
         output,
         parsedBody,
         errorCode,
-      });
+      }) as never;
   }
 };
 
