@@ -58,6 +58,7 @@ import {
 } from "./commands/CreateRegexPatternSetCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "./commands/CreateRuleGroupCommand";
 import { CreateWebACLCommandInput, CreateWebACLCommandOutput } from "./commands/CreateWebACLCommand";
+import { DeleteAPIKeyCommandInput, DeleteAPIKeyCommandOutput } from "./commands/DeleteAPIKeyCommand";
 import {
   DeleteFirewallManagerRuleGroupsCommandInput,
   DeleteFirewallManagerRuleGroupsCommandOutput,
@@ -204,6 +205,7 @@ export type ServiceInputTypes =
   | CreateRegexPatternSetCommandInput
   | CreateRuleGroupCommandInput
   | CreateWebACLCommandInput
+  | DeleteAPIKeyCommandInput
   | DeleteFirewallManagerRuleGroupsCommandInput
   | DeleteIPSetCommandInput
   | DeleteLoggingConfigurationCommandInput
@@ -262,6 +264,7 @@ export type ServiceOutputTypes =
   | CreateRegexPatternSetCommandOutput
   | CreateRuleGroupCommandOutput
   | CreateWebACLCommandOutput
+  | DeleteAPIKeyCommandOutput
   | DeleteFirewallManagerRuleGroupsCommandOutput
   | DeleteIPSetCommandOutput
   | DeleteLoggingConfigurationCommandOutput

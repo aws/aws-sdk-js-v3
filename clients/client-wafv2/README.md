@@ -319,6 +319,14 @@ CreateWebACL
 </details>
 <details>
 <summary>
+DeleteAPIKey
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/wafv2/command/DeleteAPIKeyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteAPIKeyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-wafv2/Interface/DeleteAPIKeyCommandOutput/)
+
+</details>
+<details>
+<summary>
 DeleteFirewallManagerRuleGroups
 </summary>
 

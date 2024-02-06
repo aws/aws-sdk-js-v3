@@ -31,6 +31,7 @@ import {
 } from "../commands/CreateRegexPatternSetCommand";
 import { CreateRuleGroupCommandInput, CreateRuleGroupCommandOutput } from "../commands/CreateRuleGroupCommand";
 import { CreateWebACLCommandInput, CreateWebACLCommandOutput } from "../commands/CreateWebACLCommand";
+import { DeleteAPIKeyCommandInput, DeleteAPIKeyCommandOutput } from "../commands/DeleteAPIKeyCommand";
 import {
   DeleteFirewallManagerRuleGroupsCommandInput,
   DeleteFirewallManagerRuleGroupsCommandOutput,
@@ -192,6 +193,7 @@ import {
   CustomResponse,
   CustomResponseBody,
   DefaultAction,
+  DeleteAPIKeyRequest,
   DeleteFirewallManagerRuleGroupsRequest,
   DeleteIPSetRequest,
   DeleteLoggingConfigurationRequest,
@@ -438,6 +440,19 @@ export const se_CreateWebACLCommand = async (
   const headers: __HeaderBag = sharedHeaders("CreateWebACL");
   let body: any;
   body = JSON.stringify(se_CreateWebACLRequest(input, context));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1DeleteAPIKeyCommand
+ */
+export const se_DeleteAPIKeyCommand = async (
+  input: DeleteAPIKeyCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("DeleteAPIKey");
+  let body: any;
+  body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
 };
 
@@ -1173,6 +1188,26 @@ export const de_CreateWebACLCommand = async (
   let contents: any = {};
   contents = _json(data);
   const response: CreateWebACLCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1DeleteAPIKeyCommand
+ */
+export const de_DeleteAPIKeyCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteAPIKeyCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: DeleteAPIKeyCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -2617,6 +2652,8 @@ const se_CreateWebACLRequest = (input: CreateWebACLRequest, context: __SerdeCont
 
 // se_DefaultAction omitted.
 
+// se_DeleteAPIKeyRequest omitted.
+
 // se_DeleteFirewallManagerRuleGroupsRequest omitted.
 
 // se_DeleteIPSetRequest omitted.
@@ -3186,6 +3223,8 @@ const de_ByteMatchStatement = (output: any, context: __SerdeContext): ByteMatchS
 // de_CustomResponseBody omitted.
 
 // de_DefaultAction omitted.
+
+// de_DeleteAPIKeyResponse omitted.
 
 // de_DeleteFirewallManagerRuleGroupsResponse omitted.
 

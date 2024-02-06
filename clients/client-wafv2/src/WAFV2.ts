@@ -34,6 +34,11 @@ import {
   CreateWebACLCommandOutput,
 } from "./commands/CreateWebACLCommand";
 import {
+  DeleteAPIKeyCommand,
+  DeleteAPIKeyCommandInput,
+  DeleteAPIKeyCommandOutput,
+} from "./commands/DeleteAPIKeyCommand";
+import {
   DeleteFirewallManagerRuleGroupsCommand,
   DeleteFirewallManagerRuleGroupsCommandInput,
   DeleteFirewallManagerRuleGroupsCommandOutput,
@@ -241,6 +246,7 @@ const commands = {
   CreateRegexPatternSetCommand,
   CreateRuleGroupCommand,
   CreateWebACLCommand,
+  DeleteAPIKeyCommand,
   DeleteFirewallManagerRuleGroupsCommand,
   DeleteIPSetCommand,
   DeleteLoggingConfigurationCommand,
@@ -377,6 +383,17 @@ export interface WAFV2 {
     args: CreateWebACLCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWebACLCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteAPIKeyCommand}
+   */
+  deleteAPIKey(args: DeleteAPIKeyCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAPIKeyCommandOutput>;
+  deleteAPIKey(args: DeleteAPIKeyCommandInput, cb: (err: any, data?: DeleteAPIKeyCommandOutput) => void): void;
+  deleteAPIKey(
+    args: DeleteAPIKeyCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteAPIKeyCommandOutput) => void
   ): void;
 
   /**

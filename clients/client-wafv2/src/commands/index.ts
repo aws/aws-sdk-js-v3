@@ -6,6 +6,7 @@ export * from "./CreateIPSetCommand";
 export * from "./CreateRegexPatternSetCommand";
 export * from "./CreateRuleGroupCommand";
 export * from "./CreateWebACLCommand";
+export * from "./DeleteAPIKeyCommand";
 export * from "./DeleteFirewallManagerRuleGroupsCommand";
 export * from "./DeleteIPSetCommand";
 export * from "./DeleteLoggingConfigurationCommand";
