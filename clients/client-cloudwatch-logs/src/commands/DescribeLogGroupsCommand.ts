@@ -74,6 +74,7 @@ export interface DescribeLogGroupsCommandOutput extends DescribeLogGroupsRespons
  * //         "ACCOUNT_DATA_PROTECTION",
  * //       ],
  * //       logGroupClass: "STANDARD" || "INFREQUENT_ACCESS",
+ * //       logGroupArn: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

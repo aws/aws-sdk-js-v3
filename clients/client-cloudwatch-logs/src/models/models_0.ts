@@ -1958,7 +1958,10 @@ export interface LogGroup {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the log group.</p>
+   * <p>The Amazon Resource Name (ARN) of the log group. This version of the ARN includes a trailing <code>:*</code> after the log group name. </p>
+   *          <p>Use this version to refer to the ARN in IAM policies when specifying permissions for most API actions. The exception is when specifying permissions for <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>, <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>, and
+   *       <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.
+   *       The permissions for those three actions require the ARN version that doesn't include a trailing <code>:*</code>.</p>
    */
   arn?: string;
 
@@ -2006,6 +2009,25 @@ export interface LogGroup {
    *          </p>
    */
   logGroupClass?: LogGroupClass;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the log group. This version of the ARN doesn't include a trailing <code>:*</code> after the log group name. </p>
+   *          <p>Use this version to refer to the ARN in the following situations:</p>
+   *          <ul>
+   *             <li>
+   *                <p>In the <code>logGroupIdentifier</code> input field in many CloudWatch Logs APIs.</p>
+   *             </li>
+   *             <li>
+   *                <p>In the <code>resourceArn</code> field in tagging APIs</p>
+   *             </li>
+   *             <li>
+   *                <p>In IAM policies, when specifying permissions for <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagResource.html">TagResource</a>, <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagResource.html">UntagResource</a>, and
+   *         <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsForResource.html">ListTagsForResource</a>.</p>
+   *             </li>
+   *          </ul>
+   */
+  logGroupArn?: string;
 }
 
 /**
@@ -4179,8 +4201,8 @@ export interface PutDeliverySourceRequest {
 
   /**
    * @public
-   * <p>Defines the type of log that the source is sending. For valid values for this parameter, see the documentation for
-   *       the source service.</p>
+   * <p>Defines the type of log that the source is sending. For Amazon CodeWhisperer, the valid value is
+   *         <code>EVENT_LOGS</code>.</p>
    */
   logType: string | undefined;
 
