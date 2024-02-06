@@ -462,6 +462,14 @@ GetGraphqlApi
 </details>
 <details>
 <summary>
+GetGraphqlApiEnvironmentVariables
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/GetGraphqlApiEnvironmentVariablesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetGraphqlApiEnvironmentVariablesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/GetGraphqlApiEnvironmentVariablesCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetIntrospectionSchema
 </summary>
 
@@ -586,6 +594,14 @@ ListTypesByAssociation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/ListTypesByAssociationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListTypesByAssociationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/ListTypesByAssociationCommandOutput/)
+
+</details>
+<details>
+<summary>
+PutGraphqlApiEnvironmentVariables
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/appsync/command/PutGraphqlApiEnvironmentVariablesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/PutGraphqlApiEnvironmentVariablesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-appsync/Interface/PutGraphqlApiEnvironmentVariablesCommandOutput/)
 
 </details>
 <details>

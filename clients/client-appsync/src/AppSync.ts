@@ -148,6 +148,11 @@ import {
   GetGraphqlApiCommandOutput,
 } from "./commands/GetGraphqlApiCommand";
 import {
+  GetGraphqlApiEnvironmentVariablesCommand,
+  GetGraphqlApiEnvironmentVariablesCommandInput,
+  GetGraphqlApiEnvironmentVariablesCommandOutput,
+} from "./commands/GetGraphqlApiEnvironmentVariablesCommand";
+import {
   GetIntrospectionSchemaCommand,
   GetIntrospectionSchemaCommandInput,
   GetIntrospectionSchemaCommandOutput,
@@ -211,6 +216,11 @@ import {
   ListTypesByAssociationCommandOutput,
 } from "./commands/ListTypesByAssociationCommand";
 import { ListTypesCommand, ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import {
+  PutGraphqlApiEnvironmentVariablesCommand,
+  PutGraphqlApiEnvironmentVariablesCommandInput,
+  PutGraphqlApiEnvironmentVariablesCommandOutput,
+} from "./commands/PutGraphqlApiEnvironmentVariablesCommand";
 import {
   StartDataSourceIntrospectionCommand,
   StartDataSourceIntrospectionCommandInput,
@@ -307,6 +317,7 @@ const commands = {
   GetDomainNameCommand,
   GetFunctionCommand,
   GetGraphqlApiCommand,
+  GetGraphqlApiEnvironmentVariablesCommand,
   GetIntrospectionSchemaCommand,
   GetResolverCommand,
   GetSchemaCreationStatusCommand,
@@ -323,6 +334,7 @@ const commands = {
   ListTagsForResourceCommand,
   ListTypesCommand,
   ListTypesByAssociationCommand,
+  PutGraphqlApiEnvironmentVariablesCommand,
   StartDataSourceIntrospectionCommand,
   StartSchemaCreationCommand,
   StartSchemaMergeCommand,
@@ -792,6 +804,23 @@ export interface AppSync {
   ): void;
 
   /**
+   * @see {@link GetGraphqlApiEnvironmentVariablesCommand}
+   */
+  getGraphqlApiEnvironmentVariables(
+    args: GetGraphqlApiEnvironmentVariablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetGraphqlApiEnvironmentVariablesCommandOutput>;
+  getGraphqlApiEnvironmentVariables(
+    args: GetGraphqlApiEnvironmentVariablesCommandInput,
+    cb: (err: any, data?: GetGraphqlApiEnvironmentVariablesCommandOutput) => void
+  ): void;
+  getGraphqlApiEnvironmentVariables(
+    args: GetGraphqlApiEnvironmentVariablesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetGraphqlApiEnvironmentVariablesCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link GetIntrospectionSchemaCommand}
    */
   getIntrospectionSchema(
@@ -1016,6 +1045,23 @@ export interface AppSync {
     args: ListTypesByAssociationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListTypesByAssociationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link PutGraphqlApiEnvironmentVariablesCommand}
+   */
+  putGraphqlApiEnvironmentVariables(
+    args: PutGraphqlApiEnvironmentVariablesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<PutGraphqlApiEnvironmentVariablesCommandOutput>;
+  putGraphqlApiEnvironmentVariables(
+    args: PutGraphqlApiEnvironmentVariablesCommandInput,
+    cb: (err: any, data?: PutGraphqlApiEnvironmentVariablesCommandOutput) => void
+  ): void;
+  putGraphqlApiEnvironmentVariables(
+    args: PutGraphqlApiEnvironmentVariablesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: PutGraphqlApiEnvironmentVariablesCommandOutput) => void
   ): void;
 
   /**

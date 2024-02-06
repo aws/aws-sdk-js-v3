@@ -74,6 +74,10 @@ import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "../comman
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "../commands/GetFunctionCommand";
 import { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "../commands/GetGraphqlApiCommand";
 import {
+  GetGraphqlApiEnvironmentVariablesCommandInput,
+  GetGraphqlApiEnvironmentVariablesCommandOutput,
+} from "../commands/GetGraphqlApiEnvironmentVariablesCommand";
+import {
   GetIntrospectionSchemaCommandInput,
   GetIntrospectionSchemaCommandOutput,
 } from "../commands/GetIntrospectionSchemaCommand";
@@ -110,6 +114,10 @@ import {
   ListTypesByAssociationCommandOutput,
 } from "../commands/ListTypesByAssociationCommand";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "../commands/ListTypesCommand";
+import {
+  PutGraphqlApiEnvironmentVariablesCommandInput,
+  PutGraphqlApiEnvironmentVariablesCommandOutput,
+} from "../commands/PutGraphqlApiEnvironmentVariablesCommand";
 import {
   StartDataSourceIntrospectionCommandInput,
   StartDataSourceIntrospectionCommandOutput,
@@ -853,6 +861,22 @@ export const se_GetGraphqlApiCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetGraphqlApiEnvironmentVariablesCommand
+ */
+export const se_GetGraphqlApiEnvironmentVariablesCommand = async (
+  input: GetGraphqlApiEnvironmentVariablesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/apis/{apiId}/environmentVariables");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetIntrospectionSchemaCommand
  */
 export const se_GetIntrospectionSchemaCommand = async (
@@ -1161,6 +1185,29 @@ export const se_ListTypesByAssociationCommand = async (
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1PutGraphqlApiEnvironmentVariablesCommand
+ */
+export const se_PutGraphqlApiEnvironmentVariablesCommand = async (
+  input: PutGraphqlApiEnvironmentVariablesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/apis/{apiId}/environmentVariables");
+  b.p("apiId", () => input.apiId!, "{apiId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      environmentVariables: (_) => _json(_),
+    })
+  );
+  b.m("PUT").h(headers).b(body);
   return b.build();
 };
 
@@ -2169,6 +2216,27 @@ export const de_GetGraphqlApiCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetGraphqlApiEnvironmentVariablesCommand
+ */
+export const de_GetGraphqlApiEnvironmentVariablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetGraphqlApiEnvironmentVariablesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    environmentVariables: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetIntrospectionSchemaCommand
  */
 export const de_GetIntrospectionSchemaCommand = async (
@@ -2507,6 +2575,27 @@ export const de_ListTypesByAssociationCommand = async (
   const doc = take(data, {
     nextToken: __expectString,
     types: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1PutGraphqlApiEnvironmentVariablesCommand
+ */
+export const de_PutGraphqlApiEnvironmentVariablesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<PutGraphqlApiEnvironmentVariablesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    environmentVariables: _json,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3092,6 +3181,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_ElasticsearchDataSourceConfig omitted.
 
+// se_EnvironmentVariableMap omitted.
+
 // se_EventBridgeDataSourceConfig omitted.
 
 // se_FunctionsIds omitted.
@@ -3258,6 +3349,8 @@ const de_DataSourceIntrospectionResult = (output: any, context: __SerdeContext):
 // de_DynamodbDataSourceConfig omitted.
 
 // de_ElasticsearchDataSourceConfig omitted.
+
+// de_EnvironmentVariableMap omitted.
 
 // de_ErrorDetail omitted.
 

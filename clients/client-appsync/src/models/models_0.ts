@@ -3518,6 +3518,28 @@ export interface GetGraphqlApiResponse {
 
 /**
  * @public
+ */
+export interface GetGraphqlApiEnvironmentVariablesRequest {
+  /**
+   * @public
+   * <p>The ID of the API from which the environmental variable list will be retrieved.</p>
+   */
+  apiId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetGraphqlApiEnvironmentVariablesResponse {
+  /**
+   * @public
+   * <p>The payload containing each environmental variable in the <code>"key" : "value"</code> format.</p>
+   */
+  environmentVariables?: Record<string, string>;
+}
+
+/**
+ * @public
  * @enum
  */
 export const OutputType = {
@@ -4265,6 +4287,59 @@ export interface ListTypesByAssociationResponse {
    *          next set of items in the list.</p>
    */
   nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface PutGraphqlApiEnvironmentVariablesRequest {
+  /**
+   * @public
+   * <p>The ID of the API to which the environmental variable list will be written.</p>
+   */
+  apiId: string | undefined;
+
+  /**
+   * @public
+   * <p>The list of environmental variables to add to the API.</p>
+   *          <p>When creating an environmental variable key-value pair, it must follow the additional constraints
+   *          below:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Keys must begin with a letter.</p>
+   *             </li>
+   *             <li>
+   *                <p>Keys must be at least two characters long.</p>
+   *             </li>
+   *             <li>
+   *                <p>Keys can only contain letters, numbers, and the underscore character (_).</p>
+   *             </li>
+   *             <li>
+   *                <p>Values can be up to 512 characters long.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can configure up to 50 key-value pairs in a GraphQL API.</p>
+   *             </li>
+   *          </ul>
+   *          <p>You can create a list of environmental variables by adding it to the <code>environmentVariables</code>
+   *          payload as a list in the format <code>\{"key1":"value1","key2":"value2", …\}</code>. Note that each call of the
+   *             <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of the existing
+   *          environmental variable list of that API. This means the existing environmental variables will be lost. To avoid
+   *          this, you must include all existing and new environmental variables in the list each time you call this
+   *          action.</p>
+   */
+  environmentVariables: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface PutGraphqlApiEnvironmentVariablesResponse {
+  /**
+   * @public
+   * <p>The payload containing each environmental variable in the <code>"key" : "value"</code> format.</p>
+   */
+  environmentVariables?: Record<string, string>;
 }
 
 /**

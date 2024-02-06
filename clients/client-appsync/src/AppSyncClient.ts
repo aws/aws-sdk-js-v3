@@ -99,6 +99,10 @@ import { GetDomainNameCommandInput, GetDomainNameCommandOutput } from "./command
 import { GetFunctionCommandInput, GetFunctionCommandOutput } from "./commands/GetFunctionCommand";
 import { GetGraphqlApiCommandInput, GetGraphqlApiCommandOutput } from "./commands/GetGraphqlApiCommand";
 import {
+  GetGraphqlApiEnvironmentVariablesCommandInput,
+  GetGraphqlApiEnvironmentVariablesCommandOutput,
+} from "./commands/GetGraphqlApiEnvironmentVariablesCommand";
+import {
   GetIntrospectionSchemaCommandInput,
   GetIntrospectionSchemaCommandOutput,
 } from "./commands/GetIntrospectionSchemaCommand";
@@ -135,6 +139,10 @@ import {
   ListTypesByAssociationCommandOutput,
 } from "./commands/ListTypesByAssociationCommand";
 import { ListTypesCommandInput, ListTypesCommandOutput } from "./commands/ListTypesCommand";
+import {
+  PutGraphqlApiEnvironmentVariablesCommandInput,
+  PutGraphqlApiEnvironmentVariablesCommandOutput,
+} from "./commands/PutGraphqlApiEnvironmentVariablesCommand";
 import {
   StartDataSourceIntrospectionCommandInput,
   StartDataSourceIntrospectionCommandOutput,
@@ -205,6 +213,7 @@ export type ServiceInputTypes =
   | GetDomainNameCommandInput
   | GetFunctionCommandInput
   | GetGraphqlApiCommandInput
+  | GetGraphqlApiEnvironmentVariablesCommandInput
   | GetIntrospectionSchemaCommandInput
   | GetResolverCommandInput
   | GetSchemaCreationStatusCommandInput
@@ -221,6 +230,7 @@ export type ServiceInputTypes =
   | ListTagsForResourceCommandInput
   | ListTypesByAssociationCommandInput
   | ListTypesCommandInput
+  | PutGraphqlApiEnvironmentVariablesCommandInput
   | StartDataSourceIntrospectionCommandInput
   | StartSchemaCreationCommandInput
   | StartSchemaMergeCommandInput
@@ -272,6 +282,7 @@ export type ServiceOutputTypes =
   | GetDomainNameCommandOutput
   | GetFunctionCommandOutput
   | GetGraphqlApiCommandOutput
+  | GetGraphqlApiEnvironmentVariablesCommandOutput
   | GetIntrospectionSchemaCommandOutput
   | GetResolverCommandOutput
   | GetSchemaCreationStatusCommandOutput
@@ -288,6 +299,7 @@ export type ServiceOutputTypes =
   | ListTagsForResourceCommandOutput
   | ListTypesByAssociationCommandOutput
   | ListTypesCommandOutput
+  | PutGraphqlApiEnvironmentVariablesCommandOutput
   | StartDataSourceIntrospectionCommandOutput
   | StartSchemaCreationCommandOutput
   | StartSchemaMergeCommandOutput
