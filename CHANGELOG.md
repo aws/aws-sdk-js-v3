@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.508.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.507.0...v3.508.0) (2024-02-06)
+
+
+### Features
+
+* **client-appsync:** Support for environment variables in AppSync GraphQL APIs ([6581c52](https://github.com/aws/aws-sdk-js-v3/commit/6581c52fcac8ef0f26d953f7fd162ca2243ef02e))
+* **client-cloudwatch-logs:** This release adds a new field, logGroupArn, to the response of the logs:DescribeLogGroups action. ([2bb3dc6](https://github.com/aws/aws-sdk-js-v3/commit/2bb3dc6a126f448d8092abeb43f1c0ace9a6b5d8))
+* **client-elasticsearch-service:** This release adds clear visibility to the customers on the changes that they make on the domain. ([fa13738](https://github.com/aws/aws-sdk-js-v3/commit/fa13738e5c2893c7efd199e49f9af9343623ce6b))
+* **client-opensearch:** This release adds clear visibility to the customers on the changes that they make on the domain. ([39afff6](https://github.com/aws/aws-sdk-js-v3/commit/39afff6765e7736187cb036badad084133889fdd))
+* **client-wafv2:** You can now delete an API key that you've created for use with your CAPTCHA JavaScript integration API. ([900da98](https://github.com/aws/aws-sdk-js-v3/commit/900da98eaa79cbc262f0d1d3ec1103ccbc0f78ed))
+
+
+
+
+
 # [3.507.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.506.0...v3.507.0) (2024-02-05)
 
 

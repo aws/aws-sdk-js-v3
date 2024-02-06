@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.508.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.507.0...v3.508.0) (2024-02-06)
+
+
+### Features
+
+* **client-wafv2:** You can now delete an API key that you've created for use with your CAPTCHA JavaScript integration API. ([900da98](https://github.com/aws/aws-sdk-js-v3/commit/900da98eaa79cbc262f0d1d3ec1103ccbc0f78ed))
+
+
+
+
+
 # [3.507.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.506.0...v3.507.0) (2024-02-05)
 
 

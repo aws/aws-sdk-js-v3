@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.508.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.507.0...v3.508.0) (2024-02-06)
+
+
+### Features
+
+* **client-elasticsearch-service:** This release adds clear visibility to the customers on the changes that they make on the domain. ([fa13738](https://github.com/aws/aws-sdk-js-v3/commit/fa13738e5c2893c7efd199e49f9af9343623ce6b))
+
+
+
+
+
 # [3.507.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.506.0...v3.507.0) (2024-02-05)
 
 
