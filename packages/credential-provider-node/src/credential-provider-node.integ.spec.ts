@@ -300,6 +300,7 @@ describe("credential-provider-node integration test", () => {
   describe("fromSSO", () => {
     it("should resolve SSO credentials if legacy SSO parameters are supplied directly", async () => {
       sts = new STS({
+        region: "us-sso-1",
         credentials: defaultProvider({
           ssoStartUrl: "SSO_START_URL",
           ssoAccountId: "1234",
