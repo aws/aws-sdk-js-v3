@@ -4,6 +4,7 @@ export * from "./AddDataSourceCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociatePackageCommand";
 export * from "./AuthorizeVpcEndpointAccessCommand";
+export * from "./CancelDomainConfigChangeCommand";
 export * from "./CancelServiceSoftwareUpdateCommand";
 export * from "./CreateDomainCommand";
 export * from "./CreateOutboundConnectionCommand";

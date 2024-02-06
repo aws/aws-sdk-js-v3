@@ -1143,6 +1143,71 @@ export interface AuthorizeVpcEndpointAccessResponse {
 
 /**
  * @public
+ */
+export interface CancelDomainConfigChangeRequest {
+  /**
+   * @public
+   * <p>The name of an OpenSearch Service domain. Domain names are unique across the domains owned
+   *    by an account within an Amazon Web Services Region.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>When set to <code>True</code>, returns the list of change IDs and properties that will be cancelled without actually cancelling the change.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * <p>A property change that was cancelled for an Amazon OpenSearch Service domain.</p>
+ */
+export interface CancelledChangeProperty {
+  /**
+   * @public
+   * <p>The name of the property whose change was cancelled.</p>
+   */
+  PropertyName?: string;
+
+  /**
+   * @public
+   * <p>The pending value of the property that was cancelled. This would have been the eventual value of the property if the chance had not been cancelled.</p>
+   */
+  CancelledValue?: string;
+
+  /**
+   * @public
+   * <p>The current value of the property, after the change was cancelled.</p>
+   */
+  ActiveValue?: string;
+}
+
+/**
+ * @public
+ */
+export interface CancelDomainConfigChangeResponse {
+  /**
+   * @public
+   * <p>The unique identifiers of the changes that were cancelled.</p>
+   */
+  CancelledChangeIds?: string[];
+
+  /**
+   * @public
+   * <p>The domain change properties that were cancelled.</p>
+   */
+  CancelledChangeProperties?: CancelledChangeProperty[];
+
+  /**
+   * @public
+   * <p>Whether or not the request was a dry run. If <code>True</code>, the changes were not actually cancelled. </p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
  * <p>Container for the request parameters to cancel a service software update.</p>
  */
 export interface CancelServiceSoftwareUpdateRequest {
@@ -1748,8 +1813,9 @@ export interface EBSOptions {
 /**
  * @public
  * <p>Specifies whether the domain should encrypt data at rest, and if so, the Key Management
- *    Service (KMS) key to use. Can be used only to create a new domain, not update an existing
- *    one.</p>
+ *    Service (KMS) key to use. Can only be used when creating a new domain or enabling encryption at rest
+ *    for the first time on an existing domain. You can't modify this parameter after it's already been
+ *    specified.</p>
  */
 export interface EncryptionAtRestOptions {
   /**
@@ -2156,6 +2222,40 @@ export interface AutoTuneOptionsOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const ConfigChangeStatus = {
+  APPLYING_CHANGES: "ApplyingChanges",
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+  INITIALIZING: "Initializing",
+  PENDING: "Pending",
+  PENDING_USER_INPUT: "PendingUserInput",
+  VALIDATING: "Validating",
+  VALIDATION_FAILED: "ValidationFailed",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigChangeStatus = (typeof ConfigChangeStatus)[keyof typeof ConfigChangeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InitiatedBy = {
+  CUSTOMER: "CUSTOMER",
+  SERVICE: "SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type InitiatedBy = (typeof InitiatedBy)[keyof typeof InitiatedBy];
+
+/**
+ * @public
  * <p>Container for information about a configuration change happening on a domain.</p>
  */
 export interface ChangeProgressDetails {
@@ -2170,6 +2270,103 @@ export interface ChangeProgressDetails {
    * <p>A message corresponding to the status of the configuration change.</p>
    */
   Message?: string;
+
+  /**
+   * @public
+   * <p>The current status of the configuration change.</p>
+   */
+  ConfigChangeStatus?: ConfigChangeStatus;
+
+  /**
+   * @public
+   * <p>The IAM principal who initiated the configuration change.</p>
+   */
+  InitiatedBy?: InitiatedBy;
+
+  /**
+   * @public
+   * <p>The time that the configuration change was initiated, in Universal Coordinated Time (UTC).</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that the configuration change was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainProcessingStatusType = {
+  ACTIVE: "Active",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  ISOLATED: "Isolated",
+  MODIFYING: "Modifying",
+  UPDATING: "UpdatingServiceSoftware",
+  UPGRADING: "UpgradingEngineVersion",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainProcessingStatusType = (typeof DomainProcessingStatusType)[keyof typeof DomainProcessingStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PropertyValueType = {
+  PLAIN_TEXT: "PLAIN_TEXT",
+  STRINGIFIED_JSON: "STRINGIFIED_JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyValueType = (typeof PropertyValueType)[keyof typeof PropertyValueType];
+
+/**
+ * @public
+ * <p>Information about the domain properties that are currently being modified.</p>
+ */
+export interface ModifyingProperties {
+  /**
+   * @public
+   * <p>The name of the property that is currently being modified.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The current value of the domain property that is being modified.</p>
+   */
+  ActiveValue?: string;
+
+  /**
+   * @public
+   * <p>The value that the property that is currently being modified will eventually have.</p>
+   */
+  PendingValue?: string;
+
+  /**
+   * @public
+   * <p>The type of value that is currently being modified. Properties can have two types:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PLAIN_TEXT</code>: Contain direct values such as "1", "True", or "c5.large.search".</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>STRINGIFIED_JSON</code>: Contain content in JSON format, such as \{"Enabled":"True"\}".</p>
+   *             </li>
+   *          </ul>
+   */
+  ValueType?: PropertyValueType;
 }
 
 /**
@@ -2402,6 +2599,18 @@ export interface DomainStatus {
    * <p>Service software update options for the domain.</p>
    */
   SoftwareUpdateOptions?: SoftwareUpdateOptions;
+
+  /**
+   * @public
+   * <p>The status of any changes that are currently in progress for the domain.</p>
+   */
+  DomainProcessingStatus?: DomainProcessingStatusType;
+
+  /**
+   * @public
+   * <p>Information about the domain properties that are currently being modified.</p>
+   */
+  ModifyingProperties?: ModifyingProperties[];
 }
 
 /**
@@ -3490,6 +3699,24 @@ export interface ChangeProgressStatusDetails {
    * <p>The specific stages that the domain is going through to perform the configuration change.</p>
    */
   ChangeProgressStages?: ChangeProgressStage[];
+
+  /**
+   * @public
+   * <p>The last time that the status of the configuration change was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The current status of the configuration change.</p>
+   */
+  ConfigChangeStatus?: ConfigChangeStatus;
+
+  /**
+   * @public
+   * <p>The IAM principal who initiated the configuration change.</p>
+   */
+  InitiatedBy?: InitiatedBy;
 }
 
 /**
@@ -3983,6 +4210,12 @@ export interface DomainConfig {
    * <p>Software update options for the domain.</p>
    */
   SoftwareUpdateOptions?: SoftwareUpdateOptionsStatus;
+
+  /**
+   * @public
+   * <p>Information about the domain properties that are currently being modified.</p>
+   */
+  ModifyingProperties?: ModifyingProperties[];
 }
 
 /**

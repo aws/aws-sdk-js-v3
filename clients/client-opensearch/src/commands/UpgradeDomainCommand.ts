@@ -57,6 +57,10 @@ export interface UpgradeDomainCommandOutput extends UpgradeDomainResponse, __Met
  * //   ChangeProgressDetails: { // ChangeProgressDetails
  * //     ChangeId: "STRING_VALUE",
  * //     Message: "STRING_VALUE",
+ * //     ConfigChangeStatus: "Pending" || "Initializing" || "Validating" || "ValidationFailed" || "ApplyingChanges" || "Completed" || "PendingUserInput" || "Cancelled",
+ * //     InitiatedBy: "CUSTOMER" || "SERVICE",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
  * //   },
  * // };
  *

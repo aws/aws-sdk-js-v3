@@ -60,6 +60,10 @@ import {
   AuthorizeVpcEndpointAccessCommandOutput,
 } from "./commands/AuthorizeVpcEndpointAccessCommand";
 import {
+  CancelDomainConfigChangeCommandInput,
+  CancelDomainConfigChangeCommandOutput,
+} from "./commands/CancelDomainConfigChangeCommand";
+import {
   CancelServiceSoftwareUpdateCommandInput,
   CancelServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelServiceSoftwareUpdateCommand";
@@ -232,6 +236,7 @@ export type ServiceInputTypes =
   | AddTagsCommandInput
   | AssociatePackageCommandInput
   | AuthorizeVpcEndpointAccessCommandInput
+  | CancelDomainConfigChangeCommandInput
   | CancelServiceSoftwareUpdateCommandInput
   | CreateDomainCommandInput
   | CreateOutboundConnectionCommandInput
@@ -299,6 +304,7 @@ export type ServiceOutputTypes =
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
   | AuthorizeVpcEndpointAccessCommandOutput
+  | CancelDomainConfigChangeCommandOutput
   | CancelServiceSoftwareUpdateCommandOutput
   | CreateDomainCommandOutput
   | CreateOutboundConnectionCommandOutput

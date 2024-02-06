@@ -353,6 +353,10 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //     ChangeProgressDetails: { // ChangeProgressDetails
  * //       ChangeId: "STRING_VALUE",
  * //       Message: "STRING_VALUE",
+ * //       ConfigChangeStatus: "Pending" || "Initializing" || "Validating" || "ValidationFailed" || "ApplyingChanges" || "Completed" || "PendingUserInput" || "Cancelled",
+ * //       InitiatedBy: "CUSTOMER" || "SERVICE",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
  * //     },
  * //     OffPeakWindowOptions: { // OffPeakWindowOptionsStatus
  * //       Options: { // OffPeakWindowOptions
@@ -372,6 +376,14 @@ export interface UpdateDomainConfigCommandOutput extends UpdateDomainConfigRespo
  * //       },
  * //       Status: "<OptionStatus>",
  * //     },
+ * //     ModifyingProperties: [ // ModifyingPropertiesList
+ * //       { // ModifyingProperties
+ * //         Name: "STRING_VALUE",
+ * //         ActiveValue: "STRING_VALUE",
+ * //         PendingValue: "STRING_VALUE",
+ * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
+ * //       },
+ * //     ],
  * //   },
  * //   DryRunResults: { // DryRunResults
  * //     DeploymentType: "STRING_VALUE",

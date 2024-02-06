@@ -164,6 +164,10 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //       ChangeProgressDetails: { // ChangeProgressDetails
  * //         ChangeId: "STRING_VALUE",
  * //         Message: "STRING_VALUE",
+ * //         ConfigChangeStatus: "Pending" || "Initializing" || "Validating" || "ValidationFailed" || "ApplyingChanges" || "Completed" || "PendingUserInput" || "Cancelled",
+ * //         InitiatedBy: "CUSTOMER" || "SERVICE",
+ * //         StartTime: new Date("TIMESTAMP"),
+ * //         LastUpdatedTime: new Date("TIMESTAMP"),
  * //       },
  * //       OffPeakWindowOptions: { // OffPeakWindowOptions
  * //         Enabled: true || false,
@@ -177,6 +181,15 @@ export interface DescribeDomainsCommandOutput extends DescribeDomainsResponse, _
  * //       SoftwareUpdateOptions: { // SoftwareUpdateOptions
  * //         AutoSoftwareUpdateEnabled: true || false,
  * //       },
+ * //       DomainProcessingStatus: "Creating" || "Active" || "Modifying" || "UpgradingEngineVersion" || "UpdatingServiceSoftware" || "Isolated" || "Deleting",
+ * //       ModifyingProperties: [ // ModifyingPropertiesList
+ * //         { // ModifyingProperties
+ * //           Name: "STRING_VALUE",
+ * //           ActiveValue: "STRING_VALUE",
+ * //           PendingValue: "STRING_VALUE",
+ * //           ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * // };

@@ -254,6 +254,14 @@ AuthorizeVpcEndpointAccess
 </details>
 <details>
 <summary>
+CancelDomainConfigChange
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/opensearch/command/CancelDomainConfigChangeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/CancelDomainConfigChangeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-opensearch/Interface/CancelDomainConfigChangeCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelServiceSoftwareUpdate
 </summary>
 
