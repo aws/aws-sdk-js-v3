@@ -122,6 +122,61 @@ jest.mock("@aws-sdk/client-sts", () => {
   };
 });
 
+jest.mock("@smithy/node-http-handler", () => {
+  const actual = jest.requireActual("@smithy/node-http-handler");
+  return {
+    ...actual,
+    NodeHttpHandler: class {
+      async handle(request: any, ...args: any[]) {
+        if (request.headers.Authorization === "container-authorization") {
+          const body = new Readable();
+          body.push(
+            JSON.stringify({
+              AccessKeyId: "CONTAINER_ACCESS_KEY",
+              SecretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
+              Token: "CONTAINER_TOKEN",
+              Expiration: "3000-01-01T00:00:00Z",
+            })
+          );
+          body.push(null);
+          return {
+            response: new HttpResponse({
+              statusCode: 200,
+              body,
+              headers: {
+                "content-type": "application/json",
+              },
+            }),
+          };
+        } else {
+          return actual.NodeHttpHandler.prototype.handle.bind(this)(request, ...args);
+        }
+      }
+    },
+  };
+});
+
+jest.mock("child_process", () => {
+  const actual = jest.requireActual("child_process");
+  return {
+    ...actual,
+    exec(bin: string, cb: (err: unknown, data: any) => void, ...args: any[]) {
+      if (bin === "credential-process") {
+        return cb(null, {
+          stdout: JSON.stringify({
+            Version: 1,
+            AccessKeyId: "PROCESS_ACCESS_KEY_ID",
+            SecretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
+            SessionToken: "PROCESS_SESSION_TOKEN",
+            CredentialScope: "us-process-1",
+          }),
+        });
+      }
+      return actual.exec(bin, cb, ...args);
+    },
+  };
+});
+
 describe("credential-provider-node integration test", () => {
   let sts: STS = null as any;
   let processSnapshot: typeof process.env = null as any;
@@ -135,6 +190,12 @@ describe("credential-provider-node integration test", () => {
     AWS_CREDENTIAL_EXPIRATION: 1,
     AWS_CREDENTIAL_SCOPE: 1,
     AWS_EC2_METADATA_DISABLED: 1,
+    AWS_WEB_IDENTITY_TOKEN_FILE: 1,
+    AWS_ROLE_ARN: 1,
+    AWS_CONTAINER_CREDENTIALS_FULL_URI: 1,
+    AWS_CONTAINER_CREDENTIALS_RELATIVE_URI: 1,
+    AWS_CONTAINER_AUTHORIZATION_TOKEN: 1,
+    AWS_CONTAINER_AUTHORIZATION_TOKEN_FILE: 1,
   };
 
   function copy<T>(data: T): T {
@@ -146,14 +207,14 @@ describe("credential-provider-node integration test", () => {
       const body = new Readable();
       body.push(`
 <GetCallerIdentityResponse xmlns="https://sts.amazonaws.com/doc/2011-06-15/">
-<GetCallerIdentityResult>
-<Arn>arn:aws:iam::123456789012:user/Alice</Arn>
-<UserId>AIDACKCEVSQ6C2EXAMPLE</UserId>
-<Account>123456789012</Account>
-</GetCallerIdentityResult>
-<ResponseMetadata>
-<RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
-</ResponseMetadata>
+  <GetCallerIdentityResult>
+    <Arn>arn:aws:iam::123456789012:user/Alice</Arn>
+    <UserId>AIDACKCEVSQ6C2EXAMPLE</UserId>
+    <Account>123456789012</Account>
+  </GetCallerIdentityResult>
+  <ResponseMetadata>
+    <RequestId>01234567-89ab-cdef-0123-456789abcdef</RequestId>
+  </ResponseMetadata>
 </GetCallerIdentityResponse>
 `);
       body.push(null);
@@ -321,8 +382,18 @@ describe("credential-provider-node integration test", () => {
       // this is difficult to do when getDefaultRoleAssumerWithWebIdentity is mocked.
     });
 
-    xit("should resolve process credentials if the profile is a process profile", async () => {
-      // TODO
+    it("should resolve process credentials if the profile is a process profile", async () => {
+      Object.assign(iniProfileData.default, {
+        credential_process: "credential-process",
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "PROCESS_ACCESS_KEY_ID",
+        secretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
+        sessionToken: "PROCESS_SESSION_TOKEN",
+        credentialScope: "us-process-1",
+      });
     });
 
     it("should resolve SSO credentials if the profile is an SSO profile", async () => {
@@ -350,20 +421,53 @@ describe("credential-provider-node integration test", () => {
   });
 
   describe("fromProcess", () => {
-    xit("should resolve process credentials if the profile is a process profile", async () => {
-      // TODO
+    it("should resolve process credentials if the profile is a process profile", async () => {
+      // note: this is redundant with the resolveProcessCredentials portion of
+      // credential-provider-ini. It's possible that this provider in the chain
+      // is actually unreachable, because there is no separate ENV for the process
+      // name. It requires a profile specifying the credential_process.
+      Object.assign(iniProfileData.default, {
+        credential_process: "credential-process",
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "PROCESS_ACCESS_KEY_ID",
+        secretAccessKey: "PROCESS_SECRET_ACCESS_KEY",
+        sessionToken: "PROCESS_SESSION_TOKEN",
+        credentialScope: "us-process-1",
+      });
     });
   });
 
   describe("fromTokenFile", () => {
-    xit("should resolve credentials with STS assumeRoleWithWebIdentity using a token", async () => {
-      // TODO
+    it("should resolve credentials with STS assumeRoleWithWebIdentity using a token", async () => {
+      process.env.AWS_WEB_IDENTITY_TOKEN_FILE = "token-filepath";
+      process.env.AWS_ROLE_ARN = "ROLE_ARN";
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
+        secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
+        sessionToken: "STS_ARWI_SESSION_TOKEN",
+        expiration: new Date("3000/1/1"),
+        credentialScope: "us-stsarwi-1",
+      });
     });
   });
 
   describe("remoteProvider", () => {
-    xit("should use container metadata if AWS_CONTAINER_CREDENTIALS_FULL_URI is set", async () => {
-      // TODO
+    it("should use container metadata if AWS_CONTAINER_CREDENTIALS_FULL_URI is set", async () => {
+      process.env.AWS_CONTAINER_CREDENTIALS_FULL_URI = "http://169.254.170.23";
+      process.env.AWS_CONTAINER_AUTHORIZATION_TOKEN = "container-authorization";
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "CONTAINER_ACCESS_KEY",
+        secretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
+        sessionToken: "CONTAINER_TOKEN",
+        expiration: new Date("3000/1/1"),
+      });
     });
 
     xit("should use instance metadata unless IMDS is disabled", async () => {
