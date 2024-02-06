@@ -182,6 +182,7 @@ describe("credential-provider-node integration test", () => {
   let processSnapshot: typeof process.env = null as any;
 
   const RESERVED_ENVIRONMENT_VARIABLES = {
+    AWS_DEFAULT_REGION: 1,
     AWS_REGION: 1,
     AWS_PROFILE: 1,
     AWS_ACCESS_KEY_ID: 1,
