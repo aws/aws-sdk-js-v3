@@ -36,6 +36,10 @@ import {
   AuthorizeVpcEndpointAccessCommandOutput,
 } from "../commands/AuthorizeVpcEndpointAccessCommand";
 import {
+  CancelDomainConfigChangeCommandInput,
+  CancelDomainConfigChangeCommandOutput,
+} from "../commands/CancelDomainConfigChangeCommand";
+import {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "../commands/CancelElasticsearchServiceSoftwareUpdateCommand";
@@ -193,6 +197,7 @@ import {
   AutoTuneOptionsStatus,
   AutoTuneStatus,
   BaseException,
+  ChangeProgressDetails,
   ChangeProgressStage,
   ChangeProgressStatusDetails,
   CognitoOptions,
@@ -328,6 +333,29 @@ export const se_AuthorizeVpcEndpointAccessCommand = async (
   body = JSON.stringify(
     take(input, {
       Account: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1CancelDomainConfigChangeCommand
+ */
+export const se_CancelDomainConfigChangeCommand = async (
+  input: CancelDomainConfigChangeCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/2015-01-01/es/domain/{DomainName}/config/cancel");
+  b.p("DomainName", () => input.DomainName!, "{DomainName}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      DryRun: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -1390,6 +1418,29 @@ export const de_AuthorizeVpcEndpointAccessCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CancelDomainConfigChangeCommand
+ */
+export const de_CancelDomainConfigChangeCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CancelDomainConfigChangeCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    CancelledChangeIds: _json,
+    CancelledChangeProperties: _json,
+    DryRun: __expectBoolean,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CancelElasticsearchServiceSoftwareUpdateCommand
  */
 export const de_CancelElasticsearchServiceSoftwareUpdateCommand = async (
@@ -2362,7 +2413,7 @@ export const de_UpgradeElasticsearchDomainCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    ChangeProgressDetails: _json,
+    ChangeProgressDetails: (_) => de_ChangeProgressDetails(_, context),
     DomainName: __expectString,
     PerformCheckOnly: __expectBoolean,
     TargetVersion: __expectString,
@@ -2882,7 +2933,23 @@ const de_AutoTuneStatus = (output: any, context: __SerdeContext): AutoTuneStatus
   }) as any;
 };
 
-// de_ChangeProgressDetails omitted.
+// de_CancelledChangeProperty omitted.
+
+// de_CancelledChangePropertyList omitted.
+
+/**
+ * deserializeAws_restJson1ChangeProgressDetails
+ */
+const de_ChangeProgressDetails = (output: any, context: __SerdeContext): ChangeProgressDetails => {
+  return take(output, {
+    ChangeId: __expectString,
+    ConfigChangeStatus: __expectString,
+    InitiatedBy: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    Message: __expectString,
+    StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
 
 /**
  * deserializeAws_restJson1ChangeProgressStage
@@ -2916,6 +2983,9 @@ const de_ChangeProgressStatusDetails = (output: any, context: __SerdeContext): C
     ChangeId: __expectString,
     ChangeProgressStages: (_: any) => de_ChangeProgressStageList(_, context),
     CompletedProperties: _json,
+    ConfigChangeStatus: __expectString,
+    InitiatedBy: __expectString,
+    LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     PendingProperties: _json,
     StartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Status: __expectString,
@@ -3028,7 +3098,7 @@ const de_ElasticsearchDomainConfig = (output: any, context: __SerdeContext): Ela
     AdvancedOptions: (_: any) => de_AdvancedOptionsStatus(_, context),
     AdvancedSecurityOptions: (_: any) => de_AdvancedSecurityOptionsStatus(_, context),
     AutoTuneOptions: (_: any) => de_AutoTuneOptionsStatus(_, context),
-    ChangeProgressDetails: _json,
+    ChangeProgressDetails: (_: any) => de_ChangeProgressDetails(_, context),
     CognitoOptions: (_: any) => de_CognitoOptionsStatus(_, context),
     DomainEndpointOptions: (_: any) => de_DomainEndpointOptionsStatus(_, context),
     EBSOptions: (_: any) => de_EBSOptionsStatus(_, context),
@@ -3036,6 +3106,7 @@ const de_ElasticsearchDomainConfig = (output: any, context: __SerdeContext): Ela
     ElasticsearchVersion: (_: any) => de_ElasticsearchVersionStatus(_, context),
     EncryptionAtRestOptions: (_: any) => de_EncryptionAtRestOptionsStatus(_, context),
     LogPublishingOptions: (_: any) => de_LogPublishingOptionsStatus(_, context),
+    ModifyingProperties: _json,
     NodeToNodeEncryptionOptions: (_: any) => de_NodeToNodeEncryptionOptionsStatus(_, context),
     SnapshotOptions: (_: any) => de_SnapshotOptionsStatus(_, context),
     VPCOptions: (_: any) => de_VPCDerivedInfoStatus(_, context),
@@ -3052,13 +3123,14 @@ const de_ElasticsearchDomainStatus = (output: any, context: __SerdeContext): Ela
     AdvancedOptions: _json,
     AdvancedSecurityOptions: (_: any) => de_AdvancedSecurityOptions(_, context),
     AutoTuneOptions: _json,
-    ChangeProgressDetails: _json,
+    ChangeProgressDetails: (_: any) => de_ChangeProgressDetails(_, context),
     CognitoOptions: _json,
     Created: __expectBoolean,
     Deleted: __expectBoolean,
     DomainEndpointOptions: _json,
     DomainId: __expectString,
     DomainName: __expectString,
+    DomainProcessingStatus: __expectString,
     EBSOptions: _json,
     ElasticsearchClusterConfig: _json,
     ElasticsearchVersion: __expectString,
@@ -3066,6 +3138,7 @@ const de_ElasticsearchDomainStatus = (output: any, context: __SerdeContext): Ela
     Endpoint: __expectString,
     Endpoints: _json,
     LogPublishingOptions: _json,
+    ModifyingProperties: _json,
     NodeToNodeEncryptionOptions: _json,
     Processing: __expectBoolean,
     ServiceSoftwareOptions: (_: any) => de_ServiceSoftwareOptions(_, context),
@@ -3117,6 +3190,8 @@ const de_EncryptionAtRestOptionsStatus = (output: any, context: __SerdeContext):
 
 // de_ErrorDetails omitted.
 
+// de_GUIDList omitted.
+
 // de_InboundCrossClusterSearchConnection omitted.
 
 // de_InboundCrossClusterSearchConnections omitted.
@@ -3148,6 +3223,10 @@ const de_LogPublishingOptionsStatus = (output: any, context: __SerdeContext): Lo
     Status: (_: any) => de_OptionStatus(_, context),
   }) as any;
 };
+
+// de_ModifyingProperties omitted.
+
+// de_ModifyingPropertiesList omitted.
 
 // de_NodeToNodeEncryptionOptions omitted.
 

@@ -3,6 +3,7 @@ export * from "./AcceptInboundCrossClusterSearchConnectionCommand";
 export * from "./AddTagsCommand";
 export * from "./AssociatePackageCommand";
 export * from "./AuthorizeVpcEndpointAccessCommand";
+export * from "./CancelDomainConfigChangeCommand";
 export * from "./CancelElasticsearchServiceSoftwareUpdateCommand";
 export * from "./CreateElasticsearchDomainCommand";
 export * from "./CreateOutboundCrossClusterSearchConnectionCommand";

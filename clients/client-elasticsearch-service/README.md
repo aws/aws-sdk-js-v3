@@ -244,6 +244,14 @@ AuthorizeVpcEndpointAccess
 </details>
 <details>
 <summary>
+CancelDomainConfigChange
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/elasticsearch-service/command/CancelDomainConfigChangeCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CancelDomainConfigChangeCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-elasticsearch-service/Interface/CancelDomainConfigChangeCommandOutput/)
+
+</details>
+<details>
+<summary>
 CancelElasticsearchServiceSoftwareUpdate
 </summary>
 

@@ -165,7 +165,20 @@ export interface DescribeElasticsearchDomainCommandOutput
  * //     ChangeProgressDetails: { // ChangeProgressDetails
  * //       ChangeId: "STRING_VALUE",
  * //       Message: "STRING_VALUE",
+ * //       ConfigChangeStatus: "Pending" || "Initializing" || "Validating" || "ValidationFailed" || "ApplyingChanges" || "Completed" || "PendingUserInput" || "Cancelled",
+ * //       StartTime: new Date("TIMESTAMP"),
+ * //       LastUpdatedTime: new Date("TIMESTAMP"),
+ * //       InitiatedBy: "CUSTOMER" || "SERVICE",
  * //     },
+ * //     DomainProcessingStatus: "Creating" || "Active" || "Modifying" || "UpgradingEngineVersion" || "UpdatingServiceSoftware" || "Isolated" || "Deleting",
+ * //     ModifyingProperties: [ // ModifyingPropertiesList
+ * //       { // ModifyingProperties
+ * //         Name: "STRING_VALUE",
+ * //         ActiveValue: "STRING_VALUE",
+ * //         PendingValue: "STRING_VALUE",
+ * //         ValueType: "PLAIN_TEXT" || "STRINGIFIED_JSON",
+ * //       },
+ * //     ],
  * //   },
  * // };
  *

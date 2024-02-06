@@ -19,6 +19,11 @@ import {
   AuthorizeVpcEndpointAccessCommandOutput,
 } from "./commands/AuthorizeVpcEndpointAccessCommand";
 import {
+  CancelDomainConfigChangeCommand,
+  CancelDomainConfigChangeCommandInput,
+  CancelDomainConfigChangeCommandOutput,
+} from "./commands/CancelDomainConfigChangeCommand";
+import {
   CancelElasticsearchServiceSoftwareUpdateCommand,
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
@@ -247,6 +252,7 @@ const commands = {
   AddTagsCommand,
   AssociatePackageCommand,
   AuthorizeVpcEndpointAccessCommand,
+  CancelDomainConfigChangeCommand,
   CancelElasticsearchServiceSoftwareUpdateCommand,
   CreateElasticsearchDomainCommand,
   CreateOutboundCrossClusterSearchConnectionCommand,
@@ -356,6 +362,23 @@ export interface ElasticsearchService {
     args: AuthorizeVpcEndpointAccessCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: AuthorizeVpcEndpointAccessCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CancelDomainConfigChangeCommand}
+   */
+  cancelDomainConfigChange(
+    args: CancelDomainConfigChangeCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CancelDomainConfigChangeCommandOutput>;
+  cancelDomainConfigChange(
+    args: CancelDomainConfigChangeCommandInput,
+    cb: (err: any, data?: CancelDomainConfigChangeCommandOutput) => void
+  ): void;
+  cancelDomainConfigChange(
+    args: CancelDomainConfigChangeCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CancelDomainConfigChangeCommandOutput) => void
   ): void;
 
   /**

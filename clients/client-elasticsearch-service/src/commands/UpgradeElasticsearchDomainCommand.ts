@@ -53,6 +53,10 @@ export interface UpgradeElasticsearchDomainCommandOutput extends UpgradeElastics
  * //   ChangeProgressDetails: { // ChangeProgressDetails
  * //     ChangeId: "STRING_VALUE",
  * //     Message: "STRING_VALUE",
+ * //     ConfigChangeStatus: "Pending" || "Initializing" || "Validating" || "ValidationFailed" || "ApplyingChanges" || "Completed" || "PendingUserInput" || "Cancelled",
+ * //     StartTime: new Date("TIMESTAMP"),
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     InitiatedBy: "CUSTOMER" || "SERVICE",
  * //   },
  * // };
  *

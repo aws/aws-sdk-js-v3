@@ -59,6 +59,10 @@ import {
   AuthorizeVpcEndpointAccessCommandOutput,
 } from "./commands/AuthorizeVpcEndpointAccessCommand";
 import {
+  CancelDomainConfigChangeCommandInput,
+  CancelDomainConfigChangeCommandOutput,
+} from "./commands/CancelDomainConfigChangeCommand";
+import {
   CancelElasticsearchServiceSoftwareUpdateCommandInput,
   CancelElasticsearchServiceSoftwareUpdateCommandOutput,
 } from "./commands/CancelElasticsearchServiceSoftwareUpdateCommand";
@@ -219,6 +223,7 @@ export type ServiceInputTypes =
   | AddTagsCommandInput
   | AssociatePackageCommandInput
   | AuthorizeVpcEndpointAccessCommandInput
+  | CancelDomainConfigChangeCommandInput
   | CancelElasticsearchServiceSoftwareUpdateCommandInput
   | CreateElasticsearchDomainCommandInput
   | CreateOutboundCrossClusterSearchConnectionCommandInput
@@ -274,6 +279,7 @@ export type ServiceOutputTypes =
   | AddTagsCommandOutput
   | AssociatePackageCommandOutput
   | AuthorizeVpcEndpointAccessCommandOutput
+  | CancelDomainConfigChangeCommandOutput
   | CancelElasticsearchServiceSoftwareUpdateCommandOutput
   | CreateElasticsearchDomainCommandOutput
   | CreateOutboundCrossClusterSearchConnectionCommandOutput

@@ -881,6 +881,72 @@ export interface AuthorizeVpcEndpointAccessResponse {
 
 /**
  * @public
+ * <p>Container for parameters of the <code>CancelDomainConfigChange</code> operation.</p>
+ */
+export interface CancelDomainConfigChangeRequest {
+  /**
+   * @public
+   * <p>Name of the OpenSearch Service domain configuration request to cancel.</p>
+   */
+  DomainName: string | undefined;
+
+  /**
+   * @public
+   * <p>When set to <b>True</b>, returns the list of change IDs and properties that will be cancelled without actually cancelling the change.</p>
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * @public
+ * <p>A property change that was cancelled for an Amazon OpenSearch Service domain.</p>
+ */
+export interface CancelledChangeProperty {
+  /**
+   * @public
+   * <p>The name of the property whose change was cancelled.</p>
+   */
+  PropertyName?: string;
+
+  /**
+   * @public
+   * <p>The pending value of the property that was cancelled. This would have been the eventual value of the property if the chance had not been cancelled.</p>
+   */
+  CancelledValue?: string;
+
+  /**
+   * @public
+   * <p>The current value of the property, after the change was cancelled.</p>
+   */
+  ActiveValue?: string;
+}
+
+/**
+ * @public
+ * <p>Contains the details of the cancelled domain config change.</p>
+ */
+export interface CancelDomainConfigChangeResponse {
+  /**
+   * @public
+   * <p>Whether or not the request was a dry run. If <b>True</b>, the changes were not actually cancelled.</p>
+   */
+  DryRun?: boolean;
+
+  /**
+   * @public
+   * <p>The unique identifiers of the changes that were cancelled.</p>
+   */
+  CancelledChangeIds?: string[];
+
+  /**
+   * @public
+   * <p>The domain change properties that were cancelled.</p>
+   */
+  CancelledChangeProperties?: CancelledChangeProperty[];
+}
+
+/**
+ * @public
  * <p>Container for the parameters to the <code><a>CancelElasticsearchServiceSoftwareUpdate</a></code> operation. Specifies the name of the Elasticsearch domain that you wish to cancel a service software update on.</p>
  */
 export interface CancelElasticsearchServiceSoftwareUpdateRequest {
@@ -1626,6 +1692,40 @@ export interface AutoTuneOptionsOutput {
 
 /**
  * @public
+ * @enum
+ */
+export const ConfigChangeStatus = {
+  APPLYING_CHANGES: "ApplyingChanges",
+  CANCELLED: "Cancelled",
+  COMPLETED: "Completed",
+  INITIALIZING: "Initializing",
+  PENDING: "Pending",
+  PENDING_USER_INPUT: "PendingUserInput",
+  VALIDATING: "Validating",
+  VALIDATION_FAILED: "ValidationFailed",
+} as const;
+
+/**
+ * @public
+ */
+export type ConfigChangeStatus = (typeof ConfigChangeStatus)[keyof typeof ConfigChangeStatus];
+
+/**
+ * @public
+ * @enum
+ */
+export const InitiatedBy = {
+  CUSTOMER: "CUSTOMER",
+  SERVICE: "SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type InitiatedBy = (typeof InitiatedBy)[keyof typeof InitiatedBy];
+
+/**
+ * @public
  * <p>Specifies change details of the domain configuration change.</p>
  */
 export interface ChangeProgressDetails {
@@ -1640,6 +1740,97 @@ export interface ChangeProgressDetails {
    * <p>Contains an optional message associated with the domain configuration change.</p>
    */
   Message?: string;
+
+  /**
+   * @public
+   * <p>The current status of the configuration change.</p>
+   */
+  ConfigChangeStatus?: ConfigChangeStatus;
+
+  /**
+   * @public
+   * <p>The time that the configuration change was initiated, in Universal Coordinated Time (UTC).</p>
+   */
+  StartTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time that the configuration change was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The IAM principal who initiated the configuration change.</p>
+   */
+  InitiatedBy?: InitiatedBy;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const DomainProcessingStatusType = {
+  ACTIVE: "Active",
+  CREATING: "Creating",
+  DELETING: "Deleting",
+  ISOLATED: "Isolated",
+  MODIFYING: "Modifying",
+  UPDATING: "UpdatingServiceSoftware",
+  UPGRADING: "UpgradingEngineVersion",
+} as const;
+
+/**
+ * @public
+ */
+export type DomainProcessingStatusType = (typeof DomainProcessingStatusType)[keyof typeof DomainProcessingStatusType];
+
+/**
+ * @public
+ * @enum
+ */
+export const PropertyValueType = {
+  PLAIN_TEXT: "PLAIN_TEXT",
+  STRINGIFIED_JSON: "STRINGIFIED_JSON",
+} as const;
+
+/**
+ * @public
+ */
+export type PropertyValueType = (typeof PropertyValueType)[keyof typeof PropertyValueType];
+
+/**
+ * @public
+ * <p>Information about the domain properties that are currently being modified.</p>
+ */
+export interface ModifyingProperties {
+  /**
+   * @public
+   * <p>The name of the property that is currently being modified.</p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The current value of the domain property that is being modified.</p>
+   */
+  ActiveValue?: string;
+
+  /**
+   * @public
+   * <p>The value that the property that is currently being modified will eventually have.</p>
+   */
+  PendingValue?: string;
+
+  /**
+   * @public
+   * <p>The type of value that is currently being modified. Properties can have two types:</p>
+   *     <ul>
+   *       <li><b>PLAIN_TEXT</b>: Contain direct values such as "1", "True", or "c5.large.search".</li>
+   *       <li><b>STRINGIFIED_JSON</b>: Contain content in JSON format, such as \{"Enabled":"True"\}".</li>
+   *     </ul>
+   */
+  ValueType?: PropertyValueType;
 }
 
 /**
@@ -1821,6 +2012,18 @@ export interface ElasticsearchDomainStatus {
    * <p>Specifies change details of the domain configuration change.</p>
    */
   ChangeProgressDetails?: ChangeProgressDetails;
+
+  /**
+   * @public
+   * <p>The status of any changes that are currently in progress for the domain.</p>
+   */
+  DomainProcessingStatus?: DomainProcessingStatusType;
+
+  /**
+   * @public
+   * <p>Information about the domain properties that are currently being modified.</p>
+   */
+  ModifyingProperties?: ModifyingProperties[];
 }
 
 /**
@@ -2684,6 +2887,24 @@ export interface ChangeProgressStatusDetails {
    * <p>The specific stages that the domain is going through to perform the configuration change.</p>
    */
   ChangeProgressStages?: ChangeProgressStage[];
+
+  /**
+   * @public
+   * <p>The current status of the configuration change.</p>
+   */
+  ConfigChangeStatus?: ConfigChangeStatus;
+
+  /**
+   * @public
+   * <p>The last time that the status of the configuration change was updated.</p>
+   */
+  LastUpdatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The IAM principal who initiated the configuration change.</p>
+   */
+  InitiatedBy?: InitiatedBy;
 }
 
 /**
@@ -3109,6 +3330,12 @@ export interface ElasticsearchDomainConfig {
    * <p>Specifies change details of the domain configuration change.</p>
    */
   ChangeProgressDetails?: ChangeProgressDetails;
+
+  /**
+   * @public
+   * <p>Information about the domain properties that are currently being modified.</p>
+   */
+  ModifyingProperties?: ModifyingProperties[];
 }
 
 /**

@@ -71,6 +71,9 @@ export interface DescribeDomainChangeProgressCommandOutput
  * //         LastUpdated: new Date("TIMESTAMP"),
  * //       },
  * //     ],
+ * //     ConfigChangeStatus: "Pending" || "Initializing" || "Validating" || "ValidationFailed" || "ApplyingChanges" || "Completed" || "PendingUserInput" || "Cancelled",
+ * //     LastUpdatedTime: new Date("TIMESTAMP"),
+ * //     InitiatedBy: "CUSTOMER" || "SERVICE",
  * //   },
  * // };
  *
