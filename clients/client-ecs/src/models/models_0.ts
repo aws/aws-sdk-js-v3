@@ -1580,6 +1580,8 @@ export interface LoadBalancer {
    * @public
    * <p>The name of the container (as it appears in a container definition) to associate with
    * 			the load balancer.</p>
+   *          <p>You need to specify the container name when configuring the target group for an Amazon ECS
+   * 			load balancer.</p>
    */
   containerName?: string;
 
@@ -2603,7 +2605,7 @@ export interface CreateServiceRequest {
    * 			infrastructure.</p>
    *          <note>
    *             <p>Fargate Spot infrastructure is available for use but a capacity provider
-   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">Fargate capacity providers</a> in the
+   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-capacity-providers.html">Fargate capacity providers</a> in the
    * 					<i>Amazon ECS User Guide for Fargate</i>.</p>
    *          </note>
    *          <p>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered to your
@@ -5310,27 +5312,49 @@ export interface ResourceRequirement {
 /**
  * @public
  * <p>A list of namespaced kernel parameters to set in the container. This parameter maps to
- * 				<code>Sysctls</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
- * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--sysctl</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>.</p>
+ * 			<code>Sysctls</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
+ * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--sysctl</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. For example, you can configure
+ * 			<code>net.ipv4.tcp_keepalive_time</code> setting to maintain longer lived
+ * 			connections.</p>
  *          <p>We don't recommend that you specify network-related <code>systemControls</code>
- * 			parameters for multiple containers in a single task. This task also uses either the
- * 				<code>awsvpc</code> or <code>host</code> network mode. It does it for the following
- * 			reasons.</p>
+ * 			parameters for multiple containers in a single task that also uses either the
+ * 			<code>awsvpc</code> or <code>host</code> network mode. Doing this has the following
+ * 			disadvantages:</p>
  *          <ul>
  *             <li>
- *                <p>For tasks that use the <code>awsvpc</code> network mode, if you set
- * 						<code>systemControls</code> for any container, it applies to all containers
- * 					in the task. If you set different <code>systemControls</code> for multiple
- * 					containers in a single task, the container that's started last determines which
- * 						<code>systemControls</code> take effect.</p>
+ *                <p>For tasks that use the <code>awsvpc</code> network mode including Fargate,
+ * 					if you set <code>systemControls</code> for any container, it applies to all
+ * 					containers in the task. If you set different <code>systemControls</code> for
+ * 					multiple containers in a single task, the container that's started last
+ * 					determines which <code>systemControls</code> take effect.</p>
  *             </li>
  *             <li>
- *                <p>For tasks that use the <code>host</code> network mode, the
- * 						<code>systemControls</code> parameter applies to the container instance's
- * 					kernel parameter and that of all containers of any tasks running on that
- * 					container instance.</p>
+ *                <p>For tasks that use the <code>host</code> network mode, the network namespace
+ * 					<code>systemControls</code> aren't supported.</p>
  *             </li>
  *          </ul>
+ *          <p>If you're setting an IPC resource namespace to use for the containers in the task, the
+ * 			following conditions apply to your system controls. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definition_parameters.html#task_definition_ipcmode">IPC mode</a>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>For tasks that use the <code>host</code> IPC mode, IPC namespace
+ * 					<code>systemControls</code> aren't supported.</p>
+ *             </li>
+ *             <li>
+ *                <p>For tasks that use the <code>task</code> IPC mode, IPC namespace
+ * 					<code>systemControls</code> values apply to all containers within a
+ * 					task.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>This parameter is not supported for Windows containers.</p>
+ *          </note>
+ *          <note>
+ *             <p>This parameter is only supported for tasks that are hosted on
+ *         Fargate if the tasks are using platform version <code>1.4.0</code> or later
+ *         (Linux). This isn't supported for Windows containers on
+ *         Fargate.</p>
+ *          </note>
  */
 export interface SystemControl {
   /**
@@ -6131,28 +6155,10 @@ export interface ContainerDefinition {
   /**
    * @public
    * <p>A list of namespaced kernel parameters to set in the container. This parameter maps to
-   * 				<code>Sysctls</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
+   * 			<code>Sysctls</code> in the <a href="https://docs.docker.com/engine/api/v1.35/#operation/ContainerCreate">Create a container</a> section of the
    * 			<a href="https://docs.docker.com/engine/api/v1.35/">Docker Remote API</a> and the <code>--sysctl</code> option to <a href="https://docs.docker.com/engine/reference/run/#security-configuration">docker run</a>. For example, you can configure
-   * 				<code>net.ipv4.tcp_keepalive_time</code> setting to maintain longer lived
+   * 			<code>net.ipv4.tcp_keepalive_time</code> setting to maintain longer lived
    * 			connections.</p>
-   *          <note>
-   *             <p>We don't recommended that you specify network-related <code>systemControls</code>
-   * 				parameters for multiple containers in a single task that also uses either the
-   * 					<code>awsvpc</code> or <code>host</code> network modes. For tasks that use the
-   * 					<code>awsvpc</code> network mode, the container that's started last determines
-   * 				which <code>systemControls</code> parameters take effect. For tasks that use the
-   * 					<code>host</code> network mode, it changes the container instance's namespaced
-   * 				kernel parameters as well as the containers.</p>
-   *          </note>
-   *          <note>
-   *             <p>This parameter is not supported for Windows containers.</p>
-   *          </note>
-   *          <note>
-   *             <p>This parameter is only supported for tasks that are hosted on
-   *         Fargate if the tasks are using platform version <code>1.4.0</code> or later
-   *         (Linux). This isn't supported for Windows containers on
-   *         Fargate.</p>
-   *          </note>
    */
   systemControls?: SystemControl[];
 
@@ -6215,8 +6221,7 @@ export interface ContainerDefinition {
  * @public
  * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
  * 			expand the total amount of ephemeral storage available, beyond the default amount, for
- * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
- * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
+ * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the <i>Amazon ECS Developer Guide;</i>.</p>
  *          <note>
  *             <p>For tasks using the Fargate launch type, the task requires the
  * 				following platforms:</p>
@@ -8849,7 +8854,7 @@ export interface Task {
    * @public
    * <p>The stop code indicating why a task was stopped. The <code>stoppedReason</code> might
    * 			contain additional details. </p>
-   *          <p>For more information about stop code, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/stopped-task-error-codes.html">Stopped tasks error codes</a> in the <i>Amazon ECS User Guide</i>.</p>
+   *          <p>For more information about stop code, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/stopped-task-error-codes.html">Stopped tasks error codes</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    */
   stopCode?: TaskStopCode;
 
@@ -10858,8 +10863,7 @@ export interface RegisterTaskDefinitionRequest {
    * @public
    * <p>The amount of ephemeral storage to allocate for the task. This parameter is used to
    * 			expand the total amount of ephemeral storage available, beyond the default amount, for
-   * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/using_data_volumes.html">Fargate task
-   * 				storage</a> in the <i>Amazon ECS User Guide for Fargate</i>.</p>
+   * 			tasks hosted on Fargate. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/using_data_volumes.html">Using data volumes in tasks</a> in the <i>Amazon ECS Developer Guide</i>.</p>
    *          <note>
    *             <p>For tasks using the Fargate launch type, the task requires the
    * 				following platforms:</p>
@@ -11248,8 +11252,8 @@ export interface RunTaskRequest {
    * 			infrastructure.</p>
    *          <note>
    *             <p>Fargate Spot infrastructure is available for use but a capacity provider
-   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/userguide/fargate-capacity-providers.html">Fargate capacity providers</a> in the
-   * 					<i>Amazon ECS User Guide for Fargate</i>.</p>
+   * 				strategy must be used. For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/fargate-capacity-providers.html">Fargate capacity providers</a> in the
+   * 					<i>Amazon ECS Developer Guide</i>.</p>
    *          </note>
    *          <p>The <code>EC2</code> launch type runs your tasks on Amazon EC2 instances registered to your
    * 			cluster.</p>
