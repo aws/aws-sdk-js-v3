@@ -237,9 +237,6 @@ describe("credential-provider-node integration test", () => {
   });
 
   beforeEach(async () => {
-    sts = new STS({
-      requestHandler: mockRequestHandler,
-    });
     for (const variable in RESERVED_ENVIRONMENT_VARIABLES) {
       delete process.env[variable];
     }
@@ -249,6 +246,10 @@ describe("credential-provider-node integration test", () => {
         output: "json",
       },
     };
+    sts = new STS({
+      region: "us-west-2",
+      requestHandler: mockRequestHandler,
+    });
   });
 
   afterEach(async () => {
