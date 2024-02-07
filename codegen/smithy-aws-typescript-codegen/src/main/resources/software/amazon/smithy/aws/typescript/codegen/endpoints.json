@@ -15739,12 +15739,6 @@
             ]
           },
           "endpoints": {
-            "af-south-1": {
-              "hostname": "resource-explorer-2.af-south-1.api.aws"
-            },
-            "ap-east-1": {
-              "hostname": "resource-explorer-2.ap-east-1.api.aws"
-            },
             "ap-northeast-1": {
               "hostname": "resource-explorer-2.ap-northeast-1.api.aws"
             },
@@ -15757,9 +15751,6 @@
             "ap-south-1": {
               "hostname": "resource-explorer-2.ap-south-1.api.aws"
             },
-            "ap-south-2": {
-              "hostname": "resource-explorer-2.ap-south-2.api.aws"
-            },
             "ap-southeast-1": {
               "hostname": "resource-explorer-2.ap-southeast-1.api.aws"
             },
@@ -15769,23 +15760,14 @@
             "ap-southeast-3": {
               "hostname": "resource-explorer-2.ap-southeast-3.api.aws"
             },
-            "ap-southeast-4": {
-              "hostname": "resource-explorer-2.ap-southeast-4.api.aws"
-            },
             "ca-central-1": {
               "hostname": "resource-explorer-2.ca-central-1.api.aws"
             },
             "eu-central-1": {
               "hostname": "resource-explorer-2.eu-central-1.api.aws"
             },
-            "eu-central-2": {
-              "hostname": "resource-explorer-2.eu-central-2.api.aws"
-            },
             "eu-north-1": {
               "hostname": "resource-explorer-2.eu-north-1.api.aws"
-            },
-            "eu-south-1": {
-              "hostname": "resource-explorer-2.eu-south-1.api.aws"
             },
             "eu-west-1": {
               "hostname": "resource-explorer-2.eu-west-1.api.aws"
@@ -15795,12 +15777,6 @@
             },
             "eu-west-3": {
               "hostname": "resource-explorer-2.eu-west-3.api.aws"
-            },
-            "il-central-1": {
-              "hostname": "resource-explorer-2.il-central-1.api.aws"
-            },
-            "me-central-1": {
-              "hostname": "resource-explorer-2.me-central-1.api.aws"
             },
             "me-south-1": {
               "hostname": "resource-explorer-2.me-south-1.api.aws"
@@ -22877,6 +22853,12 @@
           "partitionEndpoint": "aws-cn-global"
         },
         "identitystore": {
+          "endpoints": {
+            "cn-north-1": {},
+            "cn-northwest-1": {}
+          }
+        },
+        "inspector2": {
           "endpoints": {
             "cn-north-1": {},
             "cn-northwest-1": {}
