@@ -88,6 +88,18 @@ export interface CreateTaskCommandOutput extends CreateTaskResponse, __MetadataB
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   ManifestConfig: { // ManifestConfig
+ *     Action: "TRANSFER",
+ *     Format: "CSV",
+ *     Source: { // SourceManifestConfig
+ *       S3: { // S3ManifestConfig
+ *         ManifestObjectPath: "STRING_VALUE", // required
+ *         BucketAccessRoleArn: "STRING_VALUE", // required
+ *         S3BucketArn: "STRING_VALUE", // required
+ *         ManifestObjectVersionId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
  *   TaskReportConfig: { // TaskReportConfig
  *     Destination: { // ReportDestination
  *       S3: { // ReportDestinationS3

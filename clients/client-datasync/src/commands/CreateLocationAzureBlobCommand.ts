@@ -32,7 +32,9 @@ export interface CreateLocationAzureBlobCommandOutput extends CreateLocationAzur
 
 /**
  * @public
- * <p>Creates an endpoint for a Microsoft Azure Blob Storage container that DataSync can use as a transfer source or destination.</p>
+ * <p>Creates a transfer <i>location</i> for a Microsoft Azure Blob Storage
+ *       container. DataSync can use this location as a transfer source or
+ *       destination.</p>
  *          <p>Before you begin, make sure you know <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access">how DataSync accesses Azure Blob Storage</a> and works with <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-access-tiers">access tiers</a> and <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#blob-types">blob types</a>. You also need a <a href="https://docs.aws.amazon.com/datasync/latest/userguide/creating-azure-blob-location.html#azure-blob-creating-agent">DataSync agent</a> that can connect to your
  *       container.</p>
  * @example

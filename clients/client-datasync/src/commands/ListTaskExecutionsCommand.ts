@@ -28,7 +28,7 @@ export interface ListTaskExecutionsCommandOutput extends ListTaskExecutionsRespo
 
 /**
  * @public
- * <p>Returns a list of executed tasks.</p>
+ * <p>Returns a list of executions for an DataSync transfer task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

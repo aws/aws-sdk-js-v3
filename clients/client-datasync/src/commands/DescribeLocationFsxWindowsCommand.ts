@@ -28,8 +28,7 @@ export interface DescribeLocationFsxWindowsCommandOutput extends DescribeLocatio
 
 /**
  * @public
- * <p>Returns metadata about an Amazon FSx for Windows File Server location, such as information
- *       about its path.</p>
+ * <p>Provides details about how an DataSync transfer location for an Amazon FSx for Windows File Server file system is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

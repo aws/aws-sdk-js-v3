@@ -28,8 +28,7 @@ export interface DescribeLocationEfsCommandOutput extends DescribeLocationEfsRes
 
 /**
  * @public
- * <p>Returns metadata about your DataSync location for an Amazon EFS
- *       file system.</p>
+ * <p>Provides details about how an DataSync transfer location for an Amazon EFS file system is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

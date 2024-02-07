@@ -28,7 +28,8 @@ export interface DescribeLocationSmbCommandOutput extends DescribeLocationSmbRes
 
 /**
  * @public
- * <p>Returns metadata, such as the path and user information about an SMB location.</p>
+ * <p>Provides details about how an DataSync transfer location for a Server
+ *       Message Block (SMB) file server is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

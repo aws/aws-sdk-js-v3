@@ -28,8 +28,8 @@ export interface DescribeLocationHdfsCommandOutput extends DescribeLocationHdfsR
 
 /**
  * @public
- * <p>Returns metadata, such as the authentication information about the Hadoop Distributed File
- *       System (HDFS) location. </p>
+ * <p>Provides details about how an DataSync transfer location for a Hadoop
+ *       Distributed File System (HDFS) is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

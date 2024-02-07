@@ -32,7 +32,7 @@ export interface DescribeLocationFsxOntapCommandOutput extends DescribeLocationF
 
 /**
  * @public
- * <p>Provides details about how an DataSync location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
+ * <p>Provides details about how an DataSync transfer location for an Amazon FSx for NetApp ONTAP file system is configured.</p>
  *          <note>
  *             <p>If your location uses SMB, the <code>DescribeLocationFsxOntap</code> operation doesn't
  *         actually return a <code>Password</code>.</p>

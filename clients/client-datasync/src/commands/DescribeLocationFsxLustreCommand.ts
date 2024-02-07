@@ -28,7 +28,7 @@ export interface DescribeLocationFsxLustreCommandOutput extends DescribeLocation
 
 /**
  * @public
- * <p>Provides details about how an DataSync location for an Amazon FSx for Lustre file system is configured.</p>
+ * <p>Provides details about how an DataSync transfer location for an Amazon FSx for Lustre file system is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

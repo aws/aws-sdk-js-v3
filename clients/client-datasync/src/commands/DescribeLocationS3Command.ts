@@ -28,7 +28,8 @@ export interface DescribeLocationS3CommandOutput extends DescribeLocationS3Respo
 
 /**
  * @public
- * <p>Returns metadata, such as bucket name, about an Amazon S3 bucket location.</p>
+ * <p>Provides details about how an DataSync transfer location for an S3 bucket
+ *       is configured.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

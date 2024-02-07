@@ -28,7 +28,7 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
 
 /**
  * @public
- * <p>Updates the configuration of a DataSync transfer task.</p>
+ * <p>Updates the configuration of an DataSync transfer task.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,6 +71,18 @@ export interface UpdateTaskCommandOutput extends UpdateTaskResponse, __MetadataB
  *       Value: "STRING_VALUE",
  *     },
  *   ],
+ *   ManifestConfig: { // ManifestConfig
+ *     Action: "TRANSFER",
+ *     Format: "CSV",
+ *     Source: { // SourceManifestConfig
+ *       S3: { // S3ManifestConfig
+ *         ManifestObjectPath: "STRING_VALUE", // required
+ *         BucketAccessRoleArn: "STRING_VALUE", // required
+ *         S3BucketArn: "STRING_VALUE", // required
+ *         ManifestObjectVersionId: "STRING_VALUE",
+ *       },
+ *     },
+ *   },
  *   TaskReportConfig: { // TaskReportConfig
  *     Destination: { // ReportDestination
  *       S3: { // ReportDestinationS3

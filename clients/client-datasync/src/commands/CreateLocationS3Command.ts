@@ -28,9 +28,10 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
 
 /**
  * @public
- * <p>A <i>location</i> is an endpoint for an Amazon S3 bucket. DataSync can use the location as a source or destination for copying data.</p>
+ * <p>Creates a transfer <i>location</i> for an Amazon S3 bucket. DataSync can use this location as a source or destination for transferring
+ *       data.</p>
  *          <important>
- *             <p>Before you create your location, make sure that you read the following sections:</p>
+ *             <p>Before you begin, make sure that you read the following topics:</p>
  *             <ul>
  *                <li>
  *                   <p>
@@ -45,7 +46,7 @@ export interface CreateLocationS3CommandOutput extends CreateLocationS3Response,
  *                </li>
  *             </ul>
  *          </important>
- *          <p> For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-locations-cli.html#create-location-s3-cli">Creating an Amazon S3 location</a>.</p>
+ *          <p> For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html">Configuring transfers with Amazon S3</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

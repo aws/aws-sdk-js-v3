@@ -28,7 +28,7 @@ export interface DeleteTaskCommandOutput extends DeleteTaskResponse, __MetadataB
 
 /**
  * @public
- * <p>Deletes an DataSync transfer task.</p>
+ * <p>Deletes a transfer task resource from DataSync.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

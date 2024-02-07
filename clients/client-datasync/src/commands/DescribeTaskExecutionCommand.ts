@@ -74,12 +74,25 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * //       Value: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   ManifestConfig: { // ManifestConfig
+ * //     Action: "TRANSFER",
+ * //     Format: "CSV",
+ * //     Source: { // SourceManifestConfig
+ * //       S3: { // S3ManifestConfig
+ * //         ManifestObjectPath: "STRING_VALUE", // required
+ * //         BucketAccessRoleArn: "STRING_VALUE", // required
+ * //         S3BucketArn: "STRING_VALUE", // required
+ * //         ManifestObjectVersionId: "STRING_VALUE",
+ * //       },
+ * //     },
+ * //   },
  * //   StartTime: new Date("TIMESTAMP"),
  * //   EstimatedFilesToTransfer: Number("long"),
  * //   EstimatedBytesToTransfer: Number("long"),
  * //   FilesTransferred: Number("long"),
  * //   BytesWritten: Number("long"),
  * //   BytesTransferred: Number("long"),
+ * //   BytesCompressed: Number("long"),
  * //   Result: { // TaskExecutionResultDetail
  * //     PrepareDuration: Number("long"),
  * //     PrepareStatus: "PENDING" || "SUCCESS" || "ERROR",
@@ -91,7 +104,6 @@ export interface DescribeTaskExecutionCommandOutput extends DescribeTaskExecutio
  * //     ErrorCode: "STRING_VALUE",
  * //     ErrorDetail: "STRING_VALUE",
  * //   },
- * //   BytesCompressed: Number("long"),
  * //   TaskReportConfig: { // TaskReportConfig
  * //     Destination: { // ReportDestination
  * //       S3: { // ReportDestinationS3

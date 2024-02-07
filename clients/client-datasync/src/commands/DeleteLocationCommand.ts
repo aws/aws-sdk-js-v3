@@ -28,7 +28,7 @@ export interface DeleteLocationCommandOutput extends DeleteLocationResponse, __M
 
 /**
  * @public
- * <p>Deletes the configuration of a location used by DataSync. </p>
+ * <p>Deletes a transfer location resource from DataSync. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

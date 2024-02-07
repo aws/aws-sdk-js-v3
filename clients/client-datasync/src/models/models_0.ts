@@ -213,7 +213,7 @@ export interface Platform {
    * @public
    * <p>The version of the DataSync agent.</p>
    *          <important>
-   *             <p>Beginning December 7, 2023, we will discontinue version 1 DataSync agents. Check the DataSync console to see if you have affected agents. If you do, <a href="https://docs.aws.amazon.com/datasync/latest/userguide/replacing-agent.html">replace</a> those agents before then to avoid data transfer or storage discovery disruptions. If you need more help, contact <a href="https://aws.amazon.com/contact-us/">Amazon Web Services Support</a>.</p>
+   *             <p>On December 7, 2023, we discontinued version 1 DataSync agents. Check the DataSync console to see if you have affected agents. If you do, <a href="https://docs.aws.amazon.com/datasync/latest/userguide/replacing-agent.html">replace</a> those agents or <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deleting-agent.html">delete</a> them if they aren't in use. If you need more help, contact <a href="https://aws.amazon.com/contact-us/">Amazon Web Services Support</a>.</p>
    *          </important>
    */
   Version?: string;
@@ -846,6 +846,8 @@ export interface FsxProtocolSmb {
    * @public
    * <p>Specifies the fully qualified domain name (FQDN) of the Microsoft Active Directory that
    *       your storage virtual machine (SVM) belongs to.</p>
+   *          <p>If you have multiple domains in your environment, configuring this setting makes sure that
+   *       DataSync connects to the right SVM.</p>
    */
   Domain?: string;
 
@@ -863,35 +865,9 @@ export interface FsxProtocolSmb {
 
   /**
    * @public
-   * <p>Specifies a user name that can mount the location and access the files, folders, and
-   *       metadata that you need in the SVM.</p>
-   *          <p>If you provide a user in your Active Directory, note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you're using Directory Service for Microsoft Active Directory, the user must be a member of the
-   *             Amazon Web Services Delegated FSx Administrators group.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you're using a self-managed Active Directory, the user must be a member of either
-   *           the Domain Admins group or a custom group that you specified for file system
-   *           administration when you created your file system.</p>
-   *             </li>
-   *          </ul>
-   *          <p>Make sure that the user has the permissions it needs to copy the data you want:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SE_TCB_NAME</code>: Required to set object ownership and file metadata. With
-   *           this privilege, you also can copy NTFS discretionary access lists (DACLs).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SE_SECURITY_NAME</code>: May be needed to copy NTFS system access control lists
-   *           (SACLs). This operation specifically requires the Windows privilege, which is granted to
-   *           members of the Domain Admins group. If you configure your task to copy SACLs, make sure
-   *           that the user has the required privileges. For information about copying SACLs, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-task.html#configure-ownership-and-permissions">Ownership and permissions-related options</a>.</p>
-   *             </li>
-   *          </ul>
+   * <p>Specifies a user that can mount and access the files, folders, and metadata in your SVM.</p>
+   *          <p>For information about choosing a user with the right level of access for your transfer, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-smb">Using
+   *         the SMB protocol</a>.</p>
    */
   User: string | undefined;
 }
@@ -1087,26 +1063,24 @@ export interface CreateLocationFsxWindowsRequest {
 
   /**
    * @public
-   * <p>Specifies the user who has the permissions to access files, folders, and metadata in your
-   *       file system.</p>
+   * <p>Specifies the user with the permissions to mount and access the files, folders, and file
+   *       metadata in your FSx for Windows File Server file system.</p>
    *          <p>For information about choosing a user with the right level of access for your transfer, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required permissions</a> for FSx for Windows File Server locations.</p>
    */
   User: string | undefined;
 
   /**
    * @public
-   * <p>Specifies the name of the Windows domain that the FSx for Windows File Server belongs
-   *       to.</p>
-   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required permissions</a> for FSx for Windows File Server locations.</p>
+   * <p>Specifies the name of the Microsoft Active Directory domain that the FSx for Windows File Server file system belongs to.</p>
+   *          <p>If you have multiple Active Directory domains in your environment, configuring this
+   *       parameter makes sure that DataSync connects to the right file system.</p>
    */
   Domain?: string;
 
   /**
    * @public
-   * <p>Specifies the password of the user who has the permissions to access files and folders in
-   *       the file system.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">required permissions</a> for FSx for Windows File Server locations.</p>
+   * <p>Specifies the password of the user with the permissions to mount and access the files,
+   *       folders, and file metadata in your FSx for Windows File Server file system.</p>
    */
   Password: string | undefined;
 }
@@ -1537,15 +1511,15 @@ export interface CreateLocationObjectStorageResponse {
 
 /**
  * @public
- * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
- *       an Amazon S3 bucket.</p>
- *          <p>For detailed information about using such a role, see Creating a Location for
- *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
+ * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
+ *         S3 buckets</a>.</p>
  */
 export interface S3Config {
   /**
    * @public
-   * <p>The ARN of the IAM role for accessing the S3 bucket. </p>
+   * <p>Specifies the ARN of the IAM role that DataSync uses to access
+   *       your S3 bucket.</p>
    */
   BucketAccessRoleArn: string | undefined;
 }
@@ -1577,51 +1551,81 @@ export type S3StorageClass = (typeof S3StorageClass)[keyof typeof S3StorageClass
 export interface CreateLocationS3Request {
   /**
    * @public
-   * <p>A subdirectory in the Amazon S3 bucket. This subdirectory in Amazon S3 is used to read
-   *       data from the S3 source location or write data to the S3 destination.</p>
+   * <p>Specifies a prefix in the S3 bucket that DataSync  reads from or writes to
+   *       (depending on whether the bucket is a source or destination location).</p>
+   *          <note>
+   *             <p>DataSync can't transfer objects with a prefix that begins with a slash
+   *         (<code>/</code>) or includes <code>//</code>, <code>/./</code>, or
+   *         <code>/../</code> patterns. For example:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>/photos</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos//2006/January</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos/./2006/February</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>photos/../2006/March</code>
+   *                   </p>
+   *                </li>
+   *             </ul>
+   *          </note>
    */
   Subdirectory?: string;
 
   /**
    * @public
-   * <p>The ARN of the Amazon S3 bucket. If the bucket is on an Amazon Web Services Outpost,
-   *       this must be an access point ARN.</p>
+   * <p>Specifies the ARN of the S3 bucket that you want to use as a location. (When creating
+   *       your DataSync task later, you specify whether this location is a transfer source or
+   *       destination.) </p>
+   *          <p>If your S3 bucket is located on an Outposts resource, you must specify an Amazon S3 access
+   *       point. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points.html">Managing data access with Amazon S3 access points</a> in the
+   *       <i>Amazon S3 User Guide</i>.</p>
    */
   S3BucketArn: string | undefined;
 
   /**
    * @public
-   * <p>The Amazon S3 storage class that you want to store your files in when this location is
-   *       used as a task destination. For buckets in Amazon Web Services Regions, the storage class
-   *       defaults to Standard. For buckets on Outposts, the storage class defaults to Amazon Web Services S3 Outposts.</p>
-   *          <p>For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>. Some storage classes have behaviors that
-   *       can affect your S3 storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
-   *         when working with S3 storage classes in DataSync</a>.</p>
+   * <p>Specifies the storage class that you want your objects to use when Amazon S3 is a
+   *       transfer destination.</p>
+   *          <p>For buckets in Amazon Web Services Regions, the storage class defaults to
+   *         <code>STANDARD</code>. For buckets on Outposts, the storage class defaults to
+   *         <code>OUTPOSTS</code>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage class
+   *         considerations with Amazon S3 transfers</a>.</p>
    */
   S3StorageClass?: S3StorageClass;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
-   *       an Amazon S3 bucket.</p>
-   *          <p>For detailed information about using such a role, see Creating a Location for
-   *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
+   *         S3 buckets</a>.</p>
    */
   S3Config: S3Config | undefined;
 
   /**
    * @public
-   * <p>If you're using DataSync on an Amazon Web Services Outpost, specify the Amazon Resource
-   *       Names (ARNs) of the DataSync agents deployed on your Outpost. For more information about
-   *       launching a DataSync agent on an Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent
+   * <p>(Amazon S3 on Outposts only) Specifies the Amazon Resource Name (ARN) of the DataSync agent on your Outpost.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent
    *         on Outposts</a>.</p>
    */
   AgentArns?: string[];
 
   /**
    * @public
-   * <p>The key-value pair that represents the tag that you want to add to the location. The
-   *       value can be an empty string. We recommend using tags to name your resources.</p>
+   * <p>Specifies labels that help you categorize, filter, and search for your Amazon Web Services resources.
+   *       We recommend creating at least a name tag for your transfer location.</p>
    */
   Tags?: TagListEntry[];
 }
@@ -1633,8 +1637,7 @@ export interface CreateLocationS3Request {
 export interface CreateLocationS3Response {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the source Amazon S3 bucket location that is
-   *       created.</p>
+   * <p>The ARN of the S3 location that you created.</p>
    */
   LocationArn?: string;
 }
@@ -1650,8 +1653,8 @@ export interface CreateLocationSmbRequest {
    *       will read or write data. You can include a subdirectory in the share path (for example,
    *         <code>/path/to/subdirectory</code>). Make sure that other SMB clients in your network can
    *       also mount this path.</p>
-   *          <p>To copy all data in the specified subdirectory, DataSync must be able to mount
-   *       the SMB share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   *          <p>To copy all data in the subdirectory, DataSync must be able to mount the SMB
+   *       share and access all of its data. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
   Subdirectory: string | undefined;
 
@@ -1667,8 +1670,8 @@ export interface CreateLocationSmbRequest {
 
   /**
    * @public
-   * <p>Specifies the user name that can mount your SMB file server and has permission to access
-   *       the files and folders involved in your transfer.</p>
+   * <p>Specifies the user that can mount and access the files, folders, and file metadata in your
+   *       SMB file server.</p>
    *          <p>For information about choosing a user with the right level of access for your transfer,
    *       see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
    */
@@ -1676,9 +1679,9 @@ export interface CreateLocationSmbRequest {
 
   /**
    * @public
-   * <p>Specifies the Windows domain name that your SMB file server belongs to. </p>
-   *          <p>If you have multiple domains in your environment, configuring this parameter makes sure that DataSync connects to the right file server.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">required permissions</a> for SMB locations.</p>
+   * <p>Specifies the name of the Active Directory domain that your SMB file server belongs to. </p>
+   *          <p>If you have multiple Active Directory domains in your environment, configuring this
+   *       parameter makes sure that DataSync connects to the right file server.</p>
    */
   Domain?: string;
 
@@ -1758,6 +1761,110 @@ export interface FilterRule {
    *          <p> </p>
    */
   Value?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const ManifestAction = {
+  TRANSFER: "TRANSFER",
+} as const;
+
+/**
+ * @public
+ */
+export type ManifestAction = (typeof ManifestAction)[keyof typeof ManifestAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const ManifestFormat = {
+  CSV: "CSV",
+} as const;
+
+/**
+ * @public
+ */
+export type ManifestFormat = (typeof ManifestFormat)[keyof typeof ManifestFormat];
+
+/**
+ * @public
+ * <p>Specifies the S3 bucket where you're hosting the manifest that you want DataSync to use. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+ */
+export interface S3ManifestConfig {
+  /**
+   * @public
+   * <p>Specifies the Amazon S3 object key of your manifest. This can include a prefix
+   *       (for example, <code>prefix/my-manifest.csv</code>).</p>
+   */
+  ManifestObjectPath: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the Identity and Access Management (IAM) role that allows DataSync to access your
+   *       manifest. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-access">Providing DataSync access to your manifest</a>.</p>
+   */
+  BucketAccessRoleArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the Amazon Resource Name (ARN) of the S3 bucket where you're hosting your manifest.</p>
+   */
+  S3BucketArn: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the object version ID of the manifest that you want DataSync to use.
+   *       If you don't set this, DataSync uses the latest version of the object.</p>
+   */
+  ManifestObjectVersionId?: string;
+}
+
+/**
+ * @public
+ * <p>Specifies the manifest that you want DataSync to use and where it's hosted.
+ *       For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+ */
+export interface SourceManifestConfig {
+  /**
+   * @public
+   * <p>Specifies the S3 bucket where you're hosting your manifest.</p>
+   */
+  S3: S3ManifestConfig | undefined;
+}
+
+/**
+ * @public
+ * <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+ */
+export interface ManifestConfig {
+  /**
+   * @public
+   * <p>Specifies what DataSync uses the manifest for.</p>
+   */
+  Action?: ManifestAction;
+
+  /**
+   * @public
+   * <p>Specifies the file format of your manifest. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-create">Creating a manifest</a>.</p>
+   */
+  Format?: ManifestFormat;
+
+  /**
+   * @public
+   * <p>Specifies the manifest that you want DataSync to use and where it's
+   *       hosted.</p>
+   *          <note>
+   *             <p>You must specify this parameter if you're configuring a new manifest on or after February 7,
+   *         2024.</p>
+   *             <p>If you don't, you'll get a 400 status code and <code>ValidationException</code> error
+   *         stating that you're missing the IAM role for DataSync to access the
+   *         S3 bucket where you're hosting your manifest. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html#transferring-with-manifest-access">Providing DataSync access to your manifest</a>.</p>
+   *          </note>
+   */
+  Source?: SourceManifestConfig;
 }
 
 /**
@@ -1962,62 +2069,83 @@ export interface Options {
   /**
    * @public
    * <p>Specifies how and when DataSync checks the integrity of your data during a
-   *       transfer. </p>
-   *          <p>Default value: <code>POINT_IN_TIME_CONSISTENT</code>
-   *          </p>
-   *          <p>
-   *             <code>ONLY_FILES_TRANSFERRED</code> (recommended): DataSync calculates the
-   *       checksum of transferred files and metadata at the source location. At the end of the transfer,
-   *         DataSync then compares this checksum to the checksum calculated on those files at
-   *       the destination.</p>
-   *          <p>We recommend this option when transferring to S3 Glacier Flexible Retrieval or
-   *         S3 Glacier Deep Archive storage classes. For more information, see
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage class
-   *         considerations with Amazon S3 locations</a>.</p>
-   *          <p>
-   *             <code>POINT_IN_TIME_CONSISTENT</code>: At the end of the transfer, DataSync
-   *       scans the entire source and destination to verify that both locations are fully
-   *       synchronized.</p>
-   *          <p>You can't use this option when transferring to S3 Glacier Flexible Retrieval or
-   *         S3 Glacier Deep Archive storage classes. For more information, see
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage class
-   *         considerations with Amazon S3 locations</a>.</p>
-   *          <p>
-   *             <code>NONE</code>: DataSync doesn't run additional verification at the end of
-   *       the transfer. All data transmissions are still integrity-checked with checksum verification
-   *       during the transfer.</p>
+   *       transfer.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ONLY_FILES_TRANSFERRED</code> (recommended) - DataSync calculates
+   *           the checksum of transferred files and metadata at the source location. At the end of the
+   *           transfer, DataSync then compares this checksum to the checksum calculated on
+   *           those files at the destination.</p>
+   *                <p>We recommend this option when transferring to S3 Glacier Flexible Retrieval
+   *           or S3 Glacier Deep Archive storage classes. For more information, see
+   *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
+   *             class considerations with Amazon S3 locations</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>POINT_IN_TIME_CONSISTENT</code> (default) - At the end of the transfer,
+   *             DataSync scans the entire source and destination to verify that both locations
+   *           are fully synchronized.</p>
+   *                <p>You can't use this option when transferring to S3 Glacier Flexible Retrieval
+   *           or S3 Glacier Deep Archive storage classes. For more information, see
+   *             <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
+   *             class considerations with Amazon S3 locations</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - DataSync doesn't run additional verification at the
+   *           end of the transfer. All data transmissions are still integrity-checked with checksum
+   *           verification during the transfer.</p>
+   *             </li>
+   *          </ul>
    */
   VerifyMode?: VerifyMode;
 
   /**
    * @public
-   * <p>Specifies whether data at the destination location should be overwritten or preserved. If
-   *       set to <code>NEVER</code>, a destination file for example will not be replaced by a source
-   *       file (even if the destination file differs from the source file). If you modify files in the
-   *       destination and you sync the files, you can use this value to protect against overwriting
-   *       those changes. </p>
-   *          <p>Some storage classes have specific behaviors that can affect your Amazon S3
-   *       storage cost. For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
-   *         when working with Amazon S3 storage classes in DataSync</a>.</p>
+   * <p>Specifies whether DataSync should modify or preserve data at the destination
+   *       location.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>ALWAYS</code> (default) - DataSync modifies data in the destination
+   *           location when source data (including metadata) has changed.</p>
+   *                <p>If DataSync overwrites objects, you might incur additional charges for
+   *           certain Amazon S3 storage classes (for example, for retrieval or early deletion).
+   *           For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage
+   *             class considerations with Amazon S3 transfers</a>.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NEVER</code> - DataSync doesn't overwrite data in the destination
+   *           location even if the source data has changed. You can use this option to protect against
+   *           overwriting changes made to files or objects in the destination.</p>
+   *             </li>
+   *          </ul>
    */
   OverwriteMode?: OverwriteMode;
 
   /**
    * @public
    * <p>Specifies whether to preserve metadata indicating the last time a file was read or
-   *       written to. If you set <code>Atime</code> to <code>BEST_EFFORT</code>, DataSync
-   *       attempts to preserve the original <code>Atime</code> attribute on all source files (that is,
-   *       the version before the <code>PREPARING</code> phase of the task execution).</p>
+   *       written to.</p>
    *          <note>
    *             <p>The behavior of <code>Atime</code> isn't fully standard across platforms, so DataSync can only do this on a best-effort basis.</p>
    *          </note>
-   *          <p>Default value: <code>BEST_EFFORT</code>
-   *          </p>
-   *          <p>
-   *             <code>BEST_EFFORT</code>: Attempt to preserve the per-file <code>Atime</code> value
-   *       (recommended).</p>
-   *          <p>
-   *             <code>NONE</code>: Ignore <code>Atime</code>.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BEST_EFFORT</code> (default) - DataSync attempts to preserve the
+   *           original <code>Atime</code> attribute on all source files (that is, the version before the
+   *             <code>PREPARING</code> phase of the task execution). This option is
+   *           recommended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - Ignores <code>Atime</code>.</p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>If <code>Atime</code> is set to <code>BEST_EFFORT</code>, <code>Mtime</code> must be set
    *         to <code>PRESERVE</code>. </p>
@@ -2032,12 +2160,17 @@ export interface Options {
    * <p>Specifies whether to preserve metadata indicating the last time that a file was written
    *       to before the <code>PREPARING</code> phase of your task execution. This option is required
    *       when you need to run the a task more than once.</p>
-   *          <p>Default Value: <code>PRESERVE</code>
-   *          </p>
-   *          <p>
-   *             <code>PRESERVE</code>: Preserve original <code>Mtime</code> (recommended)</p>
-   *          <p>
-   *             <code>NONE</code>: Ignore <code>Mtime</code>. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PRESERVE</code> (default) - Preserves original <code>Mtime</code>, which is
+   *           recommended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - Ignores <code>Mtime</code>.</p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>If <code>Mtime</code> is set to <code>PRESERVE</code>, <code>Atime</code> must be set to
    *           <code>BEST_EFFORT</code>.</p>
@@ -2050,26 +2183,36 @@ export interface Options {
   /**
    * @public
    * <p>Specifies the POSIX user ID (UID) of the file's owner.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INT_VALUE</code> (default) - Preserves the integer value of UID and group ID
+   *           (GID), which is recommended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - Ignores UID and GID. </p>
+   *             </li>
+   *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
-   *          <p>Default value: <code>INT_VALUE</code>. This preserves the integer value of the ID.</p>
-   *          <p>
-   *             <code>INT_VALUE</code>: Preserve the integer value of UID and group ID (GID)
-   *       (recommended).</p>
-   *          <p>
-   *             <code>NONE</code>: Ignore UID and GID. </p>
    */
   Uid?: Uid;
 
   /**
    * @public
    * <p>Specifies the POSIX group ID (GID) of the file's owners.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>INT_VALUE</code> (default) - Preserves the integer value of user ID (UID) and
+   *           GID, which is recommended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - Ignores UID and GID.</p>
+   *             </li>
+   *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
-   *          <p>Default value: <code>INT_VALUE</code>. This preserves the integer value of the ID.</p>
-   *          <p>
-   *             <code>INT_VALUE</code>: Preserve the integer value of user ID (UID) and GID
-   *       (recommended).</p>
-   *          <p>
-   *             <code>NONE</code>: Ignore UID and GID.</p>
    */
   Gid?: Gid;
 
@@ -2080,13 +2223,18 @@ export interface Options {
    *       deletes objects, you might incur minimum storage duration charges for certain storage classes.
    *       For detailed information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
    *         when working with Amazon S3 storage classes in DataSync</a>.</p>
-   *          <p>Default value: <code>PRESERVE</code>
-   *          </p>
-   *          <p>
-   *             <code>PRESERVE</code>: Ignore such destination files (recommended). </p>
-   *          <p>
-   *             <code>REMOVE</code>: Delete destination files that aren’t present in the
-   *       source.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PRESERVE</code> (default) - Ignores such destination files, which is
+   *           recommended. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>REMOVE</code> - Deletes destination files that aren’t present in the
+   *           source.</p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>If you set this parameter to <code>REMOVE</code>, you can't set
    *           <code>TransferMode</code> to <code>ALL</code>. When you transfer all data, DataSync doesn't scan your destination location and doesn't know what to delete.</p>
@@ -2104,13 +2252,17 @@ export interface Options {
    *             <p>DataSync can't copy the actual contents of these devices because they're
    *         nonterminal and don't return an end-of-file (EOF) marker.</p>
    *          </note>
-   *          <p>Default value: <code>NONE</code>
-   *          </p>
-   *          <p>
-   *             <code>NONE</code>: Ignore special devices (recommended). </p>
-   *          <p>
-   *             <code>PRESERVE</code>: Preserve character and block device metadata. This option
-   *       currently isn't supported for Amazon EFS. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> (default) - Ignores special devices (recommended).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PRESERVE</code> - Preserves character and block device metadata. This option
+   *           currently isn't supported for Amazon EFS.</p>
+   *             </li>
+   *          </ul>
    */
   PreserveDevices?: PreserveDevices;
 
@@ -2119,12 +2271,17 @@ export interface Options {
    * <p>Specifies which users or groups can access a file for a specific purpose such as reading,
    *       writing, or execution of the file.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html#metadata-copied">Metadata copied by DataSync</a>.</p>
-   *          <p>Default value: <code>PRESERVE</code>
-   *          </p>
-   *          <p>
-   *             <code>PRESERVE</code>: Preserve POSIX-style permissions (recommended).</p>
-   *          <p>
-   *             <code>NONE</code>: Ignore permissions. </p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>PRESERVE</code> (default) - Preserves POSIX-style permissions, which is
+   *           recommended.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - Ignores POSIX-style permissions. </p>
+   *             </li>
+   *          </ul>
    *          <note>
    *             <p>DataSync can preserve extant permissions of a source location.</p>
    *          </note>
@@ -2151,10 +2308,21 @@ export interface Options {
    * @public
    * <p>Specifies the type of logs that DataSync publishes to a Amazon CloudWatch Logs
    *       log group. To specify the log group, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_CreateTask.html#DataSync-CreateTask-request-CloudWatchLogGroupArn">CloudWatchLogGroupArn</a>.</p>
-   *          <p>If you set <code>LogLevel</code> to <code>OFF</code>, no logs are published.
-   *         <code>BASIC</code> publishes logs on errors for individual files transferred.
-   *         <code>TRANSFER</code> publishes logs for every file or object that is transferred and
-   *       integrity checked.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>BASIC</code> - Publishes logs with only basic information (such as transfer
+   *           errors).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>TRANSFER</code> - Publishes logs for all files or objects that your DataSync task transfers and performs data-integrity checks on.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>OFF</code> - No logs are published.</p>
+   *             </li>
+   *          </ul>
    */
   LogLevel?: LogLevel;
 
@@ -2163,12 +2331,18 @@ export interface Options {
    * <p>Determines whether DataSync transfers only the data and metadata that differ
    *       between the source and the destination location or transfers all the content from the source
    *       (without comparing what's in the destination).</p>
-   *          <p>
-   *             <code>CHANGED</code>: DataSync copies only data or metadata that is new or
-   *       different content from the source location to the destination location.</p>
-   *          <p>
-   *             <code>ALL</code>: DataSync copies all source location content to the destination
-   *       (without comparing what's in the destination).</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CHANGED</code> (default) - DataSync copies only data or metadata that
+   *           is new or different content from the source location to the destination location.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ALL</code> - DataSync copies everything in the source to the
+   *           destination without comparing differences between the locations.</p>
+   *             </li>
+   *          </ul>
    */
   TransferMode?: TransferMode;
 
@@ -2178,55 +2352,59 @@ export interface Options {
    *       destination objects. </p>
    *          <p>This value is only used for transfers between SMB and Amazon FSx for Windows File Server
    *       locations or between two FSx for Windows File Server locations. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/special-files.html">how DataSync handles metadata</a>.</p>
-   *          <p>Default value: <code>OWNER_DACL</code>
-   *          </p>
-   *          <p>
-   *             <code>OWNER_DACL</code>: For each copied object, DataSync copies the following
-   *       metadata:</p>
    *          <ul>
    *             <li>
-   *                <p>The object owner.</p>
+   *                <p>
+   *                   <code>OWNER_DACL</code> (default) - For each copied object, DataSync copies
+   *           the following metadata:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The object owner.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NTFS discretionary access control lists (DACLs), which determine whether to grant
+   *               access to an object.</p>
+   *                      <p>DataSync won't copy NTFS system access control lists (SACLs) with this
+   *               option.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
-   *                <p>NTFS discretionary access control lists (DACLs), which determine whether to grant
-   *           access to an object.</p>
-   *                <p>DataSync won't copy NTFS system access control lists (SACLs) with this
-   *           option.</p>
+   *                <p>
+   *                   <code>OWNER_DACL_SACL</code> - For each copied object, DataSync copies the
+   *           following metadata:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>The object owner.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>NTFS discretionary access control lists (DACLs), which determine whether to grant
+   *               access to an object.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>SACLs, which are used by administrators to log attempts to access a secured
+   *               object.</p>
+   *                      <p>Copying SACLs requires granting additional permissions to the Windows user that
+   *                 DataSync uses to access your SMB location. For information about choosing
+   *               a user with the right permissions, see required permissions for <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-smb-location.html#configuring-smb-permissions">SMB</a>, <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-fsx-location.html#create-fsx-windows-location-permissions">FSx for Windows File Server</a>, or <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-ontap-location.html#create-ontap-location-smb">FSx for ONTAP</a> (depending
+   *               on the type of location in your transfer).</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>NONE</code> - None of the SMB security descriptor components are copied.
+   *           Destination objects are owned by the user that was provided for accessing the destination
+   *           location. DACLs and SACLs are set based on the destination server’s configuration. </p>
    *             </li>
    *          </ul>
-   *          <p>
-   *             <code>OWNER_DACL_SACL</code>: For each copied object, DataSync copies the
-   *       following metadata:</p>
-   *          <ul>
-   *             <li>
-   *                <p>The object owner.</p>
-   *             </li>
-   *             <li>
-   *                <p>NTFS discretionary access control lists (DACLs), which determine whether to grant
-   *           access to an object.</p>
-   *             </li>
-   *             <li>
-   *                <p>SACLs, which are used by administrators to log attempts to access a secured
-   *           object.</p>
-   *                <p>Copying SACLs requires granting additional permissions to the Windows user that
-   *             DataSync uses to access your SMB location. For information about choosing a
-   *           user that ensures sufficient permissions to files, folders, and metadata, see <a href="create-smb-location.html#SMBuser">user</a>.</p>
-   *             </li>
-   *          </ul>
-   *          <p>
-   *             <code>NONE</code>: None of the SMB security descriptor components are copied. Destination
-   *       objects are owned by the user that was provided for accessing the destination location. DACLs
-   *       and SACLs are set based on the destination server’s configuration. </p>
    */
   SecurityDescriptorCopyFlags?: SmbSecurityDescriptorCopyFlags;
 
   /**
    * @public
-   * <p>Specifies whether object tags are preserved when transferring between object storage
-   *       systems. If you want your DataSync task to ignore object tags, specify the
-   *         <code>NONE</code> value.</p>
-   *          <p>Default Value: <code>PRESERVE</code>
-   *          </p>
+   * <p>Specifies whether you want DataSync to <code>PRESERVE</code> object tags
+   *       (default behavior) when transferring between object storage systems. If you want your DataSync task to ignore object tags, specify the <code>NONE</code> value.</p>
    */
   ObjectTags?: ObjectTags;
 }
@@ -2265,7 +2443,7 @@ export interface ReportDestinationS3 {
 
   /**
    * @public
-   * <p>Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/https:/docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Allowing DataSync to upload a task report to an Amazon S3 bucket</a>.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Allowing DataSync to upload a task report to an Amazon S3 bucket</a>.</p>
    */
   BucketAccessRoleArn: string | undefined;
 }
@@ -2512,8 +2690,17 @@ export interface CreateTaskRequest {
 
   /**
    * @public
+   * <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+   *          <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href="https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess">AWSDataSyncFullAccess</a> policy includes this permission.</p>
+   */
+  ManifestConfig?: ManifestConfig;
+
+  /**
+   * @public
    * <p>Specifies how you want to configure a task report, which provides detailed information
-   *       about for your DataSync transfer.</p>
+   *       about your DataSync transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Monitoring your DataSync
+   *         transfers with task reports</a>.</p>
+   *          <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href="https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess">AWSDataSyncFullAccess</a> policy includes this permission.</p>
    */
   TaskReportConfig?: TaskReportConfig;
 }
@@ -3069,8 +3256,7 @@ export interface DescribeLocationFsxOpenZfsResponse {
 export interface DescribeLocationFsxWindowsRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location to
-   *       describe.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the FSx for Windows File Server location.</p>
    */
   LocationArn: string | undefined;
 }
@@ -3081,21 +3267,20 @@ export interface DescribeLocationFsxWindowsRequest {
 export interface DescribeLocationFsxWindowsResponse {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the FSx for Windows File Server location that was
-   *       described.</p>
+   * <p>The ARN of the FSx for Windows File Server location.</p>
    */
   LocationArn?: string;
 
   /**
    * @public
-   * <p>The URL of the FSx for Windows File Server location that was described.</p>
+   * <p>The uniform resource identifier (URI) of the FSx for Windows File Server location.</p>
    */
   LocationUri?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Names (ARNs) of the security groups that are configured for the FSx
-   *       for Windows File Server file system.</p>
+   * <p>The ARNs of the security groups that are configured for the FSx for Windows File Server file
+   *       system.</p>
    */
   SecurityGroupArns?: string[];
 
@@ -3107,14 +3292,15 @@ export interface DescribeLocationFsxWindowsResponse {
 
   /**
    * @public
-   * <p>The user who has the permissions to access files and folders in the FSx for Windows File
-   *       Server file system.</p>
+   * <p>The user with the permissions to mount and access the FSx for Windows File Server file
+   *       system.</p>
    */
   User?: string;
 
   /**
    * @public
-   * <p>The name of the Windows domain that the FSx for Windows File Server belongs to.</p>
+   * <p>The name of the Microsoft Active Directory domain that the FSx for Windows File Server file
+   *       system belongs to.</p>
    */
   Domain?: string;
 }
@@ -3125,7 +3311,7 @@ export interface DescribeLocationFsxWindowsResponse {
 export interface DescribeLocationHdfsRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the HDFS cluster location to describe.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the HDFS location.</p>
    */
   LocationArn: string | undefined;
 }
@@ -3136,19 +3322,19 @@ export interface DescribeLocationHdfsRequest {
 export interface DescribeLocationHdfsResponse {
   /**
    * @public
-   * <p>The ARN of the HDFS cluster location.</p>
+   * <p>The ARN of the HDFS location.</p>
    */
   LocationArn?: string;
 
   /**
    * @public
-   * <p>The URI of the HDFS cluster location.</p>
+   * <p>The URI of the HDFS location.</p>
    */
   LocationUri?: string;
 
   /**
    * @public
-   * <p>The NameNode that manage the HDFS namespace. </p>
+   * <p>The NameNode that manages the HDFS namespace. </p>
    */
   NameNodes?: HdfsNameNode[];
 
@@ -3172,9 +3358,8 @@ export interface DescribeLocationHdfsResponse {
 
   /**
    * @public
-   * <p>The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC)
-   *       and data transfer protection settings configured on the Hadoop Distributed File System (HDFS)
-   *       cluster. </p>
+   * <p>The Quality of Protection (QOP) configuration, which specifies the Remote Procedure Call
+   *       (RPC) and data transfer protection settings configured on the HDFS cluster. </p>
    */
   QopConfiguration?: QopConfiguration;
 
@@ -3186,8 +3371,8 @@ export interface DescribeLocationHdfsResponse {
 
   /**
    * @public
-   * <p>The user name used to identify the client on the host operating system. This parameter is
-   *       used if the <code>AuthenticationType</code> is defined as <code>SIMPLE</code>.</p>
+   * <p>The user name to identify the client on the host operating system. This parameter is used
+   *       if the <code>AuthenticationType</code> is defined as <code>SIMPLE</code>.</p>
    */
   SimpleUser?: string;
 
@@ -3201,7 +3386,7 @@ export interface DescribeLocationHdfsResponse {
 
   /**
    * @public
-   * <p>The ARNs of the agents that are used to connect to the HDFS cluster. </p>
+   * <p>The ARNs of the DataSync agents that can connect with your HDFS cluster.</p>
    */
   AgentArns?: string[];
 
@@ -3238,7 +3423,7 @@ export interface DescribeLocationNfsResponse {
 
   /**
    * @public
-   * <p>The URL of the NFS location.</p>
+   * <p>The URI of the NFS location.</p>
    */
   LocationUri?: string;
 
@@ -3269,8 +3454,7 @@ export interface DescribeLocationNfsResponse {
 export interface DescribeLocationObjectStorageRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the object storage system location that you want
-   *       information about.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the object storage system location.</p>
    */
   LocationArn: string | undefined;
 }
@@ -3288,7 +3472,7 @@ export interface DescribeLocationObjectStorageResponse {
 
   /**
    * @public
-   * <p>The URL of the object storage system location.</p>
+   * <p>The URI of the object storage system location.</p>
    */
   LocationUri?: string;
 
@@ -3314,8 +3498,8 @@ export interface DescribeLocationObjectStorageResponse {
 
   /**
    * @public
-   * <p>The ARNs of the DataSync agents that can securely connect with your
-   *       location.</p>
+   * <p>The ARNs of the DataSync agents that can connect with your object storage
+   *       system.</p>
    */
   AgentArns?: string[];
 
@@ -3340,7 +3524,7 @@ export interface DescribeLocationObjectStorageResponse {
 export interface DescribeLocationS3Request {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket location to describe.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the Amazon S3 location.</p>
    */
   LocationArn: string | undefined;
 }
@@ -3352,7 +3536,7 @@ export interface DescribeLocationS3Request {
 export interface DescribeLocationS3Response {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Amazon S3 bucket or access point.</p>
+   * <p>The ARN of the Amazon S3 location.</p>
    */
   LocationArn?: string;
 
@@ -3364,35 +3548,34 @@ export interface DescribeLocationS3Response {
 
   /**
    * @public
-   * <p>The Amazon S3 storage class that you chose to store your files in when this location is
-   *       used as a task destination. For more information about S3 storage classes, see <a href="http://aws.amazon.com/s3/storage-classes/">Amazon S3 Storage Classes</a>. Some storage
-   *       classes have behaviors that can affect your S3 storage cost. For detailed information, see
-   *         <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Considerations
-   *         when working with S3 storage classes in DataSync</a>.</p>
+   * <p>When Amazon S3 is a destination location, this is the storage class that you chose
+   *       for your objects.</p>
+   *          <p>Some storage classes have behaviors that can affect your Amazon S3 storage costs.
+   *       For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#using-storage-classes">Storage class
+   *         considerations with Amazon S3 transfers</a>.</p>
    */
   S3StorageClass?: S3StorageClass;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role used to access
-   *       an Amazon S3 bucket.</p>
-   *          <p>For detailed information about using such a role, see Creating a Location for
-   *       Amazon S3 in the <i>DataSync User Guide</i>.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the Identity and Access Management (IAM) role that DataSync uses to access your S3 bucket.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/create-s3-location.html#create-s3-location-access">Accessing
+   *         S3 buckets</a>.</p>
    */
   S3Config?: S3Config;
 
   /**
    * @public
-   * <p>If you are using DataSync on an Amazon Web Services Outpost, the Amazon Resource Name
-   *       (ARNs) of the EC2 agents deployed on your Outpost. For more information about launching a
-   *       DataSync agent on an Amazon Web Services Outpost, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent
+   * <p>The ARNs of the DataSync agents deployed on your Outpost when using working with
+   *         Amazon S3 on Outposts.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/deploy-agents.html#outposts-agent">Deploy your DataSync agent
    *         on Outposts</a>.</p>
    */
   AgentArns?: string[];
 
   /**
    * @public
-   * <p>The time that the Amazon S3 bucket location was created.</p>
+   * <p>The time that the Amazon S3 location was created.</p>
    */
   CreationTime?: Date;
 }
@@ -3404,7 +3587,8 @@ export interface DescribeLocationS3Response {
 export interface DescribeLocationSmbRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the SMB location to describe.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the SMB location that you want information
+   *       about.</p>
    */
   LocationArn: string | undefined;
 }
@@ -3416,39 +3600,40 @@ export interface DescribeLocationSmbRequest {
 export interface DescribeLocationSmbResponse {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the SMB location that was described.</p>
+   * <p>The ARN of the SMB location.</p>
    */
   LocationArn?: string;
 
   /**
    * @public
-   * <p>The URL of the source SMB location that was described.</p>
+   * <p>The URI of the SMB location.</p>
    */
   LocationUri?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the source SMB file system location that is
-   *       created.</p>
+   * <p>The ARNs of the DataSync agents that can connect with your SMB file
+   *       server.</p>
    */
   AgentArns?: string[];
 
   /**
    * @public
-   * <p>The user who can mount the share, has the permissions to access files and folders in the
-   *       SMB share.</p>
+   * <p>The user that can mount and access the files, folders, and file metadata in your SMB file
+   *       server.</p>
    */
   User?: string;
 
   /**
    * @public
-   * <p>The name of the Windows domain that the SMB server belongs to.</p>
+   * <p>The name of the Microsoft Active Directory domain that the SMB file server belongs
+   *       to.</p>
    */
   Domain?: string;
 
   /**
    * @public
-   * <p>The mount options that are available for DataSync to use to access an SMB location.</p>
+   * <p>The protocol that DataSync use to access your SMB file.</p>
    */
   MountOptions?: SmbMountOptions;
 
@@ -4467,7 +4652,15 @@ export interface DescribeTaskResponse {
 
   /**
    * @public
-   * <p>The configuration of your task report. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Creating a task report</a>.</p>
+   * <p>The configuration of the manifest that lists the files or objects to transfer. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+   */
+  ManifestConfig?: ManifestConfig;
+
+  /**
+   * @public
+   * <p>The configuration of your task report, which provides detailed information about for your
+   *         DataSync transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Creating a task report</a>.</p>
    */
   TaskReportConfig?: TaskReportConfig;
 }
@@ -4663,6 +4856,13 @@ export interface DescribeTaskExecutionResponse {
 
   /**
    * @public
+   * <p>The configuration of the manifest that lists the files or objects to transfer. For more
+   *       information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+   */
+  ManifestConfig?: ManifestConfig;
+
+  /**
+   * @public
    * <p>The time when the task execution started.</p>
    */
   StartTime?: Date;
@@ -4711,12 +4911,6 @@ export interface DescribeTaskExecutionResponse {
 
   /**
    * @public
-   * <p>The result of the task execution.</p>
-   */
-  Result?: TaskExecutionResultDetail;
-
-  /**
-   * @public
    * <p>The physical number of bytes transferred over the network after compression was applied.
    *       In most cases, this number is less than <code>BytesTransferred</code> unless the data isn't
    *       compressible.</p>
@@ -4725,7 +4919,14 @@ export interface DescribeTaskExecutionResponse {
 
   /**
    * @public
-   * <p>The configuration of your task report, which provides detailed information about for your DataSync transfer.</p>
+   * <p>The result of the task execution.</p>
+   */
+  Result?: TaskExecutionResultDetail;
+
+  /**
+   * @public
+   * <p>The configuration of your task report, which provides detailed information about for your
+   *         DataSync transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Creating a task report</a>.</p>
    */
   TaskReportConfig?: TaskReportConfig;
 
@@ -5168,41 +5369,41 @@ export interface ListTagsForResourceResponse {
 export interface ListTaskExecutionsRequest {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the task whose tasks you want to list.</p>
+   * <p>Specifies the Amazon Resource Name (ARN) of the task that you want execution
+   *       information about.</p>
    */
   TaskArn?: string;
 
   /**
    * @public
-   * <p>The maximum number of executed tasks to list.</p>
+   * <p>Specifies how many results you want in the response.</p>
    */
   MaxResults?: number;
 
   /**
    * @public
-   * <p>An opaque string that indicates the position at which to begin the next list of the
-   *       executed tasks.</p>
+   * <p>Specifies an opaque string that indicates the position at which to begin the next list
+   *       of results in the response.</p>
    */
   NextToken?: string;
 }
 
 /**
  * @public
- * <p>Represents a single entry in a list of task executions.
- *         <code>TaskExecutionListEntry</code> returns an array that contains a list of specific
- *       invocations of a task when the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTaskExecutions.html">ListTaskExecutions</a>
- *       operation is called.</p>
+ * <p>Represents a single entry in a list of DataSync task executions that's
+ *       returned with the <a href="https://docs.aws.amazon.com/datasync/latest/userguide/API_ListTaskExecutions.html">ListTaskExecutions</a>
+ *       operation.</p>
  */
 export interface TaskExecutionListEntry {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the task that was executed.</p>
+   * <p>The Amazon Resource Name (ARN) of a task execution.</p>
    */
   TaskExecutionArn?: string;
 
   /**
    * @public
-   * <p>The status of a task execution.</p>
+   * <p>The status of a task execution. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/understand-task-statuses.html#understand-task-execution-statuses">Task execution statuses</a>.</p>
    */
   Status?: TaskExecutionStatus;
 }
@@ -5214,14 +5415,14 @@ export interface TaskExecutionListEntry {
 export interface ListTaskExecutionsResponse {
   /**
    * @public
-   * <p>A list of executed tasks.</p>
+   * <p>A list of the task's executions.</p>
    */
   TaskExecutions?: TaskExecutionListEntry[];
 
   /**
    * @public
-   * <p>An opaque string that indicates the position at which to begin returning the next list
-   *       of executed tasks.</p>
+   * <p>The opaque string that indicates the position to begin the next list of results in the
+   *       response.</p>
    */
   NextToken?: string;
 }
@@ -5451,6 +5652,24 @@ export interface StartTaskExecutionRequest {
 
   /**
    * @public
+   * <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+   *          <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href="https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess">AWSDataSyncFullAccess</a> policy includes this permission.</p>
+   *          <p>To remove a manifest configuration, specify this parameter with an empty value.</p>
+   */
+  ManifestConfig?: ManifestConfig;
+
+  /**
+   * @public
+   * <p>Specifies how you want to configure a task report, which provides detailed information
+   *       about your DataSync transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Monitoring your DataSync
+   *         transfers with task reports</a>.</p>
+   *          <p>When using this parameter, your caller identity (the role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href="https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess">AWSDataSyncFullAccess</a> policy includes this permission.</p>
+   *          <p>To remove a task report configuration, specify this parameter as empty.</p>
+   */
+  TaskReportConfig?: TaskReportConfig;
+
+  /**
+   * @public
    * <p>Specifies the tags that you want to apply to the Amazon Resource Name (ARN) representing
    *       the task execution.</p>
    *          <p>
@@ -5458,12 +5677,6 @@ export interface StartTaskExecutionRequest {
    *       your DataSync resources.</p>
    */
   Tags?: TagListEntry[];
-
-  /**
-   * @public
-   * <p>Specifies how you want to configure a task report, which provides detailed information about for your DataSync transfer.</p>
-   */
-  TaskReportConfig?: TaskReportConfig;
 }
 
 /**
@@ -6026,7 +6239,19 @@ export interface UpdateTaskRequest {
 
   /**
    * @public
-   * <p>Specifies how you want to configure a task report, which provides detailed information about for your DataSync transfer.</p>
+   * <p>Configures a manifest, which is a list of files or objects that you want DataSync to transfer. For more information and configuration examples, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/transferring-with-manifest.html">Specifying what DataSync transfers by using a manifest</a>.</p>
+   *          <p>When using this parameter, your caller identity (the IAM role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href="https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess">AWSDataSyncFullAccess</a> policy includes this permission.</p>
+   *          <p>To remove a manifest configuration, specify this parameter as empty.</p>
+   */
+  ManifestConfig?: ManifestConfig;
+
+  /**
+   * @public
+   * <p>Specifies how you want to configure a task report, which provides detailed information
+   *       about your DataSync transfer. For more information, see <a href="https://docs.aws.amazon.com/datasync/latest/userguide/task-reports.html">Monitoring your DataSync
+   *         transfers with task reports</a>.</p>
+   *          <p>When using this parameter, your caller identity (the IAM role that you're using DataSync with) must have the <code>iam:PassRole</code> permission. The <a href="https://docs.aws.amazon.com/datasync/latest/userguide/security-iam-awsmanpol.html#security-iam-awsmanpol-awsdatasyncfullaccess">AWSDataSyncFullAccess</a> policy includes this permission.</p>
+   *          <p>To remove a task report configuration, specify this parameter as empty.</p>
    */
   TaskReportConfig?: TaskReportConfig;
 }

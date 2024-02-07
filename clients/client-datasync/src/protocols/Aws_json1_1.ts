@@ -253,6 +253,7 @@ import {
   ListTaskExecutionsRequest,
   ListTasksRequest,
   LocationFilter,
+  ManifestConfig,
   MaxP95Performance,
   NetAppONTAPCluster,
   NetAppONTAPSVM,
@@ -270,7 +271,9 @@ import {
   ResourceDetails,
   ResourceMetrics,
   S3Config,
+  S3ManifestConfig,
   SmbMountOptions,
+  SourceManifestConfig,
   StartDiscoveryJobRequest,
   StartTaskExecutionRequest,
   StopDiscoveryJobRequest,
@@ -2613,6 +2616,8 @@ const se_DescribeStorageSystemResourceMetricsRequest = (
 
 // se_LocationFilters omitted.
 
+// se_ManifestConfig omitted.
+
 // se_NfsMountOptions omitted.
 
 // se_OnPremConfig omitted.
@@ -2641,7 +2646,11 @@ const se_DescribeStorageSystemResourceMetricsRequest = (
 
 // se_S3Config omitted.
 
+// se_S3ManifestConfig omitted.
+
 // se_SmbMountOptions omitted.
+
+// se_SourceManifestConfig omitted.
 
 /**
  * serializeAws_json1_1StartDiscoveryJobRequest
@@ -3046,6 +3055,7 @@ const de_DescribeTaskExecutionResponse = (output: any, context: __SerdeContext):
     FilesTransferred: __expectLong,
     FilesVerified: __expectLong,
     Includes: _json,
+    ManifestConfig: _json,
     Options: _json,
     ReportResult: _json,
     Result: _json,
@@ -3070,6 +3080,7 @@ const de_DescribeTaskResponse = (output: any, context: __SerdeContext): Describe
     ErrorDetail: __expectString,
     Excludes: _json,
     Includes: _json,
+    ManifestConfig: _json,
     Name: __expectString,
     Options: _json,
     Schedule: _json,
@@ -3157,6 +3168,8 @@ const de_Latency = (output: any, context: __SerdeContext): Latency => {
 // de_LocationList omitted.
 
 // de_LocationListEntry omitted.
+
+// de_ManifestConfig omitted.
 
 /**
  * deserializeAws_json1_1MaxP95Performance
@@ -3363,7 +3376,11 @@ const de_ResourceMetrics = (output: any, context: __SerdeContext): ResourceMetri
 
 // de_S3Config omitted.
 
+// de_S3ManifestConfig omitted.
+
 // de_SmbMountOptions omitted.
+
+// de_SourceManifestConfig omitted.
 
 // de_SourceNetworkInterfaceArns omitted.
 
