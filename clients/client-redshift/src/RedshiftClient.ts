@@ -382,6 +382,10 @@ import {
 } from "./commands/GetReservedNodeExchangeOfferingsCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "./commands/GetResourcePolicyCommand";
 import {
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "./commands/ListRecommendationsCommand";
+import {
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
 } from "./commands/ModifyAquaConfigurationCommand";
@@ -603,6 +607,7 @@ export type ServiceInputTypes =
   | GetReservedNodeExchangeConfigurationOptionsCommandInput
   | GetReservedNodeExchangeOfferingsCommandInput
   | GetResourcePolicyCommandInput
+  | ListRecommendationsCommandInput
   | ModifyAquaConfigurationCommandInput
   | ModifyAuthenticationProfileCommandInput
   | ModifyClusterCommandInput
@@ -740,6 +745,7 @@ export type ServiceOutputTypes =
   | GetReservedNodeExchangeConfigurationOptionsCommandOutput
   | GetReservedNodeExchangeOfferingsCommandOutput
   | GetResourcePolicyCommandOutput
+  | ListRecommendationsCommandOutput
   | ModifyAquaConfigurationCommandOutput
   | ModifyAuthenticationProfileCommandOutput
   | ModifyClusterCommandOutput

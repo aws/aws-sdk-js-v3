@@ -358,6 +358,10 @@ import {
 } from "../commands/GetReservedNodeExchangeOfferingsCommand";
 import { GetResourcePolicyCommandInput, GetResourcePolicyCommandOutput } from "../commands/GetResourcePolicyCommand";
 import {
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "../commands/ListRecommendationsCommand";
+import {
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
 } from "../commands/ModifyAquaConfigurationCommand";
@@ -826,6 +830,8 @@ import {
   InvalidS3BucketNameFault,
   InvalidS3KeyPrefixFault,
   InvalidTableRestoreArgumentFault,
+  ListRecommendationsMessage,
+  ListRecommendationsResult,
   LoggingStatus,
   ModifyAquaInputMessage,
   ModifyAquaOutputMessage,
@@ -870,6 +876,9 @@ import {
   PutResourcePolicyResult,
   RebootClusterMessage,
   RebootClusterResult,
+  Recommendation,
+  RecommendedAction,
+  ReferenceLink,
   RejectDataShareMessage,
   ReservedNodeConfigurationOption,
   ReservedNodeExchangeNotFoundFault,
@@ -2589,6 +2598,23 @@ export const se_GetResourcePolicyCommand = async (
   body = buildFormUrlencodedString({
     ...se_GetResourcePolicyMessage(input, context),
     [_A]: _GRP,
+    [_V]: _,
+  });
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_queryListRecommendationsCommand
+ */
+export const se_ListRecommendationsCommand = async (
+  input: ListRecommendationsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = SHARED_HEADERS;
+  let body: any;
+  body = buildFormUrlencodedString({
+    ...se_ListRecommendationsMessage(input, context),
+    [_A]: _LR,
     [_V]: _,
   });
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -5087,6 +5113,26 @@ export const de_GetResourcePolicyCommand = async (
   let contents: any = {};
   contents = de_GetResourcePolicyResult(data.GetResourcePolicyResult, context);
   const response: GetResourcePolicyCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_queryListRecommendationsCommand
+ */
+export const de_ListRecommendationsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListRecommendationsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_ListRecommendationsResult(data.ListRecommendationsResult, context);
+  const response: ListRecommendationsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -10960,6 +11006,26 @@ const se_LakeFormationServiceIntegrations = (input: LakeFormationScopeUnion[], c
 };
 
 /**
+ * serializeAws_queryListRecommendationsMessage
+ */
+const se_ListRecommendationsMessage = (input: ListRecommendationsMessage, context: __SerdeContext): any => {
+  const entries: any = {};
+  if (input[_CIl] != null) {
+    entries[_CIl] = input[_CIl];
+  }
+  if (input[_NA] != null) {
+    entries[_NA] = input[_NA];
+  }
+  if (input[_MR] != null) {
+    entries[_MR] = input[_MR];
+  }
+  if (input[_M] != null) {
+    entries[_M] = input[_M];
+  }
+  return entries;
+};
+
+/**
  * serializeAws_queryLogTypeList
  */
 const se_LogTypeList = (input: string[], context: __SerdeContext): any => {
@@ -15862,6 +15928,22 @@ const de_LimitExceededFault = (output: any, context: __SerdeContext): LimitExcee
 };
 
 /**
+ * deserializeAws_queryListRecommendationsResult
+ */
+const de_ListRecommendationsResult = (output: any, context: __SerdeContext): ListRecommendationsResult => {
+  const contents: any = {};
+  if (output.Recommendations === "") {
+    contents[_Re] = [];
+  } else if (output[_Re] != null && output[_Re][_Rec] != null) {
+    contents[_Re] = de_RecommendationList(__getArrayIfSingleItem(output[_Re][_Rec]), context);
+  }
+  if (output[_M] != null) {
+    contents[_M] = __expectString(output[_M]);
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_queryLoggingStatus
  */
 const de_LoggingStatus = (output: any, context: __SerdeContext): LoggingStatus => {
@@ -16466,6 +16548,96 @@ const de_RebootClusterResult = (output: any, context: __SerdeContext): RebootClu
 };
 
 /**
+ * deserializeAws_queryRecommendation
+ */
+const de_Recommendation = (output: any, context: __SerdeContext): Recommendation => {
+  const contents: any = {};
+  if (output[_Id] != null) {
+    contents[_Id] = __expectString(output[_Id]);
+  }
+  if (output[_CIl] != null) {
+    contents[_CIl] = __expectString(output[_CIl]);
+  }
+  if (output[_NA] != null) {
+    contents[_NA] = __expectString(output[_NA]);
+  }
+  if (output[_CAr] != null) {
+    contents[_CAr] = __expectNonNull(__parseRfc3339DateTimeWithOffset(output[_CAr]));
+  }
+  if (output[_RTec] != null) {
+    contents[_RTec] = __expectString(output[_RTec]);
+  }
+  if (output[_Ti] != null) {
+    contents[_Ti] = __expectString(output[_Ti]);
+  }
+  if (output[_D] != null) {
+    contents[_D] = __expectString(output[_D]);
+  }
+  if (output[_Ob] != null) {
+    contents[_Ob] = __expectString(output[_Ob]);
+  }
+  if (output[_IRm] != null) {
+    contents[_IRm] = __expectString(output[_IRm]);
+  }
+  if (output[_RTeco] != null) {
+    contents[_RTeco] = __expectString(output[_RTeco]);
+  }
+  if (output.RecommendedActions === "") {
+    contents[_RAe] = [];
+  } else if (output[_RAe] != null && output[_RAe][_RAec] != null) {
+    contents[_RAe] = de_RecommendedActionList(__getArrayIfSingleItem(output[_RAe][_RAec]), context);
+  }
+  if (output.ReferenceLinks === "") {
+    contents[_RL] = [];
+  } else if (output[_RL] != null && output[_RL][_RLe] != null) {
+    contents[_RL] = de_ReferenceLinkList(__getArrayIfSingleItem(output[_RL][_RLe]), context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRecommendationList
+ */
+const de_RecommendationList = (output: any, context: __SerdeContext): Recommendation[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_Recommendation(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_queryRecommendedAction
+ */
+const de_RecommendedAction = (output: any, context: __SerdeContext): RecommendedAction => {
+  const contents: any = {};
+  if (output[_Te] != null) {
+    contents[_Te] = __expectString(output[_Te]);
+  }
+  if (output[_Dat] != null) {
+    contents[_Dat] = __expectString(output[_Dat]);
+  }
+  if (output[_Co] != null) {
+    contents[_Co] = __expectString(output[_Co]);
+  }
+  if (output[_Ty] != null) {
+    contents[_Ty] = __expectString(output[_Ty]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryRecommendedActionList
+ */
+const de_RecommendedActionList = (output: any, context: __SerdeContext): RecommendedAction[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_RecommendedAction(entry, context);
+    });
+};
+
+/**
  * deserializeAws_queryRecurringCharge
  */
 const de_RecurringCharge = (output: any, context: __SerdeContext): RecurringCharge => {
@@ -16583,6 +16755,31 @@ const de_RedshiftIdcApplicationQuotaExceededFault = (
     contents[_m] = __expectString(output[_m]);
   }
   return contents;
+};
+
+/**
+ * deserializeAws_queryReferenceLink
+ */
+const de_ReferenceLink = (output: any, context: __SerdeContext): ReferenceLink => {
+  const contents: any = {};
+  if (output[_Te] != null) {
+    contents[_Te] = __expectString(output[_Te]);
+  }
+  if (output[_L] != null) {
+    contents[_L] = __expectString(output[_L]);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_queryReferenceLinkList
+ */
+const de_ReferenceLinkList = (output: any, context: __SerdeContext): ReferenceLink[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_ReferenceLink(entry, context);
+    });
 };
 
 /**
@@ -18628,6 +18825,7 @@ const _CV = "ClusterVersion";
 const _CVl = "ClusterVersions";
 const _Cl = "Clusters";
 const _Clu = "Cluster";
+const _Co = "Command";
 const _D = "Description";
 const _DAA = "DescribeAccountAttributes";
 const _DAP = "DeleteAuthenticationProfile";
@@ -18723,6 +18921,7 @@ const _DUL = "DeleteUsageLimit";
 const _DULe = "DescribeUsageLimits";
 const _DV = "DatabaseVersion";
 const _Da = "Date";
+const _Dat = "Database";
 const _Du = "Duration";
 const _E = "Encrypted";
 const _EAL = "EndpointAccessList";
@@ -18818,11 +19017,14 @@ const _IPRa = "IPRange";
 const _IR = "IamRoles";
 const _IRA = "IamRoleArn";
 const _IRa = "IamRole";
+const _IRm = "ImpactRanking";
 const _ITC = "ImportTablesCompleted";
 const _ITIP = "ImportTablesInProgress";
 const _ITNS = "ImportTablesNotStarted";
+const _Id = "Id";
 const _K = "Key";
 const _KKI = "KmsKeyId";
+const _L = "Link";
 const _LDT = "LogDestinationType";
 const _LE = "LogExports";
 const _LEo = "LoggingEnabled";
@@ -18830,6 +19032,7 @@ const _LF = "LakeFormation";
 const _LFM = "LastFailureMessage";
 const _LFQ = "LakeFormationQuery";
 const _LFT = "LastFailureTime";
+const _LR = "ListRecommendations";
 const _LSD = "LoadSampleData";
 const _LSDT = "LastSuccessfulDeliveryTime";
 const _LT = "LimitType";
@@ -18872,6 +19075,7 @@ const _Ma = "Manual";
 const _Me = "Message";
 const _Mo = "Mode";
 const _N = "Name";
+const _NA = "NamespaceArn";
 const _NC = "NodeCount";
 const _NCI = "NewClusterIdentifier";
 const _NCO = "NodeConfigurationOption";
@@ -18892,6 +19096,7 @@ const _OCO = "OrderableClusterOptions";
 const _OCOr = "OrderableClusterOption";
 const _ON = "OperationName";
 const _OT = "OfferingType";
+const _Ob = "Observation";
 const _P = "Port";
 const _PA = "PubliclyAccessible";
 const _PAED = "ParameterApplyErrorDescription";
@@ -18924,6 +19129,8 @@ const _Po = "Policy";
 const _R = "Resources";
 const _RA = "ResourceArn";
 const _RAP = "ResetAllParameters";
+const _RAe = "RecommendedActions";
+const _RAec = "RecommendedAction";
 const _RC = "RebootCluster";
 const _RCA = "RecurringChargeAmount";
 const _RCF = "RecurringChargeFrequency";
@@ -18943,6 +19150,8 @@ const _RIAA = "RedshiftIdcApplicationArn";
 const _RIAN = "RedshiftIdcApplicationName";
 const _RIAe = "RedshiftIdcApplications";
 const _RIR = "RemoveIamRoles";
+const _RL = "ReferenceLinks";
+const _RLe = "ReferenceLink";
 const _RN = "ResourceName";
 const _RNCO = "ReservedNodeConfigurationOption";
 const _RNCOL = "ReservedNodeConfigurationOptionList";
@@ -18965,9 +19174,13 @@ const _RSA = "RevokeSnapshotAccess";
 const _RT = "ResourceType";
 const _RTFCS = "RestoreTableFromClusterSnapshot";
 const _RTe = "RevisionTarget";
+const _RTec = "RecommendationType";
+const _RTeco = "RecommendationText";
 const _RTeq = "RequestTime";
 const _RTes = "ResizeType";
 const _RTev = "RevisionTargets";
+const _Re = "Recommendations";
+const _Rec = "Recommendation";
 const _S = "Severity";
 const _SA = "SnapshotArn";
 const _SAD = "ScheduledActionDescription";
@@ -19073,6 +19286,9 @@ const _TSN = "TargetSchemaName";
 const _TTIA = "TrustedTokenIssuerArn";
 const _TV = "TagValues";
 const _Ta = "Tag";
+const _Te = "Text";
+const _Ti = "Title";
+const _Ty = "Type";
 const _UA = "UpdatedAt";
 const _UL = "UsageLimits";
 const _ULI = "UsageLimitId";

@@ -486,6 +486,11 @@ import {
   GetResourcePolicyCommandOutput,
 } from "./commands/GetResourcePolicyCommand";
 import {
+  ListRecommendationsCommand,
+  ListRecommendationsCommandInput,
+  ListRecommendationsCommandOutput,
+} from "./commands/ListRecommendationsCommand";
+import {
   ModifyAquaConfigurationCommand,
   ModifyAquaConfigurationCommandInput,
   ModifyAquaConfigurationCommandOutput,
@@ -752,6 +757,7 @@ const commands = {
   GetReservedNodeExchangeConfigurationOptionsCommand,
   GetReservedNodeExchangeOfferingsCommand,
   GetResourcePolicyCommand,
+  ListRecommendationsCommand,
   ModifyAquaConfigurationCommand,
   ModifyAuthenticationProfileCommand,
   ModifyClusterCommand,
@@ -2403,6 +2409,23 @@ export interface Redshift {
     args: GetResourcePolicyCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetResourcePolicyCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListRecommendationsCommand}
+   */
+  listRecommendations(
+    args: ListRecommendationsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListRecommendationsCommandOutput>;
+  listRecommendations(
+    args: ListRecommendationsCommandInput,
+    cb: (err: any, data?: ListRecommendationsCommandOutput) => void
+  ): void;
+  listRecommendations(
+    args: ListRecommendationsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListRecommendationsCommandOutput) => void
   ): void;
 
   /**

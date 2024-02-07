@@ -44,3 +44,4 @@ export * from "./DescribeTagsPaginator";
 export * from "./DescribeUsageLimitsPaginator";
 export * from "./GetReservedNodeExchangeConfigurationOptionsPaginator";
 export * from "./GetReservedNodeExchangeOfferingsPaginator";
+export * from "./ListRecommendationsPaginator";

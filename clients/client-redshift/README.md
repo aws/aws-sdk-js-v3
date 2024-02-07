@@ -44,16 +44,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `RedshiftClient` and
-the commands you need, for example `DescribeClustersCommand`:
+the commands you need, for example `ListRecommendationsCommand`:
 
 ```js
 // ES5 example
-const { RedshiftClient, DescribeClustersCommand } = require("@aws-sdk/client-redshift");
+const { RedshiftClient, ListRecommendationsCommand } = require("@aws-sdk/client-redshift");
 ```
 
 ```ts
 // ES6+ example
-import { RedshiftClient, DescribeClustersCommand } from "@aws-sdk/client-redshift";
+import { RedshiftClient, ListRecommendationsCommand } from "@aws-sdk/client-redshift";
 ```
 
 ### Usage
@@ -72,7 +72,7 @@ const client = new RedshiftClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new DescribeClustersCommand(params);
+const command = new ListRecommendationsCommand(params);
 ```
 
 #### Async/await
@@ -151,7 +151,7 @@ const client = new AWS.Redshift({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.describeClusters(params);
+  const data = await client.listRecommendations(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -159,7 +159,7 @@ try {
 
 // Promises.
 client
-  .describeClusters(params)
+  .listRecommendations(params)
   .then((data) => {
     // process data.
   })
@@ -168,7 +168,7 @@ client
   });
 
 // callbacks.
-client.describeClusters(params, (err, data) => {
+client.listRecommendations(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -1014,6 +1014,14 @@ GetResourcePolicy
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/GetResourcePolicyCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/GetResourcePolicyCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/GetResourcePolicyCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListRecommendations
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/redshift/command/ListRecommendationsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/ListRecommendationsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-redshift/Interface/ListRecommendationsCommandOutput/)
 
 </details>
 <details>

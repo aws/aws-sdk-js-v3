@@ -98,6 +98,7 @@ export * from "./GetClusterCredentialsWithIAMCommand";
 export * from "./GetReservedNodeExchangeConfigurationOptionsCommand";
 export * from "./GetReservedNodeExchangeOfferingsCommand";
 export * from "./GetResourcePolicyCommand";
+export * from "./ListRecommendationsCommand";
 export * from "./ModifyAquaConfigurationCommand";
 export * from "./ModifyAuthenticationProfileCommand";
 export * from "./ModifyClusterCommand";

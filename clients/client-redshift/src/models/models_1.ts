@@ -3458,6 +3458,21 @@ export class InvalidPolicyFault extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ImpactRankingType = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+} as const;
+
+/**
+ * @public
+ */
+export type ImpactRankingType = (typeof ImpactRankingType)[keyof typeof ImpactRankingType];
+
+/**
+ * @public
  * <p>You have exceeded the allowed number of table restore requests. Wait for your
  *             current table restore requests to complete before making a new request.</p>
  */
@@ -3517,6 +3532,206 @@ export class InvalidTableRestoreArgumentFault extends __BaseException {
     });
     Object.setPrototypeOf(this, InvalidTableRestoreArgumentFault.prototype);
   }
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendationsMessage {
+  /**
+   * @public
+   * <p>The unique identifier of the Amazon Redshift cluster for which the list of Advisor recommendations is returned.
+   *           If the neither the cluster identifier and the cluster namespace ARN parameters are specified, then recommendations for all clusters in the account are returned.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Redshift cluster namespace Amazon Resource Name (ARN) for which the list of Advisor recommendations is returned.
+   *             If the neither the cluster identifier and the cluster namespace ARN parameters are specified, then recommendations for all clusters in the account are returned.</p>
+   */
+  NamespaceArn?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of response records to return in each call. If the number of remaining response records
+   *             exceeds the specified MaxRecords value, a value is returned in a marker field of the response. You can retrieve
+   *             the next set of records by retrying the command with the returned marker value.</p>
+   */
+  MaxRecords?: number;
+
+  /**
+   * @public
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent request. If a
+   *             value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   */
+  Marker?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const RecommendedActionType = {
+  CLI: "CLI",
+  SQL: "SQL",
+} as const;
+
+/**
+ * @public
+ */
+export type RecommendedActionType = (typeof RecommendedActionType)[keyof typeof RecommendedActionType];
+
+/**
+ * @public
+ * <p>The recommended action from the Amazon Redshift Advisor recommendation.</p>
+ */
+export interface RecommendedAction {
+  /**
+   * @public
+   * <p>The specific instruction about the command.</p>
+   */
+  Text?: string;
+
+  /**
+   * @public
+   * <p>The database name to perform the action on. Only applicable if the type of command is SQL.</p>
+   */
+  Database?: string;
+
+  /**
+   * @public
+   * <p>The command to run.</p>
+   */
+  Command?: string;
+
+  /**
+   * @public
+   * <p>The type of command.</p>
+   */
+  Type?: RecommendedActionType;
+}
+
+/**
+ * @public
+ * <p>A link to an Amazon Redshift Advisor reference for more information about a recommendation.</p>
+ */
+export interface ReferenceLink {
+  /**
+   * @public
+   * <p>The hyperlink text that describes the link to more information.</p>
+   */
+  Text?: string;
+
+  /**
+   * @public
+   * <p>The URL address to find more information.</p>
+   */
+  Link?: string;
+}
+
+/**
+ * @public
+ * <p>An Amazon Redshift Advisor recommended action on the Amazon Redshift cluster.</p>
+ */
+export interface Recommendation {
+  /**
+   * @public
+   * <p>A unique identifier of the Advisor recommendation.</p>
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * <p>The unique identifier of the cluster for which the recommendation is returned.</p>
+   */
+  ClusterIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Redshift cluster namespace ARN for which the recommendations is returned.</p>
+   */
+  NamespaceArn?: string;
+
+  /**
+   * @public
+   * <p>The date and time (UTC) that the recommendation was created.</p>
+   */
+  CreatedAt?: Date;
+
+  /**
+   * @public
+   * <p>The type of Advisor recommendation.</p>
+   */
+  RecommendationType?: string;
+
+  /**
+   * @public
+   * <p>The title of the recommendation.</p>
+   */
+  Title?: string;
+
+  /**
+   * @public
+   * <p>The description of the recommendation.</p>
+   */
+  Description?: string;
+
+  /**
+   * @public
+   * <p>The description of what was observed about your cluster.</p>
+   */
+  Observation?: string;
+
+  /**
+   * @public
+   * <p>The scale of the impact that the Advisor recommendation has to the performance and cost of the cluster.</p>
+   */
+  ImpactRanking?: ImpactRankingType;
+
+  /**
+   * @public
+   * <p>The description of the recommendation.</p>
+   */
+  RecommendationText?: string;
+
+  /**
+   * @public
+   * <p>List of Amazon Redshift recommended actions.</p>
+   */
+  RecommendedActions?: RecommendedAction[];
+
+  /**
+   * @public
+   * <p>List of helpful links for more information about the Advisor recommendation.</p>
+   */
+  ReferenceLinks?: ReferenceLink[];
+}
+
+/**
+ * @public
+ */
+export interface ListRecommendationsResult {
+  /**
+   * @public
+   * <p>The Advisor recommendations for action on the Amazon Redshift cluster.</p>
+   */
+  Recommendations?: Recommendation[];
+
+  /**
+   * @public
+   * <p>A value that indicates the starting point for the next set of response records in a subsequent
+   *             request. If a value is returned in a response, you can retrieve the next set
+   *             of records by providing this returned marker value in the Marker parameter
+   *             and retrying the command. If the Marker field is empty, all response
+   *             records have been retrieved for the request.
+   *         </p>
+   */
+  Marker?: string;
 }
 
 /**
