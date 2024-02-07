@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.509.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.508.0...v3.509.0) (2024-02-07)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports manifests for specifying files or objects to transfer. ([a7ab5f5](https://github.com/aws/aws-sdk-js-v3/commit/a7ab5f5095f4514a3d0d5d2ec7a2ce490a0e6809))
+
+
+
+
+
 # [3.507.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.506.0...v3.507.0) (2024-02-05)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.509.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.508.0...v3.509.0) (2024-02-07)
+
+
+### Features
+
+* **client-redshift:** LisRecommendations API to fetch Amazon Redshift Advisor recommendations. ([5f784a2](https://github.com/aws/aws-sdk-js-v3/commit/5f784a2b763c9512b56715d157d4c20855156dfb))
+
+
+
+
+
 # [3.507.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.506.0...v3.507.0) (2024-02-05)
 
 

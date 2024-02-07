@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.509.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.508.0...v3.509.0) (2024-02-07)
+
+
+### Features
+
+* **client-datasync:** AWS DataSync now supports manifests for specifying files or objects to transfer. ([a7ab5f5](https://github.com/aws/aws-sdk-js-v3/commit/a7ab5f5095f4514a3d0d5d2ec7a2ce490a0e6809))
+* **client-lex-models-v2:** This release introduces a new bot replication feature as part of Lex Global Resiliency offering. This feature leverages a new set of APIs that allow customers to create bot replicas and replicate changes to bots across regions. ([a8559c4](https://github.com/aws/aws-sdk-js-v3/commit/a8559c4a6d90a5cf224b00fad3276c92bc7ff64f))
+* **client-redshift:** LisRecommendations API to fetch Amazon Redshift Advisor recommendations. ([5f784a2](https://github.com/aws/aws-sdk-js-v3/commit/5f784a2b763c9512b56715d157d4c20855156dfb))
+* **clients:** update client endpoints as of 2024-02-07 ([91d8bd2](https://github.com/aws/aws-sdk-js-v3/commit/91d8bd275d78da54a715112b1e910a78af595962))
+
+
+
+
+
 # [3.508.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.507.0...v3.508.0) (2024-02-06)
 
 
