@@ -6,11 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { LexModelsV2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../LexModelsV2Client";
-import { DescribeCustomVocabularyMetadataRequest, DescribeCustomVocabularyMetadataResponse } from "../models/models_1";
-import {
-  de_DescribeCustomVocabularyMetadataCommand,
-  se_DescribeCustomVocabularyMetadataCommand,
-} from "../protocols/Aws_restJson1";
+import { DescribeBotReplicaRequest, DescribeBotReplicaResponse } from "../models/models_1";
+import { de_DescribeBotReplicaCommand, se_DescribeBotReplicaCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -19,49 +16,48 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeCustomVocabularyMetadataCommand}.
+ * The input for {@link DescribeBotReplicaCommand}.
  */
-export interface DescribeCustomVocabularyMetadataCommandInput extends DescribeCustomVocabularyMetadataRequest {}
+export interface DescribeBotReplicaCommandInput extends DescribeBotReplicaRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeCustomVocabularyMetadataCommand}.
+ * The output of {@link DescribeBotReplicaCommand}.
  */
-export interface DescribeCustomVocabularyMetadataCommandOutput
-  extends DescribeCustomVocabularyMetadataResponse,
-    __MetadataBearer {}
+export interface DescribeBotReplicaCommandOutput extends DescribeBotReplicaResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Provides metadata information about a custom vocabulary.</p>
+ * <p>Monitors the bot replication status through the UI console.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { LexModelsV2Client, DescribeCustomVocabularyMetadataCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
- * // const { LexModelsV2Client, DescribeCustomVocabularyMetadataCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
+ * import { LexModelsV2Client, DescribeBotReplicaCommand } from "@aws-sdk/client-lex-models-v2"; // ES Modules import
+ * // const { LexModelsV2Client, DescribeBotReplicaCommand } = require("@aws-sdk/client-lex-models-v2"); // CommonJS import
  * const client = new LexModelsV2Client(config);
- * const input = { // DescribeCustomVocabularyMetadataRequest
+ * const input = { // DescribeBotReplicaRequest
  *   botId: "STRING_VALUE", // required
- *   botVersion: "STRING_VALUE", // required
- *   localeId: "STRING_VALUE", // required
+ *   replicaRegion: "STRING_VALUE", // required
  * };
- * const command = new DescribeCustomVocabularyMetadataCommand(input);
+ * const command = new DescribeBotReplicaCommand(input);
  * const response = await client.send(command);
- * // { // DescribeCustomVocabularyMetadataResponse
+ * // { // DescribeBotReplicaResponse
  * //   botId: "STRING_VALUE",
- * //   botVersion: "STRING_VALUE",
- * //   localeId: "STRING_VALUE",
- * //   customVocabularyStatus: "Ready" || "Deleting" || "Exporting" || "Importing" || "Creating",
+ * //   replicaRegion: "STRING_VALUE",
+ * //   sourceRegion: "STRING_VALUE",
  * //   creationDateTime: new Date("TIMESTAMP"),
- * //   lastUpdatedDateTime: new Date("TIMESTAMP"),
+ * //   botReplicaStatus: "Enabling" || "Enabled" || "Deleting" || "Failed",
+ * //   failureReasons: [ // FailureReasons
+ * //     "STRING_VALUE",
+ * //   ],
  * // };
  *
  * ```
  *
- * @param DescribeCustomVocabularyMetadataCommandInput - {@link DescribeCustomVocabularyMetadataCommandInput}
- * @returns {@link DescribeCustomVocabularyMetadataCommandOutput}
- * @see {@link DescribeCustomVocabularyMetadataCommandInput} for command's `input` shape.
- * @see {@link DescribeCustomVocabularyMetadataCommandOutput} for command's `response` shape.
+ * @param DescribeBotReplicaCommandInput - {@link DescribeBotReplicaCommandInput}
+ * @returns {@link DescribeBotReplicaCommandOutput}
+ * @see {@link DescribeBotReplicaCommandInput} for command's `input` shape.
+ * @see {@link DescribeBotReplicaCommandOutput} for command's `response` shape.
  * @see {@link LexModelsV2ClientResolvedConfig | config} for LexModelsV2Client's `config` shape.
  *
  * @throws {@link InternalServerException} (server fault)
@@ -87,10 +83,10 @@ export interface DescribeCustomVocabularyMetadataCommandOutput
  * <p>Base exception class for all service exceptions from LexModelsV2 service.</p>
  *
  */
-export class DescribeCustomVocabularyMetadataCommand extends $Command
+export class DescribeBotReplicaCommand extends $Command
   .classBuilder<
-    DescribeCustomVocabularyMetadataCommandInput,
-    DescribeCustomVocabularyMetadataCommandOutput,
+    DescribeBotReplicaCommandInput,
+    DescribeBotReplicaCommandOutput,
     LexModelsV2ClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,9 +100,9 @@ export class DescribeCustomVocabularyMetadataCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("LexModelBuildingServiceV2", "DescribeCustomVocabularyMetadata", {})
-  .n("LexModelsV2Client", "DescribeCustomVocabularyMetadataCommand")
+  .s("LexModelBuildingServiceV2", "DescribeBotReplica", {})
+  .n("LexModelsV2Client", "DescribeBotReplicaCommand")
   .f(void 0, void 0)
-  .ser(se_DescribeCustomVocabularyMetadataCommand)
-  .de(de_DescribeCustomVocabularyMetadataCommand)
+  .ser(se_DescribeBotReplicaCommand)
+  .de(de_DescribeBotReplicaCommand)
   .build() {}

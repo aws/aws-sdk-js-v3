@@ -3033,6 +3033,65 @@ export interface BotAliasLocaleSettings {
  * @public
  * @enum
  */
+export const BotAliasReplicationStatus = {
+  Available: "Available",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+  Updating: "Updating",
+} as const;
+
+/**
+ * @public
+ */
+export type BotAliasReplicationStatus = (typeof BotAliasReplicationStatus)[keyof typeof BotAliasReplicationStatus];
+
+/**
+ * @public
+ * <p>Contains information about all the aliases replication statuses applicable for global resiliency.</p>
+ */
+export interface BotAliasReplicaSummary {
+  /**
+   * @public
+   * <p>The bot alias ID for all the alias bot replications.</p>
+   */
+  botAliasId?: string;
+
+  /**
+   * @public
+   * <p>The replication statuses for all the alias bot replications.</p>
+   */
+  botAliasReplicationStatus?: BotAliasReplicationStatus;
+
+  /**
+   * @public
+   * <p>The bot version for all the alias bot replications.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The creation time and date for all the alias bot replications.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The last time and date updated for all the alias bot replications.</p>
+   */
+  lastUpdatedDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The reasons for failure for the aliases bot replications.</p>
+   */
+  failureReasons?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const BotAliasStatus = {
   Available: "Available",
   Creating: "Creating",
@@ -3775,6 +3834,52 @@ export interface BotRecommendationSummary {
  * @public
  * @enum
  */
+export const BotReplicaStatus = {
+  Deleting: "Deleting",
+  Enabled: "Enabled",
+  Enabling: "Enabling",
+  Failed: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type BotReplicaStatus = (typeof BotReplicaStatus)[keyof typeof BotReplicaStatus];
+
+/**
+ * @public
+ * <p>Contains summary information about all the replication statuses applicable for global resiliency.</p>
+ */
+export interface BotReplicaSummary {
+  /**
+   * @public
+   * <p>The replica region used in the replication statuses summary.</p>
+   */
+  replicaRegion?: string;
+
+  /**
+   * @public
+   * <p>The creation time and date for the replicated bots.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The operation status for the replicated bot applicable.</p>
+   */
+  botReplicaStatus?: BotReplicaStatus;
+
+  /**
+   * @public
+   * <p>The reasons for the failure for the replicated bot.</p>
+   */
+  failureReasons?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const BotSortAttribute = {
   BotName: "BotName",
 } as const;
@@ -3897,6 +4002,85 @@ export interface BotVersionLocaleDetails {
    * <p>The version of a bot used for a bot locale.</p>
    */
   sourceBotVersion: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BotVersionReplicaSortAttribute = {
+  BotVersion: "BotVersion",
+} as const;
+
+/**
+ * @public
+ */
+export type BotVersionReplicaSortAttribute =
+  (typeof BotVersionReplicaSortAttribute)[keyof typeof BotVersionReplicaSortAttribute];
+
+/**
+ * @public
+ * <p>The sort category for the version replicated bots.</p>
+ */
+export interface BotVersionReplicaSortBy {
+  /**
+   * @public
+   * <p>The attribute of the sort category for the version replicated bots.</p>
+   */
+  attribute: BotVersionReplicaSortAttribute | undefined;
+
+  /**
+   * @public
+   * <p>The order of the sort category for the version replicated bots.</p>
+   */
+  order: SortOrder | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BotVersionReplicationStatus = {
+  Available: "Available",
+  Creating: "Creating",
+  Deleting: "Deleting",
+  Failed: "Failed",
+} as const;
+
+/**
+ * @public
+ */
+export type BotVersionReplicationStatus =
+  (typeof BotVersionReplicationStatus)[keyof typeof BotVersionReplicationStatus];
+
+/**
+ * @public
+ * <p>Contains summary information for all the version replication statuses applicable for Global resiliency.</p>
+ */
+export interface BotVersionReplicaSummary {
+  /**
+   * @public
+   * <p>The bot version for the summary information for all the version replication statuses.</p>
+   */
+  botVersion?: string;
+
+  /**
+   * @public
+   * <p>The version replication status for all the replicated bots.</p>
+   */
+  botVersionReplicationStatus?: BotVersionReplicationStatus;
+
+  /**
+   * @public
+   * <p>The creation date and time of the replication status for all the replicated bots.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The reasons for replication failure for all the replicated bots.</p>
+   */
+  failureReasons?: string[];
 }
 
 /**
@@ -5353,6 +5537,58 @@ export interface CreateBotLocaleResponse {
    * <p>Contains specifications about the generative AI capabilities from Amazon Bedrock that you can turn on for your bot.</p>
    */
   generativeAISettings?: GenerativeAISettings;
+}
+
+/**
+ * @public
+ */
+export interface CreateBotReplicaRequest {
+  /**
+   * @public
+   * <p>The request for the unique bot ID of the source bot to be replicated in the secondary region.</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The request for the secondary region that will be used in the replication of the source bot.</p>
+   */
+  replicaRegion: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface CreateBotReplicaResponse {
+  /**
+   * @public
+   * <p>The unique bot ID of the replicated bot generated.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The region of the replicated bot generated.</p>
+   */
+  replicaRegion?: string;
+
+  /**
+   * @public
+   * <p>The source region for the source bot used for the replicated bot generated.</p>
+   */
+  sourceRegion?: string;
+
+  /**
+   * @public
+   * <p>The creation date and time of the replicated bot generated.</p>
+   */
+  creationDateTime?: Date;
+
+  /**
+   * @public
+   * <p>The operational status of the replicated bot generated.</p>
+   */
+  botReplicaStatus?: BotReplicaStatus;
 }
 
 /**
@@ -7042,6 +7278,46 @@ export interface DeleteBotLocaleResponse {
 /**
  * @public
  */
+export interface DeleteBotReplicaRequest {
+  /**
+   * @public
+   * <p>The unique ID of the replicated bot to be deleted from the secondary region</p>
+   */
+  botId: string | undefined;
+
+  /**
+   * @public
+   * <p>The secondary region of the replicated bot that will be deleted.</p>
+   */
+  replicaRegion: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteBotReplicaResponse {
+  /**
+   * @public
+   * <p>The unique bot ID of the replicated bot generated.</p>
+   */
+  botId?: string;
+
+  /**
+   * @public
+   * <p>The region of the replicated bot generated.</p>
+   */
+  replicaRegion?: string;
+
+  /**
+   * @public
+   * <p>The operational status of the replicated bot generated.</p>
+   */
+  botReplicaStatus?: BotReplicaStatus;
+}
+
+/**
+ * @public
+ */
 export interface DeleteBotVersionRequest {
   /**
    * @public
@@ -8015,473 +8291,6 @@ export interface TranscriptSourceSetting {
 }
 
 /**
- * @public
- */
-export interface DescribeBotRecommendationResponse {
-  /**
-   * @public
-   * <p>The identifier of the bot associated with the bot
-   *          recommendation.</p>
-   */
-  botId?: string;
-
-  /**
-   * @public
-   * <p>The version of the bot associated with the bot
-   *          recommendation.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * @public
-   * <p>The identifier of the language and locale of the bot recommendation
-   *          to describe.</p>
-   */
-  localeId?: string;
-
-  /**
-   * @public
-   * <p>The status of the bot recommendation. If the status is Failed, then
-   *          the reasons for the failure are listed in the failureReasons field.
-   *       </p>
-   */
-  botRecommendationStatus?: BotRecommendationStatus;
-
-  /**
-   * @public
-   * <p>The identifier of the bot recommendation being described.</p>
-   */
-  botRecommendationId?: string;
-
-  /**
-   * @public
-   * <p>If botRecommendationStatus is Failed, Amazon Lex explains why.</p>
-   */
-  failureReasons?: string[];
-
-  /**
-   * @public
-   * <p>The date and time that the bot recommendation was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * @public
-   * <p>The date and time that the bot recommendation was last
-   *          updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-
-  /**
-   * @public
-   * <p>The object representing the Amazon S3 bucket containing the transcript,
-   *          as well as the associated metadata.</p>
-   */
-  transcriptSourceSetting?: TranscriptSourceSetting;
-
-  /**
-   * @public
-   * <p>The object representing the passwords that were used to encrypt the
-   *          data related to the bot recommendation results, as well as the KMS key
-   *          ARN used to encrypt the associated metadata.</p>
-   */
-  encryptionSetting?: EncryptionSetting;
-
-  /**
-   * @public
-   * <p>The object representing the URL of the bot definition, the URL of
-   *          the associated transcript and a statistical summary of the bot
-   *          recommendation results.</p>
-   */
-  botRecommendationResults?: BotRecommendationResults;
-}
-
-/**
- * @public
- */
-export interface DescribeBotResourceGenerationRequest {
-  /**
-   * @public
-   * <p>The unique identifier of the bot for which to return the generation details.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * @public
-   * <p>The version of the bot for which to return the generation details.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * @public
-   * <p>The locale of the bot for which to return the generation details.</p>
-   */
-  localeId: string | undefined;
-
-  /**
-   * @public
-   * <p>The unique identifier of the generation request for which to
-   *          return the generation details.</p>
-   */
-  generationId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const GenerationStatus = {
-  Complete: "Complete",
-  Failed: "Failed",
-  InProgress: "InProgress",
-} as const;
-
-/**
- * @public
- */
-export type GenerationStatus = (typeof GenerationStatus)[keyof typeof GenerationStatus];
-
-/**
- * @public
- */
-export interface DescribeBotResourceGenerationResponse {
-  /**
-   * @public
-   * <p>The unique identifier of the bot for which the generation request was
-   *       made.</p>
-   */
-  botId?: string;
-
-  /**
-   * @public
-   * <p>The version of the bot for which the generation request was made.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * @public
-   * <p>The locale of the bot for which the generation request was made.</p>
-   */
-  localeId?: string;
-
-  /**
-   * @public
-   * <p>The generation ID for which to return the generation details.</p>
-   */
-  generationId?: string;
-
-  /**
-   * @public
-   * <p>A list of reasons why the generation of bot resources through natural language description failed.</p>
-   */
-  failureReasons?: string[];
-
-  /**
-   * @public
-   * <p>The status of the generation request.</p>
-   */
-  generationStatus?: GenerationStatus;
-
-  /**
-   * @public
-   * <p>The prompt used in the generation request.</p>
-   */
-  generationInputPrompt?: string;
-
-  /**
-   * @public
-   * <p>The Amazon S3 location of the generated bot locale configuration.</p>
-   */
-  generatedBotLocaleUrl?: string;
-
-  /**
-   * @public
-   * <p>The date and time at which the item was generated.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * @public
-   * <p>The ARN of the model used to generate the bot resources.</p>
-   */
-  modelArn?: string;
-
-  /**
-   * @public
-   * <p>The date and time at which the generated item was updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DescribeBotVersionRequest {
-  /**
-   * @public
-   * <p>The identifier of the bot containing the version to return metadata
-   *          for.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * @public
-   * <p>The version of the bot to return metadata for.</p>
-   */
-  botVersion: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeBotVersionResponse {
-  /**
-   * @public
-   * <p>The identifier of the bot that contains the version.</p>
-   */
-  botId?: string;
-
-  /**
-   * @public
-   * <p>The name of the bot that contains the version.</p>
-   */
-  botName?: string;
-
-  /**
-   * @public
-   * <p>The version of the bot that was described.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * @public
-   * <p>The description specified for the bot.</p>
-   */
-  description?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of an IAM role that has permission to
-   *          access the bot version.</p>
-   */
-  roleArn?: string;
-
-  /**
-   * @public
-   * <p>Data privacy settings for the bot version.</p>
-   */
-  dataPrivacy?: DataPrivacy;
-
-  /**
-   * @public
-   * <p>The number of seconds that a session with the bot remains active
-   *          before it is discarded by Amazon Lex.</p>
-   */
-  idleSessionTTLInSeconds?: number;
-
-  /**
-   * @public
-   * <p>The current status of the bot. When the status is
-   *             <code>Available</code>, the bot version is ready for use.</p>
-   */
-  botStatus?: BotStatus;
-
-  /**
-   * @public
-   * <p>If the <code>botStatus</code> is <code>Failed</code>, this contains
-   *          a list of reasons that the version couldn't be built.</p>
-   */
-  failureReasons?: string[];
-
-  /**
-   * @public
-   * <p>A timestamp of the date and time that the bot version was
-   *          created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * @public
-   * <p>A list of the networks to which the bot version you described belongs.</p>
-   */
-  parentBotNetworks?: ParentBotNetwork[];
-
-  /**
-   * @public
-   * <p>The type of the bot in the version that was described.</p>
-   */
-  botType?: BotType;
-
-  /**
-   * @public
-   * <p>The members of bot network in the version that was described.</p>
-   */
-  botMembers?: BotMember[];
-}
-
-/**
- * @public
- */
-export interface DescribeCustomVocabularyMetadataRequest {
-  /**
-   * @public
-   * <p>The unique identifier of the bot that contains the custom vocabulary.</p>
-   */
-  botId: string | undefined;
-
-  /**
-   * @public
-   * <p>The bot version of the bot to return metadata for.</p>
-   */
-  botVersion: string | undefined;
-
-  /**
-   * @public
-   * <p>The locale to return the custom vocabulary information for.
-   *       The locale must be <code>en_GB</code>.</p>
-   */
-  localeId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeCustomVocabularyMetadataResponse {
-  /**
-   * @public
-   * <p>The identifier of the bot that contains the custom vocabulary.</p>
-   */
-  botId?: string;
-
-  /**
-   * @public
-   * <p>The version of the bot that contains the custom vocabulary to describe.</p>
-   */
-  botVersion?: string;
-
-  /**
-   * @public
-   * <p>The locale that contains the custom vocabulary to describe.</p>
-   */
-  localeId?: string;
-
-  /**
-   * @public
-   * <p>The status of the custom vocabulary. If the status is
-   *       <code>Ready</code> the custom vocabulary is ready to use.</p>
-   */
-  customVocabularyStatus?: CustomVocabularyStatus;
-
-  /**
-   * @public
-   * <p>The date and time that the custom vocabulary was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * @public
-   * <p>The date and time that the custom vocabulary was last updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DescribeExportRequest {
-  /**
-   * @public
-   * <p>The unique identifier of the export to describe.</p>
-   */
-  exportId: string | undefined;
-}
-
-/**
- * @public
- */
-export interface DescribeExportResponse {
-  /**
-   * @public
-   * <p>The unique identifier of the described export.</p>
-   */
-  exportId?: string;
-
-  /**
-   * @public
-   * <p>The bot, bot ID, and optional locale ID of the exported bot or bot
-   *          locale.</p>
-   */
-  resourceSpecification?: ExportResourceSpecification;
-
-  /**
-   * @public
-   * <p>The file format used in the files that describe the resource.
-   *       </p>
-   */
-  fileFormat?: ImportExportFileFormat;
-
-  /**
-   * @public
-   * <p>The status of the export. When the status is <code>Complete</code>
-   *          the export archive file is available for download.</p>
-   */
-  exportStatus?: ExportStatus;
-
-  /**
-   * @public
-   * <p>If the <code>exportStatus</code> is failed, contains one or more
-   *          reasons why the export could not be completed.</p>
-   */
-  failureReasons?: string[];
-
-  /**
-   * @public
-   * <p>A pre-signed S3 URL that points to the bot or bot locale archive.
-   *          The URL is only available for 5 minutes after calling the
-   *             <code>DescribeExport</code> operation.</p>
-   */
-  downloadUrl?: string;
-
-  /**
-   * @public
-   * <p>The date and time that the export was created.</p>
-   */
-  creationDateTime?: Date;
-
-  /**
-   * @public
-   * <p>The last date and time that the export was updated.</p>
-   */
-  lastUpdatedDateTime?: Date;
-}
-
-/**
- * @public
- */
-export interface DescribeImportRequest {
-  /**
-   * @public
-   * <p>The unique identifier of the import to describe.</p>
-   */
-  importId: string | undefined;
-}
-
-/**
- * @public
- * @enum
- */
-export const MergeStrategy = {
-  Append: "Append",
-  FailOnConflict: "FailOnConflict",
-  Overwrite: "Overwrite",
-} as const;
-
-/**
- * @public
- */
-export type MergeStrategy = (typeof MergeStrategy)[keyof typeof MergeStrategy];
-
-/**
  * @internal
  */
 export const CreateExportRequestFilterSensitiveLog = (obj: CreateExportRequest): any => ({
@@ -8496,12 +8305,4 @@ export const EncryptionSettingFilterSensitiveLog = (obj: EncryptionSetting): any
   ...obj,
   ...(obj.botLocaleExportPassword && { botLocaleExportPassword: SENSITIVE_STRING }),
   ...(obj.associatedTranscriptsPassword && { associatedTranscriptsPassword: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const DescribeBotRecommendationResponseFilterSensitiveLog = (obj: DescribeBotRecommendationResponse): any => ({
-  ...obj,
-  ...(obj.encryptionSetting && { encryptionSetting: EncryptionSettingFilterSensitiveLog(obj.encryptionSetting) }),
 });

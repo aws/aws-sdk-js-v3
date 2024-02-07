@@ -261,6 +261,14 @@ CreateBotLocale
 </details>
 <details>
 <summary>
+CreateBotReplica
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/CreateBotReplicaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/CreateBotReplicaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/CreateBotReplicaCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateBotVersion
 </summary>
 
@@ -353,6 +361,14 @@ DeleteBotLocale
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/DeleteBotLocaleCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DeleteBotLocaleCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DeleteBotLocaleCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteBotReplica
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/DeleteBotReplicaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DeleteBotReplicaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DeleteBotReplicaCommandOutput/)
 
 </details>
 <details>
@@ -473,6 +489,14 @@ DescribeBotRecommendation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/DescribeBotRecommendationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotRecommendationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotRecommendationCommandOutput/)
+
+</details>
+<details>
+<summary>
+DescribeBotReplica
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/DescribeBotReplicaCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotReplicaCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/DescribeBotReplicaCommandOutput/)
 
 </details>
 <details>
@@ -613,6 +637,14 @@ ListBotAliases
 </details>
 <details>
 <summary>
+ListBotAliasReplicas
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/ListBotAliasReplicasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotAliasReplicasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotAliasReplicasCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListBotLocales
 </summary>
 
@@ -629,6 +661,14 @@ ListBotRecommendations
 </details>
 <details>
 <summary>
+ListBotReplicas
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/ListBotReplicasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotReplicasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotReplicasCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListBotResourceGenerations
 </summary>
 
@@ -641,6 +681,14 @@ ListBots
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/ListBotsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotsCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListBotVersionReplicas
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/lex-models-v2/command/ListBotVersionReplicasCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotVersionReplicasCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-lex-models-v2/Interface/ListBotVersionReplicasCommandOutput/)
 
 </details>
 <details>

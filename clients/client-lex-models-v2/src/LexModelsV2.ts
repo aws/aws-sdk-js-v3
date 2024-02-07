@@ -34,6 +34,11 @@ import {
   CreateBotLocaleCommandOutput,
 } from "./commands/CreateBotLocaleCommand";
 import {
+  CreateBotReplicaCommand,
+  CreateBotReplicaCommandInput,
+  CreateBotReplicaCommandOutput,
+} from "./commands/CreateBotReplicaCommand";
+import {
   CreateBotVersionCommand,
   CreateBotVersionCommandInput,
   CreateBotVersionCommandOutput,
@@ -85,6 +90,11 @@ import {
   DeleteBotLocaleCommandInput,
   DeleteBotLocaleCommandOutput,
 } from "./commands/DeleteBotLocaleCommand";
+import {
+  DeleteBotReplicaCommand,
+  DeleteBotReplicaCommandInput,
+  DeleteBotReplicaCommandOutput,
+} from "./commands/DeleteBotReplicaCommand";
 import {
   DeleteBotVersionCommand,
   DeleteBotVersionCommandInput,
@@ -152,6 +162,11 @@ import {
   DescribeBotRecommendationCommandInput,
   DescribeBotRecommendationCommandOutput,
 } from "./commands/DescribeBotRecommendationCommand";
+import {
+  DescribeBotReplicaCommand,
+  DescribeBotReplicaCommandInput,
+  DescribeBotReplicaCommandOutput,
+} from "./commands/DescribeBotReplicaCommand";
 import {
   DescribeBotResourceGenerationCommand,
   DescribeBotResourceGenerationCommandInput,
@@ -238,6 +253,11 @@ import {
   ListBotAliasesCommandOutput,
 } from "./commands/ListBotAliasesCommand";
 import {
+  ListBotAliasReplicasCommand,
+  ListBotAliasReplicasCommandInput,
+  ListBotAliasReplicasCommandOutput,
+} from "./commands/ListBotAliasReplicasCommand";
+import {
   ListBotLocalesCommand,
   ListBotLocalesCommandInput,
   ListBotLocalesCommandOutput,
@@ -248,11 +268,21 @@ import {
   ListBotRecommendationsCommandOutput,
 } from "./commands/ListBotRecommendationsCommand";
 import {
+  ListBotReplicasCommand,
+  ListBotReplicasCommandInput,
+  ListBotReplicasCommandOutput,
+} from "./commands/ListBotReplicasCommand";
+import {
   ListBotResourceGenerationsCommand,
   ListBotResourceGenerationsCommandInput,
   ListBotResourceGenerationsCommandOutput,
 } from "./commands/ListBotResourceGenerationsCommand";
 import { ListBotsCommand, ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListBotVersionReplicasCommand,
+  ListBotVersionReplicasCommandInput,
+  ListBotVersionReplicasCommandOutput,
+} from "./commands/ListBotVersionReplicasCommand";
 import {
   ListBotVersionsCommand,
   ListBotVersionsCommandInput,
@@ -436,6 +466,7 @@ const commands = {
   CreateBotCommand,
   CreateBotAliasCommand,
   CreateBotLocaleCommand,
+  CreateBotReplicaCommand,
   CreateBotVersionCommand,
   CreateExportCommand,
   CreateIntentCommand,
@@ -448,6 +479,7 @@ const commands = {
   DeleteBotCommand,
   DeleteBotAliasCommand,
   DeleteBotLocaleCommand,
+  DeleteBotReplicaCommand,
   DeleteBotVersionCommand,
   DeleteCustomVocabularyCommand,
   DeleteExportCommand,
@@ -463,6 +495,7 @@ const commands = {
   DescribeBotAliasCommand,
   DescribeBotLocaleCommand,
   DescribeBotRecommendationCommand,
+  DescribeBotReplicaCommand,
   DescribeBotResourceGenerationCommand,
   DescribeBotVersionCommand,
   DescribeCustomVocabularyMetadataCommand,
@@ -480,10 +513,13 @@ const commands = {
   GetTestExecutionArtifactsUrlCommand,
   ListAggregatedUtterancesCommand,
   ListBotAliasesCommand,
+  ListBotAliasReplicasCommand,
   ListBotLocalesCommand,
   ListBotRecommendationsCommand,
+  ListBotReplicasCommand,
   ListBotResourceGenerationsCommand,
   ListBotsCommand,
+  ListBotVersionReplicasCommand,
   ListBotVersionsCommand,
   ListBuiltInIntentsCommand,
   ListBuiltInSlotTypesCommand,
@@ -630,6 +666,23 @@ export interface LexModelsV2 {
     args: CreateBotLocaleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateBotLocaleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link CreateBotReplicaCommand}
+   */
+  createBotReplica(
+    args: CreateBotReplicaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateBotReplicaCommandOutput>;
+  createBotReplica(
+    args: CreateBotReplicaCommandInput,
+    cb: (err: any, data?: CreateBotReplicaCommandOutput) => void
+  ): void;
+  createBotReplica(
+    args: CreateBotReplicaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateBotReplicaCommandOutput) => void
   ): void;
 
   /**
@@ -798,6 +851,23 @@ export interface LexModelsV2 {
     args: DeleteBotLocaleCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteBotLocaleCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteBotReplicaCommand}
+   */
+  deleteBotReplica(
+    args: DeleteBotReplicaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteBotReplicaCommandOutput>;
+  deleteBotReplica(
+    args: DeleteBotReplicaCommandInput,
+    cb: (err: any, data?: DeleteBotReplicaCommandOutput) => void
+  ): void;
+  deleteBotReplica(
+    args: DeleteBotReplicaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteBotReplicaCommandOutput) => void
   ): void;
 
   /**
@@ -1014,6 +1084,23 @@ export interface LexModelsV2 {
     args: DescribeBotRecommendationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DescribeBotRecommendationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DescribeBotReplicaCommand}
+   */
+  describeBotReplica(
+    args: DescribeBotReplicaCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DescribeBotReplicaCommandOutput>;
+  describeBotReplica(
+    args: DescribeBotReplicaCommandInput,
+    cb: (err: any, data?: DescribeBotReplicaCommandOutput) => void
+  ): void;
+  describeBotReplica(
+    args: DescribeBotReplicaCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DescribeBotReplicaCommandOutput) => void
   ): void;
 
   /**
@@ -1285,6 +1372,23 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link ListBotAliasReplicasCommand}
+   */
+  listBotAliasReplicas(
+    args: ListBotAliasReplicasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBotAliasReplicasCommandOutput>;
+  listBotAliasReplicas(
+    args: ListBotAliasReplicasCommandInput,
+    cb: (err: any, data?: ListBotAliasReplicasCommandOutput) => void
+  ): void;
+  listBotAliasReplicas(
+    args: ListBotAliasReplicasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBotAliasReplicasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBotLocalesCommand}
    */
   listBotLocales(
@@ -1316,6 +1420,20 @@ export interface LexModelsV2 {
   ): void;
 
   /**
+   * @see {@link ListBotReplicasCommand}
+   */
+  listBotReplicas(
+    args: ListBotReplicasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBotReplicasCommandOutput>;
+  listBotReplicas(args: ListBotReplicasCommandInput, cb: (err: any, data?: ListBotReplicasCommandOutput) => void): void;
+  listBotReplicas(
+    args: ListBotReplicasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBotReplicasCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListBotResourceGenerationsCommand}
    */
   listBotResourceGenerations(
@@ -1341,6 +1459,23 @@ export interface LexModelsV2 {
     args: ListBotsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListBotsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBotVersionReplicasCommand}
+   */
+  listBotVersionReplicas(
+    args: ListBotVersionReplicasCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListBotVersionReplicasCommandOutput>;
+  listBotVersionReplicas(
+    args: ListBotVersionReplicasCommandInput,
+    cb: (err: any, data?: ListBotVersionReplicasCommandOutput) => void
+  ): void;
+  listBotVersionReplicas(
+    args: ListBotVersionReplicasCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBotVersionReplicasCommandOutput) => void
   ): void;
 
   /**

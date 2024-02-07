@@ -64,6 +64,7 @@ import { BuildBotLocaleCommandInput, BuildBotLocaleCommandOutput } from "./comma
 import { CreateBotAliasCommandInput, CreateBotAliasCommandOutput } from "./commands/CreateBotAliasCommand";
 import { CreateBotCommandInput, CreateBotCommandOutput } from "./commands/CreateBotCommand";
 import { CreateBotLocaleCommandInput, CreateBotLocaleCommandOutput } from "./commands/CreateBotLocaleCommand";
+import { CreateBotReplicaCommandInput, CreateBotReplicaCommandOutput } from "./commands/CreateBotReplicaCommand";
 import { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "./commands/CreateBotVersionCommand";
 import { CreateExportCommandInput, CreateExportCommandOutput } from "./commands/CreateExportCommand";
 import { CreateIntentCommandInput, CreateIntentCommandOutput } from "./commands/CreateIntentCommand";
@@ -85,6 +86,7 @@ import { CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput } from "./com
 import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "./commands/DeleteBotAliasCommand";
 import { DeleteBotCommandInput, DeleteBotCommandOutput } from "./commands/DeleteBotCommand";
 import { DeleteBotLocaleCommandInput, DeleteBotLocaleCommandOutput } from "./commands/DeleteBotLocaleCommand";
+import { DeleteBotReplicaCommandInput, DeleteBotReplicaCommandOutput } from "./commands/DeleteBotReplicaCommand";
 import { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "./commands/DeleteBotVersionCommand";
 import {
   DeleteCustomVocabularyCommandInput,
@@ -112,6 +114,7 @@ import {
   DescribeBotRecommendationCommandInput,
   DescribeBotRecommendationCommandOutput,
 } from "./commands/DescribeBotRecommendationCommand";
+import { DescribeBotReplicaCommandInput, DescribeBotReplicaCommandOutput } from "./commands/DescribeBotReplicaCommand";
 import {
   DescribeBotResourceGenerationCommandInput,
   DescribeBotResourceGenerationCommandOutput,
@@ -153,16 +156,25 @@ import {
   ListAggregatedUtterancesCommandOutput,
 } from "./commands/ListAggregatedUtterancesCommand";
 import { ListBotAliasesCommandInput, ListBotAliasesCommandOutput } from "./commands/ListBotAliasesCommand";
+import {
+  ListBotAliasReplicasCommandInput,
+  ListBotAliasReplicasCommandOutput,
+} from "./commands/ListBotAliasReplicasCommand";
 import { ListBotLocalesCommandInput, ListBotLocalesCommandOutput } from "./commands/ListBotLocalesCommand";
 import {
   ListBotRecommendationsCommandInput,
   ListBotRecommendationsCommandOutput,
 } from "./commands/ListBotRecommendationsCommand";
+import { ListBotReplicasCommandInput, ListBotReplicasCommandOutput } from "./commands/ListBotReplicasCommand";
 import {
   ListBotResourceGenerationsCommandInput,
   ListBotResourceGenerationsCommandOutput,
 } from "./commands/ListBotResourceGenerationsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "./commands/ListBotsCommand";
+import {
+  ListBotVersionReplicasCommandInput,
+  ListBotVersionReplicasCommandOutput,
+} from "./commands/ListBotVersionReplicasCommand";
 import { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "./commands/ListBotVersionsCommand";
 import { ListBuiltInIntentsCommandInput, ListBuiltInIntentsCommandOutput } from "./commands/ListBuiltInIntentsCommand";
 import {
@@ -274,6 +286,7 @@ export type ServiceInputTypes =
   | CreateBotAliasCommandInput
   | CreateBotCommandInput
   | CreateBotLocaleCommandInput
+  | CreateBotReplicaCommandInput
   | CreateBotVersionCommandInput
   | CreateExportCommandInput
   | CreateIntentCommandInput
@@ -286,6 +299,7 @@ export type ServiceInputTypes =
   | DeleteBotAliasCommandInput
   | DeleteBotCommandInput
   | DeleteBotLocaleCommandInput
+  | DeleteBotReplicaCommandInput
   | DeleteBotVersionCommandInput
   | DeleteCustomVocabularyCommandInput
   | DeleteExportCommandInput
@@ -301,6 +315,7 @@ export type ServiceInputTypes =
   | DescribeBotCommandInput
   | DescribeBotLocaleCommandInput
   | DescribeBotRecommendationCommandInput
+  | DescribeBotReplicaCommandInput
   | DescribeBotResourceGenerationCommandInput
   | DescribeBotVersionCommandInput
   | DescribeCustomVocabularyMetadataCommandInput
@@ -317,10 +332,13 @@ export type ServiceInputTypes =
   | GenerateBotElementCommandInput
   | GetTestExecutionArtifactsUrlCommandInput
   | ListAggregatedUtterancesCommandInput
+  | ListBotAliasReplicasCommandInput
   | ListBotAliasesCommandInput
   | ListBotLocalesCommandInput
   | ListBotRecommendationsCommandInput
+  | ListBotReplicasCommandInput
   | ListBotResourceGenerationsCommandInput
+  | ListBotVersionReplicasCommandInput
   | ListBotVersionsCommandInput
   | ListBotsCommandInput
   | ListBuiltInIntentsCommandInput
@@ -375,6 +393,7 @@ export type ServiceOutputTypes =
   | CreateBotAliasCommandOutput
   | CreateBotCommandOutput
   | CreateBotLocaleCommandOutput
+  | CreateBotReplicaCommandOutput
   | CreateBotVersionCommandOutput
   | CreateExportCommandOutput
   | CreateIntentCommandOutput
@@ -387,6 +406,7 @@ export type ServiceOutputTypes =
   | DeleteBotAliasCommandOutput
   | DeleteBotCommandOutput
   | DeleteBotLocaleCommandOutput
+  | DeleteBotReplicaCommandOutput
   | DeleteBotVersionCommandOutput
   | DeleteCustomVocabularyCommandOutput
   | DeleteExportCommandOutput
@@ -402,6 +422,7 @@ export type ServiceOutputTypes =
   | DescribeBotCommandOutput
   | DescribeBotLocaleCommandOutput
   | DescribeBotRecommendationCommandOutput
+  | DescribeBotReplicaCommandOutput
   | DescribeBotResourceGenerationCommandOutput
   | DescribeBotVersionCommandOutput
   | DescribeCustomVocabularyMetadataCommandOutput
@@ -418,10 +439,13 @@ export type ServiceOutputTypes =
   | GenerateBotElementCommandOutput
   | GetTestExecutionArtifactsUrlCommandOutput
   | ListAggregatedUtterancesCommandOutput
+  | ListBotAliasReplicasCommandOutput
   | ListBotAliasesCommandOutput
   | ListBotLocalesCommandOutput
   | ListBotRecommendationsCommandOutput
+  | ListBotReplicasCommandOutput
   | ListBotResourceGenerationsCommandOutput
+  | ListBotVersionReplicasCommandOutput
   | ListBotVersionsCommandOutput
   | ListBotsCommandOutput
   | ListBuiltInIntentsCommandOutput

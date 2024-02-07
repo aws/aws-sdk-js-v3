@@ -44,6 +44,7 @@ import { BuildBotLocaleCommandInput, BuildBotLocaleCommandOutput } from "../comm
 import { CreateBotAliasCommandInput, CreateBotAliasCommandOutput } from "../commands/CreateBotAliasCommand";
 import { CreateBotCommandInput, CreateBotCommandOutput } from "../commands/CreateBotCommand";
 import { CreateBotLocaleCommandInput, CreateBotLocaleCommandOutput } from "../commands/CreateBotLocaleCommand";
+import { CreateBotReplicaCommandInput, CreateBotReplicaCommandOutput } from "../commands/CreateBotReplicaCommand";
 import { CreateBotVersionCommandInput, CreateBotVersionCommandOutput } from "../commands/CreateBotVersionCommand";
 import { CreateExportCommandInput, CreateExportCommandOutput } from "../commands/CreateExportCommand";
 import { CreateIntentCommandInput, CreateIntentCommandOutput } from "../commands/CreateIntentCommand";
@@ -65,6 +66,7 @@ import { CreateUploadUrlCommandInput, CreateUploadUrlCommandOutput } from "../co
 import { DeleteBotAliasCommandInput, DeleteBotAliasCommandOutput } from "../commands/DeleteBotAliasCommand";
 import { DeleteBotCommandInput, DeleteBotCommandOutput } from "../commands/DeleteBotCommand";
 import { DeleteBotLocaleCommandInput, DeleteBotLocaleCommandOutput } from "../commands/DeleteBotLocaleCommand";
+import { DeleteBotReplicaCommandInput, DeleteBotReplicaCommandOutput } from "../commands/DeleteBotReplicaCommand";
 import { DeleteBotVersionCommandInput, DeleteBotVersionCommandOutput } from "../commands/DeleteBotVersionCommand";
 import {
   DeleteCustomVocabularyCommandInput,
@@ -92,6 +94,7 @@ import {
   DescribeBotRecommendationCommandInput,
   DescribeBotRecommendationCommandOutput,
 } from "../commands/DescribeBotRecommendationCommand";
+import { DescribeBotReplicaCommandInput, DescribeBotReplicaCommandOutput } from "../commands/DescribeBotReplicaCommand";
 import {
   DescribeBotResourceGenerationCommandInput,
   DescribeBotResourceGenerationCommandOutput,
@@ -133,16 +136,25 @@ import {
   ListAggregatedUtterancesCommandOutput,
 } from "../commands/ListAggregatedUtterancesCommand";
 import { ListBotAliasesCommandInput, ListBotAliasesCommandOutput } from "../commands/ListBotAliasesCommand";
+import {
+  ListBotAliasReplicasCommandInput,
+  ListBotAliasReplicasCommandOutput,
+} from "../commands/ListBotAliasReplicasCommand";
 import { ListBotLocalesCommandInput, ListBotLocalesCommandOutput } from "../commands/ListBotLocalesCommand";
 import {
   ListBotRecommendationsCommandInput,
   ListBotRecommendationsCommandOutput,
 } from "../commands/ListBotRecommendationsCommand";
+import { ListBotReplicasCommandInput, ListBotReplicasCommandOutput } from "../commands/ListBotReplicasCommand";
 import {
   ListBotResourceGenerationsCommandInput,
   ListBotResourceGenerationsCommandOutput,
 } from "../commands/ListBotResourceGenerationsCommand";
 import { ListBotsCommandInput, ListBotsCommandOutput } from "../commands/ListBotsCommand";
+import {
+  ListBotVersionReplicasCommandInput,
+  ListBotVersionReplicasCommandOutput,
+} from "../commands/ListBotVersionReplicasCommand";
 import { ListBotVersionsCommandInput, ListBotVersionsCommandOutput } from "../commands/ListBotVersionsCommand";
 import { ListBuiltInIntentsCommandInput, ListBuiltInIntentsCommandOutput } from "../commands/ListBuiltInIntentsCommand";
 import {
@@ -270,6 +282,7 @@ import {
   BedrockModelSpecification,
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
+  BotAliasReplicaSummary,
   BotAliasSummary,
   BotAliasTestExecutionTarget,
   BotExportSpecification,
@@ -283,9 +296,12 @@ import {
   BotLocaleSummary,
   BotMember,
   BotRecommendationSummary,
+  BotReplicaSummary,
   BotSortBy,
   BotSummary,
   BotVersionLocaleDetails,
+  BotVersionReplicaSortBy,
+  BotVersionReplicaSummary,
   BotVersionSortBy,
   BotVersionSummary,
   BuildtimeSettings,
@@ -627,6 +643,29 @@ export const se_CreateBotLocaleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1CreateBotReplicaCommand
+ */
+export const se_CreateBotReplicaCommand = async (
+  input: CreateBotReplicaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/bots/{botId}/replicas");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      replicaRegion: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1CreateBotVersionCommand
  */
 export const se_CreateBotVersionCommand = async (
@@ -925,6 +964,23 @@ export const se_DeleteBotLocaleCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DeleteBotReplicaCommand
+ */
+export const se_DeleteBotReplicaCommand = async (
+  input: DeleteBotReplicaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/bots/{botId}/replicas/{replicaRegion}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("replicaRegion", () => input.replicaRegion!, "{replicaRegion}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DeleteBotVersionCommand
  */
 export const se_DeleteBotVersionCommand = async (
@@ -1195,6 +1251,23 @@ export const se_DescribeBotRecommendationCommand = async (
   b.p("botVersion", () => input.botVersion!, "{botVersion}", false);
   b.p("localeId", () => input.localeId!, "{localeId}", false);
   b.p("botRecommendationId", () => input.botRecommendationId!, "{botRecommendationId}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DescribeBotReplicaCommand
+ */
+export const se_DescribeBotReplicaCommand = async (
+  input: DescribeBotReplicaCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/bots/{botId}/replicas/{replicaRegion}");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("replicaRegion", () => input.replicaRegion!, "{replicaRegion}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
   return b.build();
@@ -1520,6 +1593,31 @@ export const se_ListBotAliasesCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListBotAliasReplicasCommand
+ */
+export const se_ListBotAliasReplicasCommand = async (
+  input: ListBotAliasReplicasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/bots/{botId}/replicas/{replicaRegion}/botaliases");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("replicaRegion", () => input.replicaRegion!, "{replicaRegion}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListBotLocalesCommand
  */
 export const se_ListBotLocalesCommand = async (
@@ -1573,6 +1671,22 @@ export const se_ListBotRecommendationsCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListBotReplicasCommand
+ */
+export const se_ListBotReplicasCommand = async (
+  input: ListBotReplicasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/bots/{botId}/replicas");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListBotResourceGenerationsCommand
  */
 export const se_ListBotResourceGenerationsCommand = async (
@@ -1615,6 +1729,32 @@ export const se_ListBotsCommand = async (
   body = JSON.stringify(
     take(input, {
       filters: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+      sortBy: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListBotVersionReplicasCommand
+ */
+export const se_ListBotVersionReplicasCommand = async (
+  input: ListBotVersionReplicasCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/bots/{botId}/replicas/{replicaRegion}/botversions");
+  b.p("botId", () => input.botId!, "{botId}", false);
+  b.p("replicaRegion", () => input.replicaRegion!, "{replicaRegion}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
       maxResults: [],
       nextToken: [],
       sortBy: (_) => _json(_),
@@ -2916,6 +3056,31 @@ export const de_CreateBotLocaleCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateBotReplicaCommand
+ */
+export const de_CreateBotReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateBotReplicaCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botReplicaStatus: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    replicaRegion: __expectString,
+    sourceRegion: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateBotVersionCommand
  */
 export const de_CreateBotVersionCommand = async (
@@ -3222,6 +3387,29 @@ export const de_DeleteBotLocaleCommand = async (
     botLocaleStatus: __expectString,
     botVersion: __expectString,
     localeId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteBotReplicaCommand
+ */
+export const de_DeleteBotReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteBotReplicaCommandOutput> => {
+  if (output.statusCode !== 202 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botReplicaStatus: __expectString,
+    replicaRegion: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -3575,6 +3763,32 @@ export const de_DescribeBotRecommendationCommand = async (
     lastUpdatedDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     localeId: __expectString,
     transcriptSourceSetting: (_) => de_TranscriptSourceSetting(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DescribeBotReplicaCommand
+ */
+export const de_DescribeBotReplicaCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DescribeBotReplicaCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botReplicaStatus: __expectString,
+    creationDateTime: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReasons: _json,
+    replicaRegion: __expectString,
+    sourceRegion: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -4077,6 +4291,31 @@ export const de_ListBotAliasesCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListBotAliasReplicasCommand
+ */
+export const de_ListBotAliasReplicasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBotAliasReplicasCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botAliasReplicaSummaries: (_) => de_BotAliasReplicaSummaryList(_, context),
+    botId: __expectString,
+    nextToken: __expectString,
+    replicaRegion: __expectString,
+    sourceRegion: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListBotLocalesCommand
  */
 export const de_ListBotLocalesCommand = async (
@@ -4126,6 +4365,29 @@ export const de_ListBotRecommendationsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListBotReplicasCommand
+ */
+export const de_ListBotReplicasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBotReplicasCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botReplicaSummaries: (_) => de_BotReplicaSummaryList(_, context),
+    sourceRegion: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListBotResourceGenerationsCommand
  */
 export const de_ListBotResourceGenerationsCommand = async (
@@ -4167,6 +4429,31 @@ export const de_ListBotsCommand = async (
   const doc = take(data, {
     botSummaries: (_) => de_BotSummaryList(_, context),
     nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBotVersionReplicasCommand
+ */
+export const de_ListBotVersionReplicasCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBotVersionReplicasCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    botId: __expectString,
+    botVersionReplicaSummaries: (_) => de_BotVersionReplicaSummaryList(_, context),
+    nextToken: __expectString,
+    replicaRegion: __expectString,
+    sourceRegion: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -5523,6 +5810,8 @@ const se_BotLocaleImportSpecification = (input: BotLocaleImportSpecification, co
 
 // se_BotVersionLocaleSpecification omitted.
 
+// se_BotVersionReplicaSortBy omitted.
+
 // se_BotVersionSortBy omitted.
 
 // se_BuildtimeSettings omitted.
@@ -6444,6 +6733,32 @@ const de_BotAliasHistoryEventsList = (output: any, context: __SerdeContext): Bot
 // de_BotAliasLocaleSettingsMap omitted.
 
 /**
+ * deserializeAws_restJson1BotAliasReplicaSummary
+ */
+const de_BotAliasReplicaSummary = (output: any, context: __SerdeContext): BotAliasReplicaSummary => {
+  return take(output, {
+    botAliasId: __expectString,
+    botAliasReplicationStatus: __expectString,
+    botVersion: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReasons: _json,
+    lastUpdatedDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BotAliasReplicaSummaryList
+ */
+const de_BotAliasReplicaSummaryList = (output: any, context: __SerdeContext): BotAliasReplicaSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BotAliasReplicaSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1BotAliasSummary
  */
 const de_BotAliasSummary = (output: any, context: __SerdeContext): BotAliasSummary => {
@@ -6572,6 +6887,30 @@ const de_BotRecommendationSummaryList = (output: any, context: __SerdeContext): 
 };
 
 /**
+ * deserializeAws_restJson1BotReplicaSummary
+ */
+const de_BotReplicaSummary = (output: any, context: __SerdeContext): BotReplicaSummary => {
+  return take(output, {
+    botReplicaStatus: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReasons: _json,
+    replicaRegion: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BotReplicaSummaryList
+ */
+const de_BotReplicaSummaryList = (output: any, context: __SerdeContext): BotReplicaSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BotReplicaSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
  * deserializeAws_restJson1BotSummary
  */
 const de_BotSummary = (output: any, context: __SerdeContext): BotSummary => {
@@ -6601,6 +6940,30 @@ const de_BotSummaryList = (output: any, context: __SerdeContext): BotSummary[] =
 // de_BotVersionLocaleDetails omitted.
 
 // de_BotVersionLocaleSpecification omitted.
+
+/**
+ * deserializeAws_restJson1BotVersionReplicaSummary
+ */
+const de_BotVersionReplicaSummary = (output: any, context: __SerdeContext): BotVersionReplicaSummary => {
+  return take(output, {
+    botVersion: __expectString,
+    botVersionReplicationStatus: __expectString,
+    creationDateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    failureReasons: _json,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1BotVersionReplicaSummaryList
+ */
+const de_BotVersionReplicaSummaryList = (output: any, context: __SerdeContext): BotVersionReplicaSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_BotVersionReplicaSummary(entry, context);
+    });
+  return retVal;
+};
 
 /**
  * deserializeAws_restJson1BotVersionSummary
