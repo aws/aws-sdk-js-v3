@@ -4154,6 +4154,7 @@ const de_Workspace = (output: any, context: __SerdeContext): Workspace => {
     UserVolumeEncryptionEnabled: __expectBoolean,
     VolumeEncryptionKey: __expectString,
     WorkspaceId: __expectString,
+    WorkspaceName: __expectString,
     WorkspaceProperties: _json,
   }) as any;
 };

@@ -46,6 +46,7 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  *   BundleId: "STRING_VALUE",
  *   Limit: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   WorkspaceName: "STRING_VALUE",
  * };
  * const command = new DescribeWorkspacesCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,7 @@ export interface DescribeWorkspacesCommandOutput extends DescribeWorkspacesResul
  * //       VolumeEncryptionKey: "STRING_VALUE",
  * //       UserVolumeEncryptionEnabled: true || false,
  * //       RootVolumeEncryptionEnabled: true || false,
+ * //       WorkspaceName: "STRING_VALUE",
  * //       WorkspaceProperties: { // WorkspaceProperties
  * //         RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
  * //         RunningModeAutoStopTimeoutInMinutes: Number("int"),

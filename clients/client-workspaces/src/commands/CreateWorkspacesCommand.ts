@@ -76,6 +76,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  *           Value: "STRING_VALUE",
  *         },
  *       ],
+ *       WorkspaceName: "STRING_VALUE",
  *     },
  *   ],
  * };
@@ -108,6 +109,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //             Value: "STRING_VALUE",
  * //           },
  * //         ],
+ * //         WorkspaceName: "STRING_VALUE",
  * //       },
  * //       ErrorCode: "STRING_VALUE",
  * //       ErrorMessage: "STRING_VALUE",
@@ -128,6 +130,7 @@ export interface CreateWorkspacesCommandOutput extends CreateWorkspacesResult, _
  * //       VolumeEncryptionKey: "STRING_VALUE",
  * //       UserVolumeEncryptionEnabled: true || false,
  * //       RootVolumeEncryptionEnabled: true || false,
+ * //       WorkspaceName: "STRING_VALUE",
  * //       WorkspaceProperties: {
  * //         RunningMode: "AUTO_STOP" || "ALWAYS_ON" || "MANUAL",
  * //         RunningModeAutoStopTimeoutInMinutes: Number("int"),

@@ -2019,6 +2019,7 @@ export interface WorkspaceRequest {
   /**
    * @public
    * <p>The user name of the user for the WorkSpace. This user name must exist in the Directory Service directory for the WorkSpace.</p>
+   *          <p>The reserved keyword, <code>[UNDEFINED]</code>, is used when creating user-decoupled WorkSpaces.</p>
    */
   UserName: string | undefined;
 
@@ -2058,6 +2059,12 @@ export interface WorkspaceRequest {
    * <p>The tags for the WorkSpace.</p>
    */
   Tags?: Tag[];
+
+  /**
+   * @public
+   * <p>The name of the user-decoupled WorkSpace.</p>
+   */
+  WorkspaceName?: string;
 }
 
 /**
@@ -2265,76 +2272,6 @@ export interface Workspace {
   /**
    * @public
    * <p>The operational state of the WorkSpace.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>PENDING</code> – The WorkSpace is in a waiting state (for example, the WorkSpace is being created).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>AVAILABLE</code> – The WorkSpace is running and has passed the health checks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>IMPAIRED</code> – Refer to <code>UNHEALTHY</code> state.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNHEALTHY</code> – The WorkSpace is not responding to health checks.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REBOOTING</code> – The WorkSpace is being rebooted (restarted).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STARTING</code> – The WorkSpace is starting up and health checks are being run.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>REBUILDING</code> – The WorkSpace is being rebuilt.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>RESTORING</code> – The WorkSpace is being restored.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>MAINTENANCE</code> – The WorkSpace is undergoing scheduled maintenance by Amazon Web Services.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ADMIN_MAINTENANCE</code>  – The WorkSpace is undergoing maintenance by the WorkSpaces administrator.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATING</code> – The WorkSpace is being deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>TERMINATED</code> – The WorkSpace has been deleted.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>SUSPENDED</code> – The WorkSpace has been suspended for image creation.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UPDATING</code> – The WorkSpace is undergoing an update.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPING</code> – The WorkSpace is being stopped.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>STOPPED</code> – The WorkSpace has been stopped.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ERROR </code> – The WorkSpace is an error state (for example, an error occurred during startup).</p>
-   *             </li>
-   *          </ul>
    *          <note>
    *             <p>After a WorkSpace is terminated, the <code>TERMINATED</code> state is returned only
    *             briefly before the WorkSpace directory metadata is cleaned up, so this state is rarely
@@ -2397,6 +2334,12 @@ export interface Workspace {
    * <p>Indicates whether the data stored on the root volume is encrypted.</p>
    */
   RootVolumeEncryptionEnabled?: boolean;
+
+  /**
+   * @public
+   * <p>The name of the user-decoupled WorkSpace.</p>
+   */
+  WorkspaceName?: string;
 
   /**
    * @public
@@ -4440,6 +4383,12 @@ export interface DescribeWorkspacesRequest {
    *          provide this token to receive the next set of results.</p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>The name of the user-decoupled WorkSpace.</p>
+   */
+  WorkspaceName?: string;
 }
 
 /**
