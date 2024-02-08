@@ -15,16 +15,17 @@ import { Hash } from "@smithy/hash-node";
 import { readableStreamHasher as streamHasher } from "@smithy/hash-stream-node";
 import { NODE_MAX_ATTEMPT_CONFIG_OPTIONS, NODE_RETRY_MODE_CONFIG_OPTIONS } from "@smithy/middleware-retry";
 import { loadConfig as loadNodeConfig } from "@smithy/node-config-provider";
-import { NodeHttpHandler as RequestHandler, streamCollector } from "@smithy/node-http-handler";
+import { NodeHttpHandler, streamCollector } from "@smithy/node-http-handler";
 import { loadConfigsForDefaultMode } from "@smithy/smithy-client";
 import { EndpointV2 } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { calculateBodyLength } from "@smithy/util-body-length-node";
 import { resolveDefaultsModeConfig } from "@smithy/util-defaults-mode-node";
-import { DEFAULT_RETRY_MODE, StandardRetryStrategy } from "@smithy/util-retry";
+import { ConfiguredRetryStrategy, DEFAULT_RETRY_MODE, StandardRetryStrategy } from "@smithy/util-retry";
 import { getAwsChunkedEncodingStream, sdkStreamMixin } from "@smithy/util-stream";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
+import https from "https";
 
 /**
  * Successful compilation indicates the client can be initialized
@@ -39,8 +40,19 @@ export const initializeWithMaximalConfiguration = () => {
     region: loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
     credentials: defaultProvider({}),
     endpoint: "endpoint",
-    requestHandler: new RequestHandler(defaultConfigProvider),
-    retryStrategy: new StandardRetryStrategy(3),
+    requestHandler: new NodeHttpHandler({
+      httpsAgent: new https.Agent({
+        maxSockets: 200,
+        keepAlive: true,
+      }),
+      requestTimeout: 15000,
+      connectionTimeout: 6000,
+    }),
+    retryStrategy:
+      new StandardRetryStrategy(3) ||
+      new ConfiguredRetryStrategy(3, (attempt) => {
+        return attempt * 1_000;
+      }),
     retryMode: loadNodeConfig({
       ...NODE_RETRY_MODE_CONFIG_OPTIONS,
       default: async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE,
