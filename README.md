@@ -153,7 +153,7 @@ Here’s an example of logging requests using middleware:
 const client = new DynamoDB({ region: "us-west-2" });
 
 client.middlewareStack.add(
-  (next, context) => (args) => {
+  (next, context) => async (args) => {
     console.log("AWS SDK context", context.clientName, context.commandName);
     console.log("AWS SDK request input", args.input);
     const result = await next(args);
@@ -533,7 +533,7 @@ const client = new S3({ region: "us-west-2" });
 
 // Middleware added to client, applies to all commands.
 client.middlewareStack.add(
-  (next, context) => (args) => {
+  (next, context) => async (args) => {
     args.request.headers["x-amz-meta-foo"] = "bar";
     console.log("AWS SDK context", context.clientName, context.commandName);
     console.log("AWS SDK request input", args.input);
