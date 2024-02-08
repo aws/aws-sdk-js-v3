@@ -56,6 +56,12 @@ export interface GetPipelineStateCommandOutput extends GetPipelineStateOutput, _
  * //         pipelineExecutionId: "STRING_VALUE", // required
  * //         status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
  * //       },
+ * //       inboundExecutions: [ // StageExecutionList
+ * //         {
+ * //           pipelineExecutionId: "STRING_VALUE", // required
+ * //           status: "Cancelled" || "InProgress" || "Failed" || "Stopped" || "Stopping" || "Succeeded", // required
+ * //         },
+ * //       ],
  * //       inboundTransitionState: { // TransitionState
  * //         enabled: true || false,
  * //         lastChangedBy: "STRING_VALUE",

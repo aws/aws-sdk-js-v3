@@ -100,7 +100,15 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *       },
  *     ],
  *     version: Number("int"),
+ *     executionMode: "QUEUED" || "SUPERSEDED" || "PARALLEL",
  *     pipelineType: "V1" || "V2",
+ *     variables: [ // PipelineVariableDeclarationList
+ *       { // PipelineVariableDeclaration
+ *         name: "STRING_VALUE", // required
+ *         defaultValue: "STRING_VALUE",
+ *         description: "STRING_VALUE",
+ *       },
+ *     ],
  *     triggers: [ // PipelineTriggerDeclarationList
  *       { // PipelineTriggerDeclaration
  *         providerType: "CodeStarSourceConnection", // required
@@ -116,16 +124,48 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  *                   "STRING_VALUE",
  *                 ],
  *               },
+ *               branches: { // GitBranchFilterCriteria
+ *                 includes: [ // GitBranchPatternList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 excludes: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               filePaths: { // GitFilePathFilterCriteria
+ *                 includes: [ // GitFilePathPatternList
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 excludes: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *             },
+ *           ],
+ *           pullRequest: [ // GitPullRequestFilterList
+ *             { // GitPullRequestFilter
+ *               events: [ // GitPullRequestEventTypeList
+ *                 "OPEN" || "UPDATED" || "CLOSED",
+ *               ],
+ *               branches: {
+ *                 includes: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 excludes: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
+ *               filePaths: {
+ *                 includes: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *                 excludes: [
+ *                   "STRING_VALUE",
+ *                 ],
+ *               },
  *             },
  *           ],
  *         },
- *       },
- *     ],
- *     variables: [ // PipelineVariableDeclarationList
- *       { // PipelineVariableDeclaration
- *         name: "STRING_VALUE", // required
- *         defaultValue: "STRING_VALUE",
- *         description: "STRING_VALUE",
  *       },
  *     ],
  *   },
@@ -194,7 +234,15 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * //       },
  * //     ],
  * //     version: Number("int"),
+ * //     executionMode: "QUEUED" || "SUPERSEDED" || "PARALLEL",
  * //     pipelineType: "V1" || "V2",
+ * //     variables: [ // PipelineVariableDeclarationList
+ * //       { // PipelineVariableDeclaration
+ * //         name: "STRING_VALUE", // required
+ * //         defaultValue: "STRING_VALUE",
+ * //         description: "STRING_VALUE",
+ * //       },
+ * //     ],
  * //     triggers: [ // PipelineTriggerDeclarationList
  * //       { // PipelineTriggerDeclaration
  * //         providerType: "CodeStarSourceConnection", // required
@@ -210,16 +258,48 @@ export interface UpdatePipelineCommandOutput extends UpdatePipelineOutput, __Met
  * //                   "STRING_VALUE",
  * //                 ],
  * //               },
+ * //               branches: { // GitBranchFilterCriteria
+ * //                 includes: [ // GitBranchPatternList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 excludes: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               filePaths: { // GitFilePathFilterCriteria
+ * //                 includes: [ // GitFilePathPatternList
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 excludes: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //             },
+ * //           ],
+ * //           pullRequest: [ // GitPullRequestFilterList
+ * //             { // GitPullRequestFilter
+ * //               events: [ // GitPullRequestEventTypeList
+ * //                 "OPEN" || "UPDATED" || "CLOSED",
+ * //               ],
+ * //               branches: {
+ * //                 includes: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 excludes: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
+ * //               filePaths: {
+ * //                 includes: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //                 excludes: [
+ * //                   "STRING_VALUE",
+ * //                 ],
+ * //               },
  * //             },
  * //           ],
  * //         },
- * //       },
- * //     ],
- * //     variables: [ // PipelineVariableDeclarationList
- * //       { // PipelineVariableDeclaration
- * //         name: "STRING_VALUE", // required
- * //         defaultValue: "STRING_VALUE",
- * //         description: "STRING_VALUE",
  * //       },
  * //     ],
  * //   },

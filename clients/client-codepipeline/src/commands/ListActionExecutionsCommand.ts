@@ -39,6 +39,10 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  *   pipelineName: "STRING_VALUE", // required
  *   filter: { // ActionExecutionFilter
  *     pipelineExecutionId: "STRING_VALUE",
+ *     latestInPipelineExecution: { // LatestInPipelineExecutionFilter
+ *       pipelineExecutionId: "STRING_VALUE", // required
+ *       startTimeRange: "Latest" || "All", // required
+ *     },
  *   },
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
@@ -55,6 +59,7 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * //       actionName: "STRING_VALUE",
  * //       startTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),
+ * //       updatedBy: "STRING_VALUE",
  * //       status: "InProgress" || "Abandoned" || "Succeeded" || "Failed",
  * //       input: { // ActionExecutionInput
  * //         actionTypeId: { // ActionTypeId
@@ -96,6 +101,10 @@ export interface ListActionExecutionsCommandOutput extends ListActionExecutionsO
  * //           externalExecutionId: "STRING_VALUE",
  * //           externalExecutionSummary: "STRING_VALUE",
  * //           externalExecutionUrl: "STRING_VALUE",
+ * //           errorDetails: { // ErrorDetails
+ * //             code: "STRING_VALUE",
+ * //             message: "STRING_VALUE",
+ * //           },
  * //         },
  * //         outputVariables: { // OutputVariablesMap
  * //           "<keys>": "STRING_VALUE",

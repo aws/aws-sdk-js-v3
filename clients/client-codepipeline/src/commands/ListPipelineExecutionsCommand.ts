@@ -64,6 +64,7 @@ export interface ListPipelineExecutionsCommandOutput extends ListPipelineExecuti
  * //       stopTrigger: { // StopExecutionTrigger
  * //         reason: "STRING_VALUE",
  * //       },
+ * //       executionMode: "QUEUED" || "SUPERSEDED" || "PARALLEL",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

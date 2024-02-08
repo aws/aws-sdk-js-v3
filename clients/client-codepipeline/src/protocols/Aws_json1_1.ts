@@ -149,6 +149,7 @@ import {
   ArtifactStore,
   BlockerDeclaration,
   ConcurrentModificationException,
+  ConcurrentPipelineExecutionsLimitExceededException,
   ConflictException,
   CreateCustomActionTypeInput,
   CreatePipelineInput,
@@ -173,7 +174,11 @@ import {
   GetPipelineStateInput,
   GetPipelineStateOutput,
   GetThirdPartyJobDetailsInput,
+  GitBranchFilterCriteria,
   GitConfiguration,
+  GitFilePathFilterCriteria,
+  GitPullRequestEventType,
+  GitPullRequestFilter,
   GitPushFilter,
   GitTagFilterCriteria,
   InputArtifact,
@@ -194,6 +199,7 @@ import {
   JobNotFoundException,
   JobWorkerExecutorConfiguration,
   LambdaExecutorConfiguration,
+  LatestInPipelineExecutionFilter,
   LimitExceededException,
   ListActionExecutionsInput,
   ListActionExecutionsOutput,
@@ -1627,6 +1633,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "StageNotRetryableException":
     case "com.amazonaws.codepipeline#StageNotRetryableException":
       throw await de_StageNotRetryableExceptionRes(parsedOutput, context);
+    case "ConcurrentPipelineExecutionsLimitExceededException":
+    case "com.amazonaws.codepipeline#ConcurrentPipelineExecutionsLimitExceededException":
+      throw await de_ConcurrentPipelineExecutionsLimitExceededExceptionRes(parsedOutput, context);
     case "DuplicatedStopRequestException":
     case "com.amazonaws.codepipeline#DuplicatedStopRequestException":
       throw await de_DuplicatedStopRequestExceptionRes(parsedOutput, context);
@@ -1704,6 +1713,22 @@ const de_ConcurrentModificationExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ConcurrentModificationException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ConcurrentPipelineExecutionsLimitExceededExceptionRes
+ */
+const de_ConcurrentPipelineExecutionsLimitExceededExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ConcurrentPipelineExecutionsLimitExceededException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ConcurrentPipelineExecutionsLimitExceededException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -2315,7 +2340,21 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 
 // se_GetThirdPartyJobDetailsInput omitted.
 
+// se_GitBranchFilterCriteria omitted.
+
+// se_GitBranchPatternList omitted.
+
 // se_GitConfiguration omitted.
+
+// se_GitFilePathFilterCriteria omitted.
+
+// se_GitFilePathPatternList omitted.
+
+// se_GitPullRequestEventTypeList omitted.
+
+// se_GitPullRequestFilter omitted.
+
+// se_GitPullRequestFilterList omitted.
 
 // se_GitPushFilter omitted.
 
@@ -2332,6 +2371,8 @@ const se_CurrentRevision = (input: CurrentRevision, context: __SerdeContext): an
 // se_JobWorkerExecutorConfiguration omitted.
 
 // se_LambdaExecutorConfiguration omitted.
+
+// se_LatestInPipelineExecutionFilter omitted.
 
 // se_ListActionExecutionsInput omitted.
 
@@ -2525,6 +2566,7 @@ const de_ActionExecutionDetail = (output: any, context: __SerdeContext): ActionE
     stageName: __expectString,
     startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     status: __expectString,
+    updatedBy: __expectString,
   }) as any;
 };
 
@@ -2662,6 +2704,8 @@ const de_ArtifactRevisionList = (output: any, context: __SerdeContext): Artifact
 
 // de_ConcurrentModificationException omitted.
 
+// de_ConcurrentPipelineExecutionsLimitExceededException omitted.
+
 // de_ConflictException omitted.
 
 // de_CreateCustomActionTypeOutput omitted.
@@ -2720,7 +2764,21 @@ const de_GetPipelineStateOutput = (output: any, context: __SerdeContext): GetPip
 
 // de_GetThirdPartyJobDetailsOutput omitted.
 
+// de_GitBranchFilterCriteria omitted.
+
+// de_GitBranchPatternList omitted.
+
 // de_GitConfiguration omitted.
+
+// de_GitFilePathFilterCriteria omitted.
+
+// de_GitFilePathPatternList omitted.
+
+// de_GitPullRequestEventTypeList omitted.
+
+// de_GitPullRequestFilter omitted.
+
+// de_GitPullRequestFilterList omitted.
 
 // de_GitPushFilter omitted.
 
@@ -2857,6 +2915,7 @@ const de_ListWebhooksOutput = (output: any, context: __SerdeContext): ListWebhoo
 const de_PipelineExecution = (output: any, context: __SerdeContext): PipelineExecution => {
   return take(output, {
     artifactRevisions: (_: any) => de_ArtifactRevisionList(_, context),
+    executionMode: __expectString,
     pipelineExecutionId: __expectString,
     pipelineName: __expectString,
     pipelineVersion: __expectInt32,
@@ -2876,6 +2935,7 @@ const de_PipelineExecution = (output: any, context: __SerdeContext): PipelineExe
  */
 const de_PipelineExecutionSummary = (output: any, context: __SerdeContext): PipelineExecutionSummary => {
   return take(output, {
+    executionMode: __expectString,
     lastUpdateTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     pipelineExecutionId: __expectString,
     sourceRevisions: _json,
@@ -2934,6 +2994,7 @@ const de_PipelineMetadata = (output: any, context: __SerdeContext): PipelineMeta
 const de_PipelineSummary = (output: any, context: __SerdeContext): PipelineSummary => {
   return take(output, {
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    executionMode: __expectString,
     name: __expectString,
     pipelineType: __expectString,
     updated: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -3011,6 +3072,8 @@ const de_PutWebhookOutput = (output: any, context: __SerdeContext): PutWebhookOu
 
 // de_StageExecution omitted.
 
+// de_StageExecutionList omitted.
+
 // de_StageNotFoundException omitted.
 
 // de_StageNotRetryableException omitted.
@@ -3022,6 +3085,7 @@ const de_StageState = (output: any, context: __SerdeContext): StageState => {
   return take(output, {
     actionStates: (_: any) => de_ActionStateList(_, context),
     inboundExecution: _json,
+    inboundExecutions: _json,
     inboundTransitionState: (_: any) => de_TransitionState(_, context),
     latestExecution: _json,
     stageName: __expectString,

@@ -47,6 +47,7 @@ export interface ListPipelinesCommandOutput extends ListPipelinesOutput, __Metad
  * //       name: "STRING_VALUE",
  * //       version: Number("int"),
  * //       pipelineType: "V1" || "V2",
+ * //       executionMode: "QUEUED" || "SUPERSEDED" || "PARALLEL",
  * //       created: new Date("TIMESTAMP"),
  * //       updated: new Date("TIMESTAMP"),
  * //     },

@@ -708,6 +708,12 @@ export interface ActionExecutionResult {
    *             deployment endpoint) that is used when running the action.</p>
    */
   externalExecutionUrl?: string;
+
+  /**
+   * @public
+   * <p>Represents information about an error in CodePipeline.</p>
+   */
+  errorDetails?: ErrorDetails;
 }
 
 /**
@@ -788,6 +794,12 @@ export interface ActionExecutionDetail {
 
   /**
    * @public
+   * <p>The ARN of the user who changed the pipeline execution details.</p>
+   */
+  updatedBy?: string;
+
+  /**
+   * @public
    * <p> The status of the action execution. Status categories are <code>InProgress</code>,
    *                 <code>Succeeded</code>, and <code>Failed</code>.</p>
    */
@@ -809,6 +821,51 @@ export interface ActionExecutionDetail {
 
 /**
  * @public
+ * @enum
+ */
+export const StartTimeRange = {
+  All: "All",
+  Latest: "Latest",
+} as const;
+
+/**
+ * @public
+ */
+export type StartTimeRange = (typeof StartTimeRange)[keyof typeof StartTimeRange];
+
+/**
+ * @public
+ * <p>The field that specifies to filter on the latest execution in the pipeline.</p>
+ *          <note>
+ *             <p>Filtering on the latest execution is available for executions run on or after
+ *                 February 08, 2024.</p>
+ *          </note>
+ */
+export interface LatestInPipelineExecutionFilter {
+  /**
+   * @public
+   * <p>The execution ID for the latest execution in the pipeline.</p>
+   */
+  pipelineExecutionId: string | undefined;
+
+  /**
+   * @public
+   * <p>The start time to filter on for the latest execution in the pipeline. Valid
+   *             options:</p>
+   *          <ul>
+   *             <li>
+   *                <p>All</p>
+   *             </li>
+   *             <li>
+   *                <p>Latest</p>
+   *             </li>
+   *          </ul>
+   */
+  startTimeRange: StartTimeRange | undefined;
+}
+
+/**
+ * @public
  * <p>Filter values for the action execution.</p>
  */
 export interface ActionExecutionFilter {
@@ -817,6 +874,16 @@ export interface ActionExecutionFilter {
    * <p>The pipeline execution ID used to filter action execution history.</p>
    */
   pipelineExecutionId?: string;
+
+  /**
+   * @public
+   * <p>The latest execution in the pipeline.</p>
+   *          <note>
+   *             <p>Filtering on the latest execution is available for executions run on or after
+   *                 February 08, 2024.</p>
+   *          </note>
+   */
+  latestInPipelineExecution?: LatestInPipelineExecutionFilter;
 }
 
 /**
@@ -1884,6 +1951,21 @@ export class TooManyTagsException extends __BaseException {
  * @public
  * @enum
  */
+export const ExecutionMode = {
+  PARALLEL: "PARALLEL",
+  QUEUED: "QUEUED",
+  SUPERSEDED: "SUPERSEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type ExecutionMode = (typeof ExecutionMode)[keyof typeof ExecutionMode];
+
+/**
+ * @public
+ * @enum
+ */
 export const PipelineType = {
   V1: "V1",
   V2: "V2",
@@ -1920,6 +2002,81 @@ export interface StageDeclaration {
 
 /**
  * @public
+ * <p>The Git repository branches specified as filter criteria to start the pipeline.</p>
+ */
+export interface GitBranchFilterCriteria {
+  /**
+   * @public
+   * <p>The list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.</p>
+   */
+  includes?: string[];
+
+  /**
+   * @public
+   * <p>The list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.</p>
+   */
+  excludes?: string[];
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const GitPullRequestEventType = {
+  CLOSED: "CLOSED",
+  OPEN: "OPEN",
+  UPDATED: "UPDATED",
+} as const;
+
+/**
+ * @public
+ */
+export type GitPullRequestEventType = (typeof GitPullRequestEventType)[keyof typeof GitPullRequestEventType];
+
+/**
+ * @public
+ * <p>The Git repository file paths specified as filter criteria to start the pipeline.</p>
+ */
+export interface GitFilePathFilterCriteria {
+  /**
+   * @public
+   * <p>The list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.</p>
+   */
+  includes?: string[];
+
+  /**
+   * @public
+   * <p>The list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.</p>
+   */
+  excludes?: string[];
+}
+
+/**
+ * @public
+ * <p>The event criteria for the pull request trigger configuration, such as the lists of branches or file paths to include and exclude.</p>
+ */
+export interface GitPullRequestFilter {
+  /**
+   * @public
+   * <p>The field that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration.</p>
+   */
+  events?: GitPullRequestEventType[];
+
+  /**
+   * @public
+   * <p>The field that specifies to filter on branches for the pull request trigger configuration.</p>
+   */
+  branches?: GitBranchFilterCriteria;
+
+  /**
+   * @public
+   * <p>The field that specifies to filter on file paths for the pull request trigger configuration.</p>
+   */
+  filePaths?: GitFilePathFilterCriteria;
+}
+
+/**
+ * @public
  * <p>The Git tags specified as filter criteria for whether a Git tag repository event
  *             will start the pipeline.</p>
  */
@@ -1950,6 +2107,18 @@ export interface GitPushFilter {
    *             configuration.</p>
    */
   tags?: GitTagFilterCriteria;
+
+  /**
+   * @public
+   * <p>The field that specifies to filter on branches for the push trigger configuration.</p>
+   */
+  branches?: GitBranchFilterCriteria;
+
+  /**
+   * @public
+   * <p>The field that specifies to filter on file paths for the push trigger configuration.</p>
+   */
+  filePaths?: GitFilePathFilterCriteria;
 }
 
 /**
@@ -1959,11 +2128,6 @@ export interface GitPushFilter {
  *             <p>You can specify the Git configuration trigger type for all third-party
  *                 Git-based source actions that are supported by the
  *                     <code>CodeStarSourceConnection</code> action type.</p>
- *          </note>
- *          <note>
- *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
- *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
- *                 in the <i>CodePipeline User Guide</i>.</p>
  *          </note>
  */
 export interface GitConfiguration {
@@ -1982,11 +2146,14 @@ export interface GitConfiguration {
    * @public
    * <p>The field where the repository event that will start the pipeline, such as pushing
    *             Git tags, is specified with details.</p>
-   *          <note>
-   *             <p>Git tags is the only supported event type.</p>
-   *          </note>
    */
   push?: GitPushFilter[];
+
+  /**
+   * @public
+   * <p>The field where the repository event that will start the pipeline is specified as pull requests.</p>
+   */
+  pullRequest?: GitPullRequestFilter[];
 }
 
 /**
@@ -2015,11 +2182,6 @@ export type PipelineTriggerProviderType =
  *             <p>When a trigger configuration is specified, default change detection for
  *                 repository and branch commits is disabled.</p>
  *          </note>
- *          <note>
- *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
- *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
- *                 in the <i>CodePipeline User Guide</i>.</p>
- *          </note>
  */
 export interface PipelineTriggerDeclaration {
   /**
@@ -2040,11 +2202,6 @@ export interface PipelineTriggerDeclaration {
 /**
  * @public
  * <p>A variable declared at the pipeline level.</p>
- *          <note>
- *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
- *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
- *                 in the <i>CodePipeline User Guide</i>.</p>
- *          </note>
  */
 export interface PipelineVariableDeclaration {
   /**
@@ -2127,6 +2284,12 @@ export interface PipelineDeclaration {
 
   /**
    * @public
+   * <p>The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.</p>
+   */
+  executionMode?: ExecutionMode;
+
+  /**
+   * @public
    * <p>CodePipeline provides the following pipeline types, which differ in characteristics and
    *             price, so that you can tailor your pipeline features and cost to the needs of your
    *             applications.</p>
@@ -2145,16 +2308,19 @@ export interface PipelineDeclaration {
    *                 creating or updating a pipeline will result in the pipeline having the V2 type of
    *                 pipeline and the associated costs.</p>
    *          </important>
-   *          <p>For information about pricing for CodePipeline, see <a href="https://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
+   *          <p>For information about pricing for CodePipeline, see <a href="http://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
    *          <p>
    *             For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of pipeline is right for me?</a>.</p>
-   *          <note>
-   *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
-   *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
-   *                 in the <i>CodePipeline User Guide</i>.</p>
-   *          </note>
    */
   pipelineType?: PipelineType;
+
+  /**
+   * @public
+   * <p>A list that defines the pipeline variables for a pipeline resource. Variable names can
+   *             have alphanumeric and underscore characters, and the values must match
+   *                 <code>[A-Za-z0-9@\-_]+</code>.</p>
+   */
+  variables?: PipelineVariableDeclaration[];
 
   /**
    * @public
@@ -2165,14 +2331,6 @@ export interface PipelineDeclaration {
    *          </note>
    */
   triggers?: PipelineTriggerDeclaration[];
-
-  /**
-   * @public
-   * <p>A list that defines the pipeline variables for a pipeline resource. Variable names can
-   *             have alphanumeric and underscore characters, and the values must match
-   *                 <code>[A-Za-z0-9@\-_]+</code>.</p>
-   */
-  variables?: PipelineVariableDeclaration[];
 }
 
 /**
@@ -3038,15 +3196,21 @@ export interface PipelineExecution {
 
   /**
    * @public
+   * <p>A list of pipeline variables used for the pipeline execution.</p>
+   */
+  variables?: ResolvedPipelineVariable[];
+
+  /**
+   * @public
    * <p>The interaction or event that started a pipeline execution.</p>
    */
   trigger?: ExecutionTrigger;
 
   /**
    * @public
-   * <p>A list of pipeline variables used for the pipeline execution.</p>
+   * <p>The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.</p>
    */
-  variables?: ResolvedPipelineVariable[];
+  executionMode?: ExecutionMode;
 }
 
 /**
@@ -3184,6 +3348,12 @@ export interface StageState {
    * <p>Represents information about the run of a stage.</p>
    */
   inboundExecution?: StageExecution;
+
+  /**
+   * @public
+   * <p>The inbound executions for a stage.</p>
+   */
+  inboundExecutions?: StageExecution[];
 
   /**
    * @public
@@ -3668,6 +3838,12 @@ export interface PipelineExecutionSummary {
    * <p>The interaction that stopped a pipeline execution.</p>
    */
   stopTrigger?: StopExecutionTrigger;
+
+  /**
+   * @public
+   * <p>The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.</p>
+   */
+  executionMode?: ExecutionMode;
 }
 
 /**
@@ -3748,16 +3924,17 @@ export interface PipelineSummary {
    *                 creating or updating a pipeline will result in the pipeline having the V2 type of
    *                 pipeline and the associated costs.</p>
    *          </important>
-   *          <p>For information about pricing for CodePipeline, see <a href="https://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
+   *          <p>For information about pricing for CodePipeline, see <a href="http://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
    *          <p>
    *             For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of pipeline is right for me?</a>.</p>
-   *          <note>
-   *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
-   *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
-   *                 in the <i>CodePipeline User Guide</i>.</p>
-   *          </note>
    */
   pipelineType?: PipelineType;
+
+  /**
+   * @public
+   * <p>The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.</p>
+   */
+  executionMode?: ExecutionMode;
 
   /**
    * @public
@@ -4830,6 +5007,27 @@ export class StageNotRetryableException extends __BaseException {
 
 /**
  * @public
+ * <p>The pipeline has reached the limit for concurrent pipeline executions.</p>
+ */
+export class ConcurrentPipelineExecutionsLimitExceededException extends __BaseException {
+  readonly name: "ConcurrentPipelineExecutionsLimitExceededException" =
+    "ConcurrentPipelineExecutionsLimitExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConcurrentPipelineExecutionsLimitExceededException, __BaseException>) {
+    super({
+      name: "ConcurrentPipelineExecutionsLimitExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConcurrentPipelineExecutionsLimitExceededException.prototype);
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const SourceRevisionType = {
@@ -4874,11 +5072,6 @@ export interface SourceRevisionOverride {
 /**
  * @public
  * <p>A pipeline-level variable used for a pipeline execution.</p>
- *          <note>
- *             <p>V2 type pipelines, along with triggers on Git tags and pipeline-level variables,
- *                 are not currently supported for CloudFormation and CDK resources in CodePipeline. For more information about V2 type pipelines, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types.html">Pipeline types</a>
- *                 in the <i>CodePipeline User Guide</i>.</p>
- *          </note>
  */
 export interface PipelineVariable {
   /**
