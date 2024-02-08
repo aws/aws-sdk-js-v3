@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.510.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.509.0...v3.510.0) (2024-02-08)
+
+
+### Features
+
+* **client-quicksight:** General Interactions for Visuals; Waterfall Chart Color Configuration; Documentation Update ([d97c013](https://github.com/aws/aws-sdk-js-v3/commit/d97c013504074119aedc0d39adf1d7d1b495fe45))
+
+
+
+
+
 # [3.509.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.508.0...v3.509.0) (2024-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

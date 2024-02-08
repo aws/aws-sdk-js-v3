@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.510.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.509.0...v3.510.0) (2024-02-08)
+
+
+### Features
+
+* **client-workspaces:** This release introduces User-Decoupling feature. This feature allows Workspaces Core customers to provision workspaces without providing users. CreateWorkspaces and DescribeWorkspaces APIs will now take a new optional parameter "WorkspaceName". ([73e1b34](https://github.com/aws/aws-sdk-js-v3/commit/73e1b347f2db05161bb4438a75b01470fcf02eee))
+
+
+
+
+
 # [3.509.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.508.0...v3.509.0) (2024-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-workspaces

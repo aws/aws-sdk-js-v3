@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.510.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.509.0...v3.510.0) (2024-02-08)
+
+
+### Features
+
+* **client-codepipeline:** Add ability to execute pipelines with new parallel & queued execution modes and add support for triggers with filtering on branches and file paths. ([8180cad](https://github.com/aws/aws-sdk-js-v3/commit/8180cad135065dca5f718e3643a48cae024a22d8))
+
+
+
+
+
 # [3.509.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.508.0...v3.509.0) (2024-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline
