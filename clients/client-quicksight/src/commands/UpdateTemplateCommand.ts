@@ -918,6 +918,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     },
  *                   },
  *                 ],
+ *                 Interactions: { // VisualInteractionOptions
+ *                   VisualMenuOption: { // VisualMenuOption
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: { // ContextMenuOption
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                 },
  *               },
  *               ConditionalFormatting: { // TableConditionalFormatting
  *                 ConditionalFormattingOptions: [ // TableConditionalFormattingOptionList
@@ -1420,6 +1428,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 PaginatedReportOptions: { // PivotTablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
  *                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
+ *                 },
+ *                 Interactions: {
+ *                   VisualMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
  *                 },
  *               },
  *               ConditionalFormatting: { // PivotTableConditionalFormatting
@@ -1994,6 +2010,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     ],
  *                   },
  *                 ],
+ *                 Interactions: {
+ *                   VisualMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                 },
  *               },
  *               Actions: [
  *                 {
@@ -2257,6 +2281,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     StandardLayout: { // KPIVisualStandardLayout
  *                       Type: "CLASSIC" || "VERTICAL", // required
  *                     },
+ *                   },
+ *                 },
+ *                 Interactions: {
+ *                   VisualMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
  *                   },
  *                 },
  *               },
@@ -2648,6 +2680,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     ],
  *                   },
  *                 ],
+ *                 Interactions: {
+ *                   VisualMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                 },
  *               },
  *               Actions: [
  *                 {
@@ -2839,6 +2879,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     },
  *                   ],
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ConditionalFormatting: { // GaugeChartConditionalFormatting
  *                 ConditionalFormattingOptions: [ // GaugeChartConditionalFormattingOptionList
@@ -3241,6 +3282,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     },
  *                   ],
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: [
@@ -3368,6 +3410,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     ],
  *                   },
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ColumnHierarchies: [
  *                 {
@@ -3440,6 +3483,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 },
  *                 DataLabels: "<DataLabelOptions>",
  *                 Tooltip: "<TooltipOptions>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3499,6 +3543,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                     },
  *                   ],
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ColumnHierarchies: "<ColumnHierarchyList>",
  *               Actions: "<VisualCustomActionList>",
@@ -3535,6 +3580,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 MapStyleOptions: {
  *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ConditionalFormatting: { // FilledMapConditionalFormatting
  *                 ConditionalFormattingOptions: [ // FilledMapConditionalFormattingOptionList // required
@@ -3583,6 +3629,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   MeasureDataLabelStyle: "VALUE_ONLY" || "PERCENTAGE_BY_FIRST_STAGE" || "PERCENTAGE_BY_PREVIOUS_STAGE" || "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE" || "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
  *                 },
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3619,6 +3666,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 DataLabels: "<DataLabelOptions>",
  *                 Tooltip: "<TooltipOptions>",
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3694,6 +3742,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   },
  *                 ],
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3768,6 +3817,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   },
  *                 ],
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3798,6 +3848,14 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 Legend: "<LegendOptions>",
  *                 DataLabels: "<DataLabelOptions>",
  *                 VisualPalette: "<VisualPalette>",
+ *                 ColorConfiguration: { // WaterfallChartColorConfiguration
+ *                   GroupColorConfiguration: { // WaterfallChartGroupColorConfiguration
+ *                     PositiveBarColor: "STRING_VALUE",
+ *                     NegativeBarColor: "STRING_VALUE",
+ *                     TotalBarColor: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3831,6 +3889,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 DataLabels: "<DataLabelOptions>",
  *                 Tooltip: "<TooltipOptions>",
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *             },
@@ -3862,6 +3921,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   WordPadding: "NONE" || "SMALL" || "MEDIUM" || "LARGE",
  *                   MaximumStringLength: Number("int"),
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3953,6 +4013,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 CustomNarrative: { // CustomNarrativeOptions
  *                   Narrative: "STRING_VALUE", // required
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               DataSetIdentifier: "STRING_VALUE", // required
@@ -3975,6 +4036,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                   DestinationItemsLimit: "<ItemsLimitConfiguration>",
  *                 },
  *                 DataLabels: "<DataLabelOptions>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *             },
@@ -3986,6 +4048,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 ContentUrl: "STRING_VALUE",
  *                 ContentType: "IMAGE" || "OTHER_EMBEDDED_CONTENT",
  *                 ImageScaling: "FIT_TO_HEIGHT" || "FIT_TO_WIDTH" || "DO_NOT_SCALE" || "SCALE_TO_VISUAL",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               DataSetIdentifier: "STRING_VALUE", // required
@@ -4036,6 +4099,7 @@ export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __M
  *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  *                 Legend: "<LegendOptions>",
  *                 AxesRangeScale: "AUTO" || "INDEPENDENT" || "SHARED",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",

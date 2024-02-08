@@ -6105,6 +6105,48 @@ export interface BarChartFieldWells {
 
 /**
  * @public
+ * <p>The context menu options for a visual's interactions.</p>
+ */
+export interface ContextMenuOption {
+  /**
+   * @public
+   * <p>The availability status of the context menu options. If the value of this property is set to <code>ENABLED</code>, dashboard readers can interact with the context menu.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior;
+}
+
+/**
+ * @public
+ * <p>The menu options for a visual.</p>
+ */
+export interface VisualMenuOption {
+  /**
+   * @public
+   * <p>The availaiblity status of a visual's menu options.</p>
+   */
+  AvailabilityStatus?: DashboardBehavior;
+}
+
+/**
+ * @public
+ * <p>The general visual interactions setup for visual publish options</p>
+ */
+export interface VisualInteractionOptions {
+  /**
+   * @public
+   * <p>The on-visual menu options for a visual.</p>
+   */
+  VisualMenuOption?: VisualMenuOption;
+
+  /**
+   * @public
+   * <p>The context menu options for a visual.</p>
+   */
+  ContextMenuOption?: ContextMenuOption;
+}
+
+/**
+ * @public
  * @enum
  */
 export const LegendPosition = {
@@ -7319,6 +7361,12 @@ export interface BarChartConfiguration {
    * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
    */
   ContributionAnalysisDefaults?: ContributionAnalysisDefault[];
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -7477,67 +7525,6 @@ export interface PredefinedHierarchy {
    * <p>The option that determines the drill down filters for the predefined hierarchy.</p>
    */
   DrillDownFilters?: DrillDownFilter[];
-}
-
-/**
- * @public
- * <p>The option that determines the hierarchy of the fields for a visual element.</p>
- */
-export interface ColumnHierarchy {
-  /**
-   * @public
-   * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
-   */
-  ExplicitHierarchy?: ExplicitHierarchy;
-
-  /**
-   * @public
-   * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
-   */
-  DateTimeHierarchy?: DateTimeHierarchy;
-
-  /**
-   * @public
-   * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
-   */
-  PredefinedHierarchy?: PredefinedHierarchy;
-}
-
-/**
- * @public
- * <p>The text format for a subtitle.</p>
- *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
- */
-export interface LongFormatText {
-  /**
-   * @public
-   * <p>Plain text format.</p>
-   */
-  PlainText?: string;
-
-  /**
-   * @public
-   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
-   */
-  RichText?: string;
-}
-
-/**
- * @public
- * <p>The subtitle label options for a visual.</p>
- */
-export interface VisualSubtitleLabelOptions {
-  /**
-   * @public
-   * <p>The visibility of the subtitle label.</p>
-   */
-  Visibility?: Visibility;
-
-  /**
-   * @public
-   * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
-   */
-  FormatText?: LongFormatText;
 }
 
 /**

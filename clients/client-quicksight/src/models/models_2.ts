@@ -21,17 +21,116 @@ import {
   ParameterDeclarationFilterSensitiveLog,
   ResourceStatus,
   TimeGranularity,
+  VisualMenuOption,
 } from "./models_0";
 
-import {
-  AnalysisDefinition,
-  AnalysisSourceEntity,
-  AnonymousUserDashboardEmbeddingConfiguration,
-  DataSetReference,
-  SheetDefinition,
-} from "./models_1";
+import { AnalysisDefinition, SheetDefinition } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>Dataset reference.</p>
+ */
+export interface DataSetReference {
+  /**
+   * @public
+   * <p>Dataset placeholder.</p>
+   */
+  DataSetPlaceholder: string | undefined;
+
+  /**
+   * @public
+   * <p>Dataset Amazon Resource Name (ARN).</p>
+   */
+  DataSetArn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The source template of an analysis.</p>
+ */
+export interface AnalysisSourceTemplate {
+  /**
+   * @public
+   * <p>The dataset references of the source template of an analysis.</p>
+   */
+  DataSetReferences: DataSetReference[] | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
+   */
+  Arn: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The source entity of an analysis.</p>
+ */
+export interface AnalysisSourceEntity {
+  /**
+   * @public
+   * <p>The source template for the source entity of the analysis.</p>
+   */
+  SourceTemplate?: AnalysisSourceTemplate;
+}
+
+/**
+ * @public
+ * <p>The summary metadata that describes an analysis.</p>
+ */
+export interface AnalysisSummary {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) for the analysis.</p>
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * <p>The ID of the analysis. This ID displays in the URL.</p>
+   */
+  AnalysisId?: string;
+
+  /**
+   * @public
+   * <p>The name of the analysis. This name is displayed in the Amazon QuickSight console.
+   *             </p>
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * <p>The last known status for the analysis.</p>
+   */
+  Status?: ResourceStatus;
+
+  /**
+   * @public
+   * <p>The time that the analysis was created.</p>
+   */
+  CreatedTime?: Date;
+
+  /**
+   * @public
+   * <p>The time that the analysis was last updated.</p>
+   */
+  LastUpdatedTime?: Date;
+}
+
+/**
+ * @public
+ * <p>Information about the dashboard that you want to embed.</p>
+ */
+export interface AnonymousUserDashboardEmbeddingConfiguration {
+  /**
+   * @public
+   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this dashboard.</p>
+   *          <p>The Amazon Resource Name (ARN) of this dashboard must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
+   */
+  InitialDashboardId: string | undefined;
+}
 
 /**
  * @public
@@ -4795,18 +4894,6 @@ export interface VisualAxisSortOption {
 
 /**
  * @public
- * <p>The menu options for a visual.</p>
- */
-export interface VisualMenuOption {
-  /**
-   * @public
-   * <p>The availaiblity status of a visual's menu options.</p>
-   */
-  AvailabilityStatus?: DashboardBehavior;
-}
-
-/**
- * @public
  * <p>Determines if hidden fields are included in an exported dashboard.</p>
  */
 export interface ExportHiddenFieldsOption {
@@ -8680,287 +8767,6 @@ export interface SemanticType {
 }
 
 /**
- * @public
- * @enum
- */
-export const TopicTimeGranularity = {
-  DAY: "DAY",
-  HOUR: "HOUR",
-  MINUTE: "MINUTE",
-  MONTH: "MONTH",
-  QUARTER: "QUARTER",
-  SECOND: "SECOND",
-  WEEK: "WEEK",
-  YEAR: "YEAR",
-} as const;
-
-/**
- * @public
- */
-export type TopicTimeGranularity = (typeof TopicTimeGranularity)[keyof typeof TopicTimeGranularity];
-
-/**
- * @public
- * <p>A structure that represents a calculated field.</p>
- */
-export interface TopicCalculatedField {
-  /**
-   * @public
-   * <p>The calculated field name.</p>
-   */
-  CalculatedFieldName: string | undefined;
-
-  /**
-   * @public
-   * <p>The calculated field description.</p>
-   */
-  CalculatedFieldDescription?: string;
-
-  /**
-   * @public
-   * <p>The calculated field expression.</p>
-   */
-  Expression: string | undefined;
-
-  /**
-   * @public
-   * <p>The other names or aliases for the calculated field.</p>
-   */
-  CalculatedFieldSynonyms?: string[];
-
-  /**
-   * @public
-   * <p>A boolean value that indicates if a calculated field is included in the topic.</p>
-   */
-  IsIncludedInTopic?: boolean;
-
-  /**
-   * @public
-   * <p>A Boolean value that indicates if a calculated field is visible in the autocomplete.</p>
-   */
-  DisableIndexing?: boolean;
-
-  /**
-   * @public
-   * <p>The column data role for a calculated field. Valid values for this structure are <code>DIMENSION</code> and <code>MEASURE</code>.</p>
-   */
-  ColumnDataRole?: ColumnDataRole;
-
-  /**
-   * @public
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
-   */
-  TimeGranularity?: TopicTimeGranularity;
-
-  /**
-   * @public
-   * <p>The default formatting definition.</p>
-   */
-  DefaultFormatting?: DefaultFormatting;
-
-  /**
-   * @public
-   * <p>The default aggregation. Valid values for this structure are <code>SUM</code>,
-   *             <code>MAX</code>, <code>MIN</code>, <code>COUNT</code>,
-   *          <code>DISTINCT_COUNT</code>,
-   *          and <code>AVERAGE</code>.</p>
-   */
-  Aggregation?: DefaultAggregation;
-
-  /**
-   * @public
-   * <p>The order in which data is displayed for the calculated field when
-   *          it's used in a comparative context.</p>
-   */
-  ComparativeOrder?: ComparativeOrder;
-
-  /**
-   * @public
-   * <p>The semantic type.</p>
-   */
-  SemanticType?: SemanticType;
-
-  /**
-   * @public
-   * <p>The list of aggregation types that are allowed for the calculated field. Valid values
-   *          for this structure are <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MIN</code>,
-   *             <code>MAX</code>, <code>MEDIAN</code>, <code>SUM</code>, <code>AVERAGE</code>,
-   *             <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
-   *          <code>VARP</code>, and <code>PERCENTILE</code>.</p>
-   */
-  AllowedAggregations?: AuthorSpecifiedAggregation[];
-
-  /**
-   * @public
-   * <p>The list of aggregation types that are not allowed for the calculated field. Valid
-   *          values for this structure are <code>COUNT</code>, <code>DISTINCT_COUNT</code>,
-   *             <code>MIN</code>, <code>MAX</code>, <code>MEDIAN</code>, <code>SUM</code>,
-   *             <code>AVERAGE</code>, <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
-   *             <code>VARP</code>, and <code>PERCENTILE</code>.</p>
-   */
-  NotAllowedAggregations?: AuthorSpecifiedAggregation[];
-
-  /**
-   * @public
-   * <p>A Boolean value that indicates whether to never aggregate calculated field in filters.</p>
-   */
-  NeverAggregateInFilter?: boolean;
-
-  /**
-   * @public
-   * <p>The other
-   *          names or aliases for the calculated field cell value.</p>
-   */
-  CellValueSynonyms?: CellValueSynonym[];
-
-  /**
-   * @public
-   * <p>The non additive for the table style target.</p>
-   */
-  NonAdditive?: boolean;
-}
-
-/**
- * @public
- * <p>Represents a column in a dataset.</p>
- */
-export interface TopicColumn {
-  /**
-   * @public
-   * <p>The name of the column.</p>
-   */
-  ColumnName: string | undefined;
-
-  /**
-   * @public
-   * <p>A user-friendly name for the column.</p>
-   */
-  ColumnFriendlyName?: string;
-
-  /**
-   * @public
-   * <p>A description of the column and its contents.</p>
-   */
-  ColumnDescription?: string;
-
-  /**
-   * @public
-   * <p>The other names or aliases for the column.</p>
-   */
-  ColumnSynonyms?: string[];
-
-  /**
-   * @public
-   * <p>The role of the column in the data. Valid values are <code>DIMENSION</code> and <code>MEASURE</code>.</p>
-   */
-  ColumnDataRole?: ColumnDataRole;
-
-  /**
-   * @public
-   * <p>The type of aggregation that is performed on the column data when
-   *          it's queried.</p>
-   */
-  Aggregation?: DefaultAggregation;
-
-  /**
-   * @public
-   * <p>A Boolean value that indicates whether the column is included in the query results.</p>
-   */
-  IsIncludedInTopic?: boolean;
-
-  /**
-   * @public
-   * <p>A Boolean value that indicates whether the column shows in the autocomplete functionality.</p>
-   */
-  DisableIndexing?: boolean;
-
-  /**
-   * @public
-   * <p>The order in which data is displayed for the column when
-   *          it's used in a comparative context.</p>
-   */
-  ComparativeOrder?: ComparativeOrder;
-
-  /**
-   * @public
-   * <p>The semantic type of data contained in the column.</p>
-   */
-  SemanticType?: SemanticType;
-
-  /**
-   * @public
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
-   */
-  TimeGranularity?: TopicTimeGranularity;
-
-  /**
-   * @public
-   * <p>The list of aggregation types that are allowed for the column. Valid values for this
-   *          structure are <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MIN</code>,
-   *             <code>MAX</code>, <code>MEDIAN</code>, <code>SUM</code>, <code>AVERAGE</code>,
-   *             <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
-   *          <code>VARP</code>,
-   *          and <code>PERCENTILE</code>.</p>
-   */
-  AllowedAggregations?: AuthorSpecifiedAggregation[];
-
-  /**
-   * @public
-   * <p>The list of aggregation types that are not allowed for the column. Valid values for this
-   *          structure are <code>COUNT</code>, <code>DISTINCT_COUNT</code>, <code>MIN</code>,
-   *             <code>MAX</code>, <code>MEDIAN</code>, <code>SUM</code>, <code>AVERAGE</code>,
-   *             <code>STDEV</code>, <code>STDEVP</code>, <code>VAR</code>,
-   *          <code>VARP</code>,
-   *          and <code>PERCENTILE</code>.</p>
-   */
-  NotAllowedAggregations?: AuthorSpecifiedAggregation[];
-
-  /**
-   * @public
-   * <p>The default formatting used for values in the column.</p>
-   */
-  DefaultFormatting?: DefaultFormatting;
-
-  /**
-   * @public
-   * <p>A Boolean
-   *          value that indicates whether to aggregate the column data when
-   *          it's used in a filter context.</p>
-   */
-  NeverAggregateInFilter?: boolean;
-
-  /**
-   * @public
-   * <p>The other names or aliases for the column cell value.</p>
-   */
-  CellValueSynonyms?: CellValueSynonym[];
-
-  /**
-   * @public
-   * <p>The non additive value for the column.</p>
-   */
-  NonAdditive?: boolean;
-}
-
-/**
- * @public
- * <p>A structure that represents a data aggregation.</p>
- */
-export interface DataAggregation {
-  /**
-   * @public
-   * <p>The level of time precision that is used to aggregate <code>DateTime</code> values.</p>
-   */
-  DatasetRowDateGranularity?: TopicTimeGranularity;
-
-  /**
-   * @public
-   * <p>The column name for the default date.</p>
-   */
-  DefaultDateColumnName?: string;
-}
-
-/**
  * @internal
  */
 export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
@@ -9267,21 +9073,4 @@ export const SemanticTypeFilterSensitiveLog = (obj: SemanticType): any => ({
   ...(obj.TruthyCellValueSynonyms && { TruthyCellValueSynonyms: SENSITIVE_STRING }),
   ...(obj.FalseyCellValue && { FalseyCellValue: SENSITIVE_STRING }),
   ...(obj.FalseyCellValueSynonyms && { FalseyCellValueSynonyms: SENSITIVE_STRING }),
-});
-
-/**
- * @internal
- */
-export const TopicCalculatedFieldFilterSensitiveLog = (obj: TopicCalculatedField): any => ({
-  ...obj,
-  ...(obj.Expression && { Expression: SENSITIVE_STRING }),
-  ...(obj.SemanticType && { SemanticType: SemanticTypeFilterSensitiveLog(obj.SemanticType) }),
-});
-
-/**
- * @internal
- */
-export const TopicColumnFilterSensitiveLog = (obj: TopicColumn): any => ({
-  ...obj,
-  ...(obj.SemanticType && { SemanticType: SemanticTypeFilterSensitiveLog(obj.SemanticType) }),
 });

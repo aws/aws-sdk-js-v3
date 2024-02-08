@@ -3,11 +3,13 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { AccountCustomization, ResourceStatus } from "./models_0";
 
-import { AnalysisDefinition, AnalysisSearchFilter, AnalysisSourceEntity, AnalysisSummary } from "./models_1";
+import { AnalysisDefinition, AnalysisSearchFilter } from "./models_1";
 
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  AnalysisSourceEntity,
+  AnalysisSummary,
   AssetBundleCloudFormationOverridePropertyConfiguration,
   AssetBundleExportFormat,
   AssetBundleExportJobValidationStrategy,
@@ -77,6 +79,110 @@ import {
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListRefreshSchedulesRequest {
+  /**
+   * @public
+   * <p>The Amazon Web Services account ID.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The ID of the dataset.</p>
+   */
+  DataSetId: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRefreshSchedulesResponse {
+  /**
+   * @public
+   * <p>The list of refresh schedules for the dataset.</p>
+   */
+  RefreshSchedules?: RefreshSchedule[];
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListRoleMembershipsRequest {
+  /**
+   * @public
+   * <p>The name of the role.</p>
+   */
+  Role: Role | undefined;
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to return.</p>
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * <p>The ID for the Amazon Web Services account that you want to create a group in. The Amazon Web Services account ID that you provide must be the same Amazon Web Services account that contains your Amazon QuickSight account.</p>
+   */
+  AwsAccountId: string | undefined;
+
+  /**
+   * @public
+   * <p>The namespace that includes the role.</p>
+   */
+  Namespace: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListRoleMembershipsResponse {
+  /**
+   * @public
+   * <p>The list of groups associated with a role</p>
+   */
+  MembersList?: string[];
+
+  /**
+   * @public
+   * <p>A pagination token that can be used in a subsequent request.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
 
 /**
  * @public
@@ -3095,13 +3201,13 @@ export interface UpdateFolderPermissionsRequest {
 
   /**
    * @public
-   * <p>The permissions that you want to grant on a resource.</p>
+   * <p>The permissions that you want to grant on a resource. Namespace ARNs are not supported <code>Principal</code> values for folder permissions.</p>
    */
   GrantPermissions?: ResourcePermission[];
 
   /**
    * @public
-   * <p>The permissions that you want to revoke from a resource.</p>
+   * <p>The permissions that you want to revoke from a resource.  Namespace ARNs are not supported <code>Principal</code> values for folder permissions.</p>
    */
   RevokePermissions?: ResourcePermission[];
 }

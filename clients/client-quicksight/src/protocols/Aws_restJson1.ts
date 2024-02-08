@@ -524,10 +524,10 @@ import {
   ChartAxisLabelOptions,
   ColorsConfiguration,
   ColumnConfiguration,
-  ColumnHierarchy,
   ColumnIdentifier,
   ColumnSort,
   ColumnTooltipItem,
+  ContextMenuOption,
   ContributionAnalysisDefault,
   CurrencyDisplayFormatConfiguration,
   CustomActionFilterOperation,
@@ -621,7 +621,6 @@ import {
   ListControlSelectAllOptions,
   LoadingAnimation,
   LocalNavigationConfiguration,
-  LongFormatText,
   MappedDataSetParameter,
   MaximumLabelType,
   MeasureField,
@@ -707,16 +706,13 @@ import {
   VisibleRangeOptions,
   VisualCustomAction,
   VisualCustomActionOperation,
+  VisualInteractionOptions,
+  VisualMenuOption,
   VisualPalette,
-  VisualSubtitleLabelOptions,
 } from "../models/models_0";
 import {
   AnalysisDefinition,
   AnalysisSearchFilter,
-  AnalysisSourceEntity,
-  AnalysisSourceTemplate,
-  AnalysisSummary,
-  AnonymousUserDashboardEmbeddingConfiguration,
   ArcAxisConfiguration,
   ArcAxisDisplayRange,
   ArcConfiguration,
@@ -734,6 +730,7 @@ import {
   ClusterMarker,
   ClusterMarkerConfiguration,
   ColorScale,
+  ColumnHierarchy,
   ComboChartAggregatedFieldWells,
   ComboChartConfiguration,
   ComboChartFieldWells,
@@ -757,7 +754,6 @@ import {
   DataColor,
   DataFieldSeriesItem,
   DataPathSort,
-  DataSetReference,
   DonutCenterOptions,
   DonutOptions,
   EmptyVisual,
@@ -838,6 +834,7 @@ import {
   LineChartSortConfiguration,
   LineChartVisual,
   LineSeriesAxisDisplayOptions,
+  LongFormatText,
   MaximumMinimumComputation,
   MetricComparisonComputation,
   MissingDataConfiguration,
@@ -943,10 +940,13 @@ import {
   UnaggregatedField,
   UniqueValuesComputation,
   Visual,
+  VisualSubtitleLabelOptions,
   VisualTitleLabelOptions,
   WaterfallChartAggregatedFieldWells,
+  WaterfallChartColorConfiguration,
   WaterfallChartConfiguration,
   WaterfallChartFieldWells,
+  WaterfallChartGroupColorConfiguration,
   WaterfallChartOptions,
   WaterfallChartSortConfiguration,
   WaterfallVisual,
@@ -962,6 +962,10 @@ import {
 } from "../models/models_1";
 import {
   _Parameters,
+  AnalysisSourceEntity,
+  AnalysisSourceTemplate,
+  AnalysisSummary,
+  AnonymousUserDashboardEmbeddingConfiguration,
   AnonymousUserDashboardVisualEmbeddingConfiguration,
   AnonymousUserEmbeddingExperienceConfiguration,
   AnonymousUserQSearchBarEmbeddingConfiguration,
@@ -1044,7 +1048,6 @@ import {
   DashboardVersionDefinition,
   DashboardVisualId,
   DashboardVisualPublishOptions,
-  DataAggregation,
   DatabricksParameters,
   DataColorPalette,
   DataPointDrillUpDownOption,
@@ -1052,6 +1055,7 @@ import {
   DataPointTooltipOption,
   DataSetConfiguration,
   DatasetParameter,
+  DataSetReference,
   DataSetSchema,
   DataSetUsageConfiguration,
   DataSourceCredentials,
@@ -1145,8 +1149,6 @@ import {
   ThrottlingException,
   TileLayoutStyle,
   TileStyle,
-  TopicCalculatedField,
-  TopicColumn,
   TransformOperation,
   TrinoParameters,
   TwitterParameters,
@@ -1157,7 +1159,6 @@ import {
   UploadSettings,
   ValidationStrategy,
   VisualAxisSortOption,
-  VisualMenuOption,
   VpcConnectionProperties,
 } from "../models/models_2";
 import {
@@ -1166,6 +1167,7 @@ import {
   DashboardSummary,
   DashboardVersion,
   DashboardVersionSummary,
+  DataAggregation,
   DataSet,
   DatasetMetadata,
   DataSetRefreshProperties,
@@ -1208,8 +1210,10 @@ import {
   TemplateVersion,
   Theme,
   ThemeVersion,
+  TopicCalculatedField,
   TopicCategoryFilter,
   TopicCategoryFilterConstant,
+  TopicColumn,
   TopicDateRangeFilter,
   TopicDetails,
   TopicFilter,
@@ -10367,6 +10371,7 @@ const se_BarChartConfiguration = (input: BarChartConfiguration, context: __Serde
     ContributionAnalysisDefaults: _json,
     DataLabels: _json,
     FieldWells: (_) => se_BarChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     Orientation: [],
     ReferenceLines: (_) => se_ReferenceLineList(_, context),
@@ -10459,6 +10464,7 @@ const se_BoxPlotChartConfiguration = (input: BoxPlotChartConfiguration, context:
     CategoryAxis: (_) => se_AxisDisplayOptions(_, context),
     CategoryLabelOptions: _json,
     FieldWells: (_) => se_BoxPlotFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     PrimaryYAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
     PrimaryYAxisLabelOptions: _json,
@@ -10693,6 +10699,7 @@ const se_ComboChartConfiguration = (input: ComboChartConfiguration, context: __S
     CategoryLabelOptions: _json,
     ColorLabelOptions: _json,
     FieldWells: (_) => se_ComboChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     LineDataLabels: _json,
     PrimaryYAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
@@ -10811,6 +10818,8 @@ const se_ConditionalFormattingGradientColor = (
 // se_ConditionalFormattingIconSet omitted.
 
 // se_ConditionalFormattingSolidColor omitted.
+
+// se_ContextMenuOption omitted.
 
 // se_ContributionAnalysisDefault omitted.
 
@@ -11460,6 +11469,7 @@ const se_FilledMapConditionalFormattingOptionList = (
 const se_FilledMapConfiguration = (input: FilledMapConfiguration, context: __SerdeContext): any => {
   return take(input, {
     FieldWells: (_) => se_FilledMapFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     MapStyleOptions: _json,
     SortConfiguration: (_) => se_FilledMapSortConfiguration(_, context),
@@ -11749,6 +11759,7 @@ const se_FunnelChartConfiguration = (input: FunnelChartConfiguration, context: _
     CategoryLabelOptions: _json,
     DataLabelOptions: _json,
     FieldWells: (_) => se_FunnelChartFieldWells(_, context),
+    Interactions: _json,
     SortConfiguration: (_) => se_FunnelChartSortConfiguration(_, context),
     Tooltip: (_) => se_TooltipOptions(_, context),
     ValueLabelOptions: _json,
@@ -11860,6 +11871,7 @@ const se_GaugeChartConfiguration = (input: GaugeChartConfiguration, context: __S
     DataLabels: _json,
     FieldWells: (_) => se_GaugeChartFieldWells(_, context),
     GaugeChartOptions: (_) => se_GaugeChartOptions(_, context),
+    Interactions: _json,
     TooltipOptions: (_) => se_TooltipOptions(_, context),
     VisualPalette: _json,
   });
@@ -11957,6 +11969,7 @@ const se_GeospatialMapAggregatedFieldWells = (
 const se_GeospatialMapConfiguration = (input: GeospatialMapConfiguration, context: __SerdeContext): any => {
   return take(input, {
     FieldWells: (_) => se_GeospatialMapFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     MapStyleOptions: _json,
     PointStyleOptions: _json,
@@ -12091,6 +12104,7 @@ const se_HeatMapConfiguration = (input: HeatMapConfiguration, context: __SerdeCo
     ColumnLabelOptions: _json,
     DataLabels: _json,
     FieldWells: (_) => se_HeatMapFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     RowLabelOptions: _json,
     SortConfiguration: (_) => se_HeatMapSortConfiguration(_, context),
@@ -12175,6 +12189,7 @@ const se_HistogramConfiguration = (input: HistogramConfiguration, context: __Ser
     BinOptions: (_) => se_HistogramBinOptions(_, context),
     DataLabels: _json,
     FieldWells: (_) => se_HistogramFieldWells(_, context),
+    Interactions: _json,
     Tooltip: (_) => se_TooltipOptions(_, context),
     VisualPalette: _json,
     XAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
@@ -12235,6 +12250,7 @@ const se_InsightConfiguration = (input: InsightConfiguration, context: __SerdeCo
   return take(input, {
     Computations: (_) => se_ComputationList(_, context),
     CustomNarrative: _json,
+    Interactions: _json,
   });
 };
 
@@ -12347,6 +12363,7 @@ const se_KPIConditionalFormattingOptionList = (
 const se_KPIConfiguration = (input: KPIConfiguration, context: __SerdeContext): any => {
   return take(input, {
     FieldWells: (_) => se_KPIFieldWells(_, context),
+    Interactions: _json,
     KPIOptions: _json,
     SortConfiguration: (_) => se_KPISortConfiguration(_, context),
   });
@@ -12477,6 +12494,7 @@ const se_LineChartConfiguration = (input: LineChartConfiguration, context: __Ser
     DefaultSeriesSettings: _json,
     FieldWells: (_) => se_LineChartFieldWells(_, context),
     ForecastConfigurations: (_) => se_ForecastConfigurationList(_, context),
+    Interactions: _json,
     Legend: _json,
     PrimaryYAxisDisplayOptions: (_) => se_LineSeriesAxisDisplayOptions(_, context),
     PrimaryYAxisLabelOptions: _json,
@@ -12963,6 +12981,7 @@ const se_PieChartConfiguration = (input: PieChartConfiguration, context: __Serde
     DataLabels: _json,
     DonutOptions: _json,
     FieldWells: (_) => se_PieChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     SmallMultiplesOptions: _json,
     SortConfiguration: (_) => se_PieChartSortConfiguration(_, context),
@@ -13111,6 +13130,7 @@ const se_PivotTableConfiguration = (input: PivotTableConfiguration, context: __S
   return take(input, {
     FieldOptions: _json,
     FieldWells: (_) => se_PivotTableFieldWells(_, context),
+    Interactions: _json,
     PaginatedReportOptions: _json,
     SortConfiguration: (_) => se_PivotTableSortConfiguration(_, context),
     TableOptions: _json,
@@ -13250,6 +13270,7 @@ const se_RadarChartConfiguration = (input: RadarChartConfiguration, context: __S
     ColorAxis: (_) => se_AxisDisplayOptions(_, context),
     ColorLabelOptions: _json,
     FieldWells: (_) => se_RadarChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     Shape: [],
     SortConfiguration: (_) => se_RadarChartSortConfiguration(_, context),
@@ -13486,6 +13507,7 @@ const se_SankeyDiagramChartConfiguration = (input: SankeyDiagramChartConfigurati
   return take(input, {
     DataLabels: _json,
     FieldWells: (_) => se_SankeyDiagramFieldWells(_, context),
+    Interactions: _json,
     SortConfiguration: (_) => se_SankeyDiagramSortConfiguration(_, context),
   });
 };
@@ -13546,6 +13568,7 @@ const se_ScatterPlotConfiguration = (input: ScatterPlotConfiguration, context: _
   return take(input, {
     DataLabels: _json,
     FieldWells: (_) => se_ScatterPlotFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     SortConfiguration: _json,
     Tooltip: (_) => se_TooltipOptions(_, context),
@@ -13933,6 +13956,7 @@ const se_TableConfiguration = (input: TableConfiguration, context: __SerdeContex
   return take(input, {
     FieldOptions: _json,
     FieldWells: (_) => se_TableFieldWells(_, context),
+    Interactions: _json,
     PaginatedReportOptions: _json,
     SortConfiguration: (_) => se_TableSortConfiguration(_, context),
     TableInlineVisualizations: _json,
@@ -14342,6 +14366,7 @@ const se_TreeMapConfiguration = (input: TreeMapConfiguration, context: __SerdeCo
     DataLabels: _json,
     FieldWells: (_) => se_TreeMapFieldWells(_, context),
     GroupLabelOptions: _json,
+    Interactions: _json,
     Legend: _json,
     SizeLabelOptions: _json,
     SortConfiguration: (_) => se_TreeMapSortConfiguration(_, context),
@@ -14512,6 +14537,8 @@ const se_VisualCustomActionOperationList = (input: VisualCustomActionOperation[]
     });
 };
 
+// se_VisualInteractionOptions omitted.
+
 /**
  * serializeAws_restJson1VisualList
  */
@@ -14547,6 +14574,8 @@ const se_WaterfallChartAggregatedFieldWells = (
   });
 };
 
+// se_WaterfallChartColorConfiguration omitted.
+
 /**
  * serializeAws_restJson1WaterfallChartConfiguration
  */
@@ -14554,8 +14583,10 @@ const se_WaterfallChartConfiguration = (input: WaterfallChartConfiguration, cont
   return take(input, {
     CategoryAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
     CategoryAxisLabelOptions: _json,
+    ColorConfiguration: _json,
     DataLabels: _json,
     FieldWells: (_) => se_WaterfallChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     PrimaryYAxisDisplayOptions: (_) => se_AxisDisplayOptions(_, context),
     PrimaryYAxisLabelOptions: _json,
@@ -14573,6 +14604,8 @@ const se_WaterfallChartFieldWells = (input: WaterfallChartFieldWells, context: _
     WaterfallChartAggregatedFieldWells: (_) => se_WaterfallChartAggregatedFieldWells(_, context),
   });
 };
+
+// se_WaterfallChartGroupColorConfiguration omitted.
 
 // se_WaterfallChartOptions omitted.
 
@@ -14638,6 +14671,7 @@ const se_WordCloudChartConfiguration = (input: WordCloudChartConfiguration, cont
   return take(input, {
     CategoryLabelOptions: _json,
     FieldWells: (_) => se_WordCloudFieldWells(_, context),
+    Interactions: _json,
     SortConfiguration: (_) => se_WordCloudSortConfiguration(_, context),
     WordCloudOptions: _json,
   });
@@ -15242,6 +15276,7 @@ const de_BarChartConfiguration = (output: any, context: __SerdeContext): BarChar
     ContributionAnalysisDefaults: _json,
     DataLabels: _json,
     FieldWells: (_: any) => de_BarChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     Orientation: __expectString,
     ReferenceLines: (_: any) => de_ReferenceLineList(_, context),
@@ -15332,6 +15367,7 @@ const de_BoxPlotChartConfiguration = (output: any, context: __SerdeContext): Box
     CategoryAxis: (_: any) => de_AxisDisplayOptions(_, context),
     CategoryLabelOptions: _json,
     FieldWells: (_: any) => de_BoxPlotFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     PrimaryYAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
     PrimaryYAxisLabelOptions: _json,
@@ -15569,6 +15605,7 @@ const de_ComboChartConfiguration = (output: any, context: __SerdeContext): Combo
     CategoryLabelOptions: _json,
     ColorLabelOptions: _json,
     FieldWells: (_: any) => de_ComboChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     LineDataLabels: _json,
     PrimaryYAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
@@ -15688,6 +15725,8 @@ const de_ConditionalFormattingGradientColor = (
 // de_ConditionalFormattingIconSet omitted.
 
 // de_ConditionalFormattingSolidColor omitted.
+
+// de_ContextMenuOption omitted.
 
 // de_ContributionAnalysisDefault omitted.
 
@@ -16535,6 +16574,7 @@ const de_FilledMapConditionalFormattingOptionList = (
 const de_FilledMapConfiguration = (output: any, context: __SerdeContext): FilledMapConfiguration => {
   return take(output, {
     FieldWells: (_: any) => de_FilledMapFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     MapStyleOptions: _json,
     SortConfiguration: (_: any) => de_FilledMapSortConfiguration(_, context),
@@ -16870,6 +16910,7 @@ const de_FunnelChartConfiguration = (output: any, context: __SerdeContext): Funn
     CategoryLabelOptions: _json,
     DataLabelOptions: _json,
     FieldWells: (_: any) => de_FunnelChartFieldWells(_, context),
+    Interactions: _json,
     SortConfiguration: (_: any) => de_FunnelChartSortConfiguration(_, context),
     Tooltip: (_: any) => de_TooltipOptions(_, context),
     ValueLabelOptions: _json,
@@ -16983,6 +17024,7 @@ const de_GaugeChartConfiguration = (output: any, context: __SerdeContext): Gauge
     DataLabels: _json,
     FieldWells: (_: any) => de_GaugeChartFieldWells(_, context),
     GaugeChartOptions: (_: any) => de_GaugeChartOptions(_, context),
+    Interactions: _json,
     TooltipOptions: (_: any) => de_TooltipOptions(_, context),
     VisualPalette: _json,
   }) as any;
@@ -17080,6 +17122,7 @@ const de_GeospatialMapAggregatedFieldWells = (
 const de_GeospatialMapConfiguration = (output: any, context: __SerdeContext): GeospatialMapConfiguration => {
   return take(output, {
     FieldWells: (_: any) => de_GeospatialMapFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     MapStyleOptions: _json,
     PointStyleOptions: _json,
@@ -17219,6 +17262,7 @@ const de_HeatMapConfiguration = (output: any, context: __SerdeContext): HeatMapC
     ColumnLabelOptions: _json,
     DataLabels: _json,
     FieldWells: (_: any) => de_HeatMapFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     RowLabelOptions: _json,
     SortConfiguration: (_: any) => de_HeatMapSortConfiguration(_, context),
@@ -17304,6 +17348,7 @@ const de_HistogramConfiguration = (output: any, context: __SerdeContext): Histog
     BinOptions: (_: any) => de_HistogramBinOptions(_, context),
     DataLabels: _json,
     FieldWells: (_: any) => de_HistogramFieldWells(_, context),
+    Interactions: _json,
     Tooltip: (_: any) => de_TooltipOptions(_, context),
     VisualPalette: _json,
     XAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
@@ -17402,6 +17447,7 @@ const de_InsightConfiguration = (output: any, context: __SerdeContext): InsightC
   return take(output, {
     Computations: (_: any) => de_ComputationList(_, context),
     CustomNarrative: _json,
+    Interactions: _json,
   }) as any;
 };
 
@@ -17515,6 +17561,7 @@ const de_KPIConditionalFormattingOptionList = (
 const de_KPIConfiguration = (output: any, context: __SerdeContext): KPIConfiguration => {
   return take(output, {
     FieldWells: (_: any) => de_KPIFieldWells(_, context),
+    Interactions: _json,
     KPIOptions: _json,
     SortConfiguration: (_: any) => de_KPISortConfiguration(_, context),
   }) as any;
@@ -17646,6 +17693,7 @@ const de_LineChartConfiguration = (output: any, context: __SerdeContext): LineCh
     DefaultSeriesSettings: _json,
     FieldWells: (_: any) => de_LineChartFieldWells(_, context),
     ForecastConfigurations: (_: any) => de_ForecastConfigurationList(_, context),
+    Interactions: _json,
     Legend: _json,
     PrimaryYAxisDisplayOptions: (_: any) => de_LineSeriesAxisDisplayOptions(_, context),
     PrimaryYAxisLabelOptions: _json,
@@ -18153,6 +18201,7 @@ const de_PieChartConfiguration = (output: any, context: __SerdeContext): PieChar
     DataLabels: _json,
     DonutOptions: _json,
     FieldWells: (_: any) => de_PieChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     SmallMultiplesOptions: _json,
     SortConfiguration: (_: any) => de_PieChartSortConfiguration(_, context),
@@ -18304,6 +18353,7 @@ const de_PivotTableConfiguration = (output: any, context: __SerdeContext): Pivot
   return take(output, {
     FieldOptions: _json,
     FieldWells: (_: any) => de_PivotTableFieldWells(_, context),
+    Interactions: _json,
     PaginatedReportOptions: _json,
     SortConfiguration: (_: any) => de_PivotTableSortConfiguration(_, context),
     TableOptions: _json,
@@ -18445,6 +18495,7 @@ const de_RadarChartConfiguration = (output: any, context: __SerdeContext): Radar
     ColorAxis: (_: any) => de_AxisDisplayOptions(_, context),
     ColorLabelOptions: _json,
     FieldWells: (_: any) => de_RadarChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     Shape: __expectString,
     SortConfiguration: (_: any) => de_RadarChartSortConfiguration(_, context),
@@ -18684,6 +18735,7 @@ const de_SankeyDiagramChartConfiguration = (output: any, context: __SerdeContext
   return take(output, {
     DataLabels: _json,
     FieldWells: (_: any) => de_SankeyDiagramFieldWells(_, context),
+    Interactions: _json,
     SortConfiguration: (_: any) => de_SankeyDiagramSortConfiguration(_, context),
   }) as any;
 };
@@ -18744,6 +18796,7 @@ const de_ScatterPlotConfiguration = (output: any, context: __SerdeContext): Scat
   return take(output, {
     DataLabels: _json,
     FieldWells: (_: any) => de_ScatterPlotFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     SortConfiguration: _json,
     Tooltip: (_: any) => de_TooltipOptions(_, context),
@@ -19158,6 +19211,7 @@ const de_TableConfiguration = (output: any, context: __SerdeContext): TableConfi
   return take(output, {
     FieldOptions: _json,
     FieldWells: (_: any) => de_TableFieldWells(_, context),
+    Interactions: _json,
     PaginatedReportOptions: _json,
     SortConfiguration: (_: any) => de_TableSortConfiguration(_, context),
     TableInlineVisualizations: _json,
@@ -19804,6 +19858,7 @@ const de_TreeMapConfiguration = (output: any, context: __SerdeContext): TreeMapC
     DataLabels: _json,
     FieldWells: (_: any) => de_TreeMapFieldWells(_, context),
     GroupLabelOptions: _json,
+    Interactions: _json,
     Legend: _json,
     SizeLabelOptions: _json,
     SortConfiguration: (_: any) => de_TreeMapSortConfiguration(_, context),
@@ -19975,6 +20030,8 @@ const de_VisualCustomActionOperationList = (output: any, context: __SerdeContext
   return retVal;
 };
 
+// de_VisualInteractionOptions omitted.
+
 /**
  * deserializeAws_restJson1VisualList
  */
@@ -20063,6 +20120,8 @@ const de_WaterfallChartAggregatedFieldWells = (
   }) as any;
 };
 
+// de_WaterfallChartColorConfiguration omitted.
+
 /**
  * deserializeAws_restJson1WaterfallChartConfiguration
  */
@@ -20070,8 +20129,10 @@ const de_WaterfallChartConfiguration = (output: any, context: __SerdeContext): W
   return take(output, {
     CategoryAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
     CategoryAxisLabelOptions: _json,
+    ColorConfiguration: _json,
     DataLabels: _json,
     FieldWells: (_: any) => de_WaterfallChartFieldWells(_, context),
+    Interactions: _json,
     Legend: _json,
     PrimaryYAxisDisplayOptions: (_: any) => de_AxisDisplayOptions(_, context),
     PrimaryYAxisLabelOptions: _json,
@@ -20089,6 +20150,8 @@ const de_WaterfallChartFieldWells = (output: any, context: __SerdeContext): Wate
     WaterfallChartAggregatedFieldWells: (_: any) => de_WaterfallChartAggregatedFieldWells(_, context),
   }) as any;
 };
+
+// de_WaterfallChartGroupColorConfiguration omitted.
 
 // de_WaterfallChartOptions omitted.
 
@@ -20154,6 +20217,7 @@ const de_WordCloudChartConfiguration = (output: any, context: __SerdeContext): W
   return take(output, {
     CategoryLabelOptions: _json,
     FieldWells: (_: any) => de_WordCloudFieldWells(_, context),
+    Interactions: _json,
     SortConfiguration: (_: any) => de_WordCloudSortConfiguration(_, context),
     WordCloudOptions: _json,
   }) as any;

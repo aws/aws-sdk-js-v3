@@ -13,7 +13,6 @@ import {
   ChartAxisLabelOptions,
   ColumnConfiguration,
   ColumnConfigurationFilterSensitiveLog,
-  ColumnHierarchy,
   ColumnIdentifier,
   ColumnSort,
   ContributionAnalysisDefault,
@@ -23,7 +22,9 @@ import {
   DataPathValue,
   DataPathValueFilterSensitiveLog,
   DataSetIdentifierDeclaration,
+  DateTimeHierarchy,
   DimensionField,
+  ExplicitHierarchy,
   FieldSort,
   FieldSortOptions,
   FilterControl,
@@ -44,9 +45,9 @@ import {
   ParameterDeclarationFilterSensitiveLog,
   PercentageDisplayFormatConfiguration,
   PercentageDisplayFormatConfigurationFilterSensitiveLog,
+  PredefinedHierarchy,
   ReferenceLine,
   ReferenceLineFilterSensitiveLog,
-  ResourceStatus,
   SheetContentType,
   SheetControlLayout,
   SheetTextBox,
@@ -57,11 +58,72 @@ import {
   URLTargetConfiguration,
   Visibility,
   VisualCustomAction,
+  VisualInteractionOptions,
   VisualPalette,
   VisualPaletteFilterSensitiveLog,
-  VisualSubtitleLabelOptions,
   WidgetStatus,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The option that determines the hierarchy of the fields for a visual element.</p>
+ */
+export interface ColumnHierarchy {
+  /**
+   * @public
+   * <p>The option that determines the hierarchy of the fields that are built within a visual's field wells. These fields can't be duplicated to other visuals.</p>
+   */
+  ExplicitHierarchy?: ExplicitHierarchy;
+
+  /**
+   * @public
+   * <p>The option that determines the hierarchy of any <code>DateTime</code> fields.</p>
+   */
+  DateTimeHierarchy?: DateTimeHierarchy;
+
+  /**
+   * @public
+   * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
+   */
+  PredefinedHierarchy?: PredefinedHierarchy;
+}
+
+/**
+ * @public
+ * <p>The text format for a subtitle.</p>
+ *          <p>This is a union type structure. For this structure to be valid, only one of the attributes can be defined.</p>
+ */
+export interface LongFormatText {
+  /**
+   * @public
+   * <p>Plain text format.</p>
+   */
+  PlainText?: string;
+
+  /**
+   * @public
+   * <p>Rich text. Examples of rich text include bold, underline, and italics.</p>
+   */
+  RichText?: string;
+}
+
+/**
+ * @public
+ * <p>The subtitle label options for a visual.</p>
+ */
+export interface VisualSubtitleLabelOptions {
+  /**
+   * @public
+   * <p>The visibility of the subtitle label.</p>
+   */
+  Visibility?: Visibility;
+
+  /**
+   * @public
+   * <p>The long text format of the subtitle label, such as plain text or rich text.</p>
+   */
+  FormatText?: LongFormatText;
+}
 
 /**
  * @public
@@ -351,6 +413,12 @@ export interface BoxPlotChartConfiguration {
    * <p>The palette (chart color) display setup of the visual.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -629,6 +697,12 @@ export interface ComboChartConfiguration {
    * <p>The palette (chart color) display setup of the visual.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -728,6 +802,12 @@ export interface CustomContentConfiguration {
    * <p>The sizing options for the size of the custom content visual. This structure is required when the <code>ContentType</code> of the visual is <code>'IMAGE'</code>.</p>
    */
   ImageScaling?: CustomContentImageScalingConfiguration;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -972,6 +1052,12 @@ export interface FilledMapConfiguration {
    * <p>The map style options of the filled map visual.</p>
    */
   MapStyleOptions?: GeospatialMapStyleOptions;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -1329,6 +1415,12 @@ export interface FunnelChartConfiguration {
    * <p>The visual palette configuration of a <code>FunnelChartVisual</code>.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -1615,6 +1707,12 @@ export interface GaugeChartConfiguration {
    * <p>The visual palette configuration of a <code>GaugeChartVisual</code>.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -2088,6 +2186,12 @@ export interface GeospatialMapConfiguration {
    * <p>The visual display options for the visual palette.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -2308,6 +2412,12 @@ export interface HeatMapConfiguration {
    * <p>The tooltip display setup of the visual.</p>
    */
   Tooltip?: TooltipOptions;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -2503,6 +2613,12 @@ export interface HistogramConfiguration {
    * <p>The visual palette configuration of a histogram.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -3128,6 +3244,12 @@ export interface InsightConfiguration {
    * <p>The custom narrative of the insight visual.</p>
    */
   CustomNarrative?: CustomNarrativeOptions;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -3410,6 +3532,12 @@ export interface KPIConfiguration {
    * <p>The options that determine the presentation of a KPI visual.</p>
    */
   KPIOptions?: KPIOptions;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -4249,6 +4377,12 @@ export interface LineChartConfiguration {
    * <p>The visual palette configuration of a line chart.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -4507,6 +4641,12 @@ export interface PieChartConfiguration {
    * <p>The contribution analysis (anomaly configuration) setup of the visual.</p>
    */
   ContributionAnalysisDefaults?: ContributionAnalysisDefault[];
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -5475,6 +5615,12 @@ export interface PivotTableConfiguration {
    * <p>The paginated report options for a pivot table visual.</p>
    */
   PaginatedReportOptions?: PivotTablePaginatedReportOptions;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -5839,6 +5985,12 @@ export interface RadarChartConfiguration {
    * <p>The axis behavior options of a radar chart.</p>
    */
   AxesRangeScale?: RadarChartAxesRangeScale;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -5965,6 +6117,12 @@ export interface SankeyDiagramChartConfiguration {
    * <p>The data label configuration of a sankey diagram.</p>
    */
   DataLabels?: DataLabelOptions;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -6176,6 +6334,12 @@ export interface ScatterPlotConfiguration {
    * <p>The palette (chart color) display setup of the visual.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -6707,6 +6871,12 @@ export interface TableConfiguration {
    * <p>A collection of inline visualizations to display within a chart.</p>
    */
   TableInlineVisualizations?: TableInlineVisualization[];
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -6931,6 +7101,12 @@ export interface TreeMapConfiguration {
    * <p>The tooltip display setup of the visual.</p>
    */
   Tooltip?: TooltipOptions;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -6974,6 +7150,42 @@ export interface TreeMapVisual {
    * <p>The column hierarchy that is used during drill-downs and drill-ups.</p>
    */
   ColumnHierarchies?: ColumnHierarchy[];
+}
+
+/**
+ * @public
+ * <p>The color configuration for individual groups within a waterfall visual.</p>
+ */
+export interface WaterfallChartGroupColorConfiguration {
+  /**
+   * @public
+   * <p>Defines the color for the positive bars of a waterfall chart.</p>
+   */
+  PositiveBarColor?: string;
+
+  /**
+   * @public
+   * <p>Defines the color for the negative bars of a waterfall chart.</p>
+   */
+  NegativeBarColor?: string;
+
+  /**
+   * @public
+   * <p>Defines the color for the total bars of a waterfall chart.</p>
+   */
+  TotalBarColor?: string;
+}
+
+/**
+ * @public
+ * <p>The color configuration of a waterfall visual.</p>
+ */
+export interface WaterfallChartColorConfiguration {
+  /**
+   * @public
+   * <p>The color configuration for individual groups within a waterfall visual.</p>
+   */
+  GroupColorConfiguration?: WaterfallChartGroupColorConfiguration;
 }
 
 /**
@@ -7106,6 +7318,18 @@ export interface WaterfallChartConfiguration {
    * <p>The visual palette configuration of a waterfall visual.</p>
    */
   VisualPalette?: VisualPalette;
+
+  /**
+   * @public
+   * <p>The color configuration of a waterfall visual.</p>
+   */
+  ColorConfiguration?: WaterfallChartColorConfiguration;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -7342,6 +7566,12 @@ export interface WordCloudChartConfiguration {
    * <p>The options for a word cloud visual.</p>
    */
   WordCloudOptions?: WordCloudOptions;
+
+  /**
+   * @public
+   * <p>The general visual interactions setup for a visual.</p>
+   */
+  Interactions?: VisualInteractionOptions;
 }
 
 /**
@@ -7790,110 +8020,6 @@ export interface AnalysisSearchFilter {
    *                 <code>"arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
    */
   Value?: string;
-}
-
-/**
- * @public
- * <p>Dataset reference.</p>
- */
-export interface DataSetReference {
-  /**
-   * @public
-   * <p>Dataset placeholder.</p>
-   */
-  DataSetPlaceholder: string | undefined;
-
-  /**
-   * @public
-   * <p>Dataset Amazon Resource Name (ARN).</p>
-   */
-  DataSetArn: string | undefined;
-}
-
-/**
- * @public
- * <p>The source template of an analysis.</p>
- */
-export interface AnalysisSourceTemplate {
-  /**
-   * @public
-   * <p>The dataset references of the source template of an analysis.</p>
-   */
-  DataSetReferences: DataSetReference[] | undefined;
-
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) of the source template of an analysis.</p>
-   */
-  Arn: string | undefined;
-}
-
-/**
- * @public
- * <p>The source entity of an analysis.</p>
- */
-export interface AnalysisSourceEntity {
-  /**
-   * @public
-   * <p>The source template for the source entity of the analysis.</p>
-   */
-  SourceTemplate?: AnalysisSourceTemplate;
-}
-
-/**
- * @public
- * <p>The summary metadata that describes an analysis.</p>
- */
-export interface AnalysisSummary {
-  /**
-   * @public
-   * <p>The Amazon Resource Name (ARN) for the analysis.</p>
-   */
-  Arn?: string;
-
-  /**
-   * @public
-   * <p>The ID of the analysis. This ID displays in the URL.</p>
-   */
-  AnalysisId?: string;
-
-  /**
-   * @public
-   * <p>The name of the analysis. This name is displayed in the Amazon QuickSight console.
-   *             </p>
-   */
-  Name?: string;
-
-  /**
-   * @public
-   * <p>The last known status for the analysis.</p>
-   */
-  Status?: ResourceStatus;
-
-  /**
-   * @public
-   * <p>The time that the analysis was created.</p>
-   */
-  CreatedTime?: Date;
-
-  /**
-   * @public
-   * <p>The time that the analysis was last updated.</p>
-   */
-  LastUpdatedTime?: Date;
-}
-
-/**
- * @public
- * <p>Information about the dashboard that you want to embed.</p>
- */
-export interface AnonymousUserDashboardEmbeddingConfiguration {
-  /**
-   * @public
-   * <p>The dashboard ID for the dashboard that you want the user to see first. This ID is included in the output URL. When the URL in response is accessed, Amazon QuickSight renders this dashboard.</p>
-   *          <p>The Amazon Resource Name (ARN) of this dashboard must be included in the <code>AuthorizedResourceArns</code> parameter. Otherwise, the request will fail with <code>InvalidParameterValueException</code>.</p>
-   */
-  InitialDashboardId: string | undefined;
 }
 
 /**

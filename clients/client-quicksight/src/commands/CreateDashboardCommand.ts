@@ -991,6 +991,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   },
  *                 ],
+ *                 Interactions: { // VisualInteractionOptions
+ *                   VisualMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: { // ContextMenuOption
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                 },
  *               },
  *               ConditionalFormatting: { // TableConditionalFormatting
  *                 ConditionalFormattingOptions: [ // TableConditionalFormattingOptionList
@@ -1493,6 +1501,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 PaginatedReportOptions: { // PivotTablePaginatedReportOptions
  *                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
  *                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
+ *                 },
+ *                 Interactions: {
+ *                   VisualMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
  *                 },
  *               },
  *               ConditionalFormatting: { // PivotTableConditionalFormatting
@@ -2067,6 +2083,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     ],
  *                   },
  *                 ],
+ *                 Interactions: {
+ *                   VisualMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                 },
  *               },
  *               Actions: [
  *                 {
@@ -2330,6 +2354,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     StandardLayout: { // KPIVisualStandardLayout
  *                       Type: "CLASSIC" || "VERTICAL", // required
  *                     },
+ *                   },
+ *                 },
+ *                 Interactions: {
+ *                   VisualMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                   ContextMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
  *                   },
  *                 },
  *               },
@@ -2721,6 +2753,12 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     ],
  *                   },
  *                 ],
+ *                 Interactions: {
+ *                   VisualMenuOption: "<VisualMenuOption>",
+ *                   ContextMenuOption: {
+ *                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ *                   },
+ *                 },
  *               },
  *               Actions: [
  *                 {
@@ -2912,6 +2950,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   ],
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ConditionalFormatting: { // GaugeChartConditionalFormatting
  *                 ConditionalFormattingOptions: [ // GaugeChartConditionalFormattingOptionList
@@ -3314,6 +3353,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   ],
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: [
@@ -3441,6 +3481,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     ],
  *                   },
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ColumnHierarchies: [
  *                 {
@@ -3513,6 +3554,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 },
  *                 DataLabels: "<DataLabelOptions>",
  *                 Tooltip: "<TooltipOptions>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3572,6 +3614,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                     },
  *                   ],
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ColumnHierarchies: "<ColumnHierarchyList>",
  *               Actions: "<VisualCustomActionList>",
@@ -3608,6 +3651,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 MapStyleOptions: {
  *                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               ConditionalFormatting: { // FilledMapConditionalFormatting
  *                 ConditionalFormattingOptions: [ // FilledMapConditionalFormattingOptionList // required
@@ -3656,6 +3700,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   MeasureDataLabelStyle: "VALUE_ONLY" || "PERCENTAGE_BY_FIRST_STAGE" || "PERCENTAGE_BY_PREVIOUS_STAGE" || "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE" || "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
  *                 },
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3692,6 +3737,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 DataLabels: "<DataLabelOptions>",
  *                 Tooltip: "<TooltipOptions>",
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3767,6 +3813,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                 ],
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3841,6 +3888,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   },
  *                 ],
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3871,6 +3919,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 Legend: "<LegendOptions>",
  *                 DataLabels: "<DataLabelOptions>",
  *                 VisualPalette: "<VisualPalette>",
+ *                 ColorConfiguration: { // WaterfallChartColorConfiguration
+ *                   GroupColorConfiguration: { // WaterfallChartGroupColorConfiguration
+ *                     PositiveBarColor: "STRING_VALUE",
+ *                     NegativeBarColor: "STRING_VALUE",
+ *                     TotalBarColor: "STRING_VALUE",
+ *                   },
+ *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3904,6 +3960,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 DataLabels: "<DataLabelOptions>",
  *                 Tooltip: "<TooltipOptions>",
  *                 VisualPalette: "<VisualPalette>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *             },
@@ -3935,6 +3992,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   WordPadding: "NONE" || "SMALL" || "MEDIUM" || "LARGE",
  *                   MaximumStringLength: Number("int"),
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -4026,6 +4084,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 CustomNarrative: { // CustomNarrativeOptions
  *                   Narrative: "STRING_VALUE", // required
  *                 },
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               DataSetIdentifier: "STRING_VALUE", // required
@@ -4048,6 +4107,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                   DestinationItemsLimit: "<ItemsLimitConfiguration>",
  *                 },
  *                 DataLabels: "<DataLabelOptions>",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *             },
@@ -4059,6 +4119,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 ContentUrl: "STRING_VALUE",
  *                 ContentType: "IMAGE" || "OTHER_EMBEDDED_CONTENT",
  *                 ImageScaling: "FIT_TO_HEIGHT" || "FIT_TO_WIDTH" || "DO_NOT_SCALE" || "SCALE_TO_VISUAL",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               DataSetIdentifier: "STRING_VALUE", // required
@@ -4109,6 +4170,7 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  *                 Legend: "<LegendOptions>",
  *                 AxesRangeScale: "AUTO" || "INDEPENDENT" || "SHARED",
+ *                 Interactions: "<VisualInteractionOptions>",
  *               },
  *               Actions: "<VisualCustomActionList>",
  *               ColumnHierarchies: "<ColumnHierarchyList>",

@@ -911,6 +911,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     },
  * //                   },
  * //                 ],
+ * //                 Interactions: { // VisualInteractionOptions
+ * //                   VisualMenuOption: { // VisualMenuOption
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
+ * //                   ContextMenuOption: { // ContextMenuOption
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
+ * //                 },
  * //               },
  * //               ConditionalFormatting: { // TableConditionalFormatting
  * //                 ConditionalFormattingOptions: [ // TableConditionalFormattingOptionList
@@ -1413,6 +1421,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 PaginatedReportOptions: { // PivotTablePaginatedReportOptions
  * //                   VerticalOverflowVisibility: "HIDDEN" || "VISIBLE",
  * //                   OverflowColumnHeaderVisibility: "HIDDEN" || "VISIBLE",
+ * //                 },
+ * //                 Interactions: {
+ * //                   VisualMenuOption: {
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
+ * //                   ContextMenuOption: {
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
  * //                 },
  * //               },
  * //               ConditionalFormatting: { // PivotTableConditionalFormatting
@@ -1987,6 +2003,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     ],
  * //                   },
  * //                 ],
+ * //                 Interactions: {
+ * //                   VisualMenuOption: {
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
+ * //                   ContextMenuOption: {
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
+ * //                 },
  * //               },
  * //               Actions: [
  * //                 {
@@ -2250,6 +2274,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     StandardLayout: { // KPIVisualStandardLayout
  * //                       Type: "CLASSIC" || "VERTICAL", // required
  * //                     },
+ * //                   },
+ * //                 },
+ * //                 Interactions: {
+ * //                   VisualMenuOption: {
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
+ * //                   ContextMenuOption: {
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
  * //                   },
  * //                 },
  * //               },
@@ -2641,6 +2673,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     ],
  * //                   },
  * //                 ],
+ * //                 Interactions: {
+ * //                   VisualMenuOption: {
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
+ * //                   ContextMenuOption: {
+ * //                     AvailabilityStatus: "ENABLED" || "DISABLED",
+ * //                   },
+ * //                 },
  * //               },
  * //               Actions: [
  * //                 {
@@ -2832,6 +2872,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     },
  * //                   ],
  * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               ConditionalFormatting: { // GaugeChartConditionalFormatting
  * //                 ConditionalFormattingOptions: [ // GaugeChartConditionalFormattingOptionList
@@ -3234,6 +3275,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     },
  * //                   ],
  * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: [
@@ -3361,6 +3403,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     ],
  * //                   },
  * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               ColumnHierarchies: [
  * //                 {
@@ -3433,6 +3476,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 },
  * //                 DataLabels: "<DataLabelOptions>",
  * //                 Tooltip: "<TooltipOptions>",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3492,6 +3536,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                     },
  * //                   ],
  * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
  * //               Actions: "<VisualCustomActionList>",
@@ -3528,6 +3573,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 MapStyleOptions: {
  * //                   BaseMapStyle: "LIGHT_GRAY" || "DARK_GRAY" || "STREET" || "IMAGERY",
  * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               ConditionalFormatting: { // FilledMapConditionalFormatting
  * //                 ConditionalFormattingOptions: [ // FilledMapConditionalFormattingOptionList // required
@@ -3576,6 +3622,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   MeasureDataLabelStyle: "VALUE_ONLY" || "PERCENTAGE_BY_FIRST_STAGE" || "PERCENTAGE_BY_PREVIOUS_STAGE" || "VALUE_AND_PERCENTAGE_BY_FIRST_STAGE" || "VALUE_AND_PERCENTAGE_BY_PREVIOUS_STAGE",
  * //                 },
  * //                 VisualPalette: "<VisualPalette>",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3612,6 +3659,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 DataLabels: "<DataLabelOptions>",
  * //                 Tooltip: "<TooltipOptions>",
  * //                 VisualPalette: "<VisualPalette>",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3687,6 +3735,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 ],
  * //                 VisualPalette: "<VisualPalette>",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3761,6 +3810,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   },
  * //                 ],
  * //                 VisualPalette: "<VisualPalette>",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3791,6 +3841,14 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 Legend: "<LegendOptions>",
  * //                 DataLabels: "<DataLabelOptions>",
  * //                 VisualPalette: "<VisualPalette>",
+ * //                 ColorConfiguration: { // WaterfallChartColorConfiguration
+ * //                   GroupColorConfiguration: { // WaterfallChartGroupColorConfiguration
+ * //                     PositiveBarColor: "STRING_VALUE",
+ * //                     NegativeBarColor: "STRING_VALUE",
+ * //                     TotalBarColor: "STRING_VALUE",
+ * //                   },
+ * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3824,6 +3882,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 DataLabels: "<DataLabelOptions>",
  * //                 Tooltip: "<TooltipOptions>",
  * //                 VisualPalette: "<VisualPalette>",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //             },
@@ -3855,6 +3914,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   WordPadding: "NONE" || "SMALL" || "MEDIUM" || "LARGE",
  * //                   MaximumStringLength: Number("int"),
  * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
@@ -3946,6 +4006,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 CustomNarrative: { // CustomNarrativeOptions
  * //                   Narrative: "STRING_VALUE", // required
  * //                 },
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               DataSetIdentifier: "STRING_VALUE", // required
@@ -3968,6 +4029,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                   DestinationItemsLimit: "<ItemsLimitConfiguration>",
  * //                 },
  * //                 DataLabels: "<DataLabelOptions>",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //             },
@@ -3979,6 +4041,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 ContentUrl: "STRING_VALUE",
  * //                 ContentType: "IMAGE" || "OTHER_EMBEDDED_CONTENT",
  * //                 ImageScaling: "FIT_TO_HEIGHT" || "FIT_TO_WIDTH" || "DO_NOT_SCALE" || "SCALE_TO_VISUAL",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               DataSetIdentifier: "STRING_VALUE", // required
@@ -4029,6 +4092,7 @@ export interface DescribeAnalysisDefinitionCommandOutput extends DescribeAnalysi
  * //                 ColorLabelOptions: "<ChartAxisLabelOptions>",
  * //                 Legend: "<LegendOptions>",
  * //                 AxesRangeScale: "AUTO" || "INDEPENDENT" || "SHARED",
+ * //                 Interactions: "<VisualInteractionOptions>",
  * //               },
  * //               Actions: "<VisualCustomActionList>",
  * //               ColumnHierarchies: "<ColumnHierarchyList>",
