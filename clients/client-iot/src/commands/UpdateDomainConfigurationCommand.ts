@@ -48,6 +48,9 @@ export interface UpdateDomainConfigurationCommandOutput extends UpdateDomainConf
  *   tlsConfig: { // TlsConfig
  *     securityPolicy: "STRING_VALUE",
  *   },
+ *   serverCertificateConfig: { // ServerCertificateConfig
+ *     enableOCSPCheck: true || false,
+ *   },
  * };
  * const command = new UpdateDomainConfigurationCommand(input);
  * const response = await client.send(command);

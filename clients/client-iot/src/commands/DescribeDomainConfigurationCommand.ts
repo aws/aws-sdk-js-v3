@@ -68,6 +68,9 @@ export interface DescribeDomainConfigurationCommandOutput
  * //   tlsConfig: { // TlsConfig
  * //     securityPolicy: "STRING_VALUE",
  * //   },
+ * //   serverCertificateConfig: { // ServerCertificateConfig
+ * //     enableOCSPCheck: true || false,
+ * //   },
  * // };
  *
  * ```

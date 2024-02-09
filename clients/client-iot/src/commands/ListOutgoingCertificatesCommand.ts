@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { IoTClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../IoTClient";
-import { ListOutgoingCertificatesRequest } from "../models/models_1";
-import { ListOutgoingCertificatesResponse } from "../models/models_2";
+import { ListOutgoingCertificatesRequest, ListOutgoingCertificatesResponse } from "../models/models_2";
 import { de_ListOutgoingCertificatesCommand, se_ListOutgoingCertificatesCommand } from "../protocols/Aws_restJson1";
 
 /**

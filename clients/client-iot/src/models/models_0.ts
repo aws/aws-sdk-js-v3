@@ -4247,6 +4247,21 @@ export class CertificateValidationException extends __BaseException {
 
 /**
  * @public
+ * <p>The server certificate configuration.</p>
+ */
+export interface ServerCertificateConfig {
+  /**
+   * @public
+   * <p>A Boolean value that indicates whether Online Certificate Status Protocol (OCSP) server
+   *          certificate check is enabled or not.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/iot-custom-domain-ocsp-config.html">Configuring OCSP server-certificate stapling in domain
+   *          configuration</a> from Amazon Web Services IoT Core Developer Guide.</p>
+   */
+  enableOCSPCheck?: boolean;
+}
+
+/**
+ * @public
  * @enum
  */
 export const ServiceType = {
@@ -4337,6 +4352,12 @@ export interface CreateDomainConfigurationRequest {
    * <p>An object that specifies the TLS configuration for a domain.</p>
    */
   tlsConfig?: TlsConfig;
+
+  /**
+   * @public
+   * <p>The server certificate configuration.</p>
+   */
+  serverCertificateConfig?: ServerCertificateConfig;
 }
 
 /**
@@ -7667,19 +7688,6 @@ export interface DeleteCertificateProviderRequest {
  * @public
  */
 export interface DeleteCertificateProviderResponse {}
-
-/**
- * @public
- */
-export interface DeleteCustomMetricRequest {
-  /**
-   * @public
-   * <p>
-   *       The name of the custom metric.
-   *     </p>
-   */
-  metricName: string | undefined;
-}
 
 /**
  * @internal

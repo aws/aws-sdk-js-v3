@@ -39,6 +39,7 @@ import {
   ProvisioningHook,
   RelatedResource,
   ResourceIdentifier,
+  ServerCertificateConfig,
   StreamFile,
   Tag,
   TemplateType,
@@ -71,6 +72,31 @@ import {
   VersionUpdateByJobsConfig,
   ViolationEventOccurrenceRange,
 } from "./models_1";
+
+/**
+ * @public
+ * <p>The input to the ListOutgoingCertificates operation.</p>
+ */
+export interface ListOutgoingCertificatesRequest {
+  /**
+   * @public
+   * <p>The result page size.</p>
+   */
+  pageSize?: number;
+
+  /**
+   * @public
+   * <p>The marker for the next set of results.</p>
+   */
+  marker?: string;
+
+  /**
+   * @public
+   * <p>Specifies the order for results. If True, the results are returned in ascending
+   *          order, based on the creation date.</p>
+   */
+  ascendingOrder?: boolean;
+}
 
 /**
  * @public
@@ -3865,6 +3891,12 @@ export interface UpdateDomainConfigurationRequest {
    * <p>An object that specifies the TLS configuration for a domain.</p>
    */
   tlsConfig?: TlsConfig;
+
+  /**
+   * @public
+   * <p>The server certificate configuration.</p>
+   */
+  serverCertificateConfig?: ServerCertificateConfig;
 }
 
 /**

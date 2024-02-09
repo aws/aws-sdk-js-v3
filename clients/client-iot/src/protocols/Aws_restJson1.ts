@@ -839,6 +839,7 @@ import {
   S3Location,
   SalesforceAction,
   SchedulingConfig,
+  ServerCertificateConfig,
   ServiceQuotaExceededException,
   ServiceUnavailableException,
   SigningProfileParameter,
@@ -1470,6 +1471,7 @@ export const se_CreateDomainConfigurationCommand = async (
       authorizerConfig: (_) => _json(_),
       domainName: [],
       serverCertificateArns: (_) => _json(_),
+      serverCertificateConfig: (_) => _json(_),
       serviceType: [],
       tags: (_) => _json(_),
       tlsConfig: (_) => _json(_),
@@ -5892,6 +5894,7 @@ export const se_UpdateDomainConfigurationCommand = async (
       authorizerConfig: (_) => _json(_),
       domainConfigurationStatus: [],
       removeAuthorizerConfig: [],
+      serverCertificateConfig: (_) => _json(_),
       tlsConfig: (_) => _json(_),
     })
   );
@@ -8332,6 +8335,7 @@ export const de_DescribeDomainConfigurationCommand = async (
     domainName: __expectString,
     domainType: __expectString,
     lastStatusChangeDate: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    serverCertificateConfig: _json,
     serverCertificates: _json,
     serviceType: __expectString,
     tlsConfig: _json,
@@ -13024,6 +13028,8 @@ const se_PercentList = (input: number[], context: __SerdeContext): any => {
 
 // se_ServerCertificateArns omitted.
 
+// se_ServerCertificateConfig omitted.
+
 // se_SigningProfileParameter omitted.
 
 // se_SigV4Authorization omitted.
@@ -14491,6 +14497,8 @@ const de_RoleAliasDescription = (output: any, context: __SerdeContext): RoleAlia
 // de_SecurityProfileTargetMappings omitted.
 
 // de_SecurityProfileTargets omitted.
+
+// de_ServerCertificateConfig omitted.
 
 // de_ServerCertificates omitted.
 

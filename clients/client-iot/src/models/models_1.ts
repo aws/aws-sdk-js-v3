@@ -57,6 +57,7 @@ import {
   ProvisioningHook,
   ResourceIdentifier,
   SchedulingConfig,
+  ServerCertificateConfig,
   ServiceType,
   StreamFile,
   TargetSelection,
@@ -69,6 +70,19 @@ import {
   TopicRuleDestination,
   VerificationState,
 } from "./models_0";
+
+/**
+ * @public
+ */
+export interface DeleteCustomMetricRequest {
+  /**
+   * @public
+   * <p>
+   *       The name of the custom metric.
+   *     </p>
+   */
+  metricName: string | undefined;
+}
 
 /**
  * @public
@@ -1963,6 +1977,12 @@ export interface DescribeDomainConfigurationResponse {
    * <p>An object that specifies the TLS configuration for a domain.</p>
    */
   tlsConfig?: TlsConfig;
+
+  /**
+   * @public
+   * <p>The server certificate configuration.</p>
+   */
+  serverCertificateConfig?: ServerCertificateConfig;
 }
 
 /**
@@ -7441,31 +7461,6 @@ export interface ListOTAUpdatesResponse {
    * <p>A token to use to get the next set of results.</p>
    */
   nextToken?: string;
-}
-
-/**
- * @public
- * <p>The input to the ListOutgoingCertificates operation.</p>
- */
-export interface ListOutgoingCertificatesRequest {
-  /**
-   * @public
-   * <p>The result page size.</p>
-   */
-  pageSize?: number;
-
-  /**
-   * @public
-   * <p>The marker for the next set of results.</p>
-   */
-  marker?: string;
-
-  /**
-   * @public
-   * <p>Specifies the order for results. If True, the results are returned in ascending
-   *          order, based on the creation date.</p>
-   */
-  ascendingOrder?: boolean;
 }
 
 /**

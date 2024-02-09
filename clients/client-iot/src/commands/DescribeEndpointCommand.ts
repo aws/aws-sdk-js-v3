@@ -28,7 +28,11 @@ export interface DescribeEndpointCommandOutput extends DescribeEndpointResponse,
 
 /**
  * @public
- * <p>Returns a unique endpoint specific to the Amazon Web Services account making the call.</p>
+ * <p>Returns or creates a unique endpoint specific to the Amazon Web Services account making the
+ *          call.</p>
+ *          <note>
+ *             <p>The first time <code>DescribeEndpoint</code> is called, an endpoint is created. All subsequent calls to <code>DescribeEndpoint</code> return the same endpoint.</p>
+ *          </note>
  *          <p>Requires permission to access the <a href="https://docs.aws.amazon.com/service-authorization/latest/reference/list_awsiot.html#awsiot-actions-as-permissions">DescribeEndpoint</a> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
