@@ -147,10 +147,14 @@ const client = new S3Client({
 ### Custom Endpoint `endpoint`
 
 Each SDK client, by default, resolves the target endpoint with rule-based system
-whose base template for any given operation is included in the service model or schema.
-At runtime any and all inputs are potentially read to resolve the final endpoint.
+described by the service model.
 
-Inputs used to resolve the endpoint for an operation include the region, FIPS/dual-stack options as mentioned above, and in some cases even request-specific parameters.
+- Refer to https://smithy.io/2.0/additional-specs/rules-engine/specification.html
+
+At runtime many sources of data are read to resolve the final endpoint.
+
+Sources include the region, FIPS/dual-stack options as mentioned further below,
+the operation, and in some cases even request-specific parameters.
 
 You may override all that logic by providing a custom endpoint to the Client
 constructor. The simplest form is a URL string.
@@ -181,6 +185,39 @@ new S3Client({
 
 For more information about these structural alternative endpoint types,
 use your IDE's type hints or refer to the API documentation linked above.
+
+#### Retrieving the endpoint without making a request
+
+If you would like to know the endpoint of an SDK operation without making a request,
+you can make ad hoc use of our internal endpoint resolver.
+
+**This interface is not public/stable**. Do not use this in production, or be prepared
+to verify it every time you upgrade the SDK version.
+
+```ts
+// Example: resolving an endpoint without a request.
+import { GetObjectCommand, S3Client } from "@aws-sdk/client-s3";
+import { getEndpointFromInstructions } from "@smithy/middleware-endpoint";
+
+// Initialize your client with whatever parameters you would
+// use. They may have an effect on the resolved endpoint,
+// especially in case of the AWS region.
+const client = new S3Client({
+  region: "us-east-1",
+});
+
+// Minimally, 3 bits of information are needed
+// to resolve the endpoint.
+
+/**
+ * @internal do not directly use in production.
+ */
+const endpoint = await getEndpointFromInstructions(
+  { Key: "foo", Bucket: "bar" }, // 1. the command's input.
+  GetObjectCommand, // 2. the Command class.
+  client.config // 3. the client config.
+);
+```
 
 ### Request Handler `requestHandler`
 
