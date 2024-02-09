@@ -811,6 +811,26 @@ export interface CreateJobResponse {
 
 /**
  * @public
+ * <p>The specified device is currently offline.</p>
+ */
+export class DeviceOfflineException extends __BaseException {
+  readonly name: "DeviceOfflineException" = "DeviceOfflineException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<DeviceOfflineException, __BaseException>) {
+    super({
+      name: "DeviceOfflineException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, DeviceOfflineException.prototype);
+  }
+}
+
+/**
+ * @public
  * <p>The specified device has been retired.</p>
  */
 export class DeviceRetiredException extends __BaseException {
@@ -1386,26 +1406,6 @@ export interface CreateQuantumTaskResponse {
    * <p>The ARN of the task created by the request.</p>
    */
   quantumTaskArn: string | undefined;
-}
-
-/**
- * @public
- * <p>The specified device is currently offline.</p>
- */
-export class DeviceOfflineException extends __BaseException {
-  readonly name: "DeviceOfflineException" = "DeviceOfflineException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<DeviceOfflineException, __BaseException>) {
-    super({
-      name: "DeviceOfflineException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, DeviceOfflineException.prototype);
-  }
 }
 
 /**

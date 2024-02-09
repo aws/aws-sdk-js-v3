@@ -703,15 +703,15 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.braket#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
+    case "DeviceOfflineException":
+    case "com.amazonaws.braket#DeviceOfflineException":
+      throw await de_DeviceOfflineExceptionRes(parsedOutput, context);
     case "DeviceRetiredException":
     case "com.amazonaws.braket#DeviceRetiredException":
       throw await de_DeviceRetiredExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.braket#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
-    case "DeviceOfflineException":
-    case "com.amazonaws.braket#DeviceOfflineException":
-      throw await de_DeviceOfflineExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({

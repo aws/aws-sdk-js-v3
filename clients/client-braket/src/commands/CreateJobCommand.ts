@@ -112,6 +112,9 @@ export interface CreateJobCommandOutput extends CreateJobResponse, __MetadataBea
  * @throws {@link ConflictException} (client fault)
  *  <p>An error occurred due to a conflict.</p>
  *
+ * @throws {@link DeviceOfflineException} (client fault)
+ *  <p>The specified device is currently offline.</p>
+ *
  * @throws {@link DeviceRetiredException} (client fault)
  *  <p>The specified device has been retired.</p>
  *
