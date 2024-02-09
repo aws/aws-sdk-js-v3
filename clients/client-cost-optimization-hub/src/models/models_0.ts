@@ -2030,7 +2030,7 @@ export interface ListEnrollmentStatusesRequest {
 
   /**
    * @public
-   * <p>The enrollment status of a specific account ID in the organization.</p>
+   * <p>The account ID of a member account in the organization.</p>
    */
   accountId?: string;
 
@@ -2053,9 +2053,17 @@ export interface ListEnrollmentStatusesRequest {
 export interface ListEnrollmentStatusesResponse {
   /**
    * @public
-   * <p>The account enrollment statuses.</p>
+   * <p>The enrollment status of a specific account ID, including creation and last updated
+   *       timestamps.</p>
    */
   items?: AccountEnrollmentStatus[];
+
+  /**
+   * @public
+   * <p>The enrollment status of all member accounts in the organization if the account is the
+   *       management account.</p>
+   */
+  includeMemberAccounts?: boolean;
 
   /**
    * @public

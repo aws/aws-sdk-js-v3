@@ -57,6 +57,7 @@ export interface ListEnrollmentStatusesCommandOutput extends ListEnrollmentStatu
  * //       createdTimestamp: new Date("TIMESTAMP"),
  * //     },
  * //   ],
+ * //   includeMemberAccounts: true || false,
  * //   nextToken: "STRING_VALUE",
  * // };
  *

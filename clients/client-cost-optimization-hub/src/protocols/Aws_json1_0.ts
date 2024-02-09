@@ -711,6 +711,7 @@ const de_LambdaFunctionConfiguration = (output: any, context: __SerdeContext): L
  */
 const de_ListEnrollmentStatusesResponse = (output: any, context: __SerdeContext): ListEnrollmentStatusesResponse => {
   return take(output, {
+    includeMemberAccounts: __expectBoolean,
     items: (_: any) => de_AccountEnrollmentStatuses(_, context),
     nextToken: __expectString,
   }) as any;
