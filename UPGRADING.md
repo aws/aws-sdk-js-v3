@@ -571,7 +571,7 @@ In v3, the similar utility function is available in [`@aws-sdk/polly-request-pre
 
 ## Notes on Specific Service Clients
 
-### Lambda
+### AWS Lambda
 
 Lambda invocations response type differs in v3:
 
@@ -615,4 +615,43 @@ const region = "...";
   const payloadObject = JSON.parse(invoke.Payload.transformToString());
   console.log("Invoke response object", payloadObject);
 }
+```
+
+### Amazon SQS
+
+When using a custom `QueueUrl` in SQS operations that have this as an input parameter, in JSv2 
+it was possible to supply a custom `QueueUrl` which would override the SQS Client's default endpoint.
+
+In JSv3, when using a custom endpoint, i.e. one that differs from the default public SQS endpoints, you 
+should always set the endpoint on the SQS Client as well as the `QueueUrl` field.
+
+```ts
+import { SQS } from "@aws-sdk/client-sqs";
+
+const sqs = new SQS({
+  // client endpoint should be specified in JSv3 when not the default public SQS endpoint for your region.
+  // This is required for versions <= v3.506.0
+  // This is optional but recommended for versions >= v3.507.0 (a warning will be emitted)
+  endpoint: "https://my-custom-endpoint:8000/",
+});
+
+await sqs.sendMessage({
+  QueueUrl: "https://my-custom-endpoint:8000/1234567/MyQueue",
+  Message: "hello",
+});
+```
+
+If you are not using a custom endpoint, then you do not need to set `endpoint` on the client.
+
+```ts
+import { SQS } from "@aws-sdk/client-sqs";
+
+const sqs = new SQS({
+  region: "us-west-2",
+});
+
+await sqs.sendMessage({
+  QueueUrl: "https://sqs.us-west-2.amazonaws.com/1234567/MyQueue",
+  Message: "hello"
+});
 ```
