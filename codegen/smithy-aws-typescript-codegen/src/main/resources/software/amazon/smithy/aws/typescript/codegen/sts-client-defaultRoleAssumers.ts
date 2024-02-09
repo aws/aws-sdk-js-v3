@@ -6,6 +6,7 @@ import {
   getDefaultRoleAssumerWithWebIdentity as StsGetDefaultRoleAssumerWithWebIdentity,
   RoleAssumer,
   RoleAssumerWithWebIdentity,
+  STSRoleAssumerOptions,
 } from "./defaultStsRoleAssumers";
 import { ServiceInputTypes, ServiceOutputTypes, STSClient, STSClientConfig } from "./STSClient";
 
@@ -29,7 +30,7 @@ const getCustomizableStsClientCtor = (
  * The default role assumer that used by credential providers when sts:AssumeRole API is needed.
  */
 export const getDefaultRoleAssumer = (
-  stsOptions: Pick<STSClientConfig, "logger" | "region" | "requestHandler"> = {},
+  stsOptions: STSRoleAssumerOptions = {},
   stsPlugins?: Pluggable<ServiceInputTypes, ServiceOutputTypes>[]
 ): RoleAssumer => StsGetDefaultRoleAssumer(stsOptions, getCustomizableStsClientCtor(STSClient, stsPlugins));
 
@@ -37,7 +38,7 @@ export const getDefaultRoleAssumer = (
  * The default role assumer that used by credential providers when sts:AssumeRoleWithWebIdentity API is needed.
  */
 export const getDefaultRoleAssumerWithWebIdentity = (
-  stsOptions: Pick<STSClientConfig, "logger" | "region" | "requestHandler"> = {},
+  stsOptions: STSRoleAssumerOptions = {},
   stsPlugins?: Pluggable<ServiceInputTypes, ServiceOutputTypes>[]
 ): RoleAssumerWithWebIdentity =>
   StsGetDefaultRoleAssumerWithWebIdentity(stsOptions, getCustomizableStsClientCtor(STSClient, stsPlugins));

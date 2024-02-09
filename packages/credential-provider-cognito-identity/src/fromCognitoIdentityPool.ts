@@ -27,6 +27,7 @@ export function fromCognitoIdentityPool({
   logins,
   userIdentifier = !logins || Object.keys(logins).length === 0 ? "ANONYMOUS" : undefined,
   logger,
+  parentClientConfig,
 }: FromCognitoIdentityPoolParameters): CognitoIdentityCredentialProvider {
   logger?.debug("@aws-sdk/credential-provider-cognito-identity", "fromCognitoIdentity");
   const cacheKey: string | undefined = userIdentifier
@@ -35,7 +36,11 @@ export function fromCognitoIdentityPool({
 
   let provider: CognitoIdentityCredentialProvider = async () => {
     const { GetIdCommand, CognitoIdentityClient } = await import("./loadCognitoIdentity");
-    const _client = client ?? new CognitoIdentityClient(clientConfig ?? {});
+    const _client =
+      client ??
+      new CognitoIdentityClient(
+        Object.assign({}, clientConfig ?? {}, { region: clientConfig?.region ?? parentClientConfig?.region })
+      );
 
     let identityId: string | undefined = (cacheKey && (await cache.getItem(cacheKey))) as string | undefined;
     if (!identityId) {

@@ -133,7 +133,11 @@ export const resolveAwsAuthConfig = <T>(
 ): T & AwsAuthResolvedConfig => {
   const normalizedCreds = input.credentials
     ? normalizeCredentialProvider(input.credentials)
-    : input.credentialDefaultProvider(input as any);
+    : input.credentialDefaultProvider(
+        Object.assign({}, input, {
+          parentClientConfig: input,
+        })
+      );
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: (authScheme?: AuthScheme) => Promise<RequestSigner>;
   if (input.signer) {
@@ -228,7 +232,11 @@ export const resolveSigV4AuthConfig = <T>(
 ): T & SigV4AuthResolvedConfig => {
   const normalizedCreds = input.credentials
     ? normalizeCredentialProvider(input.credentials)
-    : input.credentialDefaultProvider(input as any);
+    : input.credentialDefaultProvider(
+        Object.assign({}, input, {
+          parentClientConfig: input,
+        })
+      );
   const { signingEscapePath = true, systemClockOffset = input.systemClockOffset || 0, sha256 } = input;
   let signer: Provider<RequestSigner>;
   if (input.signer) {

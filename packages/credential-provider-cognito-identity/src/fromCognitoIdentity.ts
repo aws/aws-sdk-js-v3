@@ -40,7 +40,14 @@ export function fromCognitoIdentity(parameters: FromCognitoIdentityParameters): 
         SecretKey = throwOnMissingSecretKey(),
         SessionToken,
       } = throwOnMissingCredentials(),
-    } = await (parameters.client ?? new CognitoIdentityClient(parameters.clientConfig ?? {})).send(
+    } = await (
+      parameters.client ??
+      new CognitoIdentityClient(
+        Object.assign({}, parameters.clientConfig ?? {}, {
+          region: parameters.clientConfig?.region ?? parameters.parentClientConfig?.region,
+        })
+      )
+    ).send(
       new GetCredentialsForIdentityCommand({
         CustomRoleArn: parameters.customRoleArn,
         IdentityId: parameters.identityId,

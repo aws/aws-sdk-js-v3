@@ -88,7 +88,14 @@ export const resolveAssumeRoleCredentials = async (
 
   if (!options.roleAssumer) {
     const { getDefaultRoleAssumer } = await import("./loadSts");
-    options.roleAssumer = getDefaultRoleAssumer(options.clientConfig, options.clientPlugins);
+    options.roleAssumer = getDefaultRoleAssumer(
+      {
+        ...options.clientConfig,
+        credentialProviderLogger: options.logger,
+        parentClientConfig: options?.parentClientConfig,
+      },
+      options.clientPlugins
+    );
   }
 
   const { source_profile } = data;
