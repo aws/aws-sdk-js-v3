@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** pass client region to inner credential client region ([#5758](https://github.com/aws/aws-sdk-js-v3/issues/5758)) ([8c0b29e](https://github.com/aws/aws-sdk-js-v3/commit/8c0b29eabfe0ce8dbd2cbdcfb8b0a31b003bc3f2))
+
+
+### Features
+
+* **client-batch:** This feature allows Batch to support configuration of repository credentials for jobs running on ECS ([28bd5fc](https://github.com/aws/aws-sdk-js-v3/commit/28bd5fcb588bf2a5ef06a04c95acb83b7915939e))
+* **client-braket:** Creating a job will result in DeviceOfflineException when using an offline device, and DeviceRetiredException when using a retired device. ([228341b](https://github.com/aws/aws-sdk-js-v3/commit/228341b5692b363f35cb57eda308c6db6eecf1d0))
+* **client-cost-optimization-hub:** Adding includeMemberAccounts field to the response of ListEnrollmentStatuses API. ([13b2406](https://github.com/aws/aws-sdk-js-v3/commit/13b240624b82b9db066d907bf7e513a45d22df77))
+* **client-iot:** This release allows AWS IoT Core users to enable Online Certificate Status Protocol (OCSP) Stapling for TLS X.509 Server Certificates when creating and updating AWS IoT Domain Configurations with Custom Domain. ([3d21d31](https://github.com/aws/aws-sdk-js-v3/commit/3d21d31bb896adff5b0e134da661e18c90283a6a))
+* **client-pricing:** Add Throttling Exception to all APIs. ([022ccd4](https://github.com/aws/aws-sdk-js-v3/commit/022ccd4c6845b491e4996550e0ed6876ab4becde))
+* **clients:** update client endpoints as of 2024-02-09 ([7f7fd0c](https://github.com/aws/aws-sdk-js-v3/commit/7f7fd0c50fafef13569de195848c5d1e20a3d81d))
+
+
+
+
+
 # [3.510.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.509.0...v3.510.0) (2024-02-08)
 
 

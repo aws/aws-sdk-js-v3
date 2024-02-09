@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
+
+
+### Features
+
+* **client-batch:** This feature allows Batch to support configuration of repository credentials for jobs running on ECS ([28bd5fc](https://github.com/aws/aws-sdk-js-v3/commit/28bd5fcb588bf2a5ef06a04c95acb83b7915939e))
+
+
+
+
+
 # [3.509.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.508.0...v3.509.0) (2024-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

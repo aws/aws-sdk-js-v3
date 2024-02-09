@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
+
+
+### Features
+
+* **client-iot:** This release allows AWS IoT Core users to enable Online Certificate Status Protocol (OCSP) Stapling for TLS X.509 Server Certificates when creating and updating AWS IoT Domain Configurations with Custom Domain. ([3d21d31](https://github.com/aws/aws-sdk-js-v3/commit/3d21d31bb896adff5b0e134da661e18c90283a6a))
+
+
+
+
+
 # [3.509.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.508.0...v3.509.0) (2024-02-07)
 
 **Note:** Version bump only for package @aws-sdk/client-iot

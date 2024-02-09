@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** pass client region to inner credential client region ([#5758](https://github.com/aws/aws-sdk-js-v3/issues/5758)) ([8c0b29e](https://github.com/aws/aws-sdk-js-v3/commit/8c0b29eabfe0ce8dbd2cbdcfb8b0a31b003bc3f2))
+
+
+
+
+
 # [3.496.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.495.0...v3.496.0) (2024-01-19)
 
 
