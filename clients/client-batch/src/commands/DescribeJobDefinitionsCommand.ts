@@ -182,6 +182,9 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //           operatingSystemFamily: "STRING_VALUE",
  * //           cpuArchitecture: "STRING_VALUE",
  * //         },
+ * //         repositoryCredentials: { // RepositoryCredentials
+ * //           credentialsParameter: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       timeout: { // JobTimeout
  * //         attemptDurationSeconds: Number("int"),
@@ -291,6 +294,9 @@ export interface DescribeJobDefinitionsCommandOutput extends DescribeJobDefiniti
  * //               runtimePlatform: {
  * //                 operatingSystemFamily: "STRING_VALUE",
  * //                 cpuArchitecture: "STRING_VALUE",
+ * //               },
+ * //               repositoryCredentials: {
+ * //                 credentialsParameter: "STRING_VALUE", // required
  * //               },
  * //             },
  * //           },

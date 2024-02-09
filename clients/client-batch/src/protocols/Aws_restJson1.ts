@@ -135,6 +135,7 @@ import {
   NodePropertyOverride,
   NodeRangeProperty,
   PlatformCapability,
+  RepositoryCredentials,
   ResourceRequirement,
   RetryStrategy,
   RuntimePlatform,
@@ -1421,6 +1422,8 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_PlatformCapabilityList omitted.
 
+// se_RepositoryCredentials omitted.
+
 // se_ResourceRequirement omitted.
 
 // se_ResourceRequirements omitted.
@@ -1650,6 +1653,8 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
 // de_ParametersMap omitted.
 
 // de_PlatformCapabilityList omitted.
+
+// de_RepositoryCredentials omitted.
 
 // de_ResourceRequirement omitted.
 

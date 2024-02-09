@@ -311,6 +311,15 @@ export interface Ec2Configuration {
    *           (GPU)</a>: Default for all GPU instance families (for example <code>P4</code> and
    *           <code>G4</code>) and can be used for all non Amazon Web Services Graviton-based instance types.</p>
    *                   </dd>
+   *                   <dt>ECS_AL2023</dt>
+   *                   <dd>
+   *                      <p>
+   *                         <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-optimized_AMI.html">Amazon Linux 2023</a>: Batch
+   *          supports Amazon Linux 2023.</p>
+   *                      <note>
+   *                         <p>Amazon Linux 2023 does not support <code>A1</code> instances.</p>
+   *                      </note>
+   *                   </dd>
    *                   <dt>ECS_AL1</dt>
    *                   <dd>
    *                      <p>
@@ -407,7 +416,7 @@ export interface LaunchTemplateSpecification {
    *     isn't changed when the compute environment is updated. It's only changed if the
    *      <code>updateToLatestImageVersion</code> parameter for the compute environment is set to
    *      <code>true</code>. During an infrastructure update, if either <code>$Latest</code> or
-   *      <code>$Default</code> is specified, Batch re-evaluates the launch template version, and it
+   *     <code>$Default</code> is specified, Batch re-evaluates the launch template version, and it
    *     might use a different version of the launch template. This is the case even if the launch
    *     template isn't specified in the update. When updating a compute environment, changing the launch
    *     template requires an infrastructure update of the compute environment. For more information, see
@@ -497,10 +506,12 @@ export interface ComputeResource {
    *       resources.</p>
    *             </dd>
    *          </dl>
-   *          <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
-   *    strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy using Spot
-   *    Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements.
-   *    In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
+   *          <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and
+   *    <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
+   *    (recommended) strategies using On-Demand or Spot Instances, and the
+   *    <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
+   *    <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds
+   *    <code>maxvCpus</code> by more than a single instance.</p>
    */
   allocationStrategy?: CRAllocationStrategy;
 
@@ -524,12 +535,12 @@ export interface ComputeResource {
    *    compute environment can
    *    support.</p>
    *          <note>
-   *             <p>With <code>BEST_FIT_PROGRESSIVE</code>, <code>SPOT_CAPACITY_OPTIMIZED</code> and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
-   *     allocation strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy
-   *     using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity
-   *     requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than a single
-   *     instance. For example, no more than a single instance from among those specified in your compute
-   *     environment is allocated.</p>
+   *             <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and
+   *     <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
+   *     (recommended) strategies using On-Demand or Spot Instances, and the
+   *     <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
+   *     <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds
+   *     <code>maxvCpus</code> by more than a single instance.</p>
    *          </note>
    */
   maxvCpus: number | undefined;
@@ -631,8 +642,8 @@ export interface ComputeResource {
 
   /**
    * @public
-   * <p>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can
-   *    specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example,
+   * <p>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. This parameter is required
+   *    for Amazon EC2 instances types. You can specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example,
    *      <code>
    *                <i>ecsInstanceRole</i>
    *             </code> or
@@ -653,7 +664,7 @@ export interface ComputeResource {
    *     <code>\{ "Name": "Batch Instance - C4OnDemand" \}</code>. This is helpful for recognizing your
    *    Batch instances in the Amazon EC2 console. Updating these tags requires an infrastructure update to
    *    the compute environment. For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/updating-compute-environments.html">Updating compute environments</a> in the
-   *     <i>Batch User Guide</i>. These tags aren't seen when using the Batch
+   *    <i>Batch User Guide</i>. These tags aren't seen when using the Batch
    *     <code>ListTagsForResource</code> API operation.</p>
    *          <note>
    *             <p>This parameter isn't applicable to jobs that are running on Fargate resources. Don't specify it.</p>
@@ -855,12 +866,12 @@ export interface CreateComputeEnvironmentRequest {
   /**
    * @public
    * <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf. For
-   *    more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM
+   *      more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM
    *     role</a> in the <i>Batch User Guide</i>.</p>
    *          <important>
    *             <p>If your account already created the Batch service-linked role, that role is used by default for your compute
-   *     environment unless you specify a different role here. If the Batch service-linked role doesn't exist in your
-   *     account, and no role is specified here, the service attempts to create the Batch service-linked role in your
+   *       environment unless you specify a different role here. If the Batch service-linked role doesn't exist in your
+   *       account, and no role is specified here, the service attempts to create the Batch service-linked role in your
    *     account.</p>
    *          </important>
    *          <p>If your specified role has a path other than <code>/</code>, then you must specify either the full role ARN
@@ -869,7 +880,7 @@ export interface CreateComputeEnvironmentRequest {
    *    and paths</a> in the <i>IAM User Guide</i>.</p>
    *          <note>
    *             <p>Depending on how you created your Batch service role, its ARN might contain the <code>service-role</code>
-   *     path prefix. When you only specify the name of the service role, Batch assumes that your ARN doesn't use the
+   *       path prefix. When you only specify the name of the service role, Batch assumes that your ARN doesn't use the
    *      <code>service-role</code> path prefix. Because of this, we recommend that you specify the full ARN of your service
    *     role when you create compute environments.</p>
    *          </note>
@@ -1095,7 +1106,7 @@ export interface FairsharePolicy {
    *                <i>ActiveFairShares</i>
    *             </code> is the number of active fair share
    *    identifiers.</p>
-   *          <p>For example, a <code>computeReservation</code> value of 50 indicates that Batchreserves
+   *          <p>For example, a <code>computeReservation</code> value of 50 indicates that Batch reserves
    *    50% of the maximum available vCPU if there's only one fair share identifier. It reserves 25% if
    *    there are two fair share identifiers. It reserves 12.5% if there are three fair share
    *    identifiers. A <code>computeReservation</code> value of 25 indicates that Batch should reserve
@@ -1474,9 +1485,10 @@ export interface DescribeComputeEnvironmentsResponse {
 export interface DescribeJobDefinitionsRequest {
   /**
    * @public
-   * <p>A list of up to 100 job definitions. Each entry in the list can either be an ARN in the format
-   *     <code>arn:aws:batch:$\{Region\}:$\{Account\}:job-definition/$\{JobDefinitionName\}:$\{Revision\}</code> or a short version
-   *    using the form <code>$\{JobDefinitionName\}:$\{Revision\}</code>.</p>
+   * <p>A list of up to 100 job definitions. Each entry in the list can either be an ARN in the
+   *       format
+   *         <code>arn:aws:batch:$\{Region\}:$\{Account\}:job-definition/$\{JobDefinitionName\}:$\{Revision\}</code>
+   *       or a short version using the form <code>$\{JobDefinitionName\}:$\{Revision\}</code>. This parameter can't be used with other parameters.</p>
    */
   jobDefinitions?: string[];
 
@@ -1919,7 +1931,7 @@ export interface LogConfiguration {
 /**
  * @public
  * <p>Details for a Docker volume mount point that's used in a job's container properties. This
- *    parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/reference/api/docker_remote_api_v1.19/#create-a-container">Create a container</a> section of the <i>Docker Remote API</i> and the
+ *    parameter maps to <code>Volumes</code> in the <a href="https://docs.docker.com/engine/api/v1.43/#tag/Container/operation/ContainerCreate">Create a container</a> section of the <i>Docker Remote API</i> and the
  *     <code>--volume</code> option to docker run.</p>
  */
 export interface MountPoint {
@@ -1958,6 +1970,18 @@ export interface NetworkConfiguration {
    *     <i>Amazon Elastic Container Service Developer Guide</i>. The default value is "<code>DISABLED</code>".</p>
    */
   assignPublicIp?: AssignPublicIp;
+}
+
+/**
+ * @public
+ * <p>The repository credentials for private registry authentication.</p>
+ */
+export interface RepositoryCredentials {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the secret containing the private repository credentials.</p>
+   */
+  credentialsParameter: string | undefined;
 }
 
 /**
@@ -2156,47 +2180,63 @@ export interface ResourceRequirement {
 
 /**
  * @public
- * <p>An object that represents the compute environment architecture for Batch jobs on Fargate.</p>
+ * <p>
+ *    An object that represents the compute environment architecture for Batch jobs on Fargate.
+ *   </p>
  */
 export interface RuntimePlatform {
   /**
    * @public
    * <p>The operating system for the compute environment.
    *    Valid values are:
-   *     <code>LINUX</code> (default), <code>WINDOWS_SERVER_2019_CORE</code>,
-   *     <code>WINDOWS_SERVER_2019_FULL</code>, <code>WINDOWS_SERVER_2022_CORE</code>, and
-   *     <code>WINDOWS_SERVER_2022_FULL</code>.</p>
+   *    <code>LINUX</code> (default), <code>WINDOWS_SERVER_2019_CORE</code>,
+   *    <code>WINDOWS_SERVER_2019_FULL</code>, <code>WINDOWS_SERVER_2022_CORE</code>, and
+   *    <code>WINDOWS_SERVER_2022_FULL</code>.</p>
    *          <note>
    *             <p>The following parameters can’t be set for Windows containers: <code>linuxParameters</code>,
-   *      <code>privileged</code>, <code>user</code>, <code>ulimits</code>,
-   *      <code>readonlyRootFilesystem</code>,
-   *     and <code>efsVolumeConfiguration</code>.</p>
+   *    <code>privileged</code>, <code>user</code>, <code>ulimits</code>,
+   *    <code>readonlyRootFilesystem</code>,
+   *    and <code>efsVolumeConfiguration</code>.</p>
    *          </note>
    *          <note>
-   *             <p>The Batch Scheduler checks before registering a task definition with Fargate. If the job
-   *     requires a Windows container and the first compute environment is <code>LINUX</code>, the
-   *     compute environment is skipped and the next is checked until a Windows-based compute environment
-   *     is found.</p>
+   *             <p>The Batch Scheduler checks
+   *    the compute environments
+   *    that are attached to the job queue before registering a task definition with
+   *    Fargate. In this
+   *    scenario, the job queue is where the job is submitted. If the job requires a
+   *    Windows container and the first compute environment is <code>LINUX</code>, the compute
+   *    environment is skipped and the next compute environment is checked until a Windows-based compute
+   *    environment is found.</p>
    *          </note>
    *          <note>
-   *             <p>Fargate Spot is not supported for Windows-based containers on Fargate. A job
-   *     queue will be blocked if a Fargate Windows job is submitted to a job queue with only Fargate
-   *     Spot compute environments.
-   *     However, you can attach both <code>FARGATE</code> and <code>FARGATE_SPOT</code>
-   *   compute environments to the same job
-   *     queue.</p>
+   *             <p>Fargate Spot is not supported for
+   *    <code>ARM64</code> and
+   *    Windows-based containers on Fargate. A job queue will be blocked if a
+   *    Fargate
+   *    <code>ARM64</code> or
+   *    Windows job is submitted to a job queue with only Fargate Spot compute environments.
+   *    However, you can attach both <code>FARGATE</code> and
+   *    <code>FARGATE_SPOT</code> compute environments to the same job queue.</p>
    *          </note>
    */
   operatingSystemFamily?: string;
 
   /**
    * @public
-   * <p>The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
-   *     <code>X86_64</code> and <code>ARM64</code>.</p>
+   * <p>
+   *    The vCPU architecture. The default value is <code>X86_64</code>. Valid values are
+   *    <code>X86_64</code> and <code>ARM64</code>.</p>
    *          <note>
    *             <p>This parameter must be set to
    *     <code>X86_64</code>
    *     for Windows containers.</p>
+   *          </note>
+   *          <note>
+   *             <p>Fargate Spot is not supported for <code>ARM64</code> and Windows-based containers on
+   *     Fargate. A job queue will be blocked if a Fargate <code>ARM64</code> or Windows job is
+   *     submitted to a job queue with only Fargate Spot compute environments. However, you can attach
+   *     both <code>FARGATE</code> and <code>FARGATE_SPOT</code> compute environments to the same job
+   *     queue.</p>
    *          </note>
    */
   cpuArchitecture?: string;
@@ -2204,7 +2244,8 @@ export interface RuntimePlatform {
 
 /**
  * @public
- * <p>The <code>ulimit</code> settings to pass to the container.</p>
+ * <p>The <code>ulimit</code> settings to pass to the container. For more information, see
+ *    <a href="https://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_Ulimit.html">Ulimit</a>.</p>
  *          <note>
  *             <p>This object isn't applicable to jobs that are running on Fargate resources.</p>
  *          </note>
@@ -2212,13 +2253,16 @@ export interface RuntimePlatform {
 export interface Ulimit {
   /**
    * @public
-   * <p>The hard limit for the <code>ulimit</code> type.</p>
+   * <p>The hard limit for the <code>ulimit</code> type. </p>
    */
   hardLimit: number | undefined;
 
   /**
    * @public
-   * <p>The <code>type</code> of the <code>ulimit</code>.</p>
+   * <p>The <code>type</code> of the <code>ulimit</code>. Valid values are: <code>core</code> | <code>cpu</code> |
+   *    <code>data</code> | <code>fsize</code> | <code>locks</code> | <code>memlock</code> | <code>msgqueue</code> |
+   *    <code>nice</code> | <code>nofile</code> | <code>nproc</code> | <code>rss</code> | <code>rtprio</code> |
+   *    <code>rttime</code> | <code>sigpending</code> | <code>stack</code>.</p>
    */
   name: string | undefined;
 
@@ -2407,8 +2451,10 @@ export interface Volume {
 export interface ContainerProperties {
   /**
    * @public
-   * <p>The image used to start a container. This string is passed directly to the Docker daemon.
-   *    Images in the Docker Hub registry are available by default. Other repositories are specified with
+   * <p>Required.
+   *    The image used to start a container. This string is passed directly to the
+   *    Docker daemon. Images in the Docker Hub registry are available by default. Other repositories are
+   *    specified with
    *      <code>
    *                <i>repository-url</i>/<i>image</i>:<i>tag</i>
    *             </code>.
@@ -2663,6 +2709,12 @@ export interface ContainerProperties {
    * <p>An object that represents the compute environment architecture for Batch jobs on Fargate.</p>
    */
   runtimePlatform?: RuntimePlatform;
+
+  /**
+   * @public
+   * <p>The private repository authentication credentials to use.</p>
+   */
+  repositoryCredentials?: RepositoryCredentials;
 }
 
 /**
@@ -3318,7 +3370,7 @@ export interface JobTimeout {
   /**
    * @public
    * <p>The job timeout time (in seconds) that's measured from the job attempt's
-   *     <code>startedAt</code> timestamp. After this time passes, Batch terminates your jobs if they
+   *    <code>startedAt</code> timestamp. After this time passes, Batch terminates your jobs if they
    *    aren't finished. The minimum value for the timeout is 60 seconds.</p>
    *          <p>For array jobs, the timeout applies to the child jobs, not to the parent array job.</p>
    *          <p>For multi-node parallel (MNP) jobs, the timeout applies to the whole job, not to the
@@ -3890,6 +3942,12 @@ export interface ContainerDetail {
    * <p>An object that represents the compute environment architecture for Batch jobs on Fargate.</p>
    */
   runtimePlatform?: RuntimePlatform;
+
+  /**
+   * @public
+   * <p>The private repository authentication credentials to use.</p>
+   */
+  repositoryCredentials?: RepositoryCredentials;
 }
 
 /**
@@ -4149,7 +4207,7 @@ export interface EksPodPropertiesDetail {
    * <p>Describes and uniquely identifies Kubernetes resources. For example, the compute environment
    *    that a pod runs in or the <code>jobID</code> for a job running in the pod. For more information,
    *    see <a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/kubernetes-objects/">Understanding Kubernetes Objects</a> in the <i>Kubernetes
-   *    documentation</i>.</p>
+   *      documentation</i>.</p>
    */
   metadata?: EksMetadata;
 }
@@ -4290,7 +4348,7 @@ export interface JobDetail {
    * @public
    * <p>The Unix timestamp (in milliseconds) for when the job was started. More specifically, it's
    *    when the job transitioned from the <code>STARTING</code> state to the <code>RUNNING</code> state.
-   *    This parameter isn't provided for child jobs of array jobs or multi-node parallel jobs.</p>
+   *   </p>
    */
   startedAt: number | undefined;
 
@@ -5248,9 +5306,12 @@ export interface SubmitJobRequest {
 
   /**
    * @public
-   * <p>The scheduling priority for the job. This only affects jobs in job queues with a fair share policy. Jobs with a
-   *    higher scheduling priority are scheduled before jobs with a lower scheduling priority. This overrides any scheduling
-   *    priority in the job definition.</p>
+   * <p>The scheduling priority for the job. This only affects jobs in job queues with a fair share
+   *       policy. Jobs with a higher scheduling priority are scheduled before jobs with a lower
+   *       scheduling priority.
+   *       This
+   *       overrides any scheduling priority in the job definition and works only within a single share
+   *       identifier.</p>
    *          <p>The minimum supported value is 0 and the maximum supported value is 9999.</p>
    */
   schedulingPriorityOverride?: number;
@@ -5335,7 +5396,7 @@ export interface SubmitJobRequest {
   /**
    * @public
    * <p>The timeout configuration for this <a>SubmitJob</a> operation. You can specify a timeout duration
-   *    after which Batch terminates your jobs if they haven't finished. If a job is terminated due to a timeout, it isn't
+   *     after which Batch terminates your jobs if they haven't finished. If a job is terminated due to a timeout, it isn't
    *    retried. The minimum value for the timeout is 60 seconds. This configuration overrides any timeout configuration
    *    specified in the job definition. For array jobs, child jobs have the same timeout configuration as the parent job.
    *    For more information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/job_timeouts.html">Job
@@ -5494,12 +5555,12 @@ export interface ComputeResourceUpdate {
    * @public
    * <p>The maximum number of Amazon EC2 vCPUs that an environment can reach.</p>
    *          <note>
-   *             <p>With <code>BEST_FIT_PROGRESSIVE</code>, <code>SPOT_CAPACITY_OPTIMIZED</code>, and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
-   *     allocation strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy
-   *     using Spot Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity
-   *     requirements. In this event, Batch never exceeds <code>maxvCpus</code> by more than a single
-   *     instance. That is, no more than a single instance from among those specified in your compute
-   *     environment.</p>
+   *             <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and
+   *     <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
+   *     (recommended) strategies using On-Demand or Spot Instances, and the
+   *     <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
+   *     <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds
+   *     <code>maxvCpus</code> by more than a single instance.</p>
    *          </note>
    */
   maxvCpus?: number;
@@ -5598,10 +5659,12 @@ export interface ComputeResourceUpdate {
    *       resources.</p>
    *             </dd>
    *          </dl>
-   *          <p>With both <code>BEST_FIT_PROGRESSIVE</code>, <code>SPOT_CAPACITY_OPTIMIZED</code>, and <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
-   *    strategies using On-Demand or Spot Instances, and the <code>BEST_FIT</code> strategy using Spot
-   *    Instances, Batch might need to exceed <code>maxvCpus</code> to meet your capacity requirements.
-   *    In this event, Batch never exceeds <code>maxvCpus</code> by more than a single instance.</p>
+   *          <p>With <code>BEST_FIT_PROGRESSIVE</code>,<code>SPOT_CAPACITY_OPTIMIZED</code> and
+   *    <code>SPOT_PRICE_CAPACITY_OPTIMIZED</code>
+   *    (recommended) strategies using On-Demand or Spot Instances, and the
+   *    <code>BEST_FIT</code> strategy using Spot Instances, Batch might need to exceed
+   *    <code>maxvCpus</code> to meet your capacity requirements. In this event, Batch never exceeds
+   *    <code>maxvCpus</code> by more than a single instance.</p>
    */
   allocationStrategy?: CRUpdateAllocationStrategy;
 
@@ -5647,9 +5710,10 @@ export interface ComputeResourceUpdate {
 
   /**
    * @public
-   * <p>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment. You can
-   *    specify the short name or full Amazon Resource Name (ARN) of an instance profile. For example,
-   *      <code>
+   * <p>The Amazon ECS instance profile applied to Amazon EC2 instances in a compute environment.
+   *    Required for Amazon EC2
+   *    instances. You can specify the short name or full Amazon Resource Name (ARN) of an instance
+   *    profile. For example, <code>
    *                <i>ecsInstanceRole</i>
    *             </code> or
    *      <code>arn:aws:iam::<i><aws_account_id></i>:instance-profile/<i>ecsInstanceRole</i>
@@ -5865,7 +5929,7 @@ export interface UpdateComputeEnvironmentRequest {
   /**
    * @public
    * <p>The full Amazon Resource Name (ARN) of the IAM role that allows Batch to make calls to other Amazon Web Services services on your behalf.
-   *    For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM
+   *      For more information, see <a href="https://docs.aws.amazon.com/batch/latest/userguide/service_IAM_role.html">Batch service IAM
    *     role</a> in the <i>Batch User Guide</i>.</p>
    *          <important>
    *             <p>If the compute environment has a service-linked role, it can't be changed to use a regular IAM role.
@@ -5878,7 +5942,7 @@ export interface UpdateComputeEnvironmentRequest {
    *    (recommended) or prefix the role name with the path.</p>
    *          <note>
    *             <p>Depending on how you created your Batch service role, its ARN might contain the <code>service-role</code>
-   *     path prefix. When you only specify the name of the service role, Batch assumes that your ARN doesn't use the
+   *       path prefix. When you only specify the name of the service role, Batch assumes that your ARN doesn't use the
    *      <code>service-role</code> path prefix. Because of this, we recommend that you specify the full ARN of your service
    *     role when you create compute environments.</p>
    *          </note>

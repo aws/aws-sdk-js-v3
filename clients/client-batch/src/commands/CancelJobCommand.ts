@@ -41,7 +41,7 @@ export interface CancelJobCommandOutput extends CancelJobResponse, __MetadataBea
  *             <p>A <code>PENDING</code> job is canceled after all dependency jobs are completed.
  *         Therefore, it may take longer than expected to cancel a job in <code>PENDING</code>
  *         status.</p>
- *             <p>When you try to cancel an array parent job in <code>PENDING</code>, Batch  attempts to
+ *             <p>When you try to cancel an array parent job in <code>PENDING</code>, Batch attempts to
  *         cancel all child jobs. The array parent job is canceled when all child jobs are
  *         completed.</p>
  *          </note>

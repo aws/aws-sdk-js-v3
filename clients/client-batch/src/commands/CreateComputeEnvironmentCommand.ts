@@ -95,8 +95,8 @@ export interface CreateComputeEnvironmentCommandOutput extends CreateComputeEnvi
  *                   <p>Don't specify an AMI ID in <code>imageId</code>, <code>imageIdOverride</code> (in <a href="https://docs.aws.amazon.com/batch/latest/APIReference/API_Ec2Configuration.html">
  *                         <code>ec2Configuration</code>
  *                      </a>), or in the launch
- *       template (<code>launchTemplate</code>). In that case, Batch selects the latest Amazon ECS optimized AMI that's
- *       supported by Batch at the time the infrastructure update is initiated. Alternatively, you can specify the AMI ID
+ *        template (<code>launchTemplate</code>). In that case, Batch selects the latest Amazon ECS optimized AMI that's
+ *        supported by Batch at the time the infrastructure update is initiated. Alternatively, you can specify the AMI ID
  *       in the <code>imageId</code> or <code>imageIdOverride</code> parameters, or the launch template identified by the
  *       <code>LaunchTemplate</code> properties. Changing any of these properties starts an infrastructure update. If the
  *       AMI ID is specified in the launch template, it can't be replaced by specifying an AMI ID in either the

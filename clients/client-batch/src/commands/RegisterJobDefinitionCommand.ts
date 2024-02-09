@@ -154,6 +154,9 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *       operatingSystemFamily: "STRING_VALUE",
  *       cpuArchitecture: "STRING_VALUE",
  *     },
+ *     repositoryCredentials: { // RepositoryCredentials
+ *       credentialsParameter: "STRING_VALUE", // required
+ *     },
  *   },
  *   nodeProperties: { // NodeProperties
  *     numNodes: Number("int"), // required
@@ -260,6 +263,9 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *           runtimePlatform: {
  *             operatingSystemFamily: "STRING_VALUE",
  *             cpuArchitecture: "STRING_VALUE",
+ *           },
+ *           repositoryCredentials: {
+ *             credentialsParameter: "STRING_VALUE", // required
  *           },
  *         },
  *       },

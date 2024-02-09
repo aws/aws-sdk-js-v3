@@ -222,6 +222,9 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //           operatingSystemFamily: "STRING_VALUE",
  * //           cpuArchitecture: "STRING_VALUE",
  * //         },
+ * //         repositoryCredentials: { // RepositoryCredentials
+ * //           credentialsParameter: "STRING_VALUE", // required
+ * //         },
  * //       },
  * //       nodeDetails: { // NodeDetails
  * //         nodeIndex: Number("int"),
@@ -332,6 +335,9 @@ export interface DescribeJobsCommandOutput extends DescribeJobsResponse, __Metad
  * //               runtimePlatform: {
  * //                 operatingSystemFamily: "STRING_VALUE",
  * //                 cpuArchitecture: "STRING_VALUE",
+ * //               },
+ * //               repositoryCredentials: {
+ * //                 credentialsParameter: "STRING_VALUE", // required
  * //               },
  * //             },
  * //           },
