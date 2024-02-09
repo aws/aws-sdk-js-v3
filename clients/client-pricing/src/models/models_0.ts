@@ -146,6 +146,7 @@ export class ExpiredNextTokenException extends __BaseException {
 export class InternalErrorException extends __BaseException {
   readonly name: "InternalErrorException" = "InternalErrorException";
   readonly $fault: "server" = "server";
+  $retryable = {};
   Message?: string;
   /**
    * @internal
@@ -223,6 +224,32 @@ export class NotFoundException extends __BaseException {
       ...opts,
     });
     Object.setPrototypeOf(this, NotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>You've made too many requests exceeding service quotas.
+ *       </p>
+ */
+export class ThrottlingException extends __BaseException {
+  readonly name: "ThrottlingException" = "ThrottlingException";
+  readonly $fault: "client" = "client";
+  $retryable = {
+    throttling: true,
+  };
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ThrottlingException, __BaseException>) {
+    super({
+      name: "ThrottlingException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ThrottlingException.prototype);
     this.Message = opts.Message;
   }
 }

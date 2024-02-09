@@ -85,6 +85,10 @@ export interface DescribeServicesCommandOutput extends DescribeServicesResponse,
  * @throws {@link NotFoundException} (client fault)
  *  <p>The requested resource can't be found.</p>
  *
+ * @throws {@link ThrottlingException} (client fault)
+ *  <p>You've made too many requests exceeding service quotas.
+ *       </p>
+ *
  * @throws {@link PricingServiceException}
  * <p>Base exception class for all service exceptions from Pricing service.</p>
  *

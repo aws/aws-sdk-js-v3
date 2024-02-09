@@ -38,6 +38,7 @@ import {
   InvalidParameterException,
   ListPriceListsRequest,
   NotFoundException,
+  ThrottlingException,
 } from "../models/models_0";
 import { PricingServiceException as __BaseException } from "../models/PricingServiceException";
 
@@ -231,6 +232,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "NotFoundException":
     case "com.amazonaws.pricing#NotFoundException":
       throw await de_NotFoundExceptionRes(parsedOutput, context);
+    case "ThrottlingException":
+    case "com.amazonaws.pricing#ThrottlingException":
+      throw await de_ThrottlingExceptionRes(parsedOutput, context);
     case "AccessDeniedException":
     case "com.amazonaws.pricing#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
@@ -337,6 +341,19 @@ const de_NotFoundExceptionRes = async (parsedOutput: any, context: __SerdeContex
   return __decorateServiceException(exception, body);
 };
 
+/**
+ * deserializeAws_json1_1ThrottlingExceptionRes
+ */
+const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ThrottlingException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ThrottlingException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
 // se_DescribeServicesRequest omitted.
 
 // se_Filter omitted.
@@ -421,6 +438,8 @@ const de_PriceListJsonItems = (output: any, context: __SerdeContext): (__LazyJso
 // de_Service omitted.
 
 // de_ServiceList omitted.
+
+// de_ThrottlingException omitted.
 
 const deserializeMetadata = (output: __HttpResponse): __ResponseMetadata => ({
   httpStatusCode: output.statusCode,

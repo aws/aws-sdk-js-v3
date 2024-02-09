@@ -140,7 +140,7 @@ export interface Pricing {
  *          an <code>AmazonEC2</code> instance, with a <code>Provisioned IOPS</code>
  *             <code>volumeType</code>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Using the
- *          Amazon Web Services Price List API</a> in the <i>Billing User
+ *                Amazon Web Services Price List API</a> in the <i>Billing User
  *             Guide</i>.</p>
  */
 export class Pricing extends PricingClient implements Pricing {}
