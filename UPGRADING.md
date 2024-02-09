@@ -587,6 +587,9 @@ const get = await s3.getObject({ ... }).promise(); // this buffers (consumes) th
 // v3, consume the stream to free the socket.
 const get = await s3.getObject({ ... }); // object .Body has unconsumed stream.
 const str = await get.Body.transformToString(); // consumes the stream.
+// other ways to consume the stream include writing it to a file,
+// passing it to another consumer like an upload, or buffering to
+// a string or byte array.
 ```
 
 Please see also the section on **socket exhaustion** here: https://github.com/aws/aws-sdk-js-v3/blob/main/supplemental-docs/CLIENTS.md#request-handler-requesthandler
