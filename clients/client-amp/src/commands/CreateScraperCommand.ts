@@ -28,7 +28,24 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
 
 /**
  * @public
- * Create a scraper.
+ * <p>The <code>CreateScraper</code> operation creates a scraper to collect metrics. A
+ *             scraper pulls metrics from Prometheus-compatible sources within an Amazon EKS
+ *             cluster, and sends them to your Amazon Managed Service for Prometheus workspace. You can configure the
+ *             scraper to control what metrics are collected, and what transformations are applied
+ *             prior to sending them to your workspace.</p>
+ *          <p>If needed, an IAM role will be created for you that gives Amazon Managed Service for Prometheus access to the metrics in your cluster. For more information, see
+ *             <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/using-service-linked-roles.html#using-service-linked-roles-prom-scraper">Using roles for scraping metrics from EKS</a> in the <i>Amazon Managed Service for Prometheus User
+ *                     Guide</i>.</p>
+ *          <p>You cannot update a scraper. If you want to change the configuration of the scraper,
+ *             create a new scraper and delete the old one.</p>
+ *          <p>The <code>scrapeConfiguration</code> parameter contains the base64-encoded version of
+ *             the YAML configuration file.</p>
+ *          <note>
+ *             <p>For more information about collectors, including what metrics are collected, and
+ *                 how to configure the scraper, see <a href="https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html">Amazon Web Services managed
+ *                     collectors</a> in the <i>Amazon Managed Service for Prometheus User
+ *                         Guide</i>.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,25 +100,26 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  User does not have sufficient access to perform this action.
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  Updating or deleting a resource can cause an inconsistent state.
+ *  <p>The request would cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  Unexpected error during processing of request.
+ *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  Request references a resource which does not exist.
+ *  <p>The request references a resources that doesn't exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  Request would cause a service quota to be exceeded.
+ *  <p>Completing the request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  Request was denied due to request throttling.
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  The input fails to satisfy the constraints specified by an AWS service.
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *             service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

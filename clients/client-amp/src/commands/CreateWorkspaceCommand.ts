@@ -28,7 +28,9 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
 
 /**
  * @public
- * Creates a new AMP workspace.
+ * <p>Creates a Prometheus workspace. A workspace is a logical space dedicated to the
+ *             storage and querying of Prometheus metrics. You can have one or more workspaces in each
+ *             Region in your account.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,22 +68,23 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  User does not have sufficient access to perform this action.
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  Updating or deleting a resource can cause an inconsistent state.
+ *  <p>The request would cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  Unexpected error during processing of request.
+ *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  Request would cause a service quota to be exceeded.
+ *  <p>Completing the request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  Request was denied due to request throttling.
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  The input fails to satisfy the constraints specified by an AWS service.
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *             service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

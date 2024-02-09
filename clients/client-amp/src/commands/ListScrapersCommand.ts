@@ -28,7 +28,9 @@ export interface ListScrapersCommandOutput extends ListScrapersResponse, __Metad
 
 /**
  * @public
- * Lists all scrapers in a customer account, including scrapers being created or deleted. You may provide filters to return a more specific list of results.
+ * <p>The <code>ListScrapers</code> operation lists all of the scrapers in
+ *             your account. This includes scrapers being created or deleted. You can optionally
+ *             filter the returned list.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,16 +94,17 @@ export interface ListScrapersCommandOutput extends ListScrapersResponse, __Metad
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  User does not have sufficient access to perform this action.
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  Unexpected error during processing of request.
+ *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  Request was denied due to request throttling.
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  The input fails to satisfy the constraints specified by an AWS service.
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *             service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

@@ -33,7 +33,8 @@ export interface GetDefaultScraperConfigurationCommandOutput
 
 /**
  * @public
- * Gets a default configuration.
+ * <p>The <code>GetDefaultScraperConfiguration</code> operation returns the default
+ *             scraper configuration used when Amazon EKS creates a scraper for you.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,13 +57,13 @@ export interface GetDefaultScraperConfigurationCommandOutput
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  User does not have sufficient access to perform this action.
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  Unexpected error during processing of request.
+ *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  Request was denied due to request throttling.
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

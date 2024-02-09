@@ -28,7 +28,9 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
 
 /**
  * @public
- * Update an alert manager definition.
+ * <p>Updates an existing alert manager definition in a workspace. If the workspace does not
+ *             already have an alert manager definition, don't use this operation to create it.
+ *             Instead, use <code>CreateAlertManagerDefinition</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,25 +60,26 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  User does not have sufficient access to perform this action.
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  Updating or deleting a resource can cause an inconsistent state.
+ *  <p>The request would cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  Unexpected error during processing of request.
+ *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  Request references a resource which does not exist.
+ *  <p>The request references a resources that doesn't exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  Request would cause a service quota to be exceeded.
+ *  <p>Completing the request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  Request was denied due to request throttling.
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  The input fails to satisfy the constraints specified by an AWS service.
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *             service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

@@ -28,7 +28,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
 
 /**
  * @public
- * Lists all AMP workspaces, including workspaces being created or deleted.
+ * <p>Lists all of the Amazon Managed Service for Prometheus workspaces in your account. This includes
+ *             workspaces being created or deleted. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,16 +71,17 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  User does not have sufficient access to perform this action.
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  Unexpected error during processing of request.
+ *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  Request was denied due to request throttling.
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  The input fails to satisfy the constraints specified by an AWS service.
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *             service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>

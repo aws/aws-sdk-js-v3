@@ -28,7 +28,13 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
 
 /**
  * @public
- * Update a rule groups namespace.
+ * <p>Updates an existing rule groups namespace within a workspace. A rule groups namespace
+ *             is associated with exactly one rules file. A workspace can have multiple rule groups
+ *             namespaces.</p>
+ *          <p>Use this operation only to update existing rule groups namespaces. To create a new
+ *             rule groups namespace, use <code>CreateRuleGroupsNamespace</code>.</p>
+ *          <p>You can't use this operation to add tags to an existing rule groups namespace.
+ *             Instead, use <code>TagResource</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,25 +70,26 @@ export interface PutRuleGroupsNamespaceCommandOutput extends PutRuleGroupsNamesp
  * @see {@link AmpClientResolvedConfig | config} for AmpClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  User does not have sufficient access to perform this action.
+ *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  Updating or deleting a resource can cause an inconsistent state.
+ *  <p>The request would cause an inconsistent state.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  Unexpected error during processing of request.
+ *  <p>An unexpected error occurred during the processing of the request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  Request references a resource which does not exist.
+ *  <p>The request references a resources that doesn't exist.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  Request would cause a service quota to be exceeded.
+ *  <p>Completing the request would cause a service quota to be exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  Request was denied due to request throttling.
+ *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  The input fails to satisfy the constraints specified by an AWS service.
+ *  <p>The input fails to satisfy the constraints specified by an Amazon Web Services
+ *             service.</p>
  *
  * @throws {@link AmpServiceException}
  * <p>Base exception class for all service exceptions from Amp service.</p>
