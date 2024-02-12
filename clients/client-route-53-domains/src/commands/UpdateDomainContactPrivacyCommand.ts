@@ -62,6 +62,7 @@ export interface UpdateDomainContactPrivacyCommandOutput extends UpdateDomainCon
  *   AdminPrivacy: true || false,
  *   RegistrantPrivacy: true || false,
  *   TechPrivacy: true || false,
+ *   BillingPrivacy: true || false,
  * };
  * const command = new UpdateDomainContactPrivacyCommand(input);
  * const response = await client.send(command);

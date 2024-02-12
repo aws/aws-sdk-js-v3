@@ -1557,6 +1557,7 @@ const se_ListOperationsRequest = (input: ListOperationsRequest, context: __Serde
 const se_UpdateDomainContactRequest = (input: UpdateDomainContactRequest, context: __SerdeContext): any => {
   return take(input, {
     AdminContact: _json,
+    BillingContact: _json,
     Consent: (_) => se_Consent(_, context),
     DomainName: [],
     RegistrantContact: _json,
@@ -1717,6 +1718,8 @@ const de_GetDomainDetailResponse = (output: any, context: __SerdeContext): GetDo
     AdminContact: _json,
     AdminPrivacy: __expectBoolean,
     AutoRenew: __expectBoolean,
+    BillingContact: _json,
+    BillingPrivacy: __expectBoolean,
     CreationDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     DnsSec: __expectString,
     DnssecKeys: _json,

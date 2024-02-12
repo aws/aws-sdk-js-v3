@@ -44,7 +44,7 @@ export interface CheckDomainAvailabilityCommandOutput extends CheckDomainAvailab
  * const command = new CheckDomainAvailabilityCommand(input);
  * const response = await client.send(command);
  * // { // CheckDomainAvailabilityResponse
- * //   Availability: "AVAILABLE" || "AVAILABLE_RESERVED" || "AVAILABLE_PREORDER" || "UNAVAILABLE" || "UNAVAILABLE_PREMIUM" || "UNAVAILABLE_RESTRICTED" || "RESERVED" || "DONT_KNOW",
+ * //   Availability: "AVAILABLE" || "AVAILABLE_RESERVED" || "AVAILABLE_PREORDER" || "UNAVAILABLE" || "UNAVAILABLE_PREMIUM" || "UNAVAILABLE_RESTRICTED" || "RESERVED" || "DONT_KNOW" || "INVALID_NAME_FOR_TLD" || "PENDING",
  * // };
  *
  * ```

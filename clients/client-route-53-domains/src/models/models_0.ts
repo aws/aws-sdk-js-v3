@@ -267,9 +267,11 @@ export const OperationType = {
   INTERNAL_TRANSFER_OUT_DOMAIN: "INTERNAL_TRANSFER_OUT_DOMAIN",
   PUSH_DOMAIN: "PUSH_DOMAIN",
   REGISTER_DOMAIN: "REGISTER_DOMAIN",
+  RELEASE_TO_GANDI: "RELEASE_TO_GANDI",
   REMOVE_DNSSEC: "REMOVE_DNSSEC",
   RENEW_DOMAIN: "RENEW_DOMAIN",
   TRANSFER_IN_DOMAIN: "TRANSFER_IN_DOMAIN",
+  TRANSFER_ON_RENEW: "TRANSFER_ON_RENEW",
   TRANSFER_OUT_DOMAIN: "TRANSFER_OUT_DOMAIN",
   UPDATE_DOMAIN_CONTACT: "UPDATE_DOMAIN_CONTACT",
   UPDATE_NAMESERVER: "UPDATE_NAMESERVER",
@@ -402,6 +404,8 @@ export const DomainAvailability = {
   AVAILABLE_PREORDER: "AVAILABLE_PREORDER",
   AVAILABLE_RESERVED: "AVAILABLE_RESERVED",
   DONT_KNOW: "DONT_KNOW",
+  INVALID_NAME_FOR_TLD: "INVALID_NAME_FOR_TLD",
+  PENDING: "PENDING",
   RESERVED: "RESERVED",
   UNAVAILABLE: "UNAVAILABLE",
   UNAVAILABLE_PREMIUM: "UNAVAILABLE_PREMIUM",
@@ -444,6 +448,10 @@ export interface CheckDomainAvailabilityResponse {
    * 						domain name is available. Route 53 can return this response for a variety of
    * 						reasons, for example, the registry is performing maintenance. Try again
    * 						later.</p>
+   *             </dd>
+   *             <dt>INVALID_NAME_FOR_TLD</dt>
+   *             <dd>
+   *                <p>The TLD isn't valid. For example, it can contain characters that aren't allowed.</p>
    *             </dd>
    *             <dt>PENDING</dt>
    *             <dd>
@@ -565,7 +573,7 @@ export interface DomainTransferability {
    *             </dd>
    *             <dt>DOMAIN_IN_ANOTHER_ACCOUNT</dt>
    *             <dd>
-   *                <p> the domain exists in another Amazon Web Services account.</p>
+   *                <p> The domain exists in another Amazon Web Services account.</p>
    *             </dd>
    *             <dt>PREMIUM_DOMAIN</dt>
    *             <dd>
@@ -2472,8 +2480,8 @@ export interface GetDomainDetailResponse {
    * @public
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If the value is <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If the value is <code>false</code>, WHOIS queries return the
    * 			information that you entered for the admin contact.</p>
    */
   AdminPrivacy?: boolean;
@@ -2482,8 +2490,8 @@ export interface GetDomainDetailResponse {
    * @public
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If the value is <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If the value is <code>false</code>, WHOIS queries return the
    * 			information that you entered for the registrant contact (domain owner).</p>
    */
   RegistrantPrivacy?: boolean;
@@ -2492,18 +2500,15 @@ export interface GetDomainDetailResponse {
    * @public
    * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If the value is <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If the value is <code>false</code>, WHOIS queries return the
    * 			information that you entered for the technical contact.</p>
    */
   TechPrivacy?: boolean;
 
   /**
    * @public
-   * <p>Name of the registrar of the domain as identified in the registry. Domains with a
-   * 			.com, .net, or .org TLD are registered by Amazon Registrar. All other domains are
-   * 			registered by our registrar associate, Gandi. The value for domains that are registered
-   * 			by Gandi is <code>"GANDI SAS"</code>. </p>
+   * <p>Name of the registrar of the domain as identified in the registry. </p>
    */
   RegistrarName?: string;
 
@@ -2595,6 +2600,22 @@ export interface GetDomainDetailResponse {
    * <p>A complex type that contains information about the DNSSEC configuration.</p>
    */
   DnssecKeys?: DnssecKey[];
+
+  /**
+   * @public
+   * <p>Provides details about the domain billing contact.</p>
+   */
+  BillingContact?: ContactDetail;
+
+  /**
+   * @public
+   * <p>Specifies whether contact information is concealed from WHOIS queries. If the value is
+   * 		<code>true</code>, WHOIS ("who is") queries return contact information either for
+   * 		Amazon Registrar or for our registrar associate,
+   * 		Gandi. If the value is <code>false</code>, WHOIS queries return the
+   * 		information that you entered for the billing contact.</p>
+   */
+  BillingPrivacy?: boolean;
 }
 
 /**
@@ -3269,11 +3290,11 @@ export interface RegisterDomainRequest {
    * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
    * 			information that you entered for the admin contact.</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
    *          <p>Default: <code>true</code>
@@ -3285,11 +3306,11 @@ export interface RegisterDomainRequest {
    * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
    * 			information that you entered for the registrant contact (the domain owner).</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
    *          <p>Default: <code>true</code>
@@ -3301,17 +3322,38 @@ export interface RegisterDomainRequest {
    * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
    * 			information that you entered for the technical contact.</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
    */
   PrivacyProtectTechContact?: boolean;
+
+  /**
+   * @public
+   * <p>Provides detailed contact information. For information about the values that you
+   * 			specify for each element, see <a href="https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html">ContactDetail</a>.</p>
+   */
+  BillingContact?: ContactDetail;
+
+  /**
+   * @public
+   * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
+   * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
+   * 			information that you entered for the billing contact.</p>
+   *          <note>
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
+   * 				technical contacts.</p>
+   *          </note>
+   */
+  PrivacyProtectBillingContact?: boolean;
 }
 
 /**
@@ -3579,11 +3621,11 @@ export interface TransferDomainRequest {
    * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
    * 			information that you entered for the registrant contact (domain owner).</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
    *          <p>Default: <code>true</code>
@@ -3595,17 +3637,39 @@ export interface TransferDomainRequest {
    * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
    * 			information that you entered for the technical contact.</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
    *          <p>Default: <code>true</code>
    *          </p>
    */
   PrivacyProtectTechContact?: boolean;
+
+  /**
+   * @public
+   * <p>Provides detailed contact information.</p>
+   */
+  BillingContact?: ContactDetail;
+
+  /**
+   * @public
+   * <p>
+   * 			Whether you want to conceal contact information from WHOIS queries. If you specify
+   * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
+   * 			information that you entered for the billing contact.
+   * 		</p>
+   *          <note>
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
+   * 				technical contacts.</p>
+   *          </note>
+   */
+  PrivacyProtectBillingContact?: boolean;
 }
 
 /**
@@ -3697,6 +3761,12 @@ export interface UpdateDomainContactRequest {
    * <p> Customer's consent for the owner change request. Required if the domain is not free (consent price is more than $0.00).</p>
    */
   Consent?: Consent;
+
+  /**
+   * @public
+   * <p>Provides detailed contact information.</p>
+   */
+  BillingContact?: ContactDetail;
 }
 
 /**
@@ -3726,12 +3796,12 @@ export interface UpdateDomainContactPrivacyRequest {
   /**
    * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
-   * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
+   * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
    * 			information that you entered for the admin contact.</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
    */
@@ -3740,12 +3810,12 @@ export interface UpdateDomainContactPrivacyRequest {
   /**
    * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
-   * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
+   * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
    * 			information that you entered for the registrant contact (domain owner).</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
    */
@@ -3755,15 +3825,31 @@ export interface UpdateDomainContactPrivacyRequest {
    * @public
    * <p>Whether you want to conceal contact information from WHOIS queries. If you specify
    * 				<code>true</code>, WHOIS ("who is") queries return contact information either for
-   * 			Amazon Registrar (for .com, .net, and .org domains) or for our registrar associate,
-   * 			Gandi (for all other TLDs). If you specify <code>false</code>, WHOIS queries return the
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
    * 			information that you entered for the technical contact.</p>
    *          <note>
-   *             <p>You must specify the same privacy setting for the administrative, registrant, and
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
    * 				technical contacts.</p>
    *          </note>
    */
   TechPrivacy?: boolean;
+
+  /**
+   * @public
+   * <p>
+   * 			Whether you want to conceal contact information from WHOIS queries. If you specify
+   * 			<code>true</code>, WHOIS ("who is") queries return contact information either for
+   * 			Amazon Registrar or for our registrar associate,
+   * 			Gandi. If you specify <code>false</code>, WHOIS queries return the
+   * 			information that you entered for the billing contact.
+   * 		</p>
+   *          <note>
+   *             <p>You must specify the same privacy setting for the administrative, billing, registrant, and
+   * 				technical contacts.</p>
+   *          </note>
+   */
+  BillingPrivacy?: boolean;
 }
 
 /**
@@ -3966,6 +4052,7 @@ export const GetDomainDetailResponseFilterSensitiveLog = (obj: GetDomainDetailRe
   ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
   ...(obj.AbuseContactEmail && { AbuseContactEmail: SENSITIVE_STRING }),
   ...(obj.AbuseContactPhone && { AbuseContactPhone: SENSITIVE_STRING }),
+  ...(obj.BillingContact && { BillingContact: SENSITIVE_STRING }),
 });
 
 /**
@@ -3976,6 +4063,7 @@ export const RegisterDomainRequestFilterSensitiveLog = (obj: RegisterDomainReque
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
   ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+  ...(obj.BillingContact && { BillingContact: SENSITIVE_STRING }),
 });
 
 /**
@@ -4005,6 +4093,7 @@ export const TransferDomainRequestFilterSensitiveLog = (obj: TransferDomainReque
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
   ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+  ...(obj.BillingContact && { BillingContact: SENSITIVE_STRING }),
 });
 
 /**
@@ -4025,6 +4114,7 @@ export const UpdateDomainContactRequestFilterSensitiveLog = (obj: UpdateDomainCo
   ...(obj.AdminContact && { AdminContact: SENSITIVE_STRING }),
   ...(obj.RegistrantContact && { RegistrantContact: SENSITIVE_STRING }),
   ...(obj.TechContact && { TechContact: SENSITIVE_STRING }),
+  ...(obj.BillingContact && { BillingContact: SENSITIVE_STRING }),
 });
 
 /**
