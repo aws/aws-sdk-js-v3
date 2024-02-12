@@ -86,6 +86,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  *   eventBridgeConfig: { // EventBridgeDataSourceConfig
  *     eventBusArn: "STRING_VALUE", // required
  *   },
+ *   metricsConfig: "ENABLED" || "DISABLED",
  * };
  * const command = new CreateDataSourceCommand(input);
  * const response = await client.send(command);
@@ -141,6 +142,7 @@ export interface CreateDataSourceCommandOutput extends CreateDataSourceResponse,
  * //     eventBridgeConfig: { // EventBridgeDataSourceConfig
  * //       eventBusArn: "STRING_VALUE", // required
  * //     },
+ * //     metricsConfig: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

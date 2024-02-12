@@ -162,6 +162,7 @@ import {
   DeltaSyncConfig,
   DynamodbDataSourceConfig,
   ElasticsearchDataSourceConfig,
+  EnhancedMetricsConfig,
   EventBridgeDataSourceConfig,
   GraphQLSchemaException,
   HttpDataSourceConfig,
@@ -276,6 +277,7 @@ export const se_CreateApiCacheCommand = async (
     take(input, {
       apiCachingBehavior: [],
       atRestEncryptionEnabled: [],
+      healthMetricsConfig: [],
       transitEncryptionEnabled: [],
       ttl: [],
       type: [],
@@ -331,6 +333,7 @@ export const se_CreateDataSourceCommand = async (
       eventBridgeConfig: (_) => _json(_),
       httpConfig: (_) => _json(_),
       lambdaConfig: (_) => _json(_),
+      metricsConfig: [],
       name: [],
       openSearchServiceConfig: (_) => _json(_),
       relationalDatabaseConfig: (_) => _json(_),
@@ -416,6 +419,7 @@ export const se_CreateGraphqlApiCommand = async (
       additionalAuthenticationProviders: (_) => _json(_),
       apiType: [],
       authenticationType: [],
+      enhancedMetricsConfig: (_) => _json(_),
       introspectionConfig: [],
       lambdaAuthorizerConfig: (_) => _json(_),
       logConfig: (_) => _json(_),
@@ -458,6 +462,7 @@ export const se_CreateResolverCommand = async (
       fieldName: [],
       kind: [],
       maxBatchSize: [],
+      metricsConfig: [],
       pipelineConfig: (_) => _json(_),
       requestMappingTemplate: [],
       responseMappingTemplate: [],
@@ -1335,6 +1340,7 @@ export const se_UpdateApiCacheCommand = async (
   body = JSON.stringify(
     take(input, {
       apiCachingBehavior: [],
+      healthMetricsConfig: [],
       ttl: [],
       type: [],
     })
@@ -1391,6 +1397,7 @@ export const se_UpdateDataSourceCommand = async (
       eventBridgeConfig: (_) => _json(_),
       httpConfig: (_) => _json(_),
       lambdaConfig: (_) => _json(_),
+      metricsConfig: [],
       openSearchServiceConfig: (_) => _json(_),
       relationalDatabaseConfig: (_) => _json(_),
       serviceRoleArn: [],
@@ -1475,6 +1482,7 @@ export const se_UpdateGraphqlApiCommand = async (
     take(input, {
       additionalAuthenticationProviders: (_) => _json(_),
       authenticationType: [],
+      enhancedMetricsConfig: (_) => _json(_),
       introspectionConfig: [],
       lambdaAuthorizerConfig: (_) => _json(_),
       logConfig: (_) => _json(_),
@@ -1515,6 +1523,7 @@ export const se_UpdateResolverCommand = async (
       dataSourceName: [],
       kind: [],
       maxBatchSize: [],
+      metricsConfig: [],
       pipelineConfig: (_) => _json(_),
       requestMappingTemplate: [],
       responseMappingTemplate: [],
@@ -3181,6 +3190,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_ElasticsearchDataSourceConfig omitted.
 
+// se_EnhancedMetricsConfig omitted.
+
 // se_EnvironmentVariableMap omitted.
 
 // se_EventBridgeDataSourceConfig omitted.
@@ -3349,6 +3360,8 @@ const de_DataSourceIntrospectionResult = (output: any, context: __SerdeContext):
 // de_DynamodbDataSourceConfig omitted.
 
 // de_ElasticsearchDataSourceConfig omitted.
+
+// de_EnhancedMetricsConfig omitted.
 
 // de_EnvironmentVariableMap omitted.
 

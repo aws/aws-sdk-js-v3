@@ -93,6 +93,7 @@ export interface GetDataSourceCommandOutput extends GetDataSourceResponse, __Met
  * //     eventBridgeConfig: { // EventBridgeDataSourceConfig
  * //       eventBusArn: "STRING_VALUE", // required
  * //     },
+ * //     metricsConfig: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

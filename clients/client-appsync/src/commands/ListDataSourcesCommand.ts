@@ -95,6 +95,7 @@ export interface ListDataSourcesCommandOutput extends ListDataSourcesResponse, _
  * //       eventBridgeConfig: { // EventBridgeDataSourceConfig
  * //         eventBusArn: "STRING_VALUE", // required
  * //       },
+ * //       metricsConfig: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

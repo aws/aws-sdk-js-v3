@@ -67,6 +67,7 @@ export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __M
  *     runtimeVersion: "STRING_VALUE", // required
  *   },
  *   code: "STRING_VALUE",
+ *   metricsConfig: "ENABLED" || "DISABLED",
  * };
  * const command = new UpdateResolverCommand(input);
  * const response = await client.send(command);
@@ -103,6 +104,7 @@ export interface UpdateResolverCommandOutput extends UpdateResolverResponse, __M
  * //       runtimeVersion: "STRING_VALUE", // required
  * //     },
  * //     code: "STRING_VALUE",
+ * //     metricsConfig: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

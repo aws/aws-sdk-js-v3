@@ -77,7 +77,7 @@ export interface PutGraphqlApiEnvironmentVariablesCommandOutput
  *          </ul>
  *          <p>You can create a list of environmental variables by adding it to the <code>environmentVariables</code>
  *          payload as a list in the format <code>\{"key1":"value1","key2":"value2", …\}</code>. Note that each call of the
- *             <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of the existing
+ *          <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of the existing
  *          environmental variable list of that API. This means the existing environmental variables will be lost. To avoid
  *          this, you must include all existing and new environmental variables in the list each time you call this
  *          action.</p>

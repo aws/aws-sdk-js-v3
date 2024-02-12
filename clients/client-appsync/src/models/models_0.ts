@@ -248,6 +248,20 @@ export type ApiCachingBehavior = (typeof ApiCachingBehavior)[keyof typeof ApiCac
  * @public
  * @enum
  */
+export const CacheHealthMetricsConfig = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type CacheHealthMetricsConfig = (typeof CacheHealthMetricsConfig)[keyof typeof CacheHealthMetricsConfig];
+
+/**
+ * @public
+ * @enum
+ */
 export const ApiCacheStatus = {
   AVAILABLE: "AVAILABLE",
   CREATING: "CREATING",
@@ -435,6 +449,25 @@ export interface ApiCache {
    *          </ul>
    */
   status?: ApiCacheStatus;
+
+  /**
+   * @public
+   * <p>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the throughput exceeded
+   *                the aggregated bandwidth limit. This is useful for diagnosing bottlenecks in a cache
+   *                configuration.</p>
+   *             </li>
+   *             <li>
+   *                <p>EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis process. This is
+   *                useful for diagnosing bottlenecks in a cache configuration.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Metrics will be recorded by API ID. You can set the value to <code>ENABLED</code> or
+   *          <code>DISABLED</code>.</p>
+   */
+  healthMetricsConfig?: CacheHealthMetricsConfig;
 }
 
 /**
@@ -1266,6 +1299,24 @@ export interface CreateApiCacheRequest {
    *          </ul>
    */
   type: ApiCacheType | undefined;
+
+  /**
+   * @public
+   * <p>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>NetworkBandwidthOutAllowanceExceeded: The number of times a specified GraphQL operation was
+   *                called.</p>
+   *             </li>
+   *             <li>
+   *                <p>EngineCPUUtilization: The number of GraphQL errors that occurred during a specified GraphQL
+   *                operation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Metrics will be recorded by API ID. You can set the value to <code>ENABLED</code> or
+   *          <code>DISABLED</code>.</p>
+   */
+  healthMetricsConfig?: CacheHealthMetricsConfig;
 }
 
 /**
@@ -1440,6 +1491,21 @@ export interface LambdaDataSourceConfig {
    */
   lambdaFunctionArn: string | undefined;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const DataSourceLevelMetricsConfig = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceLevelMetricsConfig =
+  (typeof DataSourceLevelMetricsConfig)[keyof typeof DataSourceLevelMetricsConfig];
 
 /**
  * @public
@@ -1633,6 +1699,18 @@ export interface CreateDataSourceRequest {
    * <p>Amazon EventBridge settings.</p>
    */
   eventBridgeConfig?: EventBridgeDataSourceConfig;
+
+  /**
+   * @public
+   * <p>Enables or disables enhanced data source metrics for specified data sources. Note that
+   *             <code>metricsConfig</code> won't be used unless the <code>dataSourceLevelMetricsBehavior</code> value is set
+   *          to <code>PER_DATA_SOURCE_METRICS</code>. If the <code>dataSourceLevelMetricsBehavior</code> is set to
+   *             <code>FULL_REQUEST_DATA_SOURCE_METRICS</code> instead, <code>metricsConfig</code> will be ignored. However,
+   *          you can still set its value.</p>
+   *          <p>
+   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   */
+  metricsConfig?: DataSourceLevelMetricsConfig;
 }
 
 /**
@@ -1753,6 +1831,18 @@ export interface DataSource {
    * <p>Amazon EventBridge settings.</p>
    */
   eventBridgeConfig?: EventBridgeDataSourceConfig;
+
+  /**
+   * @public
+   * <p>Enables or disables enhanced data source metrics for specified data sources. Note that
+   *             <code>metricsConfig</code> won't be used unless the <code>dataSourceLevelMetricsBehavior</code> value is set
+   *          to <code>PER_DATA_SOURCE_METRICS</code>. If the <code>dataSourceLevelMetricsBehavior</code> is set to
+   *             <code>FULL_REQUEST_DATA_SOURCE_METRICS</code> instead, <code>metricsConfig</code> will be ignored. However,
+   *          you can still set its value.</p>
+   *          <p>
+   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   */
+  metricsConfig?: DataSourceLevelMetricsConfig;
 }
 
 /**
@@ -2128,6 +2218,235 @@ export type GraphQLApiType = (typeof GraphQLApiType)[keyof typeof GraphQLApiType
  * @public
  * @enum
  */
+export const DataSourceLevelMetricsBehavior = {
+  FULL_REQUEST_DATA_SOURCE_METRICS: "FULL_REQUEST_DATA_SOURCE_METRICS",
+  PER_DATA_SOURCE_METRICS: "PER_DATA_SOURCE_METRICS",
+} as const;
+
+/**
+ * @public
+ */
+export type DataSourceLevelMetricsBehavior =
+  (typeof DataSourceLevelMetricsBehavior)[keyof typeof DataSourceLevelMetricsBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const OperationLevelMetricsConfig = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type OperationLevelMetricsConfig =
+  (typeof OperationLevelMetricsConfig)[keyof typeof OperationLevelMetricsConfig];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolverLevelMetricsBehavior = {
+  FULL_REQUEST_RESOLVER_METRICS: "FULL_REQUEST_RESOLVER_METRICS",
+  PER_RESOLVER_METRICS: "PER_RESOLVER_METRICS",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverLevelMetricsBehavior =
+  (typeof ResolverLevelMetricsBehavior)[keyof typeof ResolverLevelMetricsBehavior];
+
+/**
+ * @public
+ * <p>Enables and controls the enhanced metrics feature. Enhanced metrics emit granular data on API usage and
+ *          performance such as AppSync request and error counts, latency, and cache hits/misses. All enhanced metric data
+ *          is sent to your CloudWatch account, and you can configure the types of data that will be sent. </p>
+ *          <p>Enhanced metrics can be configured at the resolver, data source, and operation levels.
+ *             <code>EnhancedMetricsConfig</code> contains three required parameters, each controlling one of these
+ *          categories:</p>
+ *          <ol>
+ *             <li>
+ *                <p>
+ *                   <code>resolverLevelMetricsBehavior</code>: Controls how resolver metrics will be emitted to
+ *                CloudWatch. Resolver metrics include:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>GraphQL errors: The number of GraphQL errors that occurred.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Requests: The number of invocations that occurred during a request. </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Latency: The time to complete a resolver invocation.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Cache hits: The number of cache hits during a request.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Cache misses: The number of cache misses during a request.</p>
+ *                   </li>
+ *                </ul>
+ *                <p>These metrics can be emitted to CloudWatch per resolver or for all resolvers in the request. Metrics
+ *                will be recorded by API ID and resolver name. <code>resolverLevelMetricsBehavior</code> accepts one of
+ *                these values at a time:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>FULL_REQUEST_RESOLVER_METRICS</code>: Records and emits metric data for all resolvers
+ *                      in the request.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>PER_RESOLVER_METRICS</code>: Records and emits metric data for resolvers that have the
+ *                         <code>metricConfig</code> value set to <code>ENABLED</code>.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>dataSourceLevelMetricsBehavior</code>: Controls how data source metrics will be emitted to
+ *                CloudWatch. Data source metrics include:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Requests: The number of invocations that occured during a request.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Latency: The time to complete a data source invocation.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>Errors:  The number of errors that occurred during a data source invocation.</p>
+ *                   </li>
+ *                </ul>
+ *                <p>These metrics can be emitted to CloudWatch per data source or for all data sources in the request.
+ *                Metrics will be recorded by API ID and data source name. <code>dataSourceLevelMetricsBehavior</code>
+ *                accepts one of these values at a time:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>
+ *                         <code>FULL_REQUEST_DATA_SOURCE_METRICS</code>: Records and emits metric data for all data
+ *                      sources in the request.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>
+ *                         <code>PER_DATA_SOURCE_METRICS</code>: Records and emits metric data for data sources that
+ *                      have the <code>metricConfig</code> value set to <code>ENABLED</code>.</p>
+ *                   </li>
+ *                </ul>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>operationLevelMetricsConfig</code>: Controls how operation metrics will be emitted to
+ *                CloudWatch. Operation metrics include:</p>
+ *                <ul>
+ *                   <li>
+ *                      <p>Requests: The number of times a specified GraphQL operation was called.</p>
+ *                   </li>
+ *                   <li>
+ *                      <p>GraphQL errors: The number of GraphQL errors that occurred during a specified GraphQL
+ *                      operation.</p>
+ *                   </li>
+ *                </ul>
+ *                <p>Metrics will be recorded by API ID and operation name. You can set the value to <code>ENABLED</code>
+ *                or <code>DISABLED</code>.</p>
+ *             </li>
+ *          </ol>
+ */
+export interface EnhancedMetricsConfig {
+  /**
+   * @public
+   * <p>Controls how resolver metrics will be emitted to CloudWatch. Resolver metrics include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>GraphQL errors: The number of GraphQL errors that occurred.</p>
+   *             </li>
+   *             <li>
+   *                <p>Requests: The number of invocations that occurred during a request. </p>
+   *             </li>
+   *             <li>
+   *                <p>Latency: The time to complete a resolver invocation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cache hits: The number of cache hits during a request.</p>
+   *             </li>
+   *             <li>
+   *                <p>Cache misses: The number of cache misses during a request.</p>
+   *             </li>
+   *          </ul>
+   *          <p>These metrics can be emitted to CloudWatch per resolver or for all resolvers in the request. Metrics will be
+   *          recorded by API ID and resolver name. <code>resolverLevelMetricsBehavior</code> accepts one of these values at
+   *          a time:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FULL_REQUEST_RESOLVER_METRICS</code>: Records and emits metric data for all resolvers in the
+   *                request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PER_RESOLVER_METRICS</code>: Records and emits metric data for resolvers that have the
+   *                   <code>metricConfig</code> value set to <code>ENABLED</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  resolverLevelMetricsBehavior: ResolverLevelMetricsBehavior | undefined;
+
+  /**
+   * @public
+   * <p>Controls how data source metrics will be emitted to CloudWatch. Data source metrics include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Requests: The number of invocations that occured during a request.</p>
+   *             </li>
+   *             <li>
+   *                <p>Latency: The time to complete a data source invocation.</p>
+   *             </li>
+   *             <li>
+   *                <p>Errors:  The number of errors that occurred during a data source invocation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>These metrics can be emitted to CloudWatch per data source or for all data sources in the request. Metrics
+   *          will be recorded by API ID and data source name. <code>dataSourceLevelMetricsBehavior</code> accepts one of
+   *          these values at a time:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>FULL_REQUEST_DATA_SOURCE_METRICS</code>: Records and emits metric data for all data sources
+   *                in the request.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>PER_DATA_SOURCE_METRICS</code>: Records and emits metric data for data sources that have the
+   *                   <code>metricConfig</code> value set to <code>ENABLED</code>.</p>
+   *             </li>
+   *          </ul>
+   */
+  dataSourceLevelMetricsBehavior: DataSourceLevelMetricsBehavior | undefined;
+
+  /**
+   * @public
+   * <p> Controls how operation metrics will be emitted to CloudWatch. Operation metrics include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Requests: The number of times a specified GraphQL operation was called.</p>
+   *             </li>
+   *             <li>
+   *                <p>GraphQL errors: The number of GraphQL errors that occurred during a specified GraphQL
+   *                operation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Metrics will be recorded by API ID and operation name. You can set the value to <code>ENABLED</code> or
+   *             <code>DISABLED</code>.</p>
+   */
+  operationLevelMetricsConfig: OperationLevelMetricsConfig | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const GraphQLApiIntrospectionConfig = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -2394,6 +2713,12 @@ export interface CreateGraphqlApiRequest {
    *          of bounds.</p>
    */
   resolverCountLimit?: number;
+
+  /**
+   * @public
+   * <p>The <code>enhancedMetricsConfig</code> object.</p>
+   */
+  enhancedMetricsConfig?: EnhancedMetricsConfig;
 }
 
 /**
@@ -2552,6 +2877,12 @@ export interface GraphqlApi {
    *          of bounds.</p>
    */
   resolverCountLimit?: number;
+
+  /**
+   * @public
+   * <p>The <code>enhancedMetricsConfig</code> object.</p>
+   */
+  enhancedMetricsConfig?: EnhancedMetricsConfig;
 }
 
 /**
@@ -2599,6 +2930,20 @@ export const ResolverKind = {
  * @public
  */
 export type ResolverKind = (typeof ResolverKind)[keyof typeof ResolverKind];
+
+/**
+ * @public
+ * @enum
+ */
+export const ResolverLevelMetricsConfig = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ResolverLevelMetricsConfig = (typeof ResolverLevelMetricsConfig)[keyof typeof ResolverLevelMetricsConfig];
 
 /**
  * @public
@@ -2713,6 +3058,18 @@ export interface CreateResolverRequest {
    *             <code>runtime</code> is required. The <code>runtime</code> value must be <code>APPSYNC_JS</code>.</p>
    */
   code?: string;
+
+  /**
+   * @public
+   * <p>Enables or disables enhanced resolver metrics for specified resolvers. Note that <code>metricsConfig</code>
+   *          won't be used unless the <code>resolverLevelMetricsBehavior</code> value is set to
+   *             <code>PER_RESOLVER_METRICS</code>. If the <code>resolverLevelMetricsBehavior</code> is set to
+   *             <code>FULL_REQUEST_RESOLVER_METRICS</code> instead, <code>metricsConfig</code> will be ignored. However, you
+   *          can still set its value.</p>
+   *          <p>
+   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   */
+  metricsConfig?: ResolverLevelMetricsConfig;
 }
 
 /**
@@ -2813,6 +3170,18 @@ export interface Resolver {
    *             <code>runtime</code> is required. The <code>runtime</code> value must be <code>APPSYNC_JS</code>.</p>
    */
   code?: string;
+
+  /**
+   * @public
+   * <p>Enables or disables enhanced resolver metrics for specified resolvers. Note that <code>metricsConfig</code>
+   *          won't be used unless the <code>resolverLevelMetricsBehavior</code> value is set to
+   *          <code>PER_RESOLVER_METRICS</code>. If the <code>resolverLevelMetricsBehavior</code> is set to
+   *          <code>FULL_REQUEST_RESOLVER_METRICS</code> instead, <code>metricsConfig</code> will be ignored. However, you
+   *          can still set its value.</p>
+   *          <p>
+   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   */
+  metricsConfig?: ResolverLevelMetricsConfig;
 }
 
 /**
@@ -4323,7 +4692,7 @@ export interface PutGraphqlApiEnvironmentVariablesRequest {
    *          </ul>
    *          <p>You can create a list of environmental variables by adding it to the <code>environmentVariables</code>
    *          payload as a list in the format <code>\{"key1":"value1","key2":"value2", …\}</code>. Note that each call of the
-   *             <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of the existing
+   *          <code>PutGraphqlApiEnvironmentVariables</code> action will result in the overwriting of the existing
    *          environmental variable list of that API. This means the existing environmental variables will be lost. To avoid
    *          this, you must include all existing and new environmental variables in the list each time you call this
    *          action.</p>
@@ -4625,6 +4994,24 @@ export interface UpdateApiCacheRequest {
    *          </ul>
    */
   type: ApiCacheType | undefined;
+
+  /**
+   * @public
+   * <p>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include:</p>
+   *          <ul>
+   *             <li>
+   *                <p>NetworkBandwidthOutAllowanceExceeded: The number of times a specified GraphQL operation was
+   *                called.</p>
+   *             </li>
+   *             <li>
+   *                <p>EngineCPUUtilization: The number of GraphQL errors that occurred during a specified GraphQL
+   *                operation.</p>
+   *             </li>
+   *          </ul>
+   *          <p>Metrics will be recorded by API ID. You can set the value to <code>ENABLED</code> or
+   *          <code>DISABLED</code>.</p>
+   */
+  healthMetricsConfig?: CacheHealthMetricsConfig;
 }
 
 /**
@@ -4757,6 +5144,18 @@ export interface UpdateDataSourceRequest {
    * <p>The new Amazon EventBridge settings.</p>
    */
   eventBridgeConfig?: EventBridgeDataSourceConfig;
+
+  /**
+   * @public
+   * <p>Enables or disables enhanced data source metrics for specified data sources. Note that
+   *             <code>metricsConfig</code> won't be used unless the <code>dataSourceLevelMetricsBehavior</code> value is set
+   *          to <code>PER_DATA_SOURCE_METRICS</code>. If the <code>dataSourceLevelMetricsBehavior</code> is set to
+   *             <code>FULL_REQUEST_DATA_SOURCE_METRICS</code> instead, <code>metricsConfig</code> will be ignored. However,
+   *          you can still set its value.</p>
+   *          <p>
+   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   */
+  metricsConfig?: DataSourceLevelMetricsConfig;
 }
 
 /**
@@ -4997,6 +5396,12 @@ export interface UpdateGraphqlApiRequest {
    *          of bounds.</p>
    */
   resolverCountLimit?: number;
+
+  /**
+   * @public
+   * <p>The <code>enhancedMetricsConfig</code> object.</p>
+   */
+  enhancedMetricsConfig?: EnhancedMetricsConfig;
 }
 
 /**
@@ -5111,6 +5516,18 @@ export interface UpdateResolverRequest {
    *             <code>runtime</code> is required. The <code>runtime</code> value must be <code>APPSYNC_JS</code>.</p>
    */
   code?: string;
+
+  /**
+   * @public
+   * <p>Enables or disables enhanced resolver metrics for specified resolvers. Note that <code>metricsConfig</code>
+   *          won't be used unless the <code>resolverLevelMetricsBehavior</code> value is set to
+   *          <code>PER_RESOLVER_METRICS</code>. If the <code>resolverLevelMetricsBehavior</code> is set to
+   *          <code>FULL_REQUEST_RESOLVER_METRICS</code> instead, <code>metricsConfig</code> will be ignored. However, you
+   *          can still set its value.</p>
+   *          <p>
+   *             <code>metricsConfig</code> can be <code>ENABLED</code> or <code>DISABLED</code>.</p>
+   */
+  metricsConfig?: ResolverLevelMetricsConfig;
 }
 
 /**

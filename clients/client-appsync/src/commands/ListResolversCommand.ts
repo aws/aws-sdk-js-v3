@@ -77,6 +77,7 @@ export interface ListResolversCommandOutput extends ListResolversResponse, __Met
  * //         runtimeVersion: "STRING_VALUE", // required
  * //       },
  * //       code: "STRING_VALUE",
+ * //       metricsConfig: "ENABLED" || "DISABLED",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

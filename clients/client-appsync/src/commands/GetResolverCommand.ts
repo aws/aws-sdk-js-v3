@@ -75,6 +75,7 @@ export interface GetResolverCommandOutput extends GetResolverResponse, __Metadat
  * //       runtimeVersion: "STRING_VALUE", // required
  * //     },
  * //     code: "STRING_VALUE",
+ * //     metricsConfig: "ENABLED" || "DISABLED",
  * //   },
  * // };
  *

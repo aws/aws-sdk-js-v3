@@ -108,6 +108,11 @@ export interface GetGraphqlApiCommandOutput extends GetGraphqlApiResponse, __Met
  * //     introspectionConfig: "ENABLED" || "DISABLED",
  * //     queryDepthLimit: Number("int"),
  * //     resolverCountLimit: Number("int"),
+ * //     enhancedMetricsConfig: { // EnhancedMetricsConfig
+ * //       resolverLevelMetricsBehavior: "FULL_REQUEST_RESOLVER_METRICS" || "PER_RESOLVER_METRICS", // required
+ * //       dataSourceLevelMetricsBehavior: "FULL_REQUEST_DATA_SOURCE_METRICS" || "PER_DATA_SOURCE_METRICS", // required
+ * //       operationLevelMetricsConfig: "ENABLED" || "DISABLED", // required
+ * //     },
  * //   },
  * // };
  *

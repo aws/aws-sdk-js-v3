@@ -51,6 +51,10 @@ export interface DeleteFunctionCommandOutput extends DeleteFunctionResponse, __M
  * @see {@link DeleteFunctionCommandOutput} for command's `response` shape.
  * @see {@link AppSyncClientResolvedConfig | config} for AppSyncClient's `config` shape.
  *
+ * @throws {@link BadRequestException} (client fault)
+ *  <p>The request is not well formed. For example, a value is invalid or a required field is missing. Check the
+ *          field values, and then try again.</p>
+ *
  * @throws {@link ConcurrentModificationException} (client fault)
  *  <p>Another modification is in progress at this time and it must complete before you can make your
  *          change.</p>
