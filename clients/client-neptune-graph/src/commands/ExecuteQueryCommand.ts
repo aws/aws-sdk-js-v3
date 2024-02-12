@@ -32,6 +32,21 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  * @public
  * <p>Execute an openCypher query. Currently, the SDK does not support parameterized queries. If you want to make a
  *       parameterized query call, you can use an HTTP request. </p>
+ *          <p>
+ *       When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have a policy attached
+ *       that allows one of the following IAM actions in that cluster, depending on the query:
+ *     </p>
+ *          <ul>
+ *             <li>
+ *                <p>neptune-graph:ReadDataViaQuery</p>
+ *             </li>
+ *             <li>
+ *                <p>neptune-graph:WriteDataViaQuery</p>
+ *             </li>
+ *             <li>
+ *                <p>neptune-graph:DeleteDataViaQuery</p>
+ *             </li>
+ *          </ul>
  *          <note>
  *             <p>
  *         Non-parametrized queries are not considered for plan caching. You can force plan caching with
@@ -49,6 +64,9 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  *   graphIdentifier: "STRING_VALUE", // required
  *   queryString: "STRING_VALUE", // required
  *   language: "OPEN_CYPHER", // required
+ *   parameters: { // DocumentValuedMap
+ *     "<keys>": "DOCUMENT_VALUE",
+ *   },
  *   planCache: "ENABLED" || "DISABLED" || "AUTO",
  *   explainMode: "STATIC" || "DETAILS",
  *   queryTimeoutMilliseconds: Number("int"),

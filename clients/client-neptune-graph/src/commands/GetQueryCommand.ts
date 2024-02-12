@@ -29,6 +29,12 @@ export interface GetQueryCommandOutput extends GetQueryOutput, __MetadataBearer 
 /**
  * @public
  * <p>Retrieves the status of a specified query.</p>
+ *          <note>
+ *             <p>
+ *         When invoking this operation in a Neptune Analytics cluster, the IAM user or role making the request must have the
+ *         <code>neptune-graph:GetQueryStatus</code> IAM action attached.
+ *       </p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

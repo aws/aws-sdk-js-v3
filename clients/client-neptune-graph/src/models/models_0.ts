@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
 
-import { StreamingBlobTypes } from "@smithy/types";
+import { DocumentType as __DocumentType, StreamingBlobTypes } from "@smithy/types";
 
 import { NeptuneGraphServiceException as __BaseException } from "./NeptuneGraphServiceException";
 
@@ -255,6 +255,12 @@ export interface ExecuteQueryInput {
    * <p>The query language the query is written in. Currently only openCypher is supported.</p>
    */
   language: QueryLanguage | undefined;
+
+  /**
+   * @public
+   * <p>The data parameters the query can use in JSON format. For example: \{"name": "john", "age": 20\}. (optional) </p>
+   */
+  parameters?: Record<string, __DocumentType>;
 
   /**
    * @public
@@ -624,7 +630,7 @@ export interface CreateGraphInput {
 
   /**
    * @public
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs IAM authenticated.
+   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.
    *        (<code>true</code> to enable, or <code>false</code> to disable.</p>
    */
   publicConnectivity?: boolean;
@@ -738,7 +744,7 @@ export interface CreateGraphOutput {
 
   /**
    * @public
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs IAM authenticated.</p>
+   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.</p>
    */
   publicConnectivity?: boolean;
 
@@ -1321,7 +1327,7 @@ export interface RestoreGraphFromSnapshotInput {
 
   /**
    * @public
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs IAM authenticated.
+   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.
    *       (<code>true</code> to enable, or <code>false</code> to disable).</p>
    */
   publicConnectivity?: boolean;
@@ -1434,7 +1440,7 @@ export interface UpdateGraphInput {
 
   /**
    * @public
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs IAM authenticated.
+   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.
    *       (<code>true</code> to enable, or <code>false</code> to disable.</p>
    */
   publicConnectivity?: boolean;
@@ -2443,7 +2449,7 @@ export interface CreateGraphUsingImportTaskInput {
 
   /**
    * @public
-   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs IAM authenticated.
+   * <p>Specifies whether or not the graph can be reachable over the internet. All access to graphs is IAM authenticated.
    *        (<code>true</code> to enable, or <code>false</code> to disable).</p>
    */
   publicConnectivity?: boolean;

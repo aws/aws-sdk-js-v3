@@ -26,6 +26,7 @@ import {
   withBaseException,
 } from "@smithy/smithy-client";
 import {
+  DocumentType as __DocumentType,
   Endpoint as __Endpoint,
   ResponseMetadata as __ResponseMetadata,
   SdkStreamSerdeContext as __SdkStreamSerdeContext,
@@ -332,6 +333,7 @@ export const se_ExecuteQueryCommand = async (
     take(input, {
       explain: [, , `explainMode`],
       language: [],
+      parameters: (_) => se_DocumentValuedMap(_, context),
       planCache: [],
       query: [, , `queryString`],
       queryTimeoutMilliseconds: [],
@@ -1625,6 +1627,19 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+/**
+ * serializeAws_restJson1DocumentValuedMap
+ */
+const se_DocumentValuedMap = (input: Record<string, __DocumentType>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_Document(value, context);
+    return acc;
+  }, {});
+};
+
 // se_ImportOptions omitted.
 
 // se_NeptuneImportOptions omitted.
@@ -1636,6 +1651,13 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_TagMap omitted.
 
 // se_VectorSearchConfiguration omitted.
+
+/**
+ * serializeAws_restJson1Document
+ */
+const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
 
 // de_EdgeLabels omitted.
 
