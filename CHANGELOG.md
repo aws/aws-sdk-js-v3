@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.512.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.511.0...v3.512.0) (2024-02-12)
+
+
+### Features
+
+* **client-appsync:** Adds support for new options on GraphqlAPIs, Resolvers and  Data Sources for emitting Amazon CloudWatch metrics for enhanced monitoring of AppSync APIs. ([06af293](https://github.com/aws/aws-sdk-js-v3/commit/06af293aa69f3462a0ac53bea9af57dc176ae1bf))
+* **client-cloudwatch:** This release enables PutMetricData API request payload compression by default. ([c6d4867](https://github.com/aws/aws-sdk-js-v3/commit/c6d4867cddf88ed4d15c16eeb7177add78d95618))
+* **client-neptune-graph:** Adding a new option "parameters" for data plane api ExecuteQuery to support running parameterized query via SDK. ([9d13d68](https://github.com/aws/aws-sdk-js-v3/commit/9d13d68be90daa3b9485eb8ac69f7691d7297aa7))
+* **client-route-53-domains:** This release adds bill contact support for RegisterDomain, TransferDomain, UpdateDomainContact and GetDomainDetail API. ([38b0152](https://github.com/aws/aws-sdk-js-v3/commit/38b015219836a77a1cfca4acc8524d712193e8fb))
+
+
+
+
+
 # [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
 
 

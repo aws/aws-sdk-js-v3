@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.512.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.511.0...v3.512.0) (2024-02-12)
+
+
+### Features
+
+* **client-cloudwatch:** This release enables PutMetricData API request payload compression by default. ([c6d4867](https://github.com/aws/aws-sdk-js-v3/commit/c6d4867cddf88ed4d15c16eeb7177add78d95618))
+
+
+
+
+
 # [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudwatch

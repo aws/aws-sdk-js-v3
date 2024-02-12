@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.512.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.511.0...v3.512.0) (2024-02-12)
+
+
+### Features
+
+* **client-neptune-graph:** Adding a new option "parameters" for data plane api ExecuteQuery to support running parameterized query via SDK. ([9d13d68](https://github.com/aws/aws-sdk-js-v3/commit/9d13d68be90daa3b9485eb8ac69f7691d7297aa7))
+
+
+
+
+
 # [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
 
 **Note:** Version bump only for package @aws-sdk/client-neptune-graph

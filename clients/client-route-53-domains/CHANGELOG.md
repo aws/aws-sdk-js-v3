@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.512.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.511.0...v3.512.0) (2024-02-12)
+
+
+### Features
+
+* **client-route-53-domains:** This release adds bill contact support for RegisterDomain, TransferDomain, UpdateDomainContact and GetDomainDetail API. ([38b0152](https://github.com/aws/aws-sdk-js-v3/commit/38b015219836a77a1cfca4acc8524d712193e8fb))
+
+
+
+
+
 # [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
 
 **Note:** Version bump only for package @aws-sdk/client-route-53-domains

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.512.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.511.0...v3.512.0) (2024-02-12)
+
+
+### Features
+
+* **client-appsync:** Adds support for new options on GraphqlAPIs, Resolvers and  Data Sources for emitting Amazon CloudWatch metrics for enhanced monitoring of AppSync APIs. ([06af293](https://github.com/aws/aws-sdk-js-v3/commit/06af293aa69f3462a0ac53bea9af57dc176ae1bf))
+
+
+
+
+
 # [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
 
 **Note:** Version bump only for package @aws-sdk/client-appsync
