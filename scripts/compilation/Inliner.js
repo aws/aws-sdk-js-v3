@@ -195,8 +195,6 @@ module.exports = class Inliner {
         continue;
       }
 
-      console.log("Rewriting", relativePath, "as index re-export stub.");
-
       const depth = relativePath.split("/").length - 1;
       const indexRelativePath =
         (depth === 0
@@ -252,23 +250,24 @@ module.exports = class Inliner {
       const packageName = requireStatement[3].replace("/", "\\/");
 
       const original = this.indexContents.match(
-        new RegExp(`var import_${variableSuffix} = require\\(\"${packageName}\"\\);`)
+        new RegExp(`var (import_${variableSuffix}(\d+)?) = require\\(\"${packageName}\"\\);`)
       );
+
       if (original) {
         let redundancyIndex = 0;
         let misses = 0;
+        const originalVariable = original[1];
 
         // perform an incremental replacement instead of a global (\d+) replacement
         // to be safe.
         while (true) {
           const redundantRequire = `var import_${variableSuffix}${redundancyIndex} = require\\("${packageName}"\\);`;
-          const redundantVariable = `import_${variableSuffix}${redundancyIndex}`;
+          const redundantVariable = `import_${variableSuffix}${redundancyIndex}(\\.)`;
 
           if (this.indexContents.match(new RegExp(redundantRequire))) {
-            console.log("Replacing var", redundantVariable);
             this.indexContents = this.indexContents
               .replace(new RegExp(redundantRequire, "g"), "")
-              .replace(new RegExp(redundantVariable, "g"), `import_${variableSuffix}`);
+              .replace(new RegExp(redundantVariable, "g"), `${originalVariable}$1`);
           } else if (misses++ > 10) {
             break;
           }
