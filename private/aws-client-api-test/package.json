@@ -30,7 +30,7 @@
     "@smithy/url-parser": "^2.1.1",
     "@smithy/util-base64": "^2.1.1",
     "@smithy/util-body-length-node": "^2.2.1",
-    "@smithy/util-defaults-mode-node": "^2.1.1",
+    "@smithy/util-defaults-mode-node": "^2.2.0",
     "@smithy/util-retry": "^2.1.1",
     "@smithy/util-stream": "^2.1.1",
     "@smithy/util-utf8": "^2.1.1",

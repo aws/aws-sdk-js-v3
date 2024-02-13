@@ -47,7 +47,7 @@
     "@smithy/util-body-length-browser": "^2.1.1",
     "@smithy/util-body-length-node": "^2.2.1",
     "@smithy/util-defaults-mode-browser": "^2.1.1",
-    "@smithy/util-defaults-mode-node": "^2.1.1",
+    "@smithy/util-defaults-mode-node": "^2.2.0",
     "@smithy/util-retry": "^2.1.1",
     "@smithy/util-utf8": "^2.1.1",
     "fast-xml-parser": "4.2.5",
