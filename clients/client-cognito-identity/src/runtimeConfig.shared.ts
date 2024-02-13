@@ -1,13 +1,9 @@
 // smithy-typescript generated code
-import { AwsSdkSigV4Signer } from "@aws-sdk/core";
-import { NoAuthSigner } from "@smithy/core";
 import { NoOpLogger } from "@smithy/smithy-client";
-import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
-import { defaultCognitoIdentityHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { CognitoIdentityClientConfig } from "./CognitoIdentityClient";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 
@@ -22,20 +18,6 @@ export const getRuntimeConfig = (config: CognitoIdentityClientConfig) => {
     disableHostPrefix: config?.disableHostPrefix ?? false,
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
-    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultCognitoIdentityHttpAuthSchemeProvider,
-    httpAuthSchemes: config?.httpAuthSchemes ?? [
-      {
-        schemeId: "aws.auth#sigv4",
-        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
-        signer: new AwsSdkSigV4Signer(),
-      },
-      {
-        schemeId: "smithy.api#noAuth",
-        identityProvider: (ipc: IdentityProviderConfig) =>
-          ipc.getIdentityProvider("smithy.api#noAuth") || (async () => ({})),
-        signer: new NoAuthSigner(),
-      },
-    ],
     logger: config?.logger ?? new NoOpLogger(),
     serviceId: config?.serviceId ?? "Cognito Identity",
     urlParser: config?.urlParser ?? parseUrl,

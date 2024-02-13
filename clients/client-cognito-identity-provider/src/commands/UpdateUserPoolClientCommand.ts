@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { getAwsAuthPlugin } from "@aws-sdk/middleware-signing";
 import { getEndpointPlugin } from "@smithy/middleware-endpoint";
 import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
@@ -233,6 +234,7 @@ export class UpdateUserPoolClientCommand extends $Command
     return [
       getSerdePlugin(config, this.serialize, this.deserialize),
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
+      getAwsAuthPlugin(config),
     ];
   })
   .s("AWSCognitoIdentityProviderService", "UpdateUserPoolClient", {})
