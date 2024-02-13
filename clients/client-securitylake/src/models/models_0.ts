@@ -684,19 +684,24 @@ export interface DataLakeLifecycleConfiguration {
 
 /**
  * @public
- * <p>Provides replication details of Amazon Security Lake object.</p>
+ * <p>Provides replication details for objects stored in the Amazon Security Lake data lake.</p>
  */
 export interface DataLakeReplicationConfiguration {
   /**
    * @public
-   * <p>Replication enables automatic, asynchronous copying of objects across Amazon S3
-   *          buckets. Amazon S3 buckets that are configured for object replication can be owned
-   *          by the same Amazon Web Services account or by different accounts. You can replicate objects
-   *          to a single destination bucket or to multiple destination buckets. The destination buckets
-   *          can be in different Amazon Web Services Regions or within the same Region as the source
-   *          bucket.</p>
-   *          <p>Set up one or more rollup Regions by providing the Region or Regions that should
-   *          contribute to the central rollup Region.</p>
+   * <p>Specifies one or more centralized rollup Regions. The Amazon Web Services Region specified in the <code>region</code>
+   *           parameter of the <a href="https://docs.aws.amazon.com/security-lake/latest/APIReference/API_CreateDataLake.html">
+   *                <code>CreateDataLake</code>
+   *             </a>
+   *           or <a href="https://docs.aws.amazon.com/security-lake/latest/APIReference/API_UpdateDataLake.html">
+   *                <code>UpdateDataLake</code>
+   *             </a> operations contributes data to the rollup Region or
+   *         Regions specified in this parameter.</p>
+   *          <p>Replication enables automatic, asynchronous copying of objects across Amazon S3
+   *            buckets. S3 buckets that are configured for object replication can be owned
+   *            by the same Amazon Web Services account or by different accounts. You can replicate objects
+   *            to a single destination bucket or to multiple destination buckets. The destination buckets
+   *            can be in different Regions or within the same Region as the source bucket.</p>
    */
   regions?: string[];
 
@@ -1738,7 +1743,7 @@ export interface GetDataLakeSourcesResponse {
 export interface ListDataLakesRequest {
   /**
    * @public
-   * <p>The list of regions where Security Lake is enabled.</p>
+   * <p>The list of Regions where Security Lake is enabled.</p>
    */
   regions?: string[];
 }
@@ -1766,7 +1771,7 @@ export interface ListLogSourcesRequest {
 
   /**
    * @public
-   * <p>The list of regions for which log sources are displayed.</p>
+   * <p>The list of Regions for which log sources are displayed.</p>
    */
   regions?: string[];
 
@@ -1993,7 +1998,7 @@ export interface GetSubscriberResponse {
 export interface ListDataLakeExceptionsRequest {
   /**
    * @public
-   * <p>List the Amazon Web Services Regions from which exceptions are retrieved.</p>
+   * <p>The Amazon Web Services Regions from which exceptions are retrieved.</p>
    */
   regions?: string[];
 
