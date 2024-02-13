@@ -41,7 +41,7 @@ jest.mock("@smithy/shared-ini-file-loader", () => {
     async getSSOTokenFromFile() {
       return {
         accessToken: "mock_sso_token",
-        expiresAt: new Date("3000/1/1").toISOString(),
+        expiresAt: "3000-01-01T00:00:00.000Z",
       };
     },
   };
@@ -58,7 +58,7 @@ jest.mock("@aws-sdk/client-sso", () => {
             accessKeyId: "SSO_ACCESS_KEY_ID",
             secretAccessKey: "SSO_SECRET_ACCESS_KEY",
             sessionToken: "SSO_SESSION_TOKEN",
-            expiration: new Date("3000/1/1"),
+            expiration: new Date("3000-01-01T00:00:00.000Z"),
             credentialScope: "us-sso-1",
           },
         };
@@ -81,7 +81,7 @@ jest.mock("@aws-sdk/client-sts", () => {
           AccessKeyId: "STS_AR_ACCESS_KEY_ID",
           SecretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
           SessionToken: "STS_AR_SESSION_TOKEN",
-          Expiration: new Date("3000/1/1"),
+          Expiration: new Date("3000-01-01T00:00:00.000Z"),
           CredentialScope: "us-stsar-1__" + (await this.config.region()),
         },
       };
@@ -92,7 +92,7 @@ jest.mock("@aws-sdk/client-sts", () => {
           AccessKeyId: "STS_ARWI_ACCESS_KEY_ID",
           SecretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
           SessionToken: "STS_ARWI_SESSION_TOKEN",
-          Expiration: new Date("3000/1/1"),
+          Expiration: new Date("3000-01-01T00:00:00.000Z"),
           CredentialScope: "us-stsarwi-1__" + (await this.config.region()),
         },
       };
@@ -118,7 +118,7 @@ jest.mock("@smithy/node-http-handler", () => {
               AccessKeyId: "CONTAINER_ACCESS_KEY",
               SecretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
               Token: "CONTAINER_TOKEN",
-              Expiration: "3000-01-01T00:00:00Z",
+              Expiration: "3000-01-01T00:00:00.000Z",
             })
           );
           body.push(null);
@@ -300,7 +300,7 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "SSO_ACCESS_KEY_ID",
         secretAccessKey: "SSO_SECRET_ACCESS_KEY",
         sessionToken: "SSO_SESSION_TOKEN",
-        expiration: new Date("3000/1/1"),
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-sso-1",
       });
     });
@@ -339,7 +339,7 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
-        expiration: new Date("3000/1/1"),
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__us-east-1",
       });
     });
@@ -367,7 +367,7 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "STS_AR_ACCESS_KEY_ID",
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
-        expiration: new Date("3000/1/1"),
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsar-1__us-gov-stsar-1",
       });
     });
@@ -387,7 +387,7 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
-        expiration: new Date("3000/1/1"),
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsarwi-1__us-east-1",
       });
     });
@@ -408,7 +408,7 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
-        expiration: new Date("3000/1/1"),
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsarwi-1__us-gov-sts-1",
       });
     });
@@ -445,7 +445,7 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "SSO_ACCESS_KEY_ID",
         secretAccessKey: "SSO_SECRET_ACCESS_KEY",
         sessionToken: "SSO_SESSION_TOKEN",
-        expiration: new Date("3000/1/1"),
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-sso-1",
       });
     });
@@ -481,7 +481,7 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "STS_ARWI_ACCESS_KEY_ID",
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
-        expiration: new Date("3000/1/1"),
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
         credentialScope: "us-stsarwi-1__us-east-1",
       });
     });
@@ -497,7 +497,7 @@ describe("credential-provider-node integration test", () => {
         accessKeyId: "CONTAINER_ACCESS_KEY",
         secretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
         sessionToken: "CONTAINER_TOKEN",
-        expiration: new Date("3000/1/1"),
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
       });
     });
 
