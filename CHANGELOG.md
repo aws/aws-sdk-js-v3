@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.513.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.512.0...v3.513.0) (2024-02-13)
+
+
+### Features
+
+* **client-lightsail:** This release adds support to upgrade the major version of a database. ([a52583b](https://github.com/aws/aws-sdk-js-v3/commit/a52583bd00d6c551d4f1ccb461e7443be1524442))
+* **client-marketplace-catalog:** AWS Marketplace Catalog API now supports setting intent on requests ([a1c879d](https://github.com/aws/aws-sdk-js-v3/commit/a1c879d75d4af84e1b2eb6fa6ed71cc3cccc402d))
+* **client-resource-explorer-2:** Resource Explorer now uses newly supported IPv4 'amazonaws.com' endpoints by default. ([28a14d4](https://github.com/aws/aws-sdk-js-v3/commit/28a14d47fd876cffe41bb1ad5db64a3fe96716ab))
+* **clients:** update client endpoints as of 2024-02-13 ([37d16bb](https://github.com/aws/aws-sdk-js-v3/commit/37d16bb1553fef1f6d70832847efbc2df360a2d7))
+* **experimentalIdentityAndAuth:** release phase for services without customizations ([#5787](https://github.com/aws/aws-sdk-js-v3/issues/5787)) ([4004ff6](https://github.com/aws/aws-sdk-js-v3/commit/4004ff68a8ad20f6e60e8fab1f8952928f92f4b7))
+
+
+
+
+
 # [3.512.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.511.0...v3.512.0) (2024-02-12)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.513.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.512.0...v3.513.0) (2024-02-13)
+
+
+### Features
+
+* **experimentalIdentityAndAuth:** release phase for services without customizations ([#5787](https://github.com/aws/aws-sdk-js-v3/issues/5787)) ([4004ff6](https://github.com/aws/aws-sdk-js-v3/commit/4004ff68a8ad20f6e60e8fab1f8952928f92f4b7))
+
+
+
+
+
 # [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
 
 
