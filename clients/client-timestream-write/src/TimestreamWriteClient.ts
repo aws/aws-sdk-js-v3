@@ -13,19 +13,17 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
-  AwsAuthInputConfig,
-  AwsAuthResolvedConfig,
-  getAwsAuthPlugin,
-  resolveAwsAuthConfig,
-} from "@aws-sdk/middleware-signing";
-import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
-import { Credentials as __Credentials } from "@aws-sdk/types";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -37,6 +35,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   ChecksumConstructor as __ChecksumConstructor,
@@ -53,6 +52,12 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  defaultTimestreamWriteHttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import {
   CreateBatchLoadTaskCommandInput,
   CreateBatchLoadTaskCommandOutput,
@@ -234,28 +239,22 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
-   * Default credentials provider; Not available in browser runtime.
-   * @internal
-   */
-  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
-
-  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
-   * The provider which populates default for endpointDiscoveryEnabled configuration, if it's
-   * not passed during client creation.
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @deprecated
    * @internal
    */
-  endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -283,6 +282,13 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
    * The {@link @smithy/smithy-client#DefaultsMode} that will be used to determine how certain default configuration options are resolved in the SDK.
    */
   defaultsMode?: __DefaultsMode | __Provider<__DefaultsMode>;
+
+  /**
+   * The provider which populates default for endpointDiscoveryEnabled configuration, if it's
+   * not passed during client creation.
+   * @internal
+   */
+  endpointDiscoveryEnabledProvider?: __Provider<boolean | undefined>;
 }
 
 /**
@@ -294,8 +300,8 @@ export type TimestreamWriteClientConfigType = Partial<__SmithyConfiguration<__Ht
   EndpointInputConfig<EndpointParameters> &
   RetryInputConfig &
   HostHeaderInputConfig &
-  AwsAuthInputConfig &
   UserAgentInputConfig &
+  HttpAuthSchemeInputConfig &
   EndpointDiscoveryInputConfig &
   ClientInputEndpointParameters;
 /**
@@ -315,8 +321,8 @@ export type TimestreamWriteClientResolvedConfigType = __SmithyResolvedConfigurat
   EndpointResolvedConfig<EndpointParameters> &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
-  AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
   EndpointDiscoveryResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
@@ -360,8 +366,8 @@ export class TimestreamWriteClient extends __Client<
     const _config_3 = resolveEndpointConfig(_config_2);
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
-    const _config_6 = resolveAwsAuthConfig(_config_5);
-    const _config_7 = resolveUserAgentConfig(_config_6);
+    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
     const _config_8 = resolveEndpointDiscoveryConfig(_config_7, {
       endpointDiscoveryCommandCtor: DescribeEndpointsCommand,
     });
@@ -373,8 +379,14 @@ export class TimestreamWriteClient extends __Client<
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
-    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -384,5 +396,14 @@ export class TimestreamWriteClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultTimestreamWriteHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: TimestreamWriteClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

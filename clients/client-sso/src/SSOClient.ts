@@ -14,6 +14,11 @@ import {
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
 import { RegionInputConfig, RegionResolvedConfig, resolveRegionConfig } from "@smithy/config-resolver";
+import {
+  DefaultIdentityProviderConfig,
+  getHttpAuthSchemeEndpointRuleSetPlugin,
+  getHttpSigningPlugin,
+} from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { EndpointInputConfig, EndpointResolvedConfig, resolveEndpointConfig } from "@smithy/middleware-endpoint";
 import { getRetryPlugin, resolveRetryConfig, RetryInputConfig, RetryResolvedConfig } from "@smithy/middleware-retry";
@@ -41,6 +46,12 @@ import {
   UserAgent as __UserAgent,
 } from "@smithy/types";
 
+import {
+  defaultSSOHttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
 import { GetRoleCredentialsCommandInput, GetRoleCredentialsCommandOutput } from "./commands/GetRoleCredentialsCommand";
 import { ListAccountRolesCommandInput, ListAccountRolesCommandOutput } from "./commands/ListAccountRolesCommand";
 import { ListAccountsCommandInput, ListAccountsCommandOutput } from "./commands/ListAccountsCommand";
@@ -161,15 +172,15 @@ export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
-   * The AWS region to which this client will send requests
-   */
-  region?: string | __Provider<string>;
-
-  /**
    * The provider populating default tracking information to be sent with `user-agent`, `x-amz-user-agent` header
    * @internal
    */
   defaultUserAgentProvider?: Provider<__UserAgent>;
+
+  /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
 
   /**
    * Value for how many times a request will be made at most in case of retry.
@@ -209,6 +220,7 @@ export type SSOClientConfigType = Partial<__SmithyConfiguration<__HttpHandlerOpt
   RetryInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig &
+  HttpAuthSchemeInputConfig &
   ClientInputEndpointParameters;
 /**
  * @public
@@ -228,6 +240,7 @@ export type SSOClientResolvedConfigType = __SmithyResolvedConfiguration<__HttpHa
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
   ClientResolvedEndpointParameters;
 /**
  * @public
@@ -274,15 +287,23 @@ export class SSOClient extends __Client<
     const _config_4 = resolveRetryConfig(_config_3);
     const _config_5 = resolveHostHeaderConfig(_config_4);
     const _config_6 = resolveUserAgentConfig(_config_5);
-    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    super(_config_7);
-    this.config = _config_7;
+    const _config_7 = resolveHttpAuthSchemeConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemeEndpointRuleSetPlugin(this.config, {
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -292,5 +313,14 @@ export class SSOClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultSSOHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: SSOClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

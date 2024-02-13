@@ -105,20 +105,18 @@ tasks.register("generate-smithy-build") {
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
                             .readText()
             ).expectObjectNode()
-            val experimentalIdentityAndAuthServices = setOf(
-                ShapeId.from("com.amazonaws.codecatalyst#CodeCatalyst"),
-                ShapeId.from("com.amazonaws.sts#AWSSecurityTokenServiceV20110615"),
-                ShapeId.from("com.amazonaws.sqs#AmazonSQS"),
-                ShapeId.from("com.amazonaws.dynamodb#DynamoDB_20120810"),
-                ShapeId.from("com.amazonaws.rds#AmazonRDSv19"),
-                ShapeId.from("com.amazonaws.ec2#AmazonEC2"),
-                ShapeId.from("com.amazonaws.polly#Parrot_v1"),
-                ShapeId.from("com.amazonaws.apigateway#BackplaneControlService"),
-                ShapeId.from("com.amazonaws.glacier#Glacier"),
-                ShapeId.from("com.amazonaws.machinelearning#AmazonML_20141212"),
-                ShapeId.from("com.amazonaws.route53#AWSDnsV20130401"),
-                ShapeId.from("com.amazonaws.s3control#AWSS3ControlServiceV20180820"),
+            val nonExperimentalIdentityAndAuthServices = setOf(
+                // Services with EventStream input
+                "Lex Runtime V2",
+                "RekognitionStreaming",
+                "Transcribe Streaming",
+                // Endpoint Ruleset Auth Scheme Resolvers
+                "EventBridge",
+                "CloudFront KeyValueStore",
+                // S3
+                "S3",
             )
+            check(nonExperimentalIdentityAndAuthServices.size == 6)
             val projectionContents = Node.objectNodeBuilder()
                     .withMember("imports", Node.fromStrings("${models.getAbsolutePath()}${File.separator}${file.name}"))
                     .withMember("plugins", Node.objectNode()
@@ -129,7 +127,7 @@ tasks.register("generate-smithy-build") {
                                     .withMember("packageJson", manifestOverwrites)
                                     .withMember("packageDescription", "AWS SDK for JavaScript "
                                         + clientName + " Client for Node.js, Browser and React Native")
-                                    .withMember("experimentalIdentityAndAuth", experimentalIdentityAndAuthServices.contains(service.getId()))
+                                    .withMember("experimentalIdentityAndAuth", !nonExperimentalIdentityAndAuthServices.contains(serviceTrait.sdkId))
                                     .build()))
                     .build()
             projectionsBuilder.withMember(sdkId + "." + version.toLowerCase(), projectionContents)
