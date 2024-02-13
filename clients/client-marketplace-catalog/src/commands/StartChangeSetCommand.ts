@@ -79,6 +79,7 @@ export interface StartChangeSetCommandOutput extends StartChangeSetResponse, __M
  *       Value: "STRING_VALUE", // required
  *     },
  *   ],
+ *   Intent: "VALIDATE" || "APPLY",
  * };
  * const command = new StartChangeSetCommand(input);
  * const response = await client.send(command);

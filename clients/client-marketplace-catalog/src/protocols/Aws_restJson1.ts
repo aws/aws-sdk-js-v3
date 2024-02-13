@@ -368,6 +368,7 @@ export const se_StartChangeSetCommand = async (
       ChangeSetName: [],
       ChangeSetTags: (_) => _json(_),
       ClientRequestToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      Intent: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -503,6 +504,7 @@ export const de_DescribeChangeSetCommand = async (
     EndTime: __expectString,
     FailureCode: __expectString,
     FailureDescription: __expectString,
+    Intent: __expectString,
     StartTime: __expectString,
     Status: __expectString,
   });

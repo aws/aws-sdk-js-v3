@@ -32,7 +32,7 @@ export interface BatchDescribeEntitiesCommandOutput extends BatchDescribeEntitie
 
 /**
  * @public
- * <p>Returns metadata and content for multiple entities.</p>
+ * <p>Returns metadata and content for multiple entities. This is the Batch version of the <code>DescribeEntity</code> API and uses the same IAM permission action as <code>DescribeEntity</code> API.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

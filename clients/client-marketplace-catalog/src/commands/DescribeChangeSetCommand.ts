@@ -49,6 +49,7 @@ export interface DescribeChangeSetCommandOutput extends DescribeChangeSetRespons
  * //   ChangeSetId: "STRING_VALUE",
  * //   ChangeSetArn: "STRING_VALUE",
  * //   ChangeSetName: "STRING_VALUE",
+ * //   Intent: "VALIDATE" || "APPLY",
  * //   StartTime: "STRING_VALUE",
  * //   EndTime: "STRING_VALUE",
  * //   Status: "PREPARING" || "APPLYING" || "SUCCEEDED" || "CANCELLED" || "FAILED",

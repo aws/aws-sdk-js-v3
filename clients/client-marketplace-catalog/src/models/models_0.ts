@@ -118,7 +118,7 @@ export interface AmiProductVisibilityFilter {
 
 /**
  * @public
- * <p>Object containing all the filter fields for AMI products. Client can add a maximum of 8
+ * <p>Object containing all the filter fields for AMI products. Client can add only one wildcard filter and a maximum of 8
  *             filters in a single <code>ListEntities</code> request.</p>
  */
 export interface AmiProductFilters {
@@ -602,6 +602,20 @@ export type FailureCode = (typeof FailureCode)[keyof typeof FailureCode];
  * @public
  * @enum
  */
+export const Intent = {
+  APPLY: "APPLY",
+  VALIDATE: "VALIDATE",
+} as const;
+
+/**
+ * @public
+ */
+export type Intent = (typeof Intent)[keyof typeof Intent];
+
+/**
+ * @public
+ * @enum
+ */
 export const ChangeStatus = {
   APPLYING: "APPLYING",
   CANCELLED: "CANCELLED",
@@ -638,6 +652,13 @@ export interface DescribeChangeSetResponse {
    *             provide a name, one is set by default.</p>
    */
   ChangeSetName?: string;
+
+  /**
+   * @public
+   * <p>The optional intent provided in the <code>StartChangeSet</code> request. If you do not
+   *             provide an intent, <code>APPLY</code> is set by default.</p>
+   */
+  Intent?: Intent;
 
   /**
    * @public
@@ -1090,7 +1111,7 @@ export interface ContainerProductVisibilityFilter {
 
 /**
  * @public
- * <p>Object containing all the filter fields for container products. Client can add a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * <p>Object containing all the filter fields for container products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
  */
 export interface ContainerProductFilters {
   /**
@@ -1210,7 +1231,7 @@ export interface DataProductVisibilityFilter {
 
 /**
  * @public
- * <p>Object containing all the filter fields for data products. Client can add a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
+ * <p>Object containing all the filter fields for data products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
  */
 export interface DataProductFilters {
   /**
@@ -1438,7 +1459,7 @@ export interface OfferTargetingFilter {
 
 /**
  * @public
- * <p>A filter for offers entity.</p>
+ * <p>Object containing all the filter fields for offers entity. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
  */
 export interface OfferFilters {
   /**
@@ -1778,7 +1799,7 @@ export interface ResaleAuthorizationStatusFilter {
 
 /**
  * @public
- * <p>A filter for ResaleAuthorization entity.</p>
+ * <p>Object containing all the filter fields for resale authorization entity. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
  */
 export interface ResaleAuthorizationFilters {
   /**
@@ -1951,8 +1972,7 @@ export interface SaaSProductVisibilityFilter {
 
 /**
  * @public
- * <p>Object containing all the filter fields for SaaS products. Client can add a maximum of
- *             8 filters in a single <code>ListEntities</code> request.</p>
+ * <p>Object containing all the filter fields for SaaS products. Client can add only one wildcard filter and a maximum of 8 filters in a single <code>ListEntities</code> request.</p>
  */
 export interface SaaSProductFilters {
   /**
@@ -2984,6 +3004,15 @@ export interface StartChangeSetRequest {
    *                 <code>ChangeSetTags</code> property.</p>
    */
   ChangeSetTags?: Tag[];
+
+  /**
+   * @public
+   * <p>The intent related to the request. The default is <code>APPLY</code>.
+   *             To test your request before applying changes to your entities, use <code>VALIDATE</code>.
+   *             This feature is currently available for adding versions to single-AMI products. For more information, see
+   *             <a href="https://docs.aws.amazon.com/marketplace-catalog/latest/api-reference/ami-products.html#ami-add-version">Add a new version</a>.</p>
+   */
+  Intent?: Intent;
 }
 
 /**
