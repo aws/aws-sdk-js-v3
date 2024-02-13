@@ -571,6 +571,29 @@ In v3, the similar utility function is available in [`@aws-sdk/polly-request-pre
 
 ## Notes on Specific Service Clients
 
+### Amazon S3
+
+Streaming vs. buffered responses: the JSv3 SDK prefers not to buffer potentially large responses. This is commonly encountered in S3's GetObject operation, which returned a `Buffer` in JSv2, but 
+returns a `Stream` in JSv3.
+
+For Node.js, you must consume the stream or garbage collect the client or its request handler to keep the connections open to new traffic by freeing sockets. 
+
+```ts
+// v2
+const get = await s3.getObject({ ... }).promise(); // this buffers (consumes) the stream already.
+```
+
+```ts
+// v3, consume the stream to free the socket.
+const get = await s3.getObject({ ... }); // object .Body has unconsumed stream.
+const str = await get.Body.transformToString(); // consumes the stream.
+// other ways to consume the stream include writing it to a file,
+// passing it to another consumer like an upload, or buffering to
+// a string or byte array.
+```
+
+Please see also the section on **socket exhaustion** here: https://github.com/aws/aws-sdk-js-v3/blob/main/supplemental-docs/CLIENTS.md#request-handler-requesthandler
+
 ### AWS Lambda
 
 Lambda invocations response type differs in v3:
