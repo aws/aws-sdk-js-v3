@@ -26,7 +26,6 @@
     "@aws-sdk/middleware-host-header": "*",
     "@aws-sdk/middleware-logger": "*",
     "@aws-sdk/middleware-recursion-detection": "*",
-    "@aws-sdk/middleware-signing": "*",
     "@aws-sdk/middleware-user-agent": "*",
     "@aws-sdk/region-config-resolver": "*",
     "@aws-sdk/types": "*",
@@ -58,6 +57,7 @@
     "@smithy/util-defaults-mode-browser": "^2.1.1",
     "@smithy/util-defaults-mode-node": "^2.2.0",
     "@smithy/util-endpoints": "^1.1.1",
+    "@smithy/util-middleware": "^2.1.1",
     "@smithy/util-retry": "^2.1.1",
     "@smithy/util-utf8": "^2.1.1",
     "tslib": "^2.5.0"

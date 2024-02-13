@@ -1,0 +1,138 @@
+// smithy-typescript generated code
+import {
+  AwsSdkSigV4AuthInputConfig,
+  AwsSdkSigV4AuthResolvedConfig,
+  AwsSdkSigV4PreviouslyResolved,
+  resolveAwsSdkSigV4Config,
+} from "@aws-sdk/core";
+import {
+  HandlerExecutionContext,
+  HttpAuthOption,
+  HttpAuthScheme,
+  HttpAuthSchemeParameters,
+  HttpAuthSchemeParametersProvider,
+  HttpAuthSchemeProvider,
+} from "@smithy/types";
+import { getSmithyContext, normalizeProvider } from "@smithy/util-middleware";
+
+import { QLDBSessionClientConfig, QLDBSessionClientResolvedConfig } from "../QLDBSessionClient";
+
+/**
+ * @internal
+ */
+export interface QLDBSessionHttpAuthSchemeParameters extends HttpAuthSchemeParameters {
+  region?: string;
+}
+
+/**
+ * @internal
+ */
+export interface QLDBSessionHttpAuthSchemeParametersProvider
+  extends HttpAuthSchemeParametersProvider<
+    QLDBSessionClientResolvedConfig,
+    HandlerExecutionContext,
+    QLDBSessionHttpAuthSchemeParameters,
+    object
+  > {}
+
+/**
+ * @internal
+ */
+export const defaultQLDBSessionHttpAuthSchemeParametersProvider = async (
+  config: QLDBSessionClientResolvedConfig,
+  context: HandlerExecutionContext,
+  input: object
+): Promise<QLDBSessionHttpAuthSchemeParameters> => {
+  return {
+    operation: getSmithyContext(context).operation as string,
+    region:
+      (await normalizeProvider(config.region)()) ||
+      (() => {
+        throw new Error("expected `region` to be configured for `aws.auth#sigv4`");
+      })(),
+  };
+};
+
+function createAwsAuthSigv4HttpAuthOption(authParameters: QLDBSessionHttpAuthSchemeParameters): HttpAuthOption {
+  return {
+    schemeId: "aws.auth#sigv4",
+    signingProperties: {
+      name: "qldb",
+      region: authParameters.region,
+    },
+    propertiesExtractor: (config: QLDBSessionClientConfig, context) => ({
+      /**
+       * @internal
+       */
+      signingProperties: {
+        config,
+        context,
+      },
+    }),
+  };
+}
+
+/**
+ * @internal
+ */
+export interface QLDBSessionHttpAuthSchemeProvider
+  extends HttpAuthSchemeProvider<QLDBSessionHttpAuthSchemeParameters> {}
+
+/**
+ * @internal
+ */
+export const defaultQLDBSessionHttpAuthSchemeProvider: QLDBSessionHttpAuthSchemeProvider = (authParameters) => {
+  const options: HttpAuthOption[] = [];
+  switch (authParameters.operation) {
+    default: {
+      options.push(createAwsAuthSigv4HttpAuthOption(authParameters));
+    }
+  }
+  return options;
+};
+
+/**
+ * @internal
+ */
+export interface HttpAuthSchemeInputConfig extends AwsSdkSigV4AuthInputConfig {
+  /**
+   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * @internal
+   */
+  httpAuthSchemes?: HttpAuthScheme[];
+
+  /**
+   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * @internal
+   */
+  httpAuthSchemeProvider?: QLDBSessionHttpAuthSchemeProvider;
+}
+
+/**
+ * @internal
+ */
+export interface HttpAuthSchemeResolvedConfig extends AwsSdkSigV4AuthResolvedConfig {
+  /**
+   * experimentalIdentityAndAuth: Configuration of HttpAuthSchemes for a client which provides default identity providers and signers per auth scheme.
+   * @internal
+   */
+  readonly httpAuthSchemes: HttpAuthScheme[];
+
+  /**
+   * experimentalIdentityAndAuth: Configuration of an HttpAuthSchemeProvider for a client which resolves which HttpAuthScheme to use.
+   * @internal
+   */
+  readonly httpAuthSchemeProvider: QLDBSessionHttpAuthSchemeProvider;
+}
+
+/**
+ * @internal
+ */
+export const resolveHttpAuthSchemeConfig = <T>(
+  config: T & HttpAuthSchemeInputConfig & AwsSdkSigV4PreviouslyResolved
+): T & HttpAuthSchemeResolvedConfig => {
+  const config_0 = resolveAwsSdkSigV4Config(config);
+  return {
+    ...config_0,
+  } as T & HttpAuthSchemeResolvedConfig;
+};

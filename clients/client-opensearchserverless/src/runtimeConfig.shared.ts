@@ -1,9 +1,12 @@
 // smithy-typescript generated code
+import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { NoOpLogger } from "@smithy/smithy-client";
+import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
+import { defaultOpenSearchServerlessHttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultEndpointResolver } from "./endpoint/endpointResolver";
 import { OpenSearchServerlessClientConfig } from "./OpenSearchServerlessClient";
 
@@ -18,6 +21,14 @@ export const getRuntimeConfig = (config: OpenSearchServerlessClientConfig) => {
     disableHostPrefix: config?.disableHostPrefix ?? false,
     endpointProvider: config?.endpointProvider ?? defaultEndpointResolver,
     extensions: config?.extensions ?? [],
+    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultOpenSearchServerlessHttpAuthSchemeProvider,
+    httpAuthSchemes: config?.httpAuthSchemes ?? [
+      {
+        schemeId: "aws.auth#sigv4",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        signer: new AwsSdkSigV4Signer(),
+      },
+    ],
     logger: config?.logger ?? new NoOpLogger(),
     serviceId: config?.serviceId ?? "OpenSearchServerless",
     urlParser: config?.urlParser ?? parseUrl,
