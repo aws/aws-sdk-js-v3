@@ -6876,6 +6876,15 @@ export interface UpdateRelationalDatabaseRequest {
    * <p>Indicates the certificate that needs to be associated with the database.</p>
    */
   caCertificateIdentifier?: string;
+
+  /**
+   * @public
+   * <p>This parameter is used to update the major version of the database. Enter the
+   *         <code>blueprintId</code> for the major version that you want to update to.</p>
+   *          <p>Use the <a href="https://docs.aws.amazon.com/lightsail/2016-11-28/api-reference/API_GetRelationalDatabaseBlueprints.html">GetRelationalDatabaseBlueprints</a> action to get a list of available blueprint
+   *       IDs.</p>
+   */
+  relationalDatabaseBlueprintId?: string;
 }
 
 /**

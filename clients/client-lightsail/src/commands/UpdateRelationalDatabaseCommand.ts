@@ -55,6 +55,7 @@ export interface UpdateRelationalDatabaseCommandOutput extends UpdateRelationalD
  *   publiclyAccessible: true || false,
  *   applyImmediately: true || false,
  *   caCertificateIdentifier: "STRING_VALUE",
+ *   relationalDatabaseBlueprintId: "STRING_VALUE",
  * };
  * const command = new UpdateRelationalDatabaseCommand(input);
  * const response = await client.send(command);
