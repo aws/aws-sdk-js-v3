@@ -52,6 +52,7 @@ jest.mock("@aws-sdk/client-sso", () => {
   return {
     ...actual,
     SSOClient: class {
+      public constructor(public config: any) {}
       async send() {
         return {
           roleCredentials: {
@@ -59,7 +60,7 @@ jest.mock("@aws-sdk/client-sso", () => {
             secretAccessKey: "SSO_SECRET_ACCESS_KEY",
             sessionToken: "SSO_SESSION_TOKEN",
             expiration: new Date("3000-01-01T00:00:00.000Z"),
-            credentialScope: "us-sso-1",
+            credentialScope: "us-sso-1-" + this.config.region,
           },
         };
       }
@@ -285,11 +286,12 @@ describe("credential-provider-node integration test", () => {
   describe("fromSSO", () => {
     it("should resolve SSO credentials if legacy SSO parameters are supplied directly", async () => {
       sts = new STS({
-        region: "us-sso-1",
+        // this is lower priority than the ssoRegion.
+        region: "us-sso-region-2",
         credentials: defaultProvider({
           ssoStartUrl: "SSO_START_URL",
           ssoAccountId: "1234",
-          ssoRegion: "us-sso-1",
+          ssoRegion: "us-sso-region-1",
           ssoRoleName: "sso-role",
         }),
         requestHandler: mockRequestHandler,
@@ -301,7 +303,7 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "SSO_SECRET_ACCESS_KEY",
         sessionToken: "SSO_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-sso-1",
+        credentialScope: "us-sso-1-us-sso-region-1",
       });
     });
   });
@@ -429,12 +431,12 @@ describe("credential-provider-node integration test", () => {
 
     it("should resolve SSO credentials if the profile is an SSO profile", async () => {
       iniProfileData["sso-session.ssoNew"] = {
-        sso_region: "us-sso-1",
+        sso_region: "us-sso-region-1",
         sso_start_url: "SSO_START_URL",
         sso_registration_scopes: "sso:account:access",
       };
       Object.assign(iniProfileData.default, {
-        sso_region: "us-sso-1",
+        sso_region: "us-sso-region-1",
         sso_session: "ssoNew",
         sso_account_id: "1234",
         sso_role_name: "integration-test",
@@ -446,7 +448,7 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "SSO_SECRET_ACCESS_KEY",
         sessionToken: "SSO_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-sso-1",
+        credentialScope: "us-sso-1-us-sso-region-1",
       });
     });
   });
