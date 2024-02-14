@@ -52,6 +52,27 @@ export interface GetRetrieverCommandOutput extends GetRetrieverResponse, __Metad
  * //   configuration: { // RetrieverConfiguration Union: only one key present
  * //     nativeIndexConfiguration: { // NativeIndexConfiguration
  * //       indexId: "STRING_VALUE", // required
+ * //       boostingOverride: { // DocumentAttributeBoostingOverrideMap
+ * //         "<keys>": { // DocumentAttributeBoostingConfiguration Union: only one key present
+ * //           numberConfiguration: { // NumberAttributeBoostingConfiguration
+ * //             boostingLevel: "NONE" || "LOW" || "MEDIUM" || "HIGH" || "VERY_HIGH", // required
+ * //             boostingType: "PRIORITIZE_LARGER_VALUES" || "PRIORITIZE_SMALLER_VALUES",
+ * //           },
+ * //           stringConfiguration: { // StringAttributeBoostingConfiguration
+ * //             boostingLevel: "NONE" || "LOW" || "MEDIUM" || "HIGH" || "VERY_HIGH", // required
+ * //             attributeValueBoosting: { // StringAttributeValueBoosting
+ * //               "<keys>": "LOW" || "MEDIUM" || "HIGH" || "VERY_HIGH",
+ * //             },
+ * //           },
+ * //           dateConfiguration: { // DateAttributeBoostingConfiguration
+ * //             boostingLevel: "NONE" || "LOW" || "MEDIUM" || "HIGH" || "VERY_HIGH", // required
+ * //             boostingDurationInSeconds: Number("long"),
+ * //           },
+ * //           stringListConfiguration: { // StringListAttributeBoostingConfiguration
+ * //             boostingLevel: "NONE" || "LOW" || "MEDIUM" || "HIGH" || "VERY_HIGH", // required
+ * //           },
+ * //         },
+ * //       },
  * //     },
  * //     kendraIndexConfiguration: { // KendraIndexConfiguration
  * //       indexId: "STRING_VALUE", // required

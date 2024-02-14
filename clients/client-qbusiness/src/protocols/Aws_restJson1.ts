@@ -138,9 +138,11 @@ import {
   DataSource,
   DataSourceSyncJob,
   DataSourceVpcConfiguration,
+  DateAttributeBoostingConfiguration,
   DeleteDocument,
   Document,
   DocumentAttribute,
+  DocumentAttributeBoostingConfiguration,
   DocumentAttributeCondition,
   DocumentAttributeConfiguration,
   DocumentAttributeTarget,
@@ -164,6 +166,7 @@ import {
   Message,
   MessageUsefulnessFeedback,
   NativeIndexConfiguration,
+  NumberAttributeBoostingConfiguration,
   OAuth2ClientCredentialConfiguration,
   Plugin,
   PluginAuthConfiguration,
@@ -178,6 +181,9 @@ import {
   SamlConfiguration,
   ServiceQuotaExceededException,
   SourceAttribution,
+  StringAttributeBoostingConfiguration,
+  StringAttributeValueBoostingLevel,
+  StringListAttributeBoostingConfiguration,
   Tag,
   ThrottlingException,
   TopicConfiguration,
@@ -2894,6 +2900,8 @@ const se_DataSourceConfiguration = (input: __DocumentType, context: __SerdeConte
 
 // se_DataSourceVpcConfiguration omitted.
 
+// se_DateAttributeBoostingConfiguration omitted.
+
 // se_DeleteDocument omitted.
 
 // se_DeleteDocuments omitted.
@@ -2922,6 +2930,10 @@ const se_DocumentAttribute = (input: DocumentAttribute, context: __SerdeContext)
     value: (_) => se_DocumentAttributeValue(_, context),
   });
 };
+
+// se_DocumentAttributeBoostingConfiguration omitted.
+
+// se_DocumentAttributeBoostingOverrideMap omitted.
 
 /**
  * serializeAws_restJson1DocumentAttributeCondition
@@ -3084,6 +3096,8 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 
 // se_NativeIndexConfiguration omitted.
 
+// se_NumberAttributeBoostingConfiguration omitted.
+
 // se_OAuth2ClientCredentialConfiguration omitted.
 
 // se_PluginAuthConfiguration omitted.
@@ -3109,6 +3123,12 @@ const se_MessageUsefulnessFeedback = (input: MessageUsefulnessFeedback, context:
 // se_SamlConfiguration omitted.
 
 // se_SecurityGroupIds omitted.
+
+// se_StringAttributeBoostingConfiguration omitted.
+
+// se_StringAttributeValueBoosting omitted.
+
+// se_StringListAttributeBoostingConfiguration omitted.
 
 // se_SubnetIds omitted.
 
@@ -3373,6 +3393,12 @@ const de_DataSourceSyncJobs = (output: any, context: __SerdeContext): DataSource
 
 // de_DataSourceVpcConfiguration omitted.
 
+// de_DateAttributeBoostingConfiguration omitted.
+
+// de_DocumentAttributeBoostingConfiguration omitted.
+
+// de_DocumentAttributeBoostingOverrideMap omitted.
+
 /**
  * deserializeAws_restJson1DocumentAttributeCondition
  */
@@ -3603,6 +3629,8 @@ const de_Messages = (output: any, context: __SerdeContext): Message[] => {
 
 // de_NativeIndexConfiguration omitted.
 
+// de_NumberAttributeBoostingConfiguration omitted.
+
 // de_OAuth2ClientCredentialConfiguration omitted.
 
 /**
@@ -3676,6 +3704,12 @@ const de_SourceAttributions = (output: any, context: __SerdeContext): SourceAttr
   });
   return retVal;
 };
+
+// de_StringAttributeBoostingConfiguration omitted.
+
+// de_StringAttributeValueBoosting omitted.
+
+// de_StringListAttributeBoostingConfiguration omitted.
 
 // de_SubnetIds omitted.
 

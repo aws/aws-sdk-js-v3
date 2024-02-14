@@ -44,7 +44,7 @@ export interface PutFeedbackCommandOutput extends __MetadataBearer {}
  *   messageCopiedAt: new Date("TIMESTAMP"),
  *   messageUsefulness: { // MessageUsefulnessFeedback
  *     usefulness: "USEFUL" || "NOT_USEFUL", // required
- *     reason: "NOT_FACTUALLY_CORRECT" || "HARMFUL_OR_UNSAFE" || "INCORRECT_OR_MISSING_SOURCES" || "NOT_HELPFUL" || "FACTUALLY_CORRECT" || "COMPLETE" || "RELEVANT_SOURCES" || "HELPFUL",
+ *     reason: "NOT_FACTUALLY_CORRECT" || "HARMFUL_OR_UNSAFE" || "INCORRECT_OR_MISSING_SOURCES" || "NOT_HELPFUL" || "FACTUALLY_CORRECT" || "COMPLETE" || "RELEVANT_SOURCES" || "HELPFUL" || "NOT_BASED_ON_DOCUMENTS" || "NOT_COMPLETE" || "NOT_CONCISE" || "OTHER",
  *     comment: "STRING_VALUE",
  *     submittedAt: new Date("TIMESTAMP"), // required
  *   },

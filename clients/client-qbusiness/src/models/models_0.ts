@@ -1127,7 +1127,7 @@ export namespace DocumentAttributeValue {
 /**
  * @public
  * <p>The condition used for the target document attribute or metadata field when ingesting
- *             documents into Amazon Q. You use this with <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_DocumentAttributeTarget.html">
+ *             documents into Amazon Q. You use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html">
  *                <code>DocumentAttributeTarget</code>
  *             </a> to apply the condition.</p>
  *          <p>For example, you can create the 'Department' target field and have it prefill
@@ -1206,11 +1206,11 @@ export type AttributeValueOperator = (typeof AttributeValueOperator)[keyof typeo
  *             information from each document's metadata.</p>
  *          <p>Amazon Q can't create a target field if it has not already been created as an
  *             index field. After you create your index field, you can create a document metadata field
- *             using <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_DocumentAttributeTarget.html">
+ *             using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html">
  *                <code>DocumentAttributeTarget</code>
  *             </a>. Amazon Q
  *             will then map your newly created document attribute to your index field.</p>
- *          <p>You can also use this with <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_DocumentAttributeCondition.html">
+ *          <p>You can also use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html">
  *                <code>DocumentAttributeCondition</code>
  *             </a>.</p>
  */
@@ -1244,7 +1244,7 @@ export interface DocumentAttributeTarget {
  * @public
  * <p>Provides the configuration information for applying basic logic to alter document
  *             metadata and content when ingesting documents into Amazon Q.</p>
- *          <p>To apply advanced logic, to go beyond what you can do with basic logic, see <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_HookConfiguration.html">
+ *          <p>To apply advanced logic, to go beyond what you can do with basic logic, see <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_HookConfiguration.html">
  *                <code>HookConfiguration</code>
  *             </a>.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
@@ -1253,7 +1253,7 @@ export interface InlineDocumentEnrichmentConfiguration {
   /**
    * @public
    * <p>The condition used for the target document attribute or metadata field when ingesting
-   *             documents into Amazon Q. You use this with <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_DocumentAttributeTarget.html">
+   *             documents into Amazon Q. You use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html">
    *                <code>DocumentAttributeTarget</code>
    *             </a> to apply the condition.</p>
    *          <p>For example, you can create the 'Department' target field and have it prefill
@@ -1279,11 +1279,11 @@ export interface InlineDocumentEnrichmentConfiguration {
    *             information from each document's metadata.</p>
    *          <p>Amazon Q can't create a target field if it has not already been created as an
    *             index field. After you create your index field, you can create a document metadata field
-   *             using <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_DocumentAttributeTarget.html">
+   *             using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeTarget.html">
    *                <code>DocumentAttributeTarget</code>
    *             </a>. Amazon Q
    *             will then map your newly created document attribute to your index field.</p>
-   *          <p>You can also use this with <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_DocumentAttributeCondition.html">
+   *          <p>You can also use this with <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeCondition.html">
    *                <code>DocumentAttributeCondition</code>
    *             </a>.</p>
    */
@@ -1303,10 +1303,10 @@ export interface InlineDocumentEnrichmentConfiguration {
  * <p>Provides the configuration information for invoking a Lambda function in
  *                 Lambda to alter document metadata and content when ingesting
  *             documents into Amazon Q.</p>
- *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_CustomDocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
+ *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
  *             the original or raw documents.</p>
  *          <p>If you want to apply advanced alterations on the Amazon Q structured documents,
- *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_CustomDocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
+ *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
  *          <p>You can only invoke one Lambda function. However, this function can invoke
  *             other functions it requires.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
@@ -1323,8 +1323,8 @@ export interface HookConfiguration {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of a role with permission to run a Lambda
-   *             function during ingestion. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role">IAM roles for Custom
-   *                 Document Enrichment (CDE)</a>.</p>
+   *             function during ingestion. For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/iam-roles.html#cde-iam-role">IAM roles for
+   *                 Custom Document Enrichment (CDE)</a>.</p>
    */
   lambdaArn?: string;
 
@@ -1365,10 +1365,10 @@ export interface DocumentEnrichmentConfiguration {
    * <p>Provides the configuration information for invoking a Lambda function in
    *                 Lambda to alter document metadata and content when ingesting
    *             documents into Amazon Q.</p>
-   *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_CustomDocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
+   *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
    *             the original or raw documents.</p>
    *          <p>If you want to apply advanced alterations on the Amazon Q structured documents,
-   *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_CustomDocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
+   *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
    *          <p>You can only invoke one Lambda function. However, this function can invoke
    *             other functions it requires.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
@@ -1380,10 +1380,10 @@ export interface DocumentEnrichmentConfiguration {
    * <p>Provides the configuration information for invoking a Lambda function in
    *                 Lambda to alter document metadata and content when ingesting
    *             documents into Amazon Q.</p>
-   *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_CustomDocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
+   *          <p>You can configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PreExtractionHookConfiguration</a> if you want to apply advanced alterations on
    *             the original or raw documents.</p>
    *          <p>If you want to apply advanced alterations on the Amazon Q structured documents,
-   *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_CustomDocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
+   *             you must configure your Lambda function using <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentEnrichmentConfiguration.html">PostExtractionHookConfiguration</a>.</p>
    *          <p>You can only invoke one Lambda function. However, this function can invoke
    *             other functions it requires.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/custom-document-enrichment.html">Custom document enrichment</a>. </p>
@@ -2705,6 +2705,253 @@ export interface KendraIndexConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const DocumentAttributeBoostingLevel = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  NONE: "NONE",
+  VERY_HIGH: "VERY_HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type DocumentAttributeBoostingLevel =
+  (typeof DocumentAttributeBoostingLevel)[keyof typeof DocumentAttributeBoostingLevel];
+
+/**
+ * @public
+ * <p>Provides information on boosting <code>DATE</code> type document attributes.</p>
+ *          <p>For more information on how boosting document attributes work in Amazon Q, see
+ *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ */
+export interface DateAttributeBoostingConfiguration {
+  /**
+   * @public
+   * <p>Specifies how much a document attribute is boosted.</p>
+   */
+  boostingLevel: DocumentAttributeBoostingLevel | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the duration, in seconds, of a boost applies to a <code>DATE</code> type
+   *             document attribute.</p>
+   */
+  boostingDurationInSeconds?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const NumberAttributeBoostingType = {
+  PRIORITIZE_LARGER_VALUES: "PRIORITIZE_LARGER_VALUES",
+  PRIORITIZE_SMALLER_VALUES: "PRIORITIZE_SMALLER_VALUES",
+} as const;
+
+/**
+ * @public
+ */
+export type NumberAttributeBoostingType =
+  (typeof NumberAttributeBoostingType)[keyof typeof NumberAttributeBoostingType];
+
+/**
+ * @public
+ * <p>Provides information on boosting <code>NUMBER</code> type document attributes.</p>
+ *          <p>For more information on how boosting document attributes work in Amazon Q, see
+ *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ */
+export interface NumberAttributeBoostingConfiguration {
+  /**
+   * @public
+   * <p>Specifies the duration, in seconds, of a boost applies to a <code>NUMBER</code> type
+   *             document attribute.</p>
+   */
+  boostingLevel: DocumentAttributeBoostingLevel | undefined;
+
+  /**
+   * @public
+   * <p>Specifies how much a document attribute is boosted.</p>
+   */
+  boostingType?: NumberAttributeBoostingType;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const StringAttributeValueBoostingLevel = {
+  HIGH: "HIGH",
+  LOW: "LOW",
+  MEDIUM: "MEDIUM",
+  VERY_HIGH: "VERY_HIGH",
+} as const;
+
+/**
+ * @public
+ */
+export type StringAttributeValueBoostingLevel =
+  (typeof StringAttributeValueBoostingLevel)[keyof typeof StringAttributeValueBoostingLevel];
+
+/**
+ * @public
+ * <p>Provides information on boosting <code>STRING</code> type document attributes.</p>
+ *          <note>
+ *             <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to
+ *                 be used for boosting on the console and the API, they must be enabled for search
+ *                 using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes,
+ *                 you can't boost attributes of these data types on either the console or the
+ *                 API.</p>
+ *          </note>
+ *          <p>For more information on how boosting document attributes work in Amazon Q, see
+ *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ */
+export interface StringAttributeBoostingConfiguration {
+  /**
+   * @public
+   * <p>Specifies how much a document attribute is boosted.</p>
+   */
+  boostingLevel: DocumentAttributeBoostingLevel | undefined;
+
+  /**
+   * @public
+   * <p>Specifies specific values of a <code>STRING</code> type document attribute being
+   *             boosted.</p>
+   */
+  attributeValueBoosting?: Record<string, StringAttributeValueBoostingLevel>;
+}
+
+/**
+ * @public
+ * <p>Provides information on boosting <code>STRING_LIST</code> type document
+ *             attributes.</p>
+ *          <note>
+ *             <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to
+ *                 be used for boosting on the console and the API, they must be enabled for search
+ *                 using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes,
+ *                 you can't boost attributes of these data types on either the console or the
+ *                 API.</p>
+ *          </note>
+ *          <p>For more information on how boosting document attributes work in Amazon Q, see
+ *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ */
+export interface StringListAttributeBoostingConfiguration {
+  /**
+   * @public
+   * <p>Specifies how much a document attribute is boosted.</p>
+   */
+  boostingLevel: DocumentAttributeBoostingLevel | undefined;
+}
+
+/**
+ * @public
+ * <p>Provides information on boosting supported Amazon Q document attribute types.
+ *             When an end user chat query matches document attributes that have been boosted,
+ *             Amazon Q prioritizes generating responses from content that matches the boosted
+ *             document attributes.</p>
+ *          <note>
+ *             <p>For <code>STRING</code> and <code>STRING_LIST</code> type document attributes to
+ *                 be used for boosting on the console and the API, they must be enabled for search
+ *                 using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_DocumentAttributeConfiguration.html">DocumentAttributeConfiguration</a> object of the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_UpdateIndex.html">UpdateIndex</a> API. If you haven't enabled searching on these attributes,
+ *                 you can't boost attributes of these data types on either the console or the
+ *                 API.</p>
+ *          </note>
+ *          <p>For more information on how boosting document attributes work in Amazon Q, see
+ *                 <a href="https://docs.aws.amazon.com/amazonq/latest/business-use-dg/metadata-boosting.html">Boosting using document attributes</a>.</p>
+ */
+export type DocumentAttributeBoostingConfiguration =
+  | DocumentAttributeBoostingConfiguration.DateConfigurationMember
+  | DocumentAttributeBoostingConfiguration.NumberConfigurationMember
+  | DocumentAttributeBoostingConfiguration.StringConfigurationMember
+  | DocumentAttributeBoostingConfiguration.StringListConfigurationMember
+  | DocumentAttributeBoostingConfiguration.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace DocumentAttributeBoostingConfiguration {
+  /**
+   * @public
+   * <p>Provides information on boosting <code>NUMBER</code> type document attributes.</p>
+   */
+  export interface NumberConfigurationMember {
+    numberConfiguration: NumberAttributeBoostingConfiguration;
+    stringConfiguration?: never;
+    dateConfiguration?: never;
+    stringListConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Provides information on boosting <code>STRING</code> type document attributes.</p>
+   */
+  export interface StringConfigurationMember {
+    numberConfiguration?: never;
+    stringConfiguration: StringAttributeBoostingConfiguration;
+    dateConfiguration?: never;
+    stringListConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Provides information on boosting <code>DATE</code> type document attributes.</p>
+   */
+  export interface DateConfigurationMember {
+    numberConfiguration?: never;
+    stringConfiguration?: never;
+    dateConfiguration: DateAttributeBoostingConfiguration;
+    stringListConfiguration?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Provides information on boosting <code>STRING_LIST</code> type document
+   *             attributes.</p>
+   */
+  export interface StringListConfigurationMember {
+    numberConfiguration?: never;
+    stringConfiguration?: never;
+    dateConfiguration?: never;
+    stringListConfiguration: StringListAttributeBoostingConfiguration;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    numberConfiguration?: never;
+    stringConfiguration?: never;
+    dateConfiguration?: never;
+    stringListConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    numberConfiguration: (value: NumberAttributeBoostingConfiguration) => T;
+    stringConfiguration: (value: StringAttributeBoostingConfiguration) => T;
+    dateConfiguration: (value: DateAttributeBoostingConfiguration) => T;
+    stringListConfiguration: (value: StringListAttributeBoostingConfiguration) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: DocumentAttributeBoostingConfiguration, visitor: Visitor<T>): T => {
+    if (value.numberConfiguration !== undefined) return visitor.numberConfiguration(value.numberConfiguration);
+    if (value.stringConfiguration !== undefined) return visitor.stringConfiguration(value.stringConfiguration);
+    if (value.dateConfiguration !== undefined) return visitor.dateConfiguration(value.dateConfiguration);
+    if (value.stringListConfiguration !== undefined)
+      return visitor.stringListConfiguration(value.stringListConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
  * <p>Configuration information for an Amazon Q index.</p>
  */
 export interface NativeIndexConfiguration {
@@ -2713,6 +2960,13 @@ export interface NativeIndexConfiguration {
    * <p>The identifier for the Amazon Q index.</p>
    */
   indexId: string | undefined;
+
+  /**
+   * @public
+   * <p>Overrides the default boosts applied by Amazon Q to supported document attribute
+   *             data types.</p>
+   */
+  boostingOverride?: Record<string, DocumentAttributeBoostingConfiguration>;
 }
 
 /**
@@ -4687,7 +4941,7 @@ export interface Rule {
 
   /**
    * @public
-   * <p>The type fo rule.</p>
+   * <p>The type of rule.</p>
    */
   ruleType: RuleType | undefined;
 
@@ -4711,7 +4965,7 @@ export interface TopicConfiguration {
 
   /**
    * @public
-   * <p>A description for your topic control configuration. Use this outline how the large
+   * <p>A description for your topic control configuration. Use this to outline how the large
    *             language model (LLM) should use this topic control configuration.</p>
    */
   description?: string;
@@ -5296,8 +5550,12 @@ export const MessageUsefulnessReason = {
   HARMFUL_OR_UNSAFE: "HARMFUL_OR_UNSAFE",
   HELPFUL: "HELPFUL",
   INCORRECT_OR_MISSING_SOURCES: "INCORRECT_OR_MISSING_SOURCES",
+  NOT_BASED_ON_DOCUMENTS: "NOT_BASED_ON_DOCUMENTS",
+  NOT_COMPLETE: "NOT_COMPLETE",
+  NOT_CONCISE: "NOT_CONCISE",
   NOT_FACTUALLY_CORRECT: "NOT_FACTUALLY_CORRECT",
   NOT_HELPFUL: "NOT_HELPFUL",
+  OTHER: "OTHER",
   RELEVANT_SOURCES: "RELEVANT_SOURCES",
 } as const;
 
@@ -5722,8 +5980,7 @@ export interface UpdateUserResponse {
 
 /**
  * @public
- * <p>Enables filtering of Amazon Q web experience responses based on document
- *             attributes or metadata fields.</p>
+ * <p>Enables filtering of responses based on document attributes or metadata fields.</p>
  */
 export interface AttributeFilter {
   /**

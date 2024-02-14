@@ -32,9 +32,9 @@ export interface CreateIndexCommandOutput extends CreateIndexResponse, __Metadat
  *          <p>To determine if index creation has completed, check the <code>Status</code> field
  *             returned from a call to <code>DescribeIndex</code>. The <code>Status</code> field is set
  *             to <code>ACTIVE</code> when the index is ready to use.</p>
- *          <p>Once the index is active, you can index your documents using the <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_BatchPutDocument.html">
+ *          <p>Once the index is active, you can index your documents using the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_BatchPutDocument.html">
  *                <code>BatchPutDocument</code>
- *             </a> API or the <a href="https://docs.aws.amazon.com/enterpriseq/latest/APIReference/API_CreateDataSource.html">
+ *             </a> API or the <a href="https://docs.aws.amazon.com/amazonq/latest/api-reference/API_CreateDataSource.html">
  *                <code>CreateDataSource</code>
  *             </a> API.</p>
  * @example
