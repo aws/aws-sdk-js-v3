@@ -45,6 +45,13 @@ export interface UpdateModelCommandOutput extends __MetadataBearer {}
  *     LabelGroupName: "STRING_VALUE",
  *   },
  *   RoleArn: "STRING_VALUE",
+ *   ModelDiagnosticsOutputConfiguration: { // ModelDiagnosticsOutputConfiguration
+ *     S3OutputConfiguration: { // ModelDiagnosticsS3OutputConfiguration
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
  * };
  * const command = new UpdateModelCommand(input);
  * const response = await client.send(command);

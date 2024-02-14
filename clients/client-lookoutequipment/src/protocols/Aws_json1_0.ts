@@ -224,6 +224,8 @@ import {
   ListSensorStatisticsRequest,
   ListSensorStatisticsResponse,
   ListTagsForResourceRequest,
+  ModelDiagnosticsOutputConfiguration,
+  ModelDiagnosticsS3OutputConfiguration,
   ModelSummary,
   ModelVersionSummary,
   PutResourcePolicyRequest,
@@ -2047,6 +2049,7 @@ const se_CreateModelRequest = (input: CreateModelRequest, context: __SerdeContex
     EvaluationDataEndTime: (_) => Math.round(_.getTime() / 1000),
     EvaluationDataStartTime: (_) => Math.round(_.getTime() / 1000),
     LabelsInputConfiguration: _json,
+    ModelDiagnosticsOutputConfiguration: _json,
     ModelName: [],
     OffCondition: [],
     RoleArn: [],
@@ -2238,6 +2241,10 @@ const se_ListModelVersionsRequest = (input: ListModelVersionsRequest, context: _
 // se_ListSensorStatisticsRequest omitted.
 
 // se_ListTagsForResourceRequest omitted.
+
+// se_ModelDiagnosticsOutputConfiguration omitted.
+
+// se_ModelDiagnosticsS3OutputConfiguration omitted.
 
 /**
  * serializeAws_json1_0PutResourcePolicyRequest
@@ -2491,6 +2498,7 @@ const de_DescribeModelResponse = (output: any, context: __SerdeContext): Describ
     LatestScheduledRetrainingStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LatestScheduledRetrainingStatus: __expectString,
     ModelArn: __expectString,
+    ModelDiagnosticsOutputConfiguration: _json,
     ModelMetrics: (_: any) => new __LazyJsonString(_),
     ModelName: __expectString,
     ModelVersionActivatedAt: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -2533,6 +2541,8 @@ const de_DescribeModelVersionResponse = (output: any, context: __SerdeContext): 
     LabelsInputConfiguration: _json,
     LastUpdatedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     ModelArn: __expectString,
+    ModelDiagnosticsOutputConfiguration: _json,
+    ModelDiagnosticsResultsObject: _json,
     ModelMetrics: __expectString,
     ModelName: __expectString,
     ModelVersion: __expectLong,
@@ -2843,6 +2853,10 @@ const de_ListSensorStatisticsResponse = (output: any, context: __SerdeContext): 
 
 // de_MissingSensorData omitted.
 
+// de_ModelDiagnosticsOutputConfiguration omitted.
+
+// de_ModelDiagnosticsS3OutputConfiguration omitted.
+
 /**
  * deserializeAws_json1_0ModelSummaries
  */
@@ -2869,6 +2883,7 @@ const de_ModelSummary = (output: any, context: __SerdeContext): ModelSummary => 
     LatestScheduledRetrainingStartTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     LatestScheduledRetrainingStatus: __expectString,
     ModelArn: __expectString,
+    ModelDiagnosticsOutputConfiguration: _json,
     ModelName: __expectString,
     NextScheduledRetrainingStartDate: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     RetrainingSchedulerStatus: __expectString,

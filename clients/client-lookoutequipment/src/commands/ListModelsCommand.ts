@@ -62,6 +62,13 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * //       LatestScheduledRetrainingStartTime: new Date("TIMESTAMP"),
  * //       NextScheduledRetrainingStartDate: new Date("TIMESTAMP"),
  * //       RetrainingSchedulerStatus: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * //       ModelDiagnosticsOutputConfiguration: { // ModelDiagnosticsOutputConfiguration
+ * //         S3OutputConfiguration: { // ModelDiagnosticsS3OutputConfiguration
+ * //           Bucket: "STRING_VALUE", // required
+ * //           Prefix: "STRING_VALUE",
+ * //         },
+ * //         KmsKeyId: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * // };

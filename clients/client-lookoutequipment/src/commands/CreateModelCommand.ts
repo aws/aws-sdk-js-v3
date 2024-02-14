@@ -73,6 +73,13 @@ export interface CreateModelCommandOutput extends CreateModelResponse, __Metadat
  *     },
  *   ],
  *   OffCondition: "STRING_VALUE",
+ *   ModelDiagnosticsOutputConfiguration: { // ModelDiagnosticsOutputConfiguration
+ *     S3OutputConfiguration: { // ModelDiagnosticsS3OutputConfiguration
+ *       Bucket: "STRING_VALUE", // required
+ *       Prefix: "STRING_VALUE",
+ *     },
+ *     KmsKeyId: "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateModelCommand(input);
  * const response = await client.send(command);

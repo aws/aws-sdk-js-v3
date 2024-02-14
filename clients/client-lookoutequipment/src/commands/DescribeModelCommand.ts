@@ -91,6 +91,13 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * //   AccumulatedInferenceDataStartTime: new Date("TIMESTAMP"),
  * //   AccumulatedInferenceDataEndTime: new Date("TIMESTAMP"),
  * //   RetrainingSchedulerStatus: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * //   ModelDiagnosticsOutputConfiguration: { // ModelDiagnosticsOutputConfiguration
+ * //     S3OutputConfiguration: { // ModelDiagnosticsS3OutputConfiguration
+ * //       Bucket: "STRING_VALUE", // required
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //     KmsKeyId: "STRING_VALUE",
+ * //   },
  * // };
  *
  * ```

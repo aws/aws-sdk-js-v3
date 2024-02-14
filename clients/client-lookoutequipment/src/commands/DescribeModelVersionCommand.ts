@@ -82,6 +82,17 @@ export interface DescribeModelVersionCommandOutput extends DescribeModelVersionR
  * //   RetrainingAvailableDataInDays: Number("int"),
  * //   AutoPromotionResult: "MODEL_PROMOTED" || "MODEL_NOT_PROMOTED" || "RETRAINING_INTERNAL_ERROR" || "RETRAINING_CUSTOMER_ERROR" || "RETRAINING_CANCELLED",
  * //   AutoPromotionResultReason: "STRING_VALUE",
+ * //   ModelDiagnosticsOutputConfiguration: { // ModelDiagnosticsOutputConfiguration
+ * //     S3OutputConfiguration: { // ModelDiagnosticsS3OutputConfiguration
+ * //       Bucket: "STRING_VALUE", // required
+ * //       Prefix: "STRING_VALUE",
+ * //     },
+ * //     KmsKeyId: "STRING_VALUE",
+ * //   },
+ * //   ModelDiagnosticsResultsObject: { // S3Object
+ * //     Bucket: "STRING_VALUE", // required
+ * //     Key: "STRING_VALUE", // required
+ * //   },
  * // };
  *
  * ```

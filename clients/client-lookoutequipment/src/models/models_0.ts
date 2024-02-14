@@ -770,6 +770,49 @@ export interface LabelsInputConfiguration {
 
 /**
  * @public
+ * <p>The Amazon S3 location for the pointwise model diagnostics for an Amazon Lookout for Equipment model. </p>
+ */
+export interface ModelDiagnosticsS3OutputConfiguration {
+  /**
+   * @public
+   * <p>The name of the Amazon S3 bucket where the pointwise model diagnostics are located. You must be the owner of the Amazon S3 bucket. </p>
+   */
+  Bucket: string | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon S3 prefix for the location of the pointwise model diagnostics. The
+   *          prefix specifies the folder and evaluation result file name.
+   *          (<code>bucket</code>).</p>
+   *          <p>When you call <code>CreateModel</code> or <code>UpdateModel</code>, specify the path
+   *          within the bucket that you want Lookout for Equipment to save the model to. During training, Lookout for Equipment creates the model evaluation model
+   *          as a compressed JSON file with the name <code>model_diagnostics_results.json.gz</code>.</p>
+   *          <p>When you call <code>DescribeModel</code> or <code>DescribeModelVersion</code>, <code>prefix</code> contains
+   *          the file path and filename of the model evaluation file. </p>
+   */
+  Prefix?: string;
+}
+
+/**
+ * @public
+ * <p>Output configuration information for the pointwise model diagnostics for an Amazon Lookout for Equipment model.</p>
+ */
+export interface ModelDiagnosticsOutputConfiguration {
+  /**
+   * @public
+   * <p>The Amazon S3 location for the pointwise model diagnostics. </p>
+   */
+  S3OutputConfiguration: ModelDiagnosticsS3OutputConfiguration | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Key Management Service (KMS) key identifier to encrypt the pointwise model diagnostics files.</p>
+   */
+  KmsKeyId?: string;
+}
+
+/**
+ * @public
  */
 export interface CreateModelRequest {
   /**
@@ -873,6 +916,15 @@ export interface CreateModelRequest {
    *          evaluation, or inference.</p>
    */
   OffCondition?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 location where you want Amazon Lookout for Equipment to save the pointwise model diagnostics.
+   *
+   *
+   *       You must also specify the <code>RoleArn</code> request parameter.</p>
+   */
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
 }
 
 /**
@@ -1151,7 +1203,7 @@ export interface MissingCompleteSensorData {
 export interface SensorsWithShortDateRange {
   /**
    * @public
-   * <p> Indicates the number of sensors that have less than 90 days of data. </p>
+   * <p> Indicates the number of sensors that have less than 14 days of data. </p>
    */
   AffectedSensorCount: number | undefined;
 }
@@ -1172,7 +1224,7 @@ export interface InsufficientSensorData {
   /**
    * @public
    * <p> Parameter that describes the total number of sensors that have a short date range of
-   *          less than 90 days of data overall. </p>
+   *          less than 14 days of data overall. </p>
    */
   SensorsWithShortDateRange: SensorsWithShortDateRange | undefined;
 }
@@ -1553,7 +1605,7 @@ export interface DescribeDatasetResponse {
 
   /**
    * @public
-   * <p> IngestedFilesSummary associated with the given dataset for the latest successful
+   * <p>IngestedFilesSummary associated with the given dataset for the latest successful
    *          associated ingestion job id. </p>
    */
   IngestedFilesSummary?: IngestedFilesSummary;
@@ -2159,6 +2211,12 @@ export interface DescribeModelResponse {
    * <p>Indicates the status of the retraining scheduler. </p>
    */
   RetrainingSchedulerStatus?: RetrainingSchedulerStatus;
+
+  /**
+   * @public
+   * <p>Configuration information for the model's pointwise model diagnostics.</p>
+   */
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
 }
 
 /**
@@ -2423,6 +2481,18 @@ export interface DescribeModelVersionResponse {
    *          better than the previous model. </p>
    */
   AutoPromotionResultReason?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 location where Amazon Lookout for Equipment saves the pointwise model diagnostics for the model version.</p>
+   */
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
+
+  /**
+   * @public
+   * <p>The Amazon S3 output prefix for where Lookout for Equipment saves the pointwise model diagnostics for the model version.</p>
+   */
+  ModelDiagnosticsResultsObject?: S3Object;
 }
 
 /**
@@ -3177,7 +3247,13 @@ export interface ListInferenceExecutionsResponse {
    * @public
    * <p>Provides an array of information about the individual inference executions returned from
    *          the <code>ListInferenceExecutions</code> operation, including model used, inference
-   *          scheduler, data configuration, and so on. </p>
+   *          scheduler, data configuration, and so on.  </p>
+   *          <note>
+   *             <p>If you don't supply the <code>InferenceSchedulerName</code> request parameter, or
+   *             if you supply the name of an inference scheduler that doesn't exist,
+   *                <code>ListInferenceExecutions</code> returns an empty array in
+   *                <code>InferenceExecutionSummaries</code>.</p>
+   *          </note>
    */
   InferenceExecutionSummaries?: InferenceExecutionSummary[];
 }
@@ -3383,7 +3459,7 @@ export interface ListLabelGroupsResponse {
 export interface ListLabelsRequest {
   /**
    * @public
-   * <p> Retruns the name of the label group. </p>
+   * <p> Returns the name of the label group. </p>
    */
   LabelGroupName: string | undefined;
 
@@ -3502,6 +3578,11 @@ export interface ListLabelsResponse {
   /**
    * @public
    * <p> A summary of the items in the label group. </p>
+   *          <note>
+   *             <p>If you don't supply the <code>LabelGroupName</code> request parameter, or if you supply
+   *             the name of a label group that doesn't exist, <code>ListLabels</code> returns an empty array in
+   *                <code>LabelSummaries</code>.</p>
+   *          </note>
    */
   LabelSummaries?: LabelSummary[];
 }
@@ -3630,6 +3711,12 @@ export interface ModelSummary {
    * <p>Indicates the status of the retraining scheduler. </p>
    */
   RetrainingSchedulerStatus?: RetrainingSchedulerStatus;
+
+  /**
+   * @public
+   * <p>Output configuration information for the pointwise model diagnostics for an Amazon Lookout for Equipment model.</p>
+   */
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
 }
 
 /**
@@ -3780,6 +3867,11 @@ export interface ListModelVersionsResponse {
    * @public
    * <p>Provides information on the specified model version, including the created time, model
    *          and dataset ARNs, and status.</p>
+   *          <note>
+   *             <p>If you don't supply the <code>ModelName</code> request parameter, or if you supply the name
+   *             of a model that doesn't exist, <code>ListModelVersions</code> returns an empty array in
+   *                <code>ModelVersionSummaries</code>. </p>
+   *          </note>
    */
   ModelVersionSummaries?: ModelVersionSummary[];
 }
@@ -4644,6 +4736,13 @@ export interface UpdateModelRequest {
    * <p>The ARN of the model to update.</p>
    */
   RoleArn?: string;
+
+  /**
+   * @public
+   * <p>The Amazon S3 location where you want Amazon Lookout for Equipment to save the pointwise model diagnostics for the model.
+   *          You must also specify the <code>RoleArn</code> request parameter.</p>
+   */
+  ModelDiagnosticsOutputConfiguration?: ModelDiagnosticsOutputConfiguration;
 }
 
 /**
