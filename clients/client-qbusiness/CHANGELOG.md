@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
+
+
+### Features
+
+* **client-qbusiness:** This release adds the metadata-boosting feature, which allows customers to easily fine-tune the underlying ranking of retrieved RAG passages in order to optimize Q&A answer relevance. It also adds new feedback reasons for the PutFeedback API. ([8fe8537](https://github.com/aws/aws-sdk-js-v3/commit/8fe85371eeaad05d12c6e2533c7ae60343a58ef6))
+
+
+
+
+
 # [3.513.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.512.0...v3.513.0) (2024-02-13)
 
 

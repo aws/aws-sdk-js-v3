@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
+
+
+### Bug Fixes
+
+* **credential-provider-node:** update date strings to use fully specified offsets ([#5790](https://github.com/aws/aws-sdk-js-v3/issues/5790)) ([0bc9f48](https://github.com/aws/aws-sdk-js-v3/commit/0bc9f4897694b213fe39f22b742ae5429fe9cdfb))
+
+
+
+
+
 # [3.513.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.512.0...v3.513.0) (2024-02-13)
 
 **Note:** Version bump only for package @aws-sdk/credential-provider-node

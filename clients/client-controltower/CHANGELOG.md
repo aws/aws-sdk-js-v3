@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
+
+
+### Features
+
+* **client-controltower:** Adds support for new Baseline and EnabledBaseline APIs for automating multi-account governance. ([adada71](https://github.com/aws/aws-sdk-js-v3/commit/adada71649fdab7ea092da7e842da61c82c037ac))
+
+
+
+
+
 # [3.513.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.512.0...v3.513.0) (2024-02-13)
 
 

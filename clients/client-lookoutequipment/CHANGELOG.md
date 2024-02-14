@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
+
+
+### Features
+
+* **client-lookoutequipment:** This feature allows customers to see pointwise model diagnostics results for their models. ([424f63d](https://github.com/aws/aws-sdk-js-v3/commit/424f63d6ca614e441ebe1fc3d1a1be825cbc9bac))
+
+
+
+
+
 # [3.513.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.512.0...v3.513.0) (2024-02-13)
 
 
