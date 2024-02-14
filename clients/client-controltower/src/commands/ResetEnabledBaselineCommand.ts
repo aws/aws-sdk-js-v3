@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { CreateLandingZoneInput, CreateLandingZoneOutput } from "../models/models_0";
-import { de_CreateLandingZoneCommand, se_CreateLandingZoneCommand } from "../protocols/Aws_restJson1";
+import { ResetEnabledBaselineInput, ResetEnabledBaselineOutput } from "../models/models_0";
+import { de_ResetEnabledBaselineCommand, se_ResetEnabledBaselineCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,46 +16,40 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link CreateLandingZoneCommand}.
+ * The input for {@link ResetEnabledBaselineCommand}.
  */
-export interface CreateLandingZoneCommandInput extends CreateLandingZoneInput {}
+export interface ResetEnabledBaselineCommandInput extends ResetEnabledBaselineInput {}
 /**
  * @public
  *
- * The output of {@link CreateLandingZoneCommand}.
+ * The output of {@link ResetEnabledBaselineCommand}.
  */
-export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput, __MetadataBearer {}
+export interface ResetEnabledBaselineCommandOutput extends ResetEnabledBaselineOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Creates a new landing zone. This API call starts an asynchronous operation that creates and configures a landing zone,
- *          based on the parameters specified in the manifest JSON file.</p>
+ * <p>Re-enables an <code>EnabledBaseline</code> resource. For example, this API can re-apply the existing <code>Baseline</code> after a new member account is moved to the target OU.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, CreateLandingZoneCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, CreateLandingZoneCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, ResetEnabledBaselineCommand } from "@aws-sdk/client-controltower"; // ES Modules import
+ * // const { ControlTowerClient, ResetEnabledBaselineCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = { // CreateLandingZoneInput
- *   version: "STRING_VALUE", // required
- *   manifest: "DOCUMENT_VALUE", // required
- *   tags: { // TagMap
- *     "<keys>": "STRING_VALUE",
- *   },
+ * const input = { // ResetEnabledBaselineInput
+ *   enabledBaselineIdentifier: "STRING_VALUE", // required
  * };
- * const command = new CreateLandingZoneCommand(input);
+ * const command = new ResetEnabledBaselineCommand(input);
  * const response = await client.send(command);
- * // { // CreateLandingZoneOutput
- * //   arn: "STRING_VALUE", // required
+ * // { // ResetEnabledBaselineOutput
  * //   operationIdentifier: "STRING_VALUE", // required
  * // };
  *
  * ```
  *
- * @param CreateLandingZoneCommandInput - {@link CreateLandingZoneCommandInput}
- * @returns {@link CreateLandingZoneCommandOutput}
- * @see {@link CreateLandingZoneCommandInput} for command's `input` shape.
- * @see {@link CreateLandingZoneCommandOutput} for command's `response` shape.
+ * @param ResetEnabledBaselineCommandInput - {@link ResetEnabledBaselineCommandInput}
+ * @returns {@link ResetEnabledBaselineCommandOutput}
+ * @see {@link ResetEnabledBaselineCommandInput} for command's `input` shape.
+ * @see {@link ResetEnabledBaselineCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -67,6 +61,12 @@ export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput,
  * @throws {@link InternalServerException} (server fault)
  *  <p>An unexpected error occurred during processing of a request.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The request references a resource that does not exist.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
@@ -77,10 +77,10 @@ export interface CreateLandingZoneCommandOutput extends CreateLandingZoneOutput,
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
-export class CreateLandingZoneCommand extends $Command
+export class ResetEnabledBaselineCommand extends $Command
   .classBuilder<
-    CreateLandingZoneCommandInput,
-    CreateLandingZoneCommandOutput,
+    ResetEnabledBaselineCommandInput,
+    ResetEnabledBaselineCommandOutput,
     ControlTowerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -94,9 +94,9 @@ export class CreateLandingZoneCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSControlTowerApis", "CreateLandingZone", {})
-  .n("ControlTowerClient", "CreateLandingZoneCommand")
+  .s("AWSControlTowerApis", "ResetEnabledBaseline", {})
+  .n("ControlTowerClient", "ResetEnabledBaselineCommand")
   .f(void 0, void 0)
-  .ser(se_CreateLandingZoneCommand)
-  .de(de_CreateLandingZoneCommand)
+  .ser(se_ResetEnabledBaselineCommand)
+  .de(de_ResetEnabledBaselineCommand)
   .build() {}

@@ -28,7 +28,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
 
 /**
  * @public
- * <p>This API call turns off a control. It starts an asynchronous operation that deletes Amazon Web Services
+ * <p>This API call turns off a control. It starts an asynchronous operation that deletes AWS
  *          resources on the specified organizational unit and the accounts it contains. The resources
  *          will vary according to the control that you specify. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
  *                <i>the Amazon Web Services Control Tower User Guide</i>
@@ -76,7 +76,7 @@ export interface DisableControlCommandOutput extends DisableControlOutput, __Met
  *  <p>The request was denied due to request throttling.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  <p>The input does not satisfy the constraints specified by an  Amazon Web Services service.</p>
+ *  <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  *
  * @throws {@link ControlTowerServiceException}
  * <p>Base exception class for all service exceptions from ControlTower service.</p>

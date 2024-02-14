@@ -6,8 +6,8 @@
 
 AWS SDK for JavaScript ControlTower Client for Node.js, Browser and React Native.
 
-<p>These interfaces allow you to apply the  Amazon Web Services library of pre-defined
-<i>controls</i> to your organizational units, programmatically. In  Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
+<p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
+<i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
 <p>To call these APIs, you'll need to know:</p>
 <ul>
 <li>
@@ -128,16 +128,16 @@ using your favorite package manager:
 
 The AWS SDK is modulized by clients and commands.
 To send a request, you only need to import the `ControlTowerClient` and
-the commands you need, for example `ListLandingZonesCommand`:
+the commands you need, for example `ListBaselinesCommand`:
 
 ```js
 // ES5 example
-const { ControlTowerClient, ListLandingZonesCommand } = require("@aws-sdk/client-controltower");
+const { ControlTowerClient, ListBaselinesCommand } = require("@aws-sdk/client-controltower");
 ```
 
 ```ts
 // ES6+ example
-import { ControlTowerClient, ListLandingZonesCommand } from "@aws-sdk/client-controltower";
+import { ControlTowerClient, ListBaselinesCommand } from "@aws-sdk/client-controltower";
 ```
 
 ### Usage
@@ -156,7 +156,7 @@ const client = new ControlTowerClient({ region: "REGION" });
 const params = {
   /** input parameters */
 };
-const command = new ListLandingZonesCommand(params);
+const command = new ListBaselinesCommand(params);
 ```
 
 #### Async/await
@@ -235,7 +235,7 @@ const client = new AWS.ControlTower({ region: "REGION" });
 
 // async/await.
 try {
-  const data = await client.listLandingZones(params);
+  const data = await client.listBaselines(params);
   // process data.
 } catch (error) {
   // error handling.
@@ -243,7 +243,7 @@ try {
 
 // Promises.
 client
-  .listLandingZones(params)
+  .listBaselines(params)
   .then((data) => {
     // process data.
   })
@@ -252,7 +252,7 @@ client
   });
 
 // callbacks.
-client.listLandingZones(params, (err, data) => {
+client.listBaselines(params, (err, data) => {
   // process err and data.
 });
 ```
@@ -326,10 +326,26 @@ DeleteLandingZone
 </details>
 <details>
 <summary>
+DisableBaseline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/DisableBaselineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/DisableBaselineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/DisableBaselineCommandOutput/)
+
+</details>
+<details>
+<summary>
 DisableControl
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/DisableControlCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/DisableControlCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/DisableControlCommandOutput/)
+
+</details>
+<details>
+<summary>
+EnableBaseline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/EnableBaselineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/EnableBaselineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/EnableBaselineCommandOutput/)
 
 </details>
 <details>
@@ -342,10 +358,34 @@ EnableControl
 </details>
 <details>
 <summary>
+GetBaseline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/GetBaselineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetBaselineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetBaselineCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetBaselineOperation
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/GetBaselineOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetBaselineOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetBaselineOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetControlOperation
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/GetControlOperationCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetControlOperationCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetControlOperationCommandOutput/)
+
+</details>
+<details>
+<summary>
+GetEnabledBaseline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/GetEnabledBaselineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetEnabledBaselineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/GetEnabledBaselineCommandOutput/)
 
 </details>
 <details>
@@ -374,6 +414,22 @@ GetLandingZoneOperation
 </details>
 <details>
 <summary>
+ListBaselines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/ListBaselinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ListBaselinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ListBaselinesCommandOutput/)
+
+</details>
+<details>
+<summary>
+ListEnabledBaselines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/ListEnabledBaselinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ListEnabledBaselinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ListEnabledBaselinesCommandOutput/)
+
+</details>
+<details>
+<summary>
 ListEnabledControls
 </summary>
 
@@ -398,6 +454,14 @@ ListTagsForResource
 </details>
 <details>
 <summary>
+ResetEnabledBaseline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/ResetEnabledBaselineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ResetEnabledBaselineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/ResetEnabledBaselineCommandOutput/)
+
+</details>
+<details>
+<summary>
 ResetLandingZone
 </summary>
 
@@ -418,6 +482,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateEnabledBaseline
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/controltower/command/UpdateEnabledBaselineCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UpdateEnabledBaselineCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-controltower/Interface/UpdateEnabledBaselineCommandOutput/)
 
 </details>
 <details>

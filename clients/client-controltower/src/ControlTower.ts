@@ -13,20 +13,41 @@ import {
   DeleteLandingZoneCommandOutput,
 } from "./commands/DeleteLandingZoneCommand";
 import {
+  DisableBaselineCommand,
+  DisableBaselineCommandInput,
+  DisableBaselineCommandOutput,
+} from "./commands/DisableBaselineCommand";
+import {
   DisableControlCommand,
   DisableControlCommandInput,
   DisableControlCommandOutput,
 } from "./commands/DisableControlCommand";
 import {
+  EnableBaselineCommand,
+  EnableBaselineCommandInput,
+  EnableBaselineCommandOutput,
+} from "./commands/EnableBaselineCommand";
+import {
   EnableControlCommand,
   EnableControlCommandInput,
   EnableControlCommandOutput,
 } from "./commands/EnableControlCommand";
+import { GetBaselineCommand, GetBaselineCommandInput, GetBaselineCommandOutput } from "./commands/GetBaselineCommand";
+import {
+  GetBaselineOperationCommand,
+  GetBaselineOperationCommandInput,
+  GetBaselineOperationCommandOutput,
+} from "./commands/GetBaselineOperationCommand";
 import {
   GetControlOperationCommand,
   GetControlOperationCommandInput,
   GetControlOperationCommandOutput,
 } from "./commands/GetControlOperationCommand";
+import {
+  GetEnabledBaselineCommand,
+  GetEnabledBaselineCommandInput,
+  GetEnabledBaselineCommandOutput,
+} from "./commands/GetEnabledBaselineCommand";
 import {
   GetEnabledControlCommand,
   GetEnabledControlCommandInput,
@@ -43,6 +64,16 @@ import {
   GetLandingZoneOperationCommandOutput,
 } from "./commands/GetLandingZoneOperationCommand";
 import {
+  ListBaselinesCommand,
+  ListBaselinesCommandInput,
+  ListBaselinesCommandOutput,
+} from "./commands/ListBaselinesCommand";
+import {
+  ListEnabledBaselinesCommand,
+  ListEnabledBaselinesCommandInput,
+  ListEnabledBaselinesCommandOutput,
+} from "./commands/ListEnabledBaselinesCommand";
+import {
   ListEnabledControlsCommand,
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
@@ -58,6 +89,11 @@ import {
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
 import {
+  ResetEnabledBaselineCommand,
+  ResetEnabledBaselineCommandInput,
+  ResetEnabledBaselineCommandOutput,
+} from "./commands/ResetEnabledBaselineCommand";
+import {
   ResetLandingZoneCommand,
   ResetLandingZoneCommandInput,
   ResetLandingZoneCommandOutput,
@@ -68,6 +104,11 @@ import {
   UntagResourceCommandInput,
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
+import {
+  UpdateEnabledBaselineCommand,
+  UpdateEnabledBaselineCommandInput,
+  UpdateEnabledBaselineCommandOutput,
+} from "./commands/UpdateEnabledBaselineCommand";
 import {
   UpdateEnabledControlCommand,
   UpdateEnabledControlCommandInput,
@@ -83,18 +124,27 @@ import { ControlTowerClient, ControlTowerClientConfig } from "./ControlTowerClie
 const commands = {
   CreateLandingZoneCommand,
   DeleteLandingZoneCommand,
+  DisableBaselineCommand,
   DisableControlCommand,
+  EnableBaselineCommand,
   EnableControlCommand,
+  GetBaselineCommand,
+  GetBaselineOperationCommand,
   GetControlOperationCommand,
+  GetEnabledBaselineCommand,
   GetEnabledControlCommand,
   GetLandingZoneCommand,
   GetLandingZoneOperationCommand,
+  ListBaselinesCommand,
+  ListEnabledBaselinesCommand,
   ListEnabledControlsCommand,
   ListLandingZonesCommand,
   ListTagsForResourceCommand,
+  ResetEnabledBaselineCommand,
   ResetLandingZoneCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateEnabledBaselineCommand,
   UpdateEnabledControlCommand,
   UpdateLandingZoneCommand,
 };
@@ -135,6 +185,20 @@ export interface ControlTower {
   ): void;
 
   /**
+   * @see {@link DisableBaselineCommand}
+   */
+  disableBaseline(
+    args: DisableBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DisableBaselineCommandOutput>;
+  disableBaseline(args: DisableBaselineCommandInput, cb: (err: any, data?: DisableBaselineCommandOutput) => void): void;
+  disableBaseline(
+    args: DisableBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DisableBaselineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link DisableControlCommand}
    */
   disableControl(
@@ -149,6 +213,20 @@ export interface ControlTower {
   ): void;
 
   /**
+   * @see {@link EnableBaselineCommand}
+   */
+  enableBaseline(
+    args: EnableBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<EnableBaselineCommandOutput>;
+  enableBaseline(args: EnableBaselineCommandInput, cb: (err: any, data?: EnableBaselineCommandOutput) => void): void;
+  enableBaseline(
+    args: EnableBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: EnableBaselineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link EnableControlCommand}
    */
   enableControl(args: EnableControlCommandInput, options?: __HttpHandlerOptions): Promise<EnableControlCommandOutput>;
@@ -157,6 +235,34 @@ export interface ControlTower {
     args: EnableControlCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: EnableControlCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetBaselineCommand}
+   */
+  getBaseline(args: GetBaselineCommandInput, options?: __HttpHandlerOptions): Promise<GetBaselineCommandOutput>;
+  getBaseline(args: GetBaselineCommandInput, cb: (err: any, data?: GetBaselineCommandOutput) => void): void;
+  getBaseline(
+    args: GetBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBaselineCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetBaselineOperationCommand}
+   */
+  getBaselineOperation(
+    args: GetBaselineOperationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetBaselineOperationCommandOutput>;
+  getBaselineOperation(
+    args: GetBaselineOperationCommandInput,
+    cb: (err: any, data?: GetBaselineOperationCommandOutput) => void
+  ): void;
+  getBaselineOperation(
+    args: GetBaselineOperationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetBaselineOperationCommandOutput) => void
   ): void;
 
   /**
@@ -174,6 +280,23 @@ export interface ControlTower {
     args: GetControlOperationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetControlOperationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetEnabledBaselineCommand}
+   */
+  getEnabledBaseline(
+    args: GetEnabledBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetEnabledBaselineCommandOutput>;
+  getEnabledBaseline(
+    args: GetEnabledBaselineCommandInput,
+    cb: (err: any, data?: GetEnabledBaselineCommandOutput) => void
+  ): void;
+  getEnabledBaseline(
+    args: GetEnabledBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetEnabledBaselineCommandOutput) => void
   ): void;
 
   /**
@@ -222,6 +345,34 @@ export interface ControlTower {
     args: GetLandingZoneOperationCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetLandingZoneOperationCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListBaselinesCommand}
+   */
+  listBaselines(args: ListBaselinesCommandInput, options?: __HttpHandlerOptions): Promise<ListBaselinesCommandOutput>;
+  listBaselines(args: ListBaselinesCommandInput, cb: (err: any, data?: ListBaselinesCommandOutput) => void): void;
+  listBaselines(
+    args: ListBaselinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListBaselinesCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link ListEnabledBaselinesCommand}
+   */
+  listEnabledBaselines(
+    args: ListEnabledBaselinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListEnabledBaselinesCommandOutput>;
+  listEnabledBaselines(
+    args: ListEnabledBaselinesCommandInput,
+    cb: (err: any, data?: ListEnabledBaselinesCommandOutput) => void
+  ): void;
+  listEnabledBaselines(
+    args: ListEnabledBaselinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListEnabledBaselinesCommandOutput) => void
   ): void;
 
   /**
@@ -276,6 +427,23 @@ export interface ControlTower {
   ): void;
 
   /**
+   * @see {@link ResetEnabledBaselineCommand}
+   */
+  resetEnabledBaseline(
+    args: ResetEnabledBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ResetEnabledBaselineCommandOutput>;
+  resetEnabledBaseline(
+    args: ResetEnabledBaselineCommandInput,
+    cb: (err: any, data?: ResetEnabledBaselineCommandOutput) => void
+  ): void;
+  resetEnabledBaseline(
+    args: ResetEnabledBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ResetEnabledBaselineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ResetLandingZoneCommand}
    */
   resetLandingZone(
@@ -315,6 +483,23 @@ export interface ControlTower {
   ): void;
 
   /**
+   * @see {@link UpdateEnabledBaselineCommand}
+   */
+  updateEnabledBaseline(
+    args: UpdateEnabledBaselineCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateEnabledBaselineCommandOutput>;
+  updateEnabledBaseline(
+    args: UpdateEnabledBaselineCommandInput,
+    cb: (err: any, data?: UpdateEnabledBaselineCommandOutput) => void
+  ): void;
+  updateEnabledBaseline(
+    args: UpdateEnabledBaselineCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateEnabledBaselineCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateEnabledControlCommand}
    */
   updateEnabledControl(
@@ -351,8 +536,8 @@ export interface ControlTower {
 
 /**
  * @public
- * <p>These interfaces allow you to apply the  Amazon Web Services library of pre-defined
- *          <i>controls</i> to your organizational units, programmatically. In  Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
+ * <p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
+ *          <i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
  *          <p>To call these APIs, you'll need to know:</p>
  *          <ul>
  *             <li>

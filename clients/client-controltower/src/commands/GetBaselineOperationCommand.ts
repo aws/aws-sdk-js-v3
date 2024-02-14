@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetControlOperationInput, GetControlOperationOutput } from "../models/models_0";
-import { de_GetControlOperationCommand, se_GetControlOperationCommand } from "../protocols/Aws_restJson1";
+import { GetBaselineOperationInput, GetBaselineOperationOutput } from "../models/models_0";
+import { de_GetBaselineOperationCommand, se_GetBaselineOperationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,50 +16,47 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetControlOperationCommand}.
+ * The input for {@link GetBaselineOperationCommand}.
  */
-export interface GetControlOperationCommandInput extends GetControlOperationInput {}
+export interface GetBaselineOperationCommandInput extends GetBaselineOperationInput {}
 /**
  * @public
  *
- * The output of {@link GetControlOperationCommand}.
+ * The output of {@link GetBaselineOperationCommand}.
  */
-export interface GetControlOperationCommandOutput extends GetControlOperationOutput, __MetadataBearer {}
+export interface GetBaselineOperationCommandOutput extends GetBaselineOperationOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns the status of a particular <code>EnableControl</code> or
- *          <code>DisableControl</code> operation. Displays a message in case of error. Details for an
- *          operation are available for 90 days. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Returns the details of an asynchronous baseline operation, as initiated by any of these APIs: <code>EnableBaseline</code>, <code>DisableBaseline</code>, <code>UpdateEnabledBaseline</code>, <code>ResetEnabledBaseline</code>. A status message is displayed in case of operation failure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, GetControlOperationCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, GetControlOperationCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, GetBaselineOperationCommand } from "@aws-sdk/client-controltower"; // ES Modules import
+ * // const { ControlTowerClient, GetBaselineOperationCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = { // GetControlOperationInput
+ * const input = { // GetBaselineOperationInput
  *   operationIdentifier: "STRING_VALUE", // required
  * };
- * const command = new GetControlOperationCommand(input);
+ * const command = new GetBaselineOperationCommand(input);
  * const response = await client.send(command);
- * // { // GetControlOperationOutput
- * //   controlOperation: { // ControlOperation
- * //     operationType: "STRING_VALUE",
+ * // { // GetBaselineOperationOutput
+ * //   baselineOperation: { // BaselineOperation
+ * //     operationIdentifier: "STRING_VALUE",
+ * //     operationType: "ENABLE_BASELINE" || "DISABLE_BASELINE" || "UPDATE_ENABLED_BASELINE" || "RESET_ENABLED_BASELINE",
+ * //     status: "SUCCEEDED" || "FAILED" || "IN_PROGRESS",
  * //     startTime: new Date("TIMESTAMP"),
  * //     endTime: new Date("TIMESTAMP"),
- * //     status: "STRING_VALUE",
  * //     statusMessage: "STRING_VALUE",
  * //   },
  * // };
  *
  * ```
  *
- * @param GetControlOperationCommandInput - {@link GetControlOperationCommandInput}
- * @returns {@link GetControlOperationCommandOutput}
- * @see {@link GetControlOperationCommandInput} for command's `input` shape.
- * @see {@link GetControlOperationCommandOutput} for command's `response` shape.
+ * @param GetBaselineOperationCommandInput - {@link GetBaselineOperationCommandInput}
+ * @returns {@link GetBaselineOperationCommandOutput}
+ * @see {@link GetBaselineOperationCommandInput} for command's `input` shape.
+ * @see {@link GetBaselineOperationCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -81,10 +78,10 @@ export interface GetControlOperationCommandOutput extends GetControlOperationOut
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
-export class GetControlOperationCommand extends $Command
+export class GetBaselineOperationCommand extends $Command
   .classBuilder<
-    GetControlOperationCommandInput,
-    GetControlOperationCommandOutput,
+    GetBaselineOperationCommandInput,
+    GetBaselineOperationCommandOutput,
     ControlTowerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -98,9 +95,9 @@ export class GetControlOperationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSControlTowerApis", "GetControlOperation", {})
-  .n("ControlTowerClient", "GetControlOperationCommand")
+  .s("AWSControlTowerApis", "GetBaselineOperation", {})
+  .n("ControlTowerClient", "GetBaselineOperationCommand")
   .f(void 0, void 0)
-  .ser(se_GetControlOperationCommand)
-  .de(de_GetControlOperationCommand)
+  .ser(se_GetBaselineOperationCommand)
+  .de(de_GetBaselineOperationCommand)
   .build() {}

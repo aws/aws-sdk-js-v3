@@ -25,18 +25,31 @@ import {
 
 import { CreateLandingZoneCommandInput, CreateLandingZoneCommandOutput } from "../commands/CreateLandingZoneCommand";
 import { DeleteLandingZoneCommandInput, DeleteLandingZoneCommandOutput } from "../commands/DeleteLandingZoneCommand";
+import { DisableBaselineCommandInput, DisableBaselineCommandOutput } from "../commands/DisableBaselineCommand";
 import { DisableControlCommandInput, DisableControlCommandOutput } from "../commands/DisableControlCommand";
+import { EnableBaselineCommandInput, EnableBaselineCommandOutput } from "../commands/EnableBaselineCommand";
 import { EnableControlCommandInput, EnableControlCommandOutput } from "../commands/EnableControlCommand";
+import { GetBaselineCommandInput, GetBaselineCommandOutput } from "../commands/GetBaselineCommand";
+import {
+  GetBaselineOperationCommandInput,
+  GetBaselineOperationCommandOutput,
+} from "../commands/GetBaselineOperationCommand";
 import {
   GetControlOperationCommandInput,
   GetControlOperationCommandOutput,
 } from "../commands/GetControlOperationCommand";
+import { GetEnabledBaselineCommandInput, GetEnabledBaselineCommandOutput } from "../commands/GetEnabledBaselineCommand";
 import { GetEnabledControlCommandInput, GetEnabledControlCommandOutput } from "../commands/GetEnabledControlCommand";
 import { GetLandingZoneCommandInput, GetLandingZoneCommandOutput } from "../commands/GetLandingZoneCommand";
 import {
   GetLandingZoneOperationCommandInput,
   GetLandingZoneOperationCommandOutput,
 } from "../commands/GetLandingZoneOperationCommand";
+import { ListBaselinesCommandInput, ListBaselinesCommandOutput } from "../commands/ListBaselinesCommand";
+import {
+  ListEnabledBaselinesCommandInput,
+  ListEnabledBaselinesCommandOutput,
+} from "../commands/ListEnabledBaselinesCommand";
 import {
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
@@ -46,9 +59,17 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "../commands/ListTagsForResourceCommand";
+import {
+  ResetEnabledBaselineCommandInput,
+  ResetEnabledBaselineCommandOutput,
+} from "../commands/ResetEnabledBaselineCommand";
 import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "../commands/ResetLandingZoneCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import {
+  UpdateEnabledBaselineCommandInput,
+  UpdateEnabledBaselineCommandOutput,
+} from "../commands/UpdateEnabledBaselineCommand";
 import {
   UpdateEnabledControlCommandInput,
   UpdateEnabledControlCommandOutput,
@@ -57,8 +78,13 @@ import { UpdateLandingZoneCommandInput, UpdateLandingZoneCommandOutput } from ".
 import { ControlTowerServiceException as __BaseException } from "../models/ControlTowerServiceException";
 import {
   AccessDeniedException,
+  BaselineOperation,
   ConflictException,
   ControlOperation,
+  EnabledBaselineDetails,
+  EnabledBaselineFilter,
+  EnabledBaselineParameter,
+  EnabledBaselineParameterSummary,
   EnabledControlDetails,
   EnabledControlParameter,
   EnabledControlParameterSummary,
@@ -118,6 +144,28 @@ export const se_DeleteLandingZoneCommand = async (
 };
 
 /**
+ * serializeAws_restJson1DisableBaselineCommand
+ */
+export const se_DisableBaselineCommand = async (
+  input: DisableBaselineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/disable-baseline");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      enabledBaselineIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1DisableControlCommand
  */
 export const se_DisableControlCommand = async (
@@ -133,6 +181,32 @@ export const se_DisableControlCommand = async (
   body = JSON.stringify(
     take(input, {
       controlIdentifier: [],
+      targetIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1EnableBaselineCommand
+ */
+export const se_EnableBaselineCommand = async (
+  input: EnableBaselineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/enable-baseline");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      baselineIdentifier: [],
+      baselineVersion: [],
+      parameters: (_) => se_EnabledBaselineParameters(_, context),
+      tags: (_) => _json(_),
       targetIdentifier: [],
     })
   );
@@ -166,6 +240,50 @@ export const se_EnableControlCommand = async (
 };
 
 /**
+ * serializeAws_restJson1GetBaselineCommand
+ */
+export const se_GetBaselineCommand = async (
+  input: GetBaselineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/get-baseline");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      baselineIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetBaselineOperationCommand
+ */
+export const se_GetBaselineOperationCommand = async (
+  input: GetBaselineOperationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/get-baseline-operation");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      operationIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1GetControlOperationCommand
  */
 export const se_GetControlOperationCommand = async (
@@ -181,6 +299,28 @@ export const se_GetControlOperationCommand = async (
   body = JSON.stringify(
     take(input, {
       operationIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1GetEnabledBaselineCommand
+ */
+export const se_GetEnabledBaselineCommand = async (
+  input: GetEnabledBaselineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/get-enabled-baseline");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      enabledBaselineIdentifier: [],
     })
   );
   b.m("POST").h(headers).b(body);
@@ -254,6 +394,53 @@ export const se_GetLandingZoneOperationCommand = async (
 };
 
 /**
+ * serializeAws_restJson1ListBaselinesCommand
+ */
+export const se_ListBaselinesCommand = async (
+  input: ListBaselinesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-baselines");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListEnabledBaselinesCommand
+ */
+export const se_ListEnabledBaselinesCommand = async (
+  input: ListEnabledBaselinesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/list-enabled-baselines");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      filter: (_) => _json(_),
+      maxResults: [],
+      nextToken: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1ListEnabledControlsCommand
  */
 export const se_ListEnabledControlsCommand = async (
@@ -313,6 +500,28 @@ export const se_ListTagsForResourceCommand = async (
   b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
   let body: any;
   b.m("GET").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ResetEnabledBaselineCommand
+ */
+export const se_ResetEnabledBaselineCommand = async (
+  input: ResetEnabledBaselineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/reset-enabled-baseline");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      enabledBaselineIdentifier: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -380,6 +589,30 @@ export const se_UntagResourceCommand = async (
   });
   let body: any;
   b.m("DELETE").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UpdateEnabledBaselineCommand
+ */
+export const se_UpdateEnabledBaselineCommand = async (
+  input: UpdateEnabledBaselineCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/update-enabled-baseline");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      baselineVersion: [],
+      enabledBaselineIdentifier: [],
+      parameters: (_) => se_EnabledBaselineParameters(_, context),
+    })
+  );
+  b.m("POST").h(headers).b(body);
   return b.build();
 };
 
@@ -474,6 +707,27 @@ export const de_DeleteLandingZoneCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DisableBaselineCommand
+ */
+export const de_DisableBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DisableBaselineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DisableControlCommand
  */
 export const de_DisableControlCommand = async (
@@ -488,6 +742,28 @@ export const de_DisableControlCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1EnableBaselineCommand
+ */
+export const de_EnableBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<EnableBaselineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
     operationIdentifier: __expectString,
   });
   Object.assign(contents, doc);
@@ -517,6 +793,50 @@ export const de_EnableControlCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1GetBaselineCommand
+ */
+export const de_GetBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBaselineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    arn: __expectString,
+    description: __expectString,
+    name: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetBaselineOperationCommand
+ */
+export const de_GetBaselineOperationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetBaselineOperationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    baselineOperation: (_) => de_BaselineOperation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1GetControlOperationCommand
  */
 export const de_GetControlOperationCommand = async (
@@ -532,6 +852,27 @@ export const de_GetControlOperationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     controlOperation: (_) => de_ControlOperation(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1GetEnabledBaselineCommand
+ */
+export const de_GetEnabledBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetEnabledBaselineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    enabledBaselineDetails: (_) => de_EnabledBaselineDetails(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -595,6 +936,50 @@ export const de_GetLandingZoneOperationCommand = async (
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
     operationDetails: (_) => de_LandingZoneOperationDetail(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListBaselinesCommand
+ */
+export const de_ListBaselinesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListBaselinesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    baselines: _json,
+    nextToken: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1ListEnabledBaselinesCommand
+ */
+export const de_ListEnabledBaselinesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListEnabledBaselinesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    enabledBaselines: _json,
+    nextToken: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -666,6 +1051,27 @@ export const de_ListTagsForResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ResetEnabledBaselineCommand
+ */
+export const de_ResetEnabledBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ResetEnabledBaselineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ResetLandingZoneCommand
  */
 export const de_ResetLandingZoneCommand = async (
@@ -717,6 +1123,27 @@ export const de_UntagResourceCommand = async (
     $metadata: deserializeMetadata(output),
   });
   await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UpdateEnabledBaselineCommand
+ */
+export const de_UpdateEnabledBaselineCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateEnabledBaselineCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    operationIdentifier: __expectString,
+  });
+  Object.assign(contents, doc);
   return contents;
 };
 
@@ -939,6 +1366,40 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_EnabledBaselineBaselineIdentifiers omitted.
+
+// se_EnabledBaselineFilter omitted.
+
+/**
+ * serializeAws_restJson1EnabledBaselineParameter
+ */
+const se_EnabledBaselineParameter = (input: EnabledBaselineParameter, context: __SerdeContext): any => {
+  return take(input, {
+    key: [],
+    value: (_) => se_EnabledBaselineParameterDocument(_, context),
+  });
+};
+
+/**
+ * serializeAws_restJson1EnabledBaselineParameterDocument
+ */
+const se_EnabledBaselineParameterDocument = (input: __DocumentType, context: __SerdeContext): any => {
+  return input;
+};
+
+/**
+ * serializeAws_restJson1EnabledBaselineParameters
+ */
+const se_EnabledBaselineParameters = (input: EnabledBaselineParameter[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return se_EnabledBaselineParameter(entry, context);
+    });
+};
+
+// se_EnabledBaselineTargetIdentifiers omitted.
+
 /**
  * serializeAws_restJson1EnabledControlParameter
  */
@@ -977,6 +1438,24 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 };
 
 /**
+ * deserializeAws_restJson1BaselineOperation
+ */
+const de_BaselineOperation = (output: any, context: __SerdeContext): BaselineOperation => {
+  return take(output, {
+    endTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    operationIdentifier: __expectString,
+    operationType: __expectString,
+    startTime: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
+    status: __expectString,
+    statusMessage: __expectString,
+  }) as any;
+};
+
+// de_Baselines omitted.
+
+// de_BaselineSummary omitted.
+
+/**
  * deserializeAws_restJson1ControlOperation
  */
 const de_ControlOperation = (output: any, context: __SerdeContext): ControlOperation => {
@@ -990,6 +1469,56 @@ const de_ControlOperation = (output: any, context: __SerdeContext): ControlOpera
 };
 
 // de_DriftStatusSummary omitted.
+
+/**
+ * deserializeAws_restJson1EnabledBaselineDetails
+ */
+const de_EnabledBaselineDetails = (output: any, context: __SerdeContext): EnabledBaselineDetails => {
+  return take(output, {
+    arn: __expectString,
+    baselineIdentifier: __expectString,
+    baselineVersion: __expectString,
+    parameters: (_: any) => de_EnabledBaselineParameterSummaries(_, context),
+    statusSummary: _json,
+    targetIdentifier: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_restJson1EnabledBaselineParameterDocument
+ */
+const de_EnabledBaselineParameterDocument = (output: any, context: __SerdeContext): __DocumentType => {
+  return output;
+};
+
+/**
+ * deserializeAws_restJson1EnabledBaselineParameterSummaries
+ */
+const de_EnabledBaselineParameterSummaries = (
+  output: any,
+  context: __SerdeContext
+): EnabledBaselineParameterSummary[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_EnabledBaselineParameterSummary(entry, context);
+    });
+  return retVal;
+};
+
+/**
+ * deserializeAws_restJson1EnabledBaselineParameterSummary
+ */
+const de_EnabledBaselineParameterSummary = (output: any, context: __SerdeContext): EnabledBaselineParameterSummary => {
+  return take(output, {
+    key: __expectString,
+    value: (_: any) => de_EnabledBaselineParameterDocument(_, context),
+  }) as any;
+};
+
+// de_EnabledBaselines omitted.
+
+// de_EnabledBaselineSummary omitted.
 
 /**
  * deserializeAws_restJson1EnabledControlDetails

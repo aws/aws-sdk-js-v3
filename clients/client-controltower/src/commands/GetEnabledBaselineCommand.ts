@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { ControlTowerClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../ControlTowerClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetEnabledControlInput, GetEnabledControlOutput } from "../models/models_0";
-import { de_GetEnabledControlCommand, se_GetEnabledControlCommand } from "../protocols/Aws_restJson1";
+import { GetEnabledBaselineInput, GetEnabledBaselineOutput } from "../models/models_0";
+import { de_GetEnabledBaselineCommand, se_GetEnabledBaselineCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,51 +16,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetEnabledControlCommand}.
+ * The input for {@link GetEnabledBaselineCommand}.
  */
-export interface GetEnabledControlCommandInput extends GetEnabledControlInput {}
+export interface GetEnabledBaselineCommandInput extends GetEnabledBaselineInput {}
 /**
  * @public
  *
- * The output of {@link GetEnabledControlCommand}.
+ * The output of {@link GetEnabledBaselineCommand}.
  */
-export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput, __MetadataBearer {}
+export interface GetEnabledBaselineCommandOutput extends GetEnabledBaselineOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Retrieves details about an enabled control. For usage examples, see <a href="https://docs.aws.amazon.com/controltower/latest/userguide/control-api-examples-short.html">
- *                <i>the Amazon Web Services Control Tower User Guide</i>
- *             </a>.</p>
+ * <p>Retrieve details of an <code>EnabledBaseline</code> resource by specifying its identifier.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { ControlTowerClient, GetEnabledControlCommand } from "@aws-sdk/client-controltower"; // ES Modules import
- * // const { ControlTowerClient, GetEnabledControlCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
+ * import { ControlTowerClient, GetEnabledBaselineCommand } from "@aws-sdk/client-controltower"; // ES Modules import
+ * // const { ControlTowerClient, GetEnabledBaselineCommand } = require("@aws-sdk/client-controltower"); // CommonJS import
  * const client = new ControlTowerClient(config);
- * const input = { // GetEnabledControlInput
- *   enabledControlIdentifier: "STRING_VALUE", // required
+ * const input = { // GetEnabledBaselineInput
+ *   enabledBaselineIdentifier: "STRING_VALUE", // required
  * };
- * const command = new GetEnabledControlCommand(input);
+ * const command = new GetEnabledBaselineCommand(input);
  * const response = await client.send(command);
- * // { // GetEnabledControlOutput
- * //   enabledControlDetails: { // EnabledControlDetails
- * //     arn: "STRING_VALUE",
- * //     controlIdentifier: "STRING_VALUE",
- * //     targetIdentifier: "STRING_VALUE",
- * //     targetRegions: [ // TargetRegions
- * //       { // Region
- * //         name: "STRING_VALUE",
- * //       },
- * //     ],
+ * // { // GetEnabledBaselineOutput
+ * //   enabledBaselineDetails: { // EnabledBaselineDetails
+ * //     arn: "STRING_VALUE", // required
+ * //     baselineIdentifier: "STRING_VALUE", // required
+ * //     baselineVersion: "STRING_VALUE",
+ * //     targetIdentifier: "STRING_VALUE", // required
  * //     statusSummary: { // EnablementStatusSummary
  * //       status: "SUCCEEDED" || "FAILED" || "UNDER_CHANGE",
  * //       lastOperationIdentifier: "STRING_VALUE",
  * //     },
- * //     driftStatusSummary: { // DriftStatusSummary
- * //       driftStatus: "DRIFTED" || "IN_SYNC" || "NOT_CHECKING" || "UNKNOWN",
- * //     },
- * //     parameters: [ // EnabledControlParameterSummaries
- * //       { // EnabledControlParameterSummary
+ * //     parameters: [ // EnabledBaselineParameterSummaries
+ * //       { // EnabledBaselineParameterSummary
  * //         key: "STRING_VALUE", // required
  * //         value: "DOCUMENT_VALUE", // required
  * //       },
@@ -70,10 +61,10 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
  *
  * ```
  *
- * @param GetEnabledControlCommandInput - {@link GetEnabledControlCommandInput}
- * @returns {@link GetEnabledControlCommandOutput}
- * @see {@link GetEnabledControlCommandInput} for command's `input` shape.
- * @see {@link GetEnabledControlCommandOutput} for command's `response` shape.
+ * @param GetEnabledBaselineCommandInput - {@link GetEnabledBaselineCommandInput}
+ * @returns {@link GetEnabledBaselineCommandOutput}
+ * @see {@link GetEnabledBaselineCommandInput} for command's `input` shape.
+ * @see {@link GetEnabledBaselineCommandOutput} for command's `response` shape.
  * @see {@link ControlTowerClientResolvedConfig | config} for ControlTowerClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -95,10 +86,10 @@ export interface GetEnabledControlCommandOutput extends GetEnabledControlOutput,
  * <p>Base exception class for all service exceptions from ControlTower service.</p>
  *
  */
-export class GetEnabledControlCommand extends $Command
+export class GetEnabledBaselineCommand extends $Command
   .classBuilder<
-    GetEnabledControlCommandInput,
-    GetEnabledControlCommandOutput,
+    GetEnabledBaselineCommandInput,
+    GetEnabledBaselineCommandOutput,
     ControlTowerClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -112,9 +103,9 @@ export class GetEnabledControlCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSControlTowerApis", "GetEnabledControl", {})
-  .n("ControlTowerClient", "GetEnabledControlCommand")
+  .s("AWSControlTowerApis", "GetEnabledBaseline", {})
+  .n("ControlTowerClient", "GetEnabledBaselineCommand")
   .f(void 0, void 0)
-  .ser(se_GetEnabledControlCommand)
-  .de(de_GetEnabledControlCommand)
+  .ser(se_GetEnabledBaselineCommand)
+  .de(de_GetEnabledBaselineCommand)
   .build() {}

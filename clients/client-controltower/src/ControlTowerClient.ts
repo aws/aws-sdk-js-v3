@@ -55,18 +55,31 @@ import {
 } from "./auth/httpAuthSchemeProvider";
 import { CreateLandingZoneCommandInput, CreateLandingZoneCommandOutput } from "./commands/CreateLandingZoneCommand";
 import { DeleteLandingZoneCommandInput, DeleteLandingZoneCommandOutput } from "./commands/DeleteLandingZoneCommand";
+import { DisableBaselineCommandInput, DisableBaselineCommandOutput } from "./commands/DisableBaselineCommand";
 import { DisableControlCommandInput, DisableControlCommandOutput } from "./commands/DisableControlCommand";
+import { EnableBaselineCommandInput, EnableBaselineCommandOutput } from "./commands/EnableBaselineCommand";
 import { EnableControlCommandInput, EnableControlCommandOutput } from "./commands/EnableControlCommand";
+import { GetBaselineCommandInput, GetBaselineCommandOutput } from "./commands/GetBaselineCommand";
+import {
+  GetBaselineOperationCommandInput,
+  GetBaselineOperationCommandOutput,
+} from "./commands/GetBaselineOperationCommand";
 import {
   GetControlOperationCommandInput,
   GetControlOperationCommandOutput,
 } from "./commands/GetControlOperationCommand";
+import { GetEnabledBaselineCommandInput, GetEnabledBaselineCommandOutput } from "./commands/GetEnabledBaselineCommand";
 import { GetEnabledControlCommandInput, GetEnabledControlCommandOutput } from "./commands/GetEnabledControlCommand";
 import { GetLandingZoneCommandInput, GetLandingZoneCommandOutput } from "./commands/GetLandingZoneCommand";
 import {
   GetLandingZoneOperationCommandInput,
   GetLandingZoneOperationCommandOutput,
 } from "./commands/GetLandingZoneOperationCommand";
+import { ListBaselinesCommandInput, ListBaselinesCommandOutput } from "./commands/ListBaselinesCommand";
+import {
+  ListEnabledBaselinesCommandInput,
+  ListEnabledBaselinesCommandOutput,
+} from "./commands/ListEnabledBaselinesCommand";
 import {
   ListEnabledControlsCommandInput,
   ListEnabledControlsCommandOutput,
@@ -76,9 +89,17 @@ import {
   ListTagsForResourceCommandInput,
   ListTagsForResourceCommandOutput,
 } from "./commands/ListTagsForResourceCommand";
+import {
+  ResetEnabledBaselineCommandInput,
+  ResetEnabledBaselineCommandOutput,
+} from "./commands/ResetEnabledBaselineCommand";
 import { ResetLandingZoneCommandInput, ResetLandingZoneCommandOutput } from "./commands/ResetLandingZoneCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import {
+  UpdateEnabledBaselineCommandInput,
+  UpdateEnabledBaselineCommandOutput,
+} from "./commands/UpdateEnabledBaselineCommand";
 import {
   UpdateEnabledControlCommandInput,
   UpdateEnabledControlCommandOutput,
@@ -101,18 +122,27 @@ export { __Client };
 export type ServiceInputTypes =
   | CreateLandingZoneCommandInput
   | DeleteLandingZoneCommandInput
+  | DisableBaselineCommandInput
   | DisableControlCommandInput
+  | EnableBaselineCommandInput
   | EnableControlCommandInput
+  | GetBaselineCommandInput
+  | GetBaselineOperationCommandInput
   | GetControlOperationCommandInput
+  | GetEnabledBaselineCommandInput
   | GetEnabledControlCommandInput
   | GetLandingZoneCommandInput
   | GetLandingZoneOperationCommandInput
+  | ListBaselinesCommandInput
+  | ListEnabledBaselinesCommandInput
   | ListEnabledControlsCommandInput
   | ListLandingZonesCommandInput
   | ListTagsForResourceCommandInput
+  | ResetEnabledBaselineCommandInput
   | ResetLandingZoneCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateEnabledBaselineCommandInput
   | UpdateEnabledControlCommandInput
   | UpdateLandingZoneCommandInput;
 
@@ -122,18 +152,27 @@ export type ServiceInputTypes =
 export type ServiceOutputTypes =
   | CreateLandingZoneCommandOutput
   | DeleteLandingZoneCommandOutput
+  | DisableBaselineCommandOutput
   | DisableControlCommandOutput
+  | EnableBaselineCommandOutput
   | EnableControlCommandOutput
+  | GetBaselineCommandOutput
+  | GetBaselineOperationCommandOutput
   | GetControlOperationCommandOutput
+  | GetEnabledBaselineCommandOutput
   | GetEnabledControlCommandOutput
   | GetLandingZoneCommandOutput
   | GetLandingZoneOperationCommandOutput
+  | ListBaselinesCommandOutput
+  | ListEnabledBaselinesCommandOutput
   | ListEnabledControlsCommandOutput
   | ListLandingZonesCommandOutput
   | ListTagsForResourceCommandOutput
+  | ResetEnabledBaselineCommandOutput
   | ResetLandingZoneCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateEnabledBaselineCommandOutput
   | UpdateEnabledControlCommandOutput
   | UpdateLandingZoneCommandOutput;
 
@@ -310,8 +349,8 @@ export interface ControlTowerClientResolvedConfig extends ControlTowerClientReso
 
 /**
  * @public
- * <p>These interfaces allow you to apply the  Amazon Web Services library of pre-defined
- *          <i>controls</i> to your organizational units, programmatically. In  Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
+ * <p>These interfaces allow you to apply the Amazon Web Services library of pre-defined
+ *          <i>controls</i> to your organizational units, programmatically. In Amazon Web Services Control Tower, the terms "control" and "guardrail" are synonyms.</p>
  *          <p>To call these APIs, you'll need to know:</p>
  *          <ul>
  *             <li>

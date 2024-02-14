@@ -27,53 +27,36 @@ export class AccessDeniedException extends __BaseException {
 
 /**
  * @public
- * <p>Updating or deleting the resource can cause an inconsistent state.</p>
  */
-export class ConflictException extends __BaseException {
-  readonly name: "ConflictException" = "ConflictException";
-  readonly $fault: "client" = "client";
+export interface GetBaselineInput {
   /**
-   * @internal
+   * @public
+   * <p>The ARN of the <code>Baseline</code> resource to be retrieved.</p>
    */
-  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
-    super({
-      name: "ConflictException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ConflictException.prototype);
-  }
+  baselineIdentifier: string | undefined;
 }
 
 /**
  * @public
  */
-export interface DisableControlInput {
+export interface GetBaselineOutput {
   /**
    * @public
-   * <p>The ARN of the control. Only <b>Strongly recommended</b> and
-   *          <b>Elective</b> controls are permitted, with the exception of the
-   *          <b>landing zone Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * <p>The baseline ARN.</p>
    */
-  controlIdentifier: string | undefined;
+  arn: string | undefined;
 
   /**
    * @public
-   * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   * <p>A user-friendly name for the baseline.</p>
    */
-  targetIdentifier: string | undefined;
-}
+  name: string | undefined;
 
-/**
- * @public
- */
-export interface DisableControlOutput {
   /**
    * @public
-   * <p>The ID of the asynchronous operation, which is used to track status. The operation is
-   *          available for 90 days.</p>
+   * <p>A description of the baseline.</p>
    */
-  operationIdentifier: string | undefined;
+  description?: string;
 }
 
 /**
@@ -119,26 +102,6 @@ export class ResourceNotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
- */
-export class ServiceQuotaExceededException extends __BaseException {
-  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
-  readonly $fault: "client" = "client";
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
-    super({
-      name: "ServiceQuotaExceededException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
-  }
-}
-
-/**
- * @public
  * <p>The request was denied due to request throttling.</p>
  */
 export class ThrottlingException extends __BaseException {
@@ -149,8 +112,7 @@ export class ThrottlingException extends __BaseException {
   };
   /**
    * @public
-   * <p>The ID of the service that is associated with the error.
-   *       </p>
+   * <p>The ID of the service that is associated with the error.</p>
    */
   serviceCode?: string;
 
@@ -162,7 +124,7 @@ export class ThrottlingException extends __BaseException {
 
   /**
    * @public
-   * <p>The number of seconds to wait before retrying.</p>
+   * <p>The number of seconds the caller should wait before retrying.</p>
    */
   retryAfterSeconds?: number;
 
@@ -184,7 +146,7 @@ export class ThrottlingException extends __BaseException {
 
 /**
  * @public
- * <p>The input does not satisfy the constraints specified by an  Amazon Web Services service.</p>
+ * <p>The input does not satisfy the constraints specified by an Amazon Web Services service.</p>
  */
 export class ValidationException extends __BaseException {
   readonly name: "ValidationException" = "ValidationException";
@@ -204,19 +166,147 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
- * <p> A set of parameters that configure the behavior of the enabled control. A key/value pair, where <code>Key</code> is of type <code>String</code> and <code>Value</code> is of type <code>Document</code>.</p>
+ */
+export interface ListBaselinesInput {
+  /**
+   * @public
+   * <p>A pagination token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be shown.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Returns a summary of information about a <code>Baseline</code> object.</p>
+ */
+export interface BaselineSummary {
+  /**
+   * @public
+   * <p>The full ARN of a Baseline.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The human-readable name of a Baseline.</p>
+   */
+  name: string | undefined;
+
+  /**
+   * @public
+   * <p>A summary description of a Baseline.</p>
+   */
+  description?: string;
+}
+
+/**
+ * @public
+ */
+export interface ListBaselinesOutput {
+  /**
+   * @public
+   * <p>A  list of <code>Baseline</code> object details.</p>
+   */
+  baselines: BaselineSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>A pagination token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ * <p>Updating or deleting the resource can cause an inconsistent state.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * @public
+ */
+export interface DisableControlInput {
+  /**
+   * @public
+   * <p>The ARN of the control. Only <b>Strongly recommended</b> and
+   *          <b>Elective</b> controls are permitted, with the exception of the
+   *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   */
+  controlIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the organizational unit. For information on how to find the <code>targetIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   */
+  targetIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableControlOutput {
+  /**
+   * @public
+   * <p>The ID of the asynchronous operation, which is used to track status. The operation is
+   *          available for 90 days.</p>
+   */
+  operationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The request would cause a service quota to be exceeded. The limit is 10 concurrent operations.</p>
+ */
+export class ServiceQuotaExceededException extends __BaseException {
+  readonly name: "ServiceQuotaExceededException" = "ServiceQuotaExceededException";
+  readonly $fault: "client" = "client";
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ServiceQuotaExceededException, __BaseException>) {
+    super({
+      name: "ServiceQuotaExceededException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ServiceQuotaExceededException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>A key/value pair, where <code>Key</code> is of type <code>String</code> and <code>Value</code> is of type <code>Document</code>.</p>
  */
 export interface EnabledControlParameter {
   /**
    * @public
-   * <p>The key of a key/value pair. It is of type <code>string</code>.</p>
+   * <p>The key of a key/value pair.</p>
    */
   key: string | undefined;
 
   /**
    * @public
-   * <p>The value of a key/value pair. It can be of type <code>array</code>
-   *             <code>string</code>, <code>number</code>, <code>object</code>, or <code>boolean</code>. </p>
+   * <p>The value of a key/value pair.</p>
    */
   value: __DocumentType | undefined;
 }
@@ -229,7 +319,7 @@ export interface EnableControlInput {
    * @public
    * <p>The ARN of the control. Only <b>Strongly recommended</b> and
    *          <b>Elective</b> controls are permitted, with the exception of the
-   *          <b>landing zone Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
+   *          <b>Region deny</b> control. For information on how to find the <code>controlIdentifier</code>, see <a href="https://docs.aws.amazon.com/controltower/latest/APIReference/Welcome.html">the overview page</a>.</p>
    */
   controlIdentifier: string | undefined;
 
@@ -247,7 +337,7 @@ export interface EnableControlInput {
 
   /**
    * @public
-   * <p>An array of <code>EnabledControlParameter</code> objects</p>
+   * <p>A list of input parameter values, which are specified to configure the control when you enable it.</p>
    */
   parameters?: EnabledControlParameter[];
 }
@@ -268,6 +358,473 @@ export interface EnableControlOutput {
    * <p>The ARN of the <code>EnabledControl</code> resource.</p>
    */
   arn?: string;
+}
+
+/**
+ * @public
+ */
+export interface DisableBaselineInput {
+  /**
+   * @public
+   * <p>Identifier of the <code>EnabledBaseline</code> resource to be deactivated, in ARN format.</p>
+   */
+  enabledBaselineIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DisableBaselineOutput {
+  /**
+   * @public
+   * <p>The ID (in UUID format) of the asynchronous <code>DisableBaseline</code> operation. This <code>operationIdentifier</code> is used to track status through calls to the <code>GetBaselineOperation</code> API.</p>
+   */
+  operationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * <p>A key-value parameter to an <code>EnabledBaseline</code> resource.</p>
+ */
+export interface EnabledBaselineParameter {
+  /**
+   * @public
+   * <p>A string denoting the parameter key.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * @public
+   * <p>A low-level <code>Document</code> object of any type (for example, a Java Object).</p>
+   */
+  value: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ */
+export interface EnableBaselineInput {
+  /**
+   * @public
+   * <p>The specific version to be enabled of the specified baseline.</p>
+   */
+  baselineVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of <code>key-value</code> objects that specify enablement parameters, where <code>key</code> is a string and <code>value</code> is a document of any type.</p>
+   */
+  parameters?: EnabledBaselineParameter[];
+
+  /**
+   * @public
+   * <p>The ARN of the baseline to be enabled.</p>
+   */
+  baselineIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the target on which the baseline will be enabled. Only OUs are supported as targets.</p>
+   */
+  targetIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>Tags associated with input to <code>EnableBaseline</code>.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface EnableBaselineOutput {
+  /**
+   * @public
+   * <p>The ID (in UUID format) of the asynchronous <code>EnableBaseline</code> operation. This <code>operationIdentifier</code> is used to track status through calls to the <code>GetBaselineOperation</code> API.</p>
+   */
+  operationIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The ARN of the <code>EnabledBaseline</code> resource.</p>
+   */
+  arn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetBaselineOperationInput {
+  /**
+   * @public
+   * <p>The operation ID returned from mutating asynchronous APIs (Enable, Disable, Update, Reset).</p>
+   */
+  operationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const BaselineOperationType = {
+  DISABLE_BASELINE: "DISABLE_BASELINE",
+  ENABLE_BASELINE: "ENABLE_BASELINE",
+  RESET_ENABLED_BASELINE: "RESET_ENABLED_BASELINE",
+  UPDATE_ENABLED_BASELINE: "UPDATE_ENABLED_BASELINE",
+} as const;
+
+/**
+ * @public
+ */
+export type BaselineOperationType = (typeof BaselineOperationType)[keyof typeof BaselineOperationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const BaselineOperationStatus = {
+  FAILED: "FAILED",
+  IN_PROGRESS: "IN_PROGRESS",
+  SUCCEEDED: "SUCCEEDED",
+} as const;
+
+/**
+ * @public
+ */
+export type BaselineOperationStatus = (typeof BaselineOperationStatus)[keyof typeof BaselineOperationStatus];
+
+/**
+ * @public
+ * <p>An object of shape <code>BaselineOperation</code>, returning details about the specified <code>Baseline</code> operation ID.</p>
+ */
+export interface BaselineOperation {
+  /**
+   * @public
+   * <p>The identifier of the specified operation.</p>
+   */
+  operationIdentifier?: string;
+
+  /**
+   * @public
+   * <p>An enumerated type (<code>enum</code>) with possible values of <code>ENABLE_BASELINE</code>, <code>DISABLE_BASELINE</code>, <code>UPDATE_ENABLED_BASELINE</code>, or <code>RESET_ENABLED_BASELINE</code>.</p>
+   */
+  operationType?: BaselineOperationType;
+
+  /**
+   * @public
+   * <p>An enumerated type (<code>enum</code>) with possible values of <code>SUCCEEDED</code>, <code>FAILED</code>, or <code>IN_PROGRESS</code>.</p>
+   */
+  status?: BaselineOperationStatus;
+
+  /**
+   * @public
+   * <p>The start time of the operation, in ISO 8601 format.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * @public
+   * <p>The end time of the operation (if applicable), in ISO 8601 format.</p>
+   */
+  endTime?: Date;
+
+  /**
+   * @public
+   * <p>A status message that gives more information about the operation's status, if applicable.</p>
+   */
+  statusMessage?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetBaselineOperationOutput {
+  /**
+   * @public
+   * <p>A <code>baselineOperation</code> object that shows information about the specified operation ID.</p>
+   */
+  baselineOperation: BaselineOperation | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetEnabledBaselineInput {
+  /**
+   * @public
+   * <p>Identifier of the <code>EnabledBaseline</code> resource to be retrieved, in ARN format.</p>
+   */
+  enabledBaselineIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Summary of an applied parameter to an <code>EnabledBaseline</code> resource. </p>
+ */
+export interface EnabledBaselineParameterSummary {
+  /**
+   * @public
+   * <p>A string denoting the parameter key.</p>
+   */
+  key: string | undefined;
+
+  /**
+   * @public
+   * <p>A low-level document object of any type (for example, a Java Object).</p>
+   */
+  value: __DocumentType | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EnablementStatus = {
+  FAILED: "FAILED",
+  SUCCEEDED: "SUCCEEDED",
+  UNDER_CHANGE: "UNDER_CHANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type EnablementStatus = (typeof EnablementStatus)[keyof typeof EnablementStatus];
+
+/**
+ * @public
+ * <p>The deployment summary of the enabled control.</p>
+ */
+export interface EnablementStatusSummary {
+  /**
+   * @public
+   * <p> The deployment status of the enabled control.</p>
+   *          <p>Valid values:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>SUCCEEDED</code>: The <code>enabledControl</code> configuration was deployed successfully.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>UNDER_CHANGE</code>: The <code>enabledControl</code> configuration is changing. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>FAILED</code>: The <code>enabledControl</code> configuration failed to deploy.</p>
+   *             </li>
+   *          </ul>
+   */
+  status?: EnablementStatus;
+
+  /**
+   * @public
+   * <p>The last operation identifier for the enabled control.</p>
+   */
+  lastOperationIdentifier?: string;
+}
+
+/**
+ * @public
+ * <p>Details of the <code>EnabledBaseline</code> resource.</p>
+ */
+export interface EnabledBaselineDetails {
+  /**
+   * @public
+   * <p>The ARN of the <code>EnabledBaseline</code> resource.</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The specific <code>Baseline</code> enabled as part of the <code>EnabledBaseline</code> resource.</p>
+   */
+  baselineIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The enabled version of the <code>Baseline</code>.</p>
+   */
+  baselineVersion?: string;
+
+  /**
+   * @public
+   * <p>The target on which to enable the <code>Baseline</code>.</p>
+   */
+  targetIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The deployment summary of the enabled control.</p>
+   */
+  statusSummary: EnablementStatusSummary | undefined;
+
+  /**
+   * @public
+   * <p>Shows the parameters that are applied when enabling this <code>Baseline</code>.</p>
+   */
+  parameters?: EnabledBaselineParameterSummary[];
+}
+
+/**
+ * @public
+ */
+export interface GetEnabledBaselineOutput {
+  /**
+   * @public
+   * <p>Details of the <code>EnabledBaseline</code> resource.</p>
+   */
+  enabledBaselineDetails?: EnabledBaselineDetails;
+}
+
+/**
+ * @public
+ * <p>A filter applied on the <code>ListEnabledBaseline</code> operation. Allowed filters are <code>baselineIdentifiers</code> and <code>targetIdentifiers</code>. The filter can be applied for either, or both.</p>
+ */
+export interface EnabledBaselineFilter {
+  /**
+   * @public
+   * <p>Identifiers for the targets of the <code>Baseline</code> filter operation.</p>
+   */
+  targetIdentifiers?: string[];
+
+  /**
+   * @public
+   * <p>Identifiers for the <code>Baseline</code> objects returned as part of the filter operation.</p>
+   */
+  baselineIdentifiers?: string[];
+}
+
+/**
+ * @public
+ */
+export interface ListEnabledBaselinesInput {
+  /**
+   * @public
+   * <p>A filter applied on the <code>ListEnabledBaseline</code> operation. Allowed filters are <code>baselineIdentifiers</code> and <code>targetIdentifiers</code>. The filter can be applied for either, or both.</p>
+   */
+  filter?: EnabledBaselineFilter;
+
+  /**
+   * @public
+   * <p>A pagination token.</p>
+   */
+  nextToken?: string;
+
+  /**
+   * @public
+   * <p>The maximum number of results to be shown.</p>
+   */
+  maxResults?: number;
+}
+
+/**
+ * @public
+ * <p>Returns a summary of information about an <code>EnabledBaseline</code> object.</p>
+ */
+export interface EnabledBaselineSummary {
+  /**
+   * @public
+   * <p>The ARN of the <code>EnabledBaseline</code> resource</p>
+   */
+  arn: string | undefined;
+
+  /**
+   * @public
+   * <p>The specific baseline that is enabled as part of the <code>EnabledBaseline</code> resource.</p>
+   */
+  baselineIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The enabled version of the baseline.</p>
+   */
+  baselineVersion?: string;
+
+  /**
+   * @public
+   * <p>The target upon which the baseline is enabled.</p>
+   */
+  targetIdentifier: string | undefined;
+
+  /**
+   * @public
+   * <p>The deployment summary of the enabled control.</p>
+   */
+  statusSummary: EnablementStatusSummary | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListEnabledBaselinesOutput {
+  /**
+   * @public
+   * <p>Retuens a list of summaries of <code>EnabledBaseline</code> resources.</p>
+   */
+  enabledBaselines: EnabledBaselineSummary[] | undefined;
+
+  /**
+   * @public
+   * <p>A pagination token.</p>
+   */
+  nextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface ResetEnabledBaselineInput {
+  /**
+   * @public
+   * <p>Specifies the ID of the <code>EnabledBaseline</code> resource to be re-enabled, in ARN format.</p>
+   */
+  enabledBaselineIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ResetEnabledBaselineOutput {
+  /**
+   * @public
+   * <p>The ID (in UUID format) of the asynchronous <code>ResetEnabledBaseline</code> operation. This <code>operationIdentifier</code> is used to track status through calls to the <code>GetBaselineOperation</code> API.</p>
+   */
+  operationIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnabledBaselineInput {
+  /**
+   * @public
+   * <p>Specifies the new <code>Baseline</code> version, to which the <code>EnabledBaseline</code> should be updated.</p>
+   */
+  baselineVersion: string | undefined;
+
+  /**
+   * @public
+   * <p>Parameters to apply when making an update.</p>
+   */
+  parameters?: EnabledBaselineParameter[];
+
+  /**
+   * @public
+   * <p>Specifies the <code>EnabledBaseline</code> resource to be updated.</p>
+   */
+  enabledBaselineIdentifier: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateEnabledBaselineOutput {
+  /**
+   * @public
+   * <p>The ID (in UUID format) of the asynchronous <code>UpdateEnabledBaseline</code> operation. This <code>operationIdentifier</code> is used to track status through calls to the <code>GetBaselineOperation</code> API.</p>
+   */
+  operationIdentifier: string | undefined;
 }
 
 /**
@@ -445,55 +1002,7 @@ export interface EnabledControlParameterSummary {
 
 /**
  * @public
- * @enum
- */
-export const EnablementStatus = {
-  FAILED: "FAILED",
-  SUCCEEDED: "SUCCEEDED",
-  UNDER_CHANGE: "UNDER_CHANGE",
-} as const;
-
-/**
- * @public
- */
-export type EnablementStatus = (typeof EnablementStatus)[keyof typeof EnablementStatus];
-
-/**
- * @public
- * <p>The deployment summary of the enabled control.</p>
- */
-export interface EnablementStatusSummary {
-  /**
-   * @public
-   * <p> The deployment status of the enabled control.</p>
-   *          <p>Valid values:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>SUCCEEDED</code>: The <code>enabledControl</code> configuration was deployed successfully.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>UNDER_CHANGE</code>: The <code>enabledControl</code> configuration is changing. </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED</code>: The <code>enabledControl</code> configuration failed to deploy.</p>
-   *             </li>
-   *          </ul>
-   */
-  status?: EnablementStatus;
-
-  /**
-   * @public
-   * <p>The last operation identifier for the enabled control.</p>
-   */
-  lastOperationIdentifier?: string;
-}
-
-/**
- * @public
- * <p>An  Amazon Web Services Region in which  Amazon Web Services Control Tower expects to find the control deployed. </p>
+ * <p>An Amazon Web Services Region in which Amazon Web Services Control Tower expects to find the control deployed. </p>
  *          <p>The expected Regions are based on the Regions that are governed by the landing zone. In
  *             certain cases, a control is not actually enabled in the Region as expected, such as during
  *             drift, or <a href="https://docs.aws.amazon.com/controltower/latest/userguide/region-how.html#mixed-governance">mixed governance</a>.</p>
@@ -577,8 +1086,8 @@ export interface CreateLandingZoneInput {
 
   /**
    * @public
-   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>. </p>
+   * <p>The manifest.yaml file is a text file that describes your Amazon Web Services resources. For examples, review
+   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The manifest file</a>. </p>
    */
   manifest: __DocumentType | undefined;
 
@@ -710,7 +1219,7 @@ export interface LandingZoneDetail {
 
   /**
    * @public
-   * <p>The landing zone manifest JSON text file that specifies the landing zone configurations. </p>
+   * <p>The landing zone <code>manifest.yaml</code> text file that specifies the landing zone configurations. </p>
    */
   manifest: __DocumentType | undefined;
 
@@ -722,7 +1231,7 @@ export interface LandingZoneDetail {
 
   /**
    * @public
-   * <p>The landing zone deployment status.</p>
+   * <p>The landing zone deployment status. One of <code>ACTIVE</code>, <code>PROCESSING</code>, <code>FAILED</code>.</p>
    */
   status?: LandingZoneStatus;
 
@@ -953,8 +1462,8 @@ export interface UpdateLandingZoneInput {
 
   /**
    * @public
-   * <p>The manifest JSON file is a text file that describes your Amazon Web Services resources. For examples, review
-   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/lz-api-launch">Launch your landing zone</a>.</p>
+   * <p>The <code>manifest.yaml</code> file is a text file that describes your Amazon Web Services resources. For examples, review
+   *          <a href="https://docs.aws.amazon.com/controltower/latest/userguide/the-manifest-file">The manifest file</a>.</p>
    */
   manifest: __DocumentType | undefined;
 
