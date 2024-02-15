@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
+
+
+### Bug Fixes
+
+* **client-sts:** use outer client region before default STS global region ([#5800](https://github.com/aws/aws-sdk-js-v3/issues/5800)) ([1cbf57b](https://github.com/aws/aws-sdk-js-v3/commit/1cbf57b33800eda39597cdc44bec6b8f4d6f5a09))
+
+
+
+
+
 # [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
 
 

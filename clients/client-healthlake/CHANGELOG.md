@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
+
+
+### Features
+
+* **client-healthlake:** This release adds a new response parameter, JobProgressReport, to the DescribeFHIRImportJob and ListFHIRImportJobs API operation. JobProgressReport provides details on the progress of the import job on the server. ([77d7240](https://github.com/aws/aws-sdk-js-v3/commit/77d72406e4c1ce2560c6d65e4968aafdf01d0da0))
+
+
+
+
+
 # [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
 
 **Note:** Version bump only for package @aws-sdk/client-healthlake

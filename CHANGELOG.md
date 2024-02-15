@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
+
+
+### Bug Fixes
+
+* **client-sts:** pass parent logger & requestHandler to STS ([#5801](https://github.com/aws/aws-sdk-js-v3/issues/5801)) ([c8e0047](https://github.com/aws/aws-sdk-js-v3/commit/c8e00477ae9f8ce4276a112742953738633f1d0a))
+* **client-sts:** use outer client region before default STS global region ([#5800](https://github.com/aws/aws-sdk-js-v3/issues/5800)) ([1cbf57b](https://github.com/aws/aws-sdk-js-v3/commit/1cbf57b33800eda39597cdc44bec6b8f4d6f5a09))
+
+
+### Features
+
+* **client-artifact:** This is the initial SDK release for AWS Artifact. AWS Artifact provides on-demand access to compliance and third-party compliance reports. This release includes access to List and Get reports, along with their metadata. This release also includes access to AWS Artifact notifications settings. ([5d6bff4](https://github.com/aws/aws-sdk-js-v3/commit/5d6bff4ae692e02f1bf3eea60448418a11fc8b9e))
+* **client-codepipeline:** Add ability to override timeout on action level. ([2905d17](https://github.com/aws/aws-sdk-js-v3/commit/2905d176eadbc9af7f367eef6adc060da887d612))
+* **client-guardduty:** Marked fields IpAddressV4, PrivateIpAddress, Email as Sensitive. ([50bd9ea](https://github.com/aws/aws-sdk-js-v3/commit/50bd9eaf8ecff9b0de6c5a79ff57e13b1edaff01))
+* **client-healthlake:** This release adds a new response parameter, JobProgressReport, to the DescribeFHIRImportJob and ListFHIRImportJobs API operation. JobProgressReport provides details on the progress of the import job on the server. ([77d7240](https://github.com/aws/aws-sdk-js-v3/commit/77d72406e4c1ce2560c6d65e4968aafdf01d0da0))
+* **client-opensearch:** Adds additional supported instance types. ([f8844a4](https://github.com/aws/aws-sdk-js-v3/commit/f8844a49c4abb6d38c993b6d0aa3deb53f7358eb))
+* **client-polly:** Amazon Polly adds 1 new voice - Burcu (tr-TR) ([098c6c3](https://github.com/aws/aws-sdk-js-v3/commit/098c6c3e27e1b3a952f0b861f30e2425fe1d7629))
+* **client-sagemaker:** This release adds a new API UpdateClusterSoftware for SageMaker HyperPod. This API allows users to patch HyperPod clusters with latest platform softwares. ([bfe260b](https://github.com/aws/aws-sdk-js-v3/commit/bfe260bffc143ad14d06e8b212c3bc6cc0888494))
+* **clients:** update client endpoints as of 2024-02-15 ([075b95d](https://github.com/aws/aws-sdk-js-v3/commit/075b95df5bd99db6710aa0f1d142fb5d2d49f4b9))
+
+
+
+
+
 # [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
 
 

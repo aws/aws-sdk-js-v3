@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
+
+
+### Bug Fixes
+
+* **client-sts:** pass parent logger & requestHandler to STS ([#5801](https://github.com/aws/aws-sdk-js-v3/issues/5801)) ([c8e0047](https://github.com/aws/aws-sdk-js-v3/commit/c8e00477ae9f8ce4276a112742953738633f1d0a))
+
+
+
+
+
 # [3.511.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.510.0...v3.511.0) (2024-02-09)
 
 

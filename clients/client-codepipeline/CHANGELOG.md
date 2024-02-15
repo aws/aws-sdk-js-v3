@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
+
+
+### Features
+
+* **client-codepipeline:** Add ability to override timeout on action level. ([2905d17](https://github.com/aws/aws-sdk-js-v3/commit/2905d176eadbc9af7f367eef6adc060da887d612))
+
+
+
+
+
 # [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
 
 **Note:** Version bump only for package @aws-sdk/client-codepipeline

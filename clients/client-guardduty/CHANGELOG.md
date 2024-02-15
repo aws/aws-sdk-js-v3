@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
+
+
+### Features
+
+* **client-guardduty:** Marked fields IpAddressV4, PrivateIpAddress, Email as Sensitive. ([50bd9ea](https://github.com/aws/aws-sdk-js-v3/commit/50bd9eaf8ecff9b0de6c5a79ff57e13b1edaff01))
+
+
+
+
+
 # [3.514.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.513.0...v3.514.0) (2024-02-14)
 
 **Note:** Version bump only for package @aws-sdk/client-guardduty
