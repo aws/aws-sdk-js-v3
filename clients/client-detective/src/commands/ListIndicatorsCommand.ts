@@ -28,7 +28,7 @@ export interface ListIndicatorsCommandOutput extends ListIndicatorsResponse, __M
 
 /**
  * @public
- * <p>Get the indicators from an investigation</p>
+ * <p>Gets the indicators from an investigation. You can use the information from the indicators to determine if an IAM user and/or IAM role is involved in an unusual activity that could indicate malicious behavior and its impact.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

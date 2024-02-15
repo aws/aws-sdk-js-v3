@@ -30,12 +30,6 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  * @public
  * <p>Creates a new behavior graph for the calling account, and sets that account as the
  *          administrator account. This operation is called by the account that is enabling Detective.</p>
- *          <p>Before you try to enable Detective, make sure that your account has been
- *          enrolled in Amazon GuardDuty for at least 48 hours. If you do not meet this
- *          requirement, you cannot enable Detective. If you do meet the GuardDuty
- *          prerequisite, then when you make the request to enable Detective, it checks
- *          whether your data volume is within the Detective quota. If it exceeds the quota,
- *          then you cannot enable Detective. </p>
  *          <p>The operation also enables Detective for the calling account in the currently
  *          selected Region. It returns the ARN of the new behavior graph.</p>
  *          <p>
@@ -83,17 +77,12 @@ export interface CreateGraphCommandOutput extends CreateGraphResponse, __Metadat
  *  <p>This request cannot be completed for one of the following reasons.</p>
  *          <ul>
  *             <li>
- *                <p>The request would cause the number of member accounts in the behavior graph to
- *                exceed the maximum allowed. A behavior graph cannot have more than 1200 member
- *                accounts.</p>
+ *                <p>This request cannot be completed if it would cause the number of member accounts in the
+ *             behavior graph to exceed the maximum allowed. A behavior graph cannot have more than 1,200
+ *             member accounts.</p>
  *             </li>
  *             <li>
- *                <p>The request would cause the data rate for the behavior graph to exceed the maximum
- *                allowed.</p>
- *             </li>
- *             <li>
- *                <p>Detective is unable to verify the data rate for the member account. This
- *                is usually because the member account is not enrolled in Amazon GuardDuty.</p>
+ *                <p>This request cannot be completed if the current volume ingested is above the limit of 10 TB per day. Detective will not allow you to add additional member accounts.</p>
  *             </li>
  *          </ul>
  *

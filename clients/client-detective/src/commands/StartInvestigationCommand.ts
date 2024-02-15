@@ -28,7 +28,7 @@ export interface StartInvestigationCommandOutput extends StartInvestigationRespo
 
 /**
  * @public
- * <p>initiate an investigation on an entity in a graph</p>
+ * <p>Detective investigations lets you investigate IAM users and IAM roles using indicators of compromise. An indicator of compromise (IOC) is an artifact observed in or on a network, system, or environment that can (with a high level of confidence) identify malicious activity or a security incident. <code>StartInvestigation</code> initiates an investigation on an entity in a behavior graph. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
