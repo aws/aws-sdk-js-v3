@@ -203,6 +203,7 @@ export const VoiceId = {
   Ayanda: "Ayanda",
   Bianca: "Bianca",
   Brian: "Brian",
+  Burcu: "Burcu",
   Camila: "Camila",
   Carla: "Carla",
   Carmen: "Carmen",
