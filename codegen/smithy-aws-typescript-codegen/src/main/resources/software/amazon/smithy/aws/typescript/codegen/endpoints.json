@@ -378,6 +378,14 @@
                 }
               ]
             },
+            "ca-west-1": {
+              "variants": [
+                {
+                  "hostname": "acm-pca-fips.ca-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "eu-central-1": {},
             "eu-central-2": {},
             "eu-north-1": {},
@@ -392,6 +400,13 @@
               },
               "deprecated": true,
               "hostname": "acm-pca-fips.ca-central-1.amazonaws.com"
+            },
+            "fips-ca-west-1": {
+              "credentialScope": {
+                "region": "ca-west-1"
+              },
+              "deprecated": true,
+              "hostname": "acm-pca-fips.ca-west-1.amazonaws.com"
             },
             "fips-us-east-1": {
               "credentialScope": {
