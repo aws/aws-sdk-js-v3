@@ -100,6 +100,7 @@ export interface GetPipelineCommandOutput extends GetPipelineOutput, __MetadataB
  * //             roleArn: "STRING_VALUE",
  * //             region: "STRING_VALUE",
  * //             namespace: "STRING_VALUE",
+ * //             timeoutInMinutes: Number("int"),
  * //           },
  * //         ],
  * //       },

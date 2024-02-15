@@ -485,6 +485,14 @@ export interface ActionDeclaration {
    *             this action fall under this namespace.</p>
    */
   namespace?: string;
+
+  /**
+   * @public
+   * <p>A timeout duration in minutes that can be applied against the ActionType’s default
+   *             timeout value specified in <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/limits.html">Quotas for CodePipeline
+   *             </a>. This attribute is available only to the manual approval ActionType.</p>
+   */
+  timeoutInMinutes?: number;
 }
 
 /**
@@ -835,7 +843,8 @@ export type StartTimeRange = (typeof StartTimeRange)[keyof typeof StartTimeRange
 
 /**
  * @public
- * <p>The field that specifies to filter on the latest execution in the pipeline.</p>
+ * <p>The field that specifies to filter on the latest execution in the
+ *             pipeline.</p>
  *          <note>
  *             <p>Filtering on the latest execution is available for executions run on or after
  *                 February 08, 2024.</p>
@@ -2002,18 +2011,21 @@ export interface StageDeclaration {
 
 /**
  * @public
- * <p>The Git repository branches specified as filter criteria to start the pipeline.</p>
+ * <p>The Git repository branches specified as filter criteria to start the
+ *             pipeline.</p>
  */
 export interface GitBranchFilterCriteria {
   /**
    * @public
-   * <p>The list of patterns of Git branches that, when a commit is pushed, are to be included as criteria that starts the pipeline.</p>
+   * <p>The list of patterns of Git branches that, when a commit is pushed, are to be
+   *             included as criteria that starts the pipeline.</p>
    */
   includes?: string[];
 
   /**
    * @public
-   * <p>The list of patterns of Git branches that, when a commit is pushed, are to be excluded from starting the pipeline.</p>
+   * <p>The list of patterns of Git branches that, when a commit is pushed, are to be
+   *             excluded from starting the pipeline.</p>
    */
   excludes?: string[];
 }
@@ -2035,42 +2047,49 @@ export type GitPullRequestEventType = (typeof GitPullRequestEventType)[keyof typ
 
 /**
  * @public
- * <p>The Git repository file paths specified as filter criteria to start the pipeline.</p>
+ * <p>The Git repository file paths specified as filter criteria to start the
+ *             pipeline.</p>
  */
 export interface GitFilePathFilterCriteria {
   /**
    * @public
-   * <p>The list of patterns of Git repository file paths that, when a commit is pushed, are to be included as criteria that starts the pipeline.</p>
+   * <p>The list of patterns of Git repository file paths that, when a commit is pushed,
+   *             are to be included as criteria that starts the pipeline.</p>
    */
   includes?: string[];
 
   /**
    * @public
-   * <p>The list of patterns of Git repository file paths that, when a commit is pushed, are to be excluded from starting the pipeline.</p>
+   * <p>The list of patterns of Git repository file paths that, when a commit is pushed,
+   *             are to be excluded from starting the pipeline.</p>
    */
   excludes?: string[];
 }
 
 /**
  * @public
- * <p>The event criteria for the pull request trigger configuration, such as the lists of branches or file paths to include and exclude.</p>
+ * <p>The event criteria for the pull request trigger configuration, such as the lists of
+ *             branches or file paths to include and exclude.</p>
  */
 export interface GitPullRequestFilter {
   /**
    * @public
-   * <p>The field that specifies which pull request events to filter on (opened, updated, closed) for the trigger configuration.</p>
+   * <p>The field that specifies which pull request events to filter on (opened, updated,
+   *             closed) for the trigger configuration.</p>
    */
   events?: GitPullRequestEventType[];
 
   /**
    * @public
-   * <p>The field that specifies to filter on branches for the pull request trigger configuration.</p>
+   * <p>The field that specifies to filter on branches for the pull request trigger
+   *             configuration.</p>
    */
   branches?: GitBranchFilterCriteria;
 
   /**
    * @public
-   * <p>The field that specifies to filter on file paths for the pull request trigger configuration.</p>
+   * <p>The field that specifies to filter on file paths for the pull request trigger
+   *             configuration.</p>
    */
   filePaths?: GitFilePathFilterCriteria;
 }
@@ -2098,7 +2117,9 @@ export interface GitTagFilterCriteria {
 
 /**
  * @public
- * <p>The event criteria that specify when a specified repository event will start the pipeline for the specified trigger configuration, such as the lists of Git tags to include and exclude.</p>
+ * <p>The event criteria that specify when a specified repository event will start the
+ *             pipeline for the specified trigger configuration, such as the lists of Git tags to
+ *             include and exclude.</p>
  */
 export interface GitPushFilter {
   /**
@@ -2110,13 +2131,15 @@ export interface GitPushFilter {
 
   /**
    * @public
-   * <p>The field that specifies to filter on branches for the push trigger configuration.</p>
+   * <p>The field that specifies to filter on branches for the push trigger
+   *             configuration.</p>
    */
   branches?: GitBranchFilterCriteria;
 
   /**
    * @public
-   * <p>The field that specifies to filter on file paths for the push trigger configuration.</p>
+   * <p>The field that specifies to filter on file paths for the push trigger
+   *             configuration.</p>
    */
   filePaths?: GitFilePathFilterCriteria;
 }
@@ -2151,7 +2174,8 @@ export interface GitConfiguration {
 
   /**
    * @public
-   * <p>The field where the repository event that will start the pipeline is specified as pull requests.</p>
+   * <p>The field where the repository event that will start the pipeline is specified as
+   *             pull requests.</p>
    */
   pullRequest?: GitPullRequestFilter[];
 }
@@ -2218,7 +2242,8 @@ export interface PipelineVariableDeclaration {
 
   /**
    * @public
-   * <p>The description of a pipeline-level variable. It's used to add additional context about the variable, and not being used at time when pipeline executes.</p>
+   * <p>The description of a pipeline-level variable. It's used to add additional context
+   *             about the variable, and not being used at time when pipeline executes.</p>
    */
   description?: string;
 }
@@ -2284,15 +2309,16 @@ export interface PipelineDeclaration {
 
   /**
    * @public
-   * <p>The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.</p>
+   * <p>The method that the pipeline will use to handle multiple executions. The default
+   *             mode is SUPERSEDED.</p>
    */
   executionMode?: ExecutionMode;
 
   /**
    * @public
-   * <p>CodePipeline provides the following pipeline types, which differ in characteristics and
-   *             price, so that you can tailor your pipeline features and cost to the needs of your
-   *             applications.</p>
+   * <p>CodePipeline provides the following pipeline types, which differ in
+   *             characteristics and price, so that you can tailor your pipeline features and cost to the
+   *             needs of your applications.</p>
    *          <ul>
    *             <li>
    *                <p>V1 type pipelines have a JSON structure that contains standard pipeline,
@@ -2309,8 +2335,8 @@ export interface PipelineDeclaration {
    *                 pipeline and the associated costs.</p>
    *          </important>
    *          <p>For information about pricing for CodePipeline, see <a href="http://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
-   *          <p>
-   *             For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of pipeline is right for me?</a>.</p>
+   *          <p> For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of
+   *                 pipeline is right for me?</a>.</p>
    */
   pipelineType?: PipelineType;
 
@@ -2324,7 +2350,8 @@ export interface PipelineDeclaration {
 
   /**
    * @public
-   * <p>The trigger configuration specifying a type of event, such as Git tags, that starts the pipeline.</p>
+   * <p>The trigger configuration specifying a type of event, such as Git tags, that starts
+   *             the pipeline.</p>
    *          <note>
    *             <p>When a trigger configuration is specified, default change detection for
    *                 repository and branch commits is disabled.</p>
@@ -3208,7 +3235,8 @@ export interface PipelineExecution {
 
   /**
    * @public
-   * <p>The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.</p>
+   * <p>The method that the pipeline will use to handle multiple executions. The default
+   *             mode is SUPERSEDED.</p>
    */
   executionMode?: ExecutionMode;
 }
@@ -3841,7 +3869,8 @@ export interface PipelineExecutionSummary {
 
   /**
    * @public
-   * <p>The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.</p>
+   * <p>The method that the pipeline will use to handle multiple executions. The default
+   *             mode is SUPERSEDED.</p>
    */
   executionMode?: ExecutionMode;
 }
@@ -3906,9 +3935,9 @@ export interface PipelineSummary {
 
   /**
    * @public
-   * <p>CodePipeline provides the following pipeline types, which differ in characteristics and
-   *             price, so that you can tailor your pipeline features and cost to the needs of your
-   *             applications.</p>
+   * <p>CodePipeline provides the following pipeline types, which differ in
+   *             characteristics and price, so that you can tailor your pipeline features and cost to the
+   *             needs of your applications.</p>
    *          <ul>
    *             <li>
    *                <p>V1 type pipelines have a JSON structure that contains standard pipeline,
@@ -3925,14 +3954,15 @@ export interface PipelineSummary {
    *                 pipeline and the associated costs.</p>
    *          </important>
    *          <p>For information about pricing for CodePipeline, see <a href="http://aws.amazon.com/codepipeline/pricing/">Pricing</a>.</p>
-   *          <p>
-   *             For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of pipeline is right for me?</a>.</p>
+   *          <p> For information about which type of pipeline to choose, see <a href="https://docs.aws.amazon.com/codepipeline/latest/userguide/pipeline-types-planning.html">What type of
+   *                 pipeline is right for me?</a>.</p>
    */
   pipelineType?: PipelineType;
 
   /**
    * @public
-   * <p>The method that the pipeline will use to handle multiple executions. The default mode is SUPERSEDED.</p>
+   * <p>The method that the pipeline will use to handle multiple executions. The default
+   *             mode is SUPERSEDED.</p>
    */
   executionMode?: ExecutionMode;
 
@@ -5100,8 +5130,9 @@ export interface StartPipelineExecutionInput {
 
   /**
    * @public
-   * <p>A list that overrides pipeline variables for a pipeline execution that's being started. Variable names must match <code>[A-Za-z0-9@\-_]+</code>,
-   *             and the values can be anything except an empty string.</p>
+   * <p>A list that overrides pipeline variables for a pipeline execution that's being
+   *             started. Variable names must match <code>[A-Za-z0-9@\-_]+</code>, and the values can be
+   *             anything except an empty string.</p>
    */
   variables?: PipelineVariable[];
 
@@ -5114,7 +5145,9 @@ export interface StartPipelineExecutionInput {
 
   /**
    * @public
-   * <p>A list that allows you to specify, or override, the source revision for a pipeline execution that's being started. A source revision is the version with all the changes to your application code, or source artifact, for the pipeline execution.</p>
+   * <p>A list that allows you to specify, or override, the source revision for a pipeline
+   *             execution that's being started. A source revision is the version with all the changes to
+   *             your application code, or source artifact, for the pipeline execution.</p>
    */
   sourceRevisions?: SourceRevisionOverride[];
 }
