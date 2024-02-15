@@ -342,7 +342,35 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
         sessionToken: "STS_AR_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsar-1__us-east-1",
+        credentialScope: "us-stsar-1__us-west-2",
+      });
+    });
+
+    it("should use the outer client's region for STS when the partition is AWS", async () => {
+      sts = new STS({
+        region: "eu-west-1",
+        requestHandler: mockRequestHandler,
+      });
+      iniProfileData.assume = {
+        region: "eu-west-1",
+        aws_access_key_id: "ASSUME_STATIC_ACCESS_KEY",
+        aws_secret_access_key: "ASSUME_STATIC_SECRET_KEY",
+      };
+      Object.assign(iniProfileData.default, {
+        region: "eu-west-1",
+        role_arn: "ROLE_ARN",
+        role_session_name: "ROLE_SESSION_NAME",
+        external_id: "EXTERNAL_ID",
+        source_profile: "assume",
+      });
+      await sts.getCallerIdentity({});
+      const credentials = await sts.config.credentials();
+      expect(credentials).toEqual({
+        accessKeyId: "STS_AR_ACCESS_KEY_ID",
+        secretAccessKey: "STS_AR_SECRET_ACCESS_KEY",
+        sessionToken: "STS_AR_SESSION_TOKEN",
+        expiration: new Date("3000-01-01T00:00:00.000Z"),
+        credentialScope: "us-stsar-1__eu-west-1",
       });
     });
 
@@ -390,7 +418,7 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsarwi-1__us-east-1",
+        credentialScope: "us-stsarwi-1__us-west-2",
       });
     });
 
@@ -484,7 +512,7 @@ describe("credential-provider-node integration test", () => {
         secretAccessKey: "STS_ARWI_SECRET_ACCESS_KEY",
         sessionToken: "STS_ARWI_SESSION_TOKEN",
         expiration: new Date("3000-01-01T00:00:00.000Z"),
-        credentialScope: "us-stsarwi-1__us-east-1",
+        credentialScope: "us-stsarwi-1__us-west-2",
       });
     });
   });

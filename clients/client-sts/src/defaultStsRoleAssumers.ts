@@ -33,8 +33,7 @@ const ASSUME_ROLE_DEFAULT_REGION = "us-east-1";
 /**
  * @internal
  *
- * Default to the us-east-1 region for aws partition,
- * or default to the parent client region otherwise.
+ * Default to the parent client region or us-east-1 if no region is specified.
  */
 const resolveRegion = async (
   _region: string | Provider<string> | undefined,
@@ -44,24 +43,14 @@ const resolveRegion = async (
   const region: string | undefined = typeof _region === "function" ? await _region() : _region;
   const parentRegion: string | undefined = typeof _parentRegion === "function" ? await _parentRegion() : _parentRegion;
 
-  if (!parentRegion || partition(parentRegion).name === "aws") {
-    credentialProviderLogger?.debug?.(
-      "@aws-sdk/client-sts::resolveRegion",
-      "accepting first of:",
-      `${region} (provider)`,
-      `${ASSUME_ROLE_DEFAULT_REGION} (STS default)`
-    );
-    return region ?? ASSUME_ROLE_DEFAULT_REGION;
-  } else {
-    credentialProviderLogger?.debug?.(
-      "@aws-sdk/client-sts::resolveRegion",
-      "accepting first of:",
-      `${region} (provider)`,
-      `${parentRegion} (parent client)`,
-      `${ASSUME_ROLE_DEFAULT_REGION} (STS default)`
-    );
-    return region ?? parentRegion ?? ASSUME_ROLE_DEFAULT_REGION;
-  }
+  credentialProviderLogger?.debug?.(
+    "@aws-sdk/client-sts::resolveRegion",
+    "accepting first of:",
+    `${region} (provider)`,
+    `${parentRegion} (parent client)`,
+    `${ASSUME_ROLE_DEFAULT_REGION} (STS default)`
+  );
+  return region ?? parentRegion ?? ASSUME_ROLE_DEFAULT_REGION;
 };
 
 /**
