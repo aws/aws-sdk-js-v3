@@ -1423,7 +1423,7 @@ export interface AutoTuneOptionsInput {
 export interface ColdStorageOptions {
   /**
    * @public
-   * <p>Whether to enable or disable cold storage on the domain.</p>
+   * <p>Whether to enable or disable cold storage on the domain. You must enable UltraWarm storage to enable cold storage.</p>
    */
   Enabled: boolean | undefined;
 }
@@ -1483,6 +1483,14 @@ export const OpenSearchPartitionInstanceType = {
   m6g_8xlarge_search: "m6g.8xlarge.search",
   m6g_large_search: "m6g.large.search",
   m6g_xlarge_search: "m6g.xlarge.search",
+  or1_12xlarge_search: "or1.12xlarge.search",
+  or1_16xlarge_search: "or1.16xlarge.search",
+  or1_2xlarge_search: "or1.2xlarge.search",
+  or1_4xlarge_search: "or1.4xlarge.search",
+  or1_8xlarge_search: "or1.8xlarge.search",
+  or1_large_search: "or1.large.search",
+  or1_medium_search: "or1.medium.search",
+  or1_xlarge_search: "or1.xlarge.search",
   r3_2xlarge_search: "r3.2xlarge.search",
   r3_4xlarge_search: "r3.4xlarge.search",
   r3_8xlarge_search: "r3.8xlarge.search",
@@ -3581,7 +3589,7 @@ export interface DescribeDomainAutoTunesResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -4833,7 +4841,7 @@ export interface DescribeInboundConnectionsResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -5072,7 +5080,7 @@ export interface DescribeOutboundConnectionsResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -5154,7 +5162,7 @@ export interface DescribePackagesResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -5289,7 +5297,7 @@ export interface DescribeReservedInstanceOfferingsResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -5432,7 +5440,7 @@ export interface DescribeReservedInstancesResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -5801,7 +5809,7 @@ export interface GetPackageVersionHistoryResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -5981,7 +5989,7 @@ export interface GetUpgradeHistoryResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -6180,7 +6188,7 @@ export interface ListDomainMaintenancesResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -6286,7 +6294,7 @@ export interface ListDomainsForPackageResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -6408,7 +6416,7 @@ export interface ListInstanceTypeDetailsResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -6455,7 +6463,7 @@ export interface ListPackagesForDomainResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -6577,7 +6585,7 @@ export interface ListScheduledActionsResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *    <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *    <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -6644,7 +6652,7 @@ export interface ListVersionsResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken?: string;
@@ -6683,7 +6691,7 @@ export interface ListVpcEndpointAccessResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken: string | undefined;
@@ -6715,7 +6723,7 @@ export interface ListVpcEndpointsResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken: string | undefined;
@@ -6753,7 +6761,7 @@ export interface ListVpcEndpointsForDomainResponse {
   /**
    * @public
    * <p>When <code>nextToken</code> is returned, there are more results available. The value of
-   *     <code>nextToken</code> is a unique pagination token for each page. Make the call again using the
+   *     <code>nextToken</code> is a unique pagination token for each page. Send the request again using the
    *    returned token to retrieve the next page.</p>
    */
   NextToken: string | undefined;
