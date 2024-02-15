@@ -1,5 +1,4 @@
 import type { CredentialProviderOptions } from "@aws-sdk/types";
-import { partition } from "@aws-sdk/util-endpoints";
 import { AwsCredentialIdentity, Logger, Provider } from "@smithy/types";
 
 import { AssumeRoleCommand, AssumeRoleCommandInput } from "./commands/AssumeRoleCommand";
@@ -63,18 +62,23 @@ export const getDefaultRoleAssumer = (
   return async (sourceCreds, params) => {
     closureSourceCreds = sourceCreds;
     if (!stsClient) {
-      const { logger, region, requestHandler, credentialProviderLogger } = stsOptions;
+      const {
+        logger = stsOptions?.parentClientConfig?.logger,
+        region,
+        requestHandler = stsOptions?.parentClientConfig?.requestHandler,
+        credentialProviderLogger,
+      } = stsOptions;
       const resolvedRegion = await resolveRegion(
         region,
         stsOptions?.parentClientConfig?.region,
         credentialProviderLogger
       );
       stsClient = new stsClientCtor({
-        logger,
         // A hack to make sts client uses the credential in current closure.
         credentialDefaultProvider: () => async () => closureSourceCreds,
         region: resolvedRegion,
-        ...(requestHandler ? { requestHandler } : {}),
+        requestHandler: requestHandler as any,
+        logger: logger as any,
       });
     }
     const { Credentials } = await stsClient.send(new AssumeRoleCommand(params));
@@ -110,16 +114,21 @@ export const getDefaultRoleAssumerWithWebIdentity = (
   let stsClient: STSClient;
   return async (params) => {
     if (!stsClient) {
-      const { logger, region, requestHandler, credentialProviderLogger } = stsOptions;
+      const {
+        logger = stsOptions?.parentClientConfig?.logger,
+        region,
+        requestHandler = stsOptions?.parentClientConfig?.requestHandler,
+        credentialProviderLogger,
+      } = stsOptions;
       const resolvedRegion = await resolveRegion(
         region,
         stsOptions?.parentClientConfig?.region,
         credentialProviderLogger
       );
       stsClient = new stsClientCtor({
-        logger,
         region: resolvedRegion,
-        ...(requestHandler ? { requestHandler } : {}),
+        requestHandler: requestHandler as any,
+        logger: logger as any,
       });
     }
     const { Credentials } = await stsClient.send(new AssumeRoleWithWebIdentityCommand(params));

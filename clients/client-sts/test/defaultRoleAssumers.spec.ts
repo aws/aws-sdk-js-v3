@@ -88,6 +88,36 @@ describe("getDefaultRoleAssumer", () => {
       region,
       logger,
       requestHandler: handler,
+      parentClientConfig: {
+        region: "some-other-region",
+        logger: null,
+        requestHandler: null,
+      },
+    });
+    const params: AssumeRoleCommandInput = {
+      RoleArn: "arn:aws:foo",
+      RoleSessionName: "session",
+    };
+    const sourceCred = { accessKeyId: "key", secretAccessKey: "secrete" };
+    await roleAssumer(sourceCred, params);
+    expect(mockConstructorInput).toHaveBeenCalledTimes(1);
+    expect(mockConstructorInput.mock.calls[0][0]).toMatchObject({
+      logger,
+      requestHandler: handler,
+      region,
+    });
+  });
+
+  it("should use the parent client config", async () => {
+    const logger = console;
+    const region = "some-region";
+    const handler = new NodeHttpHandler();
+    const roleAssumer = getDefaultRoleAssumer({
+      parentClientConfig: {
+        region,
+        logger,
+        requestHandler: handler,
+      },
     });
     const params: AssumeRoleCommandInput = {
       RoleArn: "arn:aws:foo",
