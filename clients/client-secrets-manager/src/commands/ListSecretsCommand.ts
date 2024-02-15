@@ -30,8 +30,7 @@ export interface ListSecretsCommandOutput extends ListSecretsResponse, __Metadat
  * @public
  * <p>Lists the secrets that are stored by Secrets Manager in the Amazon Web Services account, not including secrets
  *       that are marked for deletion. To see secrets marked for deletion, use the Secrets Manager console.</p>
- *          <p>ListSecrets is eventually consistent, however it might not reflect changes from the last five minutes.
- *       To get the latest information for a specific secret, use <a>DescribeSecret</a>.</p>
+ *          <p>All Secrets Manager operations are eventually consistent. ListSecrets might not reflect changes from the last five minutes. You can get more recent information for a specific secret by calling <a>DescribeSecret</a>.</p>
  *          <p>To list the versions of a secret, use <a>ListSecretVersionIds</a>.</p>
  *          <p>To retrieve the values for the secrets, call <a>BatchGetSecretValue</a> or <a>GetSecretValue</a>.</p>
  *          <p>For information about finding secrets in the console, see <a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/manage_search-secret.html">Find secrets in Secrets Manager</a>.</p>
