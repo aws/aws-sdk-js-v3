@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { ListMembersRequest, ListMembersResponse } from "../models/models_1";
+import { ListMembersRequest, ListMembersResponse, ListMembersResponseFilterSensitiveLog } from "../models/models_1";
 import { de_ListMembersCommand, se_ListMembersCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -97,7 +97,7 @@ export class ListMembersCommand extends $Command
   })
   .s("GuardDutyAPIService", "ListMembers", {})
   .n("GuardDutyClient", "ListMembersCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListMembersResponseFilterSensitiveLog)
   .ser(se_ListMembersCommand)
   .de(de_ListMembersCommand)
   .build() {}

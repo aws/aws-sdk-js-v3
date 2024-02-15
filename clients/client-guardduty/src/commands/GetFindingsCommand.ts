@@ -6,7 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { GuardDutyClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../GuardDutyClient";
-import { GetFindingsRequest, GetFindingsResponse } from "../models/models_0";
+import { GetFindingsRequest, GetFindingsResponse, GetFindingsResponseFilterSensitiveLog } from "../models/models_0";
 import { de_GetFindingsCommand, se_GetFindingsCommand } from "../protocols/Aws_restJson1";
 
 /**
@@ -827,7 +827,7 @@ export class GetFindingsCommand extends $Command
   })
   .s("GuardDutyAPIService", "GetFindings", {})
   .n("GuardDutyClient", "GetFindingsCommand")
-  .f(void 0, void 0)
+  .f(void 0, GetFindingsResponseFilterSensitiveLog)
   .ser(se_GetFindingsCommand)
   .de(de_GetFindingsCommand)
   .build() {}

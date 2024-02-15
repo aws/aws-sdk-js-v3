@@ -13,6 +13,7 @@ import {
   FindingCriteria,
   FindingPublishingFrequency,
   Member,
+  MemberFilterSensitiveLog,
   OrgFeature,
   OrgFeatureAdditionalConfiguration,
   OrgFeatureStatus,
@@ -1422,3 +1423,11 @@ export interface UpdateThreatIntelSetRequest {
  * @public
  */
 export interface UpdateThreatIntelSetResponse {}
+
+/**
+ * @internal
+ */
+export const ListMembersResponseFilterSensitiveLog = (obj: ListMembersResponse): any => ({
+  ...obj,
+  ...(obj.Members && { Members: obj.Members.map((item) => MemberFilterSensitiveLog(item)) }),
+});

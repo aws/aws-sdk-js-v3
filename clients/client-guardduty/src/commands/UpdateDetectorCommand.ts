@@ -28,7 +28,7 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
 
 /**
  * @public
- * <p>Updates the Amazon GuardDuty detector specified by the detectorId.</p>
+ * <p>Updates the GuardDuty detector specified by the detectorId.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>

@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { GuardDutyServiceException as __BaseException } from "./GuardDutyServiceException";
 
@@ -7601,3 +7601,184 @@ export interface ListCoverageResponse {
    */
   NextToken?: string;
 }
+
+/**
+ * @internal
+ */
+export const AccountDetailFilterSensitiveLog = (obj: AccountDetail): any => ({
+  ...obj,
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RemoteIpDetailsFilterSensitiveLog = (obj: RemoteIpDetails): any => ({
+  ...obj,
+  ...(obj.IpAddressV4 && { IpAddressV4: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const AwsApiCallActionFilterSensitiveLog = (obj: AwsApiCallAction): any => ({
+  ...obj,
+  ...(obj.RemoteIpDetails && { RemoteIpDetails: RemoteIpDetailsFilterSensitiveLog(obj.RemoteIpDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const KubernetesApiCallActionFilterSensitiveLog = (obj: KubernetesApiCallAction): any => ({
+  ...obj,
+  ...(obj.RemoteIpDetails && { RemoteIpDetails: RemoteIpDetailsFilterSensitiveLog(obj.RemoteIpDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const LocalIpDetailsFilterSensitiveLog = (obj: LocalIpDetails): any => ({
+  ...obj,
+  ...(obj.IpAddressV4 && { IpAddressV4: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NetworkConnectionActionFilterSensitiveLog = (obj: NetworkConnectionAction): any => ({
+  ...obj,
+  ...(obj.LocalIpDetails && { LocalIpDetails: LocalIpDetailsFilterSensitiveLog(obj.LocalIpDetails) }),
+  ...(obj.RemoteIpDetails && { RemoteIpDetails: RemoteIpDetailsFilterSensitiveLog(obj.RemoteIpDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const PortProbeDetailFilterSensitiveLog = (obj: PortProbeDetail): any => ({
+  ...obj,
+  ...(obj.LocalIpDetails && { LocalIpDetails: LocalIpDetailsFilterSensitiveLog(obj.LocalIpDetails) }),
+  ...(obj.RemoteIpDetails && { RemoteIpDetails: RemoteIpDetailsFilterSensitiveLog(obj.RemoteIpDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const PortProbeActionFilterSensitiveLog = (obj: PortProbeAction): any => ({
+  ...obj,
+  ...(obj.PortProbeDetails && {
+    PortProbeDetails: obj.PortProbeDetails.map((item) => PortProbeDetailFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const RdsLoginAttemptActionFilterSensitiveLog = (obj: RdsLoginAttemptAction): any => ({
+  ...obj,
+  ...(obj.RemoteIpDetails && { RemoteIpDetails: RemoteIpDetailsFilterSensitiveLog(obj.RemoteIpDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const ActionFilterSensitiveLog = (obj: Action): any => ({
+  ...obj,
+  ...(obj.AwsApiCallAction && { AwsApiCallAction: AwsApiCallActionFilterSensitiveLog(obj.AwsApiCallAction) }),
+  ...(obj.NetworkConnectionAction && {
+    NetworkConnectionAction: NetworkConnectionActionFilterSensitiveLog(obj.NetworkConnectionAction),
+  }),
+  ...(obj.PortProbeAction && { PortProbeAction: PortProbeActionFilterSensitiveLog(obj.PortProbeAction) }),
+  ...(obj.KubernetesApiCallAction && {
+    KubernetesApiCallAction: KubernetesApiCallActionFilterSensitiveLog(obj.KubernetesApiCallAction),
+  }),
+  ...(obj.RdsLoginAttemptAction && {
+    RdsLoginAttemptAction: RdsLoginAttemptActionFilterSensitiveLog(obj.RdsLoginAttemptAction),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const CreateMembersRequestFilterSensitiveLog = (obj: CreateMembersRequest): any => ({
+  ...obj,
+  ...(obj.AccountDetails && {
+    AccountDetails: obj.AccountDetails.map((item) => AccountDetailFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const PrivateIpAddressDetailsFilterSensitiveLog = (obj: PrivateIpAddressDetails): any => ({
+  ...obj,
+  ...(obj.PrivateIpAddress && { PrivateIpAddress: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const NetworkInterfaceFilterSensitiveLog = (obj: NetworkInterface): any => ({
+  ...obj,
+  ...(obj.PrivateIpAddress && { PrivateIpAddress: SENSITIVE_STRING }),
+  ...(obj.PrivateIpAddresses && {
+    PrivateIpAddresses: obj.PrivateIpAddresses.map((item) => PrivateIpAddressDetailsFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const InstanceDetailsFilterSensitiveLog = (obj: InstanceDetails): any => ({
+  ...obj,
+  ...(obj.NetworkInterfaces && {
+    NetworkInterfaces: obj.NetworkInterfaces.map((item) => NetworkInterfaceFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ResourceFilterSensitiveLog = (obj: Resource): any => ({
+  ...obj,
+  ...(obj.InstanceDetails && { InstanceDetails: InstanceDetailsFilterSensitiveLog(obj.InstanceDetails) }),
+});
+
+/**
+ * @internal
+ */
+export const ServiceFilterSensitiveLog = (obj: Service): any => ({
+  ...obj,
+  ...(obj.Action && { Action: ActionFilterSensitiveLog(obj.Action) }),
+});
+
+/**
+ * @internal
+ */
+export const FindingFilterSensitiveLog = (obj: Finding): any => ({
+  ...obj,
+  ...(obj.Service && { Service: ServiceFilterSensitiveLog(obj.Service) }),
+});
+
+/**
+ * @internal
+ */
+export const GetFindingsResponseFilterSensitiveLog = (obj: GetFindingsResponse): any => ({
+  ...obj,
+  ...(obj.Findings && { Findings: obj.Findings.map((item) => FindingFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
+export const MemberFilterSensitiveLog = (obj: Member): any => ({
+  ...obj,
+  ...(obj.Email && { Email: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const GetMembersResponseFilterSensitiveLog = (obj: GetMembersResponse): any => ({
+  ...obj,
+  ...(obj.Members && { Members: obj.Members.map((item) => MemberFilterSensitiveLog(item)) }),
+});
