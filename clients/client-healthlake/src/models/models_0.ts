@@ -798,7 +798,61 @@ export namespace InputDataConfig {
 
 /**
  * @public
- * <p>Displays the properties of the import job, including the ID, Arn, Name, and the status of the data store.</p>
+ * <p>The progress report of an import job.</p>
+ */
+export interface JobProgressReport {
+  /**
+   * @public
+   * <p>The number of files scanned from input S3 bucket.</p>
+   */
+  TotalNumberOfScannedFiles?: number;
+
+  /**
+   * @public
+   * <p>The size (in MB) of the files scanned from the input S3 bucket.</p>
+   */
+  TotalSizeOfScannedFilesInMB?: number;
+
+  /**
+   * @public
+   * <p>The number of files imported so far.</p>
+   */
+  TotalNumberOfImportedFiles?: number;
+
+  /**
+   * @public
+   * <p>The number of resources scanned from the input S3 bucket.</p>
+   */
+  TotalNumberOfResourcesScanned?: number;
+
+  /**
+   * @public
+   * <p>The number of resources imported so far.</p>
+   */
+  TotalNumberOfResourcesImported?: number;
+
+  /**
+   * @public
+   * <p>The number of resources that failed due to customer error.</p>
+   */
+  TotalNumberOfResourcesWithCustomerError?: number;
+
+  /**
+   * @public
+   * <p>The number of files that failed to be read from the input S3 bucket due to customer error.</p>
+   */
+  TotalNumberOfFilesReadWithCustomerError?: number;
+
+  /**
+   * @public
+   * <p>The throughput (in MB/sec) of the import job.</p>
+   */
+  Throughput?: number;
+}
+
+/**
+ * @public
+ * <p>Displays the properties of the import job, including the ID, Arn, Name, the status of the job, and the progress report of the job.</p>
  */
 export interface ImportJobProperties {
   /**
@@ -851,6 +905,12 @@ export interface ImportJobProperties {
 
   /**
    * @public
+   * <p>Displays the progress of the import job, including total resources scanned, total resources ingested, and total size of data ingested.</p>
+   */
+  JobProgressReport?: JobProgressReport;
+
+  /**
+   * @public
    * <p>The Amazon Resource Name (ARN) that gives AWS HealthLake access to your input data.</p>
    */
   DataAccessRoleArn?: string;
@@ -868,7 +928,7 @@ export interface ImportJobProperties {
 export interface DescribeFHIRImportJobResponse {
   /**
    * @public
-   * <p>The properties of the Import job request, including the ID, ARN, name, and the status of the job.</p>
+   * <p>The properties of the Import job request, including the ID, ARN, name, status of the job, and the progress report of the job.</p>
    */
   ImportJobProperties: ImportJobProperties | undefined;
 }
@@ -1063,7 +1123,7 @@ export interface ListFHIRImportJobsResponse {
   /**
    * @public
    * <p>
-   *             The properties of a listed FHIR import jobs, including the ID, ARN, name, and the status of the job.
+   *             The properties of a listed FHIR import jobs, including the ID, ARN, name, the status of the job, and the progress report of the job.
    *          </p>
    */
   ImportJobPropertiesList: ImportJobProperties[] | undefined;

@@ -66,6 +66,16 @@ export interface ListFHIRImportJobsCommandOutput extends ListFHIRImportJobsRespo
  * //           KmsKeyId: "STRING_VALUE", // required
  * //         },
  * //       },
+ * //       JobProgressReport: { // JobProgressReport
+ * //         TotalNumberOfScannedFiles: Number("long"),
+ * //         TotalSizeOfScannedFilesInMB: Number("double"),
+ * //         TotalNumberOfImportedFiles: Number("long"),
+ * //         TotalNumberOfResourcesScanned: Number("long"),
+ * //         TotalNumberOfResourcesImported: Number("long"),
+ * //         TotalNumberOfResourcesWithCustomerError: Number("long"),
+ * //         TotalNumberOfFilesReadWithCustomerError: Number("long"),
+ * //         Throughput: Number("double"),
+ * //       },
  * //       DataAccessRoleArn: "STRING_VALUE",
  * //       Message: "STRING_VALUE",
  * //     },

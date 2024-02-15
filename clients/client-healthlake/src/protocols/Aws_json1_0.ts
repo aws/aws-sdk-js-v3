@@ -5,9 +5,11 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectNumber as __expectNumber,
   expectString as __expectString,
+  limitedParseDouble as __limitedParseDouble,
   parseEpochTimestamp as __parseEpochTimestamp,
   take,
   withBaseException,
@@ -70,6 +72,7 @@ import {
   ImportJobProperties,
   InputDataConfig,
   InternalServerException,
+  JobProgressReport,
   KmsEncryptionConfig,
   ListFHIRDatastoresRequest,
   ListFHIRDatastoresResponse,
@@ -883,6 +886,7 @@ const de_ImportJobProperties = (output: any, context: __SerdeContext): ImportJob
     JobId: __expectString,
     JobName: __expectString,
     JobOutputDataConfig: (_: any) => _json(__expectUnion(_)),
+    JobProgressReport: (_: any) => de_JobProgressReport(_, context),
     JobStatus: __expectString,
     Message: __expectString,
     SubmitTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -904,6 +908,22 @@ const de_ImportJobPropertiesList = (output: any, context: __SerdeContext): Impor
 // de_InputDataConfig omitted.
 
 // de_InternalServerException omitted.
+
+/**
+ * deserializeAws_json1_0JobProgressReport
+ */
+const de_JobProgressReport = (output: any, context: __SerdeContext): JobProgressReport => {
+  return take(output, {
+    Throughput: __limitedParseDouble,
+    TotalNumberOfFilesReadWithCustomerError: __expectLong,
+    TotalNumberOfImportedFiles: __expectLong,
+    TotalNumberOfResourcesImported: __expectLong,
+    TotalNumberOfResourcesScanned: __expectLong,
+    TotalNumberOfResourcesWithCustomerError: __expectLong,
+    TotalNumberOfScannedFiles: __expectLong,
+    TotalSizeOfScannedFilesInMB: __limitedParseDouble,
+  }) as any;
+};
 
 // de_KmsEncryptionConfig omitted.
 
