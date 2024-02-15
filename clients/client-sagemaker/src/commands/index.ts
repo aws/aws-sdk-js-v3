@@ -286,6 +286,7 @@ export * from "./UpdateActionCommand";
 export * from "./UpdateAppImageConfigCommand";
 export * from "./UpdateArtifactCommand";
 export * from "./UpdateClusterCommand";
+export * from "./UpdateClusterSoftwareCommand";
 export * from "./UpdateCodeRepositoryCommand";
 export * from "./UpdateContextCommand";
 export * from "./UpdateDeviceFleetCommand";

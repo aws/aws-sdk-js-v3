@@ -1326,6 +1326,11 @@ import {
   UpdateClusterCommandOutput,
 } from "./commands/UpdateClusterCommand";
 import {
+  UpdateClusterSoftwareCommand,
+  UpdateClusterSoftwareCommandInput,
+  UpdateClusterSoftwareCommandOutput,
+} from "./commands/UpdateClusterSoftwareCommand";
+import {
   UpdateCodeRepositoryCommand,
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
@@ -1759,6 +1764,7 @@ const commands = {
   UpdateAppImageConfigCommand,
   UpdateArtifactCommand,
   UpdateClusterCommand,
+  UpdateClusterSoftwareCommand,
   UpdateCodeRepositoryCommand,
   UpdateContextCommand,
   UpdateDeviceFleetCommand,
@@ -6257,6 +6263,23 @@ export interface SageMaker {
     args: UpdateClusterCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: UpdateClusterCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UpdateClusterSoftwareCommand}
+   */
+  updateClusterSoftware(
+    args: UpdateClusterSoftwareCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateClusterSoftwareCommandOutput>;
+  updateClusterSoftware(
+    args: UpdateClusterSoftwareCommandInput,
+    cb: (err: any, data?: UpdateClusterSoftwareCommandOutput) => void
+  ): void;
+  updateClusterSoftware(
+    args: UpdateClusterSoftwareCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateClusterSoftwareCommandOutput) => void
   ): void;
 
   /**

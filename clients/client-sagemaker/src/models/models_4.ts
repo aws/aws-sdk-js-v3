@@ -4277,9 +4277,10 @@ export interface RegisterDevicesRequest {
 
 /**
  * @public
- * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateTrainingJob.html">UpdateTrainingJob</a> API. To learn more about the remote
- *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
- *                 for remote debugging</a>.</p>
+ * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_UpdateTrainingJob.html">UpdateTrainingJob</a> API. To learn more about the remote debugging
+ *             functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container
+ *                 through Amazon Web Services Systems Manager (SSM) for remote
+ *             debugging</a>.</p>
  */
 export interface RemoteDebugConfigForUpdate {
   /**
@@ -5861,6 +5862,29 @@ export interface UpdateClusterResponse {
 /**
  * @public
  */
+export interface UpdateClusterSoftwareRequest {
+  /**
+   * @public
+   * <p>Specify the name or the Amazon Resource Name (ARN) of the SageMaker HyperPod cluster you want to update for security
+   *          patching.</p>
+   */
+  ClusterName: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateClusterSoftwareResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the SageMaker HyperPod cluster being updated for security patching.</p>
+   */
+  ClusterArn: string | undefined;
+}
+
+/**
+ * @public
+ */
 export interface UpdateCodeRepositoryInput {
   /**
    * @public
@@ -7302,11 +7326,12 @@ export interface UpdateTrainingJobRequest {
 
   /**
    * @public
-   * <p>Configuration for remote debugging while the training job is running. You can
-   *             update the remote debugging configuration when the <code>SecondaryStatus</code> of the job
-   *             is <code>Downloading</code> or <code>Training</code>.To learn more about the remote
-   *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
-   *                 for remote debugging</a>.</p>
+   * <p>Configuration for remote debugging while the training job is running. You can update
+   *             the remote debugging configuration when the <code>SecondaryStatus</code> of the job is
+   *                 <code>Downloading</code> or <code>Training</code>.To learn more about the remote
+   *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container
+   *                 through Amazon Web Services Systems Manager (SSM) for remote
+   *             debugging</a>.</p>
    */
   RemoteDebugConfig?: RemoteDebugConfigForUpdate;
 }

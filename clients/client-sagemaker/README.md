@@ -2516,6 +2516,14 @@ UpdateCluster
 </details>
 <details>
 <summary>
+UpdateClusterSoftware
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/sagemaker/command/UpdateClusterSoftwareCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateClusterSoftwareCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-sagemaker/Interface/UpdateClusterSoftwareCommandOutput/)
+
+</details>
+<details>
+<summary>
 UpdateCodeRepository
 </summary>
 

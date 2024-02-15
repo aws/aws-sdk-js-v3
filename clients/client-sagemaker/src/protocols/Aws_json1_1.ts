@@ -768,6 +768,10 @@ import {
 import { UpdateArtifactCommandInput, UpdateArtifactCommandOutput } from "../commands/UpdateArtifactCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
 import {
+  UpdateClusterSoftwareCommandInput,
+  UpdateClusterSoftwareCommandOutput,
+} from "../commands/UpdateClusterSoftwareCommand";
+import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
 } from "../commands/UpdateCodeRepositoryCommand";
@@ -1950,6 +1954,8 @@ import {
   UpdateArtifactResponse,
   UpdateClusterRequest,
   UpdateClusterResponse,
+  UpdateClusterSoftwareRequest,
+  UpdateClusterSoftwareResponse,
   UpdateCodeRepositoryInput,
   UpdateCodeRepositoryOutput,
   UpdateContextRequest,
@@ -5741,6 +5747,19 @@ export const se_UpdateClusterCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("UpdateCluster");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1UpdateClusterSoftwareCommand
+ */
+export const se_UpdateClusterSoftwareCommand = async (
+  input: UpdateClusterSoftwareCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("UpdateClusterSoftware");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -11747,6 +11766,26 @@ export const de_UpdateClusterCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1UpdateClusterSoftwareCommand
+ */
+export const de_UpdateClusterSoftwareCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateClusterSoftwareCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = de_UpdateClusterSoftwareResponse(data, context);
+  const response: UpdateClusterSoftwareCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1UpdateCodeRepositoryCommand
  */
 export const de_UpdateCodeRepositoryCommand = async (
@@ -15584,6 +15623,8 @@ const se_TuningJobCompletionCriteria = (input: TuningJobCompletionCriteria, cont
 // se_UpdateArtifactRequest omitted.
 
 // se_UpdateClusterRequest omitted.
+
+// se_UpdateClusterSoftwareRequest omitted.
 
 // se_UpdateCodeRepositoryInput omitted.
 
@@ -28168,6 +28209,15 @@ const de_UpdateArtifactResponse = (output: any, context: __SerdeContext): Update
  * deserializeAws_json1_1UpdateClusterResponse
  */
 const de_UpdateClusterResponse = (output: any, context: __SerdeContext): UpdateClusterResponse => {
+  return take(output, {
+    ClusterArn: __expectString,
+  }) as any;
+};
+
+/**
+ * deserializeAws_json1_1UpdateClusterSoftwareResponse
+ */
+const de_UpdateClusterSoftwareResponse = (output: any, context: __SerdeContext): UpdateClusterSoftwareResponse => {
   return take(output, {
     ClusterArn: __expectString,
   }) as any;

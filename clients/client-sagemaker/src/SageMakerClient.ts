@@ -794,6 +794,10 @@ import {
 import { UpdateArtifactCommandInput, UpdateArtifactCommandOutput } from "./commands/UpdateArtifactCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
 import {
+  UpdateClusterSoftwareCommandInput,
+  UpdateClusterSoftwareCommandOutput,
+} from "./commands/UpdateClusterSoftwareCommand";
+import {
   UpdateCodeRepositoryCommandInput,
   UpdateCodeRepositoryCommandOutput,
 } from "./commands/UpdateCodeRepositoryCommand";
@@ -1163,6 +1167,7 @@ export type ServiceInputTypes =
   | UpdateAppImageConfigCommandInput
   | UpdateArtifactCommandInput
   | UpdateClusterCommandInput
+  | UpdateClusterSoftwareCommandInput
   | UpdateCodeRepositoryCommandInput
   | UpdateContextCommandInput
   | UpdateDeviceFleetCommandInput
@@ -1487,6 +1492,7 @@ export type ServiceOutputTypes =
   | UpdateAppImageConfigCommandOutput
   | UpdateArtifactCommandOutput
   | UpdateClusterCommandOutput
+  | UpdateClusterSoftwareCommandOutput
   | UpdateCodeRepositoryCommandOutput
   | UpdateContextCommandOutput
   | UpdateDeviceFleetCommandOutput

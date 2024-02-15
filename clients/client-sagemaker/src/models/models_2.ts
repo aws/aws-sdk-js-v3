@@ -362,9 +362,10 @@ export interface ProfilerRuleConfiguration {
 
 /**
  * @public
- * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. To learn more about the remote
- *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
- *                 for remote debugging</a>.</p>
+ * <p>Configuration for remote debugging for the <a href="https://docs.aws.amazon.com/sagemaker/latest/APIReference/API_CreateTrainingJob.html">CreateTrainingJob</a> API. To learn more about the remote debugging
+ *             functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container
+ *                 through Amazon Web Services Systems Manager (SSM) for remote
+ *             debugging</a>.</p>
  */
 export interface RemoteDebugConfig {
   /**
@@ -628,9 +629,10 @@ export interface CreateTrainingJobRequest {
 
   /**
    * @public
-   * <p>Configuration for remote debugging. To learn more about the remote
-   *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
-   *                 for remote debugging</a>.</p>
+   * <p>Configuration for remote debugging. To learn more about the remote debugging
+   *             functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container
+   *                 through Amazon Web Services Systems Manager (SSM) for remote
+   *             debugging</a>.</p>
    */
   RemoteDebugConfig?: RemoteDebugConfig;
 
@@ -3656,9 +3658,11 @@ export interface DescribeCompilationJobRequest {
  * @public
  * <p>Provides information about the location that is configured for storing model
  *             artifacts. </p>
- *          <p>Model artifacts are the output that results from training a model, and typically
- *             consist of trained parameters, a model definition that describes how to compute
- *             inferences, and other metadata.</p>
+ *          <p>Model artifacts are outputs that result from training a model. They typically consist
+ *             of trained parameters, a model definition that describes how to compute inferences, and
+ *             other metadata. A SageMaker container stores your trained model artifacts in the
+ *                 <code>/opt/ml/model</code> directory. After training has completed, by default, these artifacts
+ *             are uploaded to your Amazon S3 bucket as compressed files.</p>
  */
 export interface ModelArtifacts {
   /**

@@ -28,7 +28,7 @@ export interface UpdateClusterCommandOutput extends UpdateClusterResponse, __Met
 
 /**
  * @public
- * <p>Update a SageMaker HyperPod cluster.</p>
+ * <p>Updates a SageMaker HyperPod cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

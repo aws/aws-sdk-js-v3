@@ -1249,7 +1249,7 @@ export interface S3DataSource {
    *          <ul>
    *             <li>
    *                <p> A key name prefix might look like this:
-   * 		<code>s3://bucketname/exampleprefix/</code>
+   *                         <code>s3://bucketname/exampleprefix/</code>
    *                </p>
    *             </li>
    *             <li>
@@ -1531,8 +1531,8 @@ export interface OutputDataConfig {
    *
    *             For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html">KMS-Managed Encryption
    *                 Keys</a> in the <i>Amazon Simple Storage Service Developer Guide</i>. If the output
-   *             data is stored in Amazon S3 Express One Zone, it is encrypted with server-side
-   *             encryption with Amazon S3 managed keys (SSE-S3). KMS key is not supported for Amazon S3 Express One Zone</p>
+   *             data is stored in Amazon S3 Express One Zone, it is encrypted with server-side encryption with Amazon S3
+   *             managed keys (SSE-S3). KMS key is not supported for Amazon S3 Express One Zone</p>
    *          <p>The KMS key policy must grant permission to the IAM role that you specify in your
    *                 <code>CreateTrainingJob</code>, <code>CreateTransformJob</code>, or
    *                 <code>CreateHyperParameterTuningJob</code> requests. For more information, see

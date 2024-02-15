@@ -1073,9 +1073,10 @@ export interface DescribeTrainingJobResponse {
 
   /**
    * @public
-   * <p>Configuration for remote debugging. To learn more about the remote
-   *             debugging functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container through Amazon Web Services Systems Manager (SSM)
-   *                 for remote debugging</a>.</p>
+   * <p>Configuration for remote debugging. To learn more about the remote debugging
+   *             functionality of SageMaker, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/train-remote-debugging.html">Access a training container
+   *                 through Amazon Web Services Systems Manager (SSM) for remote
+   *             debugging</a>.</p>
    */
   RemoteDebugConfig?: RemoteDebugConfig;
 
