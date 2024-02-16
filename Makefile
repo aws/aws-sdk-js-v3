@@ -20,6 +20,9 @@ unlink-smithy:
 	rm ./node_modules/\@smithy
 	yarn --check-files
 
+test-gh-hooks:
+	echo "no-op"
+
 copy-smithy:
 	node ./scripts/copy-smithy-dist-files
 
