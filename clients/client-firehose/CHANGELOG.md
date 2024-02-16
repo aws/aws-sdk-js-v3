@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.516.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.515.0...v3.516.0) (2024-02-16)
+
+
+### Features
+
+* **client-firehose:** This release adds support for Data Message Extraction for decompressed CloudWatch logs, and to use a custom file extension or time zone for S3 destinations. ([b7891d1](https://github.com/aws/aws-sdk-js-v3/commit/b7891d1e3d74e9df6456294be090519a638b36ef))
+
+
+
+
+
 # [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-firehose

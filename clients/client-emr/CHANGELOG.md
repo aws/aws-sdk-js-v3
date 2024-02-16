@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.516.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.515.0...v3.516.0) (2024-02-16)
+
+
+### Features
+
+* **client-emr:** adds fine grained control over Unhealthy Node Replacement to Amazon ElasticMapReduce ([f4e74b7](https://github.com/aws/aws-sdk-js-v3/commit/f4e74b7e1ae8eeee3b607ba5a0acfb3e51c5e807))
+
+
+
+
+
 # [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-emr

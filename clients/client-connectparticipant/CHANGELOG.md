@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.516.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.515.0...v3.516.0) (2024-02-16)
+
+**Note:** Version bump only for package @aws-sdk/client-connectparticipant
+
+
+
+
+
 # [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-connectparticipant

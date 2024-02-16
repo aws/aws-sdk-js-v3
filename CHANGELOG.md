@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.516.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.515.0...v3.516.0) (2024-02-16)
+
+
+### Features
+
+* **client-emr:** adds fine grained control over Unhealthy Node Replacement to Amazon ElasticMapReduce ([f4e74b7](https://github.com/aws/aws-sdk-js-v3/commit/f4e74b7e1ae8eeee3b607ba5a0acfb3e51c5e807))
+* **client-firehose:** This release adds support for Data Message Extraction for decompressed CloudWatch logs, and to use a custom file extension or time zone for S3 destinations. ([b7891d1](https://github.com/aws/aws-sdk-js-v3/commit/b7891d1e3d74e9df6456294be090519a638b36ef))
+* **client-sns:** This release marks phone numbers as sensitive inputs. ([43bff29](https://github.com/aws/aws-sdk-js-v3/commit/43bff29d5ead9dbc8bc96e7b11a9fb3e0429a226))
+* **clients:** update client endpoints as of 2024-02-16 ([19651a6](https://github.com/aws/aws-sdk-js-v3/commit/19651a6b7e19cd5f19faa6a503ce8b9b83957103))
+
+
+
+
+
 # [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
 
 
