@@ -4360,7 +4360,8 @@ export interface CreateDBClusterMessage {
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>Must contain from 1 to 63 letters, numbers, or hyphens.</p>
+   *                <p>Must contain from 1 to 63 (for Aurora DB clusters) or 1 to 52 (for Multi-AZ DB
+   *                     clusters) letters, numbers, or hyphens.</p>
    *             </li>
    *             <li>
    *                <p>First character must be a letter.</p>
@@ -6687,7 +6688,7 @@ export interface CreateDBClusterParameterGroupMessage {
    *          <p>
    *             <b>RDS for PostgreSQL</b>
    *          </p>
-   *          <p>Example: <code>postgres12</code>
+   *          <p>Example: <code>postgres13</code>
    *          </p>
    *          <p>To list all of the available parameter group families for a DB engine, use the following command:</p>
    *          <p>
