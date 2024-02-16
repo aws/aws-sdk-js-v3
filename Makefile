@@ -21,7 +21,7 @@ unlink-smithy:
 	yarn --check-files
 
 test-gh-hooks:
-	echo "no-op2"
+	echo "no-op3"
 
 copy-smithy:
 	node ./scripts/copy-smithy-dist-files
