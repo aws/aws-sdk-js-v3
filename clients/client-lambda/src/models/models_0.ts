@@ -741,6 +741,15 @@ export interface OnFailure {
   /**
    * @public
    * <p>The Amazon Resource Name (ARN) of the destination resource.</p>
+   *          <p>To retain records of <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations">asynchronous invocations</a>,
+   *       you can configure an Amazon SNS topic, Amazon SQS queue, Lambda function,
+   *       or Amazon EventBridge event bus as the destination.</p>
+   *          <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventsourcemapping.html#event-source-mapping-destinations">Kinesis and
+   *       DynamoDB event sources</a>, you can configure an Amazon SNS topic or
+   *       Amazon SQS queue as the destination.</p>
+   *          <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or
+   *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>,
+   *       you can configure an Amazon SNS topic or Amazon SQS queue as the destination.</p>
    */
   Destination?: string;
 }
@@ -1036,7 +1045,7 @@ export interface CreateEventSourceMappingRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc">cross-account event source mappings</a>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -1164,7 +1173,7 @@ export interface CreateEventSourceMappingRequest {
 
   /**
    * @public
-   * <p>(Kinesis and DynamoDB Streams only) A standard Amazon SQS queue or standard Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Kafka only) A configuration object that specifies the destination of an event after Lambda processes it.</p>
    */
   DestinationConfig?: DestinationConfig;
 
@@ -1577,8 +1586,8 @@ export interface Environment {
 
 /**
  * @public
- * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but it can be any
- *       whole number between 512 and 10,240 MB.</p>
+ * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
+ *   number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
  */
 export interface EphemeralStorage {
   /**
@@ -1677,14 +1686,14 @@ export interface LoggingConfig {
   /**
    * @public
    * <p>Set this property to filter the application logs for your function that Lambda sends to CloudWatch. Lambda only sends application logs at the
-   *     selected level and lower.</p>
+   *     selected level of detail and lower, where <code>TRACE</code> is the highest level and <code>FATAL</code> is the lowest.</p>
    */
   ApplicationLogLevel?: ApplicationLogLevel;
 
   /**
    * @public
    * <p>Set this property to filter the system logs for your function that Lambda sends to CloudWatch. Lambda only sends system logs at the
-   *       selected level and lower.</p>
+   *       selected level of detail and lower, where <code>DEBUG</code> is the highest level and <code>WARN</code> is the lowest.</p>
    */
   SystemLogLevel?: SystemLogLevel;
 
@@ -2010,7 +2019,7 @@ export interface CreateFunctionRequest {
   /**
    * @public
    * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
-   *       number between 512 and 10,240 MB.</p>
+   *       number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
@@ -2547,8 +2556,8 @@ export interface FunctionConfiguration {
 
   /**
    * @public
-   * <p>The size of the function’s <code>/tmp</code> directory in MB. The default value is 512, but it can be any
-   *       whole number between 512 and 10,240 MB.</p>
+   * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
+   *   number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
@@ -4447,7 +4456,8 @@ export interface InvocationRequest {
   /**
    * @public
    * <p>Up to 3,583 bytes of base64-encoded data about the invoking client to pass to the function in the context
-   *       object.</p>
+   *       object. Lambda passes the <code>ClientContext</code> object to your function for
+   *       synchronous invocations only.</p>
    */
   ClientContext?: string;
 
@@ -5194,7 +5204,7 @@ export interface ListEventSourceMappingsRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster.</p>
+   *                   <b>Amazon Managed Streaming for Apache Kafka</b> – The ARN of the cluster or the ARN of the VPC connection (for <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#msk-multi-vpc">cross-account event source mappings</a>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5562,7 +5572,7 @@ export interface ListFunctionUrlConfigsResponse {
 export interface ListLayersRequest {
   /**
    * @public
-   * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
+   * <p>A runtime identifier. For example, <code>java21</code>.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
   CompatibleRuntime?: Runtime;
@@ -5686,7 +5696,7 @@ export interface ListLayersResponse {
 export interface ListLayerVersionsRequest {
   /**
    * @public
-   * <p>A runtime identifier. For example, <code>go1.x</code>.</p>
+   * <p>A runtime identifier. For example, <code>java21</code>.</p>
    *          <p>The following list includes deprecated runtimes. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html#runtime-support-policy">Runtime deprecation policy</a>.</p>
    */
   CompatibleRuntime?: Runtime;
@@ -6805,7 +6815,7 @@ export interface UpdateEventSourceMappingRequest {
 
   /**
    * @public
-   * <p>(Kinesis and DynamoDB Streams only) A standard Amazon SQS queue or standard Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Kafka only) A configuration object that specifies the destination of an event after Lambda processes it.</p>
    */
   DestinationConfig?: DestinationConfig;
 
@@ -7096,7 +7106,7 @@ export interface UpdateFunctionConfigurationRequest {
   /**
    * @public
    * <p>The size of the function's <code>/tmp</code> directory in MB. The default value is 512, but can be any whole
-   *       number between 512 and 10,240 MB.</p>
+   *       number between 512 and 10,240 MB. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-function-common.html#configuration-ephemeral-storage">Configuring ephemeral storage (console)</a>.</p>
    */
   EphemeralStorage?: EphemeralStorage;
 
