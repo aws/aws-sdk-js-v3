@@ -94,6 +94,7 @@ export class Upload extends EventEmitter {
   }
 
   public async done(): Promise<CompleteMultipartUploadCommandOutput> {
+    this.abortController = new AbortController();
     return await Promise.race([this.__doMultipartUpload(), this.__abortTimeout(this.abortController.signal)]);
   }
 
@@ -191,6 +192,9 @@ export class Upload extends EventEmitter {
 
   private async __doConcurrentUpload(dataFeeder: AsyncGenerator<RawDataPart, void, undefined>): Promise<void> {
     for await (const dataPart of dataFeeder) {
+      if (this.uploadedParts.some(p => p.PartNumber === dataPart.partNumber)) {
+        continue;
+      }
       if (this.uploadedParts.length > this.MAX_PARTS) {
         throw new Error(
           `Exceeded ${this.MAX_PARTS} as part of the upload to ${this.params.Key} and ${this.params.Bucket}.`

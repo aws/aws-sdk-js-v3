@@ -1,0 +1,11 @@
+{
+  "_comment": "copied from ../../tsconfig.es.json",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "importHelpers": true,
+    "module": "esnext",
+    "noEmitHelpers": false,
+    "target": "ES2020",
+    "strict": true
+  }
+}

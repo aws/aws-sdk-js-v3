@@ -1,0 +1,29 @@
+{
+  "_comment": "copied from ../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "downlevelIteration": true,
+    "esModuleInterop": true,
+    "incremental": true,
+    "lib": ["es2015", "dom"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noFallthroughCasesInSwitch": true,
+    "paths": {
+      "@aws-sdk/*": ["packages/*/"],
+      "@aws-sdk/client-*": ["clients/client-*/"],
+      "@aws-sdk/aws-*": ["private/aws-*/"],
+      "@aws-sdk/lib-*": ["lib/*"]
+    },
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "target": "es5",
+    "useUnknownInCatchVariables": false,
+    "experimentalDecorators": true,
+    "jsx": "react",
+    "jsxFactory": "JSX.createElement",
+    "jsxFragmentFactory": "JSX.Fragment"
+  },
+  "exclude": ["node_modules/", "**/*.spec.ts"]
+}

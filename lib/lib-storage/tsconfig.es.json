@@ -5,6 +5,6 @@
     "outDir": "dist-es",
     "rootDir": "src"
   },
-  "extends": "../../tsconfig.es.json",
+  "extends": "./tsconfig.sdk.es.json",
   "include": ["src/"]
 }

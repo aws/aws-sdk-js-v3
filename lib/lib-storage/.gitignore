@@ -5,4 +5,7 @@
 *.tsbuildinfo
 *.tgz
 *.log
-package-lock.json
+dist-es
+jest.config.js
+karma.conf.js
+api-extractor.json
