@@ -32,7 +32,15 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
 
 /**
  * @public
- * <p>Sends an event. </p>
+ * <note>
+ *             <p>The <code>application/vnd.amazonaws.connect.event.connection.acknowledged</code>
+ *                 ContentType will no longer be supported starting December 31, 2024. This event has
+ *                 been migrated to the <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a> API using the
+ *                     <code>ConnectParticipant</code> field.</p>
+ *          </note>
+ *          <p>Sends an event. Message receipts are not supported when there are more than two active
+ *             participants in the chat. Using the SendEvent API for message receipts when a supervisor
+ *             is barged-in will result in a conflict exception.</p>
  *          <note>
  *             <p>
  *                <code>ConnectionToken</code> is used for invoking this API instead of
@@ -71,7 +79,8 @@ export interface SendEventCommandOutput extends SendEventResponse, __MetadataBea
  *  <p>You do not have sufficient access to perform this action.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  <p>An attachment with that identifier is already being uploaded.</p>
+ *  <p>The requested operation conflicts with the current state of a service
+ *             resource associated with the request. </p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>This exception occurs when there is an internal failure in the Amazon Connect service.</p>

@@ -58,7 +58,8 @@ export interface CompleteAttachmentUploadResponse {}
 
 /**
  * @public
- * <p>An attachment with that identifier is already being uploaded.</p>
+ * <p>The requested operation conflicts with the current state of a service
+ *             resource associated with the request. </p>
  */
 export class ConflictException extends __BaseException {
   readonly name: "ConflictException" = "ConflictException";
@@ -186,9 +187,9 @@ export type ConnectionType = (typeof ConnectionType)[keyof typeof ConnectionType
 export interface CreateParticipantConnectionRequest {
   /**
    * @public
-   * <p>Type of connection information required. If you need <code>CONNECTION_CREDENTIALS</code> along with marking
-   *             participant as connected, pass <code>CONNECTION_CREDENTIALS</code> in
-   *             <code>Type</code>.</p>
+   * <p>Type of connection information required. If you need
+   *                 <code>CONNECTION_CREDENTIALS</code> along with marking participant as connected,
+   *             pass <code>CONNECTION_CREDENTIALS</code> in <code>Type</code>.</p>
    */
   Type?: ConnectionType[];
 
@@ -273,8 +274,8 @@ export interface CreateParticipantConnectionResponse {
 export interface DescribeViewRequest {
   /**
    * @public
-   * <p>An encrypted token originating from the interactive message of a ShowView block operation.
-   *             Represents the desired view.</p>
+   * <p>An encrypted token originating from the interactive message of a ShowView block
+   *             operation. Represents the desired view.</p>
    */
   ViewToken: string | undefined;
 
@@ -287,12 +288,14 @@ export interface DescribeViewRequest {
 
 /**
  * @public
- * <p>View content containing all content necessary to render a view except for runtime input data.</p>
+ * <p>View content containing all content necessary to render a view except for runtime
+ *             input data.</p>
  */
 export interface ViewContent {
   /**
    * @public
-   * <p>The schema representing the input data that the view template must be supplied to render.</p>
+   * <p>The schema representing the input data that the view template must be supplied to
+   *             render.</p>
    */
   InputSchema?: string;
 
@@ -311,7 +314,8 @@ export interface ViewContent {
 
 /**
  * @public
- * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+ * <p>A view resource object. Contains metadata and content necessary to render the
+ *             view.</p>
  */
 export interface View {
   /**
@@ -340,7 +344,8 @@ export interface View {
 
   /**
    * @public
-   * <p>View content containing all content necessary to render a view except for runtime input data.</p>
+   * <p>View content containing all content necessary to render a view except for runtime
+   *             input data.</p>
    */
   Content?: ViewContent;
 }
@@ -351,7 +356,8 @@ export interface View {
 export interface DescribeViewResponse {
   /**
    * @public
-   * <p>A view resource object. Contains metadata and content necessary to render the view.</p>
+   * <p>A view resource object. Contains metadata and content necessary to render the
+   *             view.</p>
    */
   View?: View;
 }
@@ -825,7 +831,8 @@ export interface SendEventRequest {
    *                <p>application/vnd.amazonaws.connect.event.typing</p>
    *             </li>
    *             <li>
-   *                <p>application/vnd.amazonaws.connect.event.connection.acknowledged</p>
+   *                <p>application/vnd.amazonaws.connect.event.connection.acknowledged (will be
+   *                     deprecated on December 31, 2024) </p>
    *             </li>
    *             <li>
    *                <p>application/vnd.amazonaws.connect.event.message.delivered</p>
@@ -887,8 +894,8 @@ export interface SendMessageRequest {
   /**
    * @public
    * <p>The type of the content. Supported types are <code>text/plain</code>,
-   *             <code>text/markdown</code>, <code>application/json</code>, and
-   *             <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
+   *                 <code>text/markdown</code>, <code>application/json</code>, and
+   *                 <code>application/vnd.amazonaws.connect.message.interactive.response</code>.</p>
    */
   ContentType: string | undefined;
 
@@ -905,8 +912,9 @@ export interface SendMessageRequest {
    *                     Maximum of 12000. </p>
    *             </li>
    *             <li>
-   *                <p>For <code>application/vnd.amazonaws.connect.message.interactive.response</code>, the Length
-   *                     Constraints are Minimum of 1, Maximum of 12288.</p>
+   *                <p>For
+   *                         <code>application/vnd.amazonaws.connect.message.interactive.response</code>,
+   *                     the Length Constraints are Minimum of 1, Maximum of 12288.</p>
    *             </li>
    *          </ul>
    */
