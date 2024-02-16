@@ -97,6 +97,7 @@ export interface DescribeClusterCommandOutput extends DescribeClusterOutput, __M
  * //     ReleaseLabel: "STRING_VALUE",
  * //     AutoTerminate: true || false,
  * //     TerminationProtected: true || false,
+ * //     UnhealthyNodeReplacement: true || false,
  * //     VisibleToAllUsers: true || false,
  * //     Applications: [ // ApplicationList
  * //       { // Application

@@ -224,6 +224,11 @@ import {
   SetTerminationProtectionCommandOutput,
 } from "./commands/SetTerminationProtectionCommand";
 import {
+  SetUnhealthyNodeReplacementCommand,
+  SetUnhealthyNodeReplacementCommandInput,
+  SetUnhealthyNodeReplacementCommandOutput,
+} from "./commands/SetUnhealthyNodeReplacementCommand";
+import {
   SetVisibleToAllUsersCommand,
   SetVisibleToAllUsersCommandInput,
   SetVisibleToAllUsersCommandOutput,
@@ -305,6 +310,7 @@ const commands = {
   RunJobFlowCommand,
   SetKeepJobFlowAliveWhenNoStepsCommand,
   SetTerminationProtectionCommand,
+  SetUnhealthyNodeReplacementCommand,
   SetVisibleToAllUsersCommand,
   StartNotebookExecutionCommand,
   StopNotebookExecutionCommand,
@@ -1064,6 +1070,23 @@ export interface EMR {
     args: SetTerminationProtectionCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: SetTerminationProtectionCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link SetUnhealthyNodeReplacementCommand}
+   */
+  setUnhealthyNodeReplacement(
+    args: SetUnhealthyNodeReplacementCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<SetUnhealthyNodeReplacementCommandOutput>;
+  setUnhealthyNodeReplacement(
+    args: SetUnhealthyNodeReplacementCommandInput,
+    cb: (err: any, data?: SetUnhealthyNodeReplacementCommandOutput) => void
+  ): void;
+  setUnhealthyNodeReplacement(
+    args: SetUnhealthyNodeReplacementCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: SetUnhealthyNodeReplacementCommandOutput) => void
   ): void;
 
   /**

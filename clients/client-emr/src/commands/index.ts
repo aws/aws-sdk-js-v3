@@ -48,6 +48,7 @@ export * from "./RemoveTagsCommand";
 export * from "./RunJobFlowCommand";
 export * from "./SetKeepJobFlowAliveWhenNoStepsCommand";
 export * from "./SetTerminationProtectionCommand";
+export * from "./SetUnhealthyNodeReplacementCommand";
 export * from "./SetVisibleToAllUsersCommand";
 export * from "./StartNotebookExecutionCommand";
 export * from "./StopNotebookExecutionCommand";

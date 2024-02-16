@@ -187,6 +187,10 @@ import {
   SetTerminationProtectionCommandOutput,
 } from "./commands/SetTerminationProtectionCommand";
 import {
+  SetUnhealthyNodeReplacementCommandInput,
+  SetUnhealthyNodeReplacementCommandOutput,
+} from "./commands/SetUnhealthyNodeReplacementCommand";
+import {
   SetVisibleToAllUsersCommandInput,
   SetVisibleToAllUsersCommandOutput,
 } from "./commands/SetVisibleToAllUsersCommand";
@@ -268,6 +272,7 @@ export type ServiceInputTypes =
   | RunJobFlowCommandInput
   | SetKeepJobFlowAliveWhenNoStepsCommandInput
   | SetTerminationProtectionCommandInput
+  | SetUnhealthyNodeReplacementCommandInput
   | SetVisibleToAllUsersCommandInput
   | StartNotebookExecutionCommandInput
   | StopNotebookExecutionCommandInput
@@ -328,6 +333,7 @@ export type ServiceOutputTypes =
   | RunJobFlowCommandOutput
   | SetKeepJobFlowAliveWhenNoStepsCommandOutput
   | SetTerminationProtectionCommandOutput
+  | SetUnhealthyNodeReplacementCommandOutput
   | SetVisibleToAllUsersCommandOutput
   | StartNotebookExecutionCommandOutput
   | StopNotebookExecutionCommandOutput

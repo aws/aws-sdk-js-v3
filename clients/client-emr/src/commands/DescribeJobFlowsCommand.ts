@@ -121,6 +121,7 @@ export interface DescribeJobFlowsCommandOutput extends DescribeJobFlowsOutput, _
  * //         },
  * //         KeepJobFlowAliveWhenNoSteps: true || false,
  * //         TerminationProtected: true || false,
+ * //         UnhealthyNodeReplacement: true || false,
  * //         HadoopVersion: "STRING_VALUE",
  * //       },
  * //       Steps: [ // StepDetailList

@@ -159,6 +159,10 @@ import {
   SetTerminationProtectionCommandOutput,
 } from "../commands/SetTerminationProtectionCommand";
 import {
+  SetUnhealthyNodeReplacementCommandInput,
+  SetUnhealthyNodeReplacementCommandOutput,
+} from "../commands/SetUnhealthyNodeReplacementCommand";
+import {
   SetVisibleToAllUsersCommandInput,
   SetVisibleToAllUsersCommandOutput,
 } from "../commands/SetVisibleToAllUsersCommand";
@@ -319,6 +323,7 @@ import {
   SessionMappingSummary,
   SetKeepJobFlowAliveWhenNoStepsInput,
   SetTerminationProtectionInput,
+  SetUnhealthyNodeReplacementInput,
   SetVisibleToAllUsersInput,
   ShrinkPolicy,
   SimpleScalingPolicyConfiguration,
@@ -977,6 +982,19 @@ export const se_SetTerminationProtectionCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("SetTerminationProtection");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1SetUnhealthyNodeReplacementCommand
+ */
+export const se_SetUnhealthyNodeReplacementCommand = async (
+  input: SetUnhealthyNodeReplacementCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("SetUnhealthyNodeReplacement");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -2020,6 +2038,23 @@ export const de_SetTerminationProtectionCommand = async (
 };
 
 /**
+ * deserializeAws_json1_1SetUnhealthyNodeReplacementCommand
+ */
+export const de_SetUnhealthyNodeReplacementCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<SetUnhealthyNodeReplacementCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  await collectBody(output.body, context);
+  const response: SetUnhealthyNodeReplacementCommandOutput = {
+    $metadata: deserializeMetadata(output),
+  };
+  return response;
+};
+
+/**
  * deserializeAws_json1_1SetVisibleToAllUsersCommand
  */
 export const de_SetVisibleToAllUsersCommand = async (
@@ -2504,6 +2539,7 @@ const se_JobFlowInstancesConfig = (input: JobFlowInstancesConfig, context: __Ser
     ServiceAccessSecurityGroup: [],
     SlaveInstanceType: [],
     TerminationProtected: [],
+    UnhealthyNodeReplacement: [],
   });
 };
 
@@ -2721,6 +2757,8 @@ const se_ScalingTrigger = (input: ScalingTrigger, context: __SerdeContext): any 
 
 // se_SetTerminationProtectionInput omitted.
 
+// se_SetUnhealthyNodeReplacementInput omitted.
+
 // se_SetVisibleToAllUsersInput omitted.
 
 // se_ShrinkPolicy omitted.
@@ -2890,6 +2928,7 @@ const de_Cluster = (output: any, context: __SerdeContext): Cluster => {
     StepConcurrencyLevel: __expectInt32,
     Tags: _json,
     TerminationProtected: __expectBoolean,
+    UnhealthyNodeReplacement: __expectBoolean,
     VisibleToAllUsers: __expectBoolean,
   }) as any;
 };
@@ -3438,6 +3477,7 @@ const de_JobFlowInstancesDetail = (output: any, context: __SerdeContext): JobFlo
     Placement: _json,
     SlaveInstanceType: __expectString,
     TerminationProtected: __expectBoolean,
+    UnhealthyNodeReplacement: __expectBoolean,
   }) as any;
 };
 

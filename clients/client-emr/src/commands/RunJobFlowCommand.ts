@@ -212,6 +212,7 @@ export interface RunJobFlowCommandOutput extends RunJobFlowOutput, __MetadataBea
  *     },
  *     KeepJobFlowAliveWhenNoSteps: true || false,
  *     TerminationProtected: true || false,
+ *     UnhealthyNodeReplacement: true || false,
  *     HadoopVersion: "STRING_VALUE",
  *     Ec2SubnetId: "STRING_VALUE",
  *     Ec2SubnetIds: [

@@ -2691,6 +2691,13 @@ export interface JobFlowInstancesDetail {
 
   /**
    * @public
+   * <p>Indicates whether Amazon EMR should gracefully replace core nodes
+   *          that have degraded within the cluster.</p>
+   */
+  UnhealthyNodeReplacement?: boolean;
+
+  /**
+   * @public
    * <p>The Hadoop version for the cluster.</p>
    */
   HadoopVersion?: string;
@@ -5767,6 +5774,25 @@ export interface SetTerminationProtectionInput {
 
 /**
  * @public
+ */
+export interface SetUnhealthyNodeReplacementInput {
+  /**
+   * @public
+   * <p>The list of strings that uniquely identify the clusters for which to turn on
+   *          unhealthy node replacement. You can get these identifiers by running the
+   *          <a>RunJobFlow</a> or the <a>DescribeJobFlows</a> operations.</p>
+   */
+  JobFlowIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>Indicates whether to turn on or turn off graceful unhealthy node replacement.</p>
+   */
+  UnhealthyNodeReplacement: boolean | undefined;
+}
+
+/**
+ * @public
  * <p>The input to the SetVisibleToAllUsers action.</p>
  */
 export interface SetVisibleToAllUsersInput {
@@ -6208,6 +6234,13 @@ export interface Cluster {
    *          the event of a cluster error.</p>
    */
   TerminationProtected?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether Amazon EMR should gracefully replace Amazon EC2
+   *          core instances that have degraded within the cluster.</p>
+   */
+  UnhealthyNodeReplacement?: boolean;
 
   /**
    * @public
@@ -7201,6 +7234,13 @@ export interface JobFlowInstancesConfig {
    *          error.</p>
    */
   TerminationProtected?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether Amazon EMR should gracefully replace core nodes
+   *          that have degraded within the cluster.</p>
+   */
+  UnhealthyNodeReplacement?: boolean;
 
   /**
    * @public
