@@ -2506,10 +2506,66 @@
             "eu-central-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
-            "us-east-1": {},
-            "us-east-2": {},
-            "us-west-1": {},
-            "us-west-2": {}
+            "us-east-1": {
+              "variants": [
+                {
+                  "hostname": "auditmanager-fips.us-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-east-1-fips": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "deprecated": true,
+              "hostname": "auditmanager-fips.us-east-1.amazonaws.com"
+            },
+            "us-east-2": {
+              "variants": [
+                {
+                  "hostname": "auditmanager-fips.us-east-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-east-2-fips": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "deprecated": true,
+              "hostname": "auditmanager-fips.us-east-2.amazonaws.com"
+            },
+            "us-west-1": {
+              "variants": [
+                {
+                  "hostname": "auditmanager-fips.us-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-1-fips": {
+              "credentialScope": {
+                "region": "us-west-1"
+              },
+              "deprecated": true,
+              "hostname": "auditmanager-fips.us-west-1.amazonaws.com"
+            },
+            "us-west-2": {
+              "variants": [
+                {
+                  "hostname": "auditmanager-fips.us-west-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-2-fips": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "deprecated": true,
+              "hostname": "auditmanager-fips.us-west-2.amazonaws.com"
+            }
           }
         },
         "autoscaling": {
@@ -3517,6 +3573,7 @@
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
+            "me-central-1": {},
             "me-south-1": {},
             "sa-east-1": {},
             "us-east-1": {},
@@ -6346,6 +6403,14 @@
                 }
               ]
             },
+            "ca-west-1": {
+              "variants": [
+                {
+                  "hostname": "ec2-fips.ca-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "eu-central-1": {},
             "eu-central-2": {},
             "eu-north-1": {},
@@ -6367,6 +6432,13 @@
               },
               "deprecated": true,
               "hostname": "ec2-fips.ca-central-1.amazonaws.com"
+            },
+            "fips-ca-west-1": {
+              "credentialScope": {
+                "region": "ca-west-1"
+              },
+              "deprecated": true,
+              "hostname": "ec2-fips.ca-west-1.amazonaws.com"
             },
             "fips-us-east-1": {
               "credentialScope": {
@@ -7028,6 +7100,14 @@
                 }
               ]
             },
+            "ca-west-1": {
+              "variants": [
+                {
+                  "hostname": "elasticfilesystem-fips.ca-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "eu-central-1": {
               "variants": [
                 {
@@ -7175,6 +7255,13 @@
               },
               "deprecated": true,
               "hostname": "elasticfilesystem-fips.ca-central-1.amazonaws.com"
+            },
+            "fips-ca-west-1": {
+              "credentialScope": {
+                "region": "ca-west-1"
+              },
+              "deprecated": true,
+              "hostname": "elasticfilesystem-fips.ca-west-1.amazonaws.com"
             },
             "fips-eu-central-1": {
               "credentialScope": {
@@ -14036,8 +14123,10 @@
             "ap-southeast-2": {},
             "ca-central-1": {},
             "eu-central-1": {},
+            "eu-north-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
+            "sa-east-1": {},
             "us-east-1": {},
             "us-east-2": {},
             "us-west-1": {},
@@ -15533,16 +15622,86 @@
             "ap-south-1": {},
             "ap-southeast-1": {},
             "ap-southeast-2": {},
-            "ca-central-1": {},
+            "ca-central-1": {
+              "variants": [
+                {
+                  "hostname": "redshift-serverless-fips.ca-central-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
             "eu-central-1": {},
             "eu-north-1": {},
             "eu-west-1": {},
             "eu-west-2": {},
             "eu-west-3": {},
-            "us-east-1": {},
-            "us-east-2": {},
-            "us-west-1": {},
-            "us-west-2": {}
+            "fips-ca-central-1": {
+              "credentialScope": {
+                "region": "ca-central-1"
+              },
+              "deprecated": true,
+              "hostname": "redshift-serverless-fips.ca-central-1.amazonaws.com"
+            },
+            "fips-us-east-1": {
+              "credentialScope": {
+                "region": "us-east-1"
+              },
+              "deprecated": true,
+              "hostname": "redshift-serverless-fips.us-east-1.amazonaws.com"
+            },
+            "fips-us-east-2": {
+              "credentialScope": {
+                "region": "us-east-2"
+              },
+              "deprecated": true,
+              "hostname": "redshift-serverless-fips.us-east-2.amazonaws.com"
+            },
+            "fips-us-west-1": {
+              "credentialScope": {
+                "region": "us-west-1"
+              },
+              "deprecated": true,
+              "hostname": "redshift-serverless-fips.us-west-1.amazonaws.com"
+            },
+            "fips-us-west-2": {
+              "credentialScope": {
+                "region": "us-west-2"
+              },
+              "deprecated": true,
+              "hostname": "redshift-serverless-fips.us-west-2.amazonaws.com"
+            },
+            "us-east-1": {
+              "variants": [
+                {
+                  "hostname": "redshift-serverless-fips.us-east-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-east-2": {
+              "variants": [
+                {
+                  "hostname": "redshift-serverless-fips.us-east-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-1": {
+              "variants": [
+                {
+                  "hostname": "redshift-serverless-fips.us-west-1.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            },
+            "us-west-2": {
+              "variants": [
+                {
+                  "hostname": "redshift-serverless-fips.us-west-2.amazonaws.com",
+                  "tags": ["fips"]
+                }
+              ]
+            }
           }
         },
         "rekognition": {
