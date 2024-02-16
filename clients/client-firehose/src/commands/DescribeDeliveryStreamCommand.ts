@@ -140,10 +140,10 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             Enabled: true || false,
  * //             Processors: [ // ProcessorList
  * //               { // Processor
- * //                 Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ * //                 Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  * //                 Parameters: [ // ProcessorParameterList
  * //                   { // ProcessorParameter
- * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  * //                     ParameterValue: "STRING_VALUE", // required
  * //                   },
  * //                 ],
@@ -232,6 +232,8 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             },
  * //             Enabled: true || false,
  * //           },
+ * //           FileExtension: "STRING_VALUE",
+ * //           CustomTimeZone: "STRING_VALUE",
  * //         },
  * //         RedshiftDestinationDescription: { // RedshiftDestinationDescription
  * //           RoleARN: "STRING_VALUE", // required
@@ -271,10 +273,10 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             Enabled: true || false,
  * //             Processors: [
  * //               {
- * //                 Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ * //                 Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  * //                 Parameters: [
  * //                   {
- * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  * //                     ParameterValue: "STRING_VALUE", // required
  * //                   },
  * //                 ],
@@ -335,10 +337,10 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             Enabled: true || false,
  * //             Processors: [
  * //               {
- * //                 Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ * //                 Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  * //                 Parameters: [
  * //                   {
- * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  * //                     ParameterValue: "STRING_VALUE", // required
  * //                   },
  * //                 ],
@@ -380,10 +382,10 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             Enabled: true || false,
  * //             Processors: [
  * //               {
- * //                 Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ * //                 Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  * //                 Parameters: [
  * //                   {
- * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  * //                     ParameterValue: "STRING_VALUE", // required
  * //                   },
  * //                 ],
@@ -419,10 +421,10 @@ export interface DescribeDeliveryStreamCommandOutput extends DescribeDeliveryStr
  * //             Enabled: true || false,
  * //             Processors: [
  * //               {
- * //                 Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ * //                 Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  * //                 Parameters: [
  * //                   {
- * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ * //                     ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  * //                     ParameterValue: "STRING_VALUE", // required
  * //                   },
  * //                 ],

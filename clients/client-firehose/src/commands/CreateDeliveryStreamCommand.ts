@@ -32,7 +32,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
 
 /**
  * @public
- * <p>Creates a Kinesis Data Firehose delivery stream.</p>
+ * <p>Creates a Firehose delivery stream.</p>
  *          <p>By default, you can create up to 50 delivery streams per Amazon Web Services
  *          Region.</p>
  *          <p>This is an asynchronous operation that immediately returns. The initial status of the
@@ -45,7 +45,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *          doesn't change, and you can't invoke <code>CreateDeliveryStream</code> again on it.
  *          However, you can invoke the <a>DeleteDeliveryStream</a> operation to delete
  *          it.</p>
- *          <p>A Kinesis Data Firehose delivery stream can be configured to receive records directly
+ *          <p>A Firehose delivery stream can be configured to receive records directly
  *          from providers using <a>PutRecord</a> or <a>PutRecordBatch</a>, or it
  *          can be configured to use an existing Kinesis stream as its source. To specify a Kinesis
  *          data stream as input, set the <code>DeliveryStreamType</code> parameter to
@@ -68,7 +68,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *          <p>When you specify <code>S3DestinationConfiguration</code>, you can also provide the
  *          following optional values: BufferingHints, <code>EncryptionConfiguration</code>, and
  *             <code>CompressionFormat</code>. By default, if no <code>BufferingHints</code> value is
- *          provided, Kinesis Data Firehose buffers data up to 5 MB or for 5 minutes, whichever
+ *          provided, Firehose buffers data up to 5 MB or for 5 minutes, whichever
  *          condition is satisfied first. <code>BufferingHints</code> is a hint, so there are some
  *          cases where the service cannot adhere to these conditions strictly. For example, record
  *          boundaries might be such that the size is a little over or under the configured buffering
@@ -78,7 +78,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *          <ul>
  *             <li>
  *                <p>An Amazon Redshift destination requires an S3 bucket as intermediate location.
- *                Kinesis Data Firehose first delivers data to Amazon S3 and then uses
+ *                Firehose first delivers data to Amazon S3 and then uses
  *                   <code>COPY</code> syntax to load data into an Amazon Redshift table. This is
  *                specified in the <code>RedshiftDestinationConfiguration.S3Configuration</code>
  *                parameter.</p>
@@ -91,16 +91,14 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *             </li>
  *             <li>
  *                <p>We strongly recommend that you use the user name and password you provide
- *                exclusively with Kinesis Data Firehose, and that the permissions for the account are
+ *                exclusively with Firehose, and that the permissions for the account are
  *                restricted for Amazon Redshift <code>INSERT</code> permissions.</p>
  *             </li>
  *          </ul>
- *          <p>Kinesis Data Firehose assumes the IAM role that is configured as part of the
- *          destination. The role should allow the Kinesis Data Firehose principal to assume the role,
+ *          <p>Firehose assumes the IAM role that is configured as part of the
+ *          destination. The role should allow the Firehose principal to assume the role,
  *          and the role should have permissions that allow the service to deliver the data. For more
- *          information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Kinesis Data
- *             Firehose Access to an Amazon S3 Destination</a> in the <i>Amazon Kinesis Data
- *             Firehose Developer Guide</i>.</p>
+ *          information, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/controlling-access.html#using-iam-s3">Grant Firehose Access to an Amazon S3 Destination</a> in the <i>Amazon Firehose Developer Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -165,10 +163,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [ // ProcessorList
  *         { // Processor
- *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [ // ProcessorParameterList
  *             { // ProcessorParameter
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -257,6 +255,8 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       },
  *       Enabled: true || false,
  *     },
+ *     FileExtension: "STRING_VALUE",
+ *     CustomTimeZone: "STRING_VALUE",
  *   },
  *   RedshiftDestinationConfiguration: { // RedshiftDestinationConfiguration
  *     RoleARN: "STRING_VALUE", // required
@@ -297,10 +297,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -361,10 +361,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -405,10 +405,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -443,10 +443,10 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *       Enabled: true || false,
  *       Processors: [
  *         {
- *           Type: "RecordDeAggregation" || "Decompression" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
+ *           Type: "RecordDeAggregation" || "Decompression" || "CloudWatchLogProcessing" || "Lambda" || "MetadataExtraction" || "AppendDelimiterToRecord", // required
  *           Parameters: [
  *             {
- *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat", // required
+ *               ParameterName: "LambdaArn" || "NumberOfRetries" || "MetadataExtractionQuery" || "JsonParsingEngine" || "RoleArn" || "BufferSizeInMBs" || "BufferIntervalInSeconds" || "SubRecordType" || "Delimiter" || "CompressionFormat" || "DataMessageExtraction", // required
  *               ParameterValue: "STRING_VALUE", // required
  *             },
  *           ],
@@ -572,7 +572,7 @@ export interface CreateDeliveryStreamCommandOutput extends CreateDeliveryStreamO
  *  <p>The specified input parameter has a value that is not valid.</p>
  *
  * @throws {@link InvalidKMSResourceException} (client fault)
- *  <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start
+ *  <p>Firehose throws this exception when an attempt to put records or to start
  *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
  *          the following exception types: <code>AccessDeniedException</code>,
  *             <code>InvalidStateException</code>, <code>DisabledException</code>, or

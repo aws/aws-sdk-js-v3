@@ -32,8 +32,8 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *          achieve higher throughput per producer than when writing single records. To write single
  *          data records into a delivery stream, use <a>PutRecord</a>. Applications using
  *          these operations are referred to as producers.</p>
- *          <p>Kinesis Data Firehose accumulates and publishes a particular metric for a customer account in one minute intervals. It is possible that the bursts of incoming bytes/records ingested to a delivery stream last only for a few seconds. Due to this, the actual spikes in the traffic might not be fully visible in the customer's 1 minute CloudWatch metrics.</p>
- *          <p>For information about service quota, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
+ *          <p>Firehose accumulates and publishes a particular metric for a customer account in one minute intervals. It is possible that the bursts of incoming bytes/records ingested to a delivery stream last only for a few seconds. Due to this, the actual spikes in the traffic might not be fully visible in the customer's 1 minute CloudWatch metrics.</p>
+ *          <p>For information about service quota, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Firehose
  *          Quota</a>.</p>
  *          <p>Each <a>PutRecordBatch</a> request supports up to 500 records. Each record
  *          in the request can be as large as 1,000 KB (before base64 encoding), up to a limit of 4 MB
@@ -41,7 +41,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *          <p>You must specify the name of the delivery stream and the data record when using <a>PutRecord</a>. The data record consists of a data blob that can be up to 1,000
  *          KB in size, and any kind of data. For example, it could be a segment from a log file,
  *          geographic location data, website clickstream data, and so on.</p>
- *          <p>Kinesis Data Firehose buffers records before delivering them to the destination. To
+ *          <p>Firehose buffers records before delivering them to the destination. To
  *          disambiguate the data blobs at the destination, a common solution is to use delimiters in
  *          the data, such as a newline (<code>\n</code>) or some other character unique within the
  *          data. This allows the consumer application to parse individual data items when reading the
@@ -55,7 +55,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *          record in the request array using the same ordering, from the top to the bottom. The
  *          response array always includes the same number of records as the request array.
  *             <code>RequestResponses</code> includes both successfully and unsuccessfully processed
- *          records. Kinesis Data Firehose tries to process all records in each <a>PutRecordBatch</a> request. A single record failure does not stop the processing
+ *          records. Firehose tries to process all records in each <a>PutRecordBatch</a> request. A single record failure does not stop the processing
  *          of subsequent records. </p>
  *          <p>A successfully processed record includes a <code>RecordId</code> value, which is
  *          unique for the record. An unsuccessfully processed record includes <code>ErrorCode</code>
@@ -74,7 +74,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *          <p>Re-invoking the Put API operations (for example, PutRecord and PutRecordBatch) can
  *          result in data duplicates. For larger data assets, allow for a longer time out before
  *          retrying Put API operations.</p>
- *          <p>Data records sent to Kinesis Data Firehose are stored for 24 hours from the time they
+ *          <p>Data records sent to Firehose are stored for 24 hours from the time they
  *          are added to a delivery stream as it attempts to send the records to the destination. If
  *          the destination is unreachable for more than 24 hours, the data is no longer
  *          available.</p>
@@ -122,7 +122,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *  <p>The specified input parameter has a value that is not valid.</p>
  *
  * @throws {@link InvalidKMSResourceException} (client fault)
- *  <p>Kinesis Data Firehose throws this exception when an attempt to put records or to start
+ *  <p>Firehose throws this exception when an attempt to put records or to start
  *          or stop delivery stream encryption fails. This happens when the KMS service throws one of
  *          the following exception types: <code>AccessDeniedException</code>,
  *             <code>InvalidStateException</code>, <code>DisabledException</code>, or
@@ -137,7 +137,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  * @throws {@link ServiceUnavailableException} (server fault)
  *  <p>The service is unavailable. Back off and retry the operation. If you continue to see
  *          the exception, throughput limits for the delivery stream may have been exceeded. For more
- *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Kinesis Data Firehose
+ *          information about limits and how to request an increase, see <a href="https://docs.aws.amazon.com/firehose/latest/dev/limits.html">Amazon Firehose
  *          Limits</a>.</p>
  *
  * @throws {@link FirehoseServiceException}
