@@ -1,5 +1,5 @@
 // smithy-typescript generated code
-import { ExceptionOptionType as __ExceptionOptionType } from "@smithy/smithy-client";
+import { ExceptionOptionType as __ExceptionOptionType, SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { SNSServiceException as __BaseException } from "./SNSServiceException";
 
@@ -296,7 +296,9 @@ export interface CreatePlatformApplicationInput {
 
   /**
    * @public
-   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>.</p>
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">
+   *                <code>SetPlatformApplicationAttributes</code>
+   *             </a>.</p>
    */
   Attributes: Record<string, string> | undefined;
 }
@@ -308,7 +310,8 @@ export interface CreatePlatformApplicationInput {
 export interface CreatePlatformApplicationResponse {
   /**
    * @public
-   * <p>PlatformApplicationArn is returned.</p>
+   * <p>
+   *             <code>PlatformApplicationArn</code> is returned.</p>
    */
   PlatformApplicationArn?: string;
 }
@@ -332,8 +335,9 @@ export interface CreateEndpointResponse {
 export interface CreatePlatformEndpointInput {
   /**
    * @public
-   * <p>PlatformApplicationArn returned from CreatePlatformApplication is used to create a an
-   *             endpoint.</p>
+   * <p>
+   *             <code>PlatformApplicationArn</code> returned from CreatePlatformApplication is used to
+   *             create a an endpoint.</p>
    */
   PlatformApplicationArn: string | undefined;
 
@@ -356,7 +360,9 @@ export interface CreatePlatformEndpointInput {
 
   /**
    * @public
-   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">SetEndpointAttributes</a>.</p>
+   * <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html">
+   *                <code>SetEndpointAttributes</code>
+   *             </a>.</p>
    */
   Attributes?: Record<string, string>;
 }
@@ -737,24 +743,26 @@ export class TopicLimitExceededException extends __BaseException {
 
 /**
  * @public
- * <p>Input for DeleteEndpoint action.</p>
+ * <p>Input for <code>DeleteEndpoint</code> action.</p>
  */
 export interface DeleteEndpointInput {
   /**
    * @public
-   * <p>EndpointArn of endpoint to delete.</p>
+   * <p>
+   *             <code>EndpointArn</code> of endpoint to delete.</p>
    */
   EndpointArn: string | undefined;
 }
 
 /**
  * @public
- * <p>Input for DeletePlatformApplication action.</p>
+ * <p>Input for <code>DeletePlatformApplication</code> action.</p>
  */
 export interface DeletePlatformApplicationInput {
   /**
    * @public
-   * <p>PlatformApplicationArn of platform application object to delete.</p>
+   * <p>
+   *             <code>PlatformApplicationArn</code> of platform application object to delete.</p>
    */
   PlatformApplicationArn: string | undefined;
 }
@@ -853,19 +861,21 @@ export interface GetDataProtectionPolicyResponse {
 
 /**
  * @public
- * <p>Input for GetEndpointAttributes action.</p>
+ * <p>Input for <code>GetEndpointAttributes</code> action.</p>
  */
 export interface GetEndpointAttributesInput {
   /**
    * @public
-   * <p>EndpointArn for GetEndpointAttributes input.</p>
+   * <p>
+   *             <code>EndpointArn</code> for <code>GetEndpointAttributes</code> input.</p>
    */
   EndpointArn: string | undefined;
 }
 
 /**
  * @public
- * <p>Response from GetEndpointAttributes of the EndpointArn.</p>
+ * <p>Response from <code>GetEndpointAttributes</code> of the
+ *             <code>EndpointArn</code>.</p>
  */
 export interface GetEndpointAttributesResponse {
   /**
@@ -902,19 +912,20 @@ export interface GetEndpointAttributesResponse {
 
 /**
  * @public
- * <p>Input for GetPlatformApplicationAttributes action.</p>
+ * <p>Input for <code>GetPlatformApplicationAttributes</code> action.</p>
  */
 export interface GetPlatformApplicationAttributesInput {
   /**
    * @public
-   * <p>PlatformApplicationArn for GetPlatformApplicationAttributesInput.</p>
+   * <p>
+   *             <code>PlatformApplicationArn</code> for GetPlatformApplicationAttributesInput.</p>
    */
   PlatformApplicationArn: string | undefined;
 }
 
 /**
  * @public
- * <p>Response for GetPlatformApplicationAttributes action.</p>
+ * <p>Response for <code>GetPlatformApplicationAttributes</code> action.</p>
  */
 export interface GetPlatformApplicationAttributesResponse {
   /**
@@ -935,6 +946,20 @@ export interface GetPlatformApplicationAttributesResponse {
    *                <p>
    *                   <code>ApplePlatformBundleID</code> – The app identifier used to configure
    *                     token-based authentication.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>AuthenticationMethod</code> – Returns the credential type used when
+   *                     sending push notifications from application to APNS/APNS_Sandbox, or application
+   *                     to GCM.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>APNS – Returns the token or certificate.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>GCM – Returns the token or key.</p>
+   *                   </li>
+   *                </ul>
    *             </li>
    *             <li>
    *                <p>
@@ -1262,19 +1287,23 @@ export interface GetTopicAttributesResponse {
 
 /**
  * @public
- * <p>Input for ListEndpointsByPlatformApplication action.</p>
+ * <p>Input for <code>ListEndpointsByPlatformApplication</code> action.</p>
  */
 export interface ListEndpointsByPlatformApplicationInput {
   /**
    * @public
-   * <p>PlatformApplicationArn for ListEndpointsByPlatformApplicationInput action.</p>
+   * <p>
+   *             <code>PlatformApplicationArn</code> for
+   *                 <code>ListEndpointsByPlatformApplicationInput</code> action.</p>
    */
   PlatformApplicationArn: string | undefined;
 
   /**
    * @public
-   * <p>NextToken string is used when calling ListEndpointsByPlatformApplication action to
-   *             retrieve additional records that are available after the first page results.</p>
+   * <p>
+   *             <code>NextToken</code> string is used when calling
+   *                 <code>ListEndpointsByPlatformApplication</code> action to retrieve additional
+   *             records that are available after the first page results.</p>
    */
   NextToken?: string;
 }
@@ -1299,19 +1328,21 @@ export interface Endpoint {
 
 /**
  * @public
- * <p>Response for ListEndpointsByPlatformApplication action.</p>
+ * <p>Response for <code>ListEndpointsByPlatformApplication</code> action.</p>
  */
 export interface ListEndpointsByPlatformApplicationResponse {
   /**
    * @public
-   * <p>Endpoints returned for ListEndpointsByPlatformApplication action.</p>
+   * <p>Endpoints returned for <code>ListEndpointsByPlatformApplication</code> action.</p>
    */
   Endpoints?: Endpoint[];
 
   /**
    * @public
-   * <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if
-   *             additional records are available after the first page results.</p>
+   * <p>
+   *             <code>NextToken</code> string is returned when calling
+   *                 <code>ListEndpointsByPlatformApplication</code> action if additional records are
+   *             available after the first page results.</p>
    */
   NextToken?: string;
 }
@@ -1483,13 +1514,15 @@ export interface ListPhoneNumbersOptedOutResponse {
 
 /**
  * @public
- * <p>Input for ListPlatformApplications action.</p>
+ * <p>Input for <code>ListPlatformApplications</code> action.</p>
  */
 export interface ListPlatformApplicationsInput {
   /**
    * @public
-   * <p>NextToken string is used when calling ListPlatformApplications action to retrieve
-   *             additional records that are available after the first page results.</p>
+   * <p>
+   *             <code>NextToken</code> string is used when calling
+   *                 <code>ListPlatformApplications</code> action to retrieve additional records that are
+   *             available after the first page results.</p>
    */
   NextToken?: string;
 }
@@ -1514,19 +1547,22 @@ export interface PlatformApplication {
 
 /**
  * @public
- * <p>Response for ListPlatformApplications action.</p>
+ * <p>Response for <code>ListPlatformApplications</code> action.</p>
  */
 export interface ListPlatformApplicationsResponse {
   /**
    * @public
-   * <p>Platform applications returned when calling ListPlatformApplications action.</p>
+   * <p>Platform applications returned when calling <code>ListPlatformApplications</code>
+   *             action.</p>
    */
   PlatformApplications?: PlatformApplication[];
 
   /**
    * @public
-   * <p>NextToken string is returned when calling ListPlatformApplications action if
-   *             additional records are available after the first page results.</p>
+   * <p>
+   *             <code>NextToken</code> string is returned when calling
+   *                 <code>ListPlatformApplications</code> action if additional records are available
+   *             after the first page results.</p>
    */
   NextToken?: string;
 }
@@ -2592,12 +2628,12 @@ export interface RemovePermissionInput {
 
 /**
  * @public
- * <p>Input for SetEndpointAttributes action.</p>
+ * <p>Input for <code>SetEndpointAttributes</code> action.</p>
  */
 export interface SetEndpointAttributesInput {
   /**
    * @public
-   * <p>EndpointArn used for SetEndpointAttributes action.</p>
+   * <p>EndpointArn used for <code>SetEndpointAttributes</code> action.</p>
    */
   EndpointArn: string | undefined;
 
@@ -2632,12 +2668,14 @@ export interface SetEndpointAttributesInput {
 
 /**
  * @public
- * <p>Input for SetPlatformApplicationAttributes action.</p>
+ * <p>Input for <code>SetPlatformApplicationAttributes</code> action.</p>
  */
 export interface SetPlatformApplicationAttributesInput {
   /**
    * @public
-   * <p>PlatformApplicationArn for SetPlatformApplicationAttributes action.</p>
+   * <p>
+   *             <code>PlatformApplicationArn</code> for <code>SetPlatformApplicationAttributes</code>
+   *             action.</p>
    */
   PlatformApplicationArn: string | undefined;
 
@@ -2663,8 +2701,18 @@ export interface SetPlatformApplicationAttributesInput {
    *                                 <code>PlatformCredential</code> is signing key.</p>
    *                   </li>
    *                   <li>
-   *                      <p>For GCM (Firebase Cloud Messaging), <code>PlatformCredential</code> is
-   *                             API key. </p>
+   *                      <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no
+   *                                 <code>PlatformPrincipal</code>. The <code>PlatformCredential</code>
+   *                             is <code>API key</code>.</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>For GCM (Firebase Cloud Messaging) using token credentials, there is
+   *                             no <code>PlatformPrincipal</code>. The <code>PlatformCredential</code>
+   *                             is a JSON formatted private key file. When using the Amazon Web Services CLI, the file
+   *                             must be in string format and special characters must be ignored. To
+   *                             format the file correctly, Amazon SNS recommends using the following command:
+   *                                 <code>SERVICE_JSON=`jq @json <<< cat
+   *                             service.json`</code>.</p>
    *                   </li>
    *                </ul>
    *             </li>
@@ -3525,3 +3573,95 @@ export interface VerifySMSSandboxPhoneNumberInput {
  * <p>The destination phone number's verification status.</p>
  */
 export interface VerifySMSSandboxPhoneNumberResult {}
+
+/**
+ * @internal
+ */
+export const CheckIfPhoneNumberIsOptedOutInputFilterSensitiveLog = (obj: CheckIfPhoneNumberIsOptedOutInput): any => ({
+  ...obj,
+  ...(obj.phoneNumber && { phoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CreateSMSSandboxPhoneNumberInputFilterSensitiveLog = (obj: CreateSMSSandboxPhoneNumberInput): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const DeleteSMSSandboxPhoneNumberInputFilterSensitiveLog = (obj: DeleteSMSSandboxPhoneNumberInput): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PhoneNumberInformationFilterSensitiveLog = (obj: PhoneNumberInformation): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListOriginationNumbersResultFilterSensitiveLog = (obj: ListOriginationNumbersResult): any => ({
+  ...obj,
+  ...(obj.PhoneNumbers && {
+    PhoneNumbers: obj.PhoneNumbers.map((item) => PhoneNumberInformationFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const ListPhoneNumbersOptedOutResponseFilterSensitiveLog = (obj: ListPhoneNumbersOptedOutResponse): any => ({
+  ...obj,
+  ...(obj.phoneNumbers && { phoneNumbers: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const SMSSandboxPhoneNumberFilterSensitiveLog = (obj: SMSSandboxPhoneNumber): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const ListSMSSandboxPhoneNumbersResultFilterSensitiveLog = (obj: ListSMSSandboxPhoneNumbersResult): any => ({
+  ...obj,
+  ...(obj.PhoneNumbers && {
+    PhoneNumbers: obj.PhoneNumbers.map((item) => SMSSandboxPhoneNumberFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const OptInPhoneNumberInputFilterSensitiveLog = (obj: OptInPhoneNumberInput): any => ({
+  ...obj,
+  ...(obj.phoneNumber && { phoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const PublishInputFilterSensitiveLog = (obj: PublishInput): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const VerifySMSSandboxPhoneNumberInputFilterSensitiveLog = (obj: VerifySMSSandboxPhoneNumberInput): any => ({
+  ...obj,
+  ...(obj.PhoneNumber && { PhoneNumber: SENSITIVE_STRING }),
+});

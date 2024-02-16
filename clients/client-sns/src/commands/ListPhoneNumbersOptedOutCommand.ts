@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListPhoneNumbersOptedOutInput, ListPhoneNumbersOptedOutResponse } from "../models/models_0";
+import {
+  ListPhoneNumbersOptedOutInput,
+  ListPhoneNumbersOptedOutResponse,
+  ListPhoneNumbersOptedOutResponseFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListPhoneNumbersOptedOutCommand, se_ListPhoneNumbersOptedOutCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -98,7 +102,7 @@ export class ListPhoneNumbersOptedOutCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "ListPhoneNumbersOptedOut", {})
   .n("SNSClient", "ListPhoneNumbersOptedOutCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListPhoneNumbersOptedOutResponseFilterSensitiveLog)
   .ser(se_ListPhoneNumbersOptedOutCommand)
   .de(de_ListPhoneNumbersOptedOutCommand)
   .build() {}

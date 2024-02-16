@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { OptInPhoneNumberInput, OptInPhoneNumberResponse } from "../models/models_0";
+import {
+  OptInPhoneNumberInput,
+  OptInPhoneNumberInputFilterSensitiveLog,
+  OptInPhoneNumberResponse,
+} from "../models/models_0";
 import { de_OptInPhoneNumberCommand, se_OptInPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -88,7 +92,7 @@ export class OptInPhoneNumberCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "OptInPhoneNumber", {})
   .n("SNSClient", "OptInPhoneNumberCommand")
-  .f(void 0, void 0)
+  .f(OptInPhoneNumberInputFilterSensitiveLog, void 0)
   .ser(se_OptInPhoneNumberCommand)
   .de(de_OptInPhoneNumberCommand)
   .build() {}

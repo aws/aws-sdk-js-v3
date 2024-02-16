@@ -5,7 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { PublishInput, PublishResponse } from "../models/models_0";
+import { PublishInput, PublishInputFilterSensitiveLog, PublishResponse } from "../models/models_0";
 import { de_PublishCommand, se_PublishCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -162,7 +162,7 @@ export class PublishCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "Publish", {})
   .n("SNSClient", "PublishCommand")
-  .f(void 0, void 0)
+  .f(PublishInputFilterSensitiveLog, void 0)
   .ser(se_PublishCommand)
   .de(de_PublishCommand)
   .build() {}

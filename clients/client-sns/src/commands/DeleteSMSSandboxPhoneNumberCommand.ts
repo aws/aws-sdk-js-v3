@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DeleteSMSSandboxPhoneNumberInput, DeleteSMSSandboxPhoneNumberResult } from "../models/models_0";
+import {
+  DeleteSMSSandboxPhoneNumberInput,
+  DeleteSMSSandboxPhoneNumberInputFilterSensitiveLog,
+  DeleteSMSSandboxPhoneNumberResult,
+} from "../models/models_0";
 import { de_DeleteSMSSandboxPhoneNumberCommand, se_DeleteSMSSandboxPhoneNumberCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -103,7 +107,7 @@ export class DeleteSMSSandboxPhoneNumberCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "DeleteSMSSandboxPhoneNumber", {})
   .n("SNSClient", "DeleteSMSSandboxPhoneNumberCommand")
-  .f(void 0, void 0)
+  .f(DeleteSMSSandboxPhoneNumberInputFilterSensitiveLog, void 0)
   .ser(se_DeleteSMSSandboxPhoneNumberCommand)
   .de(de_DeleteSMSSandboxPhoneNumberCommand)
   .build() {}

@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListOriginationNumbersRequest, ListOriginationNumbersResult } from "../models/models_0";
+import {
+  ListOriginationNumbersRequest,
+  ListOriginationNumbersResult,
+  ListOriginationNumbersResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListOriginationNumbersCommand, se_ListOriginationNumbersCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -106,7 +110,7 @@ export class ListOriginationNumbersCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "ListOriginationNumbers", {})
   .n("SNSClient", "ListOriginationNumbersCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListOriginationNumbersResultFilterSensitiveLog)
   .ser(se_ListOriginationNumbersCommand)
   .de(de_ListOriginationNumbersCommand)
   .build() {}

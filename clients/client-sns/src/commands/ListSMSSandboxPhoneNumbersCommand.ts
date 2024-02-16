@@ -5,7 +5,11 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { ListSMSSandboxPhoneNumbersInput, ListSMSSandboxPhoneNumbersResult } from "../models/models_0";
+import {
+  ListSMSSandboxPhoneNumbersInput,
+  ListSMSSandboxPhoneNumbersResult,
+  ListSMSSandboxPhoneNumbersResultFilterSensitiveLog,
+} from "../models/models_0";
 import { de_ListSMSSandboxPhoneNumbersCommand, se_ListSMSSandboxPhoneNumbersCommand } from "../protocols/Aws_query";
 import { ServiceInputTypes, ServiceOutputTypes, SNSClientResolvedConfig } from "../SNSClient";
 
@@ -108,7 +112,7 @@ export class ListSMSSandboxPhoneNumbersCommand extends $Command
   })
   .s("AmazonSimpleNotificationService", "ListSMSSandboxPhoneNumbers", {})
   .n("SNSClient", "ListSMSSandboxPhoneNumbersCommand")
-  .f(void 0, void 0)
+  .f(void 0, ListSMSSandboxPhoneNumbersResultFilterSensitiveLog)
   .ser(se_ListSMSSandboxPhoneNumbersCommand)
   .de(de_ListSMSSandboxPhoneNumbersCommand)
   .build() {}

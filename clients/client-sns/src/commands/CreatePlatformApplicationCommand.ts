@@ -56,9 +56,17 @@ export interface CreatePlatformApplicationCommandOutput extends CreatePlatformAp
  *                         <code>PlatformCredential</code> is <code>signing key</code>.</p>
  *             </li>
  *             <li>
- *                <p>For <code>GCM</code> (Firebase Cloud Messaging), there is no
- *                         <code>PlatformPrincipal</code> and the <code>PlatformCredential</code> is
+ *                <p>For GCM (Firebase Cloud Messaging) using key credentials, there is no
+ *                         <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is
  *                         <code>API key</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>For GCM (Firebase Cloud Messaging) using token credentials, there is no
+ *                         <code>PlatformPrincipal</code>. The <code>PlatformCredential</code> is a
+ *                     JSON formatted private key file. When using the Amazon Web Services CLI, the file must be in
+ *                     string format and special characters must be ignored. To format the file
+ *                     correctly, Amazon SNS recommends using the following command: <code>SERVICE_JSON=`jq
+ *                         @json <<< cat service.json`</code>.</p>
  *             </li>
  *             <li>
  *                <p>For <code>MPNS</code>, <code>PlatformPrincipal</code> is <code>TLS
