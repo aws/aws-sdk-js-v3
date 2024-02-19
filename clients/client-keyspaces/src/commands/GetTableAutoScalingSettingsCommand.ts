@@ -35,6 +35,24 @@ export interface GetTableAutoScalingSettingsCommandOutput
  *          <p>Amazon Keyspaces auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing
  *          your table's read and write capacity automatically in response to application traffic. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html">Managing throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon Keyspaces Developer
  *             Guide</i>.</p>
+ *          <important>
+ *             <p>
+ *                <code>GetTableAutoScalingSettings</code> can't be used as an action in an IAM policy.</p>
+ *          </important>
+ *          <p>To define permissions for <code>GetTableAutoScalingSettings</code>, you must allow the following two actions in the IAM policy statement's
+ *          <code>Action</code> element:</p>
+ *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>application-autoscaling:DescribeScalableTargets</code>
+ *                </p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>application-autoscaling:DescribeScalingPolicies</code>
+ *                </p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

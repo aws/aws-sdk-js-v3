@@ -82,8 +82,8 @@ export interface AutoScalingPolicy {
  * <p>The optional auto scaling settings for a table with provisioned throughput capacity.</p>
  *          <p>To turn on auto scaling for a table in <code>throughputMode:PROVISIONED</code>,
  *          you must specify the following parameters. </p>
- *          <p>Configure the minimum and maximum units for write and read capacity. The auto scaling policy ensures that capacity never goes below the
- *          minimum or above the maximum range.</p>
+ *          <p>Configure the minimum and maximum capacity units. The auto scaling policy ensures that
+ *          capacity never goes below the minimum or above the maximum range.</p>
  *          <ul>
  *             <li>
  *                <p>
@@ -99,7 +99,7 @@ export interface AutoScalingPolicy {
  *             <li>
  *                <p>
  *                   <code>scalingPolicy</code>: Amazon Keyspaces supports the <code>target tracking</code> scaling policy.
- *            The auto scaling target is the provisioned read and write capacity of the table.
+ *            The auto scaling target is the provisioned capacity of the table.
  *                </p>
  *                <ul>
  *                   <li>
@@ -171,7 +171,7 @@ export interface AutoScalingSettings {
 
 /**
  * @public
- * <p>The optional auto scaling settings for read and write capacity of a table in provisioned capacity mode.</p>
+ * <p>The optional auto scaling capacity settings for a table in provisioned capacity mode.</p>
  */
 export interface AutoScalingSpecification {
   /**
@@ -1046,7 +1046,7 @@ export interface CreateTableRequest {
    *          automatically on your behalf.</p>
    *          <p>Auto scaling helps you provision throughput capacity for variable workloads efficiently by increasing and decreasing
    *          your table's read and write capacity automatically in response to application traffic. For more information, see <a href="https://docs.aws.amazon.com/keyspaces/latest/devguide/autoscaling.html">Managing throughput capacity automatically with Amazon Keyspaces auto scaling</a> in the <i>Amazon Keyspaces Developer
-   *             Guide</i>.</p>
+   *                Guide</i>.</p>
    *          <p>By default, auto scaling is disabled for a table. </p>
    */
   autoScalingSpecification?: AutoScalingSpecification;
