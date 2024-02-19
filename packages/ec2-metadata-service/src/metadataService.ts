@@ -1,0 +1,59 @@
+import { MetadataServiceOptions } from "./metadataServiceOptions";
+import { HttpRequest } from "@aws-sdk/protocol-http";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
+import { HttpHandlerOptions } from "@aws-sdk/types";
+
+export class MetadataService {
+  host: string = "169.254.169.254";
+  httpOptions: {
+    timeout: number;
+  };
+  maxRetries: number;
+  retryDelayOptions: any;
+  ec2MetadataV1Disabled: boolean;
+  profile: string;
+  filename: string;
+
+  /**
+   * Creates a new MetadataService object with a given set of options.
+   */
+  constructor(options?: MetadataServiceOptions) {
+    this.host = options?.host || "169.254.169.254";
+    this.httpOptions = {
+      timeout: options?.httpOptions?.timeout || 0,
+    };
+    this.maxRetries = options?.maxRetries || 3; // Assuming a default of 3 retries if not specified
+    this.retryDelayOptions = options?.retryDelayOptions || {};
+    this.ec2MetadataV1Disabled = options?.ec2MetadataV1Disabled || false;
+    this.profile = options?.profile || "";
+    this.filename = options?.filename || "";
+  }
+
+  async request(path: string, options: { method?: string; headers?: Record<string, string> }): Promise<string> {
+    const handler = new NodeHttpHandler();
+    const request = new HttpRequest({
+      method: options.method || "GET", // Default to GET if no method is specified
+      headers: options.headers || {}, // Using provided headers or default to an empty object
+      hostname: this.host,
+      path: path,
+      protocol: "http:",
+    });
+
+    try {
+      const { response } = await handler.handle(request, {} as HttpHandlerOptions);
+      if (response.statusCode === 200 && response.body) {
+        // Assuming the response body is a stream?
+        const chunks: any[] = [];
+        response.body.on("data", (chunk: any) => chunks.push(chunk));
+        return new Promise((resolve, reject) => {
+          response.body.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+          response.body.on("error", reject);
+        });
+      } else {
+        throw new Error(`Request failed with status code ${response.statusCode}`);
+      }
+    } catch (error) {
+      throw new Error(`Error making request to the metadata service: ${error}`);
+    }
+  }
+}
