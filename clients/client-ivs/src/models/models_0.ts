@@ -105,8 +105,7 @@ export interface Channel {
    * @public
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
    *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default:
-   *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
-   *       correspond to Ultra-low and Standard, respectively.)</p>
+   *         <code>LOW</code>.</p>
    */
   latencyMode?: ChannelLatencyMode;
 
@@ -451,9 +450,7 @@ export interface CreateChannelRequest {
   /**
    * @public
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
-   *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. (Note: In the
-   *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
-   *       Standard, respectively.) Default: <code>LOW</code>.</p>
+   *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default: <code>LOW</code>.</p>
    */
   latencyMode?: ChannelLatencyMode;
 
@@ -1726,8 +1723,7 @@ export interface ChannelSummary {
    * @public
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
    *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. Default:
-   *         <code>LOW</code>. (Note: In the Amazon IVS console, <code>LOW</code> and <code>NORMAL</code>
-   *       correspond to Ultra-low and Standard, respectively.)</p>
+   *         <code>LOW</code>.</p>
    */
   latencyMode?: ChannelLatencyMode;
 
@@ -2459,9 +2455,7 @@ export interface UpdateChannelRequest {
   /**
    * @public
    * <p>Channel latency mode. Use <code>NORMAL</code> to broadcast and deliver live video up to
-   *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers. (Note: In the
-   *       Amazon IVS console, <code>LOW</code> and <code>NORMAL</code> correspond to Ultra-low and
-   *       Standard, respectively.)</p>
+   *       Full HD. Use <code>LOW</code> for near-real-time interaction with viewers.</p>
    */
   latencyMode?: ChannelLatencyMode;
 
