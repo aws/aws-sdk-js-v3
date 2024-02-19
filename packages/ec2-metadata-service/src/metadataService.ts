@@ -1,10 +1,11 @@
-import { MetadataServiceOptions } from "./metadataServiceOptions";
 import { HttpRequest } from "@aws-sdk/protocol-http";
-import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { HttpHandlerOptions } from "@aws-sdk/types";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
+
+import { MetadataServiceOptions } from "./metadataServiceOptions";
 
 export class MetadataService {
-  host: string = "169.254.169.254";
+  host = "169.254.169.254";
   httpOptions: {
     timeout: number;
   };
@@ -38,17 +39,11 @@ export class MetadataService {
       path: path,
       protocol: "http:",
     });
-
     try {
       const { response } = await handler.handle(request, {} as HttpHandlerOptions);
       if (response.statusCode === 200 && response.body) {
-        // Assuming the response body is a stream?
-        const chunks: any[] = [];
-        response.body.on("data", (chunk: any) => chunks.push(chunk));
-        return new Promise((resolve, reject) => {
-          response.body.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
-          response.body.on("error", reject);
-        });
+        // Directly read the response body as text
+        return response.body;
       } else {
         throw new Error(`Request failed with status code ${response.statusCode}`);
       }
@@ -68,18 +63,12 @@ export class MetadataService {
       path: "/latest/api/token",
       protocol: "http:",
     });
-
     const handler = new NodeHttpHandler();
     try {
       const { response } = await handler.handle(tokenRequest, {} as HttpHandlerOptions);
       if (response.statusCode === 200 && response.body) {
-        // Assuming the response body is a stream
-        return new Promise((resolve, reject) => {
-          const chunks: any[] = [];
-          response.body.on("data", (chunk: any) => chunks.push(chunk));
-          response.body.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
-          response.body.on("error", reject);
-        });
+        // Directly read the response body as text
+        return response.body;
       } else {
         throw new Error(`Failed to fetch metadata token with status code ${response.statusCode}`);
       }
