@@ -169,7 +169,7 @@ export interface AdBreak {
    * @public
    * <p>How long (in milliseconds) after the beginning of the program that an ad starts. This value must fall within 100ms of a segment boundary, otherwise the ad break will be skipped.</p>
    */
-  OffsetMillis?: number;
+  OffsetMillis: number | undefined;
 
   /**
    * @public

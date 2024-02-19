@@ -45,7 +45,7 @@ export interface DescribeProgramCommandOutput extends DescribeProgramResponse, _
  * //   AdBreaks: [ // __listOfAdBreak
  * //     { // AdBreak
  * //       MessageType: "SPLICE_INSERT" || "TIME_SIGNAL",
- * //       OffsetMillis: Number("long"),
+ * //       OffsetMillis: Number("long"), // required
  * //       Slate: { // SlateSource
  * //         SourceLocationName: "STRING_VALUE",
  * //         VodSourceName: "STRING_VALUE",
