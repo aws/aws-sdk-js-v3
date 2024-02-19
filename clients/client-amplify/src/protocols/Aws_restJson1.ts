@@ -98,6 +98,7 @@ import {
   BackendEnvironment,
   BadRequestException,
   Branch,
+  CertificateSettings,
   CustomRule,
   DependentServiceFailureException,
   InternalFailureException,
@@ -260,6 +261,7 @@ export const se_CreateDomainAssociationCommand = async (
     take(input, {
       autoSubDomainCreationPatterns: (_) => _json(_),
       autoSubDomainIAMRole: [],
+      certificateSettings: (_) => _json(_),
       domainName: [],
       enableAutoSubDomain: [],
       subDomainSettings: (_) => _json(_),
@@ -904,6 +906,7 @@ export const se_UpdateDomainAssociationCommand = async (
     take(input, {
       autoSubDomainCreationPatterns: (_) => _json(_),
       autoSubDomainIAMRole: [],
+      certificateSettings: (_) => _json(_),
       enableAutoSubDomain: [],
       subDomainSettings: (_) => _json(_),
     })
@@ -1900,6 +1903,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_Backend omitted.
 
+// se_CertificateSettings omitted.
+
 // se_CustomRule omitted.
 
 // se_CustomRules omitted.
@@ -2045,6 +2050,8 @@ const de_Branches = (output: any, context: __SerdeContext): Branch[] => {
     });
   return retVal;
 };
+
+// de_Certificate omitted.
 
 // de_CustomDomains omitted.
 

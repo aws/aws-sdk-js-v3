@@ -28,7 +28,7 @@ export interface ListDomainAssociationsCommandOutput extends ListDomainAssociati
 
 /**
  * @public
- * <p> Returns the domain associations for an Amplify app. </p>
+ * <p>Returns the domain associations for an Amplify app. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -52,7 +52,8 @@ export interface ListDomainAssociationsCommandOutput extends ListDomainAssociati
  * //         "STRING_VALUE",
  * //       ],
  * //       autoSubDomainIAMRole: "STRING_VALUE",
- * //       domainStatus: "PENDING_VERIFICATION" || "IN_PROGRESS" || "AVAILABLE" || "PENDING_DEPLOYMENT" || "FAILED" || "CREATING" || "REQUESTING_CERTIFICATE" || "UPDATING", // required
+ * //       domainStatus: "PENDING_VERIFICATION" || "IN_PROGRESS" || "AVAILABLE" || "IMPORTING_CUSTOM_CERTIFICATE" || "PENDING_DEPLOYMENT" || "AWAITING_APP_CNAME" || "FAILED" || "CREATING" || "REQUESTING_CERTIFICATE" || "UPDATING", // required
+ * //       updateStatus: "REQUESTING_CERTIFICATE" || "PENDING_VERIFICATION" || "IMPORTING_CUSTOM_CERTIFICATE" || "PENDING_DEPLOYMENT" || "AWAITING_APP_CNAME" || "UPDATE_COMPLETE" || "UPDATE_FAILED",
  * //       statusReason: "STRING_VALUE", // required
  * //       certificateVerificationDNSRecord: "STRING_VALUE",
  * //       subDomains: [ // SubDomains // required
@@ -65,6 +66,11 @@ export interface ListDomainAssociationsCommandOutput extends ListDomainAssociati
  * //           dnsRecord: "STRING_VALUE", // required
  * //         },
  * //       ],
+ * //       certificate: { // Certificate
+ * //         type: "AMPLIFY_MANAGED" || "CUSTOM", // required
+ * //         customCertificateArn: "STRING_VALUE",
+ * //         certificateVerificationDNSRecord: "STRING_VALUE",
+ * //       },
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

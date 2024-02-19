@@ -71,9 +71,9 @@ export interface AutoBranchCreationConfig {
 
   /**
    * @public
-   * <p>The basic authorization credentials for the autocreated branch. You must
-   *             base64-encode the authorization credentials and provide them in the format
-   *                 <code>user:password</code>.</p>
+   * <p>The basic authorization credentials for the autocreated branch. You must base64-encode
+   *             the authorization credentials and provide them in the format
+   *             <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
 
@@ -138,7 +138,7 @@ export interface CustomRule {
    *             </dd>
    *             <dt>301</dt>
    *             <dd>
-   *                <p>Represents a 301 (moved pemanently) redirect rule. This and all future
+   *                <p>Represents a 301 (moved permanently) redirect rule. This and all future
    *                         requests should be directed to the target URL. </p>
    *             </dd>
    *             <dt>302</dt>
@@ -204,10 +204,10 @@ export interface CreateAppRequest {
 
   /**
    * @public
-   * <p>The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
-   *             For a dynamic server-side rendered (SSR) app, set the platform type to
-   *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
-   *             <code>WEB_DYNAMIC</code>.</p>
+   * <p>The platform for the Amplify app. For a static app, set the platform type to
+   *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
+   *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
+   *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
    */
   platform?: Platform;
 
@@ -253,7 +253,10 @@ export interface CreateAppRequest {
   /**
    * @public
    * <p>The environment variables map for an Amplify app. </p>
-   *          <p>For a list of the environment variables that are accessible to Amplify by default, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html">Amplify Environment variables</a> in the <i>Amplify Hosting User Guide</i>.</p>
+   *          <p>For a list of the environment variables that are accessible to Amplify by default, see
+   *                 <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html">Amplify
+   *                 Environment variables</a> in the <i>Amplify Hosting User
+   *             Guide</i>.</p>
    */
   environmentVariables?: Record<string, string>;
 
@@ -279,8 +282,8 @@ export interface CreateAppRequest {
 
   /**
    * @public
-   * <p>The credentials for basic authorization for an Amplify app. You must base64-encode
-   *             the authorization credentials and provide them in the format
+   * <p>The credentials for basic authorization for an Amplify app. You must base64-encode the
+   *             authorization credentials and provide them in the format
    *             <code>user:password</code>.</p>
    */
   basicAuthCredentials?: string;
@@ -375,8 +378,8 @@ export type RepositoryCloneMethod = (typeof RepositoryCloneMethod)[keyof typeof 
 
 /**
  * @public
- * <p>Represents the different branches of a repository for building, deploying, and
- *             hosting an Amplify app. </p>
+ * <p>Represents the different branches of a repository for building, deploying, and hosting
+ *             an Amplify app. </p>
  */
 export interface App {
   /**
@@ -417,10 +420,10 @@ export interface App {
 
   /**
    * @public
-   * <p>The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
-   *             For a dynamic server-side rendered (SSR) app, set the platform type to
-   *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
-   *             <code>WEB_DYNAMIC</code>.</p>
+   * <p>The platform for the Amplify app. For a static app, set the platform type to
+   *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
+   *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
+   *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
    */
   platform: Platform | undefined;
 
@@ -438,15 +441,18 @@ export interface App {
 
   /**
    * @public
-   * <p>The AWS Identity and Access Management (IAM) service role for the Amazon Resource
-   *             Name (ARN) of the Amplify app. </p>
+   * <p>The AWS Identity and Access Management (IAM) service role for the Amazon Resource Name
+   *             (ARN) of the Amplify app. </p>
    */
   iamServiceRoleArn?: string;
 
   /**
    * @public
    * <p>The environment variables for the Amplify app. </p>
-   *          <p>For a list of the environment variables that are accessible to Amplify by default, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html">Amplify Environment variables</a> in the <i>Amplify Hosting User Guide</i>.</p>
+   *          <p>For a list of the environment variables that are accessible to Amplify by default, see
+   *                 <a href="https://docs.aws.amazon.com/amplify/latest/userguide/amplify-console-environment-variables.html">Amplify
+   *                 Environment variables</a> in the <i>Amplify Hosting User
+   *             Guide</i>.</p>
    */
   environmentVariables: Record<string, string> | undefined;
 
@@ -464,8 +470,8 @@ export interface App {
 
   /**
    * @public
-   * <p>Automatically disconnect a branch in the Amplify console when you delete a branch
-   *             from your Git repository.</p>
+   * <p>Automatically disconnect a branch in the Amplify console when you delete a branch from
+   *             your Git repository.</p>
    */
   enableBranchAutoDeletion?: boolean;
 
@@ -531,10 +537,10 @@ export interface App {
    * <note>
    *             <p>This is for internal use.</p>
    *          </note>
-   *          <p>The Amplify service uses this parameter to specify the authentication protocol to use to access
-   *             the Git repository for an Amplify app. Amplify specifies <code>TOKEN</code> for a GitHub
-   *             repository, <code>SIGV4</code> for an Amazon Web Services CodeCommit repository, and
-   *                 <code>SSH</code> for GitLab and Bitbucket repositories.</p>
+   *          <p>The Amplify service uses this parameter to specify the authentication protocol to use
+   *             to access the Git repository for an Amplify app. Amplify specifies <code>TOKEN</code>
+   *             for a GitHub repository, <code>SIGV4</code> for an Amazon Web Services CodeCommit
+   *             repository, and <code>SSH</code> for GitLab and Bitbucket repositories.</p>
    */
   repositoryCloneMethod?: RepositoryCloneMethod;
 }
@@ -545,8 +551,8 @@ export interface App {
 export interface CreateAppResult {
   /**
    * @public
-   * <p>Represents the different branches of a repository for building, deploying, and
-   *             hosting an Amplify app. </p>
+   * <p>Represents the different branches of a repository for building, deploying, and hosting
+   *             an Amplify app. </p>
    */
   app: App | undefined;
 }
@@ -740,7 +746,8 @@ export class NotFoundException extends __BaseException {
 
 /**
  * @public
- * <p>Describes the backend properties associated with an Amplify <code>Branch</code>.</p>
+ * <p>Describes the backend properties associated with an Amplify
+ *             <code>Branch</code>.</p>
  */
 export interface Backend {
   /**
@@ -871,7 +878,8 @@ export interface CreateBranchRequest {
 
   /**
    * @public
-   * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a backend created from an CloudFormation stack.</p>
+   * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a
+   *             backend created from an CloudFormation stack.</p>
    */
   backend?: Backend;
 }
@@ -1052,7 +1060,8 @@ export interface Branch {
 
   /**
    * @public
-   * <p>Describes the backend properties associated with an Amplify <code>Branch</code>.</p>
+   * <p>Describes the backend properties associated with an Amplify
+   *             <code>Branch</code>.</p>
    */
   backend?: Backend;
 }
@@ -1125,6 +1134,50 @@ export interface CreateDeploymentResult {
 
 /**
  * @public
+ * @enum
+ */
+export const CertificateType = {
+  AMPLIFY_MANAGED: "AMPLIFY_MANAGED",
+  CUSTOM: "CUSTOM",
+} as const;
+
+/**
+ * @public
+ */
+export type CertificateType = (typeof CertificateType)[keyof typeof CertificateType];
+
+/**
+ * @public
+ * <p>The type of SSL/TLS certificate to use for your custom domain. If a certificate type
+ *             isn't specified, Amplify uses the default <code>AMPLIFY_MANAGED</code>
+ *             certificate.</p>
+ */
+export interface CertificateSettings {
+  /**
+   * @public
+   * <p>The certificate type.</p>
+   *          <p>Specify <code>AMPLIFY_MANAGED</code> to use the default certificate that Amplify
+   *             provisions for you.</p>
+   *          <p>Specify <code>CUSTOM</code> to use your own certificate that you have already added to
+   *                 Certificate Manager in your Amazon Web Services account. Make sure you request (or
+   *             import) the certificate in the US East (N. Virginia) Region (us-east-1). For more
+   *             information about using ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into
+   *                     Certificate Manager</a> in the <i>ACM User
+   *                 guide</i>.</p>
+   */
+  type: CertificateType | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon resource name (ARN) for the custom certificate that you have already added
+   *             to Certificate Manager in your Amazon Web Services account.</p>
+   *          <p>This field is required only when the certificate type is <code>CUSTOM</code>.</p>
+   */
+  customCertificateArn?: string;
+}
+
+/**
+ * @public
  * <p> Describes the settings for the subdomain. </p>
  */
 export interface SubDomainSetting {
@@ -1182,6 +1235,50 @@ export interface CreateDomainAssociationRequest {
    *             Resource Name (ARN) for automatically creating subdomains. </p>
    */
   autoSubDomainIAMRole?: string;
+
+  /**
+   * @public
+   * <p>The type of SSL/TLS certificate to use for your custom domain. If you don't specify a
+   *             certificate type, Amplify uses the default certificate that it provisions and manages
+   *             for you.</p>
+   */
+  certificateSettings?: CertificateSettings;
+}
+
+/**
+ * @public
+ * <p>Describes the current SSL/TLS certificate that is in use for the domain. If you are
+ *             using <code>CreateDomainAssociation</code> to create a new domain association,
+ *                 <code>Certificate</code> describes the new certificate that you are creating.</p>
+ */
+export interface Certificate {
+  /**
+   * @public
+   * <p>The type of SSL/TLS certificate that you want to use.</p>
+   *          <p>Specify <code>AMPLIFY_MANAGED</code> to use the default certificate that Amplify
+   *             provisions for you.</p>
+   *          <p>Specify <code>CUSTOM</code> to use your own certificate that you have already added to
+   *                 Certificate Manager in your Amazon Web Services account. Make sure you request (or
+   *             import) the certificate in the US East (N. Virginia) Region (us-east-1). For more
+   *             information about using ACM, see <a href="https://docs.aws.amazon.com/acm/latest/userguide/import-certificate.html">Importing certificates into
+   *                     Certificate Manager</a> in the <i>ACM User
+   *                 guide</i> .</p>
+   */
+  type: CertificateType | undefined;
+
+  /**
+   * @public
+   * <p>The Amazon resource name (ARN) for a custom certificate that you have already added to
+   *                 Certificate Manager in your Amazon Web Services account. </p>
+   *          <p>This field is required only when the certificate type is <code>CUSTOM</code>.</p>
+   */
+  customCertificateArn?: string;
+
+  /**
+   * @public
+   * <p>The DNS record for certificate verification.</p>
+   */
+  certificateVerificationDNSRecord?: string;
 }
 
 /**
@@ -1190,8 +1287,10 @@ export interface CreateDomainAssociationRequest {
  */
 export const DomainStatus = {
   AVAILABLE: "AVAILABLE",
+  AWAITING_APP_CNAME: "AWAITING_APP_CNAME",
   CREATING: "CREATING",
   FAILED: "FAILED",
+  IMPORTING_CUSTOM_CERTIFICATE: "IMPORTING_CUSTOM_CERTIFICATE",
   IN_PROGRESS: "IN_PROGRESS",
   PENDING_DEPLOYMENT: "PENDING_DEPLOYMENT",
   PENDING_VERIFICATION: "PENDING_VERIFICATION",
@@ -1230,8 +1329,26 @@ export interface SubDomain {
 
 /**
  * @public
- * <p> Describes a domain association that associates a custom domain with an Amplify app.
- *         </p>
+ * @enum
+ */
+export const UpdateStatus = {
+  AWAITING_APP_CNAME: "AWAITING_APP_CNAME",
+  IMPORTING_CUSTOM_CERTIFICATE: "IMPORTING_CUSTOM_CERTIFICATE",
+  PENDING_DEPLOYMENT: "PENDING_DEPLOYMENT",
+  PENDING_VERIFICATION: "PENDING_VERIFICATION",
+  REQUESTING_CERTIFICATE: "REQUESTING_CERTIFICATE",
+  UPDATE_COMPLETE: "UPDATE_COMPLETE",
+  UPDATE_FAILED: "UPDATE_FAILED",
+} as const;
+
+/**
+ * @public
+ */
+export type UpdateStatus = (typeof UpdateStatus)[keyof typeof UpdateStatus];
+
+/**
+ * @public
+ * <p>Describes the association between a custom domain and an Amplify app. </p>
  */
 export interface DomainAssociation {
   /**
@@ -1273,7 +1390,58 @@ export interface DomainAssociation {
 
   /**
    * @public
-   * <p> The reason for the current status of the domain association. </p>
+   * <p>The status of the domain update operation that is currently in progress. The following
+   *             list describes the valid update states.</p>
+   *          <dl>
+   *             <dt>REQUESTING_CERTIFICATE</dt>
+   *             <dd>
+   *                <p>The certificate is in the process of being updated.</p>
+   *             </dd>
+   *             <dt>PENDING_VERIFICATION</dt>
+   *             <dd>
+   *                <p>Indicates that an Amplify managed certificate is in the
+   *                         process of being verified. This occurs during the creation of a custom
+   *                         domain or when a custom domain is updated to use a managed
+   *                         certificate.</p>
+   *             </dd>
+   *             <dt>IMPORTING_CUSTOM_CERTIFICATE</dt>
+   *             <dd>
+   *                <p>Indicates that an Amplify custom certificate is in the
+   *                         process of being imported. This occurs during the creation of a custom
+   *                         domain or when a custom domain is updated to use a custom
+   *                         certificate.</p>
+   *             </dd>
+   *             <dt>PENDING_DEPLOYMENT</dt>
+   *             <dd>
+   *                <p>Indicates that the subdomain or certificate changes are being
+   *                         propagated.</p>
+   *             </dd>
+   *             <dt>AWAITING_APP_CNAME</dt>
+   *             <dd>
+   *                <p>Amplify is waiting for CNAME records corresponding to
+   *                         subdomains to be propagated. If your custom domain is on Route 53,
+   *                             Amplify handles this for you automatically. For more
+   *                         information about custom domains, see <a href="https://docs.aws.amazon.com/amplify/latest/userguide/custom-domains.html">Setting up custom
+   *                             domains</a> in the <i>Amplify Hosting User
+   *                             Guide</i>. </p>
+   *             </dd>
+   *             <dt>UPDATE_COMPLETE</dt>
+   *             <dd>
+   *                <p>The certificate has been associated with a domain.</p>
+   *             </dd>
+   *             <dt>UPDATE_FAILED</dt>
+   *             <dd>
+   *                <p>The certificate has failed to be provisioned or associated, and there is
+   *                         no existing active certificate to roll back to.</p>
+   *             </dd>
+   *          </dl>
+   */
+  updateStatus?: UpdateStatus;
+
+  /**
+   * @public
+   * <p> Additional information that describes why the domain association is in the current
+   *             state.</p>
    */
   statusReason: string | undefined;
 
@@ -1288,6 +1456,18 @@ export interface DomainAssociation {
    * <p> The subdomains for the domain association. </p>
    */
   subDomains: SubDomain[] | undefined;
+
+  /**
+   * @public
+   * <p>Describes the SSL/TLS certificate for the domain association. This can be your own
+   *             custom certificate or the default certificate that Amplify provisions for
+   *             you.</p>
+   *          <p>If you are updating your domain to use a different certificate,
+   *                 <code>certificate</code> points to the new certificate that is being created instead
+   *             of the current active certificate. Otherwise, <code>certificate</code> points to the
+   *             current active certificate.</p>
+   */
+  certificate?: Certificate;
 }
 
 /**
@@ -1406,8 +1586,8 @@ export interface DeleteAppRequest {
 export interface DeleteAppResult {
   /**
    * @public
-   * <p>Represents the different branches of a repository for building, deploying, and
-   *             hosting an Amplify app. </p>
+   * <p>Represents the different branches of a repository for building, deploying, and hosting
+   *             an Amplify app. </p>
    */
   app: App | undefined;
 }
@@ -1496,8 +1676,7 @@ export interface DeleteDomainAssociationRequest {
 export interface DeleteDomainAssociationResult {
   /**
    * @public
-   * <p> Describes a domain association that associates a custom domain with an Amplify app.
-   *         </p>
+   * <p>Describes the association between a custom domain and an Amplify app. </p>
    */
   domainAssociation: DomainAssociation | undefined;
 }
@@ -1723,8 +1902,8 @@ export interface GetAppRequest {
 export interface GetAppResult {
   /**
    * @public
-   * <p>Represents the different branches of a repository for building, deploying, and
-   *             hosting an Amplify app. </p>
+   * <p>Represents the different branches of a repository for building, deploying, and hosting
+   *             an Amplify app. </p>
    */
   app: App | undefined;
 }
@@ -2299,8 +2478,8 @@ export interface ListJobsResult {
 
   /**
    * @public
-   * <p>A pagination token. If non-null the pagination token is returned in a result. Pass
-   *             its value in another request to retrieve more entries. </p>
+   * <p>A pagination token. If non-null the pagination token is returned in a result. Pass its
+   *             value in another request to retrieve more entries. </p>
    */
   nextToken?: string;
 }
@@ -2469,9 +2648,8 @@ export interface StartJobRequest {
    * <p>Describes the type for the job. The job type <code>RELEASE</code> starts a new job
    *             with the latest change from the specified branch. This value is available only for apps
    *             that are connected to a repository. </p>
-   *          <p>The job type <code>RETRY</code> retries an existing
-   *             job. If the job type value is <code>RETRY</code>, the <code>jobId</code> is also
-   *             required. </p>
+   *          <p>The job type <code>RETRY</code> retries an existing job. If the job type value is
+   *                 <code>RETRY</code>, the <code>jobId</code> is also required. </p>
    */
   jobType: JobType | undefined;
 
@@ -2621,10 +2799,10 @@ export interface UpdateAppRequest {
 
   /**
    * @public
-   * <p>The platform for the Amplify app. For a static app, set the platform type to <code>WEB</code>.
-   *             For a dynamic server-side rendered (SSR) app, set the platform type to
-   *             <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR support only, set the platform type to
-   *             <code>WEB_DYNAMIC</code>.</p>
+   * <p>The platform for the Amplify app. For a static app, set the platform type to
+   *                 <code>WEB</code>. For a dynamic server-side rendered (SSR) app, set the platform
+   *             type to <code>WEB_COMPUTE</code>. For an app requiring Amplify Hosting's original SSR
+   *             support only, set the platform type to <code>WEB_DYNAMIC</code>.</p>
    */
   platform?: Platform;
 
@@ -2871,7 +3049,8 @@ export interface UpdateBranchRequest {
 
   /**
    * @public
-   * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a backend created from an CloudFormation stack.</p>
+   * <p>The backend for a <code>Branch</code> of an Amplify app. Use for a
+   *             backend created from an CloudFormation stack.</p>
    */
   backend?: Backend;
 }
@@ -2929,6 +3108,12 @@ export interface UpdateDomainAssociationRequest {
    *             Resource Name (ARN) for automatically creating subdomains. </p>
    */
   autoSubDomainIAMRole?: string;
+
+  /**
+   * @public
+   * <p>The type of SSL/TLS certificate to use for your custom domain.</p>
+   */
+  certificateSettings?: CertificateSettings;
 }
 
 /**
