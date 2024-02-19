@@ -56,4 +56,35 @@ export class MetadataService {
       throw new Error(`Error making request to the metadata service: ${error}`);
     }
   }
+
+  async fetchMetadataToken(): Promise<string> {
+    // Define the request to fetch the metadata token
+    const tokenRequest = new HttpRequest({
+      method: "PUT",
+      headers: {
+        "x-aws-ec2-metadata-token-ttl-seconds": "21600", // 6 hours;
+      },
+      hostname: this.host,
+      path: "/latest/api/token",
+      protocol: "http:",
+    });
+
+    const handler = new NodeHttpHandler();
+    try {
+      const { response } = await handler.handle(tokenRequest, {} as HttpHandlerOptions);
+      if (response.statusCode === 200 && response.body) {
+        // Assuming the response body is a stream
+        return new Promise((resolve, reject) => {
+          const chunks: any[] = [];
+          response.body.on("data", (chunk: any) => chunks.push(chunk));
+          response.body.on("end", () => resolve(Buffer.concat(chunks).toString("utf8")));
+          response.body.on("error", reject);
+        });
+      } else {
+        throw new Error(`Failed to fetch metadata token with status code ${response.statusCode}`);
+      }
+    } catch (error) {
+      throw new Error(`Error fetching metadata token: ${error}`);
+    }
+  }
 }
