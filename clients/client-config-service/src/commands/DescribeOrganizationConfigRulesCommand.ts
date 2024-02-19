@@ -39,7 +39,7 @@ export interface DescribeOrganizationConfigRulesCommandOutput
  *             <p>Limit and next token are not applicable if you specify organization Config rule names.
  * 			It is only applicable, when you request all the organization Config rules.</p>
  *             <p>
- *                <i>For accounts within an organzation</i>
+ *                <i>For accounts within an organization</i>
  *             </p>
  *             <p>If you deploy an organizational rule or conformance pack in an organization
  * 				administrator account, and then establish a delegated administrator and deploy an

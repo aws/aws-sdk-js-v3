@@ -39,14 +39,30 @@ export interface PutRemediationConfigurationsCommandOutput
  * 		The Config rule must already exist for you to add a remediation configuration.
  * 		The target (SSM document) must exist and have permissions to use the target. </p>
  *          <note>
+ *             <p>
+ *                <b>Be aware of backward incompatible changes</b>
+ *             </p>
  *             <p>If you make backward incompatible changes to the SSM document,
  * 			you must call this again to ensure the remediations can run.</p>
  *             <p>This API does not support adding remediation configurations for service-linked Config Rules such as Organization Config rules,
  * 				the rules deployed by conformance packs, and rules deployed by Amazon Web Services Security Hub.</p>
  *          </note>
  *          <note>
+ *             <p>
+ *                <b>Required fields</b>
+ *             </p>
  *             <p>For manual remediation configuration, you need to provide a value for <code>automationAssumeRole</code> or use a value in the <code>assumeRole</code>field  to remediate your resources. The SSM automation document can use either as long as it maps to a valid parameter.</p>
  *             <p>However, for automatic remediation configuration, the only valid <code>assumeRole</code> field value is <code>AutomationAssumeRole</code> and you need to provide a value for <code>AutomationAssumeRole</code> to remediate your resources.</p>
+ *          </note>
+ *          <note>
+ *             <p>
+ *                <b>Auto remediation can be initiated even for compliant resources</b>
+ *             </p>
+ *             <p>If you enable auto remediation for a specific Config rule using the <a href="https://docs.aws.amazon.com/config/latest/APIReference/emAPI_PutRemediationConfigurations.html">PutRemediationConfigurations</a> API or the Config console,
+ * 				it initiates the remediation process for all non-compliant resources for that specific rule.
+ * 				The auto remediation process relies on the compliance data snapshot which is captured on a periodic basis.
+ * 				Any non-compliant resource that is updated between the snapshot schedule will continue to be remediated based on the last known compliance data snapshot.</p>
+ *             <p>This means that in some cases auto remediation can be initiated even for compliant resources, since the bootstrap processor uses a database that can have stale evaluation results based on the last known compliance data snapshot.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
