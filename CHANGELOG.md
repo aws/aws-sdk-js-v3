@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.517.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.516.0...v3.517.0) (2024-02-19)
+
+
+### Features
+
+* **client-amplify:** This release contains API changes that enable users to configure their Amplify domains with their own custom SSL/TLS certificate. ([56cc546](https://github.com/aws/aws-sdk-js-v3/commit/56cc54668917c5df8899b0188b4c6f481bd4fbc8))
+* **client-chatbot:** This release adds support for AWS Chatbot. You can now monitor, operate, and troubleshoot your AWS resources with interactive ChatOps using the AWS SDK. ([4a62fda](https://github.com/aws/aws-sdk-js-v3/commit/4a62fda19c95e98b375a328409bcc1a2e862973c))
+* **client-mediatailor:** MediaTailor: marking #AdBreak.OffsetMillis as required. ([20675fd](https://github.com/aws/aws-sdk-js-v3/commit/20675fd1fde6467ec9aeca99d07a031c130cd7c3))
+
+
+
+
+
 # [3.516.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.515.0...v3.516.0) (2024-02-16)
 
 

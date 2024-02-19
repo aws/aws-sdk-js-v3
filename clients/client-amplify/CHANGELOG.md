@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.517.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.516.0...v3.517.0) (2024-02-19)
+
+
+### Features
+
+* **client-amplify:** This release contains API changes that enable users to configure their Amplify domains with their own custom SSL/TLS certificate. ([56cc546](https://github.com/aws/aws-sdk-js-v3/commit/56cc54668917c5df8899b0188b4c6f481bd4fbc8))
+
+
+
+
+
 # [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-amplify
