@@ -1,7 +1,7 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { iterableToReadableStream, readableStreamtoIterable } from "@smithy/eventstream-serde-browser";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
-import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Provider, RequestHandler, RequestHandlerMetadata } from "@smithy/types";
 
 import { isWebSocketRequest } from "./utils";
@@ -29,6 +29,25 @@ export class WebSocketFetchHandler {
   private readonly configPromise: Promise<WebSocketFetchHandlerOptions>;
   private readonly httpHandler: RequestHandler<any, any>;
   private readonly sockets: Record<string, WebSocket[]> = {};
+
+  /**
+   * @returns the input if it is an HttpHandler of any class,
+   * or instantiates a new instance of this handler.
+   */
+  public static create(
+    instanceOrOptions?: HttpHandler<any> | WebSocketFetchHandlerOptions | Provider<WebSocketFetchHandlerOptions | void>,
+    httpHandler: RequestHandler<any, any> = new FetchHttpHandler()
+  ) {
+    if (typeof (instanceOrOptions as any)?.handle === "function") {
+      // is already an instance of HttpHandler.
+      return instanceOrOptions as HttpHandler<any>;
+    }
+    // input is ctor options or undefined.
+    return new WebSocketFetchHandler(
+      instanceOrOptions as undefined | WebSocketFetchHandlerOptions | Provider<WebSocketFetchHandlerOptions>,
+      httpHandler
+    );
+  }
 
   constructor(
     options?: WebSocketFetchHandlerOptions | Provider<WebSocketFetchHandlerOptions>,
