@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.518.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.517.0...v3.518.0) (2024-02-20)
+
+
+### Features
+
+* **client-lambda:** Add .NET 8 (dotnet8) Runtime support to AWS Lambda. ([1c2f72c](https://github.com/aws/aws-sdk-js-v3/commit/1c2f72cd55b1cd2bccc81f91a483987cca0bb467))
+
+
+
+
+
 # [3.516.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.515.0...v3.516.0) (2024-02-16)
 
 **Note:** Version bump only for package @aws-sdk/client-lambda
