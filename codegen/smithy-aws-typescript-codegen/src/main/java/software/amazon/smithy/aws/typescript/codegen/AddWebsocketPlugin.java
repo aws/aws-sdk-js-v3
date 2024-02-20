@@ -95,8 +95,10 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
                             writer.addImport("WebSocketFetchHandler", "WebSocketRequestHandler",
                                 AwsDependency.MIDDLEWARE_WEBSOCKET);
                             writer.addDependency(AwsDependency.MIDDLEWARE_WEBSOCKET);
-                            writer.write("new WebSocketRequestHandler(defaultConfigProvider, "
-                                    + "new HttpRequestHandler(defaultConfigProvider))");
+                            writer.write(
+                                "WebSocketRequestHandler.create(config?.requestHandler ?? defaultConfigProvider, "
+                                    + "HttpRequestHandler.create(defaultConfigProvider))"
+                            );
                     });
             default:
                 return Collections.emptyMap();
