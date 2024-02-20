@@ -749,7 +749,7 @@ export interface OnFailure {
    *       Amazon SQS queue as the destination.</p>
    *          <p>To retain records of failed invocations from <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kafka.html#services-smaa-onfailure-destination">self-managed Kafka</a> or
    *       <a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html#services-msk-onfailure-destination">Amazon MSK</a>,
-   *       you can configure an Amazon SNS topic or Amazon SQS queue as the destination.</p>
+   *       you can configure an Amazon SNS topic, Amazon SQS queue, or Amazon S3 bucket as the destination.</p>
    */
   Destination?: string;
 }
@@ -1354,7 +1354,7 @@ export interface EventSourceMappingConfiguration {
 
   /**
    * @public
-   * <p>(Kinesis and DynamoDB Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+   * <p>(Kinesis, DynamoDB Streams, Amazon MSK, and self-managed Apache Kafka event sources only) A configuration object that specifies the destination of an event after Lambda processes it.</p>
    */
   DestinationConfig?: DestinationConfig;
 
@@ -1725,6 +1725,7 @@ export type PackageType = (typeof PackageType)[keyof typeof PackageType];
  */
 export const Runtime = {
   dotnet6: "dotnet6",
+  dotnet8: "dotnet8",
   dotnetcore10: "dotnetcore1.0",
   dotnetcore20: "dotnetcore2.0",
   dotnetcore21: "dotnetcore2.1",
