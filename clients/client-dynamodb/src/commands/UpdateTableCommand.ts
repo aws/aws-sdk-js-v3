@@ -50,11 +50,14 @@ export interface UpdateTableCommandOutput extends UpdateTableOutput, __MetadataB
  *             </li>
  *          </ul>
  *          <p>
- *             <code>UpdateTable</code> is an asynchronous operation; while it is executing, the table
- *             status changes from <code>ACTIVE</code> to <code>UPDATING</code>. While it is
- *                 <code>UPDATING</code>, you cannot issue another <code>UpdateTable</code> request.
- *             When the table returns to the <code>ACTIVE</code> state, the <code>UpdateTable</code>
- *             operation is complete.</p>
+ *             <code>UpdateTable</code> is an asynchronous operation; while
+ *             it's
+ *             executing, the table status changes from <code>ACTIVE</code> to <code>UPDATING</code>.
+ *             While it's <code>UPDATING</code>, you can't issue another <code>UpdateTable</code>
+ *             request on the
+ *             base table nor any replicas. When the table returns to the
+ *                 <code>ACTIVE</code> state, the <code>UpdateTable</code> operation is
+ *             complete.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
