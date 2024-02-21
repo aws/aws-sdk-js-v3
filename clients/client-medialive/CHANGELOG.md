@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.519.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.518.0...v3.519.0) (2024-02-21)
+
+
+### Features
+
+* **client-medialive:** MediaLive now supports the ability to restart pipelines in a running channel. ([edcc296](https://github.com/aws/aws-sdk-js-v3/commit/edcc29652308d696c69d29bd761946fe1c29f4d4))
+
+
+
+
+
 # [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-medialive

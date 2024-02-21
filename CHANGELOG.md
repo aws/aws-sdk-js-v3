@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.519.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.518.0...v3.519.0) (2024-02-21)
+
+
+### Features
+
+* **client-iot-events:** Increase the maximum length of descriptions for Inputs, Detector Models, and Alarm Models ([c40a218](https://github.com/aws/aws-sdk-js-v3/commit/c40a218f5d7fab54e7a246e905e80f71ec711fa4))
+* **client-lookoutequipment:** This release adds a field exposing model quality to read APIs for models. It also adds a model quality field to the API response when creating an inference scheduler. ([b8f8238](https://github.com/aws/aws-sdk-js-v3/commit/b8f823858924c13b793323a89111a231f7dbce30))
+* **client-medialive:** MediaLive now supports the ability to restart pipelines in a running channel. ([edcc296](https://github.com/aws/aws-sdk-js-v3/commit/edcc29652308d696c69d29bd761946fe1c29f4d4))
+* **client-ssm:** This release adds support for sharing Systems Manager parameters with other AWS accounts. ([200c126](https://github.com/aws/aws-sdk-js-v3/commit/200c12672fc18dbdc743f2d2ee547449e6d57ae4))
+
+
+
+
+
 # [3.518.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.517.0...v3.518.0) (2024-02-20)
 
 

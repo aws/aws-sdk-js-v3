@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.519.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.518.0...v3.519.0) (2024-02-21)
+
+
+### Features
+
+* **client-lookoutequipment:** This release adds a field exposing model quality to read APIs for models. It also adds a model quality field to the API response when creating an inference scheduler. ([b8f8238](https://github.com/aws/aws-sdk-js-v3/commit/b8f823858924c13b793323a89111a231f7dbce30))
+
+
+
+
+
 # [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-lookoutequipment
