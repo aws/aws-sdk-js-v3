@@ -93,6 +93,7 @@ export interface DescribeModelVersionCommandOutput extends DescribeModelVersionR
  * //     Bucket: "STRING_VALUE", // required
  * //     Key: "STRING_VALUE", // required
  * //   },
+ * //   ModelQuality: "QUALITY_THRESHOLD_MET" || "CANNOT_DETERMINE_QUALITY" || "POOR_QUALITY_DETECTED",
  * // };
  *
  * ```

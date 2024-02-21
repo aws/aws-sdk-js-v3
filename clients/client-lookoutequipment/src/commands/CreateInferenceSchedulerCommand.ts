@@ -78,6 +78,7 @@ export interface CreateInferenceSchedulerCommandOutput extends CreateInferenceSc
  * //   InferenceSchedulerArn: "STRING_VALUE",
  * //   InferenceSchedulerName: "STRING_VALUE",
  * //   Status: "PENDING" || "RUNNING" || "STOPPING" || "STOPPED",
+ * //   ModelQuality: "QUALITY_THRESHOLD_MET" || "CANNOT_DETERMINE_QUALITY" || "POOR_QUALITY_DETECTED",
  * // };
  *
  * ```

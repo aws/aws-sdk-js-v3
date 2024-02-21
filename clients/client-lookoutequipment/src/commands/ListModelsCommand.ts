@@ -69,6 +69,7 @@ export interface ListModelsCommandOutput extends ListModelsResponse, __MetadataB
  * //         },
  * //         KmsKeyId: "STRING_VALUE",
  * //       },
+ * //       ModelQuality: "QUALITY_THRESHOLD_MET" || "CANNOT_DETERMINE_QUALITY" || "POOR_QUALITY_DETECTED",
  * //     },
  * //   ],
  * // };

@@ -61,6 +61,7 @@ export interface ListModelVersionsCommandOutput extends ListModelVersionsRespons
  * //       CreatedAt: new Date("TIMESTAMP"),
  * //       Status: "IN_PROGRESS" || "SUCCESS" || "FAILED" || "IMPORT_IN_PROGRESS" || "CANCELED",
  * //       SourceType: "TRAINING" || "RETRAINING" || "IMPORT",
+ * //       ModelQuality: "QUALITY_THRESHOLD_MET" || "CANNOT_DETERMINE_QUALITY" || "POOR_QUALITY_DETECTED",
  * //     },
  * //   ],
  * // };

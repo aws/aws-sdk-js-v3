@@ -98,6 +98,7 @@ export interface DescribeModelCommandOutput extends DescribeModelResponse, __Met
  * //     },
  * //     KmsKeyId: "STRING_VALUE",
  * //   },
+ * //   ModelQuality: "QUALITY_THRESHOLD_MET" || "CANNOT_DETERMINE_QUALITY" || "POOR_QUALITY_DETECTED",
  * // };
  *
  * ```
