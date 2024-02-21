@@ -2269,8 +2269,8 @@ export interface DocumentRequires {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, 12.6. This value is unique across all versions of a document, and
-   *    can't be changed.</p>
+   *    example, 12.6. This value is unique across all versions of a document, and can't be
+   *    changed.</p>
    */
   VersionName?: string;
 }
@@ -4650,6 +4650,10 @@ export interface DeleteParameterRequest {
   /**
    * @public
    * <p>The name of the parameter to delete.</p>
+   *          <note>
+   *             <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name
+   *     itself.</p>
+   *          </note>
    */
   Name: string | undefined;
 }
@@ -4687,6 +4691,10 @@ export interface DeleteParametersRequest {
    * @public
    * <p>The names of the parameters to delete. After deleting a parameter, wait for at least 30
    *    seconds to create a parameter with the same name.</p>
+   *          <note>
+   *             <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name
+   *     itself.</p>
+   *          </note>
    */
   Names: string[] | undefined;
 }
@@ -4832,6 +4840,51 @@ export interface DeleteResourcePolicyResponse {}
 
 /**
  * @public
+ * <p>The specified policy document is malformed or invalid, or excessive
+ *     <code>PutResourcePolicy</code> or <code>DeleteResourcePolicy</code> calls have been made.</p>
+ */
+export class MalformedResourcePolicyDocumentException extends __BaseException {
+  readonly name: "MalformedResourcePolicyDocumentException" = "MalformedResourcePolicyDocumentException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<MalformedResourcePolicyDocumentException, __BaseException>) {
+    super({
+      name: "MalformedResourcePolicyDocumentException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, MalformedResourcePolicyDocumentException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>The specified parameter to be shared could not be found.</p>
+ */
+export class ResourceNotFoundException extends __BaseException {
+  readonly name: "ResourceNotFoundException" = "ResourceNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourceNotFoundException, __BaseException>) {
+    super({
+      name: "ResourceNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourceNotFoundException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The hash provided in the call doesn't match the stored hash. This exception is thrown when
  *    trying to update an obsolete policy version or when multiple requests to update a policy are
  *    sent.</p>
@@ -4875,6 +4928,28 @@ export class ResourcePolicyInvalidParameterException extends __BaseException {
     });
     Object.setPrototypeOf(this, ResourcePolicyInvalidParameterException.prototype);
     this.ParameterNames = opts.ParameterNames;
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
+ * <p>No policies with the specified policy ID and hash could be found.</p>
+ */
+export class ResourcePolicyNotFoundException extends __BaseException {
+  readonly name: "ResourcePolicyNotFoundException" = "ResourcePolicyNotFoundException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ResourcePolicyNotFoundException, __BaseException>) {
+    super({
+      name: "ResourcePolicyNotFoundException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ResourcePolicyNotFoundException.prototype);
     this.Message = opts.Message;
   }
 }
@@ -6862,8 +6937,8 @@ export interface DescribeDocumentRequest {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, 12.6. This value is unique across all versions of a document, and
-   *    can't be changed.</p>
+   *    example, 12.6. This value is unique across all versions of a document, and can't be
+   *    changed.</p>
    */
   VersionName?: string;
 }
@@ -9353,66 +9428,6 @@ export interface DescribeMaintenanceWindowTasksRequest {
 }
 
 /**
- * @public
- * @enum
- */
-export const MaintenanceWindowTaskCutoffBehavior = {
-  CancelTask: "CANCEL_TASK",
-  ContinueTask: "CONTINUE_TASK",
-} as const;
-
-/**
- * @public
- */
-export type MaintenanceWindowTaskCutoffBehavior =
-  (typeof MaintenanceWindowTaskCutoffBehavior)[keyof typeof MaintenanceWindowTaskCutoffBehavior];
-
-/**
- * @public
- * <p>Information about an Amazon Simple Storage Service (Amazon S3) bucket to write managed
- *    node-level logs to.</p>
- *          <note>
- *             <p>
- *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
- *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
- *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
- *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
- *          </note>
- */
-export interface LoggingInfo {
-  /**
-   * @public
-   * <p>The name of an S3 bucket where execution logs are stored.</p>
-   */
-  S3BucketName: string | undefined;
-
-  /**
-   * @public
-   * <p>(Optional) The S3 bucket subfolder. </p>
-   */
-  S3KeyPrefix?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services Region where the S3 bucket is located.</p>
-   */
-  S3Region: string | undefined;
-}
-
-/**
- * @public
- * <p>Defines the values for a task parameter.</p>
- */
-export interface MaintenanceWindowTaskParameterValueExpression {
-  /**
-   * @public
-   * <p>This field contains an array of 0 or more strings, each 1 to 255 characters in
-   *    length.</p>
-   */
-  Values?: string[];
-}
-
-/**
  * @internal
  */
 export const CreateAssociationRequestFilterSensitiveLog = (obj: CreateAssociationRequest): any => ({
@@ -9597,14 +9612,4 @@ export const DescribeMaintenanceWindowTargetsResultFilterSensitiveLog = (
 ): any => ({
   ...obj,
   ...(obj.Targets && { Targets: obj.Targets.map((item) => MaintenanceWindowTargetFilterSensitiveLog(item)) }),
-});
-
-/**
- * @internal
- */
-export const MaintenanceWindowTaskParameterValueExpressionFilterSensitiveLog = (
-  obj: MaintenanceWindowTaskParameterValueExpression
-): any => ({
-  ...obj,
-  ...(obj.Values && { Values: SENSITIVE_STRING }),
 });

@@ -28,7 +28,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
 
 /**
  * @public
- * <p>Get information about a parameter.</p>
+ * <p>Lists the parameters in your Amazon Web Services account or the parameters shared with you when you enable
+ *    the <a href="https://docs.aws.amazon.com/systems-manager/latest/APIReference/API_DescribeParameters.html#systemsmanager-DescribeParameters-request-Shared">Shared</a> option.</p>
  *          <p>Request results are returned on a best-effort basis. If you specify <code>MaxResults</code>
  *    in the request, the response includes information up to the limit specified. The number of items
  *    returned, however, can be between zero and the value of <code>MaxResults</code>. If the service
@@ -36,8 +37,8 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  *    matching values up to that point and a <code>NextToken</code>. You can specify the
  *     <code>NextToken</code> in a subsequent call to get the next set of results.</p>
  *          <important>
- *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter, then you must
- *     also update the key alias the parameter uses to reference KMS. Otherwise,
+ *             <p>If you change the KMS key alias for the KMS key used to encrypt a parameter,
+ *     then you must also update the key alias the parameter uses to reference KMS. Otherwise,
  *      <code>DescribeParameters</code> retrieves whatever the original key alias was
  *     referencing.</p>
  *          </important>
@@ -67,6 +68,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  *   ],
  *   MaxResults: Number("int"),
  *   NextToken: "STRING_VALUE",
+ *   Shared: true || false,
  * };
  * const command = new DescribeParametersCommand(input);
  * const response = await client.send(command);
@@ -74,6 +76,7 @@ export interface DescribeParametersCommandOutput extends DescribeParametersResul
  * //   Parameters: [ // ParameterMetadataList
  * //     { // ParameterMetadata
  * //       Name: "STRING_VALUE",
+ * //       ARN: "STRING_VALUE",
  * //       Type: "String" || "StringList" || "SecureString",
  * //       KeyId: "STRING_VALUE",
  * //       LastModifiedDate: new Date("TIMESTAMP"),

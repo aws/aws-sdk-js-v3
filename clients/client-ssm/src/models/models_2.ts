@@ -12,9 +12,6 @@ import {
   DocumentDescription,
   DocumentFormat,
   InstanceAssociationOutputLocation,
-  LoggingInfo,
-  MaintenanceWindowTaskCutoffBehavior,
-  MaintenanceWindowTaskParameterValueExpression,
   MetadataValue,
   OperatingSystem,
   OpsItemDataValue,
@@ -35,15 +32,53 @@ import {
   DocumentReviewCommentSource,
   InventoryFilter,
   InventoryGroup,
+  LoggingInfo,
+  MaintenanceWindowTaskCutoffBehavior,
   MaintenanceWindowTaskInvocationParameters,
   MaintenanceWindowTaskInvocationParametersFilterSensitiveLog,
+  MaintenanceWindowTaskParameterValueExpression,
   OpsFilter,
   OpsItemStatus,
   OpsResultAttribute,
   ResultAttribute,
+  StopType,
 } from "./models_1";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * @public
+ */
+export interface StopAutomationExecutionRequest {
+  /**
+   * @public
+   * <p>The execution ID of the Automation to stop.</p>
+   */
+  AutomationExecutionId: string | undefined;
+
+  /**
+   * @public
+   * <p>The stop request type. Valid types include the following: Cancel and Complete. The default
+   *    type is Cancel.</p>
+   */
+  Type?: StopType;
+}
+
+/**
+ * @public
+ */
+export interface StopAutomationExecutionResult {}
+
+/**
+ * @public
+ */
+export interface TerminateSessionRequest {
+  /**
+   * @public
+   * <p>The ID of the session to terminate.</p>
+   */
+  SessionId: string | undefined;
+}
 
 /**
  * @public
@@ -63,6 +98,10 @@ export interface UnlabelParameterVersionRequest {
   /**
    * @public
    * <p>The name of the parameter from which you want to delete one or more labels.</p>
+   *          <note>
+   *             <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name
+   *     itself.</p>
+   *          </note>
    */
   Name: string | undefined;
 
@@ -539,8 +578,8 @@ export interface UpdateDocumentRequest {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact you are updating with the document.
-   *    For example, 12.6. This value is unique across all versions of a document, and
-   *    can't be changed.</p>
+   *    For example, 12.6. This value is unique across all versions of a document, and can't be
+   *    changed.</p>
    */
   VersionName?: string;
 

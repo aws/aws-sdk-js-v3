@@ -5,8 +5,7 @@ import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
-import { TerminateSessionRequest } from "../models/models_1";
-import { TerminateSessionResponse } from "../models/models_2";
+import { TerminateSessionRequest, TerminateSessionResponse } from "../models/models_2";
 import { de_TerminateSessionCommand, se_TerminateSessionCommand } from "../protocols/Aws_json1_1";
 import { ServiceInputTypes, ServiceOutputTypes, SSMClientResolvedConfig } from "../SSMClient";
 

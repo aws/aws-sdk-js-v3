@@ -580,12 +580,11 @@ import {
   InvalidTargetMaps,
   InvalidTypeNameException,
   InventoryDeletionStatusItem,
-  LoggingInfo,
   MaintenanceWindowExecution,
   MaintenanceWindowExecutionTaskIdentity,
   MaintenanceWindowExecutionTaskInvocationIdentity,
   MaintenanceWindowFilter,
-  MaintenanceWindowTaskParameterValueExpression,
+  MalformedResourcePolicyDocumentException,
   MaxDocumentSizeExceeded,
   MetadataValue,
   OpsItemAccessDeniedException,
@@ -625,8 +624,10 @@ import {
   ResourceDataSyncSource,
   ResourceInUseException,
   ResourceLimitExceededException,
+  ResourceNotFoundException,
   ResourcePolicyConflictException,
   ResourcePolicyInvalidParameterException,
+  ResourcePolicyNotFoundException,
   ReviewInformation,
   Runbook,
   S3OutputLocation,
@@ -778,11 +779,13 @@ import {
   ListResourceDataSyncRequest,
   ListResourceDataSyncResult,
   ListTagsForResourceRequest,
+  LoggingInfo,
   MaintenanceWindowAutomationParameters,
   MaintenanceWindowLambdaParameters,
   MaintenanceWindowRunCommandParameters,
   MaintenanceWindowStepFunctionsParameters,
   MaintenanceWindowTaskInvocationParameters,
+  MaintenanceWindowTaskParameterValueExpression,
   ModifyDocumentPermissionRequest,
   NotificationConfig,
   NotificationEvent,
@@ -837,10 +840,8 @@ import {
   StartAutomationExecutionRequest,
   StartChangeRequestExecutionRequest,
   StartSessionRequest,
-  StopAutomationExecutionRequest,
   SubTypeCountLimitExceededException,
   TargetNotConnected,
-  TerminateSessionRequest,
   TotalSizeLimitExceededException,
   UnsupportedCalendarException,
   UnsupportedFeatureRequiredException,
@@ -862,6 +863,8 @@ import {
   OpsMetadataKeyLimitExceededException,
   ResourceDataSyncConflictException,
   StatusUnchanged,
+  StopAutomationExecutionRequest,
+  TerminateSessionRequest,
   UnlabelParameterVersionRequest,
   UpdateAssociationRequest,
   UpdateAssociationResult,
@@ -5644,12 +5647,21 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ResourceDataSyncNotFoundException":
     case "com.amazonaws.ssm#ResourceDataSyncNotFoundException":
       throw await de_ResourceDataSyncNotFoundExceptionRes(parsedOutput, context);
+    case "MalformedResourcePolicyDocumentException":
+    case "com.amazonaws.ssm#MalformedResourcePolicyDocumentException":
+      throw await de_MalformedResourcePolicyDocumentExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.ssm#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ResourcePolicyConflictException":
     case "com.amazonaws.ssm#ResourcePolicyConflictException":
       throw await de_ResourcePolicyConflictExceptionRes(parsedOutput, context);
     case "ResourcePolicyInvalidParameterException":
     case "com.amazonaws.ssm#ResourcePolicyInvalidParameterException":
       throw await de_ResourcePolicyInvalidParameterExceptionRes(parsedOutput, context);
+    case "ResourcePolicyNotFoundException":
+    case "com.amazonaws.ssm#ResourcePolicyNotFoundException":
+      throw await de_ResourcePolicyNotFoundExceptionRes(parsedOutput, context);
     case "TargetInUseException":
     case "com.amazonaws.ssm#TargetInUseException":
       throw await de_TargetInUseExceptionRes(parsedOutput, context);
@@ -7095,6 +7107,22 @@ const de_ItemSizeLimitExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1MalformedResourcePolicyDocumentExceptionRes
+ */
+const de_MalformedResourcePolicyDocumentExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<MalformedResourcePolicyDocumentException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new MalformedResourcePolicyDocumentException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1MaxDocumentSizeExceededRes
  */
 const de_MaxDocumentSizeExceededRes = async (
@@ -7572,6 +7600,22 @@ const de_ResourceLimitExceededExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1ResourceNotFoundExceptionRes
+ */
+const de_ResourceNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourceNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ResourceNotFoundException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ResourcePolicyConflictExceptionRes
  */
 const de_ResourcePolicyConflictExceptionRes = async (
@@ -7613,6 +7657,22 @@ const de_ResourcePolicyLimitExceededExceptionRes = async (
   const body = parsedOutput.body;
   const deserialized: any = _json(body);
   const exception = new ResourcePolicyLimitExceededException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
+ * deserializeAws_json1_1ResourcePolicyNotFoundExceptionRes
+ */
+const de_ResourcePolicyNotFoundExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<ResourcePolicyNotFoundException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new ResourcePolicyNotFoundException({
     $metadata: deserializeMetadata(parsedOutput),
     ...deserialized,
   });
@@ -10756,6 +10816,8 @@ const de_MaintenanceWindowTaskInvocationParameters = (
 
 // de_MaintenanceWindowTaskParameterValueList omitted.
 
+// de_MalformedResourcePolicyDocumentException omitted.
+
 // de_MaxDocumentSizeExceeded omitted.
 
 // de_MetadataMap omitted.
@@ -11051,6 +11113,7 @@ const de_ParameterList = (output: any, context: __SerdeContext): Parameter[] => 
  */
 const de_ParameterMetadata = (output: any, context: __SerdeContext): ParameterMetadata => {
   return take(output, {
+    ARN: __expectString,
     AllowedPattern: __expectString,
     DataType: __expectString,
     Description: __expectString,
@@ -11348,11 +11411,15 @@ const de_ResourceDataSyncItemList = (output: any, context: __SerdeContext): Reso
 
 // de_ResourceLimitExceededException omitted.
 
+// de_ResourceNotFoundException omitted.
+
 // de_ResourcePolicyConflictException omitted.
 
 // de_ResourcePolicyInvalidParameterException omitted.
 
 // de_ResourcePolicyLimitExceededException omitted.
+
+// de_ResourcePolicyNotFoundException omitted.
 
 // de_ResourcePolicyParameterNamesList omitted.
 

@@ -64,6 +64,9 @@ export interface GetResourcePoliciesCommandOutput extends GetResourcePoliciesRes
  * @throws {@link InternalServerError} (server fault)
  *  <p>An error occurred on the server side.</p>
  *
+ * @throws {@link ResourceNotFoundException} (client fault)
+ *  <p>The specified parameter to be shared could not be found.</p>
+ *
  * @throws {@link ResourcePolicyInvalidParameterException} (client fault)
  *  <p>One or more parameters specified for the call aren't valid. Verify the parameters and their
  *    values and try again.</p>

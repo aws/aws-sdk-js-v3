@@ -17,11 +17,8 @@ import {
   DocumentType,
   ExecutionMode,
   InstanceAssociationOutputLocation,
-  LoggingInfo,
   MaintenanceWindowExecutionStatus,
   MaintenanceWindowResourceType,
-  MaintenanceWindowTaskCutoffBehavior,
-  MaintenanceWindowTaskParameterValueExpression,
   MaintenanceWindowTaskType,
   MetadataValue,
   OperatingSystem,
@@ -49,6 +46,66 @@ import {
 } from "./models_0";
 
 import { SSMServiceException as __BaseException } from "./SSMServiceException";
+
+/**
+ * @public
+ * @enum
+ */
+export const MaintenanceWindowTaskCutoffBehavior = {
+  CancelTask: "CANCEL_TASK",
+  ContinueTask: "CONTINUE_TASK",
+} as const;
+
+/**
+ * @public
+ */
+export type MaintenanceWindowTaskCutoffBehavior =
+  (typeof MaintenanceWindowTaskCutoffBehavior)[keyof typeof MaintenanceWindowTaskCutoffBehavior];
+
+/**
+ * @public
+ * <p>Information about an Amazon Simple Storage Service (Amazon S3) bucket to write managed
+ *    node-level logs to.</p>
+ *          <note>
+ *             <p>
+ *                <code>LoggingInfo</code> has been deprecated. To specify an Amazon Simple Storage Service (Amazon S3) bucket to contain logs, instead use the
+ *       <code>OutputS3BucketName</code> and <code>OutputS3KeyPrefix</code> options in the <code>TaskInvocationParameters</code> structure.
+ *       For information about how Amazon Web Services Systems Manager handles these options for the supported maintenance
+ *       window task types, see <a>MaintenanceWindowTaskInvocationParameters</a>.</p>
+ *          </note>
+ */
+export interface LoggingInfo {
+  /**
+   * @public
+   * <p>The name of an S3 bucket where execution logs are stored.</p>
+   */
+  S3BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>(Optional) The S3 bucket subfolder. </p>
+   */
+  S3KeyPrefix?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services Region where the S3 bucket is located.</p>
+   */
+  S3Region: string | undefined;
+}
+
+/**
+ * @public
+ * <p>Defines the values for a task parameter.</p>
+ */
+export interface MaintenanceWindowTaskParameterValueExpression {
+  /**
+   * @public
+   * <p>This field contains an array of 0 or more strings, each 1 to 255 characters in
+   *    length.</p>
+   */
+  Values?: string[];
+}
 
 /**
  * @public
@@ -659,6 +716,22 @@ export interface DescribeParametersRequest {
    *    call.)</p>
    */
   NextToken?: string;
+
+  /**
+   * @public
+   * <p>Lists parameters that are shared with you.</p>
+   *          <note>
+   *             <p>By default when using this option, the command returns parameters that have been shared
+   *     using a standard Resource Access Manager Resource Share. In order for a parameter that was shared
+   *     using the <a>PutResourcePolicy</a> command to be returned, the associated
+   *       <code>RAM Resource Share Created From Policy</code> must have been promoted to
+   *     a standard Resource Share using the RAM
+   *     <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> API operation.</p>
+   *             <p>For more information about sharing parameters, see <a href="systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working with
+   *      shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          </note>
+   */
+  Shared?: boolean;
 }
 
 /**
@@ -720,8 +793,8 @@ export type ParameterType = (typeof ParameterType)[keyof typeof ParameterType];
 
 /**
  * @public
- * <p>Metadata includes information like the ARN of the last user and the date/time the parameter
- *    was last used.</p>
+ * <p>Metadata includes information like the Amazon Resource Name (ARN) of the last user to update
+ *    the parameter and the date and time the parameter was last used.</p>
  */
 export interface ParameterMetadata {
   /**
@@ -729,6 +802,12 @@ export interface ParameterMetadata {
    * <p>The parameter name.</p>
    */
   Name?: string;
+
+  /**
+   * @public
+   * <p>The (ARN) of the last user to update the parameter.</p>
+   */
+  ARN?: string;
 
   /**
    * @public
@@ -2461,8 +2540,8 @@ export interface GetDocumentRequest {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, 12.6. This value is unique across all versions of a document and can't
-   *    be changed.</p>
+   *    example, 12.6. This value is unique across all versions of a document and can't be
+   *    changed.</p>
    */
   VersionName?: string;
 
@@ -2554,7 +2633,8 @@ export interface GetDocumentResult {
 
   /**
    * @public
-   * <p>The version of the artifact associated with the document. For example, 12.6. This value is unique across all versions of a document, and can't be changed.</p>
+   * <p>The version of the artifact associated with the document. For example, 12.6. This value is
+   *    unique across all versions of a document, and can't be changed.</p>
    */
   VersionName?: string;
 
@@ -4242,9 +4322,12 @@ export interface GetOpsSummaryResult {
 export interface GetParameterRequest {
   /**
    * @public
-   * <p>The name of the parameter you want to query.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the parameter that you want to query. For
+   *    parameters shared with you from another account, you must use the full ARN.</p>
    *          <p>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
    *    version, use <code>"Name": "name:version"</code>.</p>
+   *          <p>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sharing.html">Working with shared parameters</a> in
+   *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Name: string | undefined;
 
@@ -4388,7 +4471,8 @@ export class ParameterVersionNotFound extends __BaseException {
 export interface GetParameterHistoryRequest {
   /**
    * @public
-   * <p>The name of the parameter for which you want to review history.</p>
+   * <p>The name or Amazon Resource Name (ARN) of the parameter for which you want to review
+   *    history. For parameters shared with you from another account, you must use the full ARN.</p>
    */
   Name: string | undefined;
 
@@ -4528,9 +4612,12 @@ export interface GetParameterHistoryResult {
 export interface GetParametersRequest {
   /**
    * @public
-   * <p>Names of the parameters for which you want to query information.</p>
+   * <p>The names or Amazon Resource Names (ARNs) of the parameters that you want to query. For
+   *    parameters shared with you from another account, you must use the full ARNs.</p>
    *          <p>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
    *    version, use <code>"Name": "name:version"</code>.</p>
+   *          <p>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sharing.html">Working with shared parameters</a> in
+   *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Names: string[] | undefined;
 
@@ -5041,6 +5128,10 @@ export interface LabelParameterVersionRequest {
   /**
    * @public
    * <p>The parameter name on which you want to attach one or more labels.</p>
+   *          <note>
+   *             <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name
+   *     itself.</p>
+   *          </note>
    */
   Name: string | undefined;
 
@@ -7241,8 +7332,8 @@ export interface DocumentIdentifier {
   /**
    * @public
    * <p>An optional field specifying the version of the artifact associated with the document. For
-   *    example, 12.6. This value is unique across all versions of a document, and
-   *    can't be changed.</p>
+   *    example, 12.6. This value is unique across all versions of a document, and can't be
+   *    changed.</p>
    */
   VersionName?: string;
 
@@ -7380,7 +7471,8 @@ export interface DocumentVersionInfo {
 
   /**
    * @public
-   * <p>The version of the artifact associated with the document. For example, 12.6. This value is unique across all versions of a document, and can't be changed.</p>
+   * <p>The version of the artifact associated with the document. For example, 12.6. This value is
+   *    unique across all versions of a document, and can't be changed.</p>
    */
   VersionName?: string;
 
@@ -9024,10 +9116,14 @@ export class PoliciesLimitExceededException extends __BaseException {
 export interface PutParameterRequest {
   /**
    * @public
-   * <p>The fully qualified name of the parameter that you want to add to the system. The fully
-   *    qualified name includes the complete hierarchy of the parameter path and name. For parameters in
-   *    a hierarchy, you must include a leading forward slash character (/) when you create or reference
-   *    a parameter. For example: <code>/Dev/DBServer/MySQL/db-string13</code>
+   * <p>The fully qualified name of the parameter that you want to add to the system.</p>
+   *          <note>
+   *             <p>You can't enter the Amazon Resource Name (ARN) for a parameter, only the parameter name
+   *     itself.</p>
+   *          </note>
+   *          <p>The fully qualified name includes the complete hierarchy of the parameter path and name. For
+   *    parameters in a hierarchy, you must include a leading forward slash character (/) when you create
+   *    or reference a parameter. For example: <code>/Dev/DBServer/MySQL/db-string13</code>
    *          </p>
    *          <p>Naming Constraints:</p>
    *          <ul>
@@ -10857,38 +10953,14 @@ export const StopType = {
 export type StopType = (typeof StopType)[keyof typeof StopType];
 
 /**
- * @public
+ * @internal
  */
-export interface StopAutomationExecutionRequest {
-  /**
-   * @public
-   * <p>The execution ID of the Automation to stop.</p>
-   */
-  AutomationExecutionId: string | undefined;
-
-  /**
-   * @public
-   * <p>The stop request type. Valid types include the following: Cancel and Complete. The default
-   *    type is Cancel.</p>
-   */
-  Type?: StopType;
-}
-
-/**
- * @public
- */
-export interface StopAutomationExecutionResult {}
-
-/**
- * @public
- */
-export interface TerminateSessionRequest {
-  /**
-   * @public
-   * <p>The ID of the session to terminate.</p>
-   */
-  SessionId: string | undefined;
-}
+export const MaintenanceWindowTaskParameterValueExpressionFilterSensitiveLog = (
+  obj: MaintenanceWindowTaskParameterValueExpression
+): any => ({
+  ...obj,
+  ...(obj.Values && { Values: SENSITIVE_STRING }),
+});
 
 /**
  * @internal
