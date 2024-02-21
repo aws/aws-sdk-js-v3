@@ -155,6 +155,10 @@ import {
   RejectInputDeviceTransferCommandInput,
   RejectInputDeviceTransferCommandOutput,
 } from "./commands/RejectInputDeviceTransferCommand";
+import {
+  RestartChannelPipelinesCommandInput,
+  RestartChannelPipelinesCommandOutput,
+} from "./commands/RestartChannelPipelinesCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "./commands/StartChannelCommand";
 import { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "./commands/StartInputDeviceCommand";
 import {
@@ -249,6 +253,7 @@ export type ServiceInputTypes =
   | PurchaseOfferingCommandInput
   | RebootInputDeviceCommandInput
   | RejectInputDeviceTransferCommandInput
+  | RestartChannelPipelinesCommandInput
   | StartChannelCommandInput
   | StartInputDeviceCommandInput
   | StartInputDeviceMaintenanceWindowCommandInput
@@ -318,6 +323,7 @@ export type ServiceOutputTypes =
   | PurchaseOfferingCommandOutput
   | RebootInputDeviceCommandOutput
   | RejectInputDeviceTransferCommandOutput
+  | RestartChannelPipelinesCommandOutput
   | StartChannelCommandOutput
   | StartInputDeviceCommandOutput
   | StartInputDeviceMaintenanceWindowCommandOutput

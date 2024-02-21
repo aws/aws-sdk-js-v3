@@ -130,6 +130,10 @@ import {
   RejectInputDeviceTransferCommandInput,
   RejectInputDeviceTransferCommandOutput,
 } from "../commands/RejectInputDeviceTransferCommand";
+import {
+  RestartChannelPipelinesCommandInput,
+  RestartChannelPipelinesCommandOutput,
+} from "../commands/RestartChannelPipelinesCommand";
 import { StartChannelCommandInput, StartChannelCommandOutput } from "../commands/StartChannelCommand";
 import { StartInputDeviceCommandInput, StartInputDeviceCommandOutput } from "../commands/StartInputDeviceCommand";
 import {
@@ -201,6 +205,7 @@ import {
   CaptionSelectorSettings,
   CdiInputSpecification,
   ChannelEgressEndpoint,
+  ChannelPipelineIdToRestart,
   ChannelSummary,
   ColorCorrection,
   DvbNitSettings,
@@ -232,7 +237,6 @@ import {
   HlsOutputSettings,
   HlsS3Settings,
   HlsSettings,
-  HlsWebdavSettings,
   Input,
   InputAttachment,
   InputChannelLevel,
@@ -348,6 +352,7 @@ import {
   HlsGroupSettings,
   HlsId3SegmentTaggingScheduleActionSettings,
   HlsTimedMetadataScheduleActionSettings,
+  HlsWebdavSettings,
   HtmlMotionGraphicsSettings,
   ImmediateModeScheduleActionStartSettings,
   InputClippingSettings,
@@ -1376,6 +1381,29 @@ export const se_RejectInputDeviceTransferCommand = async (
   b.bp("/prod/inputDevices/{InputDeviceId}/reject");
   b.p("InputDeviceId", () => input.InputDeviceId!, "{InputDeviceId}", false);
   let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1RestartChannelPipelinesCommand
+ */
+export const se_RestartChannelPipelinesCommand = async (
+  input: RestartChannelPipelinesCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/prod/channels/{ChannelId}/restartChannelPipelines");
+  b.p("ChannelId", () => input.ChannelId!, "{ChannelId}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      pipelineIds: [, (_) => _json(_), `PipelineIds`],
+    })
+  );
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -2850,6 +2878,45 @@ export const de_RejectInputDeviceTransferCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1RestartChannelPipelinesCommand
+ */
+export const de_RestartChannelPipelinesCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<RestartChannelPipelinesCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    Arn: [, __expectString, `arn`],
+    CdiInputSpecification: [, (_) => de_CdiInputSpecification(_, context), `cdiInputSpecification`],
+    ChannelClass: [, __expectString, `channelClass`],
+    Destinations: [, (_) => de___listOfOutputDestination(_, context), `destinations`],
+    EgressEndpoints: [, (_) => de___listOfChannelEgressEndpoint(_, context), `egressEndpoints`],
+    EncoderSettings: [, (_) => de_EncoderSettings(_, context), `encoderSettings`],
+    Id: [, __expectString, `id`],
+    InputAttachments: [, (_) => de___listOfInputAttachment(_, context), `inputAttachments`],
+    InputSpecification: [, (_) => de_InputSpecification(_, context), `inputSpecification`],
+    LogLevel: [, __expectString, `logLevel`],
+    Maintenance: [, (_) => de_MaintenanceStatus(_, context), `maintenance`],
+    MaintenanceStatus: [, __expectString, `maintenanceStatus`],
+    Name: [, __expectString, `name`],
+    PipelineDetails: [, (_) => de___listOfPipelineDetail(_, context), `pipelineDetails`],
+    PipelinesRunningCount: [, __expectInt32, `pipelinesRunningCount`],
+    RoleArn: [, __expectString, `roleArn`],
+    State: [, __expectString, `state`],
+    Tags: [, _json, `tags`],
+    Vpc: [, (_) => de_VpcOutputSettingsDescription(_, context), `vpc`],
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1StartChannelCommand
  */
 export const de_StartChannelCommand = async (
@@ -3549,6 +3616,8 @@ const se___listOfCaptionSelector = (input: CaptionSelector[], context: __SerdeCo
       return se_CaptionSelector(entry, context);
     });
 };
+
+// se___listOfChannelPipelineIdToRestart omitted.
 
 /**
  * serializeAws_restJson1__listOfColorCorrection

@@ -2194,7 +2194,7 @@ export interface CaptionDestinationSettings {
 export interface CaptionDescription {
   /**
    * @public
-   * Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds.
+   * Indicates whether the caption track implements accessibility features such as written descriptions of spoken dialog, music, and sounds. This signaling is added to HLS output group and MediaPackage output group.
    */
   Accessibility?: AccessibilityType;
 
@@ -2579,6 +2579,20 @@ export interface ChannelEgressEndpoint {
    */
   SourceIp?: string;
 }
+
+/**
+ * @public
+ * @enum
+ */
+export const ChannelPipelineIdToRestart = {
+  PIPELINE_0: "PIPELINE_0",
+  PIPELINE_1: "PIPELINE_1",
+} as const;
+
+/**
+ * @public
+ */
+export type ChannelPipelineIdToRestart = (typeof ChannelPipelineIdToRestart)[keyof typeof ChannelPipelineIdToRestart];
 
 /**
  * @public
@@ -6720,39 +6734,3 @@ export const HlsWebdavHttpTransferMode = {
  * @public
  */
 export type HlsWebdavHttpTransferMode = (typeof HlsWebdavHttpTransferMode)[keyof typeof HlsWebdavHttpTransferMode];
-
-/**
- * @public
- * Hls Webdav Settings
- */
-export interface HlsWebdavSettings {
-  /**
-   * @public
-   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
-   */
-  ConnectionRetryInterval?: number;
-
-  /**
-   * @public
-   * Size in seconds of file cache for streaming outputs.
-   */
-  FilecacheDuration?: number;
-
-  /**
-   * @public
-   * Specify whether or not to use chunked transfer encoding to WebDAV.
-   */
-  HttpTransferMode?: HlsWebdavHttpTransferMode;
-
-  /**
-   * @public
-   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
-   */
-  NumRetries?: number;
-
-  /**
-   * @public
-   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
-   */
-  RestartDelay?: number;
-}

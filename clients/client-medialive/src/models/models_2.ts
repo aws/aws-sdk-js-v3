@@ -3,6 +3,7 @@ import {
   CdiInputSpecification,
   ChannelClass,
   ChannelEgressEndpoint,
+  ChannelPipelineIdToRestart,
   ChannelState,
   ChannelSummary,
   DeviceSettingsSyncState,
@@ -49,6 +50,24 @@ import {
   Reservation,
   TransferringInputDeviceSummary,
 } from "./models_1";
+
+/**
+ * @public
+ * Placeholder documentation for ListChannelsRequest
+ */
+export interface ListChannelsRequest {
+  /**
+   * @public
+   * Placeholder documentation for MaxResults
+   */
+  MaxResults?: number;
+
+  /**
+   * @public
+   * Placeholder documentation for __string
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -639,6 +658,146 @@ export interface RejectInputDeviceTransferRequest {
  * Placeholder documentation for RejectInputDeviceTransferResponse
  */
 export interface RejectInputDeviceTransferResponse {}
+
+/**
+ * @public
+ * Pipelines to restart.
+ */
+export interface RestartChannelPipelinesRequest {
+  /**
+   * @public
+   * ID of channel
+   */
+  ChannelId: string | undefined;
+
+  /**
+   * @public
+   * An array of pipelines to restart in this channel. Format PIPELINE_0 or PIPELINE_1.
+   */
+  PipelineIds?: ChannelPipelineIdToRestart[];
+}
+
+/**
+ * @public
+ * Placeholder documentation for RestartChannelPipelinesResponse
+ */
+export interface RestartChannelPipelinesResponse {
+  /**
+   * @public
+   * The unique arn of the channel.
+   */
+  Arn?: string;
+
+  /**
+   * @public
+   * Specification of CDI inputs for this channel
+   */
+  CdiInputSpecification?: CdiInputSpecification;
+
+  /**
+   * @public
+   * The class for this channel. STANDARD for a channel with two pipelines or SINGLE_PIPELINE for a channel with one pipeline.
+   */
+  ChannelClass?: ChannelClass;
+
+  /**
+   * @public
+   * A list of destinations of the channel. For UDP outputs, there is one
+   * destination per output. For other types (HLS, for example), there is
+   * one destination per packager.
+   */
+  Destinations?: OutputDestination[];
+
+  /**
+   * @public
+   * The endpoints where outgoing connections initiate from
+   */
+  EgressEndpoints?: ChannelEgressEndpoint[];
+
+  /**
+   * @public
+   * Encoder Settings
+   */
+  EncoderSettings?: EncoderSettings;
+
+  /**
+   * @public
+   * The unique id of the channel.
+   */
+  Id?: string;
+
+  /**
+   * @public
+   * List of input attachments for channel.
+   */
+  InputAttachments?: InputAttachment[];
+
+  /**
+   * @public
+   * Specification of network and file inputs for this channel
+   */
+  InputSpecification?: InputSpecification;
+
+  /**
+   * @public
+   * The log level being written to CloudWatch Logs.
+   */
+  LogLevel?: LogLevel;
+
+  /**
+   * @public
+   * Maintenance settings for this channel.
+   */
+  Maintenance?: MaintenanceStatus;
+
+  /**
+   * @public
+   * The time in milliseconds by when the PVRE restart must occur.
+   */
+  MaintenanceStatus?: string;
+
+  /**
+   * @public
+   * The name of the channel. (user-mutable)
+   */
+  Name?: string;
+
+  /**
+   * @public
+   * Runtime details for the pipelines of a running channel.
+   */
+  PipelineDetails?: PipelineDetail[];
+
+  /**
+   * @public
+   * The number of currently healthy pipelines.
+   */
+  PipelinesRunningCount?: number;
+
+  /**
+   * @public
+   * The Amazon Resource Name (ARN) of the role assumed when running the Channel.
+   */
+  RoleArn?: string;
+
+  /**
+   * @public
+   * Placeholder documentation for ChannelState
+   */
+  State?: ChannelState;
+
+  /**
+   * @public
+   * A collection of key-value pairs.
+   */
+  Tags?: Record<string, string>;
+
+  /**
+   * @public
+   * Settings for VPC output
+   */
+  Vpc?: VpcOutputSettingsDescription;
+}
 
 /**
  * @public

@@ -46,6 +46,7 @@ export * from "./ListTagsForResourceCommand";
 export * from "./PurchaseOfferingCommand";
 export * from "./RebootInputDeviceCommand";
 export * from "./RejectInputDeviceTransferCommand";
+export * from "./RestartChannelPipelinesCommand";
 export * from "./StartChannelCommand";
 export * from "./StartInputDeviceCommand";
 export * from "./StartInputDeviceMaintenanceWindowCommand";

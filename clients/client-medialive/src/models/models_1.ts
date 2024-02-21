@@ -32,7 +32,7 @@ import {
   HlsEncryptionType,
   HlsMediaStoreSettings,
   HlsS3Settings,
-  HlsWebdavSettings,
+  HlsWebdavHttpTransferMode,
   Input,
   InputAttachment,
   InputClass,
@@ -75,6 +75,42 @@ import {
   ReservationResourceSpecification,
   VpcOutputSettingsDescription,
 } from "./models_0";
+
+/**
+ * @public
+ * Hls Webdav Settings
+ */
+export interface HlsWebdavSettings {
+  /**
+   * @public
+   * Number of seconds to wait before retrying connection to the CDN if the connection is lost.
+   */
+  ConnectionRetryInterval?: number;
+
+  /**
+   * @public
+   * Size in seconds of file cache for streaming outputs.
+   */
+  FilecacheDuration?: number;
+
+  /**
+   * @public
+   * Specify whether or not to use chunked transfer encoding to WebDAV.
+   */
+  HttpTransferMode?: HlsWebdavHttpTransferMode;
+
+  /**
+   * @public
+   * Number of retry attempts that will be made before the Live Event is put into an error state. Applies only if the CDN destination URI begins with "s3" or "mediastore". For other URIs, the value is always 3.
+   */
+  NumRetries?: number;
+
+  /**
+   * @public
+   * If a streaming output fails, number of seconds to wait until a restart is initiated. A value of 0 means never restart.
+   */
+  RestartDelay?: number;
+}
 
 /**
  * @public
@@ -7794,24 +7830,6 @@ export interface InputDeviceConfigurableSettings {
    * An array of eight audio configurations, one for each audio pair in the source. Set up each audio configuration either to exclude the pair, or to format it and include it in the output from the device. This parameter applies only to UHD devices, and only when the device is configured as the source for a MediaConnect flow. For an HD device, you configure the audio by setting up audio selectors in the channel configuration.
    */
   AudioChannelPairs?: InputDeviceConfigurableAudioChannelPairConfig[];
-}
-
-/**
- * @public
- * Placeholder documentation for ListChannelsRequest
- */
-export interface ListChannelsRequest {
-  /**
-   * @public
-   * Placeholder documentation for MaxResults
-   */
-  MaxResults?: number;
-
-  /**
-   * @public
-   * Placeholder documentation for __string
-   */
-  NextToken?: string;
 }
 
 /**

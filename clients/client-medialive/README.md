@@ -581,6 +581,14 @@ RejectInputDeviceTransfer
 </details>
 <details>
 <summary>
+RestartChannelPipelines
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/medialive/command/RestartChannelPipelinesCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/RestartChannelPipelinesCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-medialive/Interface/RestartChannelPipelinesCommandOutput/)
+
+</details>
+<details>
+<summary>
 StartChannel
 </summary>
 

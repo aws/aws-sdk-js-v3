@@ -202,6 +202,11 @@ import {
   RejectInputDeviceTransferCommandOutput,
 } from "./commands/RejectInputDeviceTransferCommand";
 import {
+  RestartChannelPipelinesCommand,
+  RestartChannelPipelinesCommandInput,
+  RestartChannelPipelinesCommandOutput,
+} from "./commands/RestartChannelPipelinesCommand";
+import {
   StartChannelCommand,
   StartChannelCommandInput,
   StartChannelCommandOutput,
@@ -328,6 +333,7 @@ const commands = {
   PurchaseOfferingCommand,
   RebootInputDeviceCommand,
   RejectInputDeviceTransferCommand,
+  RestartChannelPipelinesCommand,
   StartChannelCommand,
   StartInputDeviceCommand,
   StartInputDeviceMaintenanceWindowCommand,
@@ -1046,6 +1052,23 @@ export interface MediaLive {
     args: RejectInputDeviceTransferCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: RejectInputDeviceTransferCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link RestartChannelPipelinesCommand}
+   */
+  restartChannelPipelines(
+    args: RestartChannelPipelinesCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<RestartChannelPipelinesCommandOutput>;
+  restartChannelPipelines(
+    args: RestartChannelPipelinesCommandInput,
+    cb: (err: any, data?: RestartChannelPipelinesCommandOutput) => void
+  ): void;
+  restartChannelPipelines(
+    args: RestartChannelPipelinesCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: RestartChannelPipelinesCommandOutput) => void
   ): void;
 
   /**
