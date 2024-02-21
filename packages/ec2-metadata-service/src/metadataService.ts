@@ -1,11 +1,12 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { HttpHandlerOptions } from "@aws-sdk/types";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
+import { z } from "zod";
 
 import { MetadataServiceOptions } from "./metadataServiceOptions";
 
 export class MetadataService {
-  host = "169.254.169.254";
+  endpoint: string;
   httpOptions: {
     timeout: number;
   };
@@ -19,7 +20,8 @@ export class MetadataService {
    * Creates a new MetadataService object with a given set of options.
    */
   constructor(options?: MetadataServiceOptions) {
-    this.host = options?.host || "169.254.169.254";
+    const host = options?.host || "169.254.169.254";
+    this.endpoint = getMetadataServiceEndpoint(); // ToDo
     this.httpOptions = {
       timeout: options?.httpOptions?.timeout || 0,
     };
@@ -35,7 +37,7 @@ export class MetadataService {
     const request = new HttpRequest({
       method: options.method || "GET", // Default to GET if no method is specified
       headers: options.headers || {}, // Using provided headers or default to an empty object
-      hostname: this.host,
+      hostname: this.endpoint,
       path: path,
       protocol: "http:",
     });
