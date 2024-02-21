@@ -222,7 +222,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 128
+          "max": 1024
         }
       }
     },
@@ -1829,7 +1829,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 128
+          "max": 1024
         }
       }
     },
@@ -2462,7 +2462,7 @@
       "traits": {
         "smithy.api#length": {
           "min": 0,
-          "max": 128
+          "max": 1024
         }
       }
     },
