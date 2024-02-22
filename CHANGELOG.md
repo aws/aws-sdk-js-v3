@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.520.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.519.0...v3.520.0) (2024-02-22)
+
+
+### Features
+
+* **client-internetmonitor:** This release adds IPv4 prefixes to health events ([96fb359](https://github.com/aws/aws-sdk-js-v3/commit/96fb3590bfab78b9b39567b880f513762b07101e))
+* **client-kinesis-video:** Increasing NextToken parameter length restriction for List APIs from 512 to 1024. ([6368fad](https://github.com/aws/aws-sdk-js-v3/commit/6368fad9d83980aadf60f0e2ad5cb92a30c310fc))
+
+
+
+
+
 # [3.519.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.518.0...v3.519.0) (2024-02-21)
 
 

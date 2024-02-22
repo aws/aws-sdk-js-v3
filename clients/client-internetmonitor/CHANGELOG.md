@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.520.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.519.0...v3.520.0) (2024-02-22)
+
+
+### Features
+
+* **client-internetmonitor:** This release adds IPv4 prefixes to health events ([96fb359](https://github.com/aws/aws-sdk-js-v3/commit/96fb3590bfab78b9b39567b880f513762b07101e))
+
+
+
+
+
 # [3.515.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.514.0...v3.515.0) (2024-02-15)
 
 **Note:** Version bump only for package @aws-sdk/client-internetmonitor
