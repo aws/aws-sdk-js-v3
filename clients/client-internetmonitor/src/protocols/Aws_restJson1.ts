@@ -1030,6 +1030,7 @@ const de_ImpactedLocation = (output: any, context: __SerdeContext): ImpactedLoca
     Country: __expectString,
     CountryCode: __expectString,
     InternetHealth: (_: any) => de_InternetHealth(_, context),
+    Ipv4Prefixes: _json,
     Latitude: __limitedParseDouble,
     Longitude: __limitedParseDouble,
     Metro: __expectString,
@@ -1063,6 +1064,8 @@ const de_InternetHealth = (output: any, context: __SerdeContext): InternetHealth
 };
 
 // de_InternetMeasurementsLogDelivery omitted.
+
+// de_Ipv4PrefixList omitted.
 
 /**
  * deserializeAws_restJson1LocalHealthEventsConfig

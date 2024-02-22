@@ -98,6 +98,9 @@ export interface GetHealthEventCommandOutput extends GetHealthEventOutput, __Met
  * //           },
  * //         },
  * //       },
+ * //       Ipv4Prefixes: [ // Ipv4PrefixList
+ * //         "STRING_VALUE",
+ * //       ],
  * //     },
  * //   ],
  * //   Status: "STRING_VALUE", // required

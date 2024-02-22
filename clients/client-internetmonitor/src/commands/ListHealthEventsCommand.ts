@@ -104,6 +104,9 @@ export interface ListHealthEventsCommandOutput extends ListHealthEventsOutput, _
  * //               },
  * //             },
  * //           },
+ * //           Ipv4Prefixes: [ // Ipv4PrefixList
+ * //             "STRING_VALUE",
+ * //           ],
  * //         },
  * //       ],
  * //       Status: "STRING_VALUE", // required

@@ -150,7 +150,7 @@ export interface LocalHealthEventsConfig {
    * @public
    * <p>The minimum percentage of overall traffic for an application that must be impacted by an issue before Internet Monitor creates an event when a
    * 			threshold is crossed for a local health score.</p>
-   *          <p>If you don't set a minimum traffic impact threshold, the default value is 0.01%.</p>
+   *          <p>If you don't set a minimum traffic impact threshold, the default value is 0.1%.</p>
    */
   MinTrafficImpact?: number;
 }
@@ -800,6 +800,12 @@ export interface ImpactedLocation {
    * <p>The calculated health at a specific location.</p>
    */
   InternetHealth?: InternetHealth;
+
+  /**
+   * @public
+   * <p>The IPv4 prefixes at the client location that was impacted by the health event.</p>
+   */
+  Ipv4Prefixes?: string[];
 }
 
 /**
@@ -1470,15 +1476,18 @@ export interface StartQueryInput {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>MEASUREMENTS</code>: TBD definition</p>
+   *                   <code>MEASUREMENTS</code>: Provides availability score, performance score, total traffic,
+   * 				and round-trip times, at 5 minute intervals.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TOP_LOCATIONS</code>: TBD definition</p>
+   *                   <code>TOP_LOCATIONS</code>: Provides availability score, performance score, total traffic,
+   * 				and time to first byte (TTFB) information, for the top location and ASN combinations that you're monitoring, by traffic volume.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>TOP_LOCATION_DETAILS</code>: TBD definition</p>
+   *                   <code>TOP_LOCATION_DETAILS</code>: Provides TTFB for Amazon CloudFront, your
+   * 				current configuration, and the best performing EC2 configuration, at 1 hour intervals.</p>
    *             </li>
    *          </ul>
    *          <p>For lists of the fields returned with each query type and more information about how each type of query is
