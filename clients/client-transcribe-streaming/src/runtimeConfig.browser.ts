@@ -39,9 +39,10 @@ export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
-    requestHandler:
-      config?.requestHandler ??
-      new WebSocketRequestHandler(defaultConfigProvider, new HttpRequestHandler(defaultConfigProvider)),
+    requestHandler: WebSocketRequestHandler.create(
+      config?.requestHandler ?? defaultConfigProvider,
+      HttpRequestHandler.create(defaultConfigProvider)
+    ),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,

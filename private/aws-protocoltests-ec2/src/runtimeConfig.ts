@@ -45,7 +45,7 @@ export const getRuntimeConfig = (config: EC2ProtocolClientConfig) => {
     disableRequestCompression:
       config?.disableRequestCompression ?? loadNodeConfig(NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
-    requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
+    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     requestMinCompressionSizeBytes:
       config?.requestMinCompressionSizeBytes ?? loadNodeConfig(NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_CONFIG_OPTIONS),
     retryMode:

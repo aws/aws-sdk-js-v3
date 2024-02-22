@@ -34,7 +34,7 @@ export const getRuntimeConfig = (config: WeatherClientConfig) => {
     defaultUserAgentProvider:
       config?.defaultUserAgentProvider ?? defaultUserAgent({ clientVersion: packageInfo.version }),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
-    requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
+    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
       loadNodeConfig({

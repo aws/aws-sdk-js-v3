@@ -47,7 +47,7 @@ export const getRuntimeConfig = (config: TimestreamWriteClientConfig) => {
       config?.endpointDiscoveryEnabledProvider ?? loadNodeConfig(NODE_ENDPOINT_DISCOVERY_CONFIG_OPTIONS),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     region: config?.region ?? loadNodeConfig(NODE_REGION_CONFIG_OPTIONS, NODE_REGION_CONFIG_FILE_OPTIONS),
-    requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
+    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode:
       config?.retryMode ??
       loadNodeConfig({
