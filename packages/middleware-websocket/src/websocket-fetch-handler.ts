@@ -1,7 +1,7 @@
 import { formatUrl } from "@aws-sdk/util-format-url";
 import { iterableToReadableStream, readableStreamtoIterable } from "@smithy/eventstream-serde-browser";
 import { FetchHttpHandler } from "@smithy/fetch-http-handler";
-import { HttpHandler, HttpRequest, HttpResponse } from "@smithy/protocol-http";
+import { HttpRequest, HttpResponse } from "@smithy/protocol-http";
 import { Provider, RequestHandler, RequestHandlerMetadata } from "@smithy/types";
 
 import { isWebSocketRequest } from "./utils";
@@ -26,7 +26,8 @@ export class WebSocketFetchHandler {
   public readonly metadata: RequestHandlerMetadata = {
     handlerProtocol: "websocket/h1.1",
   };
-  private readonly configPromise: Promise<WebSocketFetchHandlerOptions>;
+  private config: WebSocketFetchHandlerOptions;
+  private configPromise: Promise<WebSocketFetchHandlerOptions>;
   private readonly httpHandler: RequestHandler<any, any>;
   private readonly sockets: Record<string, WebSocket[]> = {};
 
@@ -35,12 +36,15 @@ export class WebSocketFetchHandler {
    * or instantiates a new instance of this handler.
    */
   public static create(
-    instanceOrOptions?: HttpHandler<any> | WebSocketFetchHandlerOptions | Provider<WebSocketFetchHandlerOptions | void>,
+    instanceOrOptions?:
+      | WebSocketFetchHandler
+      | WebSocketFetchHandlerOptions
+      | Provider<WebSocketFetchHandlerOptions | void>,
     httpHandler: RequestHandler<any, any> = new FetchHttpHandler()
   ) {
     if (typeof (instanceOrOptions as any)?.handle === "function") {
       // is already an instance of HttpHandler.
-      return instanceOrOptions as HttpHandler<any>;
+      return instanceOrOptions as WebSocketFetchHandler;
     }
     // input is ctor options or undefined.
     return new WebSocketFetchHandler(
@@ -55,9 +59,11 @@ export class WebSocketFetchHandler {
   ) {
     this.httpHandler = httpHandler;
     if (typeof options === "function") {
-      this.configPromise = options().then((opts) => opts ?? {});
+      this.config = {};
+      this.configPromise = options().then((opts) => (this.config = opts ?? {}));
     } else {
-      this.configPromise = Promise.resolve(options ?? {});
+      this.config = options ?? {};
+      this.configPromise = Promise.resolve(this.config);
     }
   }
 
@@ -88,7 +94,8 @@ export class WebSocketFetchHandler {
     this.sockets[url].push(socket);
 
     socket.binaryType = "arraybuffer";
-    const { connectionTimeout = DEFAULT_WS_CONNECTION_TIMEOUT_MS } = await this.configPromise;
+    this.config = await this.configPromise;
+    const { connectionTimeout = DEFAULT_WS_CONNECTION_TIMEOUT_MS } = this.config;
     await this.waitForReady(socket, connectionTimeout);
     const { body } = request;
     const bodyStream = getIterator(body);
@@ -100,6 +107,20 @@ export class WebSocketFetchHandler {
         body: outputPayload,
       }),
     };
+  }
+
+  updateHttpClientConfig(
+    key: keyof WebSocketFetchHandlerOptions,
+    value: WebSocketFetchHandlerOptions[typeof key]
+  ): void {
+    this.configPromise = this.configPromise.then((config) => {
+      (config as Record<typeof key, typeof value>)[key] = value;
+      return config;
+    });
+  }
+
+  httpHandlerConfigs(): WebSocketFetchHandlerOptions {
+    return this.config ?? {};
   }
 
   /**
