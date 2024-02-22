@@ -92,12 +92,29 @@ public class AddWebsocketPlugin implements TypeScriptIntegration {
                             writer.addImport("FetchHttpHandler", "HttpRequestHandler",
                                 TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER);
                             writer.addDependency(TypeScriptDependency.AWS_SDK_FETCH_HTTP_HANDLER);
-                            writer.addImport("WebSocketFetchHandler", "WebSocketRequestHandler",
-                                AwsDependency.MIDDLEWARE_WEBSOCKET);
+                            writer
+                                .addImport(
+                                    "WebSocketFetchHandler",
+                                    "WebSocketRequestHandler",
+                                    AwsDependency.MIDDLEWARE_WEBSOCKET
+                                )
+                                .addImport(
+                                    "WebSocketFetchHandlerOptions",
+                                    null,
+                                    AwsDependency.MIDDLEWARE_WEBSOCKET
+                                );
                             writer.addDependency(AwsDependency.MIDDLEWARE_WEBSOCKET);
                             writer.write(
-                                "WebSocketRequestHandler.create(config?.requestHandler ?? defaultConfigProvider, "
-                                    + "HttpRequestHandler.create(defaultConfigProvider))"
+                                """
+                                WebSocketRequestHandler.create(
+                                    config?.requestHandler as
+                                        WebSocketRequestHandler |
+                                        WebSocketFetchHandlerOptions |
+                                        (() => Promise<WebSocketFetchHandlerOptions>)
+                                      ?? defaultConfigProvider,
+                                    HttpRequestHandler.create(defaultConfigProvider)
+                                )
+                                """
                             );
                     });
             default:
