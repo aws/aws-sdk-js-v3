@@ -21,7 +21,7 @@
   },
   "license": "Apache-2.0",
   "dependencies": {
-    "@smithy/url-parser": "^2.1.1",
+    "@smithy/url-parser": "^2.1.2",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
