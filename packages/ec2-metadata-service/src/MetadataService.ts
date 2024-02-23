@@ -1,9 +1,10 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { HttpHandlerOptions } from "@aws-sdk/types";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
-import { z } from "zod";
+import { sdkStreamMixin } from "@smithy/util-stream";
 
-import { MetadataServiceOptions } from "./metadataServiceOptions";
+import { getMetadataServiceEndpoint } from "./getMetadataServiceEndpoint";
+import { MetadataServiceOptions } from "./MetadataServiceOptions";
 
 export class MetadataService {
   endpoint: string;
@@ -21,7 +22,7 @@ export class MetadataService {
    */
   constructor(options?: MetadataServiceOptions) {
     const host = options?.host || "169.254.169.254";
-    this.endpoint = getMetadataServiceEndpoint(); // ToDo
+    this.endpoint = getMetadataServiceEndpoint();
     this.httpOptions = {
       timeout: options?.httpOptions?.timeout || 0,
     };
@@ -34,18 +35,19 @@ export class MetadataService {
 
   async request(path: string, options: { method?: string; headers?: Record<string, string> }): Promise<string> {
     const handler = new NodeHttpHandler();
+    const endpointUrl = new URL(this.endpoint);
     const request = new HttpRequest({
       method: options.method || "GET", // Default to GET if no method is specified
       headers: options.headers || {}, // Using provided headers or default to an empty object
-      hostname: this.endpoint,
-      path: path,
-      protocol: "http:",
+      hostname: endpointUrl.hostname,
+      path: endpointUrl.pathname + path,
+      protocol: endpointUrl.protocol,
     });
     try {
       const { response } = await handler.handle(request, {} as HttpHandlerOptions);
       if (response.statusCode === 200 && response.body) {
-        // Directly read the response body as text
-        return response.body;
+        // Directly read the response body as plaintext
+        return sdkStreamMixin(response.body).transformToString();
       } else {
         throw new Error(`Request failed with status code ${response.statusCode}`);
       }
@@ -56,20 +58,21 @@ export class MetadataService {
 
   async fetchMetadataToken(): Promise<string> {
     // Define the request to fetch the metadata token
+    const handler = new NodeHttpHandler();
+    const endpointUrl = new URL(this.endpoint);
     const tokenRequest = new HttpRequest({
       method: "PUT",
       headers: {
         "x-aws-ec2-metadata-token-ttl-seconds": "21600", // 6 hours;
       },
-      hostname: this.host,
-      path: "/latest/api/token",
-      protocol: "http:",
+      hostname: endpointUrl.hostname,
+      path: endpointUrl.pathname + "/latest/api/token",
+      protocol: endpointUrl.protocol,
     });
-    const handler = new NodeHttpHandler();
     try {
       const { response } = await handler.handle(tokenRequest, {} as HttpHandlerOptions);
       if (response.statusCode === 200 && response.body) {
-        // Directly read the response body as text
+        // Directly read the response body as plaintext
         return response.body;
       } else {
         throw new Error(`Failed to fetch metadata token with status code ${response.statusCode}`);

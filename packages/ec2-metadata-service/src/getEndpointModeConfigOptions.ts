@@ -1,28 +1,20 @@
-import { getEndpointMode } from "./getEndpointMode";
+import type { Profile } from "@smithy/types";
 
-const ENV_ENDPOINT_MODE_NAME: string = "AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE";
-const CONFIG_ENDPOINT_MODE_NAME: string = "ec2_metadata_service_endpoint_mode";
+import { EndpointMode } from "./EndpointMode";
 
-interface Env {
-  [key: string]: string | undefined;
-}
-
-interface Profile {
-  [key: string]: string | undefined;
-}
+const ENV_ENDPOINT_MODE_NAME = "AWS_EC2_METADATA_SERVICE_ENDPOINT_MODE";
+const CONFIG_ENDPOINT_MODE_NAME = "ec2_metadata_service_endpoint_mode";
 
 interface EndpointModeConfigOptions {
-  environmentVariableSelector: (env: Env) => string | undefined;
+  environmentVariableSelector: (env: NodeJS.ProcessEnv) => string | undefined;
   configFileSelector: (profile: Profile) => string | undefined;
-  default: string;
+  default: EndpointMode;
 }
 
-const getEndpointModeConfigOptions = (): EndpointModeConfigOptions => {
+export const getEndpointModeConfigOptions = (): EndpointModeConfigOptions => {
   return {
-    environmentVariableSelector: (env: Env): string | undefined => env[ENV_ENDPOINT_MODE_NAME],
+    environmentVariableSelector: (env: NodeJS.ProcessEnv): string | undefined => env[ENV_ENDPOINT_MODE_NAME],
     configFileSelector: (profile: Profile): string | undefined => profile[CONFIG_ENDPOINT_MODE_NAME],
-    default: getEndpointMode().IPv4,
+    default: "IPv4",
   };
 };
-
-export default getEndpointModeConfigOptions;
