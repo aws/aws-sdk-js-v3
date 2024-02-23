@@ -1305,12 +1305,13 @@ export interface CreateApiCacheRequest {
    * <p>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include:</p>
    *          <ul>
    *             <li>
-   *                <p>NetworkBandwidthOutAllowanceExceeded: The number of times a specified GraphQL operation was
-   *                called.</p>
+   *                <p>NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the throughput exceeded
+   *                the aggregated bandwidth limit. This is useful for diagnosing bottlenecks in a cache
+   *                configuration.</p>
    *             </li>
    *             <li>
-   *                <p>EngineCPUUtilization: The number of GraphQL errors that occurred during a specified GraphQL
-   *                operation.</p>
+   *                <p>EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis process. This is
+   *                useful for diagnosing bottlenecks in a cache configuration.</p>
    *             </li>
    *          </ul>
    *          <p>Metrics will be recorded by API ID. You can set the value to <code>ENABLED</code> or
@@ -2301,7 +2302,7 @@ export type ResolverLevelMetricsBehavior =
  *                   <li>
  *                      <p>
  *                         <code>PER_RESOLVER_METRICS</code>: Records and emits metric data for resolvers that have the
- *                         <code>metricConfig</code> value set to <code>ENABLED</code>.</p>
+ *                         <code>metricsConfig</code> value set to <code>ENABLED</code>.</p>
  *                   </li>
  *                </ul>
  *             </li>
@@ -2332,7 +2333,7 @@ export type ResolverLevelMetricsBehavior =
  *                   <li>
  *                      <p>
  *                         <code>PER_DATA_SOURCE_METRICS</code>: Records and emits metric data for data sources that
- *                      have the <code>metricConfig</code> value set to <code>ENABLED</code>.</p>
+ *                      have the <code>metricsConfig</code> value set to <code>ENABLED</code>.</p>
  *                   </li>
  *                </ul>
  *             </li>
@@ -2387,7 +2388,7 @@ export interface EnhancedMetricsConfig {
    *             <li>
    *                <p>
    *                   <code>PER_RESOLVER_METRICS</code>: Records and emits metric data for resolvers that have the
-   *                   <code>metricConfig</code> value set to <code>ENABLED</code>.</p>
+   *                   <code>metricsConfig</code> value set to <code>ENABLED</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -2419,7 +2420,7 @@ export interface EnhancedMetricsConfig {
    *             <li>
    *                <p>
    *                   <code>PER_DATA_SOURCE_METRICS</code>: Records and emits metric data for data sources that have the
-   *                   <code>metricConfig</code> value set to <code>ENABLED</code>.</p>
+   *                   <code>metricsConfig</code> value set to <code>ENABLED</code>.</p>
    *             </li>
    *          </ul>
    */
@@ -5000,12 +5001,13 @@ export interface UpdateApiCacheRequest {
    * <p>Controls how cache health metrics will be emitted to CloudWatch. Cache health metrics include:</p>
    *          <ul>
    *             <li>
-   *                <p>NetworkBandwidthOutAllowanceExceeded: The number of times a specified GraphQL operation was
-   *                called.</p>
+   *                <p>NetworkBandwidthOutAllowanceExceeded: The network packets dropped because the throughput exceeded
+   *                the aggregated bandwidth limit. This is useful for diagnosing bottlenecks in a cache
+   *                configuration.</p>
    *             </li>
    *             <li>
-   *                <p>EngineCPUUtilization: The number of GraphQL errors that occurred during a specified GraphQL
-   *                operation.</p>
+   *                <p>EngineCPUUtilization: The CPU utilization (percentage) allocated to the Redis process. This is
+   *                useful for diagnosing bottlenecks in a cache configuration.</p>
    *             </li>
    *          </ul>
    *          <p>Metrics will be recorded by API ID. You can set the value to <code>ENABLED</code> or
