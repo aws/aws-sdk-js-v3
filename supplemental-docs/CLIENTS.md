@@ -328,7 +328,7 @@ new S3Client({
 As of version [v3.521.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.521.0) of our clients, you can use a shortened syntax
 to configure the requestHandler.
 
-The following are equivalent:
+The following are equivalent in Node.js:
 
 ```ts
 // Example: long form requestHandler configuration.
@@ -345,6 +345,14 @@ const client = new DynamoDBClient({
   }),
 });
 ```
+
+You can instead pass the constructor parameters directly. The default requestHandler for the platform and service will be used.
+For Node.js, most services use `NodeHttpHandler`. For browsers, most services use `FetchHttpHandler`. 
+
+Kinesis, Lex Runtime v2, QBusiness, TranscribeStreaming use `NodeHttp2Handler` by default instead in Node.js.
+RekognitionStreaming and TranscribeStreaming use the WebSocketFetchHandler by default instead in browsers.
+
+This list may change over time. Check the corresponding client's `src/runtimeConfig.ts` source file for up-to-date information.
 
 ```ts
 // Example: short form requestHandler configuration.
