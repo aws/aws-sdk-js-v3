@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.521.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.520.0...v3.521.0) (2024-02-23)
+
+
+### Features
+
+* requestHandler ctor param pass-through ([#5820](https://github.com/aws/aws-sdk-js-v3/issues/5820)) ([9fec71d](https://github.com/aws/aws-sdk-js-v3/commit/9fec71d1933cd8e3db118c164bca16edc2305532))
+
+
+
+
+
 # [3.513.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.512.0...v3.513.0) (2024-02-13)
 
 
