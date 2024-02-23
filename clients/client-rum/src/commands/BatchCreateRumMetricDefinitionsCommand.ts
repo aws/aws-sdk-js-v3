@@ -38,22 +38,23 @@ export interface BatchCreateRumMetricDefinitionsCommandOutput
  *          <p>By default, RUM app monitors send some metrics to CloudWatch. These default metrics
  *          are listed in <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-metrics.html">CloudWatch metrics that you can collect
  *             with CloudWatch RUM</a>.</p>
- *          <p>In addition to these default metrics, you can choose to send extended metrics or custom metrics or both.</p>
+ *          <p>In addition to these default metrics, you can choose to send extended metrics, custom
+ *          metrics, or both.</p>
  *          <ul>
  *             <li>
- *                <p>Extended metrics enable you to send metrics with additional dimensions not included
- *             in the default metrics. You can also send extended metrics to Evidently as well as CloudWatch.
- *         The valid dimension names for the additional dimensions for extended metrics are
- *          <code>BrowserName</code>, <code>CountryCode</code>, <code>DeviceType</code>,
- *          <code>FileType</code>, <code>OSName</code>, and <code>PageId</code>. For more information, see
- *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html">
- *             Extended metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p>
+ *                <p>Extended metrics let you send metrics with additional dimensions that aren't included in the
+ *                default metrics. You can also send extended metrics to both Evidently and CloudWatch. The valid dimension names for the additional dimensions for extended
+ *                metrics are <code>BrowserName</code>, <code>CountryCode</code>,
+ *                   <code>DeviceType</code>, <code>FileType</code>, <code>OSName</code>, and
+ *                   <code>PageId</code>. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html">
+ *                   Extended metrics that you can send to CloudWatch and CloudWatch
+ *                   Evidently</a>.</p>
  *             </li>
  *             <li>
- *                <p>Custom metrics are metrics that you define. You can send custom metrics to CloudWatch or
- *             to CloudWatch Evidently or to both. With custom metrics,
- *             you can use any metric name and namespace, and to derive the metrics you can use any custom events, built-in events,
- *             custom attributes, or default attributes. </p>
+ *                <p>Custom metrics are metrics that you define. You can send custom metrics to CloudWatch.
+ *                   CloudWatch Evidently, or both. With custom metrics, you can use any metric
+ *                name and namespace. To derive the metrics, you can use any custom events, built-in
+ *                events, custom attributes, or default attributes. </p>
  *                <p>You can't send custom metrics to the <code>AWS/RUM</code> namespace. You must send custom metrics to a
  *                custom namespace that you define. The namespace that you use can't start with <code>AWS/</code>.
  *                CloudWatch RUM prepends <code>RUM/CustomMetrics/</code> to the custom namespace that you define,

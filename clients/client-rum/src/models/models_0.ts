@@ -97,6 +97,25 @@ export interface AppMonitorConfiguration {
    * @public
    * <p>The ARN of the guest IAM role that is attached to the Amazon Cognito identity pool
    *       that is used to authorize the sending of data to RUM.</p>
+   *          <note>
+   *             <p>It is possible that an app monitor does not have a value for <code>GuestRoleArn</code>. For example,
+   *          this can happen when you use the console to create an app monitor and you allow CloudWatch RUM to
+   *          create a new identity pool for Authorization. In this case, <code>GuestRoleArn</code> is not present in the
+   *          <a href="https://docs.aws.amazon.com/cloudwatchrum/latest/APIReference/API_GetAppMonitor.html">GetAppMonitor</a>
+   *         response because it is not stored by the service.</p>
+   *             <p>If this issue affects you, you can take one of the following steps:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>Use the Cloud Development Kit (CDK) to create an identity pool and the associated IAM
+   *             role, and use that for your app monitor.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Make a separate <a href="https://docs.aws.amazon.com/cognitoidentity/latest/APIReference/API_GetIdentityPoolRoles.html">GetIdentityPoolRoles</a>
+   *                call to Amazon Cognito to retrieve
+   *                the <code>GuestRoleArn</code>.</p>
+   *                </li>
+   *             </ul>
+   *          </note>
    */
   GuestRoleArn?: string;
 
@@ -333,8 +352,8 @@ export type MetricDestination = (typeof MetricDestination)[keyof typeof MetricDe
  * @public
  * <p>Use this structure to define one extended metric or custom metric that RUM will send
  *          to CloudWatch or CloudWatch Evidently. For more information, see
- *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-vended-metrics.html">
- *             Additional metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p>
+ *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-custom-and-extended-metrics.html">
+ *             Custom metrics and extended metrics that you can send to CloudWatch and CloudWatch Evidently</a>.</p>
  *          <p>This structure is validated differently for extended metrics and custom metrics. For extended metrics
  *       that are sent to the <code>AWS/RUM</code> namespace, the following validations apply:</p>
  *          <ul>
@@ -342,9 +361,10 @@ export type MetricDestination = (typeof MetricDestination)[keyof typeof MetricDe
  *                <p>The <code>Namespace</code> parameter must be omitted or set to <code>AWS/RUM</code>.</p>
  *             </li>
  *             <li>
- *                <p>Only certain combinations of values for <code>Name</code>, <code>ValueKey</code>, and <code>EventPattern</code>
- *          are valid. In addition to what is displayed in the list below, the <code>EventPattern</code> can also include information
- *       used by the <code>DimensionKeys</code> field.</p>
+ *                <p>Only certain combinations of values for <code>Name</code>, <code>ValueKey</code>, and
+ *                   <code>EventPattern</code> are valid. In addition to what is displayed in the
+ *                following list, the <code>EventPattern</code> can also include information used by
+ *                the <code>DimensionKeys</code> field.</p>
  *                <ul>
  *                   <li>
  *                      <p>If <code>Name</code> is <code>PerformanceNavigationDuration</code>, then
@@ -431,6 +451,24 @@ export type MetricDestination = (typeof MetricDestination)[keyof typeof MetricDe
  *                      <p>If <code>Name</code> is <code>SessionCount</code>, then
  *                   <code>ValueKey</code>must be null and the <code>EventPattern</code>
  *                   must include <code>\{"event_type":["com.amazon.rum.session_start_event"]\}</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>If <code>Name</code> is <code>PageViewCount</code>, then
+ *                   <code>ValueKey</code>must be null and the <code>EventPattern</code>
+ *                   must include <code>\{"event_type":["com.amazon.rum.page_view_event"]\}</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>If <code>Name</code> is <code>Http4xxCount</code>, then
+ *             <code>ValueKey</code>must be null and the <code>EventPattern</code>
+ *             must include <code>\{"event_type": ["com.amazon.rum.http_event"],"event_details":\{"response":\{"status":[\{"numeric":["&gt;=",400,"&lt;",500]\}]\}\}\} \}</code>
+ *                      </p>
+ *                   </li>
+ *                   <li>
+ *                      <p>If <code>Name</code> is <code>Http5xxCount</code>, then
+ *             <code>ValueKey</code>must be null and the <code>EventPattern</code>
+ *             must include <code>\{"event_type": ["com.amazon.rum.http_event"],"event_details":\{"response":\{"status":[\{"numeric":["&gt;=",500,"&lt;=",599]\}]\}\}\} \}</code>
  *                      </p>
  *                   </li>
  *                </ul>
@@ -623,10 +661,10 @@ export interface MetricDefinitionRequest {
   /**
    * @public
    * <p>The field within the event object that the metric value is sourced from.</p>
-   *          <p>If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is useful if you
-   *          just want to count the number of events that the filter catches. </p>
-   *          <p>If this metric is sent to CloudWatch Evidently, this field will be passed to Evidently raw and Evidently
-   *          will handle data extraction from the event.</p>
+   *          <p>If you omit this field, a hardcoded value of 1 is pushed as the metric value. This is
+   *          useful if you want to count the number of events that the filter catches. </p>
+   *          <p>If this metric is sent to CloudWatch Evidently, this field will be passed to
+   *          Evidently raw. Evidently will handle data extraction from the event.</p>
    */
   ValueKey?: string;
 
@@ -728,9 +766,8 @@ export interface MetricDefinitionRequest {
    *                </p>
    *             </li>
    *          </ul>
-   *          <p>If the metrics destination'
-   *          is <code>CloudWatch</code> and the event
-   *          also matches a value in <code>DimensionKeys</code>, then the metric is published with the specified dimensions. </p>
+   *          <p>If the metrics destination is <code>CloudWatch</code> and the event also matches a value
+   *          in <code>DimensionKeys</code>, then the metric is published with the specified dimensions. </p>
    */
   EventPattern?: string;
 
@@ -755,10 +792,11 @@ export interface BatchCreateRumMetricDefinitionsRequest {
 
   /**
    * @public
-   * <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and <code>Evidently</code>. If
-   *          you specify <code>Evidently</code>, you must also specify the ARN of the CloudWatchEvidently experiment
-   *          that will receive
-   *          the metrics and an IAM role that has permission to write to the experiment.</p>
+   * <p>The destination to send the metrics to. Valid values are <code>CloudWatch</code> and
+   *             <code>Evidently</code>. If you specify <code>Evidently</code>, you must also specify the
+   *          Amazon Resource Name (ARN) of the CloudWatchEvidently experiment that will receive
+   *          the metrics and an IAM role that has permission to write to the
+   *          experiment.</p>
    */
   Destination: MetricDestination | undefined;
 
@@ -1233,7 +1271,7 @@ export interface CreateAppMonitorRequest {
    *          Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the
    *          Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own
    *          authorization method. For more information, see
-   *          <a href="https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html">Authorize your application
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html">Authorize your application
    *             to send data to Amazon Web Services</a>.</p>
    *          <p>If you omit this argument, the sample rate used for RUM is set to 10% of the user sessions.</p>
    */
@@ -1617,10 +1655,15 @@ export interface PutRumMetricsDestinationRequest {
   /**
    * @public
    * <p>This parameter is required if <code>Destination</code> is <code>Evidently</code>. If <code>Destination</code> is
-   *          <code>CloudWatch</code>, do not use this parameter.</p>
+   *          <code>CloudWatch</code>, don't use this parameter.</p>
    *          <p>This parameter specifies
    *          the ARN of an IAM role that RUM will assume to write to the Evidently
    *          experiment that you are sending metrics to. This role must have permission to write to that experiment.</p>
+   *          <p>If you specify this parameter, you must be signed on to a role that has <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_use_passrole.html">PassRole</a> permissions attached to it, to allow
+   *          the role to be passed. The <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/auth-and-access-control-cw.html#managed-policies-cloudwatch-RUM">
+   *             CloudWatchAmazonCloudWatchRUMFullAccess</a>
+   *           policy doesn't include <code>PassRole</code>
+   *          permissions.</p>
    */
   IamRoleArn?: string;
 }
@@ -1652,7 +1695,7 @@ export interface UpdateAppMonitorRequest {
    *          Amazon Cognito for authorization, you must include this structure in your request, and it must include the ID of the
    *          Amazon Cognito identity pool to use for authorization. If you don't include <code>AppMonitorConfiguration</code>, you must set up your own
    *          authorization method. For more information, see
-   *          <a href="https://docs.aws.amazon.com/monitoring/CloudWatch-RUM-get-started-authorization.html">Authorize your application
+   *          <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-RUM-get-started-authorization.html">Authorize your application
    *             to send data to Amazon Web Services</a>.</p>
    */
   AppMonitorConfiguration?: AppMonitorConfiguration;
