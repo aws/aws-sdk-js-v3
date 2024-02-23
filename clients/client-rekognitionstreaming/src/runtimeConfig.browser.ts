@@ -4,6 +4,7 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import {
+  WebSocketFetchHandlerOptions,
   WebSocketFetchHandler as WebSocketRequestHandler,
   eventStreamPayloadHandlerProvider,
 } from "@aws-sdk/middleware-websocket";
@@ -42,7 +43,10 @@ export const getRuntimeConfig = (config: RekognitionStreamingClientConfig) => {
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
     requestHandler: WebSocketRequestHandler.create(
-      config?.requestHandler ?? defaultConfigProvider,
+      (config?.requestHandler as
+        | WebSocketRequestHandler
+        | WebSocketFetchHandlerOptions
+        | (() => Promise<WebSocketFetchHandlerOptions>)) ?? defaultConfigProvider,
       HttpRequestHandler.create(defaultConfigProvider)
     ),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
