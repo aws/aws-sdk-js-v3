@@ -345,15 +345,6 @@ const client = new DynamoDBClient({
   }),
 });
 ```
-
-You can instead pass the constructor parameters directly. The default requestHandler for the platform and service will be used.
-For Node.js, most services use `NodeHttpHandler`. For browsers, most services use `FetchHttpHandler`. 
-
-Kinesis, Lex Runtime v2, QBusiness, TranscribeStreaming use `NodeHttp2Handler` by default instead in Node.js.
-RekognitionStreaming and TranscribeStreaming use the WebSocketFetchHandler by default instead in browsers.
-
-This list may change over time. Check the corresponding client's `src/runtimeConfig.ts` source file for up-to-date information.
-
 ```ts
 // Example: short form requestHandler configuration.
 import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
@@ -365,6 +356,13 @@ const client = new DynamoDBClient({
   },
 });
 ```
+You can instead pass the constructor parameters directly. The default requestHandler for the platform and service will be used.
+For Node.js, most services use `NodeHttpHandler`. For browsers, most services use `FetchHttpHandler`. 
+
+Kinesis, Lex Runtime v2, QBusiness, TranscribeStreaming use `NodeHttp2Handler` by default instead in Node.js.
+RekognitionStreaming and TranscribeStreaming use the `WebSocketFetchHandler` by default instead in browsers.
+
+This list may change over time. Check the corresponding client's `src/runtimeConfig.ts` source file for up-to-date information.
 
 ### Retry Strategy `retryStrategy`, `retryMode`, `maxAttempts`
 
