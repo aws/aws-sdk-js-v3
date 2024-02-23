@@ -323,6 +323,47 @@ new S3Client({
 });
 ```
 
+#### New in [v3.521.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.521.0)
+
+As of version [v3.521.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.521.0) of our clients, you can use a shortened syntax
+to configure the requestHandler.
+
+The following are equivalent in Node.js:
+
+```ts
+// Example: long form requestHandler configuration.
+import https from "node:https";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
+
+const client = new DynamoDBClient({
+  requestHandler: new NodeHttpHandler({
+    requestTimeout: 3_000,
+    httpsAgent: new https.Agent({
+      maxSockets: 25
+    }),
+  }),
+});
+```
+```ts
+// Example: short form requestHandler configuration.
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+
+const client = new DynamoDBClient({
+  requestHandler: {
+    requestTimeout: 3_000,
+    httpsAgent: { maxSockets: 25 },
+  },
+});
+```
+You can instead pass the constructor parameters directly. The default requestHandler for the platform and service will be used.
+For Node.js, most services use `NodeHttpHandler`. For browsers, most services use `FetchHttpHandler`. 
+
+Kinesis, Lex Runtime v2, QBusiness, TranscribeStreaming use `NodeHttp2Handler` by default instead in Node.js.
+RekognitionStreaming and TranscribeStreaming use the `WebSocketFetchHandler` by default instead in browsers.
+
+This list may change over time. Check the corresponding client's `src/runtimeConfig.ts` source file for up-to-date information.
+
 ### Retry Strategy `retryStrategy`, `retryMode`, `maxAttempts`
 
 The SDK's default retry strategy is based on exponential backoff, and only retries
