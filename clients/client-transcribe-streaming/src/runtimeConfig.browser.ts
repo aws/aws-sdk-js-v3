@@ -4,7 +4,10 @@ import packageInfo from "../package.json"; // eslint-disable-line
 
 import { Sha256 } from "@aws-crypto/sha256-browser";
 import { eventStreamPayloadHandler } from "@aws-sdk/middleware-sdk-transcribe-streaming";
-import { WebSocketFetchHandler as WebSocketRequestHandler } from "@aws-sdk/middleware-websocket";
+import {
+  WebSocketFetchHandlerOptions,
+  WebSocketFetchHandler as WebSocketRequestHandler,
+} from "@aws-sdk/middleware-websocket";
 import { defaultUserAgent } from "@aws-sdk/util-user-agent-browser";
 import { DEFAULT_USE_DUALSTACK_ENDPOINT, DEFAULT_USE_FIPS_ENDPOINT } from "@smithy/config-resolver";
 import { eventStreamSerdeProvider } from "@smithy/eventstream-serde-browser";
@@ -39,9 +42,13 @@ export const getRuntimeConfig = (config: TranscribeStreamingClientConfig) => {
     eventStreamSerdeProvider: config?.eventStreamSerdeProvider ?? eventStreamSerdeProvider,
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     region: config?.region ?? invalidProvider("Region is missing"),
-    requestHandler:
-      config?.requestHandler ??
-      new WebSocketRequestHandler(defaultConfigProvider, new HttpRequestHandler(defaultConfigProvider)),
+    requestHandler: WebSocketRequestHandler.create(
+      (config?.requestHandler as
+        | WebSocketRequestHandler
+        | WebSocketFetchHandlerOptions
+        | (() => Promise<WebSocketFetchHandlerOptions>)) ?? defaultConfigProvider,
+      HttpRequestHandler.create(defaultConfigProvider)
+    ),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,

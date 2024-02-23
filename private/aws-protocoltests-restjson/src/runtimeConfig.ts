@@ -47,7 +47,7 @@ export const getRuntimeConfig = (config: RestJsonProtocolClientConfig) => {
       config?.disableRequestCompression ?? loadNodeConfig(NODE_DISABLE_REQUEST_COMPRESSION_CONFIG_OPTIONS),
     maxAttempts: config?.maxAttempts ?? loadNodeConfig(NODE_MAX_ATTEMPT_CONFIG_OPTIONS),
     md5: config?.md5 ?? Hash.bind(null, "md5"),
-    requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
+    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     requestMinCompressionSizeBytes:
       config?.requestMinCompressionSizeBytes ?? loadNodeConfig(NODE_REQUEST_MIN_COMPRESSION_SIZE_BYTES_CONFIG_OPTIONS),
     retryMode:

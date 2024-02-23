@@ -108,35 +108,44 @@ jest.mock("@aws-sdk/client-sts", () => {
 
 jest.mock("@smithy/node-http-handler", () => {
   const actual = jest.requireActual("@smithy/node-http-handler");
+
+  class MockNodeHttpHandler {
+    static create(instanceOrOptions?: any) {
+      if (typeof instanceOrOptions?.handle === "function") {
+        return instanceOrOptions;
+      }
+      return new MockNodeHttpHandler();
+    }
+    async handle(request: any, ...args: any[]) {
+      if (request.headers.Authorization === "container-authorization") {
+        const body = new Readable();
+        body.push(
+          JSON.stringify({
+            AccessKeyId: "CONTAINER_ACCESS_KEY",
+            SecretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
+            Token: "CONTAINER_TOKEN",
+            Expiration: "3000-01-01T00:00:00.000Z",
+          })
+        );
+        body.push(null);
+        return {
+          response: new HttpResponse({
+            statusCode: 200,
+            body,
+            headers: {
+              "content-type": "application/json",
+            },
+          }),
+        };
+      } else {
+        throw new Error("request not supported.");
+      }
+    }
+  }
+
   return {
     ...actual,
-    NodeHttpHandler: class {
-      async handle(request: any, ...args: any[]) {
-        if (request.headers.Authorization === "container-authorization") {
-          const body = new Readable();
-          body.push(
-            JSON.stringify({
-              AccessKeyId: "CONTAINER_ACCESS_KEY",
-              SecretAccessKey: "CONTAINER_SECRET_ACCESS_KEY",
-              Token: "CONTAINER_TOKEN",
-              Expiration: "3000-01-01T00:00:00.000Z",
-            })
-          );
-          body.push(null);
-          return {
-            response: new HttpResponse({
-              statusCode: 200,
-              body,
-              headers: {
-                "content-type": "application/json",
-              },
-            }),
-          };
-        } else {
-          return actual.NodeHttpHandler.prototype.handle.bind(this)(request, ...args);
-        }
-      }
-    },
+    NodeHttpHandler: MockNodeHttpHandler,
   };
 });
 

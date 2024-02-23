@@ -36,7 +36,7 @@ export const getRuntimeConfig = (config: SQSClientConfig) => {
     maxAttempts: config?.maxAttempts ?? DEFAULT_MAX_ATTEMPTS,
     md5: config?.md5 ?? Md5,
     region: config?.region ?? invalidProvider("Region is missing"),
-    requestHandler: config?.requestHandler ?? new RequestHandler(defaultConfigProvider),
+    requestHandler: RequestHandler.create(config?.requestHandler ?? defaultConfigProvider),
     retryMode: config?.retryMode ?? (async () => (await defaultConfigProvider()).retryMode || DEFAULT_RETRY_MODE),
     sha256: config?.sha256 ?? Sha256,
     streamCollector: config?.streamCollector ?? streamCollector,

@@ -61,7 +61,7 @@ import {
 import { DefaultIdentityProviderConfig, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/core";
 import { getContentLengthPlugin } from "@smithy/middleware-content-length";
 import { RetryInputConfig, RetryResolvedConfig, getRetryPlugin, resolveRetryConfig } from "@smithy/middleware-retry";
-import { HttpHandler as __HttpHandler } from "@smithy/protocol-http";
+import { HttpHandlerUserInput as __HttpHandlerUserInput } from "@smithy/protocol-http";
 import {
   Client as __Client,
   DefaultsMode as __DefaultsMode,
@@ -121,11 +121,11 @@ export type ServiceOutputTypes =
 /**
  * @public
  */
-export interface ClientDefaults extends Partial<__SmithyResolvedConfiguration<__HttpHandlerOptions>> {
+export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHandlerOptions>> {
   /**
-   * The HTTP handler to use. Fetch in browser and Https in Nodejs.
+   * The HTTP handler to use or its constructor options. Fetch in browser and Https in Nodejs.
    */
-  requestHandler?: __HttpHandler;
+  requestHandler?: __HttpHandlerUserInput;
 
   /**
    * A constructor for a class implementing the {@link @smithy/types#ChecksumConstructor} interface

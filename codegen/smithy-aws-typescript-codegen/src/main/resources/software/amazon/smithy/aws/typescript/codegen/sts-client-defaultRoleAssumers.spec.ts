@@ -12,13 +12,22 @@ const mockHandle = jest.fn().mockResolvedValue({
     body: Readable.from([""]),
   }),
 });
-jest.mock("@smithy/node-http-handler", () => ({
-  NodeHttpHandler: jest.fn().mockImplementation(() => ({
-    destroy: () => {},
-    handle: mockHandle,
-  })),
-  streamCollector: jest.fn(),
-}));
+jest.mock("@smithy/node-http-handler", () => {
+  class MockNodeHttpHandler {
+    static create(instanceOrOptions?: any) {
+      if (typeof instanceOrOptions?.handle === "function") {
+        return instanceOrOptions;
+      }
+      return new MockNodeHttpHandler();
+    }
+    destroy() {}
+    handle = mockHandle;
+  }
+  return {
+    NodeHttpHandler: MockNodeHttpHandler,
+    streamCollector: jest.fn(),
+  };
+});
 
 const mockConstructorInput = jest.fn();
 jest.mock("../src/STSClient", () => ({
