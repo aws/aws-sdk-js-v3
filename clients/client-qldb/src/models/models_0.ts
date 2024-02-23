@@ -880,7 +880,7 @@ export interface LedgerEncryptionDescription {
    * @public
    * <p>The Amazon Resource Name (ARN) of the customer managed KMS key that the ledger uses for
    *          encryption at rest. If this parameter is undefined, the ledger uses an Amazon Web Services owned KMS key
-   *          for encryption.</p>
+   *          for encryption. It will display <code>AWS_OWNED_KMS_KEY</code> when updating the ledger's encryption configuration to the Amazon Web Services owned KMS key.</p>
    */
   KmsKeyArn: string | undefined;
 
@@ -975,7 +975,7 @@ export interface DescribeLedgerResponse {
    * @public
    * <p>Information about the encryption of data at rest in the ledger. This includes the
    *          current status, the KMS key, and when the key became inaccessible (in the case of an
-   *          error).</p>
+   *          error). If this parameter is undefined, the ledger uses an Amazon Web Services owned KMS key for encryption.</p>
    */
   EncryptionDescription?: LedgerEncryptionDescription;
 }
