@@ -323,6 +323,41 @@ new S3Client({
 });
 ```
 
+#### New in [v3.521.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.521.0)
+
+As of version [v3.521.0](https://github.com/aws/aws-sdk-js-v3/releases/tag/v3.521.0) of our clients, you can use a shortened syntax
+to configure the requestHandler.
+
+The following are equivalent:
+
+```ts
+// Example: long form requestHandler configuration.
+import https from "node:https";
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+import { NodeHttpHandler } from "@smithy/node-http-handler";
+
+const client = new DynamoDBClient({
+  requestHandler: new NodeHttpHandler({
+    requestTimeout: 3_000,
+    httpsAgent: new https.Agent({
+      maxSockets: 25
+    }),
+  }),
+});
+```
+
+```ts
+// Example: short form requestHandler configuration.
+import { DynamoDBClient } from "@aws-sdk/client-dynamodb";
+
+const client = new DynamoDBClient({
+  requestHandler: {
+    requestTimeout: 3_000,
+    httpsAgent: { maxSockets: 25 },
+  },
+});
+```
+
 ### Retry Strategy `retryStrategy`, `retryMode`, `maxAttempts`
 
 The SDK's default retry strategy is based on exponential backoff, and only retries
