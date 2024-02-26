@@ -28,6 +28,11 @@ import {
   DeleteCustomPluginCommandOutput,
 } from "./commands/DeleteCustomPluginCommand";
 import {
+  DeleteWorkerConfigurationCommand,
+  DeleteWorkerConfigurationCommandInput,
+  DeleteWorkerConfigurationCommandOutput,
+} from "./commands/DeleteWorkerConfigurationCommand";
+import {
   DescribeConnectorCommand,
   DescribeConnectorCommandInput,
   DescribeConnectorCommandOutput,
@@ -53,10 +58,21 @@ import {
   ListCustomPluginsCommandOutput,
 } from "./commands/ListCustomPluginsCommand";
 import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListWorkerConfigurationsCommand,
   ListWorkerConfigurationsCommandInput,
   ListWorkerConfigurationsCommandOutput,
 } from "./commands/ListWorkerConfigurationsCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateConnectorCommand,
   UpdateConnectorCommandInput,
@@ -70,12 +86,16 @@ const commands = {
   CreateWorkerConfigurationCommand,
   DeleteConnectorCommand,
   DeleteCustomPluginCommand,
+  DeleteWorkerConfigurationCommand,
   DescribeConnectorCommand,
   DescribeCustomPluginCommand,
   DescribeWorkerConfigurationCommand,
   ListConnectorsCommand,
   ListCustomPluginsCommand,
+  ListTagsForResourceCommand,
   ListWorkerConfigurationsCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
   UpdateConnectorCommand,
 };
 
@@ -157,6 +177,23 @@ export interface KafkaConnect {
     args: DeleteCustomPluginCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DeleteCustomPluginCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteWorkerConfigurationCommand}
+   */
+  deleteWorkerConfiguration(
+    args: DeleteWorkerConfigurationCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteWorkerConfigurationCommandOutput>;
+  deleteWorkerConfiguration(
+    args: DeleteWorkerConfigurationCommandInput,
+    cb: (err: any, data?: DeleteWorkerConfigurationCommandOutput) => void
+  ): void;
+  deleteWorkerConfiguration(
+    args: DeleteWorkerConfigurationCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteWorkerConfigurationCommandOutput) => void
   ): void;
 
   /**
@@ -242,6 +279,23 @@ export interface KafkaConnect {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListWorkerConfigurationsCommand}
    */
   listWorkerConfigurations(
@@ -256,6 +310,28 @@ export interface KafkaConnect {
     args: ListWorkerConfigurationsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: ListWorkerConfigurationsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
   ): void;
 
   /**

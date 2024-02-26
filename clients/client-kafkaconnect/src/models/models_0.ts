@@ -646,8 +646,7 @@ export interface CustomPluginSummary {
 
 /**
  * @public
- * <p>A plugin is an AWS resource that contains the code that defines a connector's
- *          logic.</p>
+ * <p>A plugin is an Amazon Web Services resource that contains the code that defines a connector's logic.</p>
  */
 export interface CustomPlugin {
   /**
@@ -665,8 +664,7 @@ export interface CustomPlugin {
 
 /**
  * @public
- * <p>A plugin is an AWS resource that contains the code that defines your connector logic.
- *       </p>
+ * <p>A plugin is an Amazon Web Services resource that contains the code that defines your connector logic. </p>
  */
 export interface Plugin {
   /**
@@ -702,6 +700,20 @@ export interface WorkerConfigurationRevisionSummary {
 
 /**
  * @public
+ * @enum
+ */
+export const WorkerConfigurationState = {
+  ACTIVE: "ACTIVE",
+  DELETING: "DELETING",
+} as const;
+
+/**
+ * @public
+ */
+export type WorkerConfigurationState = (typeof WorkerConfigurationState)[keyof typeof WorkerConfigurationState];
+
+/**
+ * @public
  * <p>The summary of a worker configuration.</p>
  */
 export interface WorkerConfigurationSummary {
@@ -734,6 +746,12 @@ export interface WorkerConfigurationSummary {
    * <p>The Amazon Resource Name (ARN) of the worker configuration.</p>
    */
   workerConfigurationArn?: string;
+
+  /**
+   * @public
+   * <p>The state of the worker configuration.</p>
+   */
+  workerConfigurationState?: WorkerConfigurationState;
 }
 
 /**
@@ -1235,7 +1253,10 @@ export interface CreateConnectorRequest {
 
   /**
    * @public
-   * <p>Specifies which plugins to use for the connector.</p>
+   * <important>
+   *             <p>Amazon MSK Connect does not currently support specifying multiple plugins as a list. To use more than one plugin for your connector, you can create a single custom plugin using a ZIP file that bundles multiple plugins together.</p>
+   *          </important>
+   *          <p>Specifies which plugin to use for the connector. You must specify a single-element list containing one <code>customPlugin</code> object.</p>
    */
   plugins: Plugin[] | undefined;
 
@@ -1253,6 +1274,12 @@ export interface CreateConnectorRequest {
    * <p>Specifies which worker configuration to use with the connector.</p>
    */
   workerConfiguration?: WorkerConfiguration;
+
+  /**
+   * @public
+   * <p>The tags you want to attach to the connector.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1467,6 +1494,12 @@ export interface CreateCustomPluginRequest {
    * <p>The name of the custom plugin.</p>
    */
   name: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags you want to attach to the custom plugin.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1519,6 +1552,12 @@ export interface CreateWorkerConfigurationRequest {
    * <p>Base64 encoded contents of connect-distributed.properties file.</p>
    */
   propertiesFileContent: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags you want to attach to the worker configuration.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1548,6 +1587,12 @@ export interface CreateWorkerConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) that Amazon assigned to the worker configuration.</p>
    */
   workerConfigurationArn?: string;
+
+  /**
+   * @public
+   * <p>The state of the worker configuration.</p>
+   */
+  workerConfigurationState?: WorkerConfigurationState;
 }
 
 /**
@@ -1610,6 +1655,34 @@ export interface DeleteCustomPluginResponse {
    * <p>The state of the custom plugin.</p>
    */
   customPluginState?: CustomPluginState;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkerConfigurationRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the worker configuration that you want to delete.</p>
+   */
+  workerConfigurationArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteWorkerConfigurationResponse {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the worker configuration that you requested to delete.</p>
+   */
+  workerConfigurationArn?: string;
+
+  /**
+   * @public
+   * <p>The state of the worker configuration.</p>
+   */
+  workerConfigurationState?: WorkerConfigurationState;
 }
 
 /**
@@ -1886,6 +1959,12 @@ export interface DescribeWorkerConfigurationResponse {
    * <p>The Amazon Resource Name (ARN) of the custom configuration.</p>
    */
   workerConfigurationArn?: string;
+
+  /**
+   * @public
+   * <p>The state of the worker configuration.</p>
+   */
+  workerConfigurationState?: WorkerConfigurationState;
 }
 
 /**
@@ -1949,6 +2028,12 @@ export interface ListCustomPluginsRequest {
    *          previous operation left off.</p>
    */
   nextToken?: string;
+
+  /**
+   * @public
+   * <p>Lists custom plugin names that start with the specified text string.</p>
+   */
+  namePrefix?: string;
 }
 
 /**
@@ -1973,6 +2058,28 @@ export interface ListCustomPluginsResponse {
 /**
  * @public
  */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource for which you want to list all attached tags.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>Lists the tags attached to the specified resource in the corresponding request.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
 export interface ListWorkerConfigurationsRequest {
   /**
    * @public
@@ -1987,6 +2094,12 @@ export interface ListWorkerConfigurationsRequest {
    *          previous operation left off.</p>
    */
   nextToken?: string;
+
+  /**
+   * @public
+   * <p>Lists worker configuration names that start with the specified text string.</p>
+   */
+  namePrefix?: string;
 }
 
 /**
@@ -2007,6 +2120,50 @@ export interface ListWorkerConfigurationsResponse {
    */
   workerConfigurations?: WorkerConfigurationSummary[];
 }
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource to which you want to attach tags.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The tags that you want to attach to the resource.</p>
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the resource from which you want to remove tags.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The keys of the tags that you want to remove from the resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * @public

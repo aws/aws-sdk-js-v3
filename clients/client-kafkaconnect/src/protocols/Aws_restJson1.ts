@@ -30,6 +30,10 @@ import {
 } from "../commands/CreateWorkerConfigurationCommand";
 import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "../commands/DeleteConnectorCommand";
 import { DeleteCustomPluginCommandInput, DeleteCustomPluginCommandOutput } from "../commands/DeleteCustomPluginCommand";
+import {
+  DeleteWorkerConfigurationCommandInput,
+  DeleteWorkerConfigurationCommandOutput,
+} from "../commands/DeleteWorkerConfigurationCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "../commands/DescribeConnectorCommand";
 import {
   DescribeCustomPluginCommandInput,
@@ -42,9 +46,15 @@ import {
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "../commands/ListConnectorsCommand";
 import { ListCustomPluginsCommandInput, ListCustomPluginsCommandOutput } from "../commands/ListCustomPluginsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "../commands/ListTagsForResourceCommand";
+import {
   ListWorkerConfigurationsCommandInput,
   ListWorkerConfigurationsCommandOutput,
 } from "../commands/ListWorkerConfigurationsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "../commands/UpdateConnectorCommand";
 import { KafkaConnectServiceException as __BaseException } from "../models/KafkaConnectServiceException";
 import {
@@ -115,6 +125,7 @@ export const se_CreateConnectorCommand = async (
       logDelivery: (_) => _json(_),
       plugins: (_) => _json(_),
       serviceExecutionRoleArn: [],
+      tags: (_) => _json(_),
       workerConfiguration: (_) => _json(_),
     })
   );
@@ -141,6 +152,7 @@ export const se_CreateCustomPluginCommand = async (
       description: [],
       location: (_) => _json(_),
       name: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -165,6 +177,7 @@ export const se_CreateWorkerConfigurationCommand = async (
       description: [],
       name: [],
       propertiesFileContent: [],
+      tags: (_) => _json(_),
     })
   );
   b.m("POST").h(headers).b(body);
@@ -201,6 +214,22 @@ export const se_DeleteCustomPluginCommand = async (
   const headers: any = {};
   b.bp("/v1/custom-plugins/{customPluginArn}");
   b.p("customPluginArn", () => input.customPluginArn!, "{customPluginArn}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteWorkerConfigurationCommand
+ */
+export const se_DeleteWorkerConfigurationCommand = async (
+  input: DeleteWorkerConfigurationCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/worker-configurations/{workerConfigurationArn}");
+  b.p("workerConfigurationArn", () => input.workerConfigurationArn!, "{workerConfigurationArn}", false);
   let body: any;
   b.m("DELETE").h(headers).b(body);
   return b.build();
@@ -287,9 +316,26 @@ export const se_ListCustomPluginsCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_nP]: [, input[_nP]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1ListTagsForResourceCommand
+ */
+export const se_ListTagsForResourceCommand = async (
+  input: ListTagsForResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  b.m("GET").h(headers).b(body);
   return b.build();
 };
 
@@ -306,9 +352,55 @@ export const se_ListWorkerConfigurationsCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_nP]: [, input[_nP]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1TagResourceCommand
+ */
+export const se_TagResourceCommand = async (
+  input: TagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/v1/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      tags: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1UntagResourceCommand
+ */
+export const se_UntagResourceCommand = async (
+  input: UntagResourceCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/v1/tags/{resourceArn}");
+  b.p("resourceArn", () => input.resourceArn!, "{resourceArn}", false);
+  const query: any = map({
+    [_tK]: [
+      __expectNonNull(input.tagKeys, `tagKeys`) != null,
+      () => (input[_tK]! || []).map((_entry) => _entry as any),
+    ],
+  });
+  let body: any;
+  b.m("DELETE").h(headers).q(query).b(body);
   return b.build();
 };
 
@@ -404,6 +496,7 @@ export const de_CreateWorkerConfigurationCommand = async (
     latestRevision: (_) => de_WorkerConfigurationRevisionSummary(_, context),
     name: __expectString,
     workerConfigurationArn: __expectString,
+    workerConfigurationState: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -448,6 +541,28 @@ export const de_DeleteCustomPluginCommand = async (
   const doc = take(data, {
     customPluginArn: __expectString,
     customPluginState: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1DeleteWorkerConfigurationCommand
+ */
+export const de_DeleteWorkerConfigurationCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteWorkerConfigurationCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    workerConfigurationArn: __expectString,
+    workerConfigurationState: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -537,6 +652,7 @@ export const de_DescribeWorkerConfigurationCommand = async (
     latestRevision: (_) => de_WorkerConfigurationRevisionDescription(_, context),
     name: __expectString,
     workerConfigurationArn: __expectString,
+    workerConfigurationState: __expectString,
   });
   Object.assign(contents, doc);
   return contents;
@@ -587,6 +703,27 @@ export const de_ListCustomPluginsCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1ListTagsForResourceCommand
+ */
+export const de_ListTagsForResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<ListTagsForResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1ListWorkerConfigurationsCommand
  */
 export const de_ListWorkerConfigurationsCommand = async (
@@ -605,6 +742,40 @@ export const de_ListWorkerConfigurationsCommand = async (
     workerConfigurations: (_) => de___listOfWorkerConfigurationSummary(_, context),
   });
   Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1TagResourceCommand
+ */
+export const de_TagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<TagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1UntagResourceCommand
+ */
+export const de_UntagResourceCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UntagResourceCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
   return contents;
 };
 
@@ -873,6 +1044,8 @@ const de_UnauthorizedExceptionRes = async (
 
 // se_ScaleOutPolicyUpdate omitted.
 
+// se_Tags omitted.
+
 // se_Vpc omitted.
 
 // se_WorkerConfiguration omitted.
@@ -1010,6 +1183,8 @@ const de_CustomPluginSummary = (output: any, context: __SerdeContext): CustomPlu
 
 // de_StateDescription omitted.
 
+// de_Tags omitted.
+
 // de_VpcDescription omitted.
 
 // de_WorkerConfigurationDescription omitted.
@@ -1053,6 +1228,7 @@ const de_WorkerConfigurationSummary = (output: any, context: __SerdeContext): Wo
     latestRevision: (_: any) => de_WorkerConfigurationRevisionSummary(_, context),
     name: __expectString,
     workerConfigurationArn: __expectString,
+    workerConfigurationState: __expectString,
   }) as any;
 };
 
@@ -1080,7 +1256,9 @@ const isSerializableHeaderValue = (value: any): boolean =>
 const _cNP = "connectorNamePrefix";
 const _cV = "currentVersion";
 const _mR = "maxResults";
+const _nP = "namePrefix";
 const _nT = "nextToken";
+const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {

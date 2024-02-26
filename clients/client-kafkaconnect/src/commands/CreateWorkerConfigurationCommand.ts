@@ -43,6 +43,9 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  *   description: "STRING_VALUE",
  *   name: "STRING_VALUE", // required
  *   propertiesFileContent: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateWorkerConfigurationCommand(input);
  * const response = await client.send(command);
@@ -55,6 +58,7 @@ export interface CreateWorkerConfigurationCommandOutput extends CreateWorkerConf
  * //   },
  * //   name: "STRING_VALUE",
  * //   workerConfigurationArn: "STRING_VALUE",
+ * //   workerConfigurationState: "STRING_VALUE",
  * // };
  *
  * ```

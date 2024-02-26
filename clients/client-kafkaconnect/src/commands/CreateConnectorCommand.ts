@@ -32,7 +32,7 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
 
 /**
  * @public
- * <p>Creates a connector using the specified properties.</p>
+ * <p>Creates a connector using the specified properties. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -111,6 +111,9 @@ export interface CreateConnectorCommandOutput extends CreateConnectorResponse, _
  *   workerConfiguration: { // WorkerConfiguration
  *     revision: Number("long"), // required
  *     workerConfigurationArn: "STRING_VALUE", // required
+ *   },
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new CreateConnectorCommand(input);

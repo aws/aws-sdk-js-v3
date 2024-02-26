@@ -61,6 +61,10 @@ import {
 } from "./commands/CreateWorkerConfigurationCommand";
 import { DeleteConnectorCommandInput, DeleteConnectorCommandOutput } from "./commands/DeleteConnectorCommand";
 import { DeleteCustomPluginCommandInput, DeleteCustomPluginCommandOutput } from "./commands/DeleteCustomPluginCommand";
+import {
+  DeleteWorkerConfigurationCommandInput,
+  DeleteWorkerConfigurationCommandOutput,
+} from "./commands/DeleteWorkerConfigurationCommand";
 import { DescribeConnectorCommandInput, DescribeConnectorCommandOutput } from "./commands/DescribeConnectorCommand";
 import {
   DescribeCustomPluginCommandInput,
@@ -73,9 +77,15 @@ import {
 import { ListConnectorsCommandInput, ListConnectorsCommandOutput } from "./commands/ListConnectorsCommand";
 import { ListCustomPluginsCommandInput, ListCustomPluginsCommandOutput } from "./commands/ListCustomPluginsCommand";
 import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
+import {
   ListWorkerConfigurationsCommandInput,
   ListWorkerConfigurationsCommandOutput,
 } from "./commands/ListWorkerConfigurationsCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateConnectorCommandInput, UpdateConnectorCommandOutput } from "./commands/UpdateConnectorCommand";
 import {
   ClientInputEndpointParameters,
@@ -97,12 +107,16 @@ export type ServiceInputTypes =
   | CreateWorkerConfigurationCommandInput
   | DeleteConnectorCommandInput
   | DeleteCustomPluginCommandInput
+  | DeleteWorkerConfigurationCommandInput
   | DescribeConnectorCommandInput
   | DescribeCustomPluginCommandInput
   | DescribeWorkerConfigurationCommandInput
   | ListConnectorsCommandInput
   | ListCustomPluginsCommandInput
+  | ListTagsForResourceCommandInput
   | ListWorkerConfigurationsCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateConnectorCommandInput;
 
 /**
@@ -114,12 +128,16 @@ export type ServiceOutputTypes =
   | CreateWorkerConfigurationCommandOutput
   | DeleteConnectorCommandOutput
   | DeleteCustomPluginCommandOutput
+  | DeleteWorkerConfigurationCommandOutput
   | DescribeConnectorCommandOutput
   | DescribeCustomPluginCommandOutput
   | DescribeWorkerConfigurationCommandOutput
   | ListConnectorsCommandOutput
   | ListCustomPluginsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListWorkerConfigurationsCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateConnectorCommandOutput;
 
 /**

@@ -38,6 +38,7 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  * const input = { // ListWorkerConfigurationsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   namePrefix: "STRING_VALUE",
  * };
  * const command = new ListWorkerConfigurationsCommand(input);
  * const response = await client.send(command);
@@ -54,6 +55,7 @@ export interface ListWorkerConfigurationsCommandOutput extends ListWorkerConfigu
  * //       },
  * //       name: "STRING_VALUE",
  * //       workerConfigurationArn: "STRING_VALUE",
+ * //       workerConfigurationState: "STRING_VALUE",
  * //     },
  * //   ],
  * // };

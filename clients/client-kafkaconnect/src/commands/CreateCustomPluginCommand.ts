@@ -46,6 +46,9 @@ export interface CreateCustomPluginCommandOutput extends CreateCustomPluginRespo
  *     },
  *   },
  *   name: "STRING_VALUE", // required
+ *   tags: { // Tags
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new CreateCustomPluginCommand(input);
  * const response = await client.send(command);

@@ -6,15 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  DescribeWorkerConfigurationRequest,
-  DescribeWorkerConfigurationResponse,
-  DescribeWorkerConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_DescribeWorkerConfigurationCommand,
-  se_DescribeWorkerConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { TagResourceRequest, TagResourceResponse } from "../models/models_0";
+import { de_TagResourceCommand, se_TagResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -23,57 +16,50 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeWorkerConfigurationCommand}.
+ * The input for {@link TagResourceCommand}.
  */
-export interface DescribeWorkerConfigurationCommandInput extends DescribeWorkerConfigurationRequest {}
+export interface TagResourceCommandInput extends TagResourceRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeWorkerConfigurationCommand}.
+ * The output of {@link TagResourceCommand}.
  */
-export interface DescribeWorkerConfigurationCommandOutput
-  extends DescribeWorkerConfigurationResponse,
-    __MetadataBearer {}
+export interface TagResourceCommandOutput extends TagResourceResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about a worker configuration.</p>
+ * <p>Attaches tags to the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, DescribeWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, DescribeWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, TagResourceCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
+ * // const { KafkaConnectClient, TagResourceCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = { // DescribeWorkerConfigurationRequest
- *   workerConfigurationArn: "STRING_VALUE", // required
+ * const input = { // TagResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
+ *   tags: { // Tags // required
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new DescribeWorkerConfigurationCommand(input);
+ * const command = new TagResourceCommand(input);
  * const response = await client.send(command);
- * // { // DescribeWorkerConfigurationResponse
- * //   creationTime: new Date("TIMESTAMP"),
- * //   description: "STRING_VALUE",
- * //   latestRevision: { // WorkerConfigurationRevisionDescription
- * //     creationTime: new Date("TIMESTAMP"),
- * //     description: "STRING_VALUE",
- * //     propertiesFileContent: "STRING_VALUE",
- * //     revision: Number("long"),
- * //   },
- * //   name: "STRING_VALUE",
- * //   workerConfigurationArn: "STRING_VALUE",
- * //   workerConfigurationState: "STRING_VALUE",
- * // };
+ * // {};
  *
  * ```
  *
- * @param DescribeWorkerConfigurationCommandInput - {@link DescribeWorkerConfigurationCommandInput}
- * @returns {@link DescribeWorkerConfigurationCommandOutput}
- * @see {@link DescribeWorkerConfigurationCommandInput} for command's `input` shape.
- * @see {@link DescribeWorkerConfigurationCommandOutput} for command's `response` shape.
+ * @param TagResourceCommandInput - {@link TagResourceCommandInput}
+ * @returns {@link TagResourceCommandOutput}
+ * @see {@link TagResourceCommandInput} for command's `input` shape.
+ * @see {@link TagResourceCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
  *  <p>HTTP Status Code 400: Bad request due to incorrect input. Correct your request and then
  *          retry it.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>HTTP Status Code 409: Conflict. A resource with this name already exists. Retry your
+ *          request with another name.</p>
  *
  * @throws {@link ForbiddenException} (client fault)
  *  <p>HTTP Status Code 403: Access forbidden. Correct your credentials and then retry your
@@ -102,10 +88,10 @@ export interface DescribeWorkerConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
-export class DescribeWorkerConfigurationCommand extends $Command
+export class TagResourceCommand extends $Command
   .classBuilder<
-    DescribeWorkerConfigurationCommandInput,
-    DescribeWorkerConfigurationCommandOutput,
+    TagResourceCommandInput,
+    TagResourceCommandOutput,
     KafkaConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -119,9 +105,9 @@ export class DescribeWorkerConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("KafkaConnect", "DescribeWorkerConfiguration", {})
-  .n("KafkaConnectClient", "DescribeWorkerConfigurationCommand")
-  .f(void 0, DescribeWorkerConfigurationResponseFilterSensitiveLog)
-  .ser(se_DescribeWorkerConfigurationCommand)
-  .de(de_DescribeWorkerConfigurationCommand)
+  .s("KafkaConnect", "TagResource", {})
+  .n("KafkaConnectClient", "TagResourceCommand")
+  .f(void 0, void 0)
+  .ser(se_TagResourceCommand)
+  .de(de_TagResourceCommand)
   .build() {}

@@ -6,15 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  DescribeWorkerConfigurationRequest,
-  DescribeWorkerConfigurationResponse,
-  DescribeWorkerConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_DescribeWorkerConfigurationCommand,
-  se_DescribeWorkerConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { DeleteWorkerConfigurationRequest, DeleteWorkerConfigurationResponse } from "../models/models_0";
+import { de_DeleteWorkerConfigurationCommand, se_DeleteWorkerConfigurationCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -23,52 +16,41 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeWorkerConfigurationCommand}.
+ * The input for {@link DeleteWorkerConfigurationCommand}.
  */
-export interface DescribeWorkerConfigurationCommandInput extends DescribeWorkerConfigurationRequest {}
+export interface DeleteWorkerConfigurationCommandInput extends DeleteWorkerConfigurationRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeWorkerConfigurationCommand}.
+ * The output of {@link DeleteWorkerConfigurationCommand}.
  */
-export interface DescribeWorkerConfigurationCommandOutput
-  extends DescribeWorkerConfigurationResponse,
-    __MetadataBearer {}
+export interface DeleteWorkerConfigurationCommandOutput extends DeleteWorkerConfigurationResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about a worker configuration.</p>
+ * <p>Deletes the specified worker configuration.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, DescribeWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, DescribeWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, DeleteWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
+ * // const { KafkaConnectClient, DeleteWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = { // DescribeWorkerConfigurationRequest
+ * const input = { // DeleteWorkerConfigurationRequest
  *   workerConfigurationArn: "STRING_VALUE", // required
  * };
- * const command = new DescribeWorkerConfigurationCommand(input);
+ * const command = new DeleteWorkerConfigurationCommand(input);
  * const response = await client.send(command);
- * // { // DescribeWorkerConfigurationResponse
- * //   creationTime: new Date("TIMESTAMP"),
- * //   description: "STRING_VALUE",
- * //   latestRevision: { // WorkerConfigurationRevisionDescription
- * //     creationTime: new Date("TIMESTAMP"),
- * //     description: "STRING_VALUE",
- * //     propertiesFileContent: "STRING_VALUE",
- * //     revision: Number("long"),
- * //   },
- * //   name: "STRING_VALUE",
+ * // { // DeleteWorkerConfigurationResponse
  * //   workerConfigurationArn: "STRING_VALUE",
  * //   workerConfigurationState: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeWorkerConfigurationCommandInput - {@link DescribeWorkerConfigurationCommandInput}
- * @returns {@link DescribeWorkerConfigurationCommandOutput}
- * @see {@link DescribeWorkerConfigurationCommandInput} for command's `input` shape.
- * @see {@link DescribeWorkerConfigurationCommandOutput} for command's `response` shape.
+ * @param DeleteWorkerConfigurationCommandInput - {@link DeleteWorkerConfigurationCommandInput}
+ * @returns {@link DeleteWorkerConfigurationCommandOutput}
+ * @see {@link DeleteWorkerConfigurationCommandInput} for command's `input` shape.
+ * @see {@link DeleteWorkerConfigurationCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -102,10 +84,10 @@ export interface DescribeWorkerConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
-export class DescribeWorkerConfigurationCommand extends $Command
+export class DeleteWorkerConfigurationCommand extends $Command
   .classBuilder<
-    DescribeWorkerConfigurationCommandInput,
-    DescribeWorkerConfigurationCommandOutput,
+    DeleteWorkerConfigurationCommandInput,
+    DeleteWorkerConfigurationCommandOutput,
     KafkaConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -119,9 +101,9 @@ export class DescribeWorkerConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("KafkaConnect", "DescribeWorkerConfiguration", {})
-  .n("KafkaConnectClient", "DescribeWorkerConfigurationCommand")
-  .f(void 0, DescribeWorkerConfigurationResponseFilterSensitiveLog)
-  .ser(se_DescribeWorkerConfigurationCommand)
-  .de(de_DescribeWorkerConfigurationCommand)
+  .s("KafkaConnect", "DeleteWorkerConfiguration", {})
+  .n("KafkaConnectClient", "DeleteWorkerConfigurationCommand")
+  .f(void 0, void 0)
+  .ser(se_DeleteWorkerConfigurationCommand)
+  .de(de_DeleteWorkerConfigurationCommand)
   .build() {}

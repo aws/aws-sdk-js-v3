@@ -38,6 +38,7 @@ export interface ListCustomPluginsCommandOutput extends ListCustomPluginsRespons
  * const input = { // ListCustomPluginsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   namePrefix: "STRING_VALUE",
  * };
  * const command = new ListCustomPluginsCommand(input);
  * const response = await client.send(command);

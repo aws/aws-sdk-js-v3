@@ -6,15 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { commonParams } from "../endpoint/EndpointParameters";
 import { KafkaConnectClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../KafkaConnectClient";
-import {
-  DescribeWorkerConfigurationRequest,
-  DescribeWorkerConfigurationResponse,
-  DescribeWorkerConfigurationResponseFilterSensitiveLog,
-} from "../models/models_0";
-import {
-  de_DescribeWorkerConfigurationCommand,
-  se_DescribeWorkerConfigurationCommand,
-} from "../protocols/Aws_restJson1";
+import { ListTagsForResourceRequest, ListTagsForResourceResponse } from "../models/models_0";
+import { de_ListTagsForResourceCommand, se_ListTagsForResourceCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -23,52 +16,42 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link DescribeWorkerConfigurationCommand}.
+ * The input for {@link ListTagsForResourceCommand}.
  */
-export interface DescribeWorkerConfigurationCommandInput extends DescribeWorkerConfigurationRequest {}
+export interface ListTagsForResourceCommandInput extends ListTagsForResourceRequest {}
 /**
  * @public
  *
- * The output of {@link DescribeWorkerConfigurationCommand}.
+ * The output of {@link ListTagsForResourceCommand}.
  */
-export interface DescribeWorkerConfigurationCommandOutput
-  extends DescribeWorkerConfigurationResponse,
-    __MetadataBearer {}
+export interface ListTagsForResourceCommandOutput extends ListTagsForResourceResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about a worker configuration.</p>
+ * <p>Lists all the tags attached to the specified resource.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { KafkaConnectClient, DescribeWorkerConfigurationCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
- * // const { KafkaConnectClient, DescribeWorkerConfigurationCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
+ * import { KafkaConnectClient, ListTagsForResourceCommand } from "@aws-sdk/client-kafkaconnect"; // ES Modules import
+ * // const { KafkaConnectClient, ListTagsForResourceCommand } = require("@aws-sdk/client-kafkaconnect"); // CommonJS import
  * const client = new KafkaConnectClient(config);
- * const input = { // DescribeWorkerConfigurationRequest
- *   workerConfigurationArn: "STRING_VALUE", // required
+ * const input = { // ListTagsForResourceRequest
+ *   resourceArn: "STRING_VALUE", // required
  * };
- * const command = new DescribeWorkerConfigurationCommand(input);
+ * const command = new ListTagsForResourceCommand(input);
  * const response = await client.send(command);
- * // { // DescribeWorkerConfigurationResponse
- * //   creationTime: new Date("TIMESTAMP"),
- * //   description: "STRING_VALUE",
- * //   latestRevision: { // WorkerConfigurationRevisionDescription
- * //     creationTime: new Date("TIMESTAMP"),
- * //     description: "STRING_VALUE",
- * //     propertiesFileContent: "STRING_VALUE",
- * //     revision: Number("long"),
+ * // { // ListTagsForResourceResponse
+ * //   tags: { // Tags
+ * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   name: "STRING_VALUE",
- * //   workerConfigurationArn: "STRING_VALUE",
- * //   workerConfigurationState: "STRING_VALUE",
  * // };
  *
  * ```
  *
- * @param DescribeWorkerConfigurationCommandInput - {@link DescribeWorkerConfigurationCommandInput}
- * @returns {@link DescribeWorkerConfigurationCommandOutput}
- * @see {@link DescribeWorkerConfigurationCommandInput} for command's `input` shape.
- * @see {@link DescribeWorkerConfigurationCommandOutput} for command's `response` shape.
+ * @param ListTagsForResourceCommandInput - {@link ListTagsForResourceCommandInput}
+ * @returns {@link ListTagsForResourceCommandOutput}
+ * @see {@link ListTagsForResourceCommandInput} for command's `input` shape.
+ * @see {@link ListTagsForResourceCommandOutput} for command's `response` shape.
  * @see {@link KafkaConnectClientResolvedConfig | config} for KafkaConnectClient's `config` shape.
  *
  * @throws {@link BadRequestException} (client fault)
@@ -102,10 +85,10 @@ export interface DescribeWorkerConfigurationCommandOutput
  * <p>Base exception class for all service exceptions from KafkaConnect service.</p>
  *
  */
-export class DescribeWorkerConfigurationCommand extends $Command
+export class ListTagsForResourceCommand extends $Command
   .classBuilder<
-    DescribeWorkerConfigurationCommandInput,
-    DescribeWorkerConfigurationCommandOutput,
+    ListTagsForResourceCommandInput,
+    ListTagsForResourceCommandOutput,
     KafkaConnectClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -119,9 +102,9 @@ export class DescribeWorkerConfigurationCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("KafkaConnect", "DescribeWorkerConfiguration", {})
-  .n("KafkaConnectClient", "DescribeWorkerConfigurationCommand")
-  .f(void 0, DescribeWorkerConfigurationResponseFilterSensitiveLog)
-  .ser(se_DescribeWorkerConfigurationCommand)
-  .de(de_DescribeWorkerConfigurationCommand)
+  .s("KafkaConnect", "ListTagsForResource", {})
+  .n("KafkaConnectClient", "ListTagsForResourceCommand")
+  .f(void 0, void 0)
+  .ser(se_ListTagsForResourceCommand)
+  .de(de_ListTagsForResourceCommand)
   .build() {}
