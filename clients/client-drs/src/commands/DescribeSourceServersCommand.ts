@@ -74,6 +74,7 @@ export interface DescribeSourceServersCommandOutput extends DescribeSourceServer
  * //             replicatedStorageBytes: Number("long"),
  * //             rescannedStorageBytes: Number("long"),
  * //             backloggedStorageBytes: Number("long"),
+ * //             volumeStatus: "STRING_VALUE",
  * //           },
  * //         ],
  * //         dataReplicationState: "STRING_VALUE",

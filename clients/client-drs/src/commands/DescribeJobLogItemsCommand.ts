@@ -64,6 +64,14 @@ export interface DescribeJobLogItemsCommandOutput extends DescribeJobLogItemsRes
  * //           volumeToVolumeSize: { // VolumeToSizeMap
  * //             "<keys>": Number("long"),
  * //           },
+ * //           volumeToProductCodes: { // VolumeToProductCodes
+ * //             "<keys>": [ // ProductCodes
+ * //               { // ProductCode
+ * //                 productCodeId: "STRING_VALUE",
+ * //                 productCodeMode: "STRING_VALUE",
+ * //               },
+ * //             ],
+ * //           },
  * //         },
  * //         eventResourceData: { // EventResourceData Union: only one key present
  * //           sourceNetworkData: { // SourceNetworkData

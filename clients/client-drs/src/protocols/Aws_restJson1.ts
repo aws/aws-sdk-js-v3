@@ -2923,6 +2923,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_PITPolicyRule omitted.
 
+// de_ProductCode omitted.
+
+// de_ProductCodes omitted.
+
 // de_RecoveryInstance omitted.
 
 // de_RecoveryInstanceDataReplicationError omitted.
@@ -3026,6 +3030,8 @@ const de_SourceNetworksList = (output: any, context: __SerdeContext): SourceNetw
 // de_ValidationExceptionFieldList omitted.
 
 // de_VolumeToConversionMap omitted.
+
+// de_VolumeToProductCodes omitted.
 
 // de_VolumeToSizeMap omitted.
 

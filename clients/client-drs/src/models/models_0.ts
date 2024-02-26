@@ -769,6 +769,38 @@ export class ValidationException extends __BaseException {
 
 /**
  * @public
+ * @enum
+ */
+export const ProductCodeMode = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type ProductCodeMode = (typeof ProductCodeMode)[keyof typeof ProductCodeMode];
+
+/**
+ * @public
+ * <p>Properties of a product code associated with a volume.</p>
+ */
+export interface ProductCode {
+  /**
+   * @public
+   * <p>Id of a product code associated with a volume.</p>
+   */
+  productCodeId?: string;
+
+  /**
+   * @public
+   * <p>Mode of a product code associated with a volume.</p>
+   */
+  productCodeMode?: ProductCodeMode;
+}
+
+/**
+ * @public
  * <p>Properties of a conversion job</p>
  */
 export interface ConversionProperties {
@@ -801,6 +833,12 @@ export interface ConversionProperties {
    * <p>A mapping between the volumes and their sizes</p>
    */
   volumeToVolumeSize?: Record<string, number>;
+
+  /**
+   * @public
+   * <p>A mapping between the volumes being converted and the product codes associated with them</p>
+   */
+  volumeToProductCodes?: Record<string, ProductCode[]>;
 }
 
 /**
@@ -990,6 +1028,22 @@ export type DataReplicationState = (typeof DataReplicationState)[keyof typeof Da
 
 /**
  * @public
+ * @enum
+ */
+export const VolumeStatus = {
+  CONTAINS_MARKETPLACE_PRODUCT_CODES: "CONTAINS_MARKETPLACE_PRODUCT_CODES",
+  MISSING_VOLUME_ATTRIBUTES: "MISSING_VOLUME_ATTRIBUTES",
+  MISSING_VOLUME_ATTRIBUTES_AND_PRECHECK_UNAVAILABLE: "MISSING_VOLUME_ATTRIBUTES_AND_PRECHECK_UNAVAILABLE",
+  REGULAR: "REGULAR",
+} as const;
+
+/**
+ * @public
+ */
+export type VolumeStatus = (typeof VolumeStatus)[keyof typeof VolumeStatus];
+
+/**
+ * @public
  * <p>A disk that should be replicated.</p>
  */
 export interface DataReplicationInfoReplicatedDisk {
@@ -1022,6 +1076,12 @@ export interface DataReplicationInfoReplicatedDisk {
    * <p>The size of the replication backlog in bytes.</p>
    */
   backloggedStorageBytes?: number;
+
+  /**
+   * @public
+   * <p>The status of the volume.</p>
+   */
+  volumeStatus?: VolumeStatus;
 }
 
 /**

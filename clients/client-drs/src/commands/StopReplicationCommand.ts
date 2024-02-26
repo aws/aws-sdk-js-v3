@@ -63,6 +63,7 @@ export interface StopReplicationCommandOutput extends StopReplicationResponse, _
  * //           replicatedStorageBytes: Number("long"),
  * //           rescannedStorageBytes: Number("long"),
  * //           backloggedStorageBytes: Number("long"),
+ * //           volumeStatus: "STRING_VALUE",
  * //         },
  * //       ],
  * //       dataReplicationState: "STRING_VALUE",
