@@ -32,6 +32,10 @@ export interface S3InputConfig {
    * Identity provider for an S3 feature.
    */
   s3ExpressIdentityProvider?: S3ExpressIdentityProvider;
+  /**
+   * Whether to use the bucket name as the endpoint for this client.
+   */
+  bucketEndpoint?: boolean;
 }
 
 /**
@@ -54,6 +58,7 @@ export interface S3ResolvedConfig {
   disableMultiregionAccessPoints: boolean;
   followRegionRedirects: boolean;
   s3ExpressIdentityProvider: S3ExpressIdentityProvider;
+  bucketEndpoint: boolean;
 }
 
 export const resolveS3Config = <T>(
@@ -81,5 +86,6 @@ export const resolveS3Config = <T>(
           })
         )
       ),
+    bucketEndpoint: input.bucketEndpoint ?? false,
   };
 };
