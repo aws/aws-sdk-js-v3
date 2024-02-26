@@ -28,7 +28,7 @@ export interface UpdateModelCommandOutput extends Model, __MetadataBearer {}
 
 /**
  * @public
- * <p>Changes information about a model.</p>
+ * <p>Changes information about a model. The maximum size of the model is 400 KB.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

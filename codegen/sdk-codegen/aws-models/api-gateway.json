@@ -2683,7 +2683,7 @@
         "schema": {
           "target": "com.amazonaws.apigateway#String",
           "traits": {
-            "smithy.api#documentation": "<p>The schema for the model. For <code>application/json</code> models, this should be JSON schema draft 4 model.</p>"
+            "smithy.api#documentation": "<p>The schema for the model. For <code>application/json</code> models, this should be JSON schema draft 4 model. The maximum size of the model is 400 KB.</p>"
           }
         },
         "contentType": {
@@ -10543,7 +10543,7 @@
           "target": "com.amazonaws.apigateway#Boolean",
           "traits": {
             "smithy.api#default": false,
-            "smithy.api#documentation": "<p>Specifies whether a cache cluster is enabled for the stage.</p>"
+            "smithy.api#documentation": "<p>Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set <code>CachingEnabled</code> to <code>true</code> for a method. </p>"
           }
         },
         "cacheClusterSize": {
@@ -12195,7 +12195,7 @@
         }
       ],
       "traits": {
-        "smithy.api#documentation": "<p>Changes information about a model.</p>",
+        "smithy.api#documentation": "<p>Changes information about a model. The maximum size of the model is 400 KB.</p>",
         "smithy.api#http": {
           "method": "PATCH",
           "uri": "/restapis/{restApiId}/models/{modelName}",

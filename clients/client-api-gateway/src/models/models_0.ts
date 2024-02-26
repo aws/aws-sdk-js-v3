@@ -1357,7 +1357,7 @@ export interface CreateModelRequest {
 
   /**
    * @public
-   * <p>The schema for the model. For <code>application/json</code> models, this should be JSON schema draft 4 model.</p>
+   * <p>The schema for the model. For <code>application/json</code> models, this should be JSON schema draft 4 model. The maximum size of the model is 400 KB.</p>
    */
   schema?: string;
 
@@ -2267,7 +2267,7 @@ export interface Stage {
 
   /**
    * @public
-   * <p>Specifies whether a cache cluster is enabled for the stage.</p>
+   * <p>Specifies whether a cache cluster is enabled for the stage. To activate a method-level cache, set <code>CachingEnabled</code> to <code>true</code> for a method. </p>
    */
   cacheClusterEnabled?: boolean;
 
