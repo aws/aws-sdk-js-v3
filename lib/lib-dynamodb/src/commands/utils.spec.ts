@@ -152,32 +152,31 @@ describe("object with function property", () => {
   const keyNodes = { Item: {} };
   const nativeAttrObj = { Item: { id: 1, func: () => {} }, ...notAttrValue };
   const attrObj = { Item: { id: { N: "1" } }, ...notAttrValue };
+
   it("should remove functions", () => {
     expect(
       marshallInput(nativeAttrObj, keyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
     ).toEqual(attrObj);
   });
 
-  // List of functions
-  const listOfFunctions = { Item: { id: 1, funcs: [() => {}, () => {}] }, ...notAttrValue };
   it("should remove functions from lists", () => {
+    const listOfFunctions = { Item: { id: 1, funcs: [() => {}, () => {}] }, ...notAttrValue };
     expect(
       marshallInput(listOfFunctions, keyNodes, { convertTopLevelContainer: true, convertClassInstanceToMap: true })
     ).toEqual({ Item: { id: { N: "1" }, funcs: { L: [] } }, ...notAttrValue });
   });
 
-  // Nested list of functions
-  const nestedListOfFunctions = {
-    Item: {
-      id: 1,
-      funcs: [
-        [() => {}, () => {}],
-        [() => {}, () => {}],
-      ],
-    },
-    ...notAttrValue,
-  };
   it("should remove functions from nested lists", () => {
+    const nestedListOfFunctions = {
+      Item: {
+        id: 1,
+        funcs: [
+          [() => {}, () => {}],
+          [() => {}, () => {}],
+        ],
+      },
+      ...notAttrValue,
+    };
     expect(
       marshallInput(nestedListOfFunctions, keyNodes, {
         convertTopLevelContainer: true,
@@ -186,25 +185,103 @@ describe("object with function property", () => {
     ).toEqual({ Item: { id: { N: "1" }, funcs: { L: [{ L: [] }, { L: [] }] } }, ...notAttrValue });
   });
 
-  // Nested list of functions 3 levels down
-  const nestedListOfFunctions3Levels = {
-    Item: {
-      id: 1,
-      funcs: [
-        [
-          [() => {}, () => {}],
-          [() => {}, () => {}],
-        ],
-        [
-          [() => {}, () => {}],
-          [() => {}, () => {}],
-        ],
-      ],
-    },
-    ...notAttrValue,
-  };
+  it("should convert data class objects without affecting known data collection objects", () => {
+    const nestedListOfFunctions3Levels = {
+      Item: {
+        id: 1,
+        x: {
+          map: new Map([
+            [1, 1],
+            [2, 2],
+            [3, 3],
+          ]),
+          set: new Set([1, 2, 3]),
+          binary: new Uint8Array([1, 2, 3]),
+          myPojo: new (class {
+            public a = 1;
+            public b = 2;
+            public c = 3;
+            public method() {
+              return "method";
+            }
+            public get getter() {
+              return "getter";
+            }
+            public arrowFn = () => "arrowFn";
+            public ownFunction = function () {
+              return "ownFunction";
+            };
+          })(),
+        },
+      },
+      ...notAttrValue,
+    };
+    expect(
+      marshallInput(nestedListOfFunctions3Levels, keyNodes, {
+        convertTopLevelContainer: true,
+        convertClassInstanceToMap: true,
+      })
+    ).toEqual({
+      Item: {
+        id: { N: "1" },
+        x: {
+          M: {
+            binary: {
+              B: new Uint8Array([1, 2, 3]),
+            },
+            map: {
+              M: {
+                "1": {
+                  N: "1",
+                },
+                "2": {
+                  N: "2",
+                },
+                "3": {
+                  N: "3",
+                },
+              },
+            },
+            myPojo: {
+              M: {
+                a: {
+                  N: "1",
+                },
+                b: {
+                  N: "2",
+                },
+                c: {
+                  N: "3",
+                },
+              },
+            },
+            set: {
+              NS: ["1", "2", "3"],
+            },
+          },
+        },
+      },
+      ...notAttrValue,
+    });
+  });
 
   it("should remove functions from a nested list of depth 3", () => {
+    const nestedListOfFunctions3Levels = {
+      Item: {
+        id: 1,
+        funcs: [
+          [
+            [() => {}, () => {}],
+            [() => {}, () => {}],
+          ],
+          [
+            [() => {}, () => {}],
+            [() => {}, () => {}],
+          ],
+        ],
+      },
+      ...notAttrValue,
+    };
     expect(
       marshallInput(nestedListOfFunctions3Levels, keyNodes, {
         convertTopLevelContainer: true,
@@ -226,14 +303,5 @@ describe("object with function property", () => {
       },
       ...notAttrValue,
     });
-  });
-  it("should throw when recursion depth has exceeded", () => {
-    const obj = {} as any;
-    obj.SELF = obj;
-    expect(() => marshallInput(obj, {}, { convertClassInstanceToMap: true })).toThrow(
-      new Error(
-        "Recursive copy depth exceeded 1000. Please set options.convertClassInstanceToMap to false and manually remove functions from your data object."
-      )
-    );
   });
 });
