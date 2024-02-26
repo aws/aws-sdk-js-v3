@@ -224,6 +224,7 @@ export interface StartDBClusterCommandOutput extends StartDBClusterResult, __Met
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
+ * //     StorageThroughput: Number("int"),
  * //   },
  * // };
  *

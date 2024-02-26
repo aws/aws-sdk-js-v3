@@ -1993,6 +1993,13 @@ export interface DBClusterSnapshot {
    * <p>The resource ID of the DB cluster that this DB cluster snapshot was created from.</p>
    */
   DbClusterResourceId?: string;
+
+  /**
+   * @public
+   * <p>The storage throughput for the DB cluster snapshot. The throughput is automatically set based on the IOPS that you provision, and is not configurable.</p>
+   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   */
+  StorageThroughput?: number;
 }
 
 /**
@@ -6168,6 +6175,13 @@ export interface DBCluster {
    * <p>The details for Aurora Limitless Database.</p>
    */
   LimitlessDatabase?: LimitlessDatabase;
+
+  /**
+   * @public
+   * <p>The storage throughput for the DB cluster. The throughput is automatically set based on the IOPS that you provision, and is not configurable.</p>
+   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   */
+  StorageThroughput?: number;
 }
 
 /**
@@ -13160,6 +13174,13 @@ export interface DBClusterAutomatedBackup {
    * <p>The Amazon Resource Name (ARN) of the recovery point in Amazon Web Services Backup.</p>
    */
   AwsBackupRecoveryPointArn?: string;
+
+  /**
+   * @public
+   * <p>The storage throughput for the automated backup. The throughput is automatically set based on the IOPS that you provision, and is not configurable.</p>
+   *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
+   */
+  StorageThroughput?: number;
 }
 
 /**

@@ -217,6 +217,7 @@ export interface PromoteReadReplicaDBClusterCommandOutput extends PromoteReadRep
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
+ * //     StorageThroughput: Number("int"),
  * //   },
  * // };
  *

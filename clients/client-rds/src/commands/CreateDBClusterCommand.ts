@@ -307,6 +307,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
+ * //     StorageThroughput: Number("int"),
  * //   },
  * // };
  *

@@ -17301,6 +17301,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   if (output[_LD] != null) {
     contents[_LD] = de_LimitlessDatabase(output[_LD], context);
   }
+  if (output[_STt] != null) {
+    contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  }
   return contents;
 };
 
@@ -17393,6 +17396,9 @@ const de_DBClusterAutomatedBackup = (output: any, context: __SerdeContext): DBCl
   }
   if (output[_ABRPA] != null) {
     contents[_ABRPA] = __expectString(output[_ABRPA]);
+  }
+  if (output[_STt] != null) {
+    contents[_STt] = __strictParseInt32(output[_STt]) as number;
   }
   return contents;
 };
@@ -17987,6 +17993,9 @@ const de_DBClusterSnapshot = (output: any, context: __SerdeContext): DBClusterSn
   }
   if (output[_DCRI] != null) {
     contents[_DCRI] = __expectString(output[_DCRI]);
+  }
+  if (output[_STt] != null) {
+    contents[_STt] = __strictParseInt32(output[_STt]) as number;
   }
   return contents;
 };

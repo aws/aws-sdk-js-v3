@@ -283,6 +283,7 @@ export interface RestoreDBClusterFromS3CommandOutput extends RestoreDBClusterFro
  * //       Status: "active" || "not-in-use" || "enabled" || "disabled" || "enabling" || "disabling" || "modifying-max-capacity" || "error",
  * //       MinRequiredACU: Number("double"),
  * //     },
+ * //     StorageThroughput: Number("int"),
  * //   },
  * // };
  *

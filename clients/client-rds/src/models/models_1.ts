@@ -12684,7 +12684,7 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
 
   /**
    * @public
-   * <p>The identifier for the RDS for MySQL Multi-AZ DB cluster snapshot to restore from.</p>
+   * <p>The identifier for the Multi-AZ DB cluster snapshot to restore from.</p>
    *          <p>For more information on Multi-AZ DB clusters, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html"> Multi-AZ DB
    *                 cluster deployments</a> in the <i>Amazon RDS User
    *             Guide</i>.</p>
@@ -12705,9 +12705,6 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
    *             </li>
    *             <li>
    *                <p>Can't be the identifier of an Aurora DB cluster snapshot.</p>
-   *             </li>
-   *             <li>
-   *                <p>Can't be the identifier of an RDS for PostgreSQL Multi-AZ DB cluster snapshot.</p>
    *             </li>
    *          </ul>
    */
