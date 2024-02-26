@@ -1,7 +1,7 @@
 import { AttributeValue } from "@aws-sdk/client-dynamodb";
 
 import { marshallOptions } from "./marshall";
-import { NativeAttributeBinary, NativeAttributeValue, NativeScalarAttributeValue } from "./models";
+import { NativeAttributeBinary, NativeAttributeValue } from "./models";
 import { NumberValue } from "./NumberValue";
 
 /**
@@ -57,7 +57,11 @@ export const convertToAttr = (data: NativeAttributeValue, options?: marshallOpti
 
 const convertToListAttr = (data: NativeAttributeValue[], options?: marshallOptions): { L: AttributeValue[] } => ({
   L: data
-    .filter((item) => !options?.removeUndefinedValues || (options?.removeUndefinedValues && item !== undefined))
+    .filter(
+      (item) =>
+        typeof item !== "function" &&
+        (!options?.removeUndefinedValues || (options?.removeUndefinedValues && item !== undefined))
+    )
     .map((item) => convertToAttr(item, options)),
 });
 

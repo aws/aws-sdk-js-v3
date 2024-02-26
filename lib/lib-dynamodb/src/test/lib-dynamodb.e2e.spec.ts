@@ -32,6 +32,7 @@ describe(DynamoDBDocument.name, () => {
   const doc = DynamoDBDocument.from(dynamodb, {
     marshallOptions: {
       convertTopLevelContainer: true,
+      convertClassInstanceToMap: true,
     },
     unmarshallOptions: {
       wrapNumbers: true,
@@ -75,6 +76,10 @@ describe(DynamoDBDocument.name, () => {
     update: {} as Record<string, UpdateCommandOutput>,
     updateReadBack: {} as Record<string, GetCommandOutput>,
     delete: {} as Record<string, DeleteItemCommandOutput>,
+    classInstanceConversion: {
+      write: null as null | PutCommandOutput,
+      read: null as null | GetCommandOutput,
+    },
   };
 
   const data = {
@@ -439,6 +444,57 @@ describe(DynamoDBDocument.name, () => {
         });
       })().catch(passError);
     }
+
+    log.classInstanceConversion.write = await doc
+      .put({
+        TableName,
+        Item: {
+          id: "classInstance",
+          data: {
+            a: new (class {
+              public a = 1;
+              public b = 2;
+              public c = 3;
+              public method() {
+                return "method";
+              }
+              public get getter() {
+                return "getter";
+              }
+              public arrowFn = () => "arrowFn";
+              public ownFunction = function () {
+                return "ownFunction";
+              };
+            })(),
+            b: new (class {
+              public a = 4;
+              public b = 5;
+              public c = 6;
+              public method() {
+                return "method";
+              }
+              public get getter() {
+                return "getter";
+              }
+              public arrowFn = () => "arrowFn";
+              public ownFunction = function () {
+                return "ownFunction";
+              };
+            })(),
+          },
+        },
+      })
+      .catch(passError);
+
+    log.classInstanceConversion.read = await doc
+      .get({
+        ConsistentRead: true,
+        TableName,
+        Key: {
+          id: "classInstance",
+        },
+      })
+      .catch(passError);
   });
 
   afterAll(async () => {
@@ -635,4 +691,22 @@ describe(DynamoDBDocument.name, () => {
       expect(log.delete[key].$metadata).toBeDefined();
     });
   }
+
+  it("can serialize class instances as maps", async () => {
+    expect(log.classInstanceConversion.read?.Item).toEqual({
+      id: "classInstance",
+      data: {
+        a: {
+          a: NumberValue.from(1),
+          b: NumberValue.from(2),
+          c: NumberValue.from(3),
+        },
+        b: {
+          a: NumberValue.from(4),
+          b: NumberValue.from(5),
+          c: NumberValue.from(6),
+        },
+      },
+    });
+  });
 });
