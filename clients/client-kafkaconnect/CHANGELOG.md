@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.522.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.521.0...v3.522.0) (2024-02-26)
+
+
+### Features
+
+* **client-kafkaconnect:** Adds support for tagging, with new TagResource, UntagResource and ListTagsForResource APIs to manage tags and updates to existing APIs to allow tag on create. This release also adds support for the new DeleteWorkerConfiguration API. ([2a94d42](https://github.com/aws/aws-sdk-js-v3/commit/2a94d42a3db3cc235166c58da660193d4c51a197))
+
+
+
+
+
 # [3.521.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.520.0...v3.521.0) (2024-02-23)
 
 

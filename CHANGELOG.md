@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.522.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.521.0...v3.522.0) (2024-02-26)
+
+
+### Features
+
+* **client-drs:** Added volume status to DescribeSourceServer replicated volumes. ([fcd3aba](https://github.com/aws/aws-sdk-js-v3/commit/fcd3aba05a021536ba51030203e39527b14ecfb8))
+* **client-kafkaconnect:** Adds support for tagging, with new TagResource, UntagResource and ListTagsForResource APIs to manage tags and updates to existing APIs to allow tag on create. This release also adds support for the new DeleteWorkerConfiguration API. ([2a94d42](https://github.com/aws/aws-sdk-js-v3/commit/2a94d42a3db3cc235166c58da660193d4c51a197))
+* **client-rds:** This release adds support for gp3 data volumes for Multi-AZ DB Clusters. ([29add4c](https://github.com/aws/aws-sdk-js-v3/commit/29add4ca41f1513d34d3129a00319c1e65d68ee8))
+
+
+
+
+
 # [3.521.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.520.0...v3.521.0) (2024-02-23)
 
 

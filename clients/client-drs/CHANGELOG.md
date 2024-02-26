@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.522.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.521.0...v3.522.0) (2024-02-26)
+
+
+### Features
+
+* **client-drs:** Added volume status to DescribeSourceServer replicated volumes. ([fcd3aba](https://github.com/aws/aws-sdk-js-v3/commit/fcd3aba05a021536ba51030203e39527b14ecfb8))
+
+
+
+
+
 # [3.521.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.520.0...v3.521.0) (2024-02-23)
 
 
