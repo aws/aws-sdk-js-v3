@@ -240,7 +240,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  *         sort: [ // SortPropertyList
  *           { // SortProperty
  *             field: "STRING_VALUE", // required
- *             direction: "STRING_VALUE", // required
+ *             direction: "ASC" || "DESC", // required
  *           },
  *         ],
  *         predicate: "<Predicate>",
@@ -458,7 +458,7 @@ export interface UpdateComponentCommandOutput extends UpdateComponentResponse, _
  * //         sort: [ // SortPropertyList
  * //           { // SortProperty
  * //             field: "STRING_VALUE", // required
- * //             direction: "STRING_VALUE", // required
+ * //             direction: "ASC" || "DESC", // required
  * //           },
  * //         ],
  * //         predicate: "<Predicate>",

@@ -49,7 +49,7 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * //       environmentName: "STRING_VALUE", // required
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
- * //       formActionType: "STRING_VALUE", // required
+ * //       formActionType: "create" || "update", // required
  * //       style: { // FormStyle
  * //         horizontalGap: { // FormStyleConfig Union: only one key present
  * //           tokenReference: "STRING_VALUE",
@@ -72,7 +72,7 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * //         "<keys>": { // FieldConfig
  * //           label: "STRING_VALUE",
  * //           position: { // FieldPosition Union: only one key present
- * //             fixed: "STRING_VALUE",
+ * //             fixed: "first",
  * //             rightOf: "STRING_VALUE",
  * //             below: "STRING_VALUE",
  * //           },
@@ -127,7 +127,7 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * //             value: "STRING_VALUE",
  * //             isArray: true || false,
  * //             fileUploaderConfig: { // FileUploaderFieldConfig
- * //               accessLevel: "STRING_VALUE", // required
+ * //               accessLevel: "public" || "protected" || "private", // required
  * //               acceptedFileTypes: [ // StrValues // required
  * //                 "STRING_VALUE",
  * //               ],
@@ -155,7 +155,7 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * //         "<keys>": { // SectionalElement
  * //           type: "STRING_VALUE", // required
  * //           position: {//  Union: only one key present
- * //             fixed: "STRING_VALUE",
+ * //             fixed: "first",
  * //             rightOf: "STRING_VALUE",
  * //             below: "STRING_VALUE",
  * //           },
@@ -170,12 +170,12 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * //         "<keys>": "STRING_VALUE",
  * //       },
  * //       cta: { // FormCTA
- * //         position: "STRING_VALUE",
+ * //         position: "top" || "bottom" || "top_and_bottom",
  * //         clear: { // FormButton
  * //           excluded: true || false,
  * //           children: "STRING_VALUE",
  * //           position: {//  Union: only one key present
- * //             fixed: "STRING_VALUE",
+ * //             fixed: "first",
  * //             rightOf: "STRING_VALUE",
  * //             below: "STRING_VALUE",
  * //           },
@@ -184,7 +184,7 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * //           excluded: true || false,
  * //           children: "STRING_VALUE",
  * //           position: {//  Union: only one key present
- * //             fixed: "STRING_VALUE",
+ * //             fixed: "first",
  * //             rightOf: "STRING_VALUE",
  * //             below: "STRING_VALUE",
  * //           },
@@ -193,7 +193,7 @@ export interface ExportFormsCommandOutput extends ExportFormsResponse, __Metadat
  * //           excluded: true || false,
  * //           children: "STRING_VALUE",
  * //           position: {//  Union: only one key present
- * //             fixed: "STRING_VALUE",
+ * //             fixed: "first",
  * //             rightOf: "STRING_VALUE",
  * //             below: "STRING_VALUE",
  * //           },

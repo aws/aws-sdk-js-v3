@@ -968,8 +968,17 @@ export interface StartCodegenJobResponse {
 
 /**
  * @public
+ * @enum
  */
-export type SortDirection = "ASC" | "DESC";
+export const SortDirection = {
+  ASC: "ASC",
+  DESC: "DESC",
+} as const;
+
+/**
+ * @public
+ */
+export type SortDirection = (typeof SortDirection)[keyof typeof SortDirection];
 
 /**
  * @public
@@ -1999,6 +2008,28 @@ export class UnauthorizedException extends __BaseException {
 
 /**
  * @public
+ */
+export interface ListTagsForResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) to use to list tags.</p>
+   */
+  resourceArn: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface ListTagsForResourceResponse {
+  /**
+   * @public
+   * <p>A list of tag key value pairs for a specified Amazon Resource Name (ARN).</p>
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
  * <p>Stores the metadata information about a feature on a form.</p>
  */
 export interface PutMetadataFlagBody {
@@ -2090,6 +2121,28 @@ export interface RefreshTokenResponse {
    */
   expiresIn: number | undefined;
 }
+
+/**
+ * @public
+ */
+export interface TagResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) to use to tag a resource.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>A list of tag key value pairs for a specified Amazon Resource Name (ARN).</p>
+   */
+  tags: Record<string, string> | undefined;
+}
+
+/**
+ * @public
+ */
+export interface TagResourceResponse {}
 
 /**
  * @public
@@ -2238,6 +2291,28 @@ export interface ListThemesResponse {
    */
   nextToken?: string;
 }
+
+/**
+ * @public
+ */
+export interface UntagResourceRequest {
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) to use to untag a resource.</p>
+   */
+  resourceArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The tag keys to use to untag a resource.</p>
+   */
+  tagKeys: string[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UntagResourceResponse {}
 
 /**
  * @public

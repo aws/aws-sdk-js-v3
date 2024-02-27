@@ -238,7 +238,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  *         sort: [ // SortPropertyList
  *           { // SortProperty
  *             field: "STRING_VALUE", // required
- *             direction: "STRING_VALUE", // required
+ *             direction: "ASC" || "DESC", // required
  *           },
  *         ],
  *         predicate: "<Predicate>",
@@ -459,7 +459,7 @@ export interface CreateComponentCommandOutput extends CreateComponentResponse, _
  * //         sort: [ // SortPropertyList
  * //           { // SortProperty
  * //             field: "STRING_VALUE", // required
- * //             direction: "STRING_VALUE", // required
+ * //             direction: "ASC" || "DESC", // required
  * //           },
  * //         ],
  * //         predicate: "<Predicate>",

@@ -45,12 +45,12 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *       dataSourceType: "STRING_VALUE", // required
  *       dataTypeName: "STRING_VALUE", // required
  *     },
- *     formActionType: "STRING_VALUE", // required
+ *     formActionType: "create" || "update", // required
  *     fields: { // FieldsMap // required
  *       "<keys>": { // FieldConfig
  *         label: "STRING_VALUE",
  *         position: { // FieldPosition Union: only one key present
- *           fixed: "STRING_VALUE",
+ *           fixed: "first",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
  *         },
@@ -105,7 +105,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *           value: "STRING_VALUE",
  *           isArray: true || false,
  *           fileUploaderConfig: { // FileUploaderFieldConfig
- *             accessLevel: "STRING_VALUE", // required
+ *             accessLevel: "public" || "protected" || "private", // required
  *             acceptedFileTypes: [ // StrValues // required
  *               "STRING_VALUE",
  *             ],
@@ -147,7 +147,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *       "<keys>": { // SectionalElement
  *         type: "STRING_VALUE", // required
  *         position: {//  Union: only one key present
- *           fixed: "STRING_VALUE",
+ *           fixed: "first",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
  *         },
@@ -159,12 +159,12 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *     },
  *     schemaVersion: "STRING_VALUE", // required
  *     cta: { // FormCTA
- *       position: "STRING_VALUE",
+ *       position: "top" || "bottom" || "top_and_bottom",
  *       clear: { // FormButton
  *         excluded: true || false,
  *         children: "STRING_VALUE",
  *         position: {//  Union: only one key present
- *           fixed: "STRING_VALUE",
+ *           fixed: "first",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
  *         },
@@ -173,7 +173,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *         excluded: true || false,
  *         children: "STRING_VALUE",
  *         position: {//  Union: only one key present
- *           fixed: "STRING_VALUE",
+ *           fixed: "first",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
  *         },
@@ -182,7 +182,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  *         excluded: true || false,
  *         children: "STRING_VALUE",
  *         position: {//  Union: only one key present
- *           fixed: "STRING_VALUE",
+ *           fixed: "first",
  *           rightOf: "STRING_VALUE",
  *           below: "STRING_VALUE",
  *         },
@@ -202,7 +202,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * //     environmentName: "STRING_VALUE", // required
  * //     id: "STRING_VALUE", // required
  * //     name: "STRING_VALUE", // required
- * //     formActionType: "STRING_VALUE", // required
+ * //     formActionType: "create" || "update", // required
  * //     style: { // FormStyle
  * //       horizontalGap: { // FormStyleConfig Union: only one key present
  * //         tokenReference: "STRING_VALUE",
@@ -225,7 +225,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * //       "<keys>": { // FieldConfig
  * //         label: "STRING_VALUE",
  * //         position: { // FieldPosition Union: only one key present
- * //           fixed: "STRING_VALUE",
+ * //           fixed: "first",
  * //           rightOf: "STRING_VALUE",
  * //           below: "STRING_VALUE",
  * //         },
@@ -280,7 +280,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * //           value: "STRING_VALUE",
  * //           isArray: true || false,
  * //           fileUploaderConfig: { // FileUploaderFieldConfig
- * //             accessLevel: "STRING_VALUE", // required
+ * //             accessLevel: "public" || "protected" || "private", // required
  * //             acceptedFileTypes: [ // StrValues // required
  * //               "STRING_VALUE",
  * //             ],
@@ -308,7 +308,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * //       "<keys>": { // SectionalElement
  * //         type: "STRING_VALUE", // required
  * //         position: {//  Union: only one key present
- * //           fixed: "STRING_VALUE",
+ * //           fixed: "first",
  * //           rightOf: "STRING_VALUE",
  * //           below: "STRING_VALUE",
  * //         },
@@ -323,12 +323,12 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * //       "<keys>": "STRING_VALUE",
  * //     },
  * //     cta: { // FormCTA
- * //       position: "STRING_VALUE",
+ * //       position: "top" || "bottom" || "top_and_bottom",
  * //       clear: { // FormButton
  * //         excluded: true || false,
  * //         children: "STRING_VALUE",
  * //         position: {//  Union: only one key present
- * //           fixed: "STRING_VALUE",
+ * //           fixed: "first",
  * //           rightOf: "STRING_VALUE",
  * //           below: "STRING_VALUE",
  * //         },
@@ -337,7 +337,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * //         excluded: true || false,
  * //         children: "STRING_VALUE",
  * //         position: {//  Union: only one key present
- * //           fixed: "STRING_VALUE",
+ * //           fixed: "first",
  * //           rightOf: "STRING_VALUE",
  * //           below: "STRING_VALUE",
  * //         },
@@ -346,7 +346,7 @@ export interface CreateFormCommandOutput extends CreateFormResponse, __MetadataB
  * //         excluded: true || false,
  * //         children: "STRING_VALUE",
  * //         position: {//  Union: only one key present
- * //           fixed: "STRING_VALUE",
+ * //           fixed: "first",
  * //           rightOf: "STRING_VALUE",
  * //           below: "STRING_VALUE",
  * //         },

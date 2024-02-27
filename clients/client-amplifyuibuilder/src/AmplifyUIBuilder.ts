@@ -57,6 +57,11 @@ import {
   ListComponentsCommandOutput,
 } from "./commands/ListComponentsCommand";
 import { ListFormsCommand, ListFormsCommandInput, ListFormsCommandOutput } from "./commands/ListFormsCommand";
+import {
+  ListTagsForResourceCommand,
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListThemesCommand, ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import {
   PutMetadataFlagCommand,
@@ -73,6 +78,12 @@ import {
   StartCodegenJobCommandInput,
   StartCodegenJobCommandOutput,
 } from "./commands/StartCodegenJobCommand";
+import { TagResourceCommand, TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import {
+  UntagResourceCommand,
+  UntagResourceCommandInput,
+  UntagResourceCommandOutput,
+} from "./commands/UntagResourceCommand";
 import {
   UpdateComponentCommand,
   UpdateComponentCommandInput,
@@ -100,10 +111,13 @@ const commands = {
   ListCodegenJobsCommand,
   ListComponentsCommand,
   ListFormsCommand,
+  ListTagsForResourceCommand,
   ListThemesCommand,
   PutMetadataFlagCommand,
   RefreshTokenCommand,
   StartCodegenJobCommand,
+  TagResourceCommand,
+  UntagResourceCommand,
   UpdateComponentCommand,
   UpdateFormCommand,
   UpdateThemeCommand,
@@ -333,6 +347,23 @@ export interface AmplifyUIBuilder {
   ): void;
 
   /**
+   * @see {@link ListTagsForResourceCommand}
+   */
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<ListTagsForResourceCommandOutput>;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+  listTagsForResource(
+    args: ListTagsForResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: ListTagsForResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link ListThemesCommand}
    */
   listThemes(args: ListThemesCommandInput, options?: __HttpHandlerOptions): Promise<ListThemesCommandOutput>;
@@ -383,6 +414,28 @@ export interface AmplifyUIBuilder {
   ): void;
 
   /**
+   * @see {@link TagResourceCommand}
+   */
+  tagResource(args: TagResourceCommandInput, options?: __HttpHandlerOptions): Promise<TagResourceCommandOutput>;
+  tagResource(args: TagResourceCommandInput, cb: (err: any, data?: TagResourceCommandOutput) => void): void;
+  tagResource(
+    args: TagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: TagResourceCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link UntagResourceCommand}
+   */
+  untagResource(args: UntagResourceCommandInput, options?: __HttpHandlerOptions): Promise<UntagResourceCommandOutput>;
+  untagResource(args: UntagResourceCommandInput, cb: (err: any, data?: UntagResourceCommandOutput) => void): void;
+  untagResource(
+    args: UntagResourceCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UntagResourceCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateComponentCommand}
    */
   updateComponent(
@@ -426,7 +479,7 @@ export interface AmplifyUIBuilder {
  *       backend Amazon Web Services resources.</p>
  *          <p>You can also use the Amplify Studio visual designer to create UI components
  *       and model data for an app. For more information, see <a href="https://docs.amplify.aws/console/adminui/intro">Introduction</a> in the
- *         <i>Amplify Docs</i>.</p>
+ *       <i>Amplify Docs</i>.</p>
  *          <p>The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
  *       documentation for client app development. For more information, see the <a href="https://docs.amplify.aws/">Amplify Framework</a>. For more information about
  *       deploying an Amplify application to Amazon Web Services, see the <a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify User Guide</a>.</p>

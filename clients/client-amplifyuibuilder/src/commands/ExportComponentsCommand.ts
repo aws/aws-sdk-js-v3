@@ -246,7 +246,7 @@ export interface ExportComponentsCommandOutput extends ExportComponentsResponse,
  * //           sort: [ // SortPropertyList
  * //             { // SortProperty
  * //               field: "STRING_VALUE", // required
- * //               direction: "STRING_VALUE", // required
+ * //               direction: "ASC" || "DESC", // required
  * //             },
  * //           ],
  * //           predicate: "<Predicate>",

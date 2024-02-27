@@ -52,7 +52,7 @@ export interface ListFormsCommandOutput extends ListFormsResponse, __MetadataBea
  * //         dataTypeName: "STRING_VALUE", // required
  * //       },
  * //       environmentName: "STRING_VALUE", // required
- * //       formActionType: "STRING_VALUE", // required
+ * //       formActionType: "create" || "update", // required
  * //       id: "STRING_VALUE", // required
  * //       name: "STRING_VALUE", // required
  * //     },

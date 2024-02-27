@@ -74,10 +74,16 @@ import { GetThemeCommandInput, GetThemeCommandOutput } from "./commands/GetTheme
 import { ListCodegenJobsCommandInput, ListCodegenJobsCommandOutput } from "./commands/ListCodegenJobsCommand";
 import { ListComponentsCommandInput, ListComponentsCommandOutput } from "./commands/ListComponentsCommand";
 import { ListFormsCommandInput, ListFormsCommandOutput } from "./commands/ListFormsCommand";
+import {
+  ListTagsForResourceCommandInput,
+  ListTagsForResourceCommandOutput,
+} from "./commands/ListTagsForResourceCommand";
 import { ListThemesCommandInput, ListThemesCommandOutput } from "./commands/ListThemesCommand";
 import { PutMetadataFlagCommandInput, PutMetadataFlagCommandOutput } from "./commands/PutMetadataFlagCommand";
 import { RefreshTokenCommandInput, RefreshTokenCommandOutput } from "./commands/RefreshTokenCommand";
 import { StartCodegenJobCommandInput, StartCodegenJobCommandOutput } from "./commands/StartCodegenJobCommand";
+import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
+import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateComponentCommandInput, UpdateComponentCommandOutput } from "./commands/UpdateComponentCommand";
 import { UpdateFormCommandInput, UpdateFormCommandOutput } from "./commands/UpdateFormCommand";
 import { UpdateThemeCommandInput, UpdateThemeCommandOutput } from "./commands/UpdateThemeCommand";
@@ -114,10 +120,13 @@ export type ServiceInputTypes =
   | ListCodegenJobsCommandInput
   | ListComponentsCommandInput
   | ListFormsCommandInput
+  | ListTagsForResourceCommandInput
   | ListThemesCommandInput
   | PutMetadataFlagCommandInput
   | RefreshTokenCommandInput
   | StartCodegenJobCommandInput
+  | TagResourceCommandInput
+  | UntagResourceCommandInput
   | UpdateComponentCommandInput
   | UpdateFormCommandInput
   | UpdateThemeCommandInput;
@@ -144,10 +153,13 @@ export type ServiceOutputTypes =
   | ListCodegenJobsCommandOutput
   | ListComponentsCommandOutput
   | ListFormsCommandOutput
+  | ListTagsForResourceCommandOutput
   | ListThemesCommandOutput
   | PutMetadataFlagCommandOutput
   | RefreshTokenCommandOutput
   | StartCodegenJobCommandOutput
+  | TagResourceCommandOutput
+  | UntagResourceCommandOutput
   | UpdateComponentCommandOutput
   | UpdateFormCommandOutput
   | UpdateThemeCommandOutput;
@@ -330,7 +342,7 @@ export interface AmplifyUIBuilderClientResolvedConfig extends AmplifyUIBuilderCl
  *       backend Amazon Web Services resources.</p>
  *          <p>You can also use the Amplify Studio visual designer to create UI components
  *       and model data for an app. For more information, see <a href="https://docs.amplify.aws/console/adminui/intro">Introduction</a> in the
- *         <i>Amplify Docs</i>.</p>
+ *       <i>Amplify Docs</i>.</p>
  *          <p>The Amplify Framework is a comprehensive set of SDKs, libraries, tools, and
  *       documentation for client app development. For more information, see the <a href="https://docs.amplify.aws/">Amplify Framework</a>. For more information about
  *       deploying an Amplify application to Amazon Web Services, see the <a href="https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html">Amplify User Guide</a>.</p>
