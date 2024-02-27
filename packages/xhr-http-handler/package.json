@@ -20,14 +20,14 @@
   "types": "./dist-types/index.d.ts",
   "dependencies": {
     "@aws-sdk/types": "*",
-    "@smithy/protocol-http": "^3.2.0",
-    "@smithy/querystring-builder": "^2.1.2",
-    "@smithy/types": "^2.10.0",
+    "@smithy/protocol-http": "^3.2.1",
+    "@smithy/querystring-builder": "^2.1.3",
+    "@smithy/types": "^2.10.1",
     "events": "3.3.0",
     "tslib": "^2.5.0"
   },
   "devDependencies": {
-    "@smithy/abort-controller": "^2.1.1",
+    "@smithy/abort-controller": "^2.1.3",
     "@tsconfig/recommended": "1.0.1",
     "concurrently": "7.0.0",
     "downlevel-dts": "0.10.1",
