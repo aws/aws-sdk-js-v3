@@ -45,6 +45,9 @@ interface AwsSdkSigV4AuthSigningProperties {
  */
 interface AwsSdkSigV4Exception extends ServiceException {
   ServerTime?: string;
+  $metadata: ServiceException["$metadata"] & {
+    clockSkewCorrected?: boolean;
+  };
 }
 
 /**
@@ -104,11 +107,13 @@ export class AwsSdkSigV4Signer implements HttpSigner {
       const serverTime: string | undefined =
         (error as AwsSdkSigV4Exception).ServerTime ?? getDateHeader((error as AwsSdkSigV4Exception).$response);
       if (serverTime) {
-        const config = throwSigningPropertyError(
-          "config",
-          signingProperties.config as AwsSdkSigV4Config | undefined
-        );
+        const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
+        const initialSystemClockOffset = config.systemClockOffset;
         config.systemClockOffset = getUpdatedSystemClockOffset(serverTime, config.systemClockOffset);
+        const clockSkewCorrected = config.systemClockOffset !== initialSystemClockOffset;
+        if (clockSkewCorrected && (error as AwsSdkSigV4Exception).$metadata) {
+          (error as AwsSdkSigV4Exception).$metadata.clockSkewCorrected = true;
+        }
       }
       throw error;
     };
@@ -117,10 +122,7 @@ export class AwsSdkSigV4Signer implements HttpSigner {
   successHandler(httpResponse: HttpResponse | unknown, signingProperties: Record<string, unknown>): void {
     const dateHeader = getDateHeader(httpResponse);
     if (dateHeader) {
-      const config = throwSigningPropertyError(
-        "config",
-        signingProperties.config as AwsSdkSigV4Config | undefined
-      );
+      const config = throwSigningPropertyError("config", signingProperties.config as AwsSdkSigV4Config | undefined);
       config.systemClockOffset = getUpdatedSystemClockOffset(dateHeader, config.systemClockOffset);
     }
   }
