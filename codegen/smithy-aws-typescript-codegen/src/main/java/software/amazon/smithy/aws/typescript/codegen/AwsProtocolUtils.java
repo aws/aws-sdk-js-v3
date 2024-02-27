@@ -376,7 +376,7 @@ final class AwsProtocolUtils {
 
         // TODO: Remove when this test case is fixed upstream.
         // https://github.com/smithy-lang/smithy/pull/2167
-        if (settings.generateServerSdk() 
+        if (settings.generateServerSdk()
             && testCase.getId().equals("RestJsonZeroAndFalseQueryValues")) {
             return true;
         }
