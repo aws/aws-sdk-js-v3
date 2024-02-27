@@ -66,14 +66,14 @@ export class MetadataService {
         "x-aws-ec2-metadata-token-ttl-seconds": "21600", // 6 hours;
       },
       hostname: endpointUrl.hostname,
-      path: endpointUrl.pathname + "/latest/api/token",
+      path: "/latest/api/token",
       protocol: endpointUrl.protocol,
     });
     try {
       const { response } = await handler.handle(tokenRequest, {} as HttpHandlerOptions);
       if (response.statusCode === 200 && response.body) {
         // Directly read the response body as plaintext
-        return response.body;
+        return sdkStreamMixin(response.body).transformToString();
       } else {
         throw new Error(`Failed to fetch metadata token with status code ${response.statusCode}`);
       }

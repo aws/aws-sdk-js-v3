@@ -12,4 +12,9 @@ describe("MetadataService", () => {
     const response = await metadataService.request(path, {});
     expect(response).toEqual({});
   });
+
+  it("should successfully make a request to fetch the metadata token and return it", async () => {
+    const response = await metadataService.fetchMetadataToken();
+    expect(response).toEqual({});
+  });
 });
