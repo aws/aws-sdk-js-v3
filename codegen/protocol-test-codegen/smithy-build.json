@@ -21,7 +21,8 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true
+          "private": true,
+          "experimentalIdentityAndAuth": true
         }
       }
     },
@@ -45,7 +46,8 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true
+          "private": true,
+          "experimentalIdentityAndAuth": true
         }
       }
     },
@@ -69,7 +71,8 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true
+          "private": true,
+          "experimentalIdentityAndAuth": true
         }
       }
     },
@@ -93,7 +96,8 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true
+          "private": true,
+          "experimentalIdentityAndAuth": true
         }
       }
     },
@@ -117,7 +121,8 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true
+          "private": true,
+          "experimentalIdentityAndAuth": true
         },
         "typescript-ssdk-codegen": {
           "package": "@aws-sdk/aws-restjson-server",
@@ -164,7 +169,8 @@
             },
             "license": "Apache-2.0"
           },
-          "private": true
+          "private": true,
+          "experimentalIdentityAndAuth": true
         }
       }
     }
