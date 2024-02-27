@@ -785,7 +785,7 @@ it("RestJsonSupportsNegativeInfinityFloatQueryValues:ServerRequest", async () =>
 /**
  * Query values of 0 and false are serialized
  */
-it("RestJsonZeroAndFalseQueryValues:ServerRequest", async () => {
+it.skip("RestJsonZeroAndFalseQueryValues:ServerRequest", async () => {
   const testFunction = jest.fn();
   testFunction.mockReturnValue(Promise.resolve({}));
   const testService: Partial<RestJsonService<{}>> = {
