@@ -38,7 +38,7 @@
     "@smithy/credential-provider-imds": "^2.2.1",
     "@smithy/property-provider": "^2.1.1",
     "@smithy/shared-ini-file-loader": "^2.3.1",
-    "@smithy/types": "^2.10.0",
+    "@smithy/types": "^2.10.1",
     "tslib": "^2.5.0"
   },
   "devDependencies": {

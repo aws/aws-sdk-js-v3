@@ -25,11 +25,11 @@
   "dependencies": {
     "@aws-sdk/types": "*",
     "@aws-sdk/util-arn-parser": "*",
-    "@smithy/node-config-provider": "^2.2.2",
-    "@smithy/protocol-http": "^3.2.0",
+    "@smithy/node-config-provider": "^2.2.3",
+    "@smithy/protocol-http": "^3.2.1",
     "@smithy/signature-v4": "^2.1.1",
-    "@smithy/smithy-client": "^2.4.0",
-    "@smithy/types": "^2.10.0",
+    "@smithy/smithy-client": "^2.4.1",
+    "@smithy/types": "^2.10.1",
     "@smithy/util-config-provider": "^2.2.1",
     "tslib": "^2.5.0"
   },
