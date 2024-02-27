@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
+
+
+### Bug Fixes
+
+* **lib-dynamodb:** preserve collections when serializing class instances to map ([#5826](https://github.com/aws/aws-sdk-js-v3/issues/5826)) ([e1ba507](https://github.com/aws/aws-sdk-js-v3/commit/e1ba507fc84d5ae526fe0ee0a26ea4f039b63d03))
+
+
+
+
+
 # [3.521.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.520.0...v3.521.0) (2024-02-23)
 
 

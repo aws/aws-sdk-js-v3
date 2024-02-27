@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
+
+
+### Bug Fixes
+
+* **core:** add error metadata indicating clock skew correction ([#5830](https://github.com/aws/aws-sdk-js-v3/issues/5830)) ([46e5e8d](https://github.com/aws/aws-sdk-js-v3/commit/46e5e8daa0b13208f149bbd0b54857498558e152))
+
+
+
+
+
 # [3.521.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.520.0...v3.521.0) (2024-02-23)
 
 
