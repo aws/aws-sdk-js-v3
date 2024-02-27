@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlListsInputOutput } from "../models/models_0";
+import { XmlListsRequest, XmlListsResponse } from "../models/models_0";
 import { de_XmlListsCommand, se_XmlListsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlListsCommand}.
  */
-export interface XmlListsCommandInput extends XmlListsInputOutput {}
+export interface XmlListsCommandInput extends XmlListsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlListsCommand}.
  */
-export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBearer {}
+export interface XmlListsCommandOutput extends XmlListsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -44,7 +44,7 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * import { RestXmlProtocolClient, XmlListsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlListsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlListsInputOutput
+ * const input = { // XmlListsRequest
  *   stringList: [ // StringList
  *     "STRING_VALUE",
  *   ],
@@ -101,7 +101,7 @@ export interface XmlListsCommandOutput extends XmlListsInputOutput, __MetadataBe
  * };
  * const command = new XmlListsCommand(input);
  * const response = await client.send(command);
- * // { // XmlListsInputOutput
+ * // { // XmlListsResponse
  * //   stringList: [ // StringList
  * //     "STRING_VALUE",
  * //   ],

@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlMapsXmlNameInputOutput } from "../models/models_0";
+import { XmlMapsXmlNameRequest, XmlMapsXmlNameResponse } from "../models/models_0";
 import { de_XmlMapsXmlNameCommand, se_XmlMapsXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlMapsXmlNameCommand}.
  */
-export interface XmlMapsXmlNameCommandInput extends XmlMapsXmlNameInputOutput {}
+export interface XmlMapsXmlNameCommandInput extends XmlMapsXmlNameRequest {}
 /**
  * @public
  *
  * The output of {@link XmlMapsXmlNameCommand}.
  */
-export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameInputOutput, __MetadataBearer {}
+export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameInputOutput, 
  * import { RestXmlProtocolClient, XmlMapsXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlMapsXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlMapsXmlNameInputOutput
+ * const input = { // XmlMapsXmlNameRequest
  *   myMap: { // XmlMapsXmlNameInputOutputMap
  *     "<keys>": { // GreetingStruct
  *       hi: "STRING_VALUE",
@@ -42,7 +42,7 @@ export interface XmlMapsXmlNameCommandOutput extends XmlMapsXmlNameInputOutput, 
  * };
  * const command = new XmlMapsXmlNameCommand(input);
  * const response = await client.send(command);
- * // { // XmlMapsXmlNameInputOutput
+ * // { // XmlMapsXmlNameResponse
  * //   myMap: { // XmlMapsXmlNameInputOutputMap
  * //     "<keys>": { // GreetingStruct
  * //       hi: "STRING_VALUE",

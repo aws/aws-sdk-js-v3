@@ -148,7 +148,7 @@ export interface HostLabelHeaderInput {
 /**
  * @public
  */
-export interface HostLabelInput {
+export interface EndpointWithHostLabelOperationRequest {
   label: string | undefined;
 }
 
@@ -174,14 +174,28 @@ export interface EnumPayloadInput {
 /**
  * @public
  */
-export interface FlattenedXmlMapInputOutput {
+export interface FlattenedXmlMapRequest {
   myMap?: Record<string, FooEnum>;
 }
 
 /**
  * @public
  */
-export interface FlattenedXmlMapWithXmlNameInputOutput {
+export interface FlattenedXmlMapResponse {
+  myMap?: Record<string, FooEnum>;
+}
+
+/**
+ * @public
+ */
+export interface FlattenedXmlMapWithXmlNameRequest {
+  myMap?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface FlattenedXmlMapWithXmlNameResponse {
   myMap?: Record<string, string>;
 }
 
@@ -447,7 +461,15 @@ export interface InputAndOutputWithHeadersIO {
 /**
  * @public
  */
-export interface NestedXmlMapsInputOutput {
+export interface NestedXmlMapsRequest {
+  nestedMap?: Record<string, Record<string, FooEnum>>;
+  flatNestedMap?: Record<string, Record<string, FooEnum>>;
+}
+
+/**
+ * @public
+ */
+export interface NestedXmlMapsResponse {
   nestedMap?: Record<string, Record<string, FooEnum>>;
   flatNestedMap?: Record<string, Record<string, FooEnum>>;
 }
@@ -508,7 +530,23 @@ export interface QueryPrecedenceInput {
 /**
  * @public
  */
-export interface SimpleScalarPropertiesInputOutput {
+export interface SimpleScalarPropertiesRequest {
+  foo?: string;
+  stringValue?: string;
+  trueBooleanValue?: boolean;
+  falseBooleanValue?: boolean;
+  byteValue?: number;
+  shortValue?: number;
+  integerValue?: number;
+  longValue?: number;
+  floatValue?: number;
+  doubleValue?: number;
+}
+
+/**
+ * @public
+ */
+export interface SimpleScalarPropertiesResponse {
   foo?: string;
   stringValue?: string;
   trueBooleanValue?: boolean;
@@ -537,7 +575,7 @@ export interface TimestampFormatHeadersIO {
 /**
  * @public
  */
-export interface XmlAttributesInputOutput {
+export interface XmlAttributesRequest {
   foo?: string;
   attr?: string;
 }
@@ -545,14 +583,66 @@ export interface XmlAttributesInputOutput {
 /**
  * @public
  */
-export interface XmlAttributesOnPayloadInputOutput {
-  payload?: XmlAttributesInputOutput;
+export interface XmlAttributesResponse {
+  foo?: string;
+  attr?: string;
 }
 
 /**
  * @public
  */
-export interface XmlBlobsInputOutput {
+export interface XmlAttributesPayloadRequest {
+  foo?: string;
+  attr?: string;
+}
+
+/**
+ * @public
+ */
+export interface XmlAttributesOnPayloadRequest {
+  payload?: XmlAttributesPayloadRequest;
+}
+
+/**
+ * @public
+ */
+export interface XmlAttributesPayloadResponse {
+  foo?: string;
+  attr?: string;
+}
+
+/**
+ * @public
+ */
+export interface XmlAttributesOnPayloadResponse {
+  payload?: XmlAttributesPayloadResponse;
+}
+
+/**
+ * @public
+ */
+export interface XmlBlobsRequest {
+  data?: Uint8Array;
+}
+
+/**
+ * @public
+ */
+export interface XmlBlobsResponse {
+  data?: Uint8Array;
+}
+
+/**
+ * @public
+ */
+export interface XmlEmptyBlobsRequest {
+  data?: Uint8Array;
+}
+
+/**
+ * @public
+ */
+export interface XmlEmptyBlobsResponse {
   data?: Uint8Array;
 }
 
@@ -567,7 +657,7 @@ export interface StructureListMember {
 /**
  * @public
  */
-export interface XmlListsInputOutput {
+export interface XmlEmptyListsRequest {
   stringList?: string[];
   stringSet?: string[];
   integerList?: number[];
@@ -593,21 +683,61 @@ export interface XmlListsInputOutput {
 /**
  * @public
  */
-export interface XmlMapsInputOutput {
+export interface XmlEmptyListsResponse {
+  stringList?: string[];
+  stringSet?: string[];
+  integerList?: number[];
+  booleanList?: boolean[];
+  timestampList?: Date[];
+  enumList?: FooEnum[];
+  intEnumList?: IntegerEnum[];
+  /**
+   * @public
+   * A list of lists of strings.
+   */
+  nestedStringList?: string[][];
+
+  renamedListMembers?: string[];
+  flattenedList?: string[];
+  flattenedList2?: string[];
+  flattenedListWithMemberNamespace?: string[];
+  flattenedListWithNamespace?: string[];
+  structureList?: StructureListMember[];
+  flattenedStructureList?: StructureListMember[];
+}
+
+/**
+ * @public
+ */
+export interface XmlEmptyMapsRequest {
   myMap?: Record<string, GreetingStruct>;
 }
 
 /**
  * @public
  */
-export interface XmlEmptyStringsInputOutput {
+export interface XmlEmptyMapsResponse {
+  myMap?: Record<string, GreetingStruct>;
+}
+
+/**
+ * @public
+ */
+export interface XmlEmptyStringsRequest {
   emptyString?: string;
 }
 
 /**
  * @public
  */
-export interface XmlEnumsInputOutput {
+export interface XmlEmptyStringsResponse {
+  emptyString?: string;
+}
+
+/**
+ * @public
+ */
+export interface XmlEnumsRequest {
   fooEnum1?: FooEnum;
   fooEnum2?: FooEnum;
   fooEnum3?: FooEnum;
@@ -619,7 +749,19 @@ export interface XmlEnumsInputOutput {
 /**
  * @public
  */
-export interface XmlIntEnumsInputOutput {
+export interface XmlEnumsResponse {
+  fooEnum1?: FooEnum;
+  fooEnum2?: FooEnum;
+  fooEnum3?: FooEnum;
+  fooEnumList?: FooEnum[];
+  fooEnumSet?: FooEnum[];
+  fooEnumMap?: Record<string, FooEnum>;
+}
+
+/**
+ * @public
+ */
+export interface XmlIntEnumsRequest {
   intEnum1?: IntegerEnum;
   intEnum2?: IntegerEnum;
   intEnum3?: IntegerEnum;
@@ -631,14 +773,106 @@ export interface XmlIntEnumsInputOutput {
 /**
  * @public
  */
-export interface XmlMapsXmlNameInputOutput {
+export interface XmlIntEnumsResponse {
+  intEnum1?: IntegerEnum;
+  intEnum2?: IntegerEnum;
+  intEnum3?: IntegerEnum;
+  intEnumList?: IntegerEnum[];
+  intEnumSet?: IntegerEnum[];
+  intEnumMap?: Record<string, IntegerEnum>;
+}
+
+/**
+ * @public
+ */
+export interface XmlListsRequest {
+  stringList?: string[];
+  stringSet?: string[];
+  integerList?: number[];
+  booleanList?: boolean[];
+  timestampList?: Date[];
+  enumList?: FooEnum[];
+  intEnumList?: IntegerEnum[];
+  /**
+   * @public
+   * A list of lists of strings.
+   */
+  nestedStringList?: string[][];
+
+  renamedListMembers?: string[];
+  flattenedList?: string[];
+  flattenedList2?: string[];
+  flattenedListWithMemberNamespace?: string[];
+  flattenedListWithNamespace?: string[];
+  structureList?: StructureListMember[];
+  flattenedStructureList?: StructureListMember[];
+}
+
+/**
+ * @public
+ */
+export interface XmlListsResponse {
+  stringList?: string[];
+  stringSet?: string[];
+  integerList?: number[];
+  booleanList?: boolean[];
+  timestampList?: Date[];
+  enumList?: FooEnum[];
+  intEnumList?: IntegerEnum[];
+  /**
+   * @public
+   * A list of lists of strings.
+   */
+  nestedStringList?: string[][];
+
+  renamedListMembers?: string[];
+  flattenedList?: string[];
+  flattenedList2?: string[];
+  flattenedListWithMemberNamespace?: string[];
+  flattenedListWithNamespace?: string[];
+  structureList?: StructureListMember[];
+  flattenedStructureList?: StructureListMember[];
+}
+
+/**
+ * @public
+ */
+export interface XmlMapsRequest {
   myMap?: Record<string, GreetingStruct>;
 }
 
 /**
  * @public
  */
-export interface XmlMapWithXmlNamespaceInputOutput {
+export interface XmlMapsResponse {
+  myMap?: Record<string, GreetingStruct>;
+}
+
+/**
+ * @public
+ */
+export interface XmlMapsXmlNameRequest {
+  myMap?: Record<string, GreetingStruct>;
+}
+
+/**
+ * @public
+ */
+export interface XmlMapsXmlNameResponse {
+  myMap?: Record<string, GreetingStruct>;
+}
+
+/**
+ * @public
+ */
+export interface XmlMapWithXmlNamespaceRequest {
+  myMap?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface XmlMapWithXmlNamespaceResponse {
   myMap?: Record<string, string>;
 }
 
@@ -653,14 +887,34 @@ export interface XmlNamespaceNested {
 /**
  * @public
  */
-export interface XmlNamespacesInputOutput {
+export interface XmlNamespacesRequest {
   nested?: XmlNamespaceNested;
 }
 
 /**
  * @public
  */
-export interface XmlTimestampsInputOutput {
+export interface XmlNamespacesResponse {
+  nested?: XmlNamespaceNested;
+}
+
+/**
+ * @public
+ */
+export interface XmlTimestampsRequest {
+  normal?: Date;
+  dateTime?: Date;
+  dateTimeOnTarget?: Date;
+  epochSeconds?: Date;
+  epochSecondsOnTarget?: Date;
+  httpDate?: Date;
+  httpDateOnTarget?: Date;
+}
+
+/**
+ * @public
+ */
+export interface XmlTimestampsResponse {
   normal?: Date;
   dateTime?: Date;
   dateTimeOnTarget?: Date;
@@ -909,13 +1163,27 @@ export interface RecursiveShapesInputOutputNested2 {
 /**
  * @public
  */
-export interface XmlUnionsInputOutput {
+export interface XmlUnionsRequest {
   unionValue?: XmlUnionShape;
 }
 
 /**
  * @public
  */
-export interface RecursiveShapesInputOutput {
+export interface XmlUnionsResponse {
+  unionValue?: XmlUnionShape;
+}
+
+/**
+ * @public
+ */
+export interface RecursiveShapesRequest {
+  nested?: RecursiveShapesInputOutputNested1;
+}
+
+/**
+ * @public
+ */
+export interface RecursiveShapesResponse {
   nested?: RecursiveShapesInputOutputNested1;
 }

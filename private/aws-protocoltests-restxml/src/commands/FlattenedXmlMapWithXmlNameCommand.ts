@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { FlattenedXmlMapWithXmlNameInputOutput } from "../models/models_0";
+import { FlattenedXmlMapWithXmlNameRequest, FlattenedXmlMapWithXmlNameResponse } from "../models/models_0";
 import { de_FlattenedXmlMapWithXmlNameCommand, se_FlattenedXmlMapWithXmlNameCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,15 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link FlattenedXmlMapWithXmlNameCommand}.
  */
-export interface FlattenedXmlMapWithXmlNameCommandInput extends FlattenedXmlMapWithXmlNameInputOutput {}
+export interface FlattenedXmlMapWithXmlNameCommandInput extends FlattenedXmlMapWithXmlNameRequest {}
 /**
  * @public
  *
  * The output of {@link FlattenedXmlMapWithXmlNameCommand}.
  */
-export interface FlattenedXmlMapWithXmlNameCommandOutput
-  extends FlattenedXmlMapWithXmlNameInputOutput,
-    __MetadataBearer {}
+export interface FlattenedXmlMapWithXmlNameCommandOutput extends FlattenedXmlMapWithXmlNameResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -35,14 +33,14 @@ export interface FlattenedXmlMapWithXmlNameCommandOutput
  * import { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, FlattenedXmlMapWithXmlNameCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // FlattenedXmlMapWithXmlNameInputOutput
+ * const input = { // FlattenedXmlMapWithXmlNameRequest
  *   myMap: { // FlattenedXmlMapWithXmlNameInputOutputMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new FlattenedXmlMapWithXmlNameCommand(input);
  * const response = await client.send(command);
- * // { // FlattenedXmlMapWithXmlNameInputOutput
+ * // { // FlattenedXmlMapWithXmlNameResponse
  * //   myMap: { // FlattenedXmlMapWithXmlNameInputOutputMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

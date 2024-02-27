@@ -492,6 +492,42 @@ export namespace DocumentTypeInputOutput {
 /**
  * @public
  */
+export interface DocumentTypeAsMapValueInputOutput {
+  docValuedMap?: Record<string, __DocumentType>;
+}
+
+export namespace DocumentTypeAsMapValueInputOutput {
+  const memberValidators: {
+    docValuedMap?: __MultiConstraintValidator<Record<string, __DocumentType>>;
+  } = {};
+  /**
+   * @internal
+   */
+  export const validate = (obj: DocumentTypeAsMapValueInputOutput, path = ""): __ValidationFailure[] => {
+    function getMemberValidator<T extends keyof typeof memberValidators>(
+      member: T
+    ): NonNullable<(typeof memberValidators)[T]> {
+      if (memberValidators[member] === undefined) {
+        switch (member) {
+          case "docValuedMap": {
+            memberValidators["docValuedMap"] = new __CompositeMapValidator<__DocumentType>(
+              new __NoOpValidator(),
+              new __NoOpValidator(),
+              new __NoOpValidator()
+            );
+            break;
+          }
+        }
+      }
+      return memberValidators[member]!;
+    }
+    return [...getMemberValidator("docValuedMap").validate(obj.docValuedMap, `${path}/docValuedMap`)];
+  };
+}
+
+/**
+ * @public
+ */
 export interface DocumentTypeAsPayloadInputOutput {
   documentValue?: __DocumentType;
 }

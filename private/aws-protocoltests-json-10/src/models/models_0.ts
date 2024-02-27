@@ -36,6 +36,13 @@ export enum IntegerEnum {
 /**
  * @public
  */
+export interface ClientOptionalDefaults {
+  member?: number;
+}
+
+/**
+ * @public
+ */
 export interface ComplexNestedErrorData {
   Foo?: string;
 }
@@ -106,6 +113,15 @@ export interface Defaults {
   defaultMap?: Record<string, string>;
   defaultEnum?: TestEnum;
   defaultIntEnum?: TestIntEnum;
+  emptyString?: string;
+  falseBoolean?: boolean;
+  emptyBlob?: Uint8Array;
+  zeroByte?: number;
+  zeroShort?: number;
+  zeroInteger?: number;
+  zeroLong?: number;
+  zeroFloat?: number;
+  zeroDouble?: number;
 }
 
 /**
@@ -437,7 +453,9 @@ export interface NoInputAndOutputOutput {}
  */
 export interface OperationWithDefaultsInput {
   defaults?: Defaults;
+  clientOptionalDefaults?: ClientOptionalDefaults;
   topLevelDefault?: string;
+  otherTopLevelDefault?: number;
 }
 
 /**
@@ -463,6 +481,15 @@ export interface OperationWithDefaultsOutput {
   defaultMap?: Record<string, string>;
   defaultEnum?: TestEnum;
   defaultIntEnum?: TestIntEnum;
+  emptyString?: string;
+  falseBoolean?: boolean;
+  emptyBlob?: Uint8Array;
+  zeroByte?: number;
+  zeroShort?: number;
+  zeroInteger?: number;
+  zeroLong?: number;
+  zeroFloat?: number;
+  zeroDouble?: number;
 }
 
 /**

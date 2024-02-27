@@ -1977,7 +1977,16 @@ it.skip("AwsJson10ClientPopulatesDefaultValuesInInput:Request", async () => {
             \"defaultDouble\": 1.0,
             \"defaultMap\": {},
             \"defaultEnum\": \"FOO\",
-            \"defaultIntEnum\": 1
+            \"defaultIntEnum\": 1,
+            \"emptyString\": \"\",
+            \"falseBoolean\": false,
+            \"emptyBlob\": \"\",
+            \"zeroByte\": 0,
+            \"zeroShort\": 0,
+            \"zeroInteger\": 0,
+            \"zeroLong\": 0,
+            \"zeroFloat\": 0.0,
+            \"zeroDouble\": 0.0
         }
     }`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
@@ -2072,6 +2081,24 @@ it.skip("AwsJson10ClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request",
       defaultEnum: "BAR",
 
       defaultIntEnum: 2,
+
+      emptyString: "foo",
+
+      falseBoolean: true,
+
+      emptyBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
+
+      zeroByte: 1,
+
+      zeroShort: 1,
+
+      zeroInteger: 1,
+
+      zeroLong: 1,
+
+      zeroFloat: 1.0,
+
+      zeroDouble: 1.0,
     } as any,
   } as any);
   try {
@@ -2112,8 +2139,96 @@ it.skip("AwsJson10ClientUsesExplicitlyProvidedMemberValuesOverDefaults:Request",
             \"defaultDouble\": 2.0,
             \"defaultMap\": {\"name\": \"Jack\"},
             \"defaultEnum\": \"BAR\",
-            \"defaultIntEnum\": 2
+            \"defaultIntEnum\": 2,
+            \"emptyString\": \"foo\",
+            \"falseBoolean\": true,
+            \"emptyBlob\": \"aGk=\",
+            \"zeroByte\": 1,
+            \"zeroShort\": 1,
+            \"zeroInteger\": 1,
+            \"zeroLong\": 1,
+            \"zeroFloat\": 1.0,
+            \"zeroDouble\": 1.0
         }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Any time a value is provided for a member in the top level of input, it is used, regardless of if its the default.
+ */
+it.skip("AwsJson10ClientUsesExplicitlyProvidedValuesInTopLevel:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({
+    topLevelDefault: "hi",
+
+    otherTopLevelDefault: 0,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"topLevelDefault\": \"hi\",
+        \"otherTopLevelDefault\": 0
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Typically, non top-level members would have defaults filled in, but if they have the clientOptional trait, the defaults should be ignored.
+ */
+it.skip("AwsJson10ClientIgnoresNonTopLevelDefaultsOnMembersWithClientOptional:Request", async () => {
+  const client = new JSONRPC10Client({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new OperationWithDefaultsCommand({
+    clientOptionalDefaults: {} as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("POST");
+    expect(r.path).toBe("/");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/x-amz-json-1.0");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"clientOptionalDefaults\": {}
     }`;
     const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -2184,6 +2299,24 @@ it.skip("AwsJson10ClientPopulatesDefaultsValuesWhenMissingInResponse:Response", 
       defaultEnum: "FOO",
 
       defaultIntEnum: 1,
+
+      emptyString: "",
+
+      falseBoolean: false,
+
+      emptyBlob: Uint8Array.from("", (c) => c.charCodeAt(0)),
+
+      zeroByte: 0,
+
+      zeroShort: 0,
+
+      zeroInteger: 0,
+
+      zeroLong: 0,
+
+      zeroFloat: 0.0,
+
+      zeroDouble: 0.0,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {
@@ -2223,7 +2356,16 @@ it.skip("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:R
           "defaultDouble": 2.0,
           "defaultMap": {"name": "Jack"},
           "defaultEnum": "BAR",
-          "defaultIntEnum": 2
+          "defaultIntEnum": 2,
+          "emptyString": "foo",
+          "falseBoolean": true,
+          "emptyBlob": "aGk=",
+          "zeroByte": 1,
+          "zeroShort": 1,
+          "zeroInteger": 1,
+          "zeroLong": 1,
+          "zeroFloat": 1.0,
+          "zeroDouble": 1.0
       }`
     ),
   });
@@ -2282,6 +2424,24 @@ it.skip("AwsJson10ClientIgnoresDefaultValuesIfMemberValuesArePresentInResponse:R
       defaultEnum: "BAR",
 
       defaultIntEnum: 2,
+
+      emptyString: "foo",
+
+      falseBoolean: true,
+
+      emptyBlob: Uint8Array.from("hi", (c) => c.charCodeAt(0)),
+
+      zeroByte: 1,
+
+      zeroShort: 1,
+
+      zeroInteger: 1,
+
+      zeroLong: 1,
+
+      zeroFloat: 1.0,
+
+      zeroDouble: 1.0,
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlBlobsInputOutput } from "../models/models_0";
+import { XmlEmptyBlobsRequest, XmlEmptyBlobsResponse } from "../models/models_0";
 import { de_XmlEmptyBlobsCommand, se_XmlEmptyBlobsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlEmptyBlobsCommand}.
  */
-export interface XmlEmptyBlobsCommandInput extends XmlBlobsInputOutput {}
+export interface XmlEmptyBlobsCommandInput extends XmlEmptyBlobsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlEmptyBlobsCommand}.
  */
-export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBearer {}
+export interface XmlEmptyBlobsCommandOutput extends XmlEmptyBlobsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,12 +33,12 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsInputOutput, __Metad
  * import { RestXmlProtocolClient, XmlEmptyBlobsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlBlobsInputOutput
+ * const input = { // XmlEmptyBlobsRequest
  *   data: "BLOB_VALUE",
  * };
  * const command = new XmlEmptyBlobsCommand(input);
  * const response = await client.send(command);
- * // { // XmlBlobsInputOutput
+ * // { // XmlEmptyBlobsResponse
  * //   data: "BLOB_VALUE",
  * // };
  *

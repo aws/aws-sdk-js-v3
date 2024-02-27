@@ -72,6 +72,7 @@ import {
 } from "../commands/SimpleScalarPropertiesCommand";
 import { JSONRPC10ServiceException as __BaseException } from "../models/JSONRPC10ServiceException";
 import {
+  ClientOptionalDefaults,
   ComplexError,
   ComplexNestedErrorData,
   Defaults,
@@ -591,6 +592,8 @@ const de_InvalidGreetingRes = async (parsedOutput: any, context: __SerdeContext)
   return __decorateServiceException(exception, body);
 };
 
+// se_ClientOptionalDefaults omitted.
+
 /**
  * serializeAws_json1_0Defaults
  */
@@ -615,6 +618,15 @@ const se_Defaults = (input: Defaults, context: __SerdeContext): any => {
     defaultShort: [],
     defaultString: [],
     defaultTimestamp: (_) => Math.round(_.getTime() / 1000),
+    emptyBlob: context.base64Encoder,
+    emptyString: [],
+    falseBoolean: [],
+    zeroByte: [],
+    zeroDouble: __serializeFloat,
+    zeroFloat: __serializeFloat,
+    zeroInteger: [],
+    zeroLong: [],
+    zeroShort: [],
   });
 };
 
@@ -665,7 +677,9 @@ const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
  */
 const se_OperationWithDefaultsInput = (input: OperationWithDefaultsInput, context: __SerdeContext): any => {
   return take(input, {
+    clientOptionalDefaults: _json,
     defaults: (_) => se_Defaults(_, context),
+    otherTopLevelDefault: [],
     topLevelDefault: [],
   });
 };
@@ -820,6 +834,15 @@ const de_OperationWithDefaultsOutput = (output: any, context: __SerdeContext): O
     defaultShort: __expectShort,
     defaultString: __expectString,
     defaultTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    emptyBlob: context.base64Decoder,
+    emptyString: __expectString,
+    falseBoolean: __expectBoolean,
+    zeroByte: __expectByte,
+    zeroDouble: __limitedParseDouble,
+    zeroFloat: __limitedParseFloat32,
+    zeroInteger: __expectInt32,
+    zeroLong: __expectLong,
+    zeroShort: __expectShort,
   }) as any;
 };
 

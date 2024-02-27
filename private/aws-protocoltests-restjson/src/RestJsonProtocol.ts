@@ -23,6 +23,11 @@ import {
   DatetimeOffsetsCommandOutput,
 } from "./commands/DatetimeOffsetsCommand";
 import {
+  DocumentTypeAsMapValueCommand,
+  DocumentTypeAsMapValueCommandInput,
+  DocumentTypeAsMapValueCommandOutput,
+} from "./commands/DocumentTypeAsMapValueCommand";
+import {
   DocumentTypeAsPayloadCommand,
   DocumentTypeAsPayloadCommandInput,
   DocumentTypeAsPayloadCommandOutput,
@@ -450,6 +455,7 @@ const commands = {
   ConstantQueryStringCommand,
   DatetimeOffsetsCommand,
   DocumentTypeCommand,
+  DocumentTypeAsMapValueCommand,
   DocumentTypeAsPayloadCommand,
   EmptyInputAndEmptyOutputCommand,
   EndpointOperationCommand,
@@ -614,6 +620,23 @@ export interface RestJsonProtocol {
     args: DocumentTypeCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: DocumentTypeCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DocumentTypeAsMapValueCommand}
+   */
+  documentTypeAsMapValue(
+    args: DocumentTypeAsMapValueCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DocumentTypeAsMapValueCommandOutput>;
+  documentTypeAsMapValue(
+    args: DocumentTypeAsMapValueCommandInput,
+    cb: (err: any, data?: DocumentTypeAsMapValueCommandOutput) => void
+  ): void;
+  documentTypeAsMapValue(
+    args: DocumentTypeAsMapValueCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DocumentTypeAsMapValueCommandOutput) => void
   ): void;
 
   /**

@@ -8,11 +8,18 @@ import {
 import { getLoggerPlugin } from "@aws-sdk/middleware-logger";
 import { getRecursionDetectionPlugin } from "@aws-sdk/middleware-recursion-detection";
 import {
+  AwsAuthInputConfig,
+  AwsAuthResolvedConfig,
+  getAwsAuthPlugin,
+  resolveAwsAuthConfig,
+} from "@aws-sdk/middleware-signing";
+import {
   getUserAgentPlugin,
   resolveUserAgentConfig,
   UserAgentInputConfig,
   UserAgentResolvedConfig,
 } from "@aws-sdk/middleware-user-agent";
+import { Credentials as __Credentials } from "@aws-sdk/types";
 import {
   EndpointsInputConfig,
   EndpointsResolvedConfig,
@@ -217,6 +224,17 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   useFipsEndpoint?: boolean | __Provider<boolean>;
 
   /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => __Provider<__Credentials>;
+
+  /**
    * Fetch related hostname, signing name or signing region with given region.
    * @internal
    */
@@ -265,6 +283,7 @@ export type JSONRPC10ClientConfigType = Partial<__SmithyConfiguration<__HttpHand
   EndpointsInputConfig &
   RetryInputConfig &
   HostHeaderInputConfig &
+  AwsAuthInputConfig &
   UserAgentInputConfig &
   CompressionInputConfig;
 /**
@@ -284,6 +303,7 @@ export type JSONRPC10ClientResolvedConfigType = __SmithyResolvedConfiguration<__
   EndpointsResolvedConfig &
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
+  AwsAuthResolvedConfig &
   UserAgentResolvedConfig &
   CompressionResolvedConfig;
 /**
@@ -313,16 +333,18 @@ export class JSONRPC10Client extends __Client<
     const _config_2 = resolveEndpointsConfig(_config_1);
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
-    const _config_5 = resolveUserAgentConfig(_config_4);
-    const _config_6 = resolveCompressionConfig(_config_5);
-    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    super(_config_7);
-    this.config = _config_7;
+    const _config_5 = resolveAwsAuthConfig(_config_4);
+    const _config_6 = resolveUserAgentConfig(_config_5);
+    const _config_7 = resolveCompressionConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
+    this.middlewareStack.use(getAwsAuthPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
   }
 

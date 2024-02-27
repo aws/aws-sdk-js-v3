@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlIntEnumsInputOutput } from "../models/models_0";
+import { XmlIntEnumsRequest, XmlIntEnumsResponse } from "../models/models_0";
 import { de_XmlIntEnumsCommand, se_XmlIntEnumsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlIntEnumsCommand}.
  */
-export interface XmlIntEnumsCommandInput extends XmlIntEnumsInputOutput {}
+export interface XmlIntEnumsCommandInput extends XmlIntEnumsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlIntEnumsCommand}.
  */
-export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __MetadataBearer {}
+export interface XmlIntEnumsCommandOutput extends XmlIntEnumsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __Meta
  * import { RestXmlProtocolClient, XmlIntEnumsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlIntEnumsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlIntEnumsInputOutput
+ * const input = { // XmlIntEnumsRequest
  *   intEnum1: 1 || 2 || 3,
  *   intEnum2: 1 || 2 || 3,
  *   intEnum3: 1 || 2 || 3,
@@ -49,7 +49,7 @@ export interface XmlIntEnumsCommandOutput extends XmlIntEnumsInputOutput, __Meta
  * };
  * const command = new XmlIntEnumsCommand(input);
  * const response = await client.send(command);
- * // { // XmlIntEnumsInputOutput
+ * // { // XmlIntEnumsResponse
  * //   intEnum1: 1 || 2 || 3,
  * //   intEnum2: 1 || 2 || 3,
  * //   intEnum3: 1 || 2 || 3,

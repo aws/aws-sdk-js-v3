@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlListsInputOutput } from "../models/models_0";
+import { XmlEmptyListsRequest, XmlEmptyListsResponse } from "../models/models_0";
 import { de_XmlEmptyListsCommand, se_XmlEmptyListsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlEmptyListsCommand}.
  */
-export interface XmlEmptyListsCommandInput extends XmlListsInputOutput {}
+export interface XmlEmptyListsCommandInput extends XmlEmptyListsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlEmptyListsCommand}.
  */
-export interface XmlEmptyListsCommandOutput extends XmlListsInputOutput, __MetadataBearer {}
+export interface XmlEmptyListsCommandOutput extends XmlEmptyListsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface XmlEmptyListsCommandOutput extends XmlListsInputOutput, __Metad
  * import { RestXmlProtocolClient, XmlEmptyListsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyListsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlListsInputOutput
+ * const input = { // XmlEmptyListsRequest
  *   stringList: [ // StringList
  *     "STRING_VALUE",
  *   ],
@@ -90,7 +90,7 @@ export interface XmlEmptyListsCommandOutput extends XmlListsInputOutput, __Metad
  * };
  * const command = new XmlEmptyListsCommand(input);
  * const response = await client.send(command);
- * // { // XmlListsInputOutput
+ * // { // XmlEmptyListsResponse
  * //   stringList: [ // StringList
  * //     "STRING_VALUE",
  * //   ],

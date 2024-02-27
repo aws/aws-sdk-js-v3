@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlNamespacesInputOutput } from "../models/models_0";
+import { XmlNamespacesRequest, XmlNamespacesResponse } from "../models/models_0";
 import { de_XmlNamespacesCommand, se_XmlNamespacesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlNamespacesCommand}.
  */
-export interface XmlNamespacesCommandInput extends XmlNamespacesInputOutput {}
+export interface XmlNamespacesCommandInput extends XmlNamespacesRequest {}
 /**
  * @public
  *
  * The output of {@link XmlNamespacesCommand}.
  */
-export interface XmlNamespacesCommandOutput extends XmlNamespacesInputOutput, __MetadataBearer {}
+export interface XmlNamespacesCommandOutput extends XmlNamespacesResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesInputOutput, __
  * import { RestXmlProtocolClient, XmlNamespacesCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlNamespacesCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlNamespacesInputOutput
+ * const input = { // XmlNamespacesRequest
  *   nested: { // XmlNamespaceNested
  *     foo: "STRING_VALUE",
  *     values: [ // XmlNamespacedList
@@ -43,7 +43,7 @@ export interface XmlNamespacesCommandOutput extends XmlNamespacesInputOutput, __
  * };
  * const command = new XmlNamespacesCommand(input);
  * const response = await client.send(command);
- * // { // XmlNamespacesInputOutput
+ * // { // XmlNamespacesResponse
  * //   nested: { // XmlNamespaceNested
  * //     foo: "STRING_VALUE",
  * //     values: [ // XmlNamespacedList

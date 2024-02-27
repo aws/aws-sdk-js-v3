@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { FlattenedXmlMapInputOutput } from "../models/models_0";
+import { FlattenedXmlMapRequest, FlattenedXmlMapResponse } from "../models/models_0";
 import { de_FlattenedXmlMapCommand, se_FlattenedXmlMapCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link FlattenedXmlMapCommand}.
  */
-export interface FlattenedXmlMapCommandInput extends FlattenedXmlMapInputOutput {}
+export interface FlattenedXmlMapCommandInput extends FlattenedXmlMapRequest {}
 /**
  * @public
  *
  * The output of {@link FlattenedXmlMapCommand}.
  */
-export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapInputOutput, __MetadataBearer {}
+export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,14 +33,14 @@ export interface FlattenedXmlMapCommandOutput extends FlattenedXmlMapInputOutput
  * import { RestXmlProtocolClient, FlattenedXmlMapCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, FlattenedXmlMapCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // FlattenedXmlMapInputOutput
+ * const input = { // FlattenedXmlMapRequest
  *   myMap: { // FooEnumMap
  *     "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
  *   },
  * };
  * const command = new FlattenedXmlMapCommand(input);
  * const response = await client.send(command);
- * // { // FlattenedXmlMapInputOutput
+ * // { // FlattenedXmlMapResponse
  * //   myMap: { // FooEnumMap
  * //     "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
  * //   },

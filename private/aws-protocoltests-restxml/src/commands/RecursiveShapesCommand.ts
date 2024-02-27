@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { RecursiveShapesInputOutput } from "../models/models_0";
+import { RecursiveShapesRequest, RecursiveShapesResponse } from "../models/models_0";
 import { de_RecursiveShapesCommand, se_RecursiveShapesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link RecursiveShapesCommand}.
  */
-export interface RecursiveShapesCommandInput extends RecursiveShapesInputOutput {}
+export interface RecursiveShapesCommandInput extends RecursiveShapesRequest {}
 /**
  * @public
  *
  * The output of {@link RecursiveShapesCommand}.
  */
-export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput, __MetadataBearer {}
+export interface RecursiveShapesCommandOutput extends RecursiveShapesResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * import { RestXmlProtocolClient, RecursiveShapesCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, RecursiveShapesCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // RecursiveShapesInputOutput
+ * const input = { // RecursiveShapesRequest
  *   nested: { // RecursiveShapesInputOutputNested1
  *     foo: "STRING_VALUE",
  *     nested: { // RecursiveShapesInputOutputNested2
@@ -50,7 +50,7 @@ export interface RecursiveShapesCommandOutput extends RecursiveShapesInputOutput
  * };
  * const command = new RecursiveShapesCommand(input);
  * const response = await client.send(command);
- * // { // RecursiveShapesInputOutput
+ * // { // RecursiveShapesResponse
  * //   nested: { // RecursiveShapesInputOutputNested1
  * //     foo: "STRING_VALUE",
  * //     nested: { // RecursiveShapesInputOutputNested2

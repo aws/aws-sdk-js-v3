@@ -3,6 +3,7 @@ export * from "./AllQueryStringTypesCommand";
 export * from "./ConstantAndVariableQueryStringCommand";
 export * from "./ConstantQueryStringCommand";
 export * from "./DatetimeOffsetsCommand";
+export * from "./DocumentTypeAsMapValueCommand";
 export * from "./DocumentTypeAsPayloadCommand";
 export * from "./DocumentTypeCommand";
 export * from "./EmptyInputAndEmptyOutputCommand";

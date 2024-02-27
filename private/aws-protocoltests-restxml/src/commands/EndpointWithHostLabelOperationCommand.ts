@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { HostLabelInput } from "../models/models_0";
+import { EndpointWithHostLabelOperationRequest } from "../models/models_0";
 import {
   de_EndpointWithHostLabelOperationCommand,
   se_EndpointWithHostLabelOperationCommand,
@@ -19,7 +19,7 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link EndpointWithHostLabelOperationCommand}.
  */
-export interface EndpointWithHostLabelOperationCommandInput extends HostLabelInput {}
+export interface EndpointWithHostLabelOperationCommandInput extends EndpointWithHostLabelOperationRequest {}
 /**
  * @public
  *
@@ -36,7 +36,7 @@ export interface EndpointWithHostLabelOperationCommandOutput extends __MetadataB
  * import { RestXmlProtocolClient, EndpointWithHostLabelOperationCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, EndpointWithHostLabelOperationCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // HostLabelInput
+ * const input = { // EndpointWithHostLabelOperationRequest
  *   label: "STRING_VALUE", // required
  * };
  * const command = new EndpointWithHostLabelOperationCommand(input);

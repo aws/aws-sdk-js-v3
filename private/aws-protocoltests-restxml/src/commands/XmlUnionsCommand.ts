@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlUnionsInputOutput } from "../models/models_0";
+import { XmlUnionsRequest, XmlUnionsResponse } from "../models/models_0";
 import { de_XmlUnionsCommand, se_XmlUnionsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlUnionsCommand}.
  */
-export interface XmlUnionsCommandInput extends XmlUnionsInputOutput {}
+export interface XmlUnionsCommandInput extends XmlUnionsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlUnionsCommand}.
  */
-export interface XmlUnionsCommandOutput extends XmlUnionsInputOutput, __MetadataBearer {}
+export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsInputOutput, __Metadata
  * import { RestXmlProtocolClient, XmlUnionsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlUnionsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlUnionsInputOutput
+ * const input = { // XmlUnionsRequest
  *   unionValue: { // XmlUnionShape Union: only one key present
  *     stringValue: "STRING_VALUE",
  *     booleanValue: true || false,
@@ -78,7 +78,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsInputOutput, __Metadata
  * };
  * const command = new XmlUnionsCommand(input);
  * const response = await client.send(command);
- * // { // XmlUnionsInputOutput
+ * // { // XmlUnionsResponse
  * //   unionValue: { // XmlUnionShape Union: only one key present
  * //     stringValue: "STRING_VALUE",
  * //     booleanValue: true || false,

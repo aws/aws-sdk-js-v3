@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlTimestampsInputOutput } from "../models/models_0";
+import { XmlTimestampsRequest, XmlTimestampsResponse } from "../models/models_0";
 import { de_XmlTimestampsCommand, se_XmlTimestampsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlTimestampsCommand}.
  */
-export interface XmlTimestampsCommandInput extends XmlTimestampsInputOutput {}
+export interface XmlTimestampsCommandInput extends XmlTimestampsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlTimestampsCommand}.
  */
-export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __MetadataBearer {}
+export interface XmlTimestampsCommandOutput extends XmlTimestampsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -35,7 +35,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * import { RestXmlProtocolClient, XmlTimestampsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlTimestampsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlTimestampsInputOutput
+ * const input = { // XmlTimestampsRequest
  *   normal: new Date("TIMESTAMP"),
  *   dateTime: new Date("TIMESTAMP"),
  *   dateTimeOnTarget: new Date("TIMESTAMP"),
@@ -46,7 +46,7 @@ export interface XmlTimestampsCommandOutput extends XmlTimestampsInputOutput, __
  * };
  * const command = new XmlTimestampsCommand(input);
  * const response = await client.send(command);
- * // { // XmlTimestampsInputOutput
+ * // { // XmlTimestampsResponse
  * //   normal: new Date("TIMESTAMP"),
  * //   dateTime: new Date("TIMESTAMP"),
  * //   dateTimeOnTarget: new Date("TIMESTAMP"),

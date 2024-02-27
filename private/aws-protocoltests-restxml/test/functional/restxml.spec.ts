@@ -515,6 +515,41 @@ it("RestXmlSupportsNegativeInfinityFloatQueryValues:Request", async () => {
 });
 
 /**
+ * Query values of 0 and false are serialized
+ */
+it("RestXmlZeroAndFalseQueryValues:Request", async () => {
+  const client = new RestXmlProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new AllQueryStringTypesCommand({
+    queryInteger: 0,
+
+    queryBoolean: false,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/AllQueryStringTypesInput");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("Integer=0");
+    expect(queryString).toContain("Boolean=false");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
  * Serializes a payload using a wrapper name based on the xmlName
  */
 it("BodyWithXmlName:Request", async () => {
@@ -924,9 +959,9 @@ it("RestXmlEndpointTraitWithHostLabel:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<HostLabelInput>
+    const bodyString = `<EndpointWithHostLabelOperationRequest>
         <label>bar</label>
-    </HostLabelInput>
+    </EndpointWithHostLabelOperationRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -967,7 +1002,7 @@ it("FlattenedXmlMap:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<FlattenedXmlMapInputOutput>
+    const bodyString = `<FlattenedXmlMapRequest>
         <myMap>
             <key>foo</key>
             <value>Foo</value>
@@ -976,7 +1011,7 @@ it("FlattenedXmlMap:Request", async () => {
             <key>baz</key>
             <value>Baz</value>
         </myMap>
-    </FlattenedXmlMapInputOutput>`;
+    </FlattenedXmlMapRequest>`;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -994,7 +1029,7 @@ it("FlattenedXmlMap:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<FlattenedXmlMapInputOutput>
+      `<FlattenedXmlMapResponse>
           <myMap>
               <key>foo</key>
               <value>Foo</value>
@@ -1003,7 +1038,7 @@ it("FlattenedXmlMap:Response", async () => {
               <key>baz</key>
               <value>Baz</value>
           </myMap>
-      </FlattenedXmlMapInputOutput>`
+      </FlattenedXmlMapResponse>`
     ),
   });
 
@@ -1067,7 +1102,7 @@ it("FlattenedXmlMapWithXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<FlattenedXmlMapWithXmlNameInputOutput>
+    const bodyString = `<FlattenedXmlMapWithXmlNameRequest>
         <KVP>
             <K>a</K>
             <V>A</V>
@@ -1076,7 +1111,7 @@ it("FlattenedXmlMapWithXmlName:Request", async () => {
             <K>b</K>
             <V>B</V>
         </KVP>
-    </FlattenedXmlMapWithXmlNameInputOutput>`;
+    </FlattenedXmlMapWithXmlNameRequest>`;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -1094,7 +1129,7 @@ it("FlattenedXmlMapWithXmlName:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<FlattenedXmlMapWithXmlNameInputOutput>
+      `<FlattenedXmlMapWithXmlNameResponse>
           <KVP>
               <K>a</K>
               <V>A</V>
@@ -1103,7 +1138,7 @@ it("FlattenedXmlMapWithXmlName:Response", async () => {
               <K>b</K>
               <V>B</V>
           </KVP>
-      </FlattenedXmlMapWithXmlNameInputOutput>`
+      </FlattenedXmlMapWithXmlNameResponse>`
     ),
   });
 
@@ -3475,7 +3510,7 @@ it("NestedXmlMapRequest:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<NestedXmlMapsInputOutput>
+    const bodyString = `<NestedXmlMapsRequest>
         <nestedMap>
             <entry>
                 <key>foo</key>
@@ -3487,7 +3522,7 @@ it("NestedXmlMapRequest:Request", async () => {
                 </value>
             </entry>
         </nestedMap>
-    </NestedXmlMapsInputOutput>`;
+    </NestedXmlMapsRequest>`;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -3528,7 +3563,7 @@ it("FlatNestedXmlMapRequest:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<NestedXmlMapsInputOutput>
+    const bodyString = `<NestedXmlMapsRequest>
         <flatNestedMap>
             <key>foo</key>
             <value>
@@ -3538,7 +3573,7 @@ it("FlatNestedXmlMapRequest:Request", async () => {
                 </entry>
             </value>
         </flatNestedMap>
-    </NestedXmlMapsInputOutput>`;
+    </NestedXmlMapsRequest>`;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -3556,7 +3591,7 @@ it("NestedXmlMapResponse:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<NestedXmlMapsInputOutput>
+      `<NestedXmlMapsResponse>
           <nestedMap>
               <entry>
                   <key>foo</key>
@@ -3568,7 +3603,7 @@ it("NestedXmlMapResponse:Response", async () => {
                   </value>
               </entry>
           </nestedMap>
-      </NestedXmlMapsInputOutput>`
+      </NestedXmlMapsResponse>`
     ),
   });
 
@@ -3611,7 +3646,7 @@ it("FlatNestedXmlMapResponse:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<NestedXmlMapsInputOutput>
+      `<NestedXmlMapsResponse>
           <flatNestedMap>
               <key>foo</key>
               <value>
@@ -3621,7 +3656,7 @@ it("FlatNestedXmlMapResponse:Response", async () => {
                   </entry>
               </value>
           </flatNestedMap>
-      </NestedXmlMapsInputOutput>`
+      </NestedXmlMapsResponse>`
     ),
   });
 
@@ -4097,7 +4132,7 @@ it("RecursiveShapes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<RecursiveShapesInputOutput>
+    const bodyString = `<RecursiveShapesRequest>
         <nested>
             <foo>Foo1</foo>
             <nested>
@@ -4110,7 +4145,7 @@ it("RecursiveShapes:Request", async () => {
                 </recursiveMember>
             </nested>
         </nested>
-    </RecursiveShapesInputOutput>
+    </RecursiveShapesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -4129,7 +4164,7 @@ it("RecursiveShapes:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<RecursiveShapesInputOutput>
+      `<RecursiveShapesResponse>
           <nested>
               <foo>Foo1</foo>
               <nested>
@@ -4142,7 +4177,7 @@ it("RecursiveShapes:Response", async () => {
                   </recursiveMember>
               </nested>
           </nested>
-      </RecursiveShapesInputOutput>
+      </RecursiveShapesResponse>
       `
     ),
   });
@@ -4233,7 +4268,7 @@ it("SimpleScalarProperties:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<SimpleScalarPropertiesInputOutput>
+    const bodyString = `<SimpleScalarPropertiesRequest>
         <stringValue>string</stringValue>
         <trueBooleanValue>true</trueBooleanValue>
         <falseBooleanValue>false</falseBooleanValue>
@@ -4243,7 +4278,7 @@ it("SimpleScalarProperties:Request", async () => {
         <longValue>4</longValue>
         <floatValue>5.5</floatValue>
         <DoubleDribble>6.5</DoubleDribble>
-    </SimpleScalarPropertiesInputOutput>
+    </SimpleScalarPropertiesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -4284,9 +4319,9 @@ it("SimpleScalarPropertiesWithEscapedCharacter:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<SimpleScalarPropertiesInputOutput>
+    const bodyString = `<SimpleScalarPropertiesRequest>
         <stringValue>&lt;string&gt;</stringValue>
-    </SimpleScalarPropertiesInputOutput>
+    </SimpleScalarPropertiesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -4327,9 +4362,9 @@ it("SimpleScalarPropertiesWithWhiteSpace:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<SimpleScalarPropertiesInputOutput>
+    const bodyString = `<SimpleScalarPropertiesRequest>
         <stringValue>  string with white    space  </stringValue>
-    </SimpleScalarPropertiesInputOutput>
+    </SimpleScalarPropertiesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -4370,9 +4405,9 @@ it("SimpleScalarPropertiesPureWhiteSpace:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<SimpleScalarPropertiesInputOutput>
+    const bodyString = `<SimpleScalarPropertiesRequest>
         <stringValue>   </stringValue>
-    </SimpleScalarPropertiesInputOutput>
+    </SimpleScalarPropertiesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -4411,10 +4446,10 @@ it("RestXmlSupportsNaNFloatInputs:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<SimpleScalarPropertiesInputOutput>
+    const bodyString = `<SimpleScalarPropertiesRequest>
         <floatValue>NaN</floatValue>
         <DoubleDribble>NaN</DoubleDribble>
-    </SimpleScalarPropertiesInputOutput>
+    </SimpleScalarPropertiesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -4453,10 +4488,10 @@ it("RestXmlSupportsInfinityFloatInputs:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<SimpleScalarPropertiesInputOutput>
+    const bodyString = `<SimpleScalarPropertiesRequest>
         <floatValue>Infinity</floatValue>
         <DoubleDribble>Infinity</DoubleDribble>
-    </SimpleScalarPropertiesInputOutput>
+    </SimpleScalarPropertiesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -4495,10 +4530,10 @@ it("RestXmlSupportsNegativeInfinityFloatInputs:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<SimpleScalarPropertiesInputOutput>
+    const bodyString = `<SimpleScalarPropertiesRequest>
         <floatValue>-Infinity</floatValue>
         <DoubleDribble>-Infinity</DoubleDribble>
-    </SimpleScalarPropertiesInputOutput>
+    </SimpleScalarPropertiesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -4518,7 +4553,7 @@ it("SimpleScalarProperties:Response", async () => {
         "x-foo": "Foo",
         "content-type": "application/xml",
       },
-      `<SimpleScalarPropertiesInputOutput>
+      `<SimpleScalarPropertiesResponse>
           <stringValue>string</stringValue>
           <trueBooleanValue>true</trueBooleanValue>
           <falseBooleanValue>false</falseBooleanValue>
@@ -4528,7 +4563,7 @@ it("SimpleScalarProperties:Response", async () => {
           <longValue>4</longValue>
           <floatValue>5.5</floatValue>
           <DoubleDribble>6.5</DoubleDribble>
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -4592,9 +4627,9 @@ it("SimpleScalarPropertiesComplexEscapes:Response", async () => {
         "x-foo": "Foo",
         "content-type": "application/xml",
       },
-      `<SimpleScalarPropertiesInputOutput>
+      `<SimpleScalarPropertiesResponse>
           <stringValue>escaped data: &amp;lt;&#xD;&#10;</stringValue>
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -4636,9 +4671,9 @@ it("SimpleScalarPropertiesWithEscapedCharacter:Response", async () => {
         "x-foo": "Foo",
         "content-type": "application/xml",
       },
-      `<SimpleScalarPropertiesInputOutput>
+      `<SimpleScalarPropertiesResponse>
           <stringValue>&lt;string&gt;</stringValue>
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -4681,11 +4716,11 @@ it("SimpleScalarPropertiesWithXMLPreamble:Response", async () => {
         "content-type": "application/xml",
       },
       `<?xml version = "1.0" encoding = "UTF-8"?>
-      <SimpleScalarPropertiesInputOutput>
+      <SimpleScalarPropertiesResponse>
           <![CDATA[characters representing CDATA]]>
           <stringValue>string</stringValue>
           <!--xml comment-->
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -4728,9 +4763,9 @@ it("SimpleScalarPropertiesWithWhiteSpace:Response", async () => {
         "content-type": "application/xml",
       },
       `<?xml version = "1.0" encoding = "UTF-8"?>
-      <SimpleScalarPropertiesInputOutput>
+      <SimpleScalarPropertiesResponse>
           <stringValue> string with white    space </stringValue>
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -4773,9 +4808,9 @@ it("SimpleScalarPropertiesPureWhiteSpace:Response", async () => {
         "content-type": "application/xml",
       },
       `<?xml version = "1.0" encoding = "UTF-8"?>
-      <SimpleScalarPropertiesInputOutput>
+      <SimpleScalarPropertiesResponse>
           <stringValue>  </stringValue>
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -4816,10 +4851,10 @@ it("RestXmlSupportsNaNFloatOutputs:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<SimpleScalarPropertiesInputOutput>
+      `<SimpleScalarPropertiesResponse>
           <floatValue>NaN</floatValue>
           <DoubleDribble>NaN</DoubleDribble>
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -4860,10 +4895,10 @@ it("RestXmlSupportsInfinityFloatOutputs:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<SimpleScalarPropertiesInputOutput>
+      `<SimpleScalarPropertiesResponse>
           <floatValue>Infinity</floatValue>
           <DoubleDribble>Infinity</DoubleDribble>
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -4904,10 +4939,10 @@ it("RestXmlSupportsNegativeInfinityFloatOutputs:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<SimpleScalarPropertiesInputOutput>
+      `<SimpleScalarPropertiesResponse>
           <floatValue>-Infinity</floatValue>
           <DoubleDribble>-Infinity</DoubleDribble>
-      </SimpleScalarPropertiesInputOutput>
+      </SimpleScalarPropertiesResponse>
       `
     ),
   });
@@ -5080,9 +5115,9 @@ it("XmlAttributes:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlAttributesInputOutput test=\"test\">
+    const bodyString = `<XmlAttributesRequest test=\"test\">
         <foo>hi</foo>
-    </XmlAttributesInputOutput>
+    </XmlAttributesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5121,9 +5156,9 @@ it("XmlAttributesWithEscaping:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlAttributesInputOutput test=\"&lt;test&amp;mock&gt;\">
+    const bodyString = `<XmlAttributesRequest test=\"&lt;test&amp;mock&gt;\">
         <foo>hi</foo>
-    </XmlAttributesInputOutput>
+    </XmlAttributesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5142,9 +5177,9 @@ it("XmlAttributes:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlAttributesInputOutput test="test">
+      `<XmlAttributesResponse test="test">
           <foo>hi</foo>
-      </XmlAttributesInputOutput>
+      </XmlAttributesResponse>
       `
     ),
   });
@@ -5207,9 +5242,9 @@ it("XmlAttributesOnPayload:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlAttributesInputOutput test=\"test\">
+    const bodyString = `<XmlAttributesPayloadRequest test=\"test\">
         <foo>hi</foo>
-    </XmlAttributesInputOutput>
+    </XmlAttributesPayloadRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5228,9 +5263,9 @@ it("XmlAttributesOnPayload:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlAttributesInputOutput test="test">
+      `<XmlAttributesPayloadResponse test="test">
           <foo>hi</foo>
-      </XmlAttributesInputOutput>
+      </XmlAttributesPayloadResponse>
       `
     ),
   });
@@ -5291,9 +5326,9 @@ it("XmlBlobs:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlBlobsInputOutput>
+    const bodyString = `<XmlBlobsRequest>
         <data>dmFsdWU=</data>
-    </XmlBlobsInputOutput>
+    </XmlBlobsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5312,9 +5347,9 @@ it("XmlBlobs:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlBlobsInputOutput>
+      `<XmlBlobsResponse>
           <data>dmFsdWU=</data>
-      </XmlBlobsInputOutput>
+      </XmlBlobsResponse>
       `
     ),
   });
@@ -5353,9 +5388,9 @@ it("XmlEmptyBlobs:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlBlobsInputOutput>
+      `<XmlEmptyBlobsResponse>
           <data></data>
-      </XmlBlobsInputOutput>
+      </XmlEmptyBlobsResponse>
       `
     ),
   });
@@ -5394,9 +5429,9 @@ it("XmlEmptySelfClosedBlobs:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlBlobsInputOutput>
+      `<XmlEmptyBlobsResponse>
           <data/>
-      </XmlBlobsInputOutput>
+      </XmlEmptyBlobsResponse>
       `
     ),
   });
@@ -5455,10 +5490,10 @@ it("XmlEmptyLists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlListsInputOutput>
+    const bodyString = `<XmlEmptyListsRequest>
             <stringList></stringList>
             <stringSet></stringSet>
-    </XmlListsInputOutput>
+    </XmlEmptyListsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5477,10 +5512,10 @@ it("XmlEmptyLists:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlListsInputOutput>
+      `<XmlEmptyListsResponse>
               <stringList/>
               <stringSet></stringSet>
-      </XmlListsInputOutput>
+      </XmlEmptyListsResponse>
       `
     ),
   });
@@ -5539,9 +5574,9 @@ it("XmlEmptyMaps:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlMapsInputOutput>
+    const bodyString = `<XmlEmptyMapsRequest>
         <myMap></myMap>
-    </XmlMapsInputOutput>
+    </XmlEmptyMapsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5560,9 +5595,9 @@ it("XmlEmptyMaps:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlMapsInputOutput>
+      `<XmlEmptyMapsResponse>
           <myMap></myMap>
-      </XmlMapsInputOutput>
+      </XmlEmptyMapsResponse>
       `
     ),
   });
@@ -5601,9 +5636,9 @@ it("XmlEmptySelfClosedMaps:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlMapsInputOutput>
+      `<XmlEmptyMapsResponse>
           <myMap/>
-      </XmlMapsInputOutput>
+      </XmlEmptyMapsResponse>
       `
     ),
   });
@@ -5660,9 +5695,9 @@ it("XmlEmptyStrings:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlEmptyStringsInputOutput>
+    const bodyString = `<XmlEmptyStringsRequest>
         <emptyString></emptyString>
-    </XmlEmptyStringsInputOutput>
+    </XmlEmptyStringsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5681,9 +5716,9 @@ it("XmlEmptyStrings:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlEmptyStringsInputOutput>
+      `<XmlEmptyStringsResponse>
           <emptyString></emptyString>
-      </XmlEmptyStringsInputOutput>
+      </XmlEmptyStringsResponse>
       `
     ),
   });
@@ -5722,9 +5757,9 @@ it("XmlEmptySelfClosedStrings:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlEmptyStringsInputOutput>
+      `<XmlEmptyStringsResponse>
           <emptyString/>
-      </XmlEmptyStringsInputOutput>
+      </XmlEmptyStringsResponse>
       `
     ),
   });
@@ -5795,7 +5830,7 @@ it("XmlEnums:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlEnumsInputOutput>
+    const bodyString = `<XmlEnumsRequest>
         <fooEnum1>Foo</fooEnum1>
         <fooEnum2>0</fooEnum2>
         <fooEnum3>1</fooEnum3>
@@ -5817,7 +5852,7 @@ it("XmlEnums:Request", async () => {
                 <value>0</value>
             </entry>
         </fooEnumMap>
-    </XmlEnumsInputOutput>
+    </XmlEnumsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5836,7 +5871,7 @@ it("XmlEnums:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlEnumsInputOutput>
+      `<XmlEnumsResponse>
           <fooEnum1>Foo</fooEnum1>
           <fooEnum2>0</fooEnum2>
           <fooEnum3>1</fooEnum3>
@@ -5858,7 +5893,7 @@ it("XmlEnums:Response", async () => {
                   <value>0</value>
               </entry>
           </fooEnumMap>
-      </XmlEnumsInputOutput>
+      </XmlEnumsResponse>
       `
     ),
   });
@@ -5951,7 +5986,7 @@ it("XmlIntEnums:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlIntEnumsInputOutput>
+    const bodyString = `<XmlIntEnumsRequest>
         <intEnum1>1</intEnum1>
         <intEnum2>2</intEnum2>
         <intEnum3>3</intEnum3>
@@ -5973,7 +6008,7 @@ it("XmlIntEnums:Request", async () => {
                 <value>2</value>
             </entry>
         </intEnumMap>
-    </XmlIntEnumsInputOutput>
+    </XmlIntEnumsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -5992,7 +6027,7 @@ it("XmlIntEnums:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlIntEnumsInputOutput>
+      `<XmlIntEnumsResponse>
           <intEnum1>1</intEnum1>
           <intEnum2>2</intEnum2>
           <intEnum3>3</intEnum3>
@@ -6014,7 +6049,7 @@ it("XmlIntEnums:Response", async () => {
                   <value>2</value>
               </entry>
           </intEnumMap>
-      </XmlIntEnumsInputOutput>
+      </XmlIntEnumsResponse>
       `
     ),
   });
@@ -6153,7 +6188,7 @@ it("XmlLists:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlListsInputOutput>
+    const bodyString = `<XmlListsRequest>
         <stringList>
             <member>foo</member>
             <member>bar</member>
@@ -6218,7 +6253,7 @@ it("XmlLists:Request", async () => {
             <value>7</value>
             <other>8</other>
         </flattenedStructureList>
-    </XmlListsInputOutput>
+    </XmlListsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -6237,7 +6272,7 @@ it("XmlLists:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlListsInputOutput>
+      `<XmlListsResponse>
           <stringList>
               <member>foo</member>
               <member>bar</member>
@@ -6306,7 +6341,7 @@ it("XmlLists:Response", async () => {
               <value>7</value>
               <other>8</other>
           </flattenedStructureList>
-      </XmlListsInputOutput>
+      </XmlListsResponse>
       `
     ),
   });
@@ -6435,7 +6470,7 @@ it("XmlMaps:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlMapsInputOutput>
+    const bodyString = `<XmlMapsRequest>
         <myMap>
             <entry>
                 <key>foo</key>
@@ -6450,7 +6485,7 @@ it("XmlMaps:Request", async () => {
                 </value>
             </entry>
         </myMap>
-    </XmlMapsInputOutput>
+    </XmlMapsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -6469,7 +6504,7 @@ it("XmlMaps:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlMapsInputOutput>
+      `<XmlMapsResponse>
           <myMap>
               <entry>
                   <key>foo</key>
@@ -6484,7 +6519,7 @@ it("XmlMaps:Response", async () => {
                   </value>
               </entry>
           </myMap>
-      </XmlMapsInputOutput>
+      </XmlMapsResponse>
       `
     ),
   });
@@ -6557,7 +6592,7 @@ it("XmlMapsXmlName:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlMapsXmlNameInputOutput>
+    const bodyString = `<XmlMapsXmlNameRequest>
         <myMap>
             <entry>
                 <Attribute>foo</Attribute>
@@ -6572,7 +6607,7 @@ it("XmlMapsXmlName:Request", async () => {
                 </Setting>
             </entry>
         </myMap>
-    </XmlMapsXmlNameInputOutput>
+    </XmlMapsXmlNameRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -6591,7 +6626,7 @@ it("XmlMapsXmlName:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlMapsXmlNameInputOutput>
+      `<XmlMapsXmlNameResponse>
           <myMap>
               <entry>
                   <Attribute>foo</Attribute>
@@ -6606,7 +6641,7 @@ it("XmlMapsXmlName:Response", async () => {
                   </Setting>
               </entry>
           </myMap>
-      </XmlMapsXmlNameInputOutput>
+      </XmlMapsXmlNameResponse>
       `
     ),
   });
@@ -6675,7 +6710,7 @@ it("RestXmlXmlMapWithXmlNamespace:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlMapWithXmlNamespaceInputOutput>
+    const bodyString = `<XmlMapWithXmlNamespaceRequest>
         <KVP xmlns=\"https://the-member.example.com\">
             <entry>
                 <K xmlns=\"https://the-key.example.com\">a</K>
@@ -6686,7 +6721,7 @@ it("RestXmlXmlMapWithXmlNamespace:Request", async () => {
                 <V xmlns=\"https://the-value.example.com\">B</V>
             </entry>
         </KVP>
-    </XmlMapWithXmlNamespaceInputOutput>`;
+    </XmlMapWithXmlNamespaceRequest>`;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
   }
@@ -6704,7 +6739,7 @@ it("RestXmlXmlMapWithXmlNamespace:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlMapWithXmlNamespaceInputOutput>
+      `<XmlMapWithXmlNamespaceResponse>
           <KVP xmlns="https://the-member.example.com">
               <entry>
                   <K xmlns="https://the-key.example.com">a</K>
@@ -6715,7 +6750,7 @@ it("RestXmlXmlMapWithXmlNamespace:Response", async () => {
                   <V xmlns="https://the-value.example.com">B</V>
               </entry>
           </KVP>
-      </XmlMapWithXmlNamespaceInputOutput>`
+      </XmlMapWithXmlNamespaceResponse>`
     ),
   });
 
@@ -6779,7 +6814,7 @@ it("XmlNamespaces:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlNamespacesInputOutput xmlns=\"http://foo.com\">
+    const bodyString = `<XmlNamespacesRequest xmlns=\"http://foo.com\">
         <nested>
             <foo xmlns:baz=\"http://baz.com\">Foo</foo>
             <values xmlns=\"http://qux.com\">
@@ -6787,7 +6822,7 @@ it("XmlNamespaces:Request", async () => {
                 <member xmlns=\"http://bux.com\">Baz</member>
             </values>
         </nested>
-    </XmlNamespacesInputOutput>
+    </XmlNamespacesRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -6806,7 +6841,7 @@ it("XmlNamespaces:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlNamespacesInputOutput xmlns="http://foo.com">
+      `<XmlNamespacesResponse xmlns="http://foo.com">
           <nested>
               <foo xmlns:baz="http://baz.com">Foo</foo>
               <values xmlns="http://qux.com">
@@ -6814,7 +6849,7 @@ it("XmlNamespaces:Response", async () => {
                   <member xmlns="http://bux.com">Baz</member>
               </values>
           </nested>
-      </XmlNamespacesInputOutput>
+      </XmlNamespacesResponse>
       `
     ),
   });
@@ -6875,9 +6910,9 @@ it("XmlTimestamps:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlTimestampsInputOutput>
+    const bodyString = `<XmlTimestampsRequest>
         <normal>2014-04-29T18:30:38Z</normal>
-    </XmlTimestampsInputOutput>
+    </XmlTimestampsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -6914,9 +6949,9 @@ it("XmlTimestampsWithDateTimeFormat:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlTimestampsInputOutput>
+    const bodyString = `<XmlTimestampsRequest>
         <dateTime>2014-04-29T18:30:38Z</dateTime>
-    </XmlTimestampsInputOutput>
+    </XmlTimestampsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -6953,9 +6988,9 @@ it("XmlTimestampsWithDateTimeOnTargetFormat:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlTimestampsInputOutput>
+    const bodyString = `<XmlTimestampsRequest>
         <dateTimeOnTarget>2014-04-29T18:30:38Z</dateTimeOnTarget>
-    </XmlTimestampsInputOutput>
+    </XmlTimestampsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -6992,9 +7027,9 @@ it("XmlTimestampsWithEpochSecondsFormat:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlTimestampsInputOutput>
+    const bodyString = `<XmlTimestampsRequest>
         <epochSeconds>1398796238</epochSeconds>
-    </XmlTimestampsInputOutput>
+    </XmlTimestampsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -7031,9 +7066,9 @@ it("XmlTimestampsWithEpochSecondsOnTargetFormat:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlTimestampsInputOutput>
+    const bodyString = `<XmlTimestampsRequest>
         <epochSecondsOnTarget>1398796238</epochSecondsOnTarget>
-    </XmlTimestampsInputOutput>
+    </XmlTimestampsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -7070,9 +7105,9 @@ it("XmlTimestampsWithHttpDateFormat:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlTimestampsInputOutput>
+    const bodyString = `<XmlTimestampsRequest>
         <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
-    </XmlTimestampsInputOutput>
+    </XmlTimestampsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -7109,9 +7144,9 @@ it("XmlTimestampsWithHttpDateOnTargetFormat:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlTimestampsInputOutput>
+    const bodyString = `<XmlTimestampsRequest>
         <httpDateOnTarget>Tue, 29 Apr 2014 18:30:38 GMT</httpDateOnTarget>
-    </XmlTimestampsInputOutput>
+    </XmlTimestampsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -7130,9 +7165,9 @@ it("XmlTimestamps:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlTimestampsInputOutput>
+      `<XmlTimestampsResponse>
           <normal>2014-04-29T18:30:38Z</normal>
-      </XmlTimestampsInputOutput>
+      </XmlTimestampsResponse>
       `
     ),
   });
@@ -7171,9 +7206,9 @@ it("XmlTimestampsWithDateTimeFormat:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlTimestampsInputOutput>
+      `<XmlTimestampsResponse>
           <dateTime>2014-04-29T18:30:38Z</dateTime>
-      </XmlTimestampsInputOutput>
+      </XmlTimestampsResponse>
       `
     ),
   });
@@ -7212,9 +7247,9 @@ it("XmlTimestampsWithDateTimeOnTargetFormat:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlTimestampsInputOutput>
+      `<XmlTimestampsResponse>
           <dateTimeOnTarget>2014-04-29T18:30:38Z</dateTimeOnTarget>
-      </XmlTimestampsInputOutput>
+      </XmlTimestampsResponse>
       `
     ),
   });
@@ -7253,9 +7288,9 @@ it("XmlTimestampsWithEpochSecondsFormat:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlTimestampsInputOutput>
+      `<XmlTimestampsResponse>
           <epochSeconds>1398796238</epochSeconds>
-      </XmlTimestampsInputOutput>
+      </XmlTimestampsResponse>
       `
     ),
   });
@@ -7294,9 +7329,9 @@ it("XmlTimestampsWithEpochSecondsOnTargetFormat:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlTimestampsInputOutput>
+      `<XmlTimestampsResponse>
           <epochSecondsOnTarget>1398796238</epochSecondsOnTarget>
-      </XmlTimestampsInputOutput>
+      </XmlTimestampsResponse>
       `
     ),
   });
@@ -7335,9 +7370,9 @@ it("XmlTimestampsWithHttpDateFormat:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlTimestampsInputOutput>
+      `<XmlTimestampsResponse>
           <httpDate>Tue, 29 Apr 2014 18:30:38 GMT</httpDate>
-      </XmlTimestampsInputOutput>
+      </XmlTimestampsResponse>
       `
     ),
   });
@@ -7376,9 +7411,9 @@ it("XmlTimestampsWithHttpDateOnTargetFormat:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlTimestampsInputOutput>
+      `<XmlTimestampsResponse>
           <httpDateOnTarget>Tue, 29 Apr 2014 18:30:38 GMT</httpDateOnTarget>
-      </XmlTimestampsInputOutput>
+      </XmlTimestampsResponse>
       `
     ),
   });
@@ -7453,7 +7488,7 @@ it("XmlUnionsWithStructMember:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlUnionsInputOutput>
+    const bodyString = `<XmlUnionsRequest>
         <unionValue>
            <structValue>
               <stringValue>string</stringValue>
@@ -7466,7 +7501,7 @@ it("XmlUnionsWithStructMember:Request", async () => {
               <doubleValue>6.5</doubleValue>
            </structValue>
         </unionValue>
-    </XmlUnionsInputOutput>
+    </XmlUnionsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -7505,11 +7540,11 @@ it("XmlUnionsWithStringMember:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlUnionsInputOutput>
+    const bodyString = `<XmlUnionsRequest>
        <unionValue>
           <stringValue>some string</stringValue>
        </unionValue>
-    </XmlUnionsInputOutput>
+    </XmlUnionsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -7548,11 +7583,11 @@ it("XmlUnionsWithBooleanMember:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlUnionsInputOutput>
+    const bodyString = `<XmlUnionsRequest>
        <unionValue>
           <booleanValue>true</booleanValue>
        </unionValue>
-    </XmlUnionsInputOutput>
+    </XmlUnionsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -7593,13 +7628,13 @@ it("XmlUnionsWithUnionMember:Request", async () => {
 
     expect(r.body).toBeDefined();
     const utf8Encoder = client.config.utf8Encoder;
-    const bodyString = `<XmlUnionsInputOutput>
+    const bodyString = `<XmlUnionsRequest>
        <unionValue>
           <unionValue>
              <booleanValue>true</booleanValue>
           </unionValue>
        </unionValue>
-    </XmlUnionsInputOutput>
+    </XmlUnionsRequest>
     `;
     const unequalParts: any = compareEquivalentXmlBodies(bodyString, r.body.toString());
     expect(unequalParts).toBeUndefined();
@@ -7618,7 +7653,7 @@ it("XmlUnionsWithStructMember:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlUnionsInputOutput>
+      `<XmlUnionsResponse>
           <unionValue>
              <structValue>
                 <stringValue>string</stringValue>
@@ -7631,7 +7666,7 @@ it("XmlUnionsWithStructMember:Response", async () => {
                 <doubleValue>6.5</doubleValue>
              </structValue>
           </unionValue>
-      </XmlUnionsInputOutput>
+      </XmlUnionsResponse>
       `
     ),
   });
@@ -7688,11 +7723,11 @@ it("XmlUnionsWithStringMember:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlUnionsInputOutput>
+      `<XmlUnionsResponse>
          <unionValue>
             <stringValue>some string</stringValue>
          </unionValue>
-      </XmlUnionsInputOutput>
+      </XmlUnionsResponse>
       `
     ),
   });
@@ -7733,11 +7768,11 @@ it("XmlUnionsWithBooleanMember:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlUnionsInputOutput>
+      `<XmlUnionsResponse>
          <unionValue>
             <booleanValue>true</booleanValue>
          </unionValue>
-      </XmlUnionsInputOutput>
+      </XmlUnionsResponse>
       `
     ),
   });
@@ -7778,13 +7813,13 @@ it("XmlUnionsWithUnionMember:Response", async () => {
       {
         "content-type": "application/xml",
       },
-      `<XmlUnionsInputOutput>
+      `<XmlUnionsResponse>
          <unionValue>
             <unionValue>
                <booleanValue>true</booleanValue>
             </unionValue>
          </unionValue>
-      </XmlUnionsInputOutput>
+      </XmlUnionsResponse>
       `
     ),
   });

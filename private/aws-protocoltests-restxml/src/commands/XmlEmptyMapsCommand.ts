@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlMapsInputOutput } from "../models/models_0";
+import { XmlEmptyMapsRequest, XmlEmptyMapsResponse } from "../models/models_0";
 import { de_XmlEmptyMapsCommand, se_XmlEmptyMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlEmptyMapsCommand}.
  */
-export interface XmlEmptyMapsCommandInput extends XmlMapsInputOutput {}
+export interface XmlEmptyMapsCommandInput extends XmlEmptyMapsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlEmptyMapsCommand}.
  */
-export interface XmlEmptyMapsCommandOutput extends XmlMapsInputOutput, __MetadataBearer {}
+export interface XmlEmptyMapsCommandOutput extends XmlEmptyMapsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface XmlEmptyMapsCommandOutput extends XmlMapsInputOutput, __Metadat
  * import { RestXmlProtocolClient, XmlEmptyMapsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEmptyMapsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlMapsInputOutput
+ * const input = { // XmlEmptyMapsRequest
  *   myMap: { // XmlMapsInputOutputMap
  *     "<keys>": { // GreetingStruct
  *       hi: "STRING_VALUE",
@@ -42,7 +42,7 @@ export interface XmlEmptyMapsCommandOutput extends XmlMapsInputOutput, __Metadat
  * };
  * const command = new XmlEmptyMapsCommand(input);
  * const response = await client.send(command);
- * // { // XmlMapsInputOutput
+ * // { // XmlEmptyMapsResponse
  * //   myMap: { // XmlMapsInputOutputMap
  * //     "<keys>": { // GreetingStruct
  * //       hi: "STRING_VALUE",

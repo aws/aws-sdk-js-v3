@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlEnumsInputOutput } from "../models/models_0";
+import { XmlEnumsRequest, XmlEnumsResponse } from "../models/models_0";
 import { de_XmlEnumsCommand, se_XmlEnumsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlEnumsCommand}.
  */
-export interface XmlEnumsCommandInput extends XmlEnumsInputOutput {}
+export interface XmlEnumsCommandInput extends XmlEnumsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlEnumsCommand}.
  */
-export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBearer {}
+export interface XmlEnumsCommandOutput extends XmlEnumsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBe
  * import { RestXmlProtocolClient, XmlEnumsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlEnumsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlEnumsInputOutput
+ * const input = { // XmlEnumsRequest
  *   fooEnum1: "Foo" || "Baz" || "Bar" || "1" || "0",
  *   fooEnum2: "Foo" || "Baz" || "Bar" || "1" || "0",
  *   fooEnum3: "Foo" || "Baz" || "Bar" || "1" || "0",
@@ -49,7 +49,7 @@ export interface XmlEnumsCommandOutput extends XmlEnumsInputOutput, __MetadataBe
  * };
  * const command = new XmlEnumsCommand(input);
  * const response = await client.send(command);
- * // { // XmlEnumsInputOutput
+ * // { // XmlEnumsResponse
  * //   fooEnum1: "Foo" || "Baz" || "Bar" || "1" || "0",
  * //   fooEnum2: "Foo" || "Baz" || "Bar" || "1" || "0",
  * //   fooEnum3: "Foo" || "Baz" || "Bar" || "1" || "0",

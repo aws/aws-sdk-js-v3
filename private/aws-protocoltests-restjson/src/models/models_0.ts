@@ -129,6 +129,13 @@ export interface DocumentTypeInputOutput {
 /**
  * @public
  */
+export interface DocumentTypeAsMapValueInputOutput {
+  docValuedMap?: Record<string, __DocumentType>;
+}
+
+/**
+ * @public
+ */
 export interface DocumentTypeAsPayloadInputOutput {
   documentValue?: __DocumentType;
 }
