@@ -53,6 +53,7 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
     protected GenerationContext context;
     protected String dataSource;
     protected TimestampFormatTrait.Format defaultTimestampFormat;
+    protected boolean disableDeserializationFunctionElision;
 
     public MemberDeserVisitor(
         GenerationContext context,
@@ -63,6 +64,11 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
         this.defaultTimestampFormat = defaultTimestampFormat;
         this.serdeElisionIndex = SerdeElisionIndex.of(context.getModel());
         this.context = context;
+        disableDeserializationFunctionElision = DeserializerElisionDenyList.SDK_IDS.contains(
+            context.getService().getTrait(ServiceTrait.class)
+                .map(ServiceTrait::getSdkId)
+                .orElse(null)
+        );
     }
 
     @Override
@@ -251,15 +257,11 @@ public class MemberDeserVisitor implements ShapeVisitor<String> {
     protected String getDelegateDeserializer(Shape shape, String customDataSource) {
         // Use the shape for the function name.
         Symbol symbol = context.getSymbolProvider().toSymbol(shape);
-        boolean disableDeserializationFunctionElision = DeserializerElisionDenyList.SDK_IDS.contains(
-            context.getService().getTrait(ServiceTrait.class)
-                .map(ServiceTrait::getSdkId)
-                .orElse(null)
-        );
 
         if (serdeElisionEnabled
             && !disableDeserializationFunctionElision
             && serdeElisionIndex.mayElide(shape)) {
+            context.getWriter().addImport("_json", null, TypeScriptDependency.AWS_SMITHY_CLIENT);
             return "_json(" + customDataSource + ")";
         }
 
