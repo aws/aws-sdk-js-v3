@@ -54,6 +54,12 @@ export interface RetrieveAndGenerateCommandOutput extends RetrieveAndGenerateRes
  *     knowledgeBaseConfiguration: { // KnowledgeBaseRetrieveAndGenerateConfiguration
  *       knowledgeBaseId: "STRING_VALUE", // required
  *       modelArn: "STRING_VALUE", // required
+ *       retrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
+ *         vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
+ *           numberOfResults: Number("int"),
+ *           overrideSearchType: "HYBRID" || "SEMANTIC",
+ *         },
+ *       },
  *     },
  *   },
  *   sessionConfiguration: { // RetrieveAndGenerateSessionConfiguration

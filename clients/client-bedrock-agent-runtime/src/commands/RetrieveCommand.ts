@@ -51,7 +51,8 @@ export interface RetrieveCommandOutput extends RetrieveResponse, __MetadataBeare
  *   },
  *   retrievalConfiguration: { // KnowledgeBaseRetrievalConfiguration
  *     vectorSearchConfiguration: { // KnowledgeBaseVectorSearchConfiguration
- *       numberOfResults: Number("int"), // required
+ *       numberOfResults: Number("int"),
+ *       overrideSearchType: "HYBRID" || "SEMANTIC",
  *     },
  *   },
  *   nextToken: "STRING_VALUE",

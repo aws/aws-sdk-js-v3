@@ -1556,6 +1556,50 @@ export interface RetrieveAndGenerateInput {
 
 /**
  * @public
+ * @enum
+ */
+export const SearchType = {
+  HYBRID: "HYBRID",
+  SEMANTIC: "SEMANTIC",
+} as const;
+
+/**
+ * @public
+ */
+export type SearchType = (typeof SearchType)[keyof typeof SearchType];
+
+/**
+ * @public
+ * Knowledge base vector search configuration
+ */
+export interface KnowledgeBaseVectorSearchConfiguration {
+  /**
+   * @public
+   * Top-K results to retrieve from knowledge base.
+   */
+  numberOfResults?: number;
+
+  /**
+   * @public
+   * Override the type of query to be performed on data store
+   */
+  overrideSearchType?: SearchType;
+}
+
+/**
+ * @public
+ * Search parameters for retrieving from knowledge base.
+ */
+export interface KnowledgeBaseRetrievalConfiguration {
+  /**
+   * @public
+   * Knowledge base vector search configuration
+   */
+  vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
+}
+
+/**
+ * @public
  * Configurations for retrieval and generation for knowledge base.
  */
 export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
@@ -1570,6 +1614,12 @@ export interface KnowledgeBaseRetrieveAndGenerateConfiguration {
    * Arn of a Bedrock model.
    */
   modelArn: string | undefined;
+
+  /**
+   * @public
+   * Search parameters for retrieving from knowledge base.
+   */
+  retrievalConfiguration?: KnowledgeBaseRetrievalConfiguration;
 }
 
 /**
@@ -1677,30 +1727,6 @@ export interface RetrieveAndGenerateResponse {
    * List of citations
    */
   citations?: Citation[];
-}
-
-/**
- * @public
- * Knowledge base vector search configuration
- */
-export interface KnowledgeBaseVectorSearchConfiguration {
-  /**
-   * @public
-   * Top-K results to retrieve from knowledge base.
-   */
-  numberOfResults: number | undefined;
-}
-
-/**
- * @public
- * Search parameters for retrieving from knowledge base.
- */
-export interface KnowledgeBaseRetrievalConfiguration {
-  /**
-   * @public
-   * Knowledge base vector search configuration
-   */
-  vectorSearchConfiguration: KnowledgeBaseVectorSearchConfiguration | undefined;
 }
 
 /**
@@ -1814,9 +1840,69 @@ export const InvokeAgentRequestFilterSensitiveLog = (obj: InvokeAgentRequest): a
 /**
  * @internal
  */
+export const TextResponsePartFilterSensitiveLog = (obj: TextResponsePart): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const GeneratedResponsePartFilterSensitiveLog = (obj: GeneratedResponsePart): any => ({
+  ...obj,
+  ...(obj.textResponsePart && { textResponsePart: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const RetrievalResultContentFilterSensitiveLog = (obj: RetrievalResultContent): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrievalResultLocationFilterSensitiveLog = (obj: RetrievalResultLocation): any => ({
+  ...obj,
+});
+
+/**
+ * @internal
+ */
+export const RetrievedReferenceFilterSensitiveLog = (obj: RetrievedReference): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+  ...(obj.location && { location: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CitationFilterSensitiveLog = (obj: Citation): any => ({
+  ...obj,
+  ...(obj.generatedResponsePart && {
+    generatedResponsePart: GeneratedResponsePartFilterSensitiveLog(obj.generatedResponsePart),
+  }),
+  ...(obj.retrievedReferences && {
+    retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
+export const AttributionFilterSensitiveLog = (obj: Attribution): any => ({
+  ...obj,
+  ...(obj.citations && { citations: obj.citations.map((item) => CitationFilterSensitiveLog(item)) }),
+});
+
+/**
+ * @internal
+ */
 export const PayloadPartFilterSensitiveLog = (obj: PayloadPart): any => ({
   ...obj,
   ...(obj.bytes && { bytes: SENSITIVE_STRING }),
+  ...(obj.attribution && { attribution: AttributionFilterSensitiveLog(obj.attribution) }),
 });
 
 /**
@@ -1868,6 +1954,16 @@ export const FinalResponseFilterSensitiveLog = (obj: FinalResponse): any => ({
 /**
  * @internal
  */
+export const KnowledgeBaseLookupOutputFilterSensitiveLog = (obj: KnowledgeBaseLookupOutput): any => ({
+  ...obj,
+  ...(obj.retrievedReferences && {
+    retrievedReferences: obj.retrievedReferences.map((item) => RetrievedReferenceFilterSensitiveLog(item)),
+  }),
+});
+
+/**
+ * @internal
+ */
 export const RepromptResponseFilterSensitiveLog = (obj: RepromptResponse): any => ({
   ...obj,
   ...(obj.source && { source: SENSITIVE_STRING }),
@@ -1880,6 +1976,9 @@ export const ObservationFilterSensitiveLog = (obj: Observation): any => ({
   ...obj,
   ...(obj.actionGroupInvocationOutput && {
     actionGroupInvocationOutput: ActionGroupInvocationOutputFilterSensitiveLog(obj.actionGroupInvocationOutput),
+  }),
+  ...(obj.knowledgeBaseLookupOutput && {
+    knowledgeBaseLookupOutput: KnowledgeBaseLookupOutputFilterSensitiveLog(obj.knowledgeBaseLookupOutput),
   }),
   ...(obj.finalResponse && { finalResponse: FinalResponseFilterSensitiveLog(obj.finalResponse) }),
   ...(obj.repromptResponse && { repromptResponse: SENSITIVE_STRING }),
@@ -2030,6 +2129,7 @@ export const RetrieveAndGenerateOutputFilterSensitiveLog = (obj: RetrieveAndGene
 export const RetrieveAndGenerateResponseFilterSensitiveLog = (obj: RetrieveAndGenerateResponse): any => ({
   ...obj,
   ...(obj.output && { output: SENSITIVE_STRING }),
+  ...(obj.citations && { citations: obj.citations.map((item) => CitationFilterSensitiveLog(item)) }),
 });
 
 /**
@@ -2045,6 +2145,15 @@ export const KnowledgeBaseQueryFilterSensitiveLog = (obj: KnowledgeBaseQuery): a
 export const RetrieveRequestFilterSensitiveLog = (obj: RetrieveRequest): any => ({
   ...obj,
   ...(obj.retrievalQuery && { retrievalQuery: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const KnowledgeBaseRetrievalResultFilterSensitiveLog = (obj: KnowledgeBaseRetrievalResult): any => ({
+  ...obj,
+  ...(obj.content && { content: SENSITIVE_STRING }),
+  ...(obj.location && { location: SENSITIVE_STRING }),
 });
 
 /**
