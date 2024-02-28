@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.524.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.523.0...v3.524.0) (2024-02-28)
+
+
+### Features
+
+* **client-batch:** This release adds Batch support for configuration of multicontainer jobs in ECS, Fargate, and EKS. This support is available for all types of jobs, including both array jobs and multi-node parallel jobs. ([edbdca7](https://github.com/aws/aws-sdk-js-v3/commit/edbdca75c33424ad1f758cf919175f35819e588c))
+* **client-bedrock-agent-runtime:** This release adds support to override search strategy performed by the Retrieve and RetrieveAndGenerate APIs for Amazon Bedrock Agents ([52f0665](https://github.com/aws/aws-sdk-js-v3/commit/52f0665e4baafca7633b889269f6de09ba24e473))
+* **client-cost-explorer:** This release introduces the new API 'GetApproximateUsageRecords', which retrieves estimated usage records for hourly granularity or resource-level data at daily granularity. ([83885d0](https://github.com/aws/aws-sdk-js-v3/commit/83885d0ff9bcb41be2f148a93a3569960e05bfed))
+* **client-ec2:** This release increases the range of MaxResults for GetNetworkInsightsAccessScopeAnalysisFindings to 1,000. ([46e974e](https://github.com/aws/aws-sdk-js-v3/commit/46e974e15c3b4dd8f6b9a0ad5a987e867746a699))
+* **client-iot:** This release reduces the maximum results returned per query invocation from 500 to 100 for the SearchIndex API. This change has no implications as long as the API is invoked until the nextToken is NULL. ([1ebc3aa](https://github.com/aws/aws-sdk-js-v3/commit/1ebc3aa5de4eb7c9c535ad593f7218d68269cafc))
+* **client-wafv2:** AWS WAF now supports configurable time windows for request aggregation with rate-based rules. Customers can now select time windows of 1 minute, 2 minutes or 10 minutes, in addition to the previously supported 5 minutes. ([4528e88](https://github.com/aws/aws-sdk-js-v3/commit/4528e88c93155ba430823fd177d70bedb171bbcd))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 

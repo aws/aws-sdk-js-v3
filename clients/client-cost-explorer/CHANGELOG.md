@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.524.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.523.0...v3.524.0) (2024-02-28)
+
+
+### Features
+
+* **client-cost-explorer:** This release introduces the new API 'GetApproximateUsageRecords', which retrieves estimated usage records for hourly granularity or resource-level data at daily granularity. ([83885d0](https://github.com/aws/aws-sdk-js-v3/commit/83885d0ff9bcb41be2f148a93a3569960e05bfed))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-cost-explorer

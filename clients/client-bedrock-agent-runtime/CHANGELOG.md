@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.524.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.523.0...v3.524.0) (2024-02-28)
+
+
+### Features
+
+* **client-bedrock-agent-runtime:** This release adds support to override search strategy performed by the Retrieve and RetrieveAndGenerate APIs for Amazon Bedrock Agents ([52f0665](https://github.com/aws/aws-sdk-js-v3/commit/52f0665e4baafca7633b889269f6de09ba24e473))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-bedrock-agent-runtime

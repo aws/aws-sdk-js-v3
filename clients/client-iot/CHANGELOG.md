@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.524.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.523.0...v3.524.0) (2024-02-28)
+
+
+### Features
+
+* **client-iot:** This release reduces the maximum results returned per query invocation from 500 to 100 for the SearchIndex API. This change has no implications as long as the API is invoked until the nextToken is NULL. ([1ebc3aa](https://github.com/aws/aws-sdk-js-v3/commit/1ebc3aa5de4eb7c9c535ad593f7218d68269cafc))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-iot
