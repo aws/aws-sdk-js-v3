@@ -53,6 +53,11 @@ import {
   GetAnomalySubscriptionsCommandOutput,
 } from "./commands/GetAnomalySubscriptionsCommand";
 import {
+  GetApproximateUsageRecordsCommand,
+  GetApproximateUsageRecordsCommandInput,
+  GetApproximateUsageRecordsCommandOutput,
+} from "./commands/GetApproximateUsageRecordsCommand";
+import {
   GetCostAndUsageCommand,
   GetCostAndUsageCommandInput,
   GetCostAndUsageCommandOutput,
@@ -197,6 +202,7 @@ const commands = {
   GetAnomaliesCommand,
   GetAnomalyMonitorsCommand,
   GetAnomalySubscriptionsCommand,
+  GetApproximateUsageRecordsCommand,
   GetCostAndUsageCommand,
   GetCostAndUsageWithResourcesCommand,
   GetCostCategoriesCommand,
@@ -390,6 +396,23 @@ export interface CostExplorer {
     args: GetAnomalySubscriptionsCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: GetAnomalySubscriptionsCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link GetApproximateUsageRecordsCommand}
+   */
+  getApproximateUsageRecords(
+    args: GetApproximateUsageRecordsCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<GetApproximateUsageRecordsCommandOutput>;
+  getApproximateUsageRecords(
+    args: GetApproximateUsageRecordsCommandInput,
+    cb: (err: any, data?: GetApproximateUsageRecordsCommandOutput) => void
+  ): void;
+  getApproximateUsageRecords(
+    args: GetApproximateUsageRecordsCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: GetApproximateUsageRecordsCommandOutput) => void
   ): void;
 
   /**

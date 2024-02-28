@@ -484,6 +484,20 @@ export interface Subscriber {
 
 /**
  * @public
+ * @enum
+ */
+export const ApproximationDimension = {
+  RESOURCE: "RESOURCE",
+  SERVICE: "SERVICE",
+} as const;
+
+/**
+ * @public
+ */
+export type ApproximationDimension = (typeof ApproximationDimension)[keyof typeof ApproximationDimension];
+
+/**
+ * @public
  * <p>The tag structure that contains a tag key and value. </p>
  *          <note>
  *             <p>Tagging is supported only for the following Cost Explorer resource types:
@@ -1131,28 +1145,6 @@ export interface GetAnomalySubscriptionsRequest {
 
 /**
  * @public
- * <p>The requested report expired. Update the date interval and try again.</p>
- */
-export class BillExpirationException extends __BaseException {
-  readonly name: "BillExpirationException" = "BillExpirationException";
-  readonly $fault: "client" = "client";
-  Message?: string;
-  /**
-   * @internal
-   */
-  constructor(opts: __ExceptionOptionType<BillExpirationException, __BaseException>) {
-    super({
-      name: "BillExpirationException",
-      $fault: "client",
-      ...opts,
-    });
-    Object.setPrototypeOf(this, BillExpirationException.prototype);
-    this.Message = opts.Message;
-  }
-}
-
-/**
- * @public
  * <p>The requested data is unavailable.</p>
  */
 export class DataUnavailableException extends __BaseException {
@@ -1190,6 +1182,100 @@ export type Granularity = (typeof Granularity)[keyof typeof Granularity];
 
 /**
  * @public
+ */
+export interface GetApproximateUsageRecordsRequest {
+  /**
+   * @public
+   * <p>How granular you want the data to be. You can enable data at hourly or daily
+   *       granularity.</p>
+   */
+  Granularity: Granularity | undefined;
+
+  /**
+   * @public
+   * <p>The service metadata for the service or services you want to query. If not specified, all
+   *       elements are returned.</p>
+   */
+  Services?: string[];
+
+  /**
+   * @public
+   * <p>The service to evaluate for the usage records. You can choose resource-level data at daily
+   *       granularity, or hourly granularity with or without resource-level data.</p>
+   */
+  ApproximationDimension: ApproximationDimension | undefined;
+}
+
+/**
+ * @public
+ * <p>The time period of the request. </p>
+ */
+export interface DateInterval {
+  /**
+   * @public
+   * <p>The beginning of the time period. The start date is inclusive. For example, if
+   *                 <code>start</code> is <code>2017-01-01</code>, Amazon Web Services retrieves cost and
+   *             usage data starting at <code>2017-01-01</code> up to the end date. The start date must
+   *             be equal to or no later than the current date to avoid a validation error.</p>
+   */
+  Start: string | undefined;
+
+  /**
+   * @public
+   * <p>The end of the time period. The end date is exclusive. For example, if
+   *                 <code>end</code> is <code>2017-05-01</code>, Amazon Web Services retrieves cost and
+   *             usage data from the start date up to, but not including, <code>2017-05-01</code>.</p>
+   */
+  End: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface GetApproximateUsageRecordsResponse {
+  /**
+   * @public
+   * <p>The service metadata for the service or services in the response.</p>
+   */
+  Services?: Record<string, number>;
+
+  /**
+   * @public
+   * <p>The total number of usage records for all services in the services list.</p>
+   */
+  TotalRecords?: number;
+
+  /**
+   * @public
+   * <p>The lookback period that's used for the estimation.</p>
+   */
+  LookbackPeriod?: DateInterval;
+}
+
+/**
+ * @public
+ * <p>The requested report expired. Update the date interval and try again.</p>
+ */
+export class BillExpirationException extends __BaseException {
+  readonly name: "BillExpirationException" = "BillExpirationException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<BillExpirationException, __BaseException>) {
+    super({
+      name: "BillExpirationException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, BillExpirationException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * @enum
  */
 export const GroupDefinitionType = {
@@ -1220,29 +1306,6 @@ export interface GroupDefinition {
    * <p>The string that represents a key for a specified group.</p>
    */
   Key?: string;
-}
-
-/**
- * @public
- * <p>The time period of the request. </p>
- */
-export interface DateInterval {
-  /**
-   * @public
-   * <p>The beginning of the time period. The start date is inclusive. For example, if
-   *                 <code>start</code> is <code>2017-01-01</code>, Amazon Web Services retrieves cost and
-   *             usage data starting at <code>2017-01-01</code> up to the end date. The start date must
-   *             be equal to or no later than the current date to avoid a validation error.</p>
-   */
-  Start: string | undefined;
-
-  /**
-   * @public
-   * <p>The end of the time period. The end date is exclusive. For example, if
-   *                 <code>end</code> is <code>2017-05-01</code>, Amazon Web Services retrieves cost and
-   *             usage data from the start date up to, but not including, <code>2017-05-01</code>.</p>
-   */
-  End: string | undefined;
 }
 
 /**

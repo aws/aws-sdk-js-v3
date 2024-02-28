@@ -87,6 +87,10 @@ import {
   GetAnomalySubscriptionsCommandInput,
   GetAnomalySubscriptionsCommandOutput,
 } from "./commands/GetAnomalySubscriptionsCommand";
+import {
+  GetApproximateUsageRecordsCommandInput,
+  GetApproximateUsageRecordsCommandOutput,
+} from "./commands/GetApproximateUsageRecordsCommand";
 import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "./commands/GetCostAndUsageCommand";
 import {
   GetCostAndUsageWithResourcesCommandInput,
@@ -200,6 +204,7 @@ export type ServiceInputTypes =
   | GetAnomaliesCommandInput
   | GetAnomalyMonitorsCommandInput
   | GetAnomalySubscriptionsCommandInput
+  | GetApproximateUsageRecordsCommandInput
   | GetCostAndUsageCommandInput
   | GetCostAndUsageWithResourcesCommandInput
   | GetCostCategoriesCommandInput
@@ -243,6 +248,7 @@ export type ServiceOutputTypes =
   | GetAnomaliesCommandOutput
   | GetAnomalyMonitorsCommandOutput
   | GetAnomalySubscriptionsCommandOutput
+  | GetApproximateUsageRecordsCommandOutput
   | GetCostAndUsageCommandOutput
   | GetCostAndUsageWithResourcesCommandOutput
   | GetCostCategoriesCommandOutput

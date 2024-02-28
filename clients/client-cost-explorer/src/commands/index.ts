@@ -9,6 +9,7 @@ export * from "./DescribeCostCategoryDefinitionCommand";
 export * from "./GetAnomaliesCommand";
 export * from "./GetAnomalyMonitorsCommand";
 export * from "./GetAnomalySubscriptionsCommand";
+export * from "./GetApproximateUsageRecordsCommand";
 export * from "./GetCostAndUsageCommand";
 export * from "./GetCostAndUsageWithResourcesCommand";
 export * from "./GetCostCategoriesCommand";

@@ -300,6 +300,14 @@ GetAnomalySubscriptions
 </details>
 <details>
 <summary>
+GetApproximateUsageRecords
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/cost-explorer/command/GetApproximateUsageRecordsCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetApproximateUsageRecordsCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-cost-explorer/Interface/GetApproximateUsageRecordsCommandOutput/)
+
+</details>
+<details>
+<summary>
 GetCostAndUsage
 </summary>
 

@@ -52,6 +52,10 @@ import {
   GetAnomalySubscriptionsCommandInput,
   GetAnomalySubscriptionsCommandOutput,
 } from "../commands/GetAnomalySubscriptionsCommand";
+import {
+  GetApproximateUsageRecordsCommandInput,
+  GetApproximateUsageRecordsCommandOutput,
+} from "../commands/GetApproximateUsageRecordsCommand";
 import { GetCostAndUsageCommandInput, GetCostAndUsageCommandOutput } from "../commands/GetCostAndUsageCommand";
 import {
   GetCostAndUsageWithResourcesCommandInput,
@@ -175,6 +179,7 @@ import {
   GetAnomalyMonitorsResponse,
   GetAnomalySubscriptionsRequest,
   GetAnomalySubscriptionsResponse,
+  GetApproximateUsageRecordsRequest,
   GetCostAndUsageRequest,
   GetCostAndUsageWithResourcesRequest,
   GetCostCategoriesRequest,
@@ -350,6 +355,19 @@ export const se_GetAnomalySubscriptionsCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const headers: __HeaderBag = sharedHeaders("GetAnomalySubscriptions");
+  let body: any;
+  body = JSON.stringify(_json(input));
+  return buildHttpRpcRequest(context, headers, "/", undefined, body);
+};
+
+/**
+ * serializeAws_json1_1GetApproximateUsageRecordsCommand
+ */
+export const se_GetApproximateUsageRecordsCommand = async (
+  input: GetApproximateUsageRecordsCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const headers: __HeaderBag = sharedHeaders("GetApproximateUsageRecords");
   let body: any;
   body = JSON.stringify(_json(input));
   return buildHttpRpcRequest(context, headers, "/", undefined, body);
@@ -913,6 +931,26 @@ export const de_GetAnomalySubscriptionsCommand = async (
   let contents: any = {};
   contents = de_GetAnomalySubscriptionsResponse(data, context);
   const response: GetAnomalySubscriptionsCommandOutput = {
+    $metadata: deserializeMetadata(output),
+    ...contents,
+  };
+  return response;
+};
+
+/**
+ * deserializeAws_json1_1GetApproximateUsageRecordsCommand
+ */
+export const de_GetApproximateUsageRecordsCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<GetApproximateUsageRecordsCommandOutput> => {
+  if (output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const data: any = await parseBody(output.body, context);
+  let contents: any = {};
+  contents = _json(data);
+  const response: GetApproximateUsageRecordsCommandOutput = {
     $metadata: deserializeMetadata(output),
     ...contents,
   };
@@ -1507,12 +1545,12 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InvalidNextTokenException":
     case "com.amazonaws.costexplorer#InvalidNextTokenException":
       throw await de_InvalidNextTokenExceptionRes(parsedOutput, context);
-    case "BillExpirationException":
-    case "com.amazonaws.costexplorer#BillExpirationException":
-      throw await de_BillExpirationExceptionRes(parsedOutput, context);
     case "DataUnavailableException":
     case "com.amazonaws.costexplorer#DataUnavailableException":
       throw await de_DataUnavailableExceptionRes(parsedOutput, context);
+    case "BillExpirationException":
+    case "com.amazonaws.costexplorer#BillExpirationException":
+      throw await de_BillExpirationExceptionRes(parsedOutput, context);
     case "RequestChangedException":
     case "com.amazonaws.costexplorer#RequestChangedException":
       throw await de_RequestChangedExceptionRes(parsedOutput, context);
@@ -1902,6 +1940,8 @@ const se_GetAnomaliesRequest = (input: GetAnomaliesRequest, context: __SerdeCont
 
 // se_GetAnomalySubscriptionsRequest omitted.
 
+// se_GetApproximateUsageRecordsRequest omitted.
+
 /**
  * serializeAws_json1_1GetCostAndUsageRequest
  */
@@ -2239,6 +2279,8 @@ const se_UpdateCostCategoryDefinitionRequest = (
   });
 };
 
+// se_UsageServices omitted.
+
 // se_Values omitted.
 
 /**
@@ -2336,6 +2378,8 @@ const de_AnomalySubscriptions = (output: any, context: __SerdeContext): AnomalyS
     });
   return retVal;
 };
+
+// de_ApproximateUsageRecordsPerService omitted.
 
 // de_Attributes omitted.
 
@@ -2545,6 +2589,8 @@ const de_GetAnomalySubscriptionsResponse = (output: any, context: __SerdeContext
     NextPageToken: __expectString,
   }) as any;
 };
+
+// de_GetApproximateUsageRecordsResponse omitted.
 
 // de_GetCostAndUsageResponse omitted.
 
