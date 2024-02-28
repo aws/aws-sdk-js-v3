@@ -645,6 +645,34 @@ const region = "...";
 When using a custom `QueueUrl` in SQS operations that have this as an input parameter, in JSv2 
 it was possible to supply a custom `QueueUrl` which would override the SQS Client's default endpoint.
 
+#### Mutli-region messages
+
+You should use one client per region in v3. The AWS Region is meant to be initialized at the client level and not changed between requests.
+
+```ts
+import { SQS } from "@aws-sdk/client-sqs";
+
+const sqsClients = {
+  "us-east-1": new SQS({ region: "us-east-1" }),
+  "us-west-2": new SQS({ region: "us-west-2" }),
+};
+
+const queues = [
+  { region: "us-east-1", url: "https://sqs.us-east-1.amazonaws.com/{AWS_ACCOUNT}/MyQueue" },
+  { region: "us-west-2", url: "https://sqs.us-west-2.amazonaws.com/{AWS_ACCOUNT}/MyOtherQueue" },
+];
+
+for (const { region, url } of queues) {
+  const params = {
+    MessageBody: "Hello",
+    QueueUrl: url,
+  };
+  await sqsClients[region].sendMessage(params);
+}
+```  
+
+#### Custom endpoint
+
 In JSv3, when using a custom endpoint, i.e. one that differs from the default public SQS endpoints, you 
 should always set the endpoint on the SQS Client as well as the `QueueUrl` field.
 
