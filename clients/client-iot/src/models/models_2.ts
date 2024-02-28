@@ -2618,8 +2618,12 @@ export interface SearchIndexRequest {
 
   /**
    * @public
-   * <p>The maximum number of results to return per page at one time. The response might
-   *       contain fewer results but will never contain more.</p>
+   * <p>The maximum number of results to return per page at one time. This maximum number
+   *       cannot exceed 100. The response might contain fewer results but will never contain more. You
+   *       can use <a href="https://docs.aws.amazon.com/iot/latest/apireference/API_SearchIndex.html#iot-SearchIndex-request-nextToken">
+   *                <code>nextToken</code>
+   *             </a> to retrieve the next set of results until
+   *         <code>nextToken</code> returns <code>NULL</code>.</p>
    */
   maxResults?: number;
 
@@ -4129,7 +4133,10 @@ export interface UpdateJobRequest {
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
+   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
+   *                     up IoT Greengrass core devices.</a>
+   *             </p>
    *          </note>
    */
   namespaceId?: string;

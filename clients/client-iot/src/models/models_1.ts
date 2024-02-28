@@ -196,7 +196,10 @@ export interface DeleteJobRequest {
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
+   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
+   *                     up IoT Greengrass core devices.</a>
+   *             </p>
    *          </note>
    */
   namespaceId?: string;
@@ -249,7 +252,10 @@ export interface DeleteJobExecutionRequest {
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
+   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
+   *                     up IoT Greengrass core devices.</a>
+   *             </p>
    *          </note>
    */
   namespaceId?: string;
@@ -2498,7 +2504,10 @@ export interface Job {
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
+   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
+   *                     up IoT Greengrass core devices.</a>
+   *             </p>
    *          </note>
    */
   namespaceId?: string;
@@ -6893,7 +6902,10 @@ export interface ListJobExecutionsForThingRequest {
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at
+   *                 this time. For more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting
+   *                     up IoT Greengrass core devices.</a>
+   *             </p>
    *          </note>
    */
   namespaceId?: string;
@@ -7010,7 +7022,9 @@ export interface ListJobsRequest {
    *             <code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code>
    *          </p>
    *          <note>
-   *             <p>The <code>namespaceId</code> feature is in public preview.</p>
+   *             <p>The <code>namespaceId</code> feature is only supported by IoT Greengrass at this time. For
+   *                 more information, see <a href="https://docs.aws.amazon.com/greengrass/v2/developerguide/setting-up.html">Setting up IoT Greengrass core devices.</a>
+   *             </p>
    *          </note>
    */
   namespaceId?: string;
