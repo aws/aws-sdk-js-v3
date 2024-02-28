@@ -7892,6 +7892,18 @@ export interface RateBasedStatement {
 
   /**
    * @public
+   * <p>The amount of time, in seconds, that WAF
+   *             should include in its request counts, looking back from the current time. For example,
+   *             for a setting of 120, when WAF checks the rate, it counts the requests for the 2 minutes immediately preceding
+   *             the current time. Valid settings are 60, 120, 300, and 600. </p>
+   *          <p>This setting doesn't determine how often WAF checks the rate, but how far back it looks each
+   *             time it checks. WAF checks the rate about every 10 seconds.</p>
+   *          <p>Default: <code>300</code> (5 minutes)</p>
+   */
+  EvaluationWindowSec?: number;
+
+  /**
+   * @public
    * <p>Setting that indicates how to aggregate the request counts. </p>
    *          <note>
    *             <p>Web requests that are missing any of the components specified in the aggregation keys

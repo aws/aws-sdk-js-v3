@@ -477,6 +477,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //           },
  * //           RateBasedStatement: { // RateBasedStatement
  * //             Limit: Number("long"), // required
+ * //             EvaluationWindowSec: Number("long"),
  * //             AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  * //             ScopeDownStatement: {
  * //               ByteMatchStatement: {
@@ -550,6 +551,7 @@ export interface GetWebACLForResourceCommandOutput extends GetWebACLForResourceR
  * //               },
  * //               RateBasedStatement: {
  * //                 Limit: Number("long"), // required
+ * //                 EvaluationWindowSec: Number("long"),
  * //                 AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  * //                 ScopeDownStatement: "<Statement>",
  * //                 ForwardedIPConfig: {

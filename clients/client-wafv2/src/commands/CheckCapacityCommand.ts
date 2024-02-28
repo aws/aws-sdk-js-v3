@@ -455,6 +455,7 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *         },
  *         RateBasedStatement: { // RateBasedStatement
  *           Limit: Number("long"), // required
+ *           EvaluationWindowSec: Number("long"),
  *           AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  *           ScopeDownStatement: {
  *             ByteMatchStatement: {
@@ -538,6 +539,7 @@ export interface CheckCapacityCommandOutput extends CheckCapacityResponse, __Met
  *             },
  *             RateBasedStatement: {
  *               Limit: Number("long"), // required
+ *               EvaluationWindowSec: Number("long"),
  *               AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  *               ScopeDownStatement: "<Statement>",
  *               ForwardedIPConfig: {

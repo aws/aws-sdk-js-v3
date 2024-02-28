@@ -469,6 +469,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //           },
  * //           RateBasedStatement: { // RateBasedStatement
  * //             Limit: Number("long"), // required
+ * //             EvaluationWindowSec: Number("long"),
  * //             AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  * //             ScopeDownStatement: {
  * //               ByteMatchStatement: {
@@ -542,6 +543,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //               },
  * //               RateBasedStatement: {
  * //                 Limit: Number("long"), // required
+ * //                 EvaluationWindowSec: Number("long"),
  * //                 AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  * //                 ScopeDownStatement: "<Statement>",
  * //                 ForwardedIPConfig: {

@@ -448,6 +448,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *         },
  *         RateBasedStatement: { // RateBasedStatement
  *           Limit: Number("long"), // required
+ *           EvaluationWindowSec: Number("long"),
  *           AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  *           ScopeDownStatement: {
  *             ByteMatchStatement: {
@@ -531,6 +532,7 @@ export interface CreateRuleGroupCommandOutput extends CreateRuleGroupResponse, _
  *             },
  *             RateBasedStatement: {
  *               Limit: Number("long"), // required
+ *               EvaluationWindowSec: Number("long"),
  *               AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  *               ScopeDownStatement: "<Statement>",
  *               ForwardedIPConfig: {

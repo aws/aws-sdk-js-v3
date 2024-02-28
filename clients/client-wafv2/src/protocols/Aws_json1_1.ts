@@ -2855,6 +2855,7 @@ const se_RateBasedStatement = (input: RateBasedStatement, context: __SerdeContex
   return take(input, {
     AggregateKeyType: [],
     CustomKeys: _json,
+    EvaluationWindowSec: [],
     ForwardedIPConfig: _json,
     Limit: [],
     ScopeDownStatement: (_) => se_Statement(_, context),
@@ -3642,6 +3643,7 @@ const de_RateBasedStatement = (output: any, context: __SerdeContext): RateBasedS
   return take(output, {
     AggregateKeyType: __expectString,
     CustomKeys: _json,
+    EvaluationWindowSec: __expectLong,
     ForwardedIPConfig: _json,
     Limit: __expectLong,
     ScopeDownStatement: (_: any) => de_Statement(_, context),

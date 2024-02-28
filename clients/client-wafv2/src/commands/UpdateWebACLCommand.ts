@@ -498,6 +498,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *         },
  *         RateBasedStatement: { // RateBasedStatement
  *           Limit: Number("long"), // required
+ *           EvaluationWindowSec: Number("long"),
  *           AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  *           ScopeDownStatement: {
  *             ByteMatchStatement: {
@@ -571,6 +572,7 @@ export interface UpdateWebACLCommandOutput extends UpdateWebACLResponse, __Metad
  *             },
  *             RateBasedStatement: {
  *               Limit: Number("long"), // required
+ *               EvaluationWindowSec: Number("long"),
  *               AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  *               ScopeDownStatement: "<Statement>",
  *               ForwardedIPConfig: {
