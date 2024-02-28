@@ -29,9 +29,12 @@ export interface DeleteComputeEnvironmentCommandOutput extends DeleteComputeEnvi
 /**
  * @public
  * <p>Deletes an Batch compute environment.</p>
- *          <p>Before you can delete a compute environment, you must set its state to <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation. Compute environments that use Fargate resources must terminate all
- *    active jobs on that compute environment before deleting the compute environment. If this isn't done, the compute
- *    environment enters an invalid state.</p>
+ *          <p>Before you can delete a compute environment, you must set its state to
+ *         <code>DISABLED</code> with the <a>UpdateComputeEnvironment</a> API operation and
+ *       disassociate it from any job queues with the <a>UpdateJobQueue</a> API operation.
+ *       Compute environments that use Fargate resources must terminate all active jobs on that
+ *       compute environment before deleting the compute environment. If this isn't done, the compute
+ *       environment enters an invalid state.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

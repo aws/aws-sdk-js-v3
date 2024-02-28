@@ -28,12 +28,13 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
 
 /**
  * @public
- * <p>Creates an Batch job queue. When you create a job queue, you associate one or more compute environments to the
- *    queue and assign an order of preference for the compute environments.</p>
- *          <p>You also set a priority to the job queue that determines the order that the Batch scheduler places jobs onto
- *    its associated compute environments. For example, if a compute environment is associated with more than one job
- *    queue, the job queue with a higher priority is given preference for scheduling jobs to that compute
- *    environment.</p>
+ * <p>Creates an Batch job queue. When you create a job queue, you associate one or more
+ *       compute environments to the queue and assign an order of preference for the compute
+ *       environments.</p>
+ *          <p>You also set a priority to the job queue that determines the order that the Batch
+ *       scheduler places jobs onto its associated compute environments. For example, if a compute
+ *       environment is associated with more than one job queue, the job queue with a higher priority
+ *       is given preference for scheduling jobs to that compute environment.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

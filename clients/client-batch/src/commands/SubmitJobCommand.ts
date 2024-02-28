@@ -28,18 +28,20 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
 
 /**
  * @public
- * <p>Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a>
- *    override parameters defined in the job definition. vCPU and memory requirements that are specified in the
- *     <code>resourceRequirements</code> objects in the job definition are the exception. They can't be overridden this way
- *    using the <code>memory</code> and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
- *    parameters in a <code>resourceRequirements</code> object that's included in the <code>containerOverrides</code>
- *    parameter.</p>
+ * <p>Submits an Batch job from a job definition. Parameters that are specified during <a>SubmitJob</a> override parameters defined in the job definition. vCPU and memory
+ *       requirements that are specified in the <code>resourceRequirements</code> objects in the job
+ *       definition are the exception. They can't be overridden this way using the <code>memory</code>
+ *       and <code>vcpus</code> parameters. Rather, you must specify updates to job definition
+ *       parameters in a <code>resourceRequirements</code> object that's included in the
+ *         <code>containerOverrides</code> parameter.</p>
  *          <note>
- *             <p>Job queues with a scheduling policy are limited to 500 active fair share identifiers at a time. </p>
+ *             <p>Job queues with a scheduling policy are limited to 500 active fair share identifiers at
+ *         a time. </p>
  *          </note>
  *          <important>
- *             <p>Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days. This is because, after 14
- *     days, Fargate resources might become unavailable and job might be terminated.</p>
+ *             <p>Jobs that run on Fargate resources can't be guaranteed to run for more than 14 days.
+ *         This is because, after 14 days, Fargate resources might become unavailable and job might be
+ *         terminated.</p>
  *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -110,6 +112,21 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *             },
  *           ],
  *         },
+ *         ecsPropertiesOverride: { // EcsPropertiesOverride
+ *           taskProperties: [ // ListTaskPropertiesOverride
+ *             { // TaskPropertiesOverride
+ *               containers: [ // ListTaskContainerOverrides
+ *                 { // TaskContainerOverrides
+ *                   command: "<StringList>",
+ *                   environment: "<EnvironmentVariables>",
+ *                   name: "STRING_VALUE",
+ *                   resourceRequirements: "<ResourceRequirements>",
+ *                 },
+ *               ],
+ *             },
+ *           ],
+ *         },
+ *         instanceTypes: "<StringList>",
  *       },
  *     ],
  *   },
@@ -135,13 +152,10 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *     podProperties: { // EksPodPropertiesOverride
  *       containers: [ // EksContainerOverrideList
  *         { // EksContainerOverride
+ *           name: "STRING_VALUE",
  *           image: "STRING_VALUE",
- *           command: [
- *             "STRING_VALUE",
- *           ],
- *           args: [
- *             "STRING_VALUE",
- *           ],
+ *           command: "<StringList>",
+ *           args: "<StringList>",
  *           env: [ // EksContainerEnvironmentVariables
  *             { // EksContainerEnvironmentVariable
  *               name: "STRING_VALUE", // required
@@ -158,12 +172,48 @@ export interface SubmitJobCommandOutput extends SubmitJobResponse, __MetadataBea
  *           },
  *         },
  *       ],
+ *       initContainers: [
+ *         {
+ *           name: "STRING_VALUE",
+ *           image: "STRING_VALUE",
+ *           command: "<StringList>",
+ *           args: "<StringList>",
+ *           env: [
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           resources: {
+ *             limits: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             requests: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *         },
+ *       ],
  *       metadata: { // EksMetadata
  *         labels: { // EksLabelsMap
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
  *     },
+ *   },
+ *   ecsPropertiesOverride: {
+ *     taskProperties: [
+ *       {
+ *         containers: [
+ *           {
+ *             command: "<StringList>",
+ *             environment: "<EnvironmentVariables>",
+ *             name: "STRING_VALUE",
+ *             resourceRequirements: "<ResourceRequirements>",
+ *           },
+ *         ],
+ *       },
+ *     ],
  *   },
  * };
  * const command = new SubmitJobCommand(input);

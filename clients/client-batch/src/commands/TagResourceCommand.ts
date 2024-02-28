@@ -28,9 +28,10 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * @public
- * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>. If existing tags on a
- *    resource aren't specified in the request parameters, they aren't changed. When a resource is deleted, the tags that
- *    are associated with that resource are deleted as well. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
+ * <p>Associates the specified tags to a resource with the specified <code>resourceArn</code>.
+ *       If existing tags on a resource aren't specified in the request parameters, they aren't
+ *       changed. When a resource is deleted, the tags that are associated with that resource are
+ *       deleted as well. Batch resources that support tags are compute environments, jobs, job definitions, job queues,
  *  and scheduling policies. ARNs for child jobs of array and multi-node parallel (MNP) jobs aren't supported.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

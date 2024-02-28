@@ -41,8 +41,8 @@ export interface ListJobsCommandOutput extends ListJobsResponse, __MetadataBeare
  *                <p>An array job ID to return a list of the children for that job</p>
  *             </li>
  *          </ul>
- *          <p>You can filter the results by job status with the <code>jobStatus</code> parameter. If you don't specify a
- *    status, only <code>RUNNING</code> jobs are returned.</p>
+ *          <p>You can filter the results by job status with the <code>jobStatus</code> parameter. If you
+ *       don't specify a status, only <code>RUNNING</code> jobs are returned.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

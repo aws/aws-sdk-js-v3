@@ -268,6 +268,47 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *             credentialsParameter: "STRING_VALUE", // required
  *           },
  *         },
+ *         instanceTypes: "<StringList>",
+ *         ecsProperties: { // EcsProperties
+ *           taskProperties: [ // ListEcsTaskProperties // required
+ *             { // EcsTaskProperties
+ *               containers: [ // ListTaskContainerProperties // required
+ *                 { // TaskContainerProperties
+ *                   command: "<StringList>",
+ *                   dependsOn: [ // TaskContainerDependencyList
+ *                     { // TaskContainerDependency
+ *                       containerName: "STRING_VALUE",
+ *                       condition: "STRING_VALUE",
+ *                     },
+ *                   ],
+ *                   environment: "<EnvironmentVariables>",
+ *                   essential: true || false,
+ *                   image: "STRING_VALUE", // required
+ *                   linuxParameters: "<LinuxParameters>",
+ *                   logConfiguration: "<LogConfiguration>",
+ *                   mountPoints: "<MountPoints>",
+ *                   name: "STRING_VALUE",
+ *                   privileged: true || false,
+ *                   readonlyRootFilesystem: true || false,
+ *                   repositoryCredentials: "<RepositoryCredentials>",
+ *                   resourceRequirements: "<ResourceRequirements>",
+ *                   secrets: "<SecretList>",
+ *                   ulimits: "<Ulimits>",
+ *                   user: "STRING_VALUE",
+ *                 },
+ *               ],
+ *               ephemeralStorage: "<EphemeralStorage>",
+ *               executionRoleArn: "STRING_VALUE",
+ *               platformVersion: "STRING_VALUE",
+ *               ipcMode: "STRING_VALUE",
+ *               taskRoleArn: "STRING_VALUE",
+ *               pidMode: "STRING_VALUE",
+ *               networkConfiguration: "<NetworkConfiguration>",
+ *               runtimePlatform: "<RuntimePlatform>",
+ *               volumes: "<Volumes>",
+ *             },
+ *           ],
+ *         },
  *       },
  *     ],
  *   },
@@ -334,6 +375,43 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *           },
  *         },
  *       ],
+ *       initContainers: [
+ *         {
+ *           name: "STRING_VALUE",
+ *           image: "STRING_VALUE", // required
+ *           imagePullPolicy: "STRING_VALUE",
+ *           command: "<StringList>",
+ *           args: "<StringList>",
+ *           env: [
+ *             {
+ *               name: "STRING_VALUE", // required
+ *               value: "STRING_VALUE",
+ *             },
+ *           ],
+ *           resources: {
+ *             limits: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *             requests: {
+ *               "<keys>": "STRING_VALUE",
+ *             },
+ *           },
+ *           volumeMounts: [
+ *             {
+ *               name: "STRING_VALUE",
+ *               mountPath: "STRING_VALUE",
+ *               readOnly: true || false,
+ *             },
+ *           ],
+ *           securityContext: {
+ *             runAsUser: Number("long"),
+ *             runAsGroup: Number("long"),
+ *             privileged: true || false,
+ *             readOnlyRootFilesystem: true || false,
+ *             runAsNonRoot: true || false,
+ *           },
+ *         },
+ *       ],
  *       volumes: [ // EksVolumes
  *         { // EksVolume
  *           name: "STRING_VALUE", // required
@@ -355,7 +433,48 @@ export interface RegisterJobDefinitionCommandOutput extends RegisterJobDefinitio
  *           "<keys>": "STRING_VALUE",
  *         },
  *       },
+ *       shareProcessNamespace: true || false,
  *     },
+ *   },
+ *   ecsProperties: {
+ *     taskProperties: [ // required
+ *       {
+ *         containers: [ // required
+ *           {
+ *             command: "<StringList>",
+ *             dependsOn: [
+ *               {
+ *                 containerName: "STRING_VALUE",
+ *                 condition: "STRING_VALUE",
+ *               },
+ *             ],
+ *             environment: "<EnvironmentVariables>",
+ *             essential: true || false,
+ *             image: "STRING_VALUE", // required
+ *             linuxParameters: "<LinuxParameters>",
+ *             logConfiguration: "<LogConfiguration>",
+ *             mountPoints: "<MountPoints>",
+ *             name: "STRING_VALUE",
+ *             privileged: true || false,
+ *             readonlyRootFilesystem: true || false,
+ *             repositoryCredentials: "<RepositoryCredentials>",
+ *             resourceRequirements: "<ResourceRequirements>",
+ *             secrets: "<SecretList>",
+ *             ulimits: "<Ulimits>",
+ *             user: "STRING_VALUE",
+ *           },
+ *         ],
+ *         ephemeralStorage: "<EphemeralStorage>",
+ *         executionRoleArn: "STRING_VALUE",
+ *         platformVersion: "STRING_VALUE",
+ *         ipcMode: "STRING_VALUE",
+ *         taskRoleArn: "STRING_VALUE",
+ *         pidMode: "STRING_VALUE",
+ *         networkConfiguration: "<NetworkConfiguration>",
+ *         runtimePlatform: "<RuntimePlatform>",
+ *         volumes: "<Volumes>",
+ *       },
+ *     ],
  *   },
  * };
  * const command = new RegisterJobDefinitionCommand(input);

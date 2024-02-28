@@ -5,7 +5,9 @@ import {
   _json,
   collectBody,
   decorateServiceException as __decorateServiceException,
+  expectBoolean as __expectBoolean,
   expectInt32 as __expectInt32,
+  expectLong as __expectLong,
   expectNonNull as __expectNonNull,
   expectObject as __expectObject,
   expectString as __expectString,
@@ -98,6 +100,9 @@ import {
   Device,
   DeviceCgroupPermission,
   Ec2Configuration,
+  EcsProperties,
+  EcsPropertiesOverride,
+  EcsTaskProperties,
   EFSAuthorizationConfig,
   EFSVolumeConfiguration,
   EksConfiguration,
@@ -121,7 +126,9 @@ import {
   FairsharePolicy,
   FargatePlatformConfiguration,
   Host,
+  JobDefinition,
   JobDependency,
+  JobDetail,
   JobTimeout,
   KeyValuePair,
   KeyValuesPair,
@@ -143,6 +150,10 @@ import {
   Secret,
   ServerException,
   ShareAttributes,
+  TaskContainerDependency,
+  TaskContainerOverrides,
+  TaskContainerProperties,
+  TaskPropertiesOverride,
   Tmpfs,
   Ulimit,
   UpdatePolicy,
@@ -541,9 +552,10 @@ export const se_RegisterJobDefinitionCommand = async (
   body = JSON.stringify(
     take(input, {
       containerProperties: (_) => _json(_),
+      ecsProperties: (_) => _json(_),
       eksProperties: (_) => _json(_),
       jobDefinitionName: [],
-      nodeProperties: (_) => _json(_),
+      nodeProperties: (_) => se_NodeProperties(_, context),
       parameters: (_) => _json(_),
       platformCapabilities: (_) => _json(_),
       propagateTags: [],
@@ -576,6 +588,7 @@ export const se_SubmitJobCommand = async (
       arrayProperties: (_) => _json(_),
       containerOverrides: (_) => _json(_),
       dependsOn: (_) => _json(_),
+      ecsPropertiesOverride: (_) => _json(_),
       eksPropertiesOverride: (_) => _json(_),
       jobDefinition: [],
       jobName: [],
@@ -926,7 +939,7 @@ export const de_DescribeJobDefinitionsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    jobDefinitions: _json,
+    jobDefinitions: (_) => de_JobDefinitionList(_, context),
     nextToken: __expectString,
   });
   Object.assign(contents, doc);
@@ -970,7 +983,7 @@ export const de_DescribeJobsCommand = async (
   });
   const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
   const doc = take(data, {
-    jobs: _json,
+    jobs: (_) => de_JobDetailList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -1305,6 +1318,12 @@ const de_ServerExceptionRes = async (parsedOutput: any, context: __SerdeContext)
 
 // se_Ec2ConfigurationList omitted.
 
+// se_EcsProperties omitted.
+
+// se_EcsPropertiesOverride omitted.
+
+// se_EcsTaskProperties omitted.
+
 // se_EFSAuthorizationConfig omitted.
 
 // se_EFSVolumeConfiguration omitted.
@@ -1394,7 +1413,15 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_LinuxParameters omitted.
 
+// se_ListEcsTaskProperties omitted.
+
 // se_ListJobsFilterList omitted.
+
+// se_ListTaskContainerOverrides omitted.
+
+// se_ListTaskContainerProperties omitted.
+
+// se_ListTaskPropertiesOverride omitted.
 
 // se_LogConfiguration omitted.
 
@@ -1408,13 +1435,31 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_NodeOverrides omitted.
 
-// se_NodeProperties omitted.
+/**
+ * serializeAws_restJson1NodeProperties
+ */
+const se_NodeProperties = (input: NodeProperties, context: __SerdeContext): any => {
+  return take(input, {
+    mainNode: [],
+    nodeRangeProperties: (_) => se_NodeRangeProperties(_, context),
+    numNodes: [],
+  });
+};
 
 // se_NodePropertyOverride omitted.
 
 // se_NodePropertyOverrides omitted.
 
-// se_NodeRangeProperties omitted.
+/**
+ * serializeAws_restJson1NodeRangeProperties
+ */
+const se_NodeRangeProperties = (input: NodeRangeProperty[], context: __SerdeContext): any => {
+  return input
+    .filter((e: any) => e != null)
+    .map((entry) => {
+      return _json(entry);
+    });
+};
 
 // se_NodeRangeProperty omitted.
 
@@ -1462,6 +1507,16 @@ const se_ShareAttributesList = (input: ShareAttributes[], context: __SerdeContex
 // se_TagrisTagsMap omitted.
 
 // se_TagsMap omitted.
+
+// se_TaskContainerDependency omitted.
+
+// se_TaskContainerDependencyList omitted.
+
+// se_TaskContainerOverrides omitted.
+
+// se_TaskContainerProperties omitted.
+
+// se_TaskPropertiesOverride omitted.
 
 // se_Tmpfs omitted.
 
@@ -1514,6 +1569,14 @@ const se_ShareAttributesList = (input: ShareAttributes[], context: __SerdeContex
 // de_Ec2Configuration omitted.
 
 // de_Ec2ConfigurationList omitted.
+
+// de_EcsProperties omitted.
+
+// de_EcsPropertiesDetail omitted.
+
+// de_EcsTaskDetails omitted.
+
+// de_EcsTaskProperties omitted.
 
 // de_EFSAuthorizationConfig omitted.
 
@@ -1598,17 +1661,95 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
 
 // de_Host omitted.
 
-// de_JobDefinition omitted.
+/**
+ * deserializeAws_restJson1JobDefinition
+ */
+const de_JobDefinition = (output: any, context: __SerdeContext): JobDefinition => {
+  return take(output, {
+    containerOrchestrationType: __expectString,
+    containerProperties: _json,
+    ecsProperties: _json,
+    eksProperties: _json,
+    jobDefinitionArn: __expectString,
+    jobDefinitionName: __expectString,
+    nodeProperties: (_: any) => de_NodeProperties(_, context),
+    parameters: _json,
+    platformCapabilities: _json,
+    propagateTags: __expectBoolean,
+    retryStrategy: _json,
+    revision: __expectInt32,
+    schedulingPriority: __expectInt32,
+    status: __expectString,
+    tags: _json,
+    timeout: _json,
+    type: __expectString,
+  }) as any;
+};
 
-// de_JobDefinitionList omitted.
+/**
+ * deserializeAws_restJson1JobDefinitionList
+ */
+const de_JobDefinitionList = (output: any, context: __SerdeContext): JobDefinition[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_JobDefinition(entry, context);
+    });
+  return retVal;
+};
 
 // de_JobDependency omitted.
 
 // de_JobDependencyList omitted.
 
-// de_JobDetail omitted.
+/**
+ * deserializeAws_restJson1JobDetail
+ */
+const de_JobDetail = (output: any, context: __SerdeContext): JobDetail => {
+  return take(output, {
+    arrayProperties: _json,
+    attempts: _json,
+    container: _json,
+    createdAt: __expectLong,
+    dependsOn: _json,
+    ecsProperties: _json,
+    eksAttempts: _json,
+    eksProperties: _json,
+    isCancelled: __expectBoolean,
+    isTerminated: __expectBoolean,
+    jobArn: __expectString,
+    jobDefinition: __expectString,
+    jobId: __expectString,
+    jobName: __expectString,
+    jobQueue: __expectString,
+    nodeDetails: _json,
+    nodeProperties: (_: any) => de_NodeProperties(_, context),
+    parameters: _json,
+    platformCapabilities: _json,
+    propagateTags: __expectBoolean,
+    retryStrategy: _json,
+    schedulingPriority: __expectInt32,
+    shareIdentifier: __expectString,
+    startedAt: __expectLong,
+    status: __expectString,
+    statusReason: __expectString,
+    stoppedAt: __expectLong,
+    tags: _json,
+    timeout: _json,
+  }) as any;
+};
 
-// de_JobDetailList omitted.
+/**
+ * deserializeAws_restJson1JobDetailList
+ */
+const de_JobDetailList = (output: any, context: __SerdeContext): JobDetail[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_JobDetail(entry, context);
+    });
+  return retVal;
+};
 
 // de_JobQueueDetail omitted.
 
@@ -1626,6 +1767,14 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
 
 // de_LinuxParameters omitted.
 
+// de_ListEcsTaskDetails omitted.
+
+// de_ListEcsTaskProperties omitted.
+
+// de_ListTaskContainerDetails omitted.
+
+// de_ListTaskContainerProperties omitted.
+
 // de_LogConfiguration omitted.
 
 // de_LogConfigurationOptionsMap omitted.
@@ -1642,11 +1791,30 @@ const de_FairsharePolicy = (output: any, context: __SerdeContext): FairsharePoli
 
 // de_NodeDetails omitted.
 
-// de_NodeProperties omitted.
+/**
+ * deserializeAws_restJson1NodeProperties
+ */
+const de_NodeProperties = (output: any, context: __SerdeContext): NodeProperties => {
+  return take(output, {
+    mainNode: __expectInt32,
+    nodeRangeProperties: (_: any) => de_NodeRangeProperties(_, context),
+    numNodes: __expectInt32,
+  }) as any;
+};
 
 // de_NodePropertiesSummary omitted.
 
-// de_NodeRangeProperties omitted.
+/**
+ * deserializeAws_restJson1NodeRangeProperties
+ */
+const de_NodeRangeProperties = (output: any, context: __SerdeContext): NodeRangeProperty[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return _json(entry);
+    });
+  return retVal;
+};
 
 // de_NodeRangeProperty omitted.
 
@@ -1723,6 +1891,14 @@ const de_ShareAttributesList = (output: any, context: __SerdeContext): ShareAttr
 // de_TagrisTagsMap omitted.
 
 // de_TagsMap omitted.
+
+// de_TaskContainerDependency omitted.
+
+// de_TaskContainerDependencyList omitted.
+
+// de_TaskContainerDetails omitted.
+
+// de_TaskContainerProperties omitted.
 
 // de_Tmpfs omitted.
 
