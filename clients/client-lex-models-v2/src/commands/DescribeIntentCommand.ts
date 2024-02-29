@@ -481,6 +481,34 @@ export interface DescribeIntentCommandOutput extends DescribeIntentResponse, __M
  * //       },
  * //     },
  * //   },
+ * //   qnAIntentConfiguration: { // QnAIntentConfiguration
+ * //     dataSourceConfiguration: { // DataSourceConfiguration
+ * //       opensearchConfiguration: { // OpensearchConfiguration
+ * //         domainEndpoint: "STRING_VALUE", // required
+ * //         indexName: "STRING_VALUE", // required
+ * //         exactResponse: true || false,
+ * //         exactResponseFields: { // ExactResponseFields
+ * //           questionField: "STRING_VALUE", // required
+ * //           answerField: "STRING_VALUE", // required
+ * //         },
+ * //         includeFields: [ // OSIncludeFields
+ * //           "STRING_VALUE",
+ * //         ],
+ * //       },
+ * //       kendraConfiguration: { // QnAKendraConfiguration
+ * //         kendraIndex: "STRING_VALUE", // required
+ * //         queryFilterStringEnabled: true || false,
+ * //         queryFilterString: "STRING_VALUE",
+ * //         exactResponse: true || false,
+ * //       },
+ * //       bedrockKnowledgeStoreConfiguration: { // BedrockKnowledgeStoreConfiguration
+ * //         bedrockKnowledgeBaseArn: "STRING_VALUE", // required
+ * //       },
+ * //     },
+ * //     bedrockModelConfiguration: { // BedrockModelSpecification
+ * //       modelArn: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```

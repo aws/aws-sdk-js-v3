@@ -76,6 +76,7 @@ import {
   CustomVocabularyItem,
   CustomVocabularyStatus,
   DataPrivacy,
+  DateRangeFilter,
   DialogAction,
   DialogCodeHookSettings,
   ElicitationCodeHookInvocationSetting,
@@ -97,6 +98,7 @@ import {
   OutputContext,
   ParentBotNetwork,
   PromptSpecification,
+  QnAIntentConfiguration,
   ResponseSpecification,
   SampleUtterance,
   SentimentAnalysisSettings,
@@ -111,10 +113,130 @@ import {
   SubSlotSetting,
   TestResultMatchStatus,
   TestSetDiscrepancyReportResourceTarget,
-  TranscriptSourceSetting,
   VoiceSettings,
   WaitAndContinueSpecification,
 } from "./models_0";
+
+/**
+ * @public
+ * <p>The object that contains a path format that will be applied when
+ *             Amazon Lex reads the transcript file in the bucket you provide. Specify this
+ *             object if you only want Lex to read a subset of files in your Amazon S3
+ *             bucket.</p>
+ */
+export interface PathFormat {
+  /**
+   * @public
+   * <p>A list of Amazon S3 prefixes that points to sub-folders in the Amazon S3
+   *             bucket. Specify this list if you only want Lex to read the files under
+   *             this set of sub-folders.</p>
+   */
+  objectPrefixes?: string[];
+}
+
+/**
+ * @public
+ * <p>The object that contains transcript filter details that are
+ *             associated with a bot recommendation.</p>
+ */
+export interface LexTranscriptFilter {
+  /**
+   * @public
+   * <p>The object that contains a date range filter that will be applied to
+   *             the transcript. Specify this object if you want Amazon Lex to only read the
+   *             files that are within the date range.</p>
+   */
+  dateRangeFilter?: DateRangeFilter;
+}
+
+/**
+ * @public
+ * <p>The object representing the filter that Amazon Lex will use to select the
+ *             appropriate transcript.</p>
+ */
+export interface TranscriptFilter {
+  /**
+   * @public
+   * <p>The object representing the filter that Amazon Lex will use to select the
+   *             appropriate transcript when the transcript format is the Amazon Lex
+   *             format.</p>
+   */
+  lexTranscriptFilter?: LexTranscriptFilter;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const TranscriptFormat = {
+  Lex: "Lex",
+} as const;
+
+/**
+ * @public
+ */
+export type TranscriptFormat = (typeof TranscriptFormat)[keyof typeof TranscriptFormat];
+
+/**
+ * @public
+ * <p>The object representing the Amazon S3 bucket containing the transcript,
+ *             as well as the associated metadata.</p>
+ */
+export interface S3BucketTranscriptSource {
+  /**
+   * @public
+   * <p>The name of the bucket containing the transcript and the associated
+   *             metadata.</p>
+   */
+  s3BucketName: string | undefined;
+
+  /**
+   * @public
+   * <p>The object that contains a path format that will be applied when
+   *             Amazon Lex reads the transcript file in the bucket you provide. Specify this
+   *             object if you only want Lex to read a subset of files in your Amazon S3
+   *             bucket.</p>
+   */
+  pathFormat?: PathFormat;
+
+  /**
+   * @public
+   * <p>The format of the transcript content. Currently, Genie only supports
+   *             the Amazon Lex transcript format.</p>
+   */
+  transcriptFormat: TranscriptFormat | undefined;
+
+  /**
+   * @public
+   * <p>The object that contains the filter which will be applied when Amazon Lex
+   *             reads through the Amazon S3 bucket. Specify this object if you want Amazon Lex to
+   *             read only a subset of the Amazon S3 bucket based on the filter you
+   *             provide.</p>
+   */
+  transcriptFilter?: TranscriptFilter;
+
+  /**
+   * @public
+   * <p>The ARN of the KMS key that customer use to encrypt their Amazon S3
+   *             bucket. Only use this field if your bucket is encrypted using a
+   *             customer managed KMS key.</p>
+   */
+  kmsKeyArn?: string;
+}
+
+/**
+ * @public
+ * <p>Indicates the setting of the location where the transcript is
+ *             stored.</p>
+ */
+export interface TranscriptSourceSetting {
+  /**
+   * @public
+   * <p>Indicates the setting of the Amazon S3 bucket where the transcript is
+   *             stored.</p>
+   */
+  s3BucketTranscriptSource?: S3BucketTranscriptSource;
+}
 
 /**
  * @public
@@ -9300,6 +9422,13 @@ export interface CreateIntentRequest {
    *          the beginning of a conversation, before eliciting slot values.</p>
    */
   initialResponseSetting?: InitialResponseSetting;
+
+  /**
+   * @public
+   * <p>Specifies the configuration of the built-in <code>Amazon.QnAIntent</code>. The <code>AMAZON.QnAIntent</code> intent is called when
+   *          Amazon Lex can't determine another intent to invoke. If you specify this field, you can't specify the <code>kendraConfiguration</code> field.</p>
+   */
+  qnAIntentConfiguration?: QnAIntentConfiguration;
 }
 
 /**
@@ -9410,6 +9539,12 @@ export interface CreateIntentResponse {
    *          the beginning of a conversation, before eliciting slot values.</p>
    */
   initialResponseSetting?: InitialResponseSetting;
+
+  /**
+   * @public
+   * <p>Details about the the configuration of the built-in <code>Amazon.QnAIntent</code>.</p>
+   */
+  qnAIntentConfiguration?: QnAIntentConfiguration;
 }
 
 /**
@@ -9539,6 +9674,12 @@ export interface DescribeIntentResponse {
    * <p>Configuration setting for a response sent to the user before Amazon Lex starts eliciting slots.</p>
    */
   initialResponseSetting?: InitialResponseSetting;
+
+  /**
+   * @public
+   * <p>Details about the configuration of the built-in <code>Amazon.QnAIntent</code>.</p>
+   */
+  qnAIntentConfiguration?: QnAIntentConfiguration;
 }
 
 /**
@@ -9657,6 +9798,13 @@ export interface UpdateIntentRequest {
    * <p>Configuration settings for a response sent to the user before Amazon Lex starts eliciting slots.</p>
    */
   initialResponseSetting?: InitialResponseSetting;
+
+  /**
+   * @public
+   * <p>Specifies the configuration of the built-in <code>Amazon.QnAIntent</code>. The <code>AMAZON.QnAIntent</code> intent is called when
+   *          Amazon Lex can't determine another intent to invoke. If you specify this field, you can't specify the <code>kendraConfiguration</code> field.</p>
+   */
+  qnAIntentConfiguration?: QnAIntentConfiguration;
 }
 
 /**
@@ -9786,6 +9934,12 @@ export interface UpdateIntentResponse {
    * <p>Configuration settings for a response sent to the user before Amazon Lex starts eliciting slots.</p>
    */
   initialResponseSetting?: InitialResponseSetting;
+
+  /**
+   * @public
+   * <p>Details about the configuration of the built-in <code>Amazon.QnAIntent</code>.</p>
+   */
+  qnAIntentConfiguration?: QnAIntentConfiguration;
 }
 
 /**

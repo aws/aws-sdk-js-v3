@@ -279,6 +279,7 @@ import {
   AudioLogDestination,
   AudioLogSetting,
   AudioSpecification,
+  BedrockKnowledgeStoreConfiguration,
   BedrockModelSpecification,
   BotAliasHistoryEvent,
   BotAliasLocaleSettings,
@@ -323,6 +324,7 @@ import {
   CustomVocabularyImportSpecification,
   CustomVocabularyItem,
   DataPrivacy,
+  DataSourceConfiguration,
   DateRangeFilter,
   DescriptiveBotBuilderSpecification,
   DialogAction,
@@ -330,6 +332,7 @@ import {
   DTMFSpecification,
   ElicitationCodeHookInvocationSetting,
   EncryptionSetting,
+  ExactResponseFields,
   ExportResourceSpecification,
   ExternalSourceSetting,
   FulfillmentStartResponseSpecification,
@@ -343,25 +346,25 @@ import {
   InternalServerException,
   KendraConfiguration,
   LambdaCodeHook,
-  LexTranscriptFilter,
   Message,
   MessageGroup,
   MultipleValuesSetting,
   NewCustomVocabularyItem,
   ObfuscationSetting,
+  OpensearchConfiguration,
   OutputContext,
-  PathFormat,
   PlainTextMessage,
   PreconditionFailedException,
   Principal,
   PromptAttempt,
   PromptAttemptSpecification,
   PromptSpecification,
+  QnAIntentConfiguration,
+  QnAKendraConfiguration,
   ResourceNotFoundException,
   ResponseSpecification,
   RuntimeSettings,
   S3BucketLogDestination,
-  S3BucketTranscriptSource,
   SampleUtterance,
   SampleUtteranceGenerationSpecification,
   SampleValue,
@@ -388,8 +391,6 @@ import {
   TextLogDestination,
   TextLogSetting,
   ThrottlingException,
-  TranscriptFilter,
-  TranscriptSourceSetting,
   ValidationException,
   VoiceSettings,
   WaitAndContinueSpecification,
@@ -418,11 +419,14 @@ import {
   IntentOverride,
   IntentSortBy,
   IntentSummary,
+  LexTranscriptFilter,
+  PathFormat,
   PostDialogCodeHookInvocationSpecification,
   PostFulfillmentStatusSpecification,
   RelativeAggregationDuration,
   RuntimeHintDetails,
   RuntimeHints,
+  S3BucketTranscriptSource,
   SessionDataSortBy,
   SessionSpecification,
   SlotCaptureSetting,
@@ -448,6 +452,8 @@ import {
   TestSetSummary,
   TestSetTurnRecord,
   TestSetTurnResult,
+  TranscriptFilter,
+  TranscriptSourceSetting,
   TurnSpecification,
   UserTurnInputSpecification,
   UserTurnIntentOutput,
@@ -742,6 +748,7 @@ export const se_CreateIntentCommand = async (
       kendraConfiguration: (_) => _json(_),
       outputContexts: (_) => _json(_),
       parentIntentSignature: [],
+      qnAIntentConfiguration: (_) => _json(_),
       sampleUtterances: (_) => _json(_),
     })
   );
@@ -2739,6 +2746,7 @@ export const se_UpdateIntentCommand = async (
       kendraConfiguration: (_) => _json(_),
       outputContexts: (_) => _json(_),
       parentIntentSignature: [],
+      qnAIntentConfiguration: (_) => _json(_),
       sampleUtterances: (_) => _json(_),
       slotPriorities: (_) => _json(_),
     })
@@ -3162,6 +3170,7 @@ export const de_CreateIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qnAIntentConfiguration: _json,
     sampleUtterances: _json,
   });
   Object.assign(contents, doc);
@@ -3973,6 +3982,7 @@ export const de_DescribeIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qnAIntentConfiguration: _json,
     sampleUtterances: _json,
     slotPriorities: _json,
   });
@@ -5376,6 +5386,7 @@ export const de_UpdateIntentCommand = async (
     localeId: __expectString,
     outputContexts: _json,
     parentIntentSignature: __expectString,
+    qnAIntentConfiguration: _json,
     sampleUtterances: _json,
     slotPriorities: _json,
   });
@@ -5763,6 +5774,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_AudioSpecification omitted.
 
+// se_BedrockKnowledgeStoreConfiguration omitted.
+
 // se_BedrockModelSpecification omitted.
 
 // se_BotAliasLocaleSettings omitted.
@@ -5914,6 +5927,8 @@ const se_ConversationLogsDataSourceFilterBy = (
 
 // se_DataPrivacy omitted.
 
+// se_DataSourceConfiguration omitted.
+
 /**
  * serializeAws_restJson1DateRangeFilter
  */
@@ -5970,6 +5985,8 @@ const se_DialogState = (input: DialogState, context: __SerdeContext): any => {
 // se_ElicitationCodeHookInvocationSetting omitted.
 
 // se_EncryptionSetting omitted.
+
+// se_ExactResponseFields omitted.
 
 // se_ExportFilter omitted.
 
@@ -6123,7 +6140,11 @@ const se_LexTranscriptFilter = (input: LexTranscriptFilter, context: __SerdeCont
 
 // se_ObjectPrefixes omitted.
 
+// se_OpensearchConfiguration omitted.
+
 // se_OperationList omitted.
+
+// se_OSIncludeFields omitted.
 
 // se_OutputContext omitted.
 
@@ -6182,6 +6203,10 @@ const se_PostFulfillmentStatusSpecification = (
 // se_PromptAttemptsSpecificationMap omitted.
 
 // se_PromptSpecification omitted.
+
+// se_QnAIntentConfiguration omitted.
+
+// se_QnAKendraConfiguration omitted.
 
 // se_RelativeAggregationDuration omitted.
 
@@ -6703,6 +6728,8 @@ const de_AnalyticsUtteranceResults = (output: any, context: __SerdeContext): Ana
 
 // de_AudioSpecification omitted.
 
+// de_BedrockKnowledgeStoreConfiguration omitted.
+
 // de_BedrockModelSpecification omitted.
 
 /**
@@ -7103,6 +7130,8 @@ const de_ConversationLogsDataSourceFilterBy = (
 
 // de_DataPrivacy omitted.
 
+// de_DataSourceConfiguration omitted.
+
 /**
  * deserializeAws_restJson1DateRangeFilter
  */
@@ -7157,6 +7186,8 @@ const de_DialogState = (output: any, context: __SerdeContext): DialogState => {
 // de_ElicitationCodeHookInvocationSetting omitted.
 
 // de_EncryptionSetting omitted.
+
+// de_ExactResponseFields omitted.
 
 // de_ExecutionErrorDetails omitted.
 
@@ -7430,6 +7461,10 @@ const de_LexTranscriptFilter = (output: any, context: __SerdeContext): LexTransc
 
 // de_ObjectPrefixes omitted.
 
+// de_OpensearchConfiguration omitted.
+
+// de_OSIncludeFields omitted.
+
 // de_OutputContext omitted.
 
 // de_OutputContextsList omitted.
@@ -7493,6 +7528,10 @@ const de_PostFulfillmentStatusSpecification = (
 // de_PromptAttemptsSpecificationMap omitted.
 
 // de_PromptSpecification omitted.
+
+// de_QnAIntentConfiguration omitted.
+
+// de_QnAKendraConfiguration omitted.
 
 // de_RecommendedActions omitted.
 
