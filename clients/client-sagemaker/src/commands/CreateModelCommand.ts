@@ -38,9 +38,6 @@ export interface CreateModelCommandOutput extends CreateModelOutput, __MetadataB
  *                 <code>CreateEndpointConfig</code> API, and then create an endpoint with the
  *                 <code>CreateEndpoint</code> API. SageMaker then deploys all of the containers that you
  *             defined for the model in the hosting environment. </p>
- *          <p>For an example that calls this method when deploying a model to SageMaker hosting services,
- *             see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/realtime-endpoints-deployment.html#realtime-endpoints-deployment-create-model">Create a Model (Amazon Web Services SDK for Python (Boto 3)).</a>
- *          </p>
  *          <p>To run a batch transform using your model, you start a job with the
  *                 <code>CreateTransformJob</code> API. SageMaker uses your model and your dataset to get
  *             inferences which are then saved to a specified S3 location.</p>

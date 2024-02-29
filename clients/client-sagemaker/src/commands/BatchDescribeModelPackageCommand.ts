@@ -57,6 +57,16 @@ export interface BatchDescribeModelPackageCommandOutput extends BatchDescribeMod
  * //             Image: "STRING_VALUE", // required
  * //             ImageDigest: "STRING_VALUE",
  * //             ModelDataUrl: "STRING_VALUE",
+ * //             ModelDataSource: { // ModelDataSource
+ * //               S3DataSource: { // S3ModelDataSource
+ * //                 S3Uri: "STRING_VALUE", // required
+ * //                 S3DataType: "S3Prefix" || "S3Object", // required
+ * //                 CompressionType: "None" || "Gzip", // required
+ * //                 ModelAccessConfig: { // ModelAccessConfig
+ * //                   AcceptEula: true || false, // required
+ * //                 },
+ * //               },
+ * //             },
  * //             ProductId: "STRING_VALUE",
  * //             Environment: { // EnvironmentMap
  * //               "<keys>": "STRING_VALUE",

@@ -46,6 +46,7 @@ import {
   MetricDefinition,
   MetricsSource,
   ModelApprovalStatus,
+  ModelDataSource,
   NeoVpcConfig,
   OutputConfig,
   OutputDataConfig,
@@ -9428,7 +9429,7 @@ export interface ModelMetrics {
 
   /**
    * @public
-   * <p>Metrics that measure bais in a model.</p>
+   * <p>Metrics that measure bias in a model.</p>
    */
   Bias?: Bias;
 
@@ -9470,6 +9471,12 @@ export interface SourceAlgorithm {
    *          </note>
    */
   ModelDataUrl?: string;
+
+  /**
+   * @public
+   * <p>Specifies the location of ML model data to deploy during endpoint creation.</p>
+   */
+  ModelDataSource?: ModelDataSource;
 
   /**
    * @public
@@ -9561,8 +9568,8 @@ export interface CreateModelPackageInput {
 
   /**
    * @public
-   * <p>Specifies details about inference jobs that can be run with models based on this model
-   *             package, including the following:</p>
+   * <p>Specifies details about inference jobs that you can run with models based on this model
+   *             package, including the following information:</p>
    *          <ul>
    *             <li>
    *                <p>The Amazon ECR paths of containers that contain the inference code and model
@@ -9695,6 +9702,14 @@ export interface CreateModelPackageInput {
    * <p>Indicates if you want to skip model validation.</p>
    */
   SkipModelValidation?: SkipModelValidation;
+
+  /**
+   * @public
+   * <p>The URI of the source for the model package. If you want to clone a model package,
+   *                 set it to the model package Amazon Resource Name (ARN). If you want to register a model,
+   *                 set it to the model ARN.</p>
+   */
+  SourceUri?: string;
 }
 
 /**

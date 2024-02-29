@@ -13025,6 +13025,7 @@ const se_CreateModelPackageInput = (input: CreateModelPackageInput, context: __S
     SamplePayloadUrl: [],
     SkipModelValidation: [],
     SourceAlgorithmSpecification: _json,
+    SourceUri: [],
     Tags: _json,
     Task: [],
     ValidationSpecification: _json,
@@ -19677,6 +19678,7 @@ const de_DescribeModelPackageOutput = (output: any, context: __SerdeContext): De
     SamplePayloadUrl: __expectString,
     SkipModelValidation: __expectString,
     SourceAlgorithmSpecification: (_: any) => de_SourceAlgorithmSpecification(_, context),
+    SourceUri: __expectString,
     Task: __expectString,
     ValidationSpecification: (_: any) => de_ModelPackageValidationSpecification(_, context),
   }) as any;
@@ -24248,6 +24250,7 @@ const de_ModelPackage = (output: any, context: __SerdeContext): ModelPackage => 
     SamplePayloadUrl: __expectString,
     SkipModelValidation: __expectString,
     SourceAlgorithmSpecification: (_: any) => de_SourceAlgorithmSpecification(_, context),
+    SourceUri: __expectString,
     Tags: (_: any) => de_TagList(_, context),
     Task: __expectString,
     ValidationSpecification: (_: any) => de_ModelPackageValidationSpecification(_, context),
@@ -24266,6 +24269,7 @@ const de_ModelPackageContainerDefinition = (output: any, context: __SerdeContext
     FrameworkVersion: __expectString,
     Image: __expectString,
     ImageDigest: __expectString,
+    ModelDataSource: (_: any) => de_ModelDataSource(_, context),
     ModelDataUrl: __expectString,
     ModelInput: (_: any) => de_ModelInput(_, context),
     NearestModelName: __expectString,
@@ -27016,6 +27020,7 @@ const de_ShuffleConfig = (output: any, context: __SerdeContext): ShuffleConfig =
 const de_SourceAlgorithm = (output: any, context: __SerdeContext): SourceAlgorithm => {
   return take(output, {
     AlgorithmName: __expectString,
+    ModelDataSource: (_: any) => de_ModelDataSource(_, context),
     ModelDataUrl: __expectString,
   }) as any;
 };

@@ -277,6 +277,180 @@ export interface AdditionalS3DataSource {
 
 /**
  * @public
+ * @enum
+ */
+export const ModelCompressionType = {
+  Gzip: "Gzip",
+  None: "None",
+} as const;
+
+/**
+ * @public
+ */
+export type ModelCompressionType = (typeof ModelCompressionType)[keyof typeof ModelCompressionType];
+
+/**
+ * @public
+ * <p>The access configuration file to control access to the ML model. You can explicitly accept the model
+ *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.</p>
+ *          <ul>
+ *             <li>
+ *                <p>If you are a Jumpstart user, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a> section for more details on accepting the EULA.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you are an AutoML user, see the  <i>Optional Parameters</i> section of
+ *                <i>Create an AutoML job to fine-tune text generation models using the
+ *                   API</i> for details on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-finetune-llms.html#autopilot-llms-finetuning-api-optional-params">How to set the EULA acceptance when fine-tuning a model using the AutoML
+ *                   API</a>.</p>
+ *             </li>
+ *          </ul>
+ */
+export interface ModelAccessConfig {
+  /**
+   * @public
+   * <p>Specifies agreement to the model end-user license agreement (EULA). The
+   *             <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order
+   *          to accept the EULA that this model requires. You are responsible for reviewing and
+   *          complying with any applicable license terms and making sure they are acceptable for your
+   *          use case before downloading or using a model.</p>
+   */
+  AcceptEula: boolean | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const S3ModelDataType = {
+  S3Object: "S3Object",
+  S3Prefix: "S3Prefix",
+} as const;
+
+/**
+ * @public
+ */
+export type S3ModelDataType = (typeof S3ModelDataType)[keyof typeof S3ModelDataType];
+
+/**
+ * @public
+ * <p>Specifies the S3 location of ML model data to deploy.</p>
+ */
+export interface S3ModelDataSource {
+  /**
+   * @public
+   * <p>Specifies the S3 path of ML model data to deploy.</p>
+   */
+  S3Uri: string | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the type of ML model data to deploy.</p>
+   *          <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name prefix.
+   *             SageMaker uses all objects that match the specified key name prefix as part of the ML model
+   *             data to deploy. A valid key name prefix identified by <code>S3Uri</code> always ends
+   *             with a forward slash (/).</p>
+   *          <p>If you choose <code>S3Object</code>, <code>S3Uri</code> identifies an object that is
+   *             the ML model data to deploy.</p>
+   */
+  S3DataType: S3ModelDataType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies how the ML model data is prepared.</p>
+   *          <p>If you choose <code>Gzip</code> and choose <code>S3Object</code> as the value of
+   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies an object that is a
+   *             gzip-compressed TAR archive. SageMaker will attempt to decompress and untar the object during
+   *             model deployment.</p>
+   *          <p>If you choose <code>None</code> and chooose <code>S3Object</code> as the value of
+   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies an object that represents an
+   *             uncompressed ML model to deploy.</p>
+   *          <p>If you choose None and choose <code>S3Prefix</code> as the value of
+   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies a key name prefix, under
+   *             which all objects represents the uncompressed ML model to deploy.</p>
+   *          <p>If you choose None, then SageMaker will follow rules below when creating model data files
+   *             under /opt/ml/model directory for use by your inference code:</p>
+   *          <ul>
+   *             <li>
+   *                <p>If you choose <code>S3Object</code> as the value of <code>S3DataType</code>,
+   *                     then SageMaker will split the key of the S3 object referenced by <code>S3Uri</code>
+   *                     by slash (/), and use the last part as the filename of the file holding the
+   *                     content of the S3 object.</p>
+   *             </li>
+   *             <li>
+   *                <p>If you choose <code>S3Prefix</code> as the value of <code>S3DataType</code>,
+   *                     then for each S3 object under the key name pefix referenced by
+   *                         <code>S3Uri</code>, SageMaker will trim its key by the prefix, and use the
+   *                     remainder as the path (relative to <code>/opt/ml/model</code>) of the file
+   *                     holding the content of the S3 object. SageMaker will split the remainder by slash
+   *                     (/), using intermediate parts as directory names and the last part as filename
+   *                     of the file holding the content of the S3 object.</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not use any of the following as file names or directory names:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>An empty or blank string</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A string which contains null bytes</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A string longer than 255 bytes</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A single dot (<code>.</code>)</p>
+   *                   </li>
+   *                   <li>
+   *                      <p>A double dot (<code>..</code>)</p>
+   *                   </li>
+   *                </ul>
+   *             </li>
+   *             <li>
+   *                <p>Ambiguous file names will result in model deployment failure. For example, if
+   *                     your uncompressed ML model consists of two S3 objects
+   *                         <code>s3://mybucket/model/weights</code> and
+   *                         <code>s3://mybucket/model/weights/part1</code> and you specify
+   *                         <code>s3://mybucket/model/</code> as the value of <code>S3Uri</code> and
+   *                         <code>S3Prefix</code> as the value of <code>S3DataType</code>, then it will
+   *                     result in name clash between <code>/opt/ml/model/weights</code> (a regular file)
+   *                     and <code>/opt/ml/model/weights/</code> (a directory).</p>
+   *             </li>
+   *             <li>
+   *                <p>Do not organize the model artifacts in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html">S3 console using
+   *                         folders</a>. When you create a folder in S3 console, S3 creates a 0-byte
+   *                     object with a key set to the folder name you provide. They key of the 0-byte
+   *                     object ends with a slash (/) which violates SageMaker restrictions on model artifact
+   *                     file names, leading to model deployment failure. </p>
+   *             </li>
+   *          </ul>
+   */
+  CompressionType: ModelCompressionType | undefined;
+
+  /**
+   * @public
+   * <p>Specifies the access configuration file for the ML model. You can explicitly accept the
+   *          model end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. You are
+   *          responsible for reviewing and complying with any applicable license terms and making sure
+   *          they are acceptable for your use case before downloading or using a model.</p>
+   */
+  ModelAccessConfig?: ModelAccessConfig;
+}
+
+/**
+ * @public
+ * <p>Specifies the location of ML model data to deploy. If specified, you must specify one
+ *             and only one of the available data sources.</p>
+ */
+export interface ModelDataSource {
+  /**
+   * @public
+   * <p>Specifies the S3 location of ML model data to deploy.</p>
+   */
+  S3DataSource?: S3ModelDataSource;
+}
+
+/**
+ * @public
  * <p>Input object for the model.</p>
  */
 export interface ModelInput {
@@ -327,6 +501,12 @@ export interface ModelPackageContainerDefinition {
    *          </note>
    */
   ModelDataUrl?: string;
+
+  /**
+   * @public
+   * <p>Specifies the location of ML model data to deploy during endpoint creation.</p>
+   */
+  ModelDataSource?: ModelDataSource;
 
   /**
    * @public
@@ -4119,7 +4299,7 @@ export interface FileSystemConfig {
 
 /**
  * @public
- * <p>The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app.</p>
+ * <p>The configuration for the file system and kernels in a SageMaker image running as a JupyterLab app. The <code>FileSystemConfig</code> object is not supported.</p>
  */
 export interface JupyterLabAppImageConfig {
   /**
@@ -5766,21 +5946,19 @@ export interface AutoMLJobObjective {
    *                      <p>List of available metrics: </p>
    *                      <ul>
    *                         <li>
-   *                            <p> Regression: <code>InferenceLatency</code>, <code>MAE</code>,
+   *                            <p> Regression: <code>MAE</code>,
    *                               <code>MSE</code>, <code>R2</code>, <code>RMSE</code>
    *                            </p>
    *                         </li>
    *                         <li>
    *                            <p> Binary classification: <code>Accuracy</code>, <code>AUC</code>,
    *                               <code>BalancedAccuracy</code>, <code>F1</code>,
-   *                               <code>InferenceLatency</code>, <code>LogLoss</code>,
    *                               <code>Precision</code>, <code>Recall</code>
    *                            </p>
    *                         </li>
    *                         <li>
    *                            <p> Multiclass classification: <code>Accuracy</code>,
    *                               <code>BalancedAccuracy</code>, <code>F1macro</code>,
-   *                               <code>InferenceLatency</code>, <code>LogLoss</code>,
    *                               <code>PrecisionMacro</code>, <code>RecallMacro</code>
    *                            </p>
    *                         </li>
@@ -6207,34 +6385,6 @@ export interface TextClassificationJobConfig {
    *          content column.</p>
    */
   TargetLabelColumn: string | undefined;
-}
-
-/**
- * @public
- * <p>The access configuration file to control access to the ML model. You can explicitly accept the model
- *          end-user license agreement (EULA) within the <code>ModelAccessConfig</code>.</p>
- *          <ul>
- *             <li>
- *                <p>If you are a Jumpstart user, see the <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/jumpstart-foundation-models-choose.html#jumpstart-foundation-models-choose-eula">End-user license agreements</a> section for more details on accepting the EULA.</p>
- *             </li>
- *             <li>
- *                <p>If you are an AutoML user, see the  <i>Optional Parameters</i> section of
- *                <i>Create an AutoML job to fine-tune text generation models using the
- *                   API</i> for details on <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/autopilot-create-experiment-finetune-llms.html#autopilot-llms-finetuning-api-optional-params">How to set the EULA acceptance when fine-tuning a model using the AutoML
- *                   API</a>.</p>
- *             </li>
- *          </ul>
- */
-export interface ModelAccessConfig {
-  /**
-   * @public
-   * <p>Specifies agreement to the model end-user license agreement (EULA). The
-   *             <code>AcceptEula</code> value must be explicitly defined as <code>True</code> in order
-   *          to accept the EULA that this model requires. You are responsible for reviewing and
-   *          complying with any applicable license terms and making sure they are acceptable for your
-   *          use case before downloading or using a model.</p>
-   */
-  AcceptEula: boolean | undefined;
 }
 
 /**
@@ -9467,152 +9617,6 @@ export const ContainerMode = {
  * @public
  */
 export type ContainerMode = (typeof ContainerMode)[keyof typeof ContainerMode];
-
-/**
- * @public
- * @enum
- */
-export const ModelCompressionType = {
-  Gzip: "Gzip",
-  None: "None",
-} as const;
-
-/**
- * @public
- */
-export type ModelCompressionType = (typeof ModelCompressionType)[keyof typeof ModelCompressionType];
-
-/**
- * @public
- * @enum
- */
-export const S3ModelDataType = {
-  S3Object: "S3Object",
-  S3Prefix: "S3Prefix",
-} as const;
-
-/**
- * @public
- */
-export type S3ModelDataType = (typeof S3ModelDataType)[keyof typeof S3ModelDataType];
-
-/**
- * @public
- * <p>Specifies the S3 location of ML model data to deploy.</p>
- */
-export interface S3ModelDataSource {
-  /**
-   * @public
-   * <p>Specifies the S3 path of ML model data to deploy.</p>
-   */
-  S3Uri: string | undefined;
-
-  /**
-   * @public
-   * <p>Specifies the type of ML model data to deploy.</p>
-   *          <p>If you choose <code>S3Prefix</code>, <code>S3Uri</code> identifies a key name prefix.
-   *             SageMaker uses all objects that match the specified key name prefix as part of the ML model
-   *             data to deploy. A valid key name prefix identified by <code>S3Uri</code> always ends
-   *             with a forward slash (/).</p>
-   *          <p>If you choose <code>S3Object</code>, <code>S3Uri</code> identifies an object that is
-   *             the ML model data to deploy.</p>
-   */
-  S3DataType: S3ModelDataType | undefined;
-
-  /**
-   * @public
-   * <p>Specifies how the ML model data is prepared.</p>
-   *          <p>If you choose <code>Gzip</code> and choose <code>S3Object</code> as the value of
-   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies an object that is a
-   *             gzip-compressed TAR archive. SageMaker will attempt to decompress and untar the object during
-   *             model deployment.</p>
-   *          <p>If you choose <code>None</code> and chooose <code>S3Object</code> as the value of
-   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies an object that represents an
-   *             uncompressed ML model to deploy.</p>
-   *          <p>If you choose None and choose <code>S3Prefix</code> as the value of
-   *                 <code>S3DataType</code>, <code>S3Uri</code> identifies a key name prefix, under
-   *             which all objects represents the uncompressed ML model to deploy.</p>
-   *          <p>If you choose None, then SageMaker will follow rules below when creating model data files
-   *             under /opt/ml/model directory for use by your inference code:</p>
-   *          <ul>
-   *             <li>
-   *                <p>If you choose <code>S3Object</code> as the value of <code>S3DataType</code>,
-   *                     then SageMaker will split the key of the S3 object referenced by <code>S3Uri</code>
-   *                     by slash (/), and use the last part as the filename of the file holding the
-   *                     content of the S3 object.</p>
-   *             </li>
-   *             <li>
-   *                <p>If you choose <code>S3Prefix</code> as the value of <code>S3DataType</code>,
-   *                     then for each S3 object under the key name pefix referenced by
-   *                         <code>S3Uri</code>, SageMaker will trim its key by the prefix, and use the
-   *                     remainder as the path (relative to <code>/opt/ml/model</code>) of the file
-   *                     holding the content of the S3 object. SageMaker will split the remainder by slash
-   *                     (/), using intermediate parts as directory names and the last part as filename
-   *                     of the file holding the content of the S3 object.</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not use any of the following as file names or directory names:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>An empty or blank string</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>A string which contains null bytes</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>A string longer than 255 bytes</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>A single dot (<code>.</code>)</p>
-   *                   </li>
-   *                   <li>
-   *                      <p>A double dot (<code>..</code>)</p>
-   *                   </li>
-   *                </ul>
-   *             </li>
-   *             <li>
-   *                <p>Ambiguous file names will result in model deployment failure. For example, if
-   *                     your uncompressed ML model consists of two S3 objects
-   *                         <code>s3://mybucket/model/weights</code> and
-   *                         <code>s3://mybucket/model/weights/part1</code> and you specify
-   *                         <code>s3://mybucket/model/</code> as the value of <code>S3Uri</code> and
-   *                         <code>S3Prefix</code> as the value of <code>S3DataType</code>, then it will
-   *                     result in name clash between <code>/opt/ml/model/weights</code> (a regular file)
-   *                     and <code>/opt/ml/model/weights/</code> (a directory).</p>
-   *             </li>
-   *             <li>
-   *                <p>Do not organize the model artifacts in <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-folders.html">S3 console using
-   *                         folders</a>. When you create a folder in S3 console, S3 creates a 0-byte
-   *                     object with a key set to the folder name you provide. They key of the 0-byte
-   *                     object ends with a slash (/) which violates SageMaker restrictions on model artifact
-   *                     file names, leading to model deployment failure. </p>
-   *             </li>
-   *          </ul>
-   */
-  CompressionType: ModelCompressionType | undefined;
-
-  /**
-   * @public
-   * <p>Specifies the access configuration file for the ML model. You can explicitly accept the
-   *          model end-user license agreement (EULA) within the <code>ModelAccessConfig</code>. You are
-   *          responsible for reviewing and complying with any applicable license terms and making sure
-   *          they are acceptable for your use case before downloading or using a model.</p>
-   */
-  ModelAccessConfig?: ModelAccessConfig;
-}
-
-/**
- * @public
- * <p>Specifies the location of ML model data to deploy. If specified, you must specify one
- *             and only one of the available data sources.</p>
- */
-export interface ModelDataSource {
-  /**
-   * @public
-   * <p>Specifies the S3 location of ML model data to deploy.</p>
-   */
-  S3DataSource?: S3ModelDataSource;
-}
 
 /**
  * @public

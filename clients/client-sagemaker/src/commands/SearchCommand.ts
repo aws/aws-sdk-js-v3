@@ -1088,6 +1088,16 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               Image: "STRING_VALUE", // required
  * //               ImageDigest: "STRING_VALUE",
  * //               ModelDataUrl: "STRING_VALUE",
+ * //               ModelDataSource: { // ModelDataSource
+ * //                 S3DataSource: { // S3ModelDataSource
+ * //                   S3Uri: "STRING_VALUE", // required
+ * //                   S3DataType: "S3Prefix" || "S3Object", // required
+ * //                   CompressionType: "None" || "Gzip", // required
+ * //                   ModelAccessConfig: { // ModelAccessConfig
+ * //                     AcceptEula: true || false, // required
+ * //                   },
+ * //                 },
+ * //               },
  * //               ProductId: "STRING_VALUE",
  * //               Environment: { // EnvironmentMap
  * //                 "<keys>": "STRING_VALUE",
@@ -1122,6 +1132,16 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //           SourceAlgorithms: [ // SourceAlgorithmList // required
  * //             { // SourceAlgorithm
  * //               ModelDataUrl: "STRING_VALUE",
+ * //               ModelDataSource: {
+ * //                 S3DataSource: {
+ * //                   S3Uri: "STRING_VALUE", // required
+ * //                   S3DataType: "S3Prefix" || "S3Object", // required
+ * //                   CompressionType: "None" || "Gzip", // required
+ * //                   ModelAccessConfig: {
+ * //                     AcceptEula: true || false, // required
+ * //                   },
+ * //                 },
+ * //               },
  * //               AlgorithmName: "STRING_VALUE", // required
  * //             },
  * //           ],
@@ -1244,6 +1264,16 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //                 Image: "STRING_VALUE", // required
  * //                 ImageDigest: "STRING_VALUE",
  * //                 ModelDataUrl: "STRING_VALUE",
+ * //                 ModelDataSource: {
+ * //                   S3DataSource: {
+ * //                     S3Uri: "STRING_VALUE", // required
+ * //                     S3DataType: "S3Prefix" || "S3Object", // required
+ * //                     CompressionType: "None" || "Gzip", // required
+ * //                     ModelAccessConfig: {
+ * //                       AcceptEula: true || false, // required
+ * //                     },
+ * //                   },
+ * //                 },
  * //                 ProductId: "STRING_VALUE",
  * //                 Environment: {
  * //                   "<keys>": "STRING_VALUE",
@@ -1275,6 +1305,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             ],
  * //           },
  * //         ],
+ * //         SourceUri: "STRING_VALUE",
  * //         Tags: "<TagList>",
  * //         CustomerMetadataProperties: { // CustomerMetadataMap
  * //           "<keys>": "STRING_VALUE",
@@ -1783,16 +1814,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //             },
  * //             Mode: "SingleModel" || "MultiModel",
  * //             ModelDataUrl: "STRING_VALUE",
- * //             ModelDataSource: { // ModelDataSource
- * //               S3DataSource: { // S3ModelDataSource
- * //                 S3Uri: "STRING_VALUE", // required
- * //                 S3DataType: "S3Prefix" || "S3Object", // required
- * //                 CompressionType: "None" || "Gzip", // required
- * //                 ModelAccessConfig: { // ModelAccessConfig
- * //                   AcceptEula: true || false, // required
- * //                 },
- * //               },
- * //             },
+ * //             ModelDataSource: "<ModelDataSource>",
  * //             Environment: "<EnvironmentMap>",
  * //             ModelPackageName: "STRING_VALUE",
  * //             InferenceSpecificationName: "STRING_VALUE",
@@ -1812,16 +1834,7 @@ export interface SearchCommandOutput extends SearchResponse, __MetadataBearer {}
  * //               },
  * //               Mode: "SingleModel" || "MultiModel",
  * //               ModelDataUrl: "STRING_VALUE",
- * //               ModelDataSource: {
- * //                 S3DataSource: {
- * //                   S3Uri: "STRING_VALUE", // required
- * //                   S3DataType: "S3Prefix" || "S3Object", // required
- * //                   CompressionType: "None" || "Gzip", // required
- * //                   ModelAccessConfig: {
- * //                     AcceptEula: true || false, // required
- * //                   },
- * //                 },
- * //               },
+ * //               ModelDataSource: "<ModelDataSource>",
  * //               Environment: "<EnvironmentMap>",
  * //               ModelPackageName: "STRING_VALUE",
  * //               InferenceSpecificationName: "STRING_VALUE",

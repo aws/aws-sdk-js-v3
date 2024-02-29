@@ -39,7 +39,10 @@ export interface UpdateFeatureGroupCommandOutput extends UpdateFeatureGroupRespo
  *          feature group <i>after the feature group is updated</i>. If a record level
  *             <code>TtlDuration</code> exists from using the <code>PutRecord</code> API, the record
  *          level <code>TtlDuration</code> applies to that record instead of the default
- *             <code>TtlDuration</code>.</p>
+ *             <code>TtlDuration</code>. To remove the default <code>TtlDuration</code> from an
+ *          existing feature group, use the <code>UpdateFeatureGroup</code> API and set the
+ *             <code>TtlDuration</code>
+ *             <code>Unit</code> and <code>Value</code> to <code>null</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

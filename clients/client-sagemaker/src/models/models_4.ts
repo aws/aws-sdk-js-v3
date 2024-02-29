@@ -3401,6 +3401,12 @@ export interface ModelPackage {
 
   /**
    * @public
+   * <p>The URI of the source for the model package.</p>
+   */
+  SourceUri?: string;
+
+  /**
+   * @public
    * <p>A list of the tags associated with the model package. For more information, see <a href="https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html">Tagging Amazon Web Services
    *             resources</a> in the <i>Amazon Web Services General Reference Guide</i>.</p>
    */
@@ -4441,12 +4447,13 @@ export type SearchSortOrder = (typeof SearchSortOrder)[keyof typeof SearchSortOr
 
 /**
  * @public
- * <p>The list of key-value pairs that you specify for your resources.</p>
+ * <p>The list of key-value pairs used to filter your search results. If a search result contains a key from your list, it is included in the final search response if the value associated with the key in the result matches the value you specified.
+ *       If the value doesn't match, the result is excluded from the search response. Any resources that don't have a key from the list that you've provided will also be included in the search response.</p>
  */
 export interface VisibilityConditions {
   /**
    * @public
-   * <p>The key that specifies the tag that you're using to filter the search results. It must be in the following format: <code>Tags.<key>/EqualsIfExists</code>.</p>
+   * <p>The key that specifies the tag that you're using to filter the search results. It must be in the following format: <code>Tags.<key></code>.</p>
    */
   Key?: string;
 
@@ -6826,6 +6833,33 @@ export interface UpdateModelPackageInput {
    *     Generally used with SageMaker Neo to store the compiled artifacts.</p>
    */
   AdditionalInferenceSpecificationsToAdd?: AdditionalInferenceSpecificationDefinition[];
+
+  /**
+   * @public
+   * <p>Specifies details about inference jobs that you can run with models based on this model
+   *             package, including the following information:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The Amazon ECR paths of containers that contain the inference code and model
+   *                     artifacts.</p>
+   *             </li>
+   *             <li>
+   *                <p>The instance types that the model package supports for transform jobs and
+   *                     real-time endpoints used for inference.</p>
+   *             </li>
+   *             <li>
+   *                <p>The input and output content formats that the model package supports for
+   *                     inference.</p>
+   *             </li>
+   *          </ul>
+   */
+  InferenceSpecification?: InferenceSpecification;
+
+  /**
+   * @public
+   * <p>The URI of the source for the model package.</p>
+   */
+  SourceUri?: string;
 }
 
 /**

@@ -65,6 +65,16 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *         Image: "STRING_VALUE", // required
  *         ImageDigest: "STRING_VALUE",
  *         ModelDataUrl: "STRING_VALUE",
+ *         ModelDataSource: { // ModelDataSource
+ *           S3DataSource: { // S3ModelDataSource
+ *             S3Uri: "STRING_VALUE", // required
+ *             S3DataType: "S3Prefix" || "S3Object", // required
+ *             CompressionType: "None" || "Gzip", // required
+ *             ModelAccessConfig: { // ModelAccessConfig
+ *               AcceptEula: true || false, // required
+ *             },
+ *           },
+ *         },
  *         ProductId: "STRING_VALUE",
  *         Environment: { // EnvironmentMap
  *           "<keys>": "STRING_VALUE",
@@ -137,6 +147,16 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *     SourceAlgorithms: [ // SourceAlgorithmList // required
  *       { // SourceAlgorithm
  *         ModelDataUrl: "STRING_VALUE",
+ *         ModelDataSource: {
+ *           S3DataSource: {
+ *             S3Uri: "STRING_VALUE", // required
+ *             S3DataType: "S3Prefix" || "S3Object", // required
+ *             CompressionType: "None" || "Gzip", // required
+ *             ModelAccessConfig: {
+ *               AcceptEula: true || false, // required
+ *             },
+ *           },
+ *         },
  *         AlgorithmName: "STRING_VALUE", // required
  *       },
  *     ],
@@ -237,6 +257,16 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *           Image: "STRING_VALUE", // required
  *           ImageDigest: "STRING_VALUE",
  *           ModelDataUrl: "STRING_VALUE",
+ *           ModelDataSource: {
+ *             S3DataSource: {
+ *               S3Uri: "STRING_VALUE", // required
+ *               S3DataType: "S3Prefix" || "S3Object", // required
+ *               CompressionType: "None" || "Gzip", // required
+ *               ModelAccessConfig: {
+ *                 AcceptEula: true || false, // required
+ *               },
+ *             },
+ *           },
  *           ProductId: "STRING_VALUE",
  *           Environment: {
  *             "<keys>": "STRING_VALUE",
@@ -269,6 +299,7 @@ export interface CreateModelPackageCommandOutput extends CreateModelPackageOutpu
  *     },
  *   ],
  *   SkipModelValidation: "All" || "None",
+ *   SourceUri: "STRING_VALUE",
  * };
  * const command = new CreateModelPackageCommand(input);
  * const response = await client.send(command);

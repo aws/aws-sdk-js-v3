@@ -3012,7 +3012,10 @@ export interface DescribeAppResponse {
 
   /**
    * @public
-   * <p>The creation time.</p>
+   * <p>The creation time of the application.</p>
+   *          <note>
+   *             <p>After an application has been shut down for 24 hours, SageMaker deletes all metadata for the application. To be considered an update and retain application metadata, applications must be restarted within 24 hours after the previous application has been shut down. After this time window, creation of an application is considered a new application rather than an update of the previous application.</p>
+   *          </note>
    */
   CreationTime?: Date;
 
@@ -8619,7 +8622,7 @@ export interface DescribeModelPackageOutput {
 
   /**
    * @public
-   * <p>Details about inference jobs that can be run with models based on this model
+   * <p>Details about inference jobs that you can run with models based on this model
    *             package.</p>
    */
   InferenceSpecification?: InferenceSpecification;
@@ -8747,6 +8750,12 @@ export interface DescribeModelPackageOutput {
    * <p>Indicates if you want to skip model validation.</p>
    */
   SkipModelValidation?: SkipModelValidation;
+
+  /**
+   * @public
+   * <p>The URI of the source for the model package.</p>
+   */
+  SourceUri?: string;
 }
 
 /**
