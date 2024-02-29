@@ -62,6 +62,7 @@ export interface UpdateDataLakeCommandOutput extends UpdateDataLakeResponse, __M
  *       },
  *     },
  *   ],
+ *   metaStoreManagerRoleArn: "STRING_VALUE",
  * };
  * const command = new UpdateDataLakeCommand(input);
  * const response = await client.send(command);

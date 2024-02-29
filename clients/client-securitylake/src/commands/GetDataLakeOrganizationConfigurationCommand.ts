@@ -54,7 +54,7 @@ export interface GetDataLakeOrganizationConfigurationCommandOutput
  * //       region: "STRING_VALUE", // required
  * //       sources: [ // AwsLogSourceResourceList // required
  * //         { // AwsLogSourceResource
- * //           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
+ * //           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA" || "EKS_AUDIT" || "WAF",
  * //           sourceVersion: "STRING_VALUE",
  * //         },
  * //       ],

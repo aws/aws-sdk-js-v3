@@ -50,7 +50,7 @@ export interface DeleteAwsLogSourceCommandOutput extends DeleteAwsLogSourceRespo
  *       regions: [ // RegionList // required
  *         "STRING_VALUE",
  *       ],
- *       sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA", // required
+ *       sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA" || "EKS_AUDIT" || "WAF", // required
  *       sourceVersion: "STRING_VALUE",
  *     },
  *   ],

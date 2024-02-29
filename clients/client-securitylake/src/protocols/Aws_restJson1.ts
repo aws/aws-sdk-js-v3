@@ -717,6 +717,7 @@ export const se_UpdateDataLakeCommand = async (
   body = JSON.stringify(
     take(input, {
       configurations: (_) => _json(_),
+      metaStoreManagerRoleArn: [],
     })
   );
   b.m("PUT").h(headers).b(body);

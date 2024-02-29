@@ -47,7 +47,7 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  *   sources: [ // LogSourceResourceList
  *     { // LogSourceResource Union: only one key present
  *       awsLogSource: { // AwsLogSourceResource
- *         sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
+ *         sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA" || "EKS_AUDIT" || "WAF",
  *         sourceVersion: "STRING_VALUE",
  *       },
  *       customLogSource: { // CustomLogSourceResource
@@ -81,7 +81,7 @@ export interface UpdateSubscriberCommandOutput extends UpdateSubscriberResponse,
  * //     sources: [ // LogSourceResourceList // required
  * //       { // LogSourceResource Union: only one key present
  * //         awsLogSource: { // AwsLogSourceResource
- * //           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA",
+ * //           sourceName: "ROUTE53" || "VPC_FLOW" || "SH_FINDINGS" || "CLOUD_TRAIL_MGMT" || "LAMBDA_EXECUTION" || "S3_DATA" || "EKS_AUDIT" || "WAF",
  * //           sourceVersion: "STRING_VALUE",
  * //         },
  * //         customLogSource: { // CustomLogSourceResource
