@@ -955,6 +955,14 @@ DocumentType
 </details>
 <details>
 <summary>
+DocumentTypeAsMapValue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/json-protocol/command/DocumentTypeAsMapValueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-json-protocol/Interface/DocumentTypeAsMapValueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-json-protocol/Interface/DocumentTypeAsMapValueCommandOutput/)
+
+</details>
+<details>
+<summary>
 DocumentTypeAsPayload
 </summary>
 

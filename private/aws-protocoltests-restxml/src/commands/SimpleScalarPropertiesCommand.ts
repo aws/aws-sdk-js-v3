@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { SimpleScalarPropertiesInputOutput } from "../models/models_0";
+import { SimpleScalarPropertiesRequest, SimpleScalarPropertiesResponse } from "../models/models_0";
 import { de_SimpleScalarPropertiesCommand, se_SimpleScalarPropertiesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link SimpleScalarPropertiesCommand}.
  */
-export interface SimpleScalarPropertiesCommandInput extends SimpleScalarPropertiesInputOutput {}
+export interface SimpleScalarPropertiesCommandInput extends SimpleScalarPropertiesRequest {}
 /**
  * @public
  *
  * The output of {@link SimpleScalarPropertiesCommand}.
  */
-export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesInputOutput, __MetadataBearer {}
+export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropertiesResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropert
  * import { RestXmlProtocolClient, SimpleScalarPropertiesCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, SimpleScalarPropertiesCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // SimpleScalarPropertiesInputOutput
+ * const input = { // SimpleScalarPropertiesRequest
  *   foo: "STRING_VALUE",
  *   stringValue: "STRING_VALUE",
  *   trueBooleanValue: true || false,
@@ -47,7 +47,7 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropert
  * };
  * const command = new SimpleScalarPropertiesCommand(input);
  * const response = await client.send(command);
- * // { // SimpleScalarPropertiesInputOutput
+ * // { // SimpleScalarPropertiesResponse
  * //   foo: "STRING_VALUE",
  * //   stringValue: "STRING_VALUE",
  * //   trueBooleanValue: true || false,

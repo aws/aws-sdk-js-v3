@@ -957,6 +957,14 @@ DocumentType
 </details>
 <details>
 <summary>
+DocumentTypeAsMapValue
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/ec2-protocol/command/DocumentTypeAsMapValueCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/DocumentTypeAsMapValueCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-ec2-protocol/Interface/DocumentTypeAsMapValueCommandOutput/)
+
+</details>
+<details>
+<summary>
 DocumentTypeAsPayload
 </summary>
 

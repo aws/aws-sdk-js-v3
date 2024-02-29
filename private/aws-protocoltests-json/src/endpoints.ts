@@ -165,7 +165,7 @@ export const defaultRegionInfoProvider: RegionInfoProvider = async (
 ) =>
   getRegionInfo(region, {
     ...options,
-    signingService: "foo",
+    signingService: "jsonprotocol",
     regionHash,
     partitionHash,
   });

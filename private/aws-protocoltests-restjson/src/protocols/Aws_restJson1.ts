@@ -65,6 +65,10 @@ import {
 } from "../commands/ConstantQueryStringCommand";
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "../commands/DatetimeOffsetsCommand";
 import {
+  DocumentTypeAsMapValueCommandInput,
+  DocumentTypeAsMapValueCommandOutput,
+} from "../commands/DocumentTypeAsMapValueCommand";
+import {
   DocumentTypeAsPayloadCommandInput,
   DocumentTypeAsPayloadCommandOutput,
 } from "../commands/DocumentTypeAsPayloadCommand";
@@ -460,6 +464,28 @@ export const se_DocumentTypeCommand = async (
     take(input, {
       documentValue: (_) => se_Document(_, context),
       stringValue: [],
+    })
+  );
+  b.m("PUT").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DocumentTypeAsMapValueCommand
+ */
+export const se_DocumentTypeAsMapValueCommand = async (
+  input: DocumentTypeAsMapValueCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/DocumentTypeAsMapValue");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      docValuedMap: (_) => se_DocumentValuedMap(_, context),
     })
   );
   b.m("PUT").h(headers).b(body);
@@ -2547,6 +2573,27 @@ export const de_DocumentTypeCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DocumentTypeAsMapValueCommand
+ */
+export const de_DocumentTypeAsMapValueCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DocumentTypeAsMapValueCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    docValuedMap: (_) => de_DocumentValuedMap(_, context),
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DocumentTypeAsPayloadCommand
  */
 export const de_DocumentTypeAsPayloadCommand = async (
@@ -4356,6 +4403,19 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1DocumentValuedMap
+ */
+const se_DocumentValuedMap = (input: Record<string, __DocumentType>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_Document(value, context);
+    return acc;
+  }, {});
+};
+
+/**
  * serializeAws_restJson1MyUnion
  */
 const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
@@ -4591,6 +4651,19 @@ const de_ComplexNestedErrorData = (output: any, context: __SerdeContext): Comple
  */
 const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
+};
+
+/**
+ * deserializeAws_restJson1DocumentValuedMap
+ */
+const de_DocumentValuedMap = (output: any, context: __SerdeContext): Record<string, __DocumentType> => {
+  return Object.entries(output).reduce((acc: Record<string, __DocumentType>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_Document(value, context);
+    return acc;
+  }, {} as Record<string, __DocumentType>);
 };
 
 /**

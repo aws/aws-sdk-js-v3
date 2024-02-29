@@ -41,6 +41,11 @@ import {
 import { DatetimeOffsets, DatetimeOffsetsSerializer, DatetimeOffsetsServerInput } from "./operations/DatetimeOffsets";
 import { DocumentType, DocumentTypeSerializer, DocumentTypeServerInput } from "./operations/DocumentType";
 import {
+  DocumentTypeAsMapValue,
+  DocumentTypeAsMapValueSerializer,
+  DocumentTypeAsMapValueServerInput,
+} from "./operations/DocumentTypeAsMapValue";
+import {
   DocumentTypeAsPayload,
   DocumentTypeAsPayloadSerializer,
   DocumentTypeAsPayloadServerInput,
@@ -386,6 +391,7 @@ export type RestJsonServiceOperations =
   | "ConstantQueryString"
   | "DatetimeOffsets"
   | "DocumentType"
+  | "DocumentTypeAsMapValue"
   | "DocumentTypeAsPayload"
   | "EmptyInputAndEmptyOutput"
   | "EndpointOperation"
@@ -479,6 +485,7 @@ export interface RestJsonService<Context> {
   ConstantQueryString: ConstantQueryString<Context>;
   DatetimeOffsets: DatetimeOffsets<Context>;
   DocumentType: DocumentType<Context>;
+  DocumentTypeAsMapValue: DocumentTypeAsMapValue<Context>;
   DocumentTypeAsPayload: DocumentTypeAsPayload<Context>;
   EmptyInputAndEmptyOutput: EmptyInputAndEmptyOutput<Context>;
   EndpointOperation: EndpointOperation<Context>;
@@ -714,6 +721,18 @@ export class RestJsonServiceHandler<Context> implements __ServiceHandler<Context
           this.service.DocumentType,
           this.serializeFrameworkException,
           DocumentTypeServerInput.validate,
+          this.validationCustomizer
+        );
+      }
+      case "DocumentTypeAsMapValue": {
+        return handle(
+          request,
+          context,
+          "DocumentTypeAsMapValue",
+          this.serializerFactory("DocumentTypeAsMapValue"),
+          this.service.DocumentTypeAsMapValue,
+          this.serializeFrameworkException,
+          DocumentTypeAsMapValueServerInput.validate,
           this.validationCustomizer
         );
       }
@@ -1801,6 +1820,12 @@ export const getRestJsonServiceHandler = <Context>(
       service: "RestJson",
       operation: "DocumentType",
     }),
+    new httpbinding.UriSpec<"RestJson", "DocumentTypeAsMapValue">(
+      "PUT",
+      [{ type: "path_literal", value: "DocumentTypeAsMapValue" }],
+      [],
+      { service: "RestJson", operation: "DocumentTypeAsMapValue" }
+    ),
     new httpbinding.UriSpec<"RestJson", "DocumentTypeAsPayload">(
       "PUT",
       [{ type: "path_literal", value: "DocumentTypeAsPayload" }],
@@ -2348,6 +2373,8 @@ export const getRestJsonServiceHandler = <Context>(
         return new DatetimeOffsetsSerializer();
       case "DocumentType":
         return new DocumentTypeSerializer();
+      case "DocumentTypeAsMapValue":
+        return new DocumentTypeAsMapValueSerializer();
       case "DocumentTypeAsPayload":
         return new DocumentTypeAsPayloadSerializer();
       case "EmptyInputAndEmptyOutput":

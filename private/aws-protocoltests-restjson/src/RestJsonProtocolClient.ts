@@ -21,6 +21,7 @@ import {
   resolveEndpointsConfig,
   resolveRegionConfig,
 } from "@smithy/config-resolver";
+import { DefaultIdentityProviderConfig, getHttpAuthSchemePlugin, getHttpSigningPlugin } from "@smithy/core";
 import {
   CompressionInputConfig,
   CompressionResolvedConfig,
@@ -36,6 +37,7 @@ import {
   SmithyResolvedConfiguration as __SmithyResolvedConfiguration,
 } from "@smithy/smithy-client";
 import {
+  AwsCredentialIdentityProvider,
   BodyLengthCalculator as __BodyLengthCalculator,
   CheckOptionalClientConfig as __CheckOptionalClientConfig,
   Checksum as __Checksum,
@@ -57,6 +59,12 @@ import {
 import { Readable } from "stream";
 
 import {
+  defaultRestJsonProtocolHttpAuthSchemeParametersProvider,
+  HttpAuthSchemeInputConfig,
+  HttpAuthSchemeResolvedConfig,
+  resolveHttpAuthSchemeConfig,
+} from "./auth/httpAuthSchemeProvider";
+import {
   AllQueryStringTypesCommandInput,
   AllQueryStringTypesCommandOutput,
 } from "./commands/AllQueryStringTypesCommand";
@@ -69,6 +77,10 @@ import {
   ConstantQueryStringCommandOutput,
 } from "./commands/ConstantQueryStringCommand";
 import { DatetimeOffsetsCommandInput, DatetimeOffsetsCommandOutput } from "./commands/DatetimeOffsetsCommand";
+import {
+  DocumentTypeAsMapValueCommandInput,
+  DocumentTypeAsMapValueCommandOutput,
+} from "./commands/DocumentTypeAsMapValueCommand";
 import {
   DocumentTypeAsPayloadCommandInput,
   DocumentTypeAsPayloadCommandOutput,
@@ -317,6 +329,7 @@ export type ServiceInputTypes =
   | ConstantAndVariableQueryStringCommandInput
   | ConstantQueryStringCommandInput
   | DatetimeOffsetsCommandInput
+  | DocumentTypeAsMapValueCommandInput
   | DocumentTypeAsPayloadCommandInput
   | DocumentTypeCommandInput
   | EmptyInputAndEmptyOutputCommandInput
@@ -414,6 +427,7 @@ export type ServiceOutputTypes =
   | ConstantAndVariableQueryStringCommandOutput
   | ConstantQueryStringCommandOutput
   | DatetimeOffsetsCommandOutput
+  | DocumentTypeAsMapValueCommandOutput
   | DocumentTypeAsPayloadCommandOutput
   | DocumentTypeCommandOutput
   | EmptyInputAndEmptyOutputCommandOutput
@@ -602,6 +616,18 @@ export interface ClientDefaults extends Partial<__SmithyConfiguration<__HttpHand
   defaultUserAgentProvider?: Provider<__UserAgent>;
 
   /**
+   * The AWS region to which this client will send requests
+   */
+  region?: string | __Provider<string>;
+
+  /**
+   * Default credentials provider; Not available in browser runtime.
+   * @deprecated
+   * @internal
+   */
+  credentialDefaultProvider?: (input: any) => AwsCredentialIdentityProvider;
+
+  /**
    * Value for how many times a request will be made at most in case of retry.
    */
   maxAttempts?: number | __Provider<number>;
@@ -659,6 +685,7 @@ export type RestJsonProtocolClientConfigType = Partial<__SmithyConfiguration<__H
   RetryInputConfig &
   HostHeaderInputConfig &
   UserAgentInputConfig &
+  HttpAuthSchemeInputConfig &
   CompressionInputConfig;
 /**
  * @public
@@ -678,6 +705,7 @@ export type RestJsonProtocolClientResolvedConfigType = __SmithyResolvedConfigura
   RetryResolvedConfig &
   HostHeaderResolvedConfig &
   UserAgentResolvedConfig &
+  HttpAuthSchemeResolvedConfig &
   CompressionResolvedConfig;
 /**
  * @public
@@ -708,16 +736,24 @@ export class RestJsonProtocolClient extends __Client<
     const _config_3 = resolveRetryConfig(_config_2);
     const _config_4 = resolveHostHeaderConfig(_config_3);
     const _config_5 = resolveUserAgentConfig(_config_4);
-    const _config_6 = resolveCompressionConfig(_config_5);
-    const _config_7 = resolveRuntimeExtensions(_config_6, configuration?.extensions || []);
-    super(_config_7);
-    this.config = _config_7;
+    const _config_6 = resolveHttpAuthSchemeConfig(_config_5);
+    const _config_7 = resolveCompressionConfig(_config_6);
+    const _config_8 = resolveRuntimeExtensions(_config_7, configuration?.extensions || []);
+    super(_config_8);
+    this.config = _config_8;
     this.middlewareStack.use(getRetryPlugin(this.config));
     this.middlewareStack.use(getContentLengthPlugin(this.config));
     this.middlewareStack.use(getHostHeaderPlugin(this.config));
     this.middlewareStack.use(getLoggerPlugin(this.config));
     this.middlewareStack.use(getRecursionDetectionPlugin(this.config));
     this.middlewareStack.use(getUserAgentPlugin(this.config));
+    this.middlewareStack.use(
+      getHttpAuthSchemePlugin(this.config, {
+        httpAuthSchemeParametersProvider: this.getDefaultHttpAuthSchemeParametersProvider(),
+        identityProviderConfigProvider: this.getIdentityProviderConfigProvider(),
+      })
+    );
+    this.middlewareStack.use(getHttpSigningPlugin(this.config));
   }
 
   /**
@@ -727,5 +763,14 @@ export class RestJsonProtocolClient extends __Client<
    */
   destroy(): void {
     super.destroy();
+  }
+  private getDefaultHttpAuthSchemeParametersProvider() {
+    return defaultRestJsonProtocolHttpAuthSchemeParametersProvider;
+  }
+  private getIdentityProviderConfigProvider() {
+    return async (config: RestJsonProtocolClientResolvedConfig) =>
+      new DefaultIdentityProviderConfig({
+        "aws.auth#sigv4": config.credentials,
+      });
   }
 }

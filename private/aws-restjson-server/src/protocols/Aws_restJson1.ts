@@ -86,6 +86,10 @@ import {
 import { DatetimeOffsetsServerInput, DatetimeOffsetsServerOutput } from "../server/operations/DatetimeOffsets";
 import { DocumentTypeServerInput, DocumentTypeServerOutput } from "../server/operations/DocumentType";
 import {
+  DocumentTypeAsMapValueServerInput,
+  DocumentTypeAsMapValueServerOutput,
+} from "../server/operations/DocumentTypeAsMapValue";
+import {
   DocumentTypeAsPayloadServerInput,
   DocumentTypeAsPayloadServerOutput,
 } from "../server/operations/DocumentTypeAsPayload";
@@ -686,6 +690,35 @@ export const deserializeDocumentTypeRequest = async (
   const doc = take(data, {
     documentValue: (_) => de_Document(_, context),
     stringValue: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+export const deserializeDocumentTypeAsMapValueRequest = async (
+  output: __HttpRequest,
+  context: __SerdeContext
+): Promise<DocumentTypeAsMapValueServerInput> => {
+  const contentTypeHeaderKey: string | undefined = Object.keys(output.headers).find(
+    (key) => key.toLowerCase() === "content-type"
+  );
+  if (contentTypeHeaderKey != null) {
+    const contentType = output.headers[contentTypeHeaderKey];
+    if (contentType !== undefined && contentType !== "application/json") {
+      throw new __UnsupportedMediaTypeException();
+    }
+  }
+  const acceptHeaderKey: string | undefined = Object.keys(output.headers).find((key) => key.toLowerCase() === "accept");
+  if (acceptHeaderKey != null) {
+    const accept = output.headers[acceptHeaderKey];
+    if (!__acceptMatches(accept, "application/json")) {
+      throw new __NotAcceptableException();
+    }
+  }
+  const contents: any = map({});
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    docValuedMap: (_) => de_DocumentValuedMap(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -3713,6 +3746,47 @@ export const serializeDocumentTypeResponse = async (
     take(input, {
       documentValue: (_) => se_Document(_, context),
       stringValue: [],
+    })
+  );
+  if (
+    body &&
+    Object.keys(headers)
+      .map((str) => str.toLowerCase())
+      .indexOf("content-length") === -1
+  ) {
+    const length = calculateBodyLength(body);
+    if (length !== undefined) {
+      headers = { ...headers, "content-length": String(length) };
+    }
+  }
+  return new __HttpResponse({
+    headers,
+    body,
+    statusCode,
+  });
+};
+
+export const serializeDocumentTypeAsMapValueResponse = async (
+  input: DocumentTypeAsMapValueServerOutput,
+  ctx: ServerSerdeContext
+): Promise<__HttpResponse> => {
+  const context: __SerdeContext = {
+    ...ctx,
+    endpoint: () =>
+      Promise.resolve({
+        protocol: "",
+        hostname: "",
+        path: "",
+      }),
+  };
+  const statusCode = 200;
+  let headers: any = map({}, isSerializableHeaderValue, {
+    "content-type": "application/json",
+  });
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      docValuedMap: (_) => se_DocumentValuedMap(_, context),
     })
   );
   if (
@@ -7317,6 +7391,19 @@ const se_Document = (input: __DocumentType, context: __SerdeContext): any => {
 };
 
 /**
+ * serializeAws_restJson1DocumentValuedMap
+ */
+const se_DocumentValuedMap = (input: Record<string, __DocumentType>, context: __SerdeContext): any => {
+  return Object.entries(input).reduce((acc: Record<string, any>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key] = se_Document(value, context);
+    return acc;
+  }, {});
+};
+
+/**
  * serializeAws_restJson1MyUnion
  */
 const se_MyUnion = (input: MyUnion, context: __SerdeContext): any => {
@@ -7731,6 +7818,19 @@ const de_DenseStructMap = (output: any, context: __SerdeContext): Record<string,
  */
 const de_Document = (output: any, context: __SerdeContext): __DocumentType => {
   return output;
+};
+
+/**
+ * deserializeAws_restJson1DocumentValuedMap
+ */
+const de_DocumentValuedMap = (output: any, context: __SerdeContext): Record<string, __DocumentType> => {
+  return Object.entries(output).reduce((acc: Record<string, __DocumentType>, [key, value]: [string, any]) => {
+    if (value === null) {
+      return acc;
+    }
+    acc[key as string] = de_Document(value, context);
+    return acc;
+  }, {} as Record<string, __DocumentType>);
 };
 
 /**

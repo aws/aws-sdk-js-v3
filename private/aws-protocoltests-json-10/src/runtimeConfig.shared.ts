@@ -1,9 +1,12 @@
 // smithy-typescript generated code
+import { AwsSdkSigV4Signer } from "@aws-sdk/core";
 import { NoOpLogger } from "@smithy/smithy-client";
+import { IdentityProviderConfig } from "@smithy/types";
 import { parseUrl } from "@smithy/url-parser";
 import { fromBase64, toBase64 } from "@smithy/util-base64";
 import { fromUtf8, toUtf8 } from "@smithy/util-utf8";
 
+import { defaultJSONRPC10HttpAuthSchemeProvider } from "./auth/httpAuthSchemeProvider";
 import { defaultRegionInfoProvider } from "./endpoints";
 import { JSONRPC10ClientConfig } from "./JSONRPC10Client";
 
@@ -17,6 +20,14 @@ export const getRuntimeConfig = (config: JSONRPC10ClientConfig) => {
     base64Encoder: config?.base64Encoder ?? toBase64,
     disableHostPrefix: config?.disableHostPrefix ?? false,
     extensions: config?.extensions ?? [],
+    httpAuthSchemeProvider: config?.httpAuthSchemeProvider ?? defaultJSONRPC10HttpAuthSchemeProvider,
+    httpAuthSchemes: config?.httpAuthSchemes ?? [
+      {
+        schemeId: "aws.auth#sigv4",
+        identityProvider: (ipc: IdentityProviderConfig) => ipc.getIdentityProvider("aws.auth#sigv4"),
+        signer: new AwsSdkSigV4Signer(),
+      },
+    ],
     logger: config?.logger ?? new NoOpLogger(),
     regionInfoProvider: config?.regionInfoProvider ?? defaultRegionInfoProvider,
     serviceId: config?.serviceId ?? "JSON RPC 10",

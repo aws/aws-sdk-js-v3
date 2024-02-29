@@ -9,6 +9,7 @@ import { AllQueryStringTypesCommand } from "../../src/commands/AllQueryStringTyp
 import { ConstantAndVariableQueryStringCommand } from "../../src/commands/ConstantAndVariableQueryStringCommand";
 import { ConstantQueryStringCommand } from "../../src/commands/ConstantQueryStringCommand";
 import { DatetimeOffsetsCommand } from "../../src/commands/DatetimeOffsetsCommand";
+import { DocumentTypeAsMapValueCommand } from "../../src/commands/DocumentTypeAsMapValueCommand";
 import { DocumentTypeAsPayloadCommand } from "../../src/commands/DocumentTypeAsPayloadCommand";
 import { DocumentTypeCommand } from "../../src/commands/DocumentTypeCommand";
 import { EmptyInputAndEmptyOutputCommand } from "../../src/commands/EmptyInputAndEmptyOutputCommand";
@@ -573,6 +574,47 @@ it("RestJsonSupportsNegativeInfinityFloatQueryValues:Request", async () => {
     const queryString = buildQueryString(r.query);
     expect(queryString).toContain("Float=-Infinity");
     expect(queryString).toContain("Double=-Infinity");
+
+    expect(r.body).toBeFalsy();
+  }
+});
+
+/**
+ * Query values of 0 and false are serialized
+ */
+it("RestJsonZeroAndFalseQueryValues:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new AllQueryStringTypesCommand({
+    queryInteger: 0,
+
+    queryBoolean: false,
+
+    queryParamsMapOfStringList: {
+      queryInteger: ["0"],
+
+      queryBoolean: ["false"],
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("GET");
+    expect(r.path).toBe("/AllQueryStringTypesInput");
+
+    const queryString = buildQueryString(r.query);
+    expect(queryString).toContain("Integer=0");
+    expect(queryString).toContain("Boolean=false");
 
     expect(r.body).toBeFalsy();
   }
@@ -1214,6 +1256,110 @@ it("DocumentOutputArray:Response", async () => {
       stringValue: "string",
 
       documentValue: [true, false],
+    },
+  ][0];
+  Object.keys(paramsToValidate).forEach((param) => {
+    expect(r[param]).toBeDefined();
+    expect(equivalentContents(r[param], paramsToValidate[param])).toBe(true);
+  });
+});
+
+/**
+ * Serializes a map that uses documents as the value.
+ */
+it("DocumentTypeAsMapValueInput:Request", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new RequestSerializationTestHandler(),
+  });
+
+  const command = new DocumentTypeAsMapValueCommand({
+    docValuedMap: {
+      foo: {
+        f: 1,
+        o: 2,
+      },
+
+      bar: ["b", "a", "r"],
+
+      baz: "BAZ",
+    } as any,
+  } as any);
+  try {
+    await client.send(command);
+    fail("Expected an EXPECTED_REQUEST_SERIALIZATION_ERROR to be thrown");
+    return;
+  } catch (err) {
+    if (!(err instanceof EXPECTED_REQUEST_SERIALIZATION_ERROR)) {
+      fail(err);
+      return;
+    }
+    const r = err.request;
+    expect(r.method).toBe("PUT");
+    expect(r.path).toBe("/DocumentTypeAsMapValue");
+
+    expect(r.headers["content-type"]).toBeDefined();
+    expect(r.headers["content-type"]).toBe("application/json");
+
+    expect(r.body).toBeDefined();
+    const utf8Encoder = client.config.utf8Encoder;
+    const bodyString = `{
+        \"docValuedMap\": {
+            \"foo\": { \"f\": 1, \"o\": 2 },
+            \"bar\": [ \"b\", \"a\", \"r\" ],
+            \"baz\": \"BAZ\"
+        }
+    }`;
+    const unequalParts: any = compareEquivalentJsonBodies(bodyString, r.body.toString());
+    expect(unequalParts).toBeUndefined();
+  }
+});
+
+/**
+ * Serializes a map that uses documents as the value.
+ */
+it("DocumentTypeAsMapValueOutput:Response", async () => {
+  const client = new RestJsonProtocolClient({
+    ...clientParams,
+    requestHandler: new ResponseDeserializationTestHandler(
+      true,
+      200,
+      {
+        "content-type": "application/json",
+      },
+      `{
+          "docValuedMap": {
+              "foo": { "f": 1, "o": 2 },
+              "bar": [ "b", "a", "r" ],
+              "baz": "BAZ"
+          }
+      }`
+    ),
+  });
+
+  const params: any = {};
+  const command = new DocumentTypeAsMapValueCommand(params);
+
+  let r: any;
+  try {
+    r = await client.send(command);
+  } catch (err) {
+    fail("Expected a valid response to be returned, got " + err);
+    return;
+  }
+  expect(r["$metadata"].httpStatusCode).toBe(200);
+  const paramsToValidate: any = [
+    {
+      docValuedMap: {
+        foo: {
+          f: 1,
+          o: 2,
+        },
+
+        bar: ["b", "a", "r"],
+
+        baz: "BAZ",
+      },
     },
   ][0];
   Object.keys(paramsToValidate).forEach((param) => {

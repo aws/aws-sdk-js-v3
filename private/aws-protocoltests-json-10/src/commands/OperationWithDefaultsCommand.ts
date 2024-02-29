@@ -58,8 +58,21 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  *     },
  *     defaultEnum: "FOO" || "BAR" || "BAZ",
  *     defaultIntEnum: 1 || 2,
+ *     emptyString: "STRING_VALUE",
+ *     falseBoolean: true || false,
+ *     emptyBlob: "BLOB_VALUE",
+ *     zeroByte: "BYTE_VALUE",
+ *     zeroShort: Number("short"),
+ *     zeroInteger: Number("int"),
+ *     zeroLong: Number("long"),
+ *     zeroFloat: Number("float"),
+ *     zeroDouble: Number("double"),
+ *   },
+ *   clientOptionalDefaults: { // ClientOptionalDefaults
+ *     member: Number("int"),
  *   },
  *   topLevelDefault: "STRING_VALUE",
+ *   otherTopLevelDefault: Number("int"),
  * };
  * const command = new OperationWithDefaultsCommand(input);
  * const response = await client.send(command);
@@ -87,6 +100,15 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  * //   },
  * //   defaultEnum: "FOO" || "BAR" || "BAZ",
  * //   defaultIntEnum: 1 || 2,
+ * //   emptyString: "STRING_VALUE",
+ * //   falseBoolean: true || false,
+ * //   emptyBlob: "BLOB_VALUE",
+ * //   zeroByte: "BYTE_VALUE",
+ * //   zeroShort: Number("short"),
+ * //   zeroInteger: Number("int"),
+ * //   zeroLong: Number("long"),
+ * //   zeroFloat: Number("float"),
+ * //   zeroDouble: Number("double"),
  * // };
  *
  * ```

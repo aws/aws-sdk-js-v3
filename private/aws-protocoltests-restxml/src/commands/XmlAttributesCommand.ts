@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlAttributesInputOutput } from "../models/models_0";
+import { XmlAttributesRequest, XmlAttributesResponse } from "../models/models_0";
 import { de_XmlAttributesCommand, se_XmlAttributesCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlAttributesCommand}.
  */
-export interface XmlAttributesCommandInput extends XmlAttributesInputOutput {}
+export interface XmlAttributesCommandInput extends XmlAttributesRequest {}
 /**
  * @public
  *
  * The output of {@link XmlAttributesCommand}.
  */
-export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __MetadataBearer {}
+export interface XmlAttributesCommandOutput extends XmlAttributesResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,13 +33,13 @@ export interface XmlAttributesCommandOutput extends XmlAttributesInputOutput, __
  * import { RestXmlProtocolClient, XmlAttributesCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlAttributesCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlAttributesInputOutput
+ * const input = { // XmlAttributesRequest
  *   foo: "STRING_VALUE",
  *   attr: "STRING_VALUE",
  * };
  * const command = new XmlAttributesCommand(input);
  * const response = await client.send(command);
- * // { // XmlAttributesInputOutput
+ * // { // XmlAttributesResponse
  * //   foo: "STRING_VALUE",
  * //   attr: "STRING_VALUE",
  * // };

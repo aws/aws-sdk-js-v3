@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { NestedXmlMapsInputOutput } from "../models/models_0";
+import { NestedXmlMapsRequest, NestedXmlMapsResponse } from "../models/models_0";
 import { de_NestedXmlMapsCommand, se_NestedXmlMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link NestedXmlMapsCommand}.
  */
-export interface NestedXmlMapsCommandInput extends NestedXmlMapsInputOutput {}
+export interface NestedXmlMapsCommandInput extends NestedXmlMapsRequest {}
 /**
  * @public
  *
  * The output of {@link NestedXmlMapsCommand}.
  */
-export interface NestedXmlMapsCommandOutput extends NestedXmlMapsInputOutput, __MetadataBearer {}
+export interface NestedXmlMapsCommandOutput extends NestedXmlMapsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface NestedXmlMapsCommandOutput extends NestedXmlMapsInputOutput, __
  * import { RestXmlProtocolClient, NestedXmlMapsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, NestedXmlMapsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // NestedXmlMapsInputOutput
+ * const input = { // NestedXmlMapsRequest
  *   nestedMap: { // NestedMap
  *     "<keys>": { // FooEnumMap
  *       "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",
@@ -47,7 +47,7 @@ export interface NestedXmlMapsCommandOutput extends NestedXmlMapsInputOutput, __
  * };
  * const command = new NestedXmlMapsCommand(input);
  * const response = await client.send(command);
- * // { // NestedXmlMapsInputOutput
+ * // { // NestedXmlMapsResponse
  * //   nestedMap: { // NestedMap
  * //     "<keys>": { // FooEnumMap
  * //       "<keys>": "Foo" || "Baz" || "Bar" || "1" || "0",

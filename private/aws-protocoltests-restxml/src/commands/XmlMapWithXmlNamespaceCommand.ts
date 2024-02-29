@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlMapWithXmlNamespaceInputOutput } from "../models/models_0";
+import { XmlMapWithXmlNamespaceRequest, XmlMapWithXmlNamespaceResponse } from "../models/models_0";
 import { de_XmlMapWithXmlNamespaceCommand, se_XmlMapWithXmlNamespaceCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlMapWithXmlNamespaceCommand}.
  */
-export interface XmlMapWithXmlNamespaceCommandInput extends XmlMapWithXmlNamespaceInputOutput {}
+export interface XmlMapWithXmlNamespaceCommandInput extends XmlMapWithXmlNamespaceRequest {}
 /**
  * @public
  *
  * The output of {@link XmlMapWithXmlNamespaceCommand}.
  */
-export interface XmlMapWithXmlNamespaceCommandOutput extends XmlMapWithXmlNamespaceInputOutput, __MetadataBearer {}
+export interface XmlMapWithXmlNamespaceCommandOutput extends XmlMapWithXmlNamespaceResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,14 +33,14 @@ export interface XmlMapWithXmlNamespaceCommandOutput extends XmlMapWithXmlNamesp
  * import { RestXmlProtocolClient, XmlMapWithXmlNamespaceCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlMapWithXmlNamespaceCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlMapWithXmlNamespaceInputOutput
+ * const input = { // XmlMapWithXmlNamespaceRequest
  *   myMap: { // XmlMapWithXmlNamespaceInputOutputMap
  *     "<keys>": "STRING_VALUE",
  *   },
  * };
  * const command = new XmlMapWithXmlNamespaceCommand(input);
  * const response = await client.send(command);
- * // { // XmlMapWithXmlNamespaceInputOutput
+ * // { // XmlMapWithXmlNamespaceResponse
  * //   myMap: { // XmlMapWithXmlNamespaceInputOutputMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

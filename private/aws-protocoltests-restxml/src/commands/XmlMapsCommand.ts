@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlMapsInputOutput } from "../models/models_0";
+import { XmlMapsRequest, XmlMapsResponse } from "../models/models_0";
 import { de_XmlMapsCommand, se_XmlMapsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlMapsCommand}.
  */
-export interface XmlMapsCommandInput extends XmlMapsInputOutput {}
+export interface XmlMapsCommandInput extends XmlMapsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlMapsCommand}.
  */
-export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBearer {}
+export interface XmlMapsCommandOutput extends XmlMapsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,7 +33,7 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
  * import { RestXmlProtocolClient, XmlMapsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlMapsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlMapsInputOutput
+ * const input = { // XmlMapsRequest
  *   myMap: { // XmlMapsInputOutputMap
  *     "<keys>": { // GreetingStruct
  *       hi: "STRING_VALUE",
@@ -42,7 +42,7 @@ export interface XmlMapsCommandOutput extends XmlMapsInputOutput, __MetadataBear
  * };
  * const command = new XmlMapsCommand(input);
  * const response = await client.send(command);
- * // { // XmlMapsInputOutput
+ * // { // XmlMapsResponse
  * //   myMap: { // XmlMapsInputOutputMap
  * //     "<keys>": { // GreetingStruct
  * //       hi: "STRING_VALUE",

@@ -210,7 +210,8 @@ import {
   RecursiveShapesInputOutputNested2,
   StructureListMember,
   UnionPayload,
-  XmlAttributesInputOutput,
+  XmlAttributesPayloadRequest,
+  XmlAttributesPayloadResponse,
   XmlNamespaceNested,
   XmlNestedUnionStruct,
   XmlUnionShape,
@@ -447,7 +448,7 @@ export const se_EndpointWithHostLabelOperationCommand = async (
   b.bp("/EndpointWithHostLabelOperation");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_HLI);
+  const bn = new __XmlNode(_EWHLOR);
   if (input[_l] != null) {
     bn.c(__XmlNode.of(_S, input[_l]).n(_l));
   }
@@ -482,7 +483,7 @@ export const se_FlattenedXmlMapCommand = async (
   b.bp("/FlattenedXmlMap");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_FXMIO);
+  const bn = new __XmlNode(_FXMR);
   bn.l(input, "myMap", "myMap", () => se_FooEnumMap(input[_mM]!, context));
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -503,7 +504,7 @@ export const se_FlattenedXmlMapWithXmlNameCommand = async (
   b.bp("/FlattenedXmlMapWithXmlName");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_FXMWXNIO);
+  const bn = new __XmlNode(_FXMWXNR);
   bn.l(input, "myMap", "KVP", () => se_FlattenedXmlMapWithXmlNameInputOutputMap(input[_mM]!, context));
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -1029,7 +1030,7 @@ export const se_NestedXmlMapsCommand = async (
   b.bp("/NestedXmlMaps");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_NXMIO);
+  const bn = new __XmlNode(_NXMR);
   bn.l(input, "flatNestedMap", "flatNestedMap", () => se_NestedMap(input[_fNM]!, context));
   bn.lc(input, "nestedMap", "nestedMap", () => se_NestedMap(input[_nM]!, context));
   body += bn.toString();
@@ -1230,7 +1231,7 @@ export const se_RecursiveShapesCommand = async (
   b.bp("/RecursiveShapes");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_RSIO);
+  const bn = new __XmlNode(_RSR);
   if (input[_n] != null) {
     bn.c(se_RecursiveShapesInputOutputNested1(input[_n], context).n(_n));
   }
@@ -1254,7 +1255,7 @@ export const se_SimpleScalarPropertiesCommand = async (
   b.bp("/SimpleScalarProperties");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_SSPIO);
+  const bn = new __XmlNode(_SSPR);
   if (input[_bV] != null) {
     bn.c(__XmlNode.of(_B, String(input[_bV])).n(_bV));
   }
@@ -1330,7 +1331,7 @@ export const se_XmlAttributesCommand = async (
   b.bp("/XmlAttributes");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XAIO);
+  const bn = new __XmlNode(_XAR);
   bn.a("test", input[_at]);
   if (input[_f] != null) {
     bn.c(__XmlNode.of(_S, input[_f]).n(_f));
@@ -1355,7 +1356,7 @@ export const se_XmlAttributesOnPayloadCommand = async (
   let body: any;
   let contents: any;
   if (input.payload !== undefined) {
-    contents = se_XmlAttributesInputOutput(input.payload, context);
+    contents = se_XmlAttributesPayloadRequest(input.payload, context);
     body = _ve;
     body += contents.toString();
   }
@@ -1377,7 +1378,7 @@ export const se_XmlBlobsCommand = async (
   b.bp("/XmlBlobs");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XBIO);
+  const bn = new __XmlNode(_XBR);
   if (input[_d] != null) {
     bn.c(__XmlNode.of(_Bl, context.base64Encoder(input[_d])).n(_d));
   }
@@ -1400,7 +1401,7 @@ export const se_XmlEmptyBlobsCommand = async (
   b.bp("/XmlEmptyBlobs");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XBIO);
+  const bn = new __XmlNode(_XEBR);
   if (input[_d] != null) {
     bn.c(__XmlNode.of(_Bl, context.base64Encoder(input[_d])).n(_d));
   }
@@ -1423,7 +1424,7 @@ export const se_XmlEmptyListsCommand = async (
   b.bp("/XmlEmptyLists");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XLIO);
+  const bn = new __XmlNode(_XELR);
   bn.lc(input, "booleanList", "booleanList", () => se_BooleanList(input[_bL]!, context));
   bn.lc(input, "enumList", "enumList", () => se_FooEnumList(input[_eL]!, context));
   bn.l(input, "flattenedList", "flattenedList", () => se_RenamedListMembers(input[_fL]!, context));
@@ -1462,7 +1463,7 @@ export const se_XmlEmptyMapsCommand = async (
   b.bp("/XmlEmptyMaps");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XMIO);
+  const bn = new __XmlNode(_XEMR);
   bn.lc(input, "myMap", "myMap", () => se_XmlMapsInputOutputMap(input[_mM]!, context));
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -1483,7 +1484,7 @@ export const se_XmlEmptyStringsCommand = async (
   b.bp("/XmlEmptyStrings");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XESIO);
+  const bn = new __XmlNode(_XESR);
   if (input[_eS] != null) {
     bn.c(__XmlNode.of(_S, input[_eS]).n(_eS));
   }
@@ -1506,7 +1507,7 @@ export const se_XmlEnumsCommand = async (
   b.bp("/XmlEnums");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XEIO);
+  const bn = new __XmlNode(_XER);
   if (input[_fE] != null) {
     bn.c(__XmlNode.of(_FE, input[_fE]).n(_fE));
   }
@@ -1538,7 +1539,7 @@ export const se_XmlIntEnumsCommand = async (
   b.bp("/XmlIntEnums");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XIEIO);
+  const bn = new __XmlNode(_XIER);
   if (input[_iE] != null) {
     bn.c(__XmlNode.of(_IE, String(input[_iE])).n(_iE));
   }
@@ -1570,7 +1571,7 @@ export const se_XmlListsCommand = async (
   b.bp("/XmlLists");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XLIO);
+  const bn = new __XmlNode(_XLR);
   bn.lc(input, "booleanList", "booleanList", () => se_BooleanList(input[_bL]!, context));
   bn.lc(input, "enumList", "enumList", () => se_FooEnumList(input[_eL]!, context));
   bn.l(input, "flattenedList", "flattenedList", () => se_RenamedListMembers(input[_fL]!, context));
@@ -1609,7 +1610,7 @@ export const se_XmlMapsCommand = async (
   b.bp("/XmlMaps");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XMIO);
+  const bn = new __XmlNode(_XMR);
   bn.lc(input, "myMap", "myMap", () => se_XmlMapsInputOutputMap(input[_mM]!, context));
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -1630,7 +1631,7 @@ export const se_XmlMapsXmlNameCommand = async (
   b.bp("/XmlMapsXmlName");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XMXNIO);
+  const bn = new __XmlNode(_XMXNR);
   bn.lc(input, "myMap", "myMap", () => se_XmlMapsXmlNameInputOutputMap(input[_mM]!, context));
   body += bn.toString();
   b.m("POST").h(headers).b(body);
@@ -1651,7 +1652,7 @@ export const se_XmlMapWithXmlNamespaceCommand = async (
   b.bp("/XmlMapWithXmlNamespace");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XMWXNIO);
+  const bn = new __XmlNode(_XMWXNR);
   if (input[_mM] != null) {
     const ns = se_XmlMapWithXmlNamespaceInputOutputMap(input[_mM], context);
     const containerNode = new __XmlNode(_KVP);
@@ -1680,7 +1681,7 @@ export const se_XmlNamespacesCommand = async (
   b.bp("/XmlNamespaces");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XNIO);
+  const bn = new __XmlNode(_XNR);
   bn.a("xmlns", "http://foo.com");
   if (input[_n] != null) {
     bn.c(se_XmlNamespaceNested(input[_n], context).n(_n));
@@ -1704,7 +1705,7 @@ export const se_XmlTimestampsCommand = async (
   b.bp("/XmlTimestamps");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XTIO);
+  const bn = new __XmlNode(_XTR);
   if (input[_dT] != null) {
     bn.c(__XmlNode.of(_T, (input[_dT].toISOString().split(".")[0] + "Z").toString()).n(_dT));
   }
@@ -1745,7 +1746,7 @@ export const se_XmlUnionsCommand = async (
   b.bp("/XmlUnions");
   let body: any;
   body = _ve;
-  const bn = new __XmlNode(_XUIO);
+  const bn = new __XmlNode(_XUR);
   if (input[_uV] != null) {
     bn.c(se_XmlUnionShape(input[_uV], context).n(_uV));
   }
@@ -2718,7 +2719,7 @@ export const de_XmlAttributesOnPayloadCommand = async (
     $metadata: deserializeMetadata(output),
   });
   const data: Record<string, any> | undefined = __expectObject(await parseBody(output.body, context));
-  contents.payload = de_XmlAttributesInputOutput(data, context);
+  contents.payload = de_XmlAttributesPayloadResponse(data, context);
   return contents;
 };
 
@@ -3484,10 +3485,10 @@ const se_UnionPayload = (input: UnionPayload, context: __SerdeContext): any => {
 };
 
 /**
- * serializeAws_restXmlXmlAttributesInputOutput
+ * serializeAws_restXmlXmlAttributesPayloadRequest
  */
-const se_XmlAttributesInputOutput = (input: XmlAttributesInputOutput, context: __SerdeContext): any => {
-  const bn = new __XmlNode(_XAIO);
+const se_XmlAttributesPayloadRequest = (input: XmlAttributesPayloadRequest, context: __SerdeContext): any => {
+  const bn = new __XmlNode(_XAPR);
   if (input[_f] != null) {
     bn.c(__XmlNode.of(_S, input[_f]).n(_f));
   }
@@ -4053,9 +4054,9 @@ const de_UnionPayload = (output: any, context: __SerdeContext): UnionPayload => 
 };
 
 /**
- * deserializeAws_restXmlXmlAttributesInputOutput
+ * deserializeAws_restXmlXmlAttributesPayloadResponse
  */
-const de_XmlAttributesInputOutput = (output: any, context: __SerdeContext): XmlAttributesInputOutput => {
+const de_XmlAttributesPayloadResponse = (output: any, context: __SerdeContext): XmlAttributesPayloadResponse => {
   const contents: any = {};
   if (output[_f] != null) {
     contents[_f] = __expectString(output[_f]);
@@ -4401,16 +4402,16 @@ const _DT = "DateTime";
 const _E = "Enum";
 const _EL = "EnumList";
 const _ES = "EpochSeconds";
+const _EWHLOR = "EndpointWithHostLabelOperationRequest";
 const _Em = "Empty";
 const _F = "Float";
 const _FE = "FooEnum";
-const _FXMIO = "FlattenedXmlMapInputOutput";
-const _FXMWXNIO = "FlattenedXmlMapWithXmlNameInputOutput";
+const _FXMR = "FlattenedXmlMapRequest";
+const _FXMWXNR = "FlattenedXmlMapWithXmlNameRequest";
 const _Fo = "Foo";
 const _GS = "GreetingStruct";
 const _H = "Header";
 const _HD = "HttpDate";
-const _HLI = "HostLabelInput";
 const _He = "Hello";
 const _I = "Integer";
 const _IE = "IntegerEnum";
@@ -4422,19 +4423,19 @@ const _L = "Long";
 const _M = "Message";
 const _N = "Null";
 const _NP = "NestedPayload";
-const _NXMIO = "NestedXmlMapsInputOutput";
+const _NXMR = "NestedXmlMapsRequest";
 const _Ne = "Nested";
 const _PWCEI = "PutWithContentEncodingInput";
 const _PWXN = "PayloadWithXmlNamespace";
 const _PWXNAP = "PayloadWithXmlNamespaceAndPrefix";
-const _RSIO = "RecursiveShapesInputOutput";
 const _RSION = "RecursiveShapesInputOutputNested1";
 const _RSIONe = "RecursiveShapesInputOutputNested2";
+const _RSR = "RecursiveShapesRequest";
 const _S = "String";
 const _SL = "StringList";
 const _SLM = "StructureListMember";
 const _SS = "StringSet";
-const _SSPIO = "SimpleScalarPropertiesInputOutput";
+const _SSPR = "SimpleScalarPropertiesRequest";
 const _Se = "Setting";
 const _Sh = "Short";
 const _T = "Timestamp";
@@ -4442,20 +4443,24 @@ const _TL = "TimestampList";
 const _TLo = "TopLevel";
 const _UP = "UnionPayload";
 const _V = "V";
-const _XAIO = "XmlAttributesInputOutput";
-const _XBIO = "XmlBlobsInputOutput";
-const _XEIO = "XmlEnumsInputOutput";
-const _XESIO = "XmlEmptyStringsInputOutput";
-const _XIEIO = "XmlIntEnumsInputOutput";
-const _XLIO = "XmlListsInputOutput";
-const _XMIO = "XmlMapsInputOutput";
-const _XMWXNIO = "XmlMapWithXmlNamespaceInputOutput";
-const _XMXNIO = "XmlMapsXmlNameInputOutput";
-const _XNIO = "XmlNamespacesInputOutput";
+const _XAPR = "XmlAttributesPayloadRequest";
+const _XAR = "XmlAttributesRequest";
+const _XBR = "XmlBlobsRequest";
+const _XEBR = "XmlEmptyBlobsRequest";
+const _XELR = "XmlEmptyListsRequest";
+const _XEMR = "XmlEmptyMapsRequest";
+const _XER = "XmlEnumsRequest";
+const _XESR = "XmlEmptyStringsRequest";
+const _XIER = "XmlIntEnumsRequest";
+const _XLR = "XmlListsRequest";
+const _XMR = "XmlMapsRequest";
+const _XMWXNR = "XmlMapWithXmlNamespaceRequest";
+const _XMXNR = "XmlMapsXmlNameRequest";
 const _XNN = "XmlNamespaceNested";
+const _XNR = "XmlNamespacesRequest";
 const _XNUS = "XmlNestedUnionStruct";
-const _XTIO = "XmlTimestampsInputOutput";
-const _XUIO = "XmlUnionsInputOutput";
+const _XTR = "XmlTimestampsRequest";
+const _XUR = "XmlUnionsRequest";
 const _XUS = "XmlUnionShape";
 const _a = "a";
 const _aI = "accountId";

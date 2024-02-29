@@ -374,6 +374,13 @@ final class AwsProtocolUtils {
             return true;
         }
 
+        // TODO: Remove when this test case is fixed upstream.
+        // https://github.com/smithy-lang/smithy/pull/2167
+        if (settings.generateServerSdk()
+            && testCase.getId().equals("RestJsonZeroAndFalseQueryValues")) {
+            return true;
+        }
+
         // TODO: remove when there's a decision on separator to use
         // https://github.com/awslabs/smithy/issues/1014
         if (testCase.getId().equals("RestJsonInputAndOutputWithQuotedStringHeaders")) {

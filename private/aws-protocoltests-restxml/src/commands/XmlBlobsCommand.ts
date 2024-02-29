@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlBlobsInputOutput } from "../models/models_0";
+import { XmlBlobsRequest, XmlBlobsResponse } from "../models/models_0";
 import { de_XmlBlobsCommand, se_XmlBlobsCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlBlobsCommand}.
  */
-export interface XmlBlobsCommandInput extends XmlBlobsInputOutput {}
+export interface XmlBlobsCommandInput extends XmlBlobsRequest {}
 /**
  * @public
  *
  * The output of {@link XmlBlobsCommand}.
  */
-export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBearer {}
+export interface XmlBlobsCommandOutput extends XmlBlobsResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,12 +33,12 @@ export interface XmlBlobsCommandOutput extends XmlBlobsInputOutput, __MetadataBe
  * import { RestXmlProtocolClient, XmlBlobsCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlBlobsInputOutput
+ * const input = { // XmlBlobsRequest
  *   data: "BLOB_VALUE",
  * };
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
- * // { // XmlBlobsInputOutput
+ * // { // XmlBlobsResponse
  * //   data: "BLOB_VALUE",
  * // };
  *

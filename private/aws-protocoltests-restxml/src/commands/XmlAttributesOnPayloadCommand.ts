@@ -3,7 +3,7 @@ import { getSerdePlugin } from "@smithy/middleware-serde";
 import { Command as $Command } from "@smithy/smithy-client";
 import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
-import { XmlAttributesOnPayloadInputOutput } from "../models/models_0";
+import { XmlAttributesOnPayloadRequest, XmlAttributesOnPayloadResponse } from "../models/models_0";
 import { de_XmlAttributesOnPayloadCommand, se_XmlAttributesOnPayloadCommand } from "../protocols/Aws_restXml";
 import { RestXmlProtocolClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../RestXmlProtocolClient";
 
@@ -16,13 +16,13 @@ export { __MetadataBearer, $Command };
  *
  * The input for {@link XmlAttributesOnPayloadCommand}.
  */
-export interface XmlAttributesOnPayloadCommandInput extends XmlAttributesOnPayloadInputOutput {}
+export interface XmlAttributesOnPayloadCommandInput extends XmlAttributesOnPayloadRequest {}
 /**
  * @public
  *
  * The output of {@link XmlAttributesOnPayloadCommand}.
  */
-export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayloadInputOutput, __MetadataBearer {}
+export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayloadResponse, __MetadataBearer {}
 
 /**
  * @public
@@ -33,16 +33,16 @@ export interface XmlAttributesOnPayloadCommandOutput extends XmlAttributesOnPayl
  * import { RestXmlProtocolClient, XmlAttributesOnPayloadCommand } from "@aws-sdk/aws-protocoltests-restxml"; // ES Modules import
  * // const { RestXmlProtocolClient, XmlAttributesOnPayloadCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
- * const input = { // XmlAttributesOnPayloadInputOutput
- *   payload: { // XmlAttributesInputOutput
+ * const input = { // XmlAttributesOnPayloadRequest
+ *   payload: { // XmlAttributesPayloadRequest
  *     foo: "STRING_VALUE",
  *     attr: "STRING_VALUE",
  *   },
  * };
  * const command = new XmlAttributesOnPayloadCommand(input);
  * const response = await client.send(command);
- * // { // XmlAttributesOnPayloadInputOutput
- * //   payload: { // XmlAttributesInputOutput
+ * // { // XmlAttributesOnPayloadResponse
+ * //   payload: { // XmlAttributesPayloadResponse
  * //     foo: "STRING_VALUE",
  * //     attr: "STRING_VALUE",
  * //   },
