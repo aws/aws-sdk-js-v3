@@ -11,7 +11,7 @@ describe("validateBucketNameMiddleware", () => {
   });
 
   it("throws error if Bucket parameter contains '/'", async () => {
-    const handler = validateBucketNameMiddleware()(mockNextHandler, {} as any);
+    const handler = validateBucketNameMiddleware({} as any)(mockNextHandler, {} as any);
     const bucket = "bucket/part/of/key";
     let error;
     try {
@@ -29,7 +29,7 @@ describe("validateBucketNameMiddleware", () => {
   });
 
   it("doesn't throw error if Bucket parameter has no '/'", async () => {
-    const handler = validateBucketNameMiddleware()(mockNextHandler, {} as any);
+    const handler = validateBucketNameMiddleware({} as any)(mockNextHandler, {} as any);
     const args = {
       input: {
         Bucket: "bucket",
@@ -42,7 +42,7 @@ describe("validateBucketNameMiddleware", () => {
 
   it("should not validate bucket name if the bucket name is an ARN", async () => {
     mockValidateArn.mockReturnValue(true);
-    const handler = validateBucketNameMiddleware()(mockNextHandler, {} as any);
+    const handler = validateBucketNameMiddleware({} as any)(mockNextHandler, {} as any);
     const args = {
       input: {
         Bucket: "arn:aws:s3:us-east-1:123456789012:accesspoint/myendpoint",

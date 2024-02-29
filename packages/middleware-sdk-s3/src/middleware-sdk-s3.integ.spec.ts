@@ -70,6 +70,9 @@ describe("middleware-sdk-s3", () => {
         hostname: "mybucket.com",
         port: 8888,
         path: "/my-bucket-path/my-key",
+        headers: {
+          host: "mybucket.com:8888",
+        },
       });
 
       await client.putObject({

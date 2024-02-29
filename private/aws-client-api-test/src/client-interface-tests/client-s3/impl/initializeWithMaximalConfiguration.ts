@@ -116,6 +116,7 @@ export const initializeWithMaximalConfiguration = () => {
     disableS3ExpressSessionAuth: false,
     useGlobalEndpoint: false,
     signingEscapePath: false,
+    bucketEndpoint: false,
   };
 
   const s3 = new S3Client(config);
