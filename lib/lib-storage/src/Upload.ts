@@ -11,7 +11,7 @@ import {
   Tag,
   UploadPartCommand,
 } from "@aws-sdk/client-s3";
-import { AbortController, AbortSignal } from "@smithy/abort-controller";
+import { AbortController } from "@smithy/abort-controller";
 import {
   EndpointParameterInstructionsSupplier,
   getEndpointFromInstructions,
@@ -19,7 +19,7 @@ import {
 } from "@smithy/middleware-endpoint";
 import { HttpRequest } from "@smithy/protocol-http";
 import { extendedEncodeURIComponent } from "@smithy/smithy-client";
-import { Endpoint } from "@smithy/types";
+import type { AbortController as IAbortController, AbortSignal as IAbortSignal, Endpoint } from "@smithy/types";
 import { EventEmitter } from "events";
 
 import { byteLength } from "./bytelength";
@@ -54,7 +54,7 @@ export class Upload extends EventEmitter {
   private bytesUploadedSoFar: number;
 
   // used in the upload.
-  private abortController: AbortController;
+  private abortController: IAbortController;
   private concurrentUploaders: Promise<void>[] = [];
   private createMultiPartPromise?: Promise<CreateMultipartUploadCommandOutput>;
 
@@ -362,7 +362,7 @@ export class Upload extends EventEmitter {
     }
   }
 
-  private async __abortTimeout(abortSignal: AbortSignal): Promise<never> {
+  private async __abortTimeout(abortSignal: IAbortSignal): Promise<never> {
     return new Promise((resolve, reject) => {
       abortSignal.onabort = () => {
         const abortError = new Error("Upload aborted.");
