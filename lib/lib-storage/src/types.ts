@@ -1,5 +1,5 @@
 import { PutObjectCommandInput, S3Client, Tag } from "@aws-sdk/client-s3";
-import { AbortController } from "@smithy/abort-controller";
+import type { AbortController } from "@smithy/types";
 
 export interface Progress {
   loaded?: number;
