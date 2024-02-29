@@ -7,8 +7,8 @@
 AWS SDK for JavaScript MigrationHubOrchestrator Client for Node.js, Browser and React Native.
 
 <p>This API reference provides descriptions, syntax, and other details about each of the
-actions and data types for AWS Migration Hub Orchestrator. he topic for each action shows the API
-request parameters and the response. Alternatively, you can use one of the AWS SDKs to
+actions and data types for AWS Migration Hub Orchestrator. The topic for each action shows the API
+request parameters and responses. Alternatively, you can use one of the AWS SDKs to
 access an API that is tailored to the programming language or platform that you're
 using.</p>
 
@@ -209,6 +209,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CreateTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhuborchestrator/command/CreateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/CreateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/CreateTemplateCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateWorkflow
 </summary>
 
@@ -229,6 +237,14 @@ CreateWorkflowStepGroup
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhuborchestrator/command/CreateWorkflowStepGroupCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/CreateWorkflowStepGroupCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/CreateWorkflowStepGroupCommandOutput/)
+
+</details>
+<details>
+<summary>
+DeleteTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhuborchestrator/command/DeleteTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/DeleteTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/DeleteTemplateCommandOutput/)
 
 </details>
 <details>
@@ -405,6 +421,14 @@ UntagResource
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhuborchestrator/command/UntagResourceCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/UntagResourceCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/UntagResourceCommandOutput/)
+
+</details>
+<details>
+<summary>
+UpdateTemplate
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/migrationhuborchestrator/command/UpdateTemplateCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/UpdateTemplateCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-migrationhuborchestrator/Interface/UpdateTemplateCommandOutput/)
 
 </details>
 <details>

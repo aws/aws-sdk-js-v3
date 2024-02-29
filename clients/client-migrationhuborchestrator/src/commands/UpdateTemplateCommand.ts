@@ -10,8 +10,8 @@ import {
   ServiceInputTypes,
   ServiceOutputTypes,
 } from "../MigrationHubOrchestratorClient";
-import { GetMigrationWorkflowTemplateRequest, GetMigrationWorkflowTemplateResponse } from "../models/models_0";
-import { de_GetTemplateCommand, se_GetTemplateCommand } from "../protocols/Aws_restJson1";
+import { UpdateTemplateRequest, UpdateTemplateResponse } from "../models/models_0";
+import { de_UpdateTemplateCommand, se_UpdateTemplateCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -20,53 +20,36 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetTemplateCommand}.
+ * The input for {@link UpdateTemplateCommand}.
  */
-export interface GetTemplateCommandInput extends GetMigrationWorkflowTemplateRequest {}
+export interface UpdateTemplateCommandInput extends UpdateTemplateRequest {}
 /**
  * @public
  *
- * The output of {@link GetTemplateCommand}.
+ * The output of {@link UpdateTemplateCommand}.
  */
-export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateResponse, __MetadataBearer {}
+export interface UpdateTemplateCommandOutput extends UpdateTemplateResponse, __MetadataBearer {}
 
 /**
  * @public
- * <p>Get the template you want to use for creating a migration workflow.</p>
+ * <p>Updates a migration workflow template.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { MigrationHubOrchestratorClient, GetTemplateCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
- * // const { MigrationHubOrchestratorClient, GetTemplateCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
+ * import { MigrationHubOrchestratorClient, UpdateTemplateCommand } from "@aws-sdk/client-migrationhuborchestrator"; // ES Modules import
+ * // const { MigrationHubOrchestratorClient, UpdateTemplateCommand } = require("@aws-sdk/client-migrationhuborchestrator"); // CommonJS import
  * const client = new MigrationHubOrchestratorClient(config);
- * const input = { // GetMigrationWorkflowTemplateRequest
+ * const input = { // UpdateTemplateRequest
  *   id: "STRING_VALUE", // required
+ *   templateName: "STRING_VALUE",
+ *   templateDescription: "STRING_VALUE",
+ *   clientToken: "STRING_VALUE",
  * };
- * const command = new GetTemplateCommand(input);
+ * const command = new UpdateTemplateCommand(input);
  * const response = await client.send(command);
- * // { // GetMigrationWorkflowTemplateResponse
- * //   id: "STRING_VALUE",
+ * // { // UpdateTemplateResponse
+ * //   templateId: "STRING_VALUE",
  * //   templateArn: "STRING_VALUE",
- * //   name: "STRING_VALUE",
- * //   description: "STRING_VALUE",
- * //   inputs: [ // TemplateInputList
- * //     { // TemplateInput
- * //       inputName: "STRING_VALUE",
- * //       dataType: "STRING_VALUE",
- * //       required: true || false,
- * //     },
- * //   ],
- * //   tools: [ // ToolsList
- * //     { // Tool
- * //       name: "STRING_VALUE",
- * //       url: "STRING_VALUE",
- * //     },
- * //   ],
- * //   creationTime: new Date("TIMESTAMP"),
- * //   owner: "STRING_VALUE",
- * //   status: "STRING_VALUE",
- * //   statusMessage: "STRING_VALUE",
- * //   templateClass: "STRING_VALUE",
  * //   tags: { // StringMap
  * //     "<keys>": "STRING_VALUE",
  * //   },
@@ -74,10 +57,10 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  *
  * ```
  *
- * @param GetTemplateCommandInput - {@link GetTemplateCommandInput}
- * @returns {@link GetTemplateCommandOutput}
- * @see {@link GetTemplateCommandInput} for command's `input` shape.
- * @see {@link GetTemplateCommandOutput} for command's `response` shape.
+ * @param UpdateTemplateCommandInput - {@link UpdateTemplateCommandInput}
+ * @returns {@link UpdateTemplateCommandOutput}
+ * @see {@link UpdateTemplateCommandInput} for command's `input` shape.
+ * @see {@link UpdateTemplateCommandOutput} for command's `response` shape.
  * @see {@link MigrationHubOrchestratorClientResolvedConfig | config} for MigrationHubOrchestratorClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -92,14 +75,17 @@ export interface GetTemplateCommandOutput extends GetMigrationWorkflowTemplateRe
  * @throws {@link ThrottlingException} (client fault)
  *  <p>The request was denied due to request throttling.</p>
  *
+ * @throws {@link ValidationException} (client fault)
+ *  <p>The input fails to satisfy the constraints specified by an AWS service.</p>
+ *
  * @throws {@link MigrationHubOrchestratorServiceException}
  * <p>Base exception class for all service exceptions from MigrationHubOrchestrator service.</p>
  *
  */
-export class GetTemplateCommand extends $Command
+export class UpdateTemplateCommand extends $Command
   .classBuilder<
-    GetTemplateCommandInput,
-    GetTemplateCommandOutput,
+    UpdateTemplateCommandInput,
+    UpdateTemplateCommandOutput,
     MigrationHubOrchestratorClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -113,9 +99,9 @@ export class GetTemplateCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("AWSMigrationHubOrchestrator", "GetTemplate", {})
-  .n("MigrationHubOrchestratorClient", "GetTemplateCommand")
+  .s("AWSMigrationHubOrchestrator", "UpdateTemplate", {})
+  .n("MigrationHubOrchestratorClient", "UpdateTemplateCommand")
   .f(void 0, void 0)
-  .ser(se_GetTemplateCommand)
-  .de(de_GetTemplateCommand)
+  .ser(se_UpdateTemplateCommand)
+  .de(de_UpdateTemplateCommand)
   .build() {}

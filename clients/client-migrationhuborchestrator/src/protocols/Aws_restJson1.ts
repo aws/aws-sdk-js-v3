@@ -22,13 +22,16 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
+import { v4 as generateIdempotencyToken } from "uuid";
 
+import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "../commands/CreateTemplateCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "../commands/CreateWorkflowCommand";
 import { CreateWorkflowStepCommandInput, CreateWorkflowStepCommandOutput } from "../commands/CreateWorkflowStepCommand";
 import {
   CreateWorkflowStepGroupCommandInput,
   CreateWorkflowStepGroupCommandOutput,
 } from "../commands/CreateWorkflowStepGroupCommand";
+import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "../commands/DeleteTemplateCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "../commands/DeleteWorkflowCommand";
 import { DeleteWorkflowStepCommandInput, DeleteWorkflowStepCommandOutput } from "../commands/DeleteWorkflowStepCommand";
 import {
@@ -69,6 +72,7 @@ import { StartWorkflowCommandInput, StartWorkflowCommandOutput } from "../comman
 import { StopWorkflowCommandInput, StopWorkflowCommandOutput } from "../commands/StopWorkflowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
+import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "../commands/UpdateTemplateCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "../commands/UpdateWorkflowCommand";
 import { UpdateWorkflowStepCommandInput, UpdateWorkflowStepCommandOutput } from "../commands/UpdateWorkflowStepCommand";
 import {
@@ -78,18 +82,46 @@ import {
 import { MigrationHubOrchestratorServiceException as __BaseException } from "../models/MigrationHubOrchestratorServiceException";
 import {
   AccessDeniedException,
+  ConflictException,
   InternalServerException,
   MigrationWorkflowSummary,
   PlatformCommand,
   PlatformScriptKey,
   ResourceNotFoundException,
   StepInput,
+  TemplateSource,
   ThrottlingException,
   ValidationException,
   WorkflowStepAutomationConfiguration,
   WorkflowStepOutput,
   WorkflowStepOutputUnion,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CreateTemplateCommand
+ */
+export const se_CreateTemplateCommand = async (
+  input: CreateTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/template");
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      tags: (_) => _json(_),
+      templateDescription: [],
+      templateName: [],
+      templateSource: (_) => _json(_),
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateWorkflowCommand
@@ -173,6 +205,22 @@ export const se_CreateWorkflowStepGroupCommand = async (
     })
   );
   b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1DeleteTemplateCommand
+ */
+export const se_DeleteTemplateCommand = async (
+  input: DeleteTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/template/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  b.m("DELETE").h(headers).b(body);
   return b.build();
 };
 
@@ -597,6 +645,31 @@ export const se_UntagResourceCommand = async (
 };
 
 /**
+ * serializeAws_restJson1UpdateTemplateCommand
+ */
+export const se_UpdateTemplateCommand = async (
+  input: UpdateTemplateCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/template/{id}");
+  b.p("id", () => input.id!, "{id}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      templateDescription: [],
+      templateName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
  * serializeAws_restJson1UpdateWorkflowCommand
  */
 export const se_UpdateWorkflowCommand = async (
@@ -685,6 +758,29 @@ export const se_UpdateWorkflowStepGroupCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1CreateTemplateCommand
+ */
+export const de_CreateTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CreateTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+    templateArn: __expectString,
+    templateId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1CreateWorkflowCommand
  */
 export const de_CreateWorkflowCommand = async (
@@ -768,6 +864,23 @@ export const de_CreateWorkflowStepGroupCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1DeleteTemplateCommand
+ */
+export const de_DeleteTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<DeleteTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  await collectBody(output.body, context);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1DeleteWorkflowCommand
  */
 export const de_DeleteWorkflowCommand = async (
@@ -844,7 +957,12 @@ export const de_GetTemplateCommand = async (
     id: __expectString,
     inputs: _json,
     name: __expectString,
+    owner: __expectString,
     status: __expectString,
+    statusMessage: __expectString,
+    tags: _json,
+    templateArn: __expectString,
+    templateClass: __expectString,
     tools: _json,
   });
   Object.assign(contents, doc);
@@ -1309,6 +1427,29 @@ export const de_UntagResourceCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1UpdateTemplateCommand
+ */
+export const de_UpdateTemplateCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<UpdateTemplateCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    tags: _json,
+    templateArn: __expectString,
+    templateId: __expectString,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1UpdateWorkflowCommand
  */
 export const de_UpdateWorkflowCommand = async (
@@ -1405,6 +1546,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "AccessDeniedException":
     case "com.amazonaws.migrationhuborchestrator#AccessDeniedException":
       throw await de_AccessDeniedExceptionRes(parsedOutput, context);
+    case "ConflictException":
+    case "com.amazonaws.migrationhuborchestrator#ConflictException":
+      throw await de_ConflictExceptionRes(parsedOutput, context);
     case "InternalServerException":
     case "com.amazonaws.migrationhuborchestrator#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
@@ -1442,6 +1586,23 @@ const de_AccessDeniedExceptionRes = async (
   });
   Object.assign(contents, doc);
   const exception = new AccessDeniedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...contents,
+  });
+  return __decorateServiceException(exception, parsedOutput.body);
+};
+
+/**
+ * deserializeAws_restJson1ConflictExceptionRes
+ */
+const de_ConflictExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ConflictException> => {
+  const contents: any = map({});
+  const data: any = parsedOutput.body;
+  const doc = take(data, {
+    message: __expectString,
+  });
+  Object.assign(contents, doc);
+  const exception = new ConflictException({
     $metadata: deserializeMetadata(parsedOutput),
     ...contents,
   });
@@ -1522,6 +1683,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
   return __decorateServiceException(exception, parsedOutput.body);
 };
 
+// se_MaxStringList omitted.
+
 // se_PlatformCommand omitted.
 
 // se_PlatformScriptKey omitted.
@@ -1536,6 +1699,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_TagMap omitted.
 
+// se_TemplateSource omitted.
+
 // se_WorkflowStepAutomationConfiguration omitted.
 
 // se_WorkflowStepOutput omitted.
@@ -1543,6 +1708,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // se_WorkflowStepOutputList omitted.
 
 // se_WorkflowStepOutputUnion omitted.
+
+// de_MaxStringList omitted.
 
 /**
  * deserializeAws_restJson1MigrationWorkflowSummary

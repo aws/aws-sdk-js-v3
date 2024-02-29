@@ -48,7 +48,7 @@ export interface CreateWorkflowCommandOutput extends CreateMigrationWorkflowResp
  *   name: "STRING_VALUE", // required
  *   description: "STRING_VALUE",
  *   templateId: "STRING_VALUE", // required
- *   applicationConfigurationId: "STRING_VALUE", // required
+ *   applicationConfigurationId: "STRING_VALUE",
  *   inputParameters: { // StepInputParameters // required
  *     "<keys>": { // StepInput Union: only one key present
  *       integerValue: Number("int"),

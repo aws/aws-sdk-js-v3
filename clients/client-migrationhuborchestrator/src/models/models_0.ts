@@ -205,7 +205,7 @@ export interface CreateMigrationWorkflowRequest {
    * @public
    * <p>The configuration ID of the application configured in Application Discovery Service.</p>
    */
-  applicationConfigurationId: string | undefined;
+  applicationConfigurationId?: string;
 
   /**
    * @public
@@ -882,6 +882,145 @@ export interface UpdateMigrationWorkflowResponse {
 
 /**
  * @public
+ * <p>This exception is thrown when an attempt to update or delete
+ *             a resource would cause an inconsistent state.</p>
+ */
+export class ConflictException extends __BaseException {
+  readonly name: "ConflictException" = "ConflictException";
+  readonly $fault: "client" = "client";
+  $retryable = {};
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<ConflictException, __BaseException>) {
+    super({
+      name: "ConflictException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, ConflictException.prototype);
+  }
+}
+
+/**
+ * @public
+ * <p>The migration workflow template used as the source for the new template.</p>
+ */
+export type TemplateSource = TemplateSource.WorkflowIdMember | TemplateSource.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace TemplateSource {
+  /**
+   * @public
+   * <p>The ID of the workflow from the source migration workflow template.</p>
+   */
+  export interface WorkflowIdMember {
+    workflowId: string;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    workflowId?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    workflowId: (value: string) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: TemplateSource, visitor: Visitor<T>): T => {
+    if (value.workflowId !== undefined) return visitor.workflowId(value.workflowId);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ */
+export interface CreateTemplateRequest {
+  /**
+   * @public
+   * <p>The name of the migration workflow template.</p>
+   */
+  templateName: string | undefined;
+
+  /**
+   * @public
+   * <p>A description of the migration workflow template.</p>
+   */
+  templateDescription?: string;
+
+  /**
+   * @public
+   * <p>The source of the migration workflow template.</p>
+   */
+  templateSource: TemplateSource | undefined;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the
+   *             request. For more information, see <a href="https://smithy.io/2.0/spec/behavior-traits.html#idempotencytoken-trait">Idempotency</a> in the Smithy documentation.</p>
+   */
+  clientToken?: string;
+
+  /**
+   * @public
+   * <p>The tags to add to the migration workflow template.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface CreateTemplateResponse {
+  /**
+   * @public
+   * <p>The ID of the migration workflow template.</p>
+   */
+  templateId?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the migration workflow template. The format for an
+   *             Migration Hub Orchestrator template ARN is
+   *             <code>arn:aws:migrationhub-orchestrator:region:account:template/template-abcd1234</code>.
+   *             For more information about ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a>
+   *             in the <i>AWS General Reference</i>.</p>
+   */
+  templateArn?: string;
+
+  /**
+   * @public
+   * <p>The tags added to the migration workflow template.</p>
+   */
+  tags?: Record<string, string>;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateRequest {
+  /**
+   * @public
+   * <p>The ID of the request to delete a migration workflow template.</p>
+   */
+  id: string | undefined;
+}
+
+/**
+ * @public
+ */
+export interface DeleteTemplateResponse {}
+
+/**
+ * @public
  */
 export interface GetMigrationWorkflowTemplateRequest {
   /**
@@ -937,6 +1076,10 @@ export interface TemplateInput {
  */
 export const TemplateStatus = {
   CREATED: "CREATED",
+  CREATING: "CREATING",
+  CREATION_FAILED: "CREATION_FAILED",
+  PENDING_CREATION: "PENDING_CREATION",
+  READY: "READY",
 } as const;
 
 /**
@@ -953,6 +1096,16 @@ export interface GetMigrationWorkflowTemplateResponse {
    * <p>The ID of the template.</p>
    */
   id?: string;
+
+  /**
+   * @public
+   * <p>&gt;The Amazon Resource Name (ARN) of the migration workflow template. The format for an
+   *             Migration Hub Orchestrator template ARN is
+   *             <code>arn:aws:migrationhub-orchestrator:region:account:template/template-abcd1234</code>.
+   *             For more information about ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a>
+   *             in the <i>AWS General Reference</i>.</p>
+   */
+  templateArn?: string;
 
   /**
    * @public
@@ -980,15 +1133,60 @@ export interface GetMigrationWorkflowTemplateResponse {
 
   /**
    * @public
+   * <p>The time at which the template was last created.</p>
+   */
+  creationTime?: Date;
+
+  /**
+   * @public
+   * <p>The owner of the migration workflow template.</p>
+   */
+  owner?: string;
+
+  /**
+   * @public
    * <p>The status of the template.</p>
    */
   status?: TemplateStatus;
 
   /**
    * @public
-   * <p>The time at which the template was last created.</p>
+   * <p>The status message of retrieving migration workflow templates.</p>
    */
-  creationTime?: Date;
+  statusMessage?: string;
+
+  /**
+   * @public
+   * <p>The class of the migration workflow template. The available template classes
+   *             are:</p>
+   *          <ul>
+   *             <li>
+   *                <p>A2C</p>
+   *             </li>
+   *             <li>
+   *                <p>MGN</p>
+   *             </li>
+   *             <li>
+   *                <p>SAP_MULTI</p>
+   *             </li>
+   *             <li>
+   *                <p>SQL_EC2</p>
+   *             </li>
+   *             <li>
+   *                <p>SQL_RDS</p>
+   *             </li>
+   *             <li>
+   *                <p>VMIE</p>
+   *             </li>
+   *          </ul>
+   */
+  templateClass?: string;
+
+  /**
+   * @public
+   * <p>The tags added to the migration workflow template.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1059,6 +1257,63 @@ export interface ListMigrationWorkflowTemplatesResponse {
    * <p>The summary of the template.</p>
    */
   templateSummary: TemplateSummary[] | undefined;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplateRequest {
+  /**
+   * @public
+   * <p>The ID of the request to update a migration workflow template.</p>
+   */
+  id: string | undefined;
+
+  /**
+   * @public
+   * <p>The name of the migration workflow template to update.</p>
+   */
+  templateName?: string;
+
+  /**
+   * @public
+   * <p>The description of the migration workflow template to update.</p>
+   */
+  templateDescription?: string;
+
+  /**
+   * @public
+   * <p>A unique, case-sensitive identifier that you provide to ensure the
+   *             idempotency of the request.</p>
+   */
+  clientToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface UpdateTemplateResponse {
+  /**
+   * @public
+   * <p>The ID of the migration workflow template being updated.</p>
+   */
+  templateId?: string;
+
+  /**
+   * @public
+   * <p>The ARN of the migration workflow template being updated. The format for an Migration Hub Orchestrator
+   *             template ARN is
+   *             <code>arn:aws:migrationhub-orchestrator:region:account:template/template-abcd1234</code>.
+   *             For more information about ARNs, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html">Amazon Resource Names (ARNs)</a>
+   *             in the <i>AWS General Reference</i>.</p>
+   */
+  templateArn?: string;
+
+  /**
+   * @public
+   * <p>The tags added to the migration workflow template.</p>
+   */
+  tags?: Record<string, string>;
 }
 
 /**
@@ -1997,7 +2252,7 @@ export interface GetWorkflowStepRequest {
 
   /**
    * @public
-   * <p>desThe ID of the step group.</p>
+   * <p>The ID of the step group.</p>
    */
   stepGroupId: string | undefined;
 
@@ -2019,6 +2274,7 @@ export const StepStatus = {
   IN_PROGRESS: "IN_PROGRESS",
   PAUSED: "PAUSED",
   READY: "READY",
+  SKIPPED: "SKIPPED",
   USER_ATTENTION_REQUIRED: "USER_ATTENTION_REQUIRED",
 } as const;
 

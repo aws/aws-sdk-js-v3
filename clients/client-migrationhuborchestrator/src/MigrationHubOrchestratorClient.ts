@@ -53,12 +53,14 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import { CreateTemplateCommandInput, CreateTemplateCommandOutput } from "./commands/CreateTemplateCommand";
 import { CreateWorkflowCommandInput, CreateWorkflowCommandOutput } from "./commands/CreateWorkflowCommand";
 import { CreateWorkflowStepCommandInput, CreateWorkflowStepCommandOutput } from "./commands/CreateWorkflowStepCommand";
 import {
   CreateWorkflowStepGroupCommandInput,
   CreateWorkflowStepGroupCommandOutput,
 } from "./commands/CreateWorkflowStepGroupCommand";
+import { DeleteTemplateCommandInput, DeleteTemplateCommandOutput } from "./commands/DeleteTemplateCommand";
 import { DeleteWorkflowCommandInput, DeleteWorkflowCommandOutput } from "./commands/DeleteWorkflowCommand";
 import { DeleteWorkflowStepCommandInput, DeleteWorkflowStepCommandOutput } from "./commands/DeleteWorkflowStepCommand";
 import {
@@ -99,6 +101,7 @@ import { StartWorkflowCommandInput, StartWorkflowCommandOutput } from "./command
 import { StopWorkflowCommandInput, StopWorkflowCommandOutput } from "./commands/StopWorkflowCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
+import { UpdateTemplateCommandInput, UpdateTemplateCommandOutput } from "./commands/UpdateTemplateCommand";
 import { UpdateWorkflowCommandInput, UpdateWorkflowCommandOutput } from "./commands/UpdateWorkflowCommand";
 import { UpdateWorkflowStepCommandInput, UpdateWorkflowStepCommandOutput } from "./commands/UpdateWorkflowStepCommand";
 import {
@@ -120,9 +123,11 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CreateTemplateCommandInput
   | CreateWorkflowCommandInput
   | CreateWorkflowStepCommandInput
   | CreateWorkflowStepGroupCommandInput
+  | DeleteTemplateCommandInput
   | DeleteWorkflowCommandInput
   | DeleteWorkflowStepCommandInput
   | DeleteWorkflowStepGroupCommandInput
@@ -145,6 +150,7 @@ export type ServiceInputTypes =
   | StopWorkflowCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
+  | UpdateTemplateCommandInput
   | UpdateWorkflowCommandInput
   | UpdateWorkflowStepCommandInput
   | UpdateWorkflowStepGroupCommandInput;
@@ -153,9 +159,11 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CreateTemplateCommandOutput
   | CreateWorkflowCommandOutput
   | CreateWorkflowStepCommandOutput
   | CreateWorkflowStepGroupCommandOutput
+  | DeleteTemplateCommandOutput
   | DeleteWorkflowCommandOutput
   | DeleteWorkflowStepCommandOutput
   | DeleteWorkflowStepGroupCommandOutput
@@ -178,6 +186,7 @@ export type ServiceOutputTypes =
   | StopWorkflowCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
+  | UpdateTemplateCommandOutput
   | UpdateWorkflowCommandOutput
   | UpdateWorkflowStepCommandOutput
   | UpdateWorkflowStepGroupCommandOutput;
@@ -357,8 +366,8 @@ export interface MigrationHubOrchestratorClientResolvedConfig
 /**
  * @public
  * <p>This API reference provides descriptions, syntax, and other details about each of the
- *             actions and data types for AWS Migration Hub Orchestrator. he topic for each action shows the API
- *             request parameters and the response. Alternatively, you can use one of the AWS SDKs to
+ *             actions and data types for AWS Migration Hub Orchestrator. The topic for each action shows the API
+ *             request parameters and responses. Alternatively, you can use one of the AWS SDKs to
  *             access an API that is tailored to the programming language or platform that you're
  *             using.</p>
  */

@@ -3,6 +3,11 @@ import { createAggregatedClient } from "@smithy/smithy-client";
 import { HttpHandlerOptions as __HttpHandlerOptions } from "@smithy/types";
 
 import {
+  CreateTemplateCommand,
+  CreateTemplateCommandInput,
+  CreateTemplateCommandOutput,
+} from "./commands/CreateTemplateCommand";
+import {
   CreateWorkflowCommand,
   CreateWorkflowCommandInput,
   CreateWorkflowCommandOutput,
@@ -17,6 +22,11 @@ import {
   CreateWorkflowStepGroupCommandInput,
   CreateWorkflowStepGroupCommandOutput,
 } from "./commands/CreateWorkflowStepGroupCommand";
+import {
+  DeleteTemplateCommand,
+  DeleteTemplateCommandInput,
+  DeleteTemplateCommandOutput,
+} from "./commands/DeleteTemplateCommand";
 import {
   DeleteWorkflowCommand,
   DeleteWorkflowCommandInput,
@@ -112,6 +122,11 @@ import {
   UntagResourceCommandOutput,
 } from "./commands/UntagResourceCommand";
 import {
+  UpdateTemplateCommand,
+  UpdateTemplateCommandInput,
+  UpdateTemplateCommandOutput,
+} from "./commands/UpdateTemplateCommand";
+import {
   UpdateWorkflowCommand,
   UpdateWorkflowCommandInput,
   UpdateWorkflowCommandOutput,
@@ -129,9 +144,11 @@ import {
 import { MigrationHubOrchestratorClient, MigrationHubOrchestratorClientConfig } from "./MigrationHubOrchestratorClient";
 
 const commands = {
+  CreateTemplateCommand,
   CreateWorkflowCommand,
   CreateWorkflowStepCommand,
   CreateWorkflowStepGroupCommand,
+  DeleteTemplateCommand,
   DeleteWorkflowCommand,
   DeleteWorkflowStepCommand,
   DeleteWorkflowStepGroupCommand,
@@ -154,12 +171,27 @@ const commands = {
   StopWorkflowCommand,
   TagResourceCommand,
   UntagResourceCommand,
+  UpdateTemplateCommand,
   UpdateWorkflowCommand,
   UpdateWorkflowStepCommand,
   UpdateWorkflowStepGroupCommand,
 };
 
 export interface MigrationHubOrchestrator {
+  /**
+   * @see {@link CreateTemplateCommand}
+   */
+  createTemplate(
+    args: CreateTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<CreateTemplateCommandOutput>;
+  createTemplate(args: CreateTemplateCommandInput, cb: (err: any, data?: CreateTemplateCommandOutput) => void): void;
+  createTemplate(
+    args: CreateTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: CreateTemplateCommandOutput) => void
+  ): void;
+
   /**
    * @see {@link CreateWorkflowCommand}
    */
@@ -206,6 +238,20 @@ export interface MigrationHubOrchestrator {
     args: CreateWorkflowStepGroupCommandInput,
     options: __HttpHandlerOptions,
     cb: (err: any, data?: CreateWorkflowStepGroupCommandOutput) => void
+  ): void;
+
+  /**
+   * @see {@link DeleteTemplateCommand}
+   */
+  deleteTemplate(
+    args: DeleteTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<DeleteTemplateCommandOutput>;
+  deleteTemplate(args: DeleteTemplateCommandInput, cb: (err: any, data?: DeleteTemplateCommandOutput) => void): void;
+  deleteTemplate(
+    args: DeleteTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: DeleteTemplateCommandOutput) => void
   ): void;
 
   /**
@@ -520,6 +566,20 @@ export interface MigrationHubOrchestrator {
   ): void;
 
   /**
+   * @see {@link UpdateTemplateCommand}
+   */
+  updateTemplate(
+    args: UpdateTemplateCommandInput,
+    options?: __HttpHandlerOptions
+  ): Promise<UpdateTemplateCommandOutput>;
+  updateTemplate(args: UpdateTemplateCommandInput, cb: (err: any, data?: UpdateTemplateCommandOutput) => void): void;
+  updateTemplate(
+    args: UpdateTemplateCommandInput,
+    options: __HttpHandlerOptions,
+    cb: (err: any, data?: UpdateTemplateCommandOutput) => void
+  ): void;
+
+  /**
    * @see {@link UpdateWorkflowCommand}
    */
   updateWorkflow(
@@ -571,8 +631,8 @@ export interface MigrationHubOrchestrator {
 /**
  * @public
  * <p>This API reference provides descriptions, syntax, and other details about each of the
- *             actions and data types for AWS Migration Hub Orchestrator. he topic for each action shows the API
- *             request parameters and the response. Alternatively, you can use one of the AWS SDKs to
+ *             actions and data types for AWS Migration Hub Orchestrator. The topic for each action shows the API
+ *             request parameters and responses. Alternatively, you can use one of the AWS SDKs to
  *             access an API that is tailored to the programming language or platform that you're
  *             using.</p>
  */

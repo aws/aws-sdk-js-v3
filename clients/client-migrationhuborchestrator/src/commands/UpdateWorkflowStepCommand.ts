@@ -70,7 +70,7 @@ export interface UpdateWorkflowStepCommandOutput extends UpdateWorkflowStepRespo
  *       value: { // WorkflowStepOutputUnion Union: only one key present
  *         integerValue: Number("int"),
  *         stringValue: "STRING_VALUE",
- *         listOfStringValue: [
+ *         listOfStringValue: [ // MaxStringList
  *           "STRING_VALUE",
  *         ],
  *       },

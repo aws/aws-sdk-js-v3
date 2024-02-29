@@ -1,7 +1,9 @@
 // smithy-typescript generated code
+export * from "./CreateTemplateCommand";
 export * from "./CreateWorkflowCommand";
 export * from "./CreateWorkflowStepCommand";
 export * from "./CreateWorkflowStepGroupCommand";
+export * from "./DeleteTemplateCommand";
 export * from "./DeleteWorkflowCommand";
 export * from "./DeleteWorkflowStepCommand";
 export * from "./DeleteWorkflowStepGroupCommand";
@@ -24,6 +26,7 @@ export * from "./StartWorkflowCommand";
 export * from "./StopWorkflowCommand";
 export * from "./TagResourceCommand";
 export * from "./UntagResourceCommand";
+export * from "./UpdateTemplateCommand";
 export * from "./UpdateWorkflowCommand";
 export * from "./UpdateWorkflowStepCommand";
 export * from "./UpdateWorkflowStepGroupCommand";

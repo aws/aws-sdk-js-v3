@@ -78,7 +78,7 @@ export interface GetWorkflowStepCommandOutput extends GetWorkflowStepResponse, _
  * //       value: { // WorkflowStepOutputUnion Union: only one key present
  * //         integerValue: Number("int"),
  * //         stringValue: "STRING_VALUE",
- * //         listOfStringValue: [
+ * //         listOfStringValue: [ // MaxStringList
  * //           "STRING_VALUE",
  * //         ],
  * //       },
