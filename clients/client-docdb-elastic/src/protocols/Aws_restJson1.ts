@@ -22,6 +22,10 @@ import {
 } from "@smithy/types";
 import { v4 as generateIdempotencyToken } from "uuid";
 
+import {
+  CopyClusterSnapshotCommandInput,
+  CopyClusterSnapshotCommandOutput,
+} from "../commands/CopyClusterSnapshotCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "../commands/CreateClusterCommand";
 import {
   CreateClusterSnapshotCommandInput,
@@ -47,6 +51,8 @@ import {
   RestoreClusterFromSnapshotCommandInput,
   RestoreClusterFromSnapshotCommandOutput,
 } from "../commands/RestoreClusterFromSnapshotCommand";
+import { StartClusterCommandInput, StartClusterCommandOutput } from "../commands/StartClusterCommand";
+import { StopClusterCommandInput, StopClusterCommandOutput } from "../commands/StopClusterCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "../commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "../commands/UntagResourceCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "../commands/UpdateClusterCommand";
@@ -60,6 +66,32 @@ import {
   ThrottlingException,
   ValidationException,
 } from "../models/models_0";
+
+/**
+ * serializeAws_restJson1CopyClusterSnapshotCommand
+ */
+export const se_CopyClusterSnapshotCommand = async (
+  input: CopyClusterSnapshotCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {
+    "content-type": "application/json",
+  };
+  b.bp("/cluster-snapshot/{snapshotArn}/copy");
+  b.p("snapshotArn", () => input.snapshotArn!, "{snapshotArn}", false);
+  let body: any;
+  body = JSON.stringify(
+    take(input, {
+      copyTags: [],
+      kmsKeyId: [],
+      tags: (_) => _json(_),
+      targetSnapshotName: [],
+    })
+  );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
 
 /**
  * serializeAws_restJson1CreateClusterCommand
@@ -79,12 +111,15 @@ export const se_CreateClusterCommand = async (
       adminUserName: [],
       adminUserPassword: [],
       authType: [],
+      backupRetentionPeriod: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
       clusterName: [],
       kmsKeyId: [],
+      preferredBackupWindow: [],
       preferredMaintenanceWindow: [],
       shardCapacity: [],
       shardCount: [],
+      shardInstanceCount: [],
       subnetIds: (_) => _json(_),
       tags: (_) => _json(_),
       vpcSecurityGroupIds: (_) => _json(_),
@@ -215,6 +250,7 @@ export const se_ListClusterSnapshotsCommand = async (
     [_cA]: [, input[_cA]!],
     [_nT]: [, input[_nT]!],
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
+    [_sT]: [, input[_sT]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -255,11 +291,45 @@ export const se_RestoreClusterFromSnapshotCommand = async (
     take(input, {
       clusterName: [],
       kmsKeyId: [],
+      shardCapacity: [],
+      shardInstanceCount: [],
       subnetIds: (_) => _json(_),
       tags: (_) => _json(_),
       vpcSecurityGroupIds: (_) => _json(_),
     })
   );
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StartClusterCommand
+ */
+export const se_StartClusterCommand = async (
+  input: StartClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/cluster/{clusterArn}/start");
+  b.p("clusterArn", () => input.clusterArn!, "{clusterArn}", false);
+  let body: any;
+  b.m("POST").h(headers).b(body);
+  return b.build();
+};
+
+/**
+ * serializeAws_restJson1StopClusterCommand
+ */
+export const se_StopClusterCommand = async (
+  input: StopClusterCommandInput,
+  context: __SerdeContext
+): Promise<__HttpRequest> => {
+  const b = rb(input, context);
+  const headers: any = {};
+  b.bp("/cluster/{clusterArn}/stop");
+  b.p("clusterArn", () => input.clusterArn!, "{clusterArn}", false);
+  let body: any;
   b.m("POST").h(headers).b(body);
   return b.build();
 };
@@ -327,16 +397,40 @@ export const se_UpdateClusterCommand = async (
     take(input, {
       adminUserPassword: [],
       authType: [],
+      backupRetentionPeriod: [],
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      preferredBackupWindow: [],
       preferredMaintenanceWindow: [],
       shardCapacity: [],
       shardCount: [],
+      shardInstanceCount: [],
       subnetIds: (_) => _json(_),
       vpcSecurityGroupIds: (_) => _json(_),
     })
   );
   b.m("PUT").h(headers).b(body);
   return b.build();
+};
+
+/**
+ * deserializeAws_restJson1CopyClusterSnapshotCommand
+ */
+export const de_CopyClusterSnapshotCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<CopyClusterSnapshotCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    snapshot: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
 };
 
 /**
@@ -552,6 +646,48 @@ export const de_RestoreClusterFromSnapshotCommand = async (
 };
 
 /**
+ * deserializeAws_restJson1StartClusterCommand
+ */
+export const de_StartClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StartClusterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    cluster: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
+ * deserializeAws_restJson1StopClusterCommand
+ */
+export const de_StopClusterCommand = async (
+  output: __HttpResponse,
+  context: __SerdeContext
+): Promise<StopClusterCommandOutput> => {
+  if (output.statusCode !== 200 && output.statusCode >= 300) {
+    return de_CommandError(output, context);
+  }
+  const contents: any = map({
+    $metadata: deserializeMetadata(output),
+  });
+  const data: Record<string, any> = __expectNonNull(__expectObject(await parseBody(output.body, context)), "body");
+  const doc = take(data, {
+    cluster: _json,
+  });
+  Object.assign(contents, doc);
+  return contents;
+};
+
+/**
  * deserializeAws_restJson1TagResourceCommand
  */
 export const de_TagResourceCommand = async (
@@ -625,6 +761,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "InternalServerException":
     case "com.amazonaws.docdbelastic#InternalServerException":
       throw await de_InternalServerExceptionRes(parsedOutput, context);
+    case "ResourceNotFoundException":
+    case "com.amazonaws.docdbelastic#ResourceNotFoundException":
+      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     case "ServiceQuotaExceededException":
     case "com.amazonaws.docdbelastic#ServiceQuotaExceededException":
       throw await de_ServiceQuotaExceededExceptionRes(parsedOutput, context);
@@ -634,9 +773,6 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "ValidationException":
     case "com.amazonaws.docdbelastic#ValidationException":
       throw await de_ValidationExceptionRes(parsedOutput, context);
-    case "ResourceNotFoundException":
-    case "com.amazonaws.docdbelastic#ResourceNotFoundException":
-      throw await de_ResourceNotFoundExceptionRes(parsedOutput, context);
     default:
       const parsedBody = parsedOutput.body;
       return throwDefaultError({
@@ -803,6 +939,10 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // de_ClusterSnapshotList omitted.
 
+// de_Shard omitted.
+
+// de_ShardList omitted.
+
 // de_StringList omitted.
 
 // de_TagMap omitted.
@@ -835,6 +975,7 @@ const _mR = "maxResults";
 const _nT = "nextToken";
 const _rAS = "retryAfterSeconds";
 const _ra = "retry-after";
+const _sT = "snapshotType";
 const _tK = "tagKeys";
 
 const parseBody = (streamBody: any, context: __SerdeContext): any =>

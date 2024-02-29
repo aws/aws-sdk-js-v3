@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetClusterSnapshotInput, GetClusterSnapshotOutput } from "../models/models_0";
-import { de_GetClusterSnapshotCommand, se_GetClusterSnapshotCommand } from "../protocols/Aws_restJson1";
+import { CopyClusterSnapshotInput, CopyClusterSnapshotOutput } from "../models/models_0";
+import { de_CopyClusterSnapshotCommand, se_CopyClusterSnapshotCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,31 +16,37 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetClusterSnapshotCommand}.
+ * The input for {@link CopyClusterSnapshotCommand}.
  */
-export interface GetClusterSnapshotCommandInput extends GetClusterSnapshotInput {}
+export interface CopyClusterSnapshotCommandInput extends CopyClusterSnapshotInput {}
 /**
  * @public
  *
- * The output of {@link GetClusterSnapshotCommand}.
+ * The output of {@link CopyClusterSnapshotCommand}.
  */
-export interface GetClusterSnapshotCommandOutput extends GetClusterSnapshotOutput, __MetadataBearer {}
+export interface CopyClusterSnapshotCommandOutput extends CopyClusterSnapshotOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about a specific elastic cluster snapshot</p>
+ * <p>Copies a snapshot of an elastic cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, GetClusterSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, GetClusterSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, CopyClusterSnapshotCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
+ * // const { DocDBElasticClient, CopyClusterSnapshotCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
- * const input = { // GetClusterSnapshotInput
+ * const input = { // CopyClusterSnapshotInput
  *   snapshotArn: "STRING_VALUE", // required
+ *   targetSnapshotName: "STRING_VALUE", // required
+ *   kmsKeyId: "STRING_VALUE",
+ *   copyTags: true || false,
+ *   tags: { // TagMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
- * const command = new GetClusterSnapshotCommand(input);
+ * const command = new CopyClusterSnapshotCommand(input);
  * const response = await client.send(command);
- * // { // GetClusterSnapshotOutput
+ * // { // CopyClusterSnapshotOutput
  * //   snapshot: { // ClusterSnapshot
  * //     subnetIds: [ // StringList // required
  * //       "STRING_VALUE",
@@ -62,20 +68,26 @@ export interface GetClusterSnapshotCommandOutput extends GetClusterSnapshotOutpu
  *
  * ```
  *
- * @param GetClusterSnapshotCommandInput - {@link GetClusterSnapshotCommandInput}
- * @returns {@link GetClusterSnapshotCommandOutput}
- * @see {@link GetClusterSnapshotCommandInput} for command's `input` shape.
- * @see {@link GetClusterSnapshotCommandOutput} for command's `response` shape.
+ * @param CopyClusterSnapshotCommandInput - {@link CopyClusterSnapshotCommandInput}
+ * @returns {@link CopyClusterSnapshotCommandOutput}
+ * @see {@link CopyClusterSnapshotCommandInput} for command's `input` shape.
+ * @see {@link CopyClusterSnapshotCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
  *  <p>An exception that occurs when there are not sufficient permissions to perform an action.</p>
+ *
+ * @throws {@link ConflictException} (client fault)
+ *  <p>There was an access conflict.</p>
  *
  * @throws {@link InternalServerException} (server fault)
  *  <p>There was an internal server error.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
  *  <p>The specified resource could not be located.</p>
+ *
+ * @throws {@link ServiceQuotaExceededException} (client fault)
+ *  <p>The service quota for the action was exceeded.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
  *  <p>ThrottlingException will be thrown when request was denied due to request throttling.</p>
@@ -87,10 +99,10 @@ export interface GetClusterSnapshotCommandOutput extends GetClusterSnapshotOutpu
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
-export class GetClusterSnapshotCommand extends $Command
+export class CopyClusterSnapshotCommand extends $Command
   .classBuilder<
-    GetClusterSnapshotCommandInput,
-    GetClusterSnapshotCommandOutput,
+    CopyClusterSnapshotCommandInput,
+    CopyClusterSnapshotCommandOutput,
     DocDBElasticClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -104,9 +116,9 @@ export class GetClusterSnapshotCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ChimeraDbLionfishServiceLambda", "GetClusterSnapshot", {})
-  .n("DocDBElasticClient", "GetClusterSnapshotCommand")
+  .s("ChimeraDbLionfishServiceLambda", "CopyClusterSnapshot", {})
+  .n("DocDBElasticClient", "CopyClusterSnapshotCommand")
   .f(void 0, void 0)
-  .ser(se_GetClusterSnapshotCommand)
-  .de(de_GetClusterSnapshotCommand)
+  .ser(se_CopyClusterSnapshotCommand)
+  .de(de_CopyClusterSnapshotCommand)
   .build() {}

@@ -28,7 +28,7 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
 
 /**
  * @public
- * <p>Delete a Elastic DocumentDB snapshot.</p>
+ * <p>Delete an elastic cluster snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,6 +56,7 @@ export interface DeleteClusterSnapshotCommandOutput extends DeleteClusterSnapsho
  * //     ],
  * //     adminUserName: "STRING_VALUE", // required
  * //     kmsKeyId: "STRING_VALUE", // required
+ * //     snapshotType: "STRING_VALUE",
  * //   },
  * // };
  *

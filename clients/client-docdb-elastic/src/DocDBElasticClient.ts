@@ -53,6 +53,10 @@ import {
   HttpAuthSchemeResolvedConfig,
   resolveHttpAuthSchemeConfig,
 } from "./auth/httpAuthSchemeProvider";
+import {
+  CopyClusterSnapshotCommandInput,
+  CopyClusterSnapshotCommandOutput,
+} from "./commands/CopyClusterSnapshotCommand";
 import { CreateClusterCommandInput, CreateClusterCommandOutput } from "./commands/CreateClusterCommand";
 import {
   CreateClusterSnapshotCommandInput,
@@ -78,6 +82,8 @@ import {
   RestoreClusterFromSnapshotCommandInput,
   RestoreClusterFromSnapshotCommandOutput,
 } from "./commands/RestoreClusterFromSnapshotCommand";
+import { StartClusterCommandInput, StartClusterCommandOutput } from "./commands/StartClusterCommand";
+import { StopClusterCommandInput, StopClusterCommandOutput } from "./commands/StopClusterCommand";
 import { TagResourceCommandInput, TagResourceCommandOutput } from "./commands/TagResourceCommand";
 import { UntagResourceCommandInput, UntagResourceCommandOutput } from "./commands/UntagResourceCommand";
 import { UpdateClusterCommandInput, UpdateClusterCommandOutput } from "./commands/UpdateClusterCommand";
@@ -96,6 +102,7 @@ export { __Client };
  * @public
  */
 export type ServiceInputTypes =
+  | CopyClusterSnapshotCommandInput
   | CreateClusterCommandInput
   | CreateClusterSnapshotCommandInput
   | DeleteClusterCommandInput
@@ -106,6 +113,8 @@ export type ServiceInputTypes =
   | ListClustersCommandInput
   | ListTagsForResourceCommandInput
   | RestoreClusterFromSnapshotCommandInput
+  | StartClusterCommandInput
+  | StopClusterCommandInput
   | TagResourceCommandInput
   | UntagResourceCommandInput
   | UpdateClusterCommandInput;
@@ -114,6 +123,7 @@ export type ServiceInputTypes =
  * @public
  */
 export type ServiceOutputTypes =
+  | CopyClusterSnapshotCommandOutput
   | CreateClusterCommandOutput
   | CreateClusterSnapshotCommandOutput
   | DeleteClusterCommandOutput
@@ -124,6 +134,8 @@ export type ServiceOutputTypes =
   | ListClustersCommandOutput
   | ListTagsForResourceCommandOutput
   | RestoreClusterFromSnapshotCommandOutput
+  | StartClusterCommandOutput
+  | StopClusterCommandOutput
   | TagResourceCommandOutput
   | UntagResourceCommandOutput
   | UpdateClusterCommandOutput;
@@ -301,7 +313,21 @@ export interface DocDBElasticClientResolvedConfig extends DocDBElasticClientReso
 
 /**
  * @public
- * <p>The new Amazon Elastic DocumentDB service endpoint.</p>
+ * <fullname>Amazon DocumentDB elastic clusters</fullname>
+ *          <p>Amazon DocumentDB elastic-clusters support workloads with millions of reads/writes per second and petabytes of storage capacity.
+ *       Amazon DocumentDB elastic clusters also simplify how developers interact with Amazon DocumentDB elastic-clusters by eliminating the need to choose, manage or upgrade instances.</p>
+ *          <p>Amazon DocumentDB elastic-clusters were created to:</p>
+ *          <ul>
+ *             <li>
+ *                <p>provide a solution for customers looking for a database that provides virtually limitless scale with rich query capabilities and MongoDB API compatibility.</p>
+ *             </li>
+ *             <li>
+ *                <p>give customers higher connection limits, and to reduce downtime from patching.</p>
+ *             </li>
+ *             <li>
+ *                <p>continue investing in a cloud-native, elastic, and class leading architecture for JSON workloads.</p>
+ *             </li>
+ *          </ul>
  */
 export class DocDBElasticClient extends __Client<
   __HttpHandlerOptions,

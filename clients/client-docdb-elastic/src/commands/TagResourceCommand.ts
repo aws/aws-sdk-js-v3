@@ -28,7 +28,7 @@ export interface TagResourceCommandOutput extends TagResourceResponse, __Metadat
 
 /**
  * @public
- * <p>Adds metadata tags to a Elastic DocumentDB resource</p>
+ * <p>Adds metadata tags to an elastic cluster resource</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,7 +28,7 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
 
 /**
  * @public
- * <p>Delete a Elastic DocumentDB cluster.</p>
+ * <p>Delete an elastic cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,6 +59,16 @@ export interface DeleteClusterCommandOutput extends DeleteClusterOutput, __Metad
  * //     ],
  * //     preferredMaintenanceWindow: "STRING_VALUE", // required
  * //     kmsKeyId: "STRING_VALUE", // required
+ * //     shards: [ // ShardList
+ * //       { // Shard
+ * //         shardId: "STRING_VALUE", // required
+ * //         createTime: "STRING_VALUE", // required
+ * //         status: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     backupRetentionPeriod: Number("int"),
+ * //     preferredBackupWindow: "STRING_VALUE",
+ * //     shardInstanceCount: Number("int"),
  * //   },
  * // };
  *

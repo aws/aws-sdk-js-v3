@@ -28,7 +28,7 @@ export interface ListClustersCommandOutput extends ListClustersOutput, __Metadat
 
 /**
  * @public
- * <p>Returns information about provisioned Elastic DocumentDB clusters.</p>
+ * <p>Returns information about provisioned Amazon DocumentDB elastic clusters.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

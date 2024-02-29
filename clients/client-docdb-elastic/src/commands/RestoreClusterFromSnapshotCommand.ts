@@ -28,7 +28,7 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
 
 /**
  * @public
- * <p>Restores a Elastic DocumentDB cluster from a snapshot.</p>
+ * <p>Restores an elastic cluster from a snapshot.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -48,6 +48,8 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   shardCapacity: Number("int"),
+ *   shardInstanceCount: Number("int"),
  * };
  * const command = new RestoreClusterFromSnapshotCommand(input);
  * const response = await client.send(command);
@@ -70,6 +72,16 @@ export interface RestoreClusterFromSnapshotCommandOutput extends RestoreClusterF
  * //     ],
  * //     preferredMaintenanceWindow: "STRING_VALUE", // required
  * //     kmsKeyId: "STRING_VALUE", // required
+ * //     shards: [ // ShardList
+ * //       { // Shard
+ * //         shardId: "STRING_VALUE", // required
+ * //         createTime: "STRING_VALUE", // required
+ * //         status: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     backupRetentionPeriod: Number("int"),
+ * //     preferredBackupWindow: "STRING_VALUE",
+ * //     shardInstanceCount: Number("int"),
  * //   },
  * // };
  *

@@ -28,7 +28,7 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
 
 /**
  * @public
- * <p>Returns information about Elastic DocumentDB snapshots for a specified cluster.</p>
+ * <p>Returns information about snapshots for a specified elastic cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -39,6 +39,7 @@ export interface ListClusterSnapshotsCommandOutput extends ListClusterSnapshotsO
  *   clusterArn: "STRING_VALUE",
  *   nextToken: "STRING_VALUE",
  *   maxResults: Number("int"),
+ *   snapshotType: "STRING_VALUE",
  * };
  * const command = new ListClusterSnapshotsCommand(input);
  * const response = await client.send(command);

@@ -28,8 +28,8 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
 
 /**
  * @public
- * <p>Modifies a Elastic DocumentDB cluster. This includes updating admin-username/password,
- *     upgrading API version setting up a backup window and maintenance window</p>
+ * <p>Modifies an elastic cluster. This includes updating admin-username/password,
+ *     upgrading the API version, and setting up a backup window and maintenance window</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -50,6 +50,9 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  *   adminUserPassword: "STRING_VALUE",
  *   clientToken: "STRING_VALUE",
  *   preferredMaintenanceWindow: "STRING_VALUE",
+ *   backupRetentionPeriod: Number("int"),
+ *   preferredBackupWindow: "STRING_VALUE",
+ *   shardInstanceCount: Number("int"),
  * };
  * const command = new UpdateClusterCommand(input);
  * const response = await client.send(command);
@@ -72,6 +75,16 @@ export interface UpdateClusterCommandOutput extends UpdateClusterOutput, __Metad
  * //     ],
  * //     preferredMaintenanceWindow: "STRING_VALUE", // required
  * //     kmsKeyId: "STRING_VALUE", // required
+ * //     shards: [ // ShardList
+ * //       { // Shard
+ * //         shardId: "STRING_VALUE", // required
+ * //         createTime: "STRING_VALUE", // required
+ * //         status: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     backupRetentionPeriod: Number("int"),
+ * //     preferredBackupWindow: "STRING_VALUE",
+ * //     shardInstanceCount: Number("int"),
  * //   },
  * // };
  *

@@ -6,7 +6,22 @@
 
 AWS SDK for JavaScript DocDBElastic Client for Node.js, Browser and React Native.
 
-<p>The new Amazon Elastic DocumentDB service endpoint.</p>
+<fullname>Amazon DocumentDB elastic clusters</fullname>
+
+<p>Amazon DocumentDB elastic-clusters support workloads with millions of reads/writes per second and petabytes of storage capacity.
+Amazon DocumentDB elastic clusters also simplify how developers interact with Amazon DocumentDB elastic-clusters by eliminating the need to choose, manage or upgrade instances.</p>
+<p>Amazon DocumentDB elastic-clusters were created to:</p>
+<ul>
+<li>
+<p>provide a solution for customers looking for a database that provides virtually limitless scale with rich query capabilities and MongoDB API compatibility.</p>
+</li>
+<li>
+<p>give customers higher connection limits, and to reduce downtime from patching.</p>
+</li>
+<li>
+<p>continue investing in a cloud-native, elastic, and class leading architecture for JSON workloads.</p>
+</li>
+</ul>
 
 ## Installing
 
@@ -205,6 +220,14 @@ see LICENSE for more information.
 
 <details>
 <summary>
+CopyClusterSnapshot
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/CopyClusterSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/CopyClusterSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/CopyClusterSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
 CreateCluster
 </summary>
 
@@ -281,6 +304,22 @@ RestoreClusterFromSnapshot
 </summary>
 
 [Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/RestoreClusterFromSnapshotCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/RestoreClusterFromSnapshotCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/RestoreClusterFromSnapshotCommandOutput/)
+
+</details>
+<details>
+<summary>
+StartCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/StartClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/StartClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/StartClusterCommandOutput/)
+
+</details>
+<details>
+<summary>
+StopCluster
+</summary>
+
+[Command API Reference](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/client/docdb-elastic/command/StopClusterCommand/) / [Input](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/StopClusterCommandInput/) / [Output](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/Package/-aws-sdk-client-docdb-elastic/Interface/StopClusterCommandOutput/)
 
 </details>
 <details>

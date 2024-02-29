@@ -28,7 +28,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * @public
- * <p>Removes metadata tags to a Elastic DocumentDB resource</p>
+ * <p>Removes metadata tags from an elastic cluster resource</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

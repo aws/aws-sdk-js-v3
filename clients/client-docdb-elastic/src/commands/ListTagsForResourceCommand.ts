@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * @public
- * <p>Lists all tags on a Elastic DocumentDB resource</p>
+ * <p>Lists all tags on a elastic cluster resource</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

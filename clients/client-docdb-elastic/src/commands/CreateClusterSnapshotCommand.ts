@@ -28,7 +28,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
 
 /**
  * @public
- * <p>Creates a snapshot of a cluster.</p>
+ * <p>Creates a snapshot of an elastic cluster.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,6 +60,7 @@ export interface CreateClusterSnapshotCommandOutput extends CreateClusterSnapsho
  * //     ],
  * //     adminUserName: "STRING_VALUE", // required
  * //     kmsKeyId: "STRING_VALUE", // required
+ * //     snapshotType: "STRING_VALUE",
  * //   },
  * // };
  *

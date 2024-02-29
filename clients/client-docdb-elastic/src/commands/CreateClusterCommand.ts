@@ -28,7 +28,7 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
 
 /**
  * @public
- * <p>Creates a new Elastic DocumentDB cluster and returns its Cluster structure.</p>
+ * <p>Creates a new Amazon DocumentDB elastic cluster and returns its cluster structure.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -54,6 +54,9 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   backupRetentionPeriod: Number("int"),
+ *   preferredBackupWindow: "STRING_VALUE",
+ *   shardInstanceCount: Number("int"),
  * };
  * const command = new CreateClusterCommand(input);
  * const response = await client.send(command);
@@ -76,6 +79,16 @@ export interface CreateClusterCommandOutput extends CreateClusterOutput, __Metad
  * //     ],
  * //     preferredMaintenanceWindow: "STRING_VALUE", // required
  * //     kmsKeyId: "STRING_VALUE", // required
+ * //     shards: [ // ShardList
+ * //       { // Shard
+ * //         shardId: "STRING_VALUE", // required
+ * //         createTime: "STRING_VALUE", // required
+ * //         status: "STRING_VALUE", // required
+ * //       },
+ * //     ],
+ * //     backupRetentionPeriod: Number("int"),
+ * //     preferredBackupWindow: "STRING_VALUE",
+ * //     shardInstanceCount: Number("int"),
  * //   },
  * // };
  *

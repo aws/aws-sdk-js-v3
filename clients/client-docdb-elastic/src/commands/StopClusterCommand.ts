@@ -6,8 +6,8 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { DocDBElasticClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../DocDBElasticClient";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { GetClusterInput, GetClusterOutput } from "../models/models_0";
-import { de_GetClusterCommand, se_GetClusterCommand } from "../protocols/Aws_restJson1";
+import { StopClusterInput, StopClusterOutput } from "../models/models_0";
+import { de_StopClusterCommand, se_StopClusterCommand } from "../protocols/Aws_restJson1";
 
 /**
  * @public
@@ -16,31 +16,32 @@ export { __MetadataBearer, $Command };
 /**
  * @public
  *
- * The input for {@link GetClusterCommand}.
+ * The input for {@link StopClusterCommand}.
  */
-export interface GetClusterCommandInput extends GetClusterInput {}
+export interface StopClusterCommandInput extends StopClusterInput {}
 /**
  * @public
  *
- * The output of {@link GetClusterCommand}.
+ * The output of {@link StopClusterCommand}.
  */
-export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBearer {}
+export interface StopClusterCommandOutput extends StopClusterOutput, __MetadataBearer {}
 
 /**
  * @public
- * <p>Returns information about a specific elastic cluster.</p>
+ * <p>Stops the running elastic cluster that is specified by <code>clusterArn</code>.
+ *       The elastic cluster must be in the <i>available</i> state. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
- * import { DocDBElasticClient, GetClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
- * // const { DocDBElasticClient, GetClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
+ * import { DocDBElasticClient, StopClusterCommand } from "@aws-sdk/client-docdb-elastic"; // ES Modules import
+ * // const { DocDBElasticClient, StopClusterCommand } = require("@aws-sdk/client-docdb-elastic"); // CommonJS import
  * const client = new DocDBElasticClient(config);
- * const input = { // GetClusterInput
+ * const input = { // StopClusterInput
  *   clusterArn: "STRING_VALUE", // required
  * };
- * const command = new GetClusterCommand(input);
+ * const command = new StopClusterCommand(input);
  * const response = await client.send(command);
- * // { // GetClusterOutput
+ * // { // StopClusterOutput
  * //   cluster: { // Cluster
  * //     clusterName: "STRING_VALUE", // required
  * //     clusterArn: "STRING_VALUE", // required
@@ -74,10 +75,10 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  *
  * ```
  *
- * @param GetClusterCommandInput - {@link GetClusterCommandInput}
- * @returns {@link GetClusterCommandOutput}
- * @see {@link GetClusterCommandInput} for command's `input` shape.
- * @see {@link GetClusterCommandOutput} for command's `response` shape.
+ * @param StopClusterCommandInput - {@link StopClusterCommandInput}
+ * @returns {@link StopClusterCommandOutput}
+ * @see {@link StopClusterCommandInput} for command's `input` shape.
+ * @see {@link StopClusterCommandOutput} for command's `response` shape.
  * @see {@link DocDBElasticClientResolvedConfig | config} for DocDBElasticClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
@@ -99,10 +100,10 @@ export interface GetClusterCommandOutput extends GetClusterOutput, __MetadataBea
  * <p>Base exception class for all service exceptions from DocDBElastic service.</p>
  *
  */
-export class GetClusterCommand extends $Command
+export class StopClusterCommand extends $Command
   .classBuilder<
-    GetClusterCommandInput,
-    GetClusterCommandOutput,
+    StopClusterCommandInput,
+    StopClusterCommandOutput,
     DocDBElasticClientResolvedConfig,
     ServiceInputTypes,
     ServiceOutputTypes
@@ -116,9 +117,9 @@ export class GetClusterCommand extends $Command
       getEndpointPlugin(config, Command.getEndpointParameterInstructions()),
     ];
   })
-  .s("ChimeraDbLionfishServiceLambda", "GetCluster", {})
-  .n("DocDBElasticClient", "GetClusterCommand")
+  .s("ChimeraDbLionfishServiceLambda", "StopCluster", {})
+  .n("DocDBElasticClient", "StopClusterCommand")
   .f(void 0, void 0)
-  .ser(se_GetClusterCommand)
-  .de(de_GetClusterCommand)
+  .ser(se_StopClusterCommand)
+  .de(de_StopClusterCommand)
   .build() {}
