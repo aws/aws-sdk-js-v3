@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
+
+
+### Features
+
+* **client-migrationhuborchestrator:** Adds new CreateTemplate, UpdateTemplate and DeleteTemplate APIs. ([86ce4d1](https://github.com/aws/aws-sdk-js-v3/commit/86ce4d113a5c3087f6f13f44030f703cdf616a81))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-migrationhuborchestrator

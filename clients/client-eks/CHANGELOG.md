@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
+
+
+### Features
+
+* **client-eks:** Added support for new AL2023 AMIs to the supported AMITypes. ([dc85f33](https://github.com/aws/aws-sdk-js-v3/commit/dc85f33d4b7af1957f2d75e87c1b7023db8625d0))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-eks

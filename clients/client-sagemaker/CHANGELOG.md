@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
+
+
+### Features
+
+* **client-sagemaker:** Adds support for ModelDataSource in Model Packages to support unzipped models. Adds support to specify SourceUri for models which allows registration of models without mandating a container for hosting. Using SourceUri, customers can decouple the model from hosting information during registration. ([06093eb](https://github.com/aws/aws-sdk-js-v3/commit/06093eb0316c24d563a92d5df2e4ed5f9e56f26a))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

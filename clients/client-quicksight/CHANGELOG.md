@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
+
+
+### Features
+
+* **client-quicksight:** TooltipTarget for Combo chart visuals; ColumnConfiguration limit increase to 2000; Documentation Update ([eddad24](https://github.com/aws/aws-sdk-js-v3/commit/eddad245862201bc7a2fb7b6c74d66b177ed4a61))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-quicksight

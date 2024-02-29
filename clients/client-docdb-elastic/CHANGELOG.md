@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
+
+
+### Features
+
+* **client-docdb-elastic:** Launched Elastic Clusters Readable Secondaries, Start/Stop, Configurable Shard Instance count, Automatic Backups and Snapshot Copying ([c995dd7](https://github.com/aws/aws-sdk-js-v3/commit/c995dd7e0b00e0cf3e7308a586fc788b4e641569))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/client-docdb-elastic

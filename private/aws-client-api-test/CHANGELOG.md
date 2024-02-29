@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** restore bucketEndpoint configurability ([#5840](https://github.com/aws/aws-sdk-js-v3/issues/5840)) ([f05b540](https://github.com/aws/aws-sdk-js-v3/commit/f05b54007141a36d7d364a4ca9a0864ab4a84b4f))
+
+
+
+
+
 # [3.523.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.522.0...v3.523.0) (2024-02-27)
 
 **Note:** Version bump only for package @aws-sdk/aws-client-api-test

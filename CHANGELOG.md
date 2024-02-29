@@ -3,6 +3,29 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
+
+
+### Bug Fixes
+
+* **middleware-sdk-s3:** restore bucketEndpoint configurability ([#5840](https://github.com/aws/aws-sdk-js-v3/issues/5840)) ([f05b540](https://github.com/aws/aws-sdk-js-v3/commit/f05b54007141a36d7d364a4ca9a0864ab4a84b4f))
+
+
+### Features
+
+* **client-docdb-elastic:** Launched Elastic Clusters Readable Secondaries, Start/Stop, Configurable Shard Instance count, Automatic Backups and Snapshot Copying ([c995dd7](https://github.com/aws/aws-sdk-js-v3/commit/c995dd7e0b00e0cf3e7308a586fc788b4e641569))
+* **client-eks:** Added support for new AL2023 AMIs to the supported AMITypes. ([dc85f33](https://github.com/aws/aws-sdk-js-v3/commit/dc85f33d4b7af1957f2d75e87c1b7023db8625d0))
+* **client-lex-models-v2:** This release makes AMAZON.QnAIntent generally available in Amazon Lex. This generative AI feature leverages large language models available through Amazon Bedrock to automate frequently asked questions (FAQ) experience for end-users. ([19c93a4](https://github.com/aws/aws-sdk-js-v3/commit/19c93a4f8fd7d8e8b2144fd549224df8a8f367d6))
+* **client-migrationhuborchestrator:** Adds new CreateTemplate, UpdateTemplate and DeleteTemplate APIs. ([86ce4d1](https://github.com/aws/aws-sdk-js-v3/commit/86ce4d113a5c3087f6f13f44030f703cdf616a81))
+* **client-quicksight:** TooltipTarget for Combo chart visuals; ColumnConfiguration limit increase to 2000; Documentation Update ([eddad24](https://github.com/aws/aws-sdk-js-v3/commit/eddad245862201bc7a2fb7b6c74d66b177ed4a61))
+* **client-sagemaker:** Adds support for ModelDataSource in Model Packages to support unzipped models. Adds support to specify SourceUri for models which allows registration of models without mandating a container for hosting. Using SourceUri, customers can decouple the model from hosting information during registration. ([06093eb](https://github.com/aws/aws-sdk-js-v3/commit/06093eb0316c24d563a92d5df2e4ed5f9e56f26a))
+* **client-securitylake:** Add capability to update the Data Lake's MetaStoreManager Role in order to perform required data lake updates to use Iceberg table format in their data lake or update the role for any other reason. ([29c5d21](https://github.com/aws/aws-sdk-js-v3/commit/29c5d21c07d8ff25761c5bcb554a5ea5aa2e74fc))
+* **clients:** update client endpoints as of 2024-02-29 ([f46a723](https://github.com/aws/aws-sdk-js-v3/commit/f46a7236336575da31d3b2bf3d7332a31c521325))
+
+
+
+
+
 # [3.524.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.523.0...v3.524.0) (2024-02-28)
 
 
