@@ -203,7 +203,15 @@ module.exports = class Inliner {
               .map(() => "..")
               .join("/")) + "/index.js";
 
-      fs.writeFileSync(file, `module.exports = require("${indexRelativePath}");`);
+      if (this.isClient) {
+        fs.rmSync(file);
+        const files = fs.readdirSync(path.dirname(file));
+        if (files.length === 0) {
+          fs.rmdirSync(path.dirname(file));
+        }
+      } else {
+        fs.writeFileSync(file, `module.exports = require("${indexRelativePath}");`);
+      }
     }
 
     return this;
