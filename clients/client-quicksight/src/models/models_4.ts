@@ -3,11 +3,12 @@ import { SENSITIVE_STRING } from "@smithy/smithy-client";
 
 import { AccountCustomization, ResourceStatus } from "./models_0";
 
-import { AnalysisDefinition, AnalysisSearchFilter } from "./models_1";
+import { AnalysisDefinition } from "./models_1";
 
 import {
   _Parameters,
   _ParametersFilterSensitiveLog,
+  AnalysisSearchFilter,
   AnalysisSourceEntity,
   AnalysisSummary,
   AssetBundleCloudFormationOverridePropertyConfiguration,
@@ -67,6 +68,7 @@ import {
   FolderSummary,
   GroupSearchFilter,
   IdentityType,
+  NamespaceInfoV2,
   NetworkInterface,
   SessionTag,
   SessionTagFilterSensitiveLog,
@@ -79,6 +81,37 @@ import {
   VPCConnectionAvailabilityStatus,
   VPCConnectionResourceStatus,
 } from "./models_3";
+
+/**
+ * @public
+ */
+export interface ListNamespacesResponse {
+  /**
+   * @public
+   * <p>The information about the namespaces in this Amazon Web Services account. The response includes
+   *         the namespace ARN, name, Amazon Web Services Region, notification email address, creation status, and
+   *         identity store.</p>
+   */
+  Namespaces?: NamespaceInfoV2[];
+
+  /**
+   * @public
+   * <p>A unique pagination token that can be used in a subsequent request. Receiving <code>NextToken</code> in your response inticates that there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
+   */
+  NextToken?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Web Services request ID for this operation.</p>
+   */
+  RequestId?: string;
+
+  /**
+   * @public
+   * <p>The HTTP status of the request.</p>
+   */
+  Status?: number;
+}
 
 /**
  * @public

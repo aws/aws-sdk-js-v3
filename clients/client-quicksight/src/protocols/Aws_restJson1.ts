@@ -653,7 +653,6 @@ import {
   PercentageDisplayFormatConfiguration,
   PercentileAggregation,
   PercentVisibleRange,
-  PredefinedHierarchy,
   RangeEndsLabelType,
   ReferenceLine,
   ReferenceLineCustomLabelConfiguration,
@@ -712,7 +711,6 @@ import {
 } from "../models/models_0";
 import {
   AnalysisDefinition,
-  AnalysisSearchFilter,
   ArcAxisConfiguration,
   ArcAxisDisplayRange,
   ArcConfiguration,
@@ -868,6 +866,7 @@ import {
   PivotTableTotalOptions,
   PivotTableVisual,
   PivotTotalOptions,
+  PredefinedHierarchy,
   ProgressBarOptions,
   RadarChartAggregatedFieldWells,
   RadarChartAreaStyleSettings,
@@ -962,6 +961,7 @@ import {
 } from "../models/models_1";
 import {
   _Parameters,
+  AnalysisSearchFilter,
   AnalysisSourceEntity,
   AnalysisSourceTemplate,
   AnalysisSummary,
@@ -1122,7 +1122,6 @@ import {
   S3Parameters,
   S3Source,
   ScheduleRefreshOnEntity,
-  SemanticType,
   ServiceNowParameters,
   SheetControlsOption,
   SheetLayoutElementMaximizationOption,
@@ -1200,6 +1199,7 @@ import {
   RegisteredUserQSearchBarEmbeddingConfiguration,
   RegisteredUserQuickSightConsoleEmbeddingConfiguration,
   SemanticEntityType,
+  SemanticType,
   SessionLifetimeInMinutesInvalidException,
   SessionTag,
   SnapshotConfiguration,
@@ -10672,6 +10672,7 @@ const se_ColumnTooltipItem = (input: ColumnTooltipItem, context: __SerdeContext)
     Aggregation: (_) => se_AggregationFunction(_, context),
     Column: _json,
     Label: [],
+    TooltipTarget: [],
     Visibility: [],
   });
 };
@@ -15578,6 +15579,7 @@ const de_ColumnTooltipItem = (output: any, context: __SerdeContext): ColumnToolt
     Aggregation: (_: any) => de_AggregationFunction(_, context),
     Column: _json,
     Label: __expectString,
+    TooltipTarget: __expectString,
     Visibility: __expectString,
   }) as any;
 };

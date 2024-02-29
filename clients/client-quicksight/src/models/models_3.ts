@@ -82,8 +82,6 @@ import {
   RowLevelPermissionDataSet,
   RowLevelPermissionTagConfiguration,
   RowLevelPermissionTagConfigurationFilterSensitiveLog,
-  SemanticType,
-  SemanticTypeFilterSensitiveLog,
   ServiceType,
   SharingModel,
   SnapshotFile,
@@ -98,6 +96,54 @@ import {
 } from "./models_2";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A structure that represents a semantic type.</p>
+ */
+export interface SemanticType {
+  /**
+   * @public
+   * <p>The semantic type name.</p>
+   */
+  TypeName?: string;
+
+  /**
+   * @public
+   * <p>The semantic type sub type name.</p>
+   */
+  SubTypeName?: string;
+
+  /**
+   * @public
+   * <p>The semantic type parameters.</p>
+   */
+  TypeParameters?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The semantic type truthy cell value.</p>
+   */
+  TruthyCellValue?: string;
+
+  /**
+   * @public
+   * <p>The other names or aliases for the true cell value.</p>
+   */
+  TruthyCellValueSynonyms?: string[];
+
+  /**
+   * @public
+   * <p>The semantic type falsey cell value.</p>
+   */
+  FalseyCellValue?: string;
+
+  /**
+   * @public
+   * <p>The other names or aliases for the false cell value.</p>
+   */
+  FalseyCellValueSynonyms?: string[];
+}
 
 /**
  * @public
@@ -7589,9 +7635,10 @@ export interface GenerateEmbedUrlForAnonymousUserRequest {
   /**
    * @public
    * <p>The Amazon Resource Names (ARNs) for the Amazon QuickSight resources that the user
-   *             is authorized to access during the lifetime of the session. If you choose
-   *                 <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the
-   *             account that you want the user to be able to view. Currently, you can pass up to 25
+   *             is authorized to access during the lifetime of the session.</p>
+   *          <p>If you choose <code>Dashboard</code> embedding experience, pass the list of dashboard ARNs in the
+   *             account that you want the user to be able to view.</p>
+   *          <p>Currently, you can pass up to 25
    *             dashboard ARNs in each API call.</p>
    */
   AuthorizedResourceArns: string[] | undefined;
@@ -9233,35 +9280,15 @@ export interface ListNamespacesRequest {
 }
 
 /**
- * @public
+ * @internal
  */
-export interface ListNamespacesResponse {
-  /**
-   * @public
-   * <p>The information about the namespaces in this Amazon Web Services account. The response includes
-   *         the namespace ARN, name, Amazon Web Services Region, notification email address, creation status, and
-   *         identity store.</p>
-   */
-  Namespaces?: NamespaceInfoV2[];
-
-  /**
-   * @public
-   * <p>A unique pagination token that can be used in a subsequent request. Receiving <code>NextToken</code> in your response inticates that there is more data that can be returned. To receive the data, make another <code>ListNamespaces</code> API call with the returned token to retrieve the next page of data. Each token is valid for 24 hours. If you try to make a <code>ListNamespaces</code> API call with an expired token, you will receive a <code>HTTP 400 InvalidNextTokenException</code> error.</p>
-   */
-  NextToken?: string;
-
-  /**
-   * @public
-   * <p>The Amazon Web Services request ID for this operation.</p>
-   */
-  RequestId?: string;
-
-  /**
-   * @public
-   * <p>The HTTP status of the request.</p>
-   */
-  Status?: number;
-}
+export const SemanticTypeFilterSensitiveLog = (obj: SemanticType): any => ({
+  ...obj,
+  ...(obj.TruthyCellValue && { TruthyCellValue: SENSITIVE_STRING }),
+  ...(obj.TruthyCellValueSynonyms && { TruthyCellValueSynonyms: SENSITIVE_STRING }),
+  ...(obj.FalseyCellValue && { FalseyCellValue: SENSITIVE_STRING }),
+  ...(obj.FalseyCellValueSynonyms && { FalseyCellValueSynonyms: SENSITIVE_STRING }),
+});
 
 /**
  * @internal

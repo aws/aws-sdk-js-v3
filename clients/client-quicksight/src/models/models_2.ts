@@ -24,9 +24,65 @@ import {
   VisualMenuOption,
 } from "./models_0";
 
-import { AnalysisDefinition, SheetDefinition } from "./models_1";
+import { AnalysisDefinition, AnalysisFilterAttribute, FilterOperator, SheetDefinition } from "./models_1";
 
 import { QuickSightServiceException as __BaseException } from "./QuickSightServiceException";
+
+/**
+ * @public
+ * <p>A filter that you apply when searching for one or more analyses.</p>
+ */
+export interface AnalysisSearchFilter {
+  /**
+   * @public
+   * <p>The comparison operator that you want to use as a filter, for example  <code>"Operator": "StringEquals"</code>. Valid values are  <code>"StringEquals"</code>  and  <code>"StringLike"</code>.</p>
+   *          <p>If you set the operator value to <code>"StringEquals"</code>, you need to provide an ownership related filter in the <code>"NAME"</code> field and the arn of the user or group whose folders you want to search in the <code>"Value"</code> field. For example,  <code>"Name":"DIRECT_QUICKSIGHT_OWNER", "Operator": "StringEquals", "Value": "arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   *          <p>If you set the value to <code>"StringLike"</code>, you need to provide the name of the folders you are searching for. For example, <code>"Name":"ANALYSIS_NAME", "Operator": "StringLike", "Value": "Test"</code>. The <code>"StringLike"</code> operator only supports the <code>NAME</code> value <code>ANALYSIS_NAME</code>.</p>
+   */
+  Operator?: FilterOperator;
+
+  /**
+   * @public
+   * <p>The name of the value that you want to use as a filter, for example <code>"Name":
+   *                 "QUICKSIGHT_OWNER"</code>.</p>
+   *          <p>Valid values are defined as follows:</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the analysis' owners or viewers are returned. Implicit permissions from folders or groups are considered. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_SOLE_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as the only owner of the analysis are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners of the analyses are returned. Implicit permissions from folders or groups are not considered.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>DIRECT_QUICKSIGHT_VIEWER_OR_OWNER</code>: Provide an ARN of a user or group, and any analyses with that ARN listed as one of the owners or viewers of the analyses are returned. Implicit permissions from folders or groups are not considered. </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ANALYSIS_NAME</code>: Any analyses whose names have a substring match to this value will be returned.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name?: AnalysisFilterAttribute;
+
+  /**
+   * @public
+   * <p>The value of the named item, in this case <code>QUICKSIGHT_USER</code>, that you want
+   *             to use as a filter, for example <code>"Value"</code>. An example is
+   *                 <code>"arn:aws:quicksight:us-east-1:1:user/default/UserName1"</code>.</p>
+   */
+  Value?: string;
+}
 
 /**
  * @public
@@ -8719,54 +8775,6 @@ export interface DefaultFormatting {
 }
 
 /**
- * @public
- * <p>A structure that represents a semantic type.</p>
- */
-export interface SemanticType {
-  /**
-   * @public
-   * <p>The semantic type name.</p>
-   */
-  TypeName?: string;
-
-  /**
-   * @public
-   * <p>The semantic type sub type name.</p>
-   */
-  SubTypeName?: string;
-
-  /**
-   * @public
-   * <p>The semantic type parameters.</p>
-   */
-  TypeParameters?: Record<string, string>;
-
-  /**
-   * @public
-   * <p>The semantic type truthy cell value.</p>
-   */
-  TruthyCellValue?: string;
-
-  /**
-   * @public
-   * <p>The other names or aliases for the true cell value.</p>
-   */
-  TruthyCellValueSynonyms?: string[];
-
-  /**
-   * @public
-   * <p>The semantic type falsey cell value.</p>
-   */
-  FalseyCellValue?: string;
-
-  /**
-   * @public
-   * <p>The other names or aliases for the false cell value.</p>
-   */
-  FalseyCellValueSynonyms?: string[];
-}
-
-/**
  * @internal
  */
 export const SnapshotJobS3ResultFilterSensitiveLog = (obj: SnapshotJobS3Result): any => ({
@@ -9062,15 +9070,4 @@ export const TemplateVersionDefinitionFilterSensitiveLog = (obj: TemplateVersion
  */
 export const CreateTemplateRequestFilterSensitiveLog = (obj: CreateTemplateRequest): any => ({
   ...obj,
-});
-
-/**
- * @internal
- */
-export const SemanticTypeFilterSensitiveLog = (obj: SemanticType): any => ({
-  ...obj,
-  ...(obj.TruthyCellValue && { TruthyCellValue: SENSITIVE_STRING }),
-  ...(obj.TruthyCellValueSynonyms && { TruthyCellValueSynonyms: SENSITIVE_STRING }),
-  ...(obj.FalseyCellValue && { FalseyCellValue: SENSITIVE_STRING }),
-  ...(obj.FalseyCellValueSynonyms && { FalseyCellValueSynonyms: SENSITIVE_STRING }),
 });

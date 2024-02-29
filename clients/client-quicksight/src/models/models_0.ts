@@ -6971,6 +6971,21 @@ export interface BarChartSortConfiguration {
 
 /**
  * @public
+ * @enum
+ */
+export const TooltipTarget = {
+  BAR: "BAR",
+  BOTH: "BOTH",
+  LINE: "LINE",
+} as const;
+
+/**
+ * @public
+ */
+export type TooltipTarget = (typeof TooltipTarget)[keyof typeof TooltipTarget];
+
+/**
+ * @public
  * <p>The tooltip item for the columns that are not part of a field well.</p>
  */
 export interface ColumnTooltipItem {
@@ -6997,6 +7012,12 @@ export interface ColumnTooltipItem {
    * <p>The aggregation function of the column tooltip item.</p>
    */
   Aggregation?: AggregationFunction;
+
+  /**
+   * @public
+   * <p>Determines the target of the column tooltip item in a combo chart visual.</p>
+   */
+  TooltipTarget?: TooltipTarget;
 }
 
 /**
@@ -7021,6 +7042,12 @@ export interface FieldTooltipItem {
    * <p>The visibility of the tooltip item.</p>
    */
   Visibility?: Visibility;
+
+  /**
+   * @public
+   * <p>Determines the target of the field tooltip item in a combo chart visual.</p>
+   */
+  TooltipTarget?: TooltipTarget;
 }
 
 /**
@@ -7499,30 +7526,6 @@ export interface ExplicitHierarchy {
   /**
    * @public
    * <p>The option that determines the drill down filters for the explicit hierarchy.</p>
-   */
-  DrillDownFilters?: DrillDownFilter[];
-}
-
-/**
- * @public
- * <p>The option that determines the hierarchy of the fields that are defined during data preparation. These fields are available to use in any analysis that uses the data source.</p>
- */
-export interface PredefinedHierarchy {
-  /**
-   * @public
-   * <p>The hierarchy ID of the predefined hierarchy.</p>
-   */
-  HierarchyId: string | undefined;
-
-  /**
-   * @public
-   * <p>The list of columns that define the predefined hierarchy.</p>
-   */
-  Columns: ColumnIdentifier[] | undefined;
-
-  /**
-   * @public
-   * <p>The option that determines the drill down filters for the predefined hierarchy.</p>
    */
   DrillDownFilters?: DrillDownFilter[];
 }

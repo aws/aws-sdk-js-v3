@@ -2030,12 +2030,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           FieldId: "STRING_VALUE", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                         ColumnTooltipItem: { // ColumnTooltipItem
  *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                           Aggregation: "<AggregationFunction>",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                       },
  *                     ],
@@ -2724,12 +2726,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           FieldId: "STRING_VALUE", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                         ColumnTooltipItem: {
  *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                           Aggregation: "<AggregationFunction>",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                       },
  *                     ],
@@ -2929,12 +2933,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           FieldId: "STRING_VALUE", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                         ColumnTooltipItem: {
  *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                           Aggregation: "<AggregationFunction>",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                       },
  *                     ],
@@ -3324,12 +3330,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           FieldId: "STRING_VALUE", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                         ColumnTooltipItem: {
  *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                           Aggregation: "<AggregationFunction>",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                       },
  *                     ],
@@ -3470,12 +3478,14 @@ export interface CreateDashboardCommandOutput extends CreateDashboardResponse, _
  *                           FieldId: "STRING_VALUE", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                         ColumnTooltipItem: {
  *                           Column: "<ColumnIdentifier>", // required
  *                           Label: "STRING_VALUE",
  *                           Visibility: "HIDDEN" || "VISIBLE",
  *                           Aggregation: "<AggregationFunction>",
+ *                           TooltipTarget: "BOTH" || "BAR" || "LINE",
  *                         },
  *                       },
  *                     ],
