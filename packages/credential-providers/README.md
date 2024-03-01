@@ -505,8 +505,7 @@ See [`fromSSO()`](#fromsso) fro more information
 
 ## `fromEnv()`
 
-- Not available in browser & native apps unless your code or bundler populates the
-  `process.env` global object.
+- Not available in browser & native apps
 
 ```javascript
 import { fromEnv } from "@aws-sdk/credential-providers"; // ES6 import

@@ -24,8 +24,5 @@ import { AwsCredentialIdentityProvider } from "@smithy/types";
  *   credentials: fromEnv(),
  * });
  * ```
- *
- * To use this in non-Node.js environments such as a browser, your code or
- * build system must populate the `process.env` global object.
  */
 export const fromEnv = (init?: FromEnvInit): AwsCredentialIdentityProvider => _fromEnv(init);
