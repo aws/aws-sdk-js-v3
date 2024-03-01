@@ -22,7 +22,7 @@ aws-sdk             |  @aws-sdk/client-dynamodb
 ![Image: https://bundlephobia.com/package/aws-sdk](./img/bundlephobia-aws-sdk.png)  |   ![Image: https://bundlephobia.com/package/@aws-sdk/client-dynamodb](./img/bundlephobia-aws-sdk-v3.png)
 <!-- prettier-ignore-end -->
 
-```
+```console
 $ npm install aws-sdk@2.1557.0 esbuild@0.20.0 --save-exact
 
 $ echo 'import { DynamoDB } from "aws-sdk";
@@ -36,7 +36,7 @@ $ npx esbuild index.js --bundle --minify \
 ⚡ Done in 53ms
 ```
 
-```
+```console
 $ npm install @aws-sdk/client-dynamodb@3.513.0 esbuild@0.20.0 --save-exact
 
 $ echo 'import { DynamoDB } from "@aws-sdk/client-dynamodb";

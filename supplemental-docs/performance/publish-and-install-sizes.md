@@ -21,14 +21,14 @@ aws-sdk             |  @aws-sdk/client-dynamodb
 
 The install size on disk can also be verified locally on your machine as follows:
 
-```
+```console
 $ npm install aws-sdk@2.1557.0 --save-exact
 
 $ du -sh node_modules
 101M node_modules
 ```
 
-```
+```console
 $ npm install @aws-sdk/client-dynamodb@3.513.0 --save-exact
 
 $ du -sh node_modules
@@ -39,7 +39,7 @@ The install size on disk is larger, as it’s the actual size on disk which depe
 
 Most of AWS SDK for JavaScript applications use one to three clients. Even if you install the five most popular clients, the install size is less than a third of that in v2.
 
-```
+```console
 $ npm install @aws-sdk/client-s3 @aws-sdk/client-kinesis \
   @aws-sdk/client-sns @aws-sdk/client-cloudwatch @aws-sdk/client-api-gateway
 
