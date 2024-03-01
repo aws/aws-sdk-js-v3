@@ -3,4 +3,4 @@ export * from "./EndpointMode";
 export * from "./getEndpoint";
 export * from "./getEndpointConfigOptions";
 export * from "./getEndpointModeConfigOptions";
-export * from "./getMetadataServiceEndpoint";
+export * from "./getMetadataServiceHost";

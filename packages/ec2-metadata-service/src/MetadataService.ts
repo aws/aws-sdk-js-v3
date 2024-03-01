@@ -3,8 +3,8 @@ import { HttpHandlerOptions } from "@aws-sdk/types";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { sdkStreamMixin } from "@smithy/util-stream";
 
-import { getMetadataServiceEndpoint } from "./getMetadataServiceEndpoint";
 import { MetadataServiceOptions } from "./MetadataServiceOptions";
+import { getMetadataServiceHost } from "./getMetadataServiceHost";
 
 export class MetadataService {
   endpoint: string;
@@ -22,7 +22,7 @@ export class MetadataService {
    */
   constructor(options?: MetadataServiceOptions) {
     const host = options?.host || "169.254.169.254";
-    this.endpoint = getMetadataServiceEndpoint();
+    this.endpoint = getMetadataServiceHost();
     this.httpOptions = {
       timeout: options?.httpOptions?.timeout || 0,
     };
@@ -110,10 +110,5 @@ export class MetadataService {
     } catch (error) {
       throw new Error(`Error making request with token to the metadata service: ${error}`);
     }
-  }
-
-  async fetchImdsJson(path: string): Promise<unknown> {
-    const jsonText = await this.requestWithToken(path);
-    return JSON.parse('"' + jsonText + '"');
   }
 }
