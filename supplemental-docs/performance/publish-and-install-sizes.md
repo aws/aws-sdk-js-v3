@@ -13,7 +13,11 @@ It's generally advisable to keep dependencies as small and as minimal as possibl
 
 The install and publish sizes of AWS SDK for JavaScript can be verified from third party tools, like [PackagePhobia](https://packagephobia.com/), which measures the actual byte size of the artifacts. For example, the below screenshots show that v2 package has install size of 93.6 MB, while v3 DynamoDB package has install size of 6.29 MB.
 
-![Image: https://packagephobia.com/result?p=aws-sdk](./img/packagephobia-aws-sdk.png) ![Image: https://packagephobia.com/result?p=@aws-sdk/client-dynamodb](./img/packagephobia-aws-sdk-client-dynamodb.png)
+<!-- prettier-ignore-start -->
+aws-sdk             |  @aws-sdk/client-dynamodb
+:-------------------------:|:-------------------------:
+![Image: https://packagephobia.com/result?p=aws-sdk](./img/packagephobia-aws-sdk.png)  |   ![Image: https://packagephobia.com/result?p=@aws-sdk/client-dynamodb](./img/packagephobia-aws-sdk-client-dynamodb.png)
+<!-- prettier-ignore-end -->
 
 The install size on disk can also be verified locally on your machine as follows:
 
