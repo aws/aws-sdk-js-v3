@@ -1364,18 +1364,19 @@ export interface InstanceRequirements {
    *             types or, failing that, the lowest priced previous generation instance types that match
    *             your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will
    *             exclude instance types whose price exceeds your specified threshold.</p>
-   *          <p>The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.</p>
-   *          <p>To turn off price protection, specify a high value, such as <code>999999</code>. </p>
+   *          <p>The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage. </p>
    *          <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or
    *                 <code>memory-mib</code>, the price protection threshold is based on the per-vCPU or
    *             per-memory price instead of the per instance price. </p>
    *          <note>
    *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
-   *                     <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be
-   *                 specified.</p>
+   *                     <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If
+   *                 you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection
+   *                 to consistently select from a wide range of instance types. To indicate no price
+   *                 protection threshold for Spot Instances, meaning you want to consider all instance
+   *                 types that match your attributes, include one of these parameters and specify a high
+   *                 value, such as <code>999999</code>. </p>
    *          </note>
-   *          <p>Default: <code>100</code>
-   *          </p>
    */
   SpotMaxPricePercentageOverLowestPrice?: number;
 
@@ -1390,16 +1391,17 @@ export interface InstanceRequirements {
    *             your attributes. When Amazon EC2 Auto Scaling selects instance types with your attributes, we will
    *             exclude instance types whose price exceeds your specified threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 Auto Scaling interprets as a percentage.</p>
-   *          <p>To indicate no price protection threshold, specify a high value, such as
-   *                 <code>999999</code>. </p>
    *          <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or
    *                 <code>memory-mib</code>, the price protection threshold is based on the per-vCPU or
    *             per-memory price instead of the per instance price. </p>
    *          <note>
    *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
    *                     <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If
-   *                 you don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is
-   *                 used and the value for that parameter defaults to <code>100</code>.</p>
+   *                 you don't specify either, Amazon EC2 Auto Scaling will automatically apply optimal price protection
+   *                 to consistently select from a wide range of instance types. To indicate no price
+   *                 protection threshold for Spot Instances, meaning you want to consider all instance
+   *                 types that match your attributes, include one of these parameters and specify a high
+   *                 value, such as <code>999999</code>. </p>
    *          </note>
    */
   MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
@@ -5961,7 +5963,7 @@ export interface ScalingPolicy {
    *             </li>
    *          </ul>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target tracking
-   *             scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step and simple scaling
+   *                 scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step and simple scaling
    *                 policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
    */
   PolicyType?: string;
@@ -5986,7 +5988,7 @@ export interface ScalingPolicy {
   /**
    * @public
    * <p>The minimum value to scale by when the adjustment type is
-   *             <code>PercentChangeInCapacity</code>. </p>
+   *                 <code>PercentChangeInCapacity</code>. </p>
    */
   MinAdjustmentMagnitude?: number;
 
@@ -6014,7 +6016,7 @@ export interface ScalingPolicy {
   /**
    * @public
    * <p>The aggregation type for the CloudWatch metrics. The valid values are <code>Minimum</code>,
-   *             <code>Maximum</code>, and <code>Average</code>.</p>
+   *                 <code>Maximum</code>, and <code>Average</code>.</p>
    */
   MetricAggregationType?: string;
 
