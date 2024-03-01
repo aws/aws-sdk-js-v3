@@ -1,8 +1,8 @@
 export interface MetadataServiceOptions {
   /**
-   * the hostname of the instance metadata service.
+   * the endpoint of the instance metadata service.
    */
-  host?: string;
+  endpoint?: string;
   /**
    * a map of options to pass to the underlying HTTP request.
    */

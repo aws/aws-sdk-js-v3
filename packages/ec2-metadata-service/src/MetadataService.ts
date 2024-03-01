@@ -3,9 +3,12 @@ import { HttpHandlerOptions } from "@aws-sdk/types";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { sdkStreamMixin } from "@smithy/util-stream";
 
+import { getMetadataServiceEndpoint } from "./getMetadataServiceEndpoint";
 import { MetadataServiceOptions } from "./MetadataServiceOptions";
-import { getMetadataServiceHost } from "./getMetadataServiceHost";
 
+/**
+ * @public
+ */
 export class MetadataService {
   endpoint: string;
   httpOptions: {
@@ -21,8 +24,7 @@ export class MetadataService {
    * Creates a new MetadataService object with a given set of options.
    */
   constructor(options?: MetadataServiceOptions) {
-    const host = options?.host || "169.254.169.254";
-    this.endpoint = getMetadataServiceHost();
+    this.endpoint = getMetadataServiceEndpoint(options);
     this.httpOptions = {
       timeout: options?.httpOptions?.timeout || 0,
     };
@@ -82,6 +84,7 @@ export class MetadataService {
     }
   }
 
+  //todo: add this as a flag for the request method
   async requestWithToken(
     path: string,
     options?: { method?: string; headers?: Record<string, string> }
