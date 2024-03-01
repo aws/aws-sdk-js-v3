@@ -35,7 +35,7 @@ export interface ModifyInstancePlacementCommandOutput extends ModifyInstancePlac
  *                <p>Modify the affinity between an instance and a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/dedicated-hosts-overview.html">Dedicated
  *                         Host</a>. When affinity is set to <code>host</code> and the instance is
  *                     not associated with a specific Dedicated Host, the next time the instance is
- *                     launched, it is automatically associated with the host on which it lands. If the
+ *                     started, it is automatically associated with the host on which it lands. If the
  *                     instance is restarted or rebooted, this relationship persists.</p>
  *             </li>
  *             <li>

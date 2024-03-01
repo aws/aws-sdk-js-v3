@@ -40,6 +40,11 @@ export interface DescribeReservedInstancesOfferingsCommandOutput
  *          <p>If you have listed your own Reserved Instances for sale in the Reserved Instance Marketplace, they will be excluded from these results. This is to ensure that you do not purchase your own Reserved Instances.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
  * 				in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <note>
+ *             <p>The order of the elements in the response, including those within nested
+ *          structures, might vary. Applications should not assume the elements appear in a
+ *          particular order.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

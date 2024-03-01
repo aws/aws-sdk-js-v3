@@ -57,6 +57,11 @@ export interface DescribeInstanceStatusCommandOutput extends DescribeInstanceSta
  *                         lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p>
  *             </li>
  *          </ul>
+ *          <note>
+ *             <p>The order of the elements in the response, including those within nested
+ *                 structures, might vary. Applications should not assume the elements appear in a
+ *                 particular order.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3286,7 +3286,7 @@ export interface InstanceTopology {
   /**
    * @public
    * <p>The network nodes. The nodes are hashed based on your account. Instances from
-   *             different accounts running under the same droplet will return a different hashed list of
+   *             different accounts running under the same server will return a different hashed list of
    *             strings.</p>
    */
   NetworkNodes?: string[];
@@ -11235,6 +11235,14 @@ export interface LaunchTemplateOverrides {
   /**
    * @public
    * <p>The number of units provided by the specified instance type.</p>
+   *          <note>
+   *             <p>When specifying weights, the price used in the <code>lowest-price</code> and
+   *             <code>price-capacity-optimized</code> allocation strategies is per
+   *             <i>unit</i> hour (where the instance price is divided by the specified
+   *             weight). However, if all the specified weights are above the requested
+   *             <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
+   *             used is per <i>instance</i> hour.</p>
+   *          </note>
    */
   WeightedCapacity?: number;
 
@@ -12518,8 +12526,8 @@ export interface SpotPrice {
 export interface DescribeSpotPriceHistoryResult {
   /**
    * @public
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
+   * <p>The token to include in another request to get the next page of items. This value is
+   *             an empty string (<code>""</code>) or <code>null</code> when there are no more items to return.</p>
    */
   NextToken?: string;
 

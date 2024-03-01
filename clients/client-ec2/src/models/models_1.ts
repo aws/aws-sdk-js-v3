@@ -1906,16 +1906,18 @@ export interface InstanceRequirementsRequest {
    *          selects instance types with your attributes, it will exclude instance types whose Spot
    *          price exceeds your specified threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>To indicate no price protection threshold, specify a high value, such as <code>999999</code>.</p>
    *          <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
    *          <code>memory-mib</code>, the price protection threshold is applied based on the
    *          per-vCPU or per-memory price instead of the per-instance price.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
    *          <note>
    *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
-   *          <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
-   *          don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is used
-   *          and the value for that parameter defaults to <code>100</code>.</p>
+   *                <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
+   *             don't specify either, Amazon EC2 will automatically apply optimal price protection to
+   *             consistently select from a wide range of instance types. To indicate no price protection
+   *             threshold for Spot Instances, meaning you want to consider all instance types that match your
+   *             attributes, include one of these parameters and specify a high value, such as
+   *                <code>999999</code>.</p>
    *          </note>
    *          <p>Default: <code>100</code>
    *          </p>
@@ -2196,16 +2198,17 @@ export interface InstanceRequirementsRequest {
    *          selects instance types with your attributes, it will exclude instance types whose price
    *          exceeds your specified threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>To indicate no price protection threshold, specify a high value, such as
-   *             <code>999999</code>.</p>
    *          <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or
    *          <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per
    *          memory price instead of the per instance price.</p>
    *          <note>
    *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
    *                <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
-   *             don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is used
-   *             and the value for that parameter defaults to <code>100</code>.</p>
+   *             don't specify either, Amazon EC2 will automatically apply optimal price protection to
+   *             consistently select from a wide range of instance types. To indicate no price protection
+   *             threshold for Spot Instances, meaning you want to consider all instance types that match your
+   *             attributes, include one of these parameters and specify a high value, such as
+   *                <code>999999</code>.</p>
    *          </note>
    */
   MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
@@ -2329,6 +2332,14 @@ export interface FleetLaunchTemplateOverridesRequest {
   /**
    * @public
    * <p>The number of units provided by the specified instance type.</p>
+   *          <note>
+   *             <p>When specifying weights, the price used in the <code>lowest-price</code> and
+   *                <code>price-capacity-optimized</code> allocation strategies is per
+   *                <i>unit</i> hour (where the instance price is divided by the specified
+   *             weight). However, if all the specified weights are above the requested
+   *                <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
+   *             used is per <i>instance</i> hour.</p>
+   *          </note>
    */
   WeightedCapacity?: number;
 
@@ -3282,17 +3293,18 @@ export interface InstanceRequirements {
    *          selects instance types with your attributes, it will exclude instance types whose Spot
    *          price exceeds your specified threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>To indicate no price protection threshold, specify a high value, such as
-   *             <code>999999</code>.</p>
    *          <p>If you set <code>TargetCapacityUnitType</code> to <code>vcpu</code> or
    *             <code>memory-mib</code>, the price protection threshold is applied based on the per-vCPU
    *          or per-memory price instead of the per-instance price.</p>
    *          <p>This parameter is not supported for <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetSpotPlacementScores.html">GetSpotPlacementScores</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceTypesFromInstanceRequirements.html">GetInstanceTypesFromInstanceRequirements</a>.</p>
    *          <note>
    *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
-   *             <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
-   *             don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is used
-   *             and the value for that parameter defaults to <code>100</code>.</p>
+   *                <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
+   *             don't specify either, Amazon EC2 will automatically apply optimal price protection to
+   *             consistently select from a wide range of instance types. To indicate no price protection
+   *             threshold for Spot Instances, meaning you want to consider all instance types that match your
+   *             attributes, include one of these parameters and specify a high value, such as
+   *                <code>999999</code>.</p>
    *          </note>
    *          <p>Default: <code>100</code>
    *          </p>
@@ -3572,16 +3584,17 @@ export interface InstanceRequirements {
    *          selects instance types with your attributes, it will exclude instance types whose price
    *          exceeds your specified threshold.</p>
    *          <p>The parameter accepts an integer, which Amazon EC2 interprets as a percentage.</p>
-   *          <p>To indicate no price protection threshold, specify a high value, such as
-   *             <code>999999</code>.</p>
    *          <p>If you set <code>DesiredCapacityType</code> to <code>vcpu</code> or
    *             <code>memory-mib</code>, the price protection threshold is based on the per vCPU or per
    *          memory price instead of the per instance price.</p>
    *          <note>
    *             <p>Only one of <code>SpotMaxPricePercentageOverLowestPrice</code> or
    *                <code>MaxSpotPriceAsPercentageOfOptimalOnDemandPrice</code> can be specified. If you
-   *             don't specify either, then <code>SpotMaxPricePercentageOverLowestPrice</code> is used
-   *             and the value for that parameter defaults to <code>100</code>.</p>
+   *             don't specify either, Amazon EC2 will automatically apply optimal price protection to
+   *             consistently select from a wide range of instance types. To indicate no price protection
+   *             threshold for Spot Instances, meaning you want to consider all instance types that match your
+   *             attributes, include one of these parameters and specify a high value, such as
+   *                <code>999999</code>.</p>
    *          </note>
    */
   MaxSpotPriceAsPercentageOfOptimalOnDemandPrice?: number;
@@ -3641,6 +3654,14 @@ export interface FleetLaunchTemplateOverrides {
   /**
    * @public
    * <p>The number of units provided by the specified instance type.</p>
+   *          <note>
+   *             <p>When specifying weights, the price used in the <code>lowest-price</code> and
+   *             <code>price-capacity-optimized</code> allocation strategies is per
+   *             <i>unit</i> hour (where the instance price is divided by the specified
+   *             weight). However, if all the specified weights are above the requested
+   *             <code>TargetCapacity</code>, resulting in only 1 instance being launched, the price
+   *             used is per <i>instance</i> hour.</p>
+   *          </note>
    */
   WeightedCapacity?: number;
 

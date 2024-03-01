@@ -44,6 +44,11 @@ export interface DescribeInstancesCommandOutput extends DescribeInstancesResult,
  *             not specify any instance IDs at all, the call fails. If you describe instances and
  *             specify only instance IDs that are in an unaffected zone, the call works
  *             normally.</p>
+ *          <note>
+ *             <p>The order of the elements in the response, including those within nested
+ *                 structures, might vary. Applications should not assume the elements appear in a
+ *                 particular order.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

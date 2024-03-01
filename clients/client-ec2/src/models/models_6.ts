@@ -5102,7 +5102,7 @@ export type HostTenancy = (typeof HostTenancy)[keyof typeof HostTenancy];
 export interface ModifyInstancePlacementRequest {
   /**
    * @public
-   * <p>The affinity setting for the instance.</p>
+   * <p>The affinity setting for the instance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/how-dedicated-hosts-work.html#dedicated-hosts-affinity">Host affinity</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   Affinity?: Affinity;
 

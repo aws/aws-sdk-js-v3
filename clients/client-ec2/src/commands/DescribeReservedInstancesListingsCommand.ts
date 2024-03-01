@@ -39,6 +39,11 @@ export interface DescribeReservedInstancesListingsCommandOutput
  *          <p>As a buyer, you specify the configuration of the Reserved Instance to purchase, and the Marketplace matches what you're searching for with what's available. The Marketplace first sells the lowest priced Reserved Instances to you, and continues to sell available Reserved Instance listings to you until your demand is met. You are charged based on the total price of all of the listings that you purchase.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a>
  *         in the <i>Amazon EC2 User Guide</i>.</p>
+ *          <note>
+ *             <p>The order of the elements in the response, including those within nested
+ *          structures, might vary. Applications should not assume the elements appear in a
+ *          particular order.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
