@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.525.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.525.0...v3.525.1) (2024-03-01)
+
+
+### Bug Fixes
+
+* **lib-storage:** use AbortController interface instead of class as type ([#5843](https://github.com/aws/aws-sdk-js-v3/issues/5843)) ([7fd4d55](https://github.com/aws/aws-sdk-js-v3/commit/7fd4d55613964384f1ff2029c295cb006db2f891))
+
+
+
+
+
 # [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
 
 
