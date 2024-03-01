@@ -11,7 +11,8 @@ import { AccessAnalyzerServiceException as __BaseException } from "./AccessAnaly
 export interface Access {
   /**
    * @public
-   * <p>A list of actions for the access permissions.</p>
+   * <p>A list of actions for the access permissions. Any strings that can be used as an action
+   *          in an IAM policy can be used in the list of actions to check.</p>
    */
   actions: string[] | undefined;
 }
@@ -577,7 +578,7 @@ export interface CreateAnalyzerRequest {
   /**
    * @public
    * <p>The type of analyzer to create. Only <code>ACCOUNT</code>, <code>ORGANIZATION</code>,
-   *             <code>ACCOUNT_UNUSED_ACCESS</code>, and <code>ORGANIZTAION_UNUSED_ACCESS</code>
+   *          <code>ACCOUNT_UNUSED_ACCESS</code>, and <code>ORGANIZATION_UNUSED_ACCESS</code>
    *          analyzers are supported. You can create only one analyzer per account per Region. You can
    *          create up to 5 analyzers per organization per Region.</p>
    */
@@ -1839,7 +1840,8 @@ export interface S3BucketConfiguration {
  *          existing policy attached to the directory bucket. If the access preview is for a new
  *          resource and you do not specify the Amazon S3 bucket policy, the access preview assumes an
  *          directory bucket without a policy. To propose deletion of an existing bucket policy, you
- *          can specify an empty string. For more information about bucket policy limits, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example bucket policies</a>.</p>
+ *          can specify an empty string. For more information about Amazon S3 directory bucket policies, see
+ *             <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-security-iam-example-bucket-policies.html">Example directory bucket policies for S3 Express One Zone</a>.</p>
  */
 export interface S3ExpressDirectoryBucketConfiguration {
   /**

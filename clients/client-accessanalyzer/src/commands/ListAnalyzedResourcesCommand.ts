@@ -29,7 +29,8 @@ export interface ListAnalyzedResourcesCommandOutput extends ListAnalyzedResource
 /**
  * @public
  * <p>Retrieves a list of resources of the specified type that have been analyzed by the
- *          specified analyzer..</p>
+ *          specified external access analyzer. This action is not supported for unused access
+ *          analyzers.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

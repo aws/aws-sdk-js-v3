@@ -28,7 +28,10 @@ export interface GetFindingV2CommandOutput extends GetFindingV2Response, __Metad
 
 /**
  * @public
- * <p>Retrieves information about the specified finding.</p>
+ * <p>Retrieves information about the specified finding. GetFinding and GetFindingV2 both use
+ *             <code>access-analyzer:GetFinding</code> in the <code>Action</code> element of an IAM
+ *          policy statement. You must have permission to perform the
+ *             <code>access-analyzer:GetFinding</code> action.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
