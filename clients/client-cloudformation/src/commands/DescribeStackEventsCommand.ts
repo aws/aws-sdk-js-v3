@@ -66,6 +66,7 @@ export interface DescribeStackEventsCommandOutput extends DescribeStackEventsOut
  * //       HookStatusReason: "STRING_VALUE",
  * //       HookInvocationPoint: "PRE_PROVISION",
  * //       HookFailureMode: "FAIL" || "WARN",
+ * //       DetailedStatus: "CONFIGURATION_COMPLETE" || "VALIDATION_FAILED",
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

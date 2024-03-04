@@ -28,8 +28,8 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
 
 /**
  * @public
- * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you
- *    run the change set.</p>
+ * <p>Returns hook-related information for the change set and a list of changes that CloudFormation makes when you run the
+ *    change set.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +80,7 @@ export interface DescribeChangeSetHooksCommandOutput extends DescribeChangeSetHo
  *
  * @throws {@link ChangeSetNotFoundException} (client fault)
  *  <p>The specified change set name or ID doesn't exit. To view valid change sets for a stack, use the
- *     <code>ListChangeSets</code> operation.</p>
+ *    <code>ListChangeSets</code> operation.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

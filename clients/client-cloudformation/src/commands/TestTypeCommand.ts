@@ -38,18 +38,22 @@ export interface TestTypeCommandOutput extends TestTypeOutput, __MetadataBearer 
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/publish-extension.html#publish-extension-testing">Testing your public
- *     extension prior to publishing</a> in the <i>CloudFormation CLI User Guide</i>.</p>
- *          <p>If you don't specify a version, CloudFormation uses the default version of the extension in your
- *    account and Region for testing.</p>
- *          <p>To perform testing, CloudFormation assumes the execution role specified when the type was registered.
- *    For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">RegisterType</a>.</p>
+ *    extension prior to publishing</a> in the <i>CloudFormation CLI User Guide</i>.</p>
+ *          <p>If you don't specify a version, CloudFormation uses the default version of the extension in your account and Region
+ *    for testing.</p>
+ *          <p>To perform testing, CloudFormation assumes the execution role specified when the type was registered. For more
+ *    information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_RegisterType.html">
+ *                <code>RegisterType</code>
+ *             </a>.</p>
  *          <p>Once you've initiated testing on an extension using <code>TestType</code>, you can pass the returned
- *     <code>TypeVersionArn</code> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">DescribeType</a> to monitor the current test
+ *    <code>TypeVersionArn</code> into <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_DescribeType.html">
+ *                <code>DescribeType</code>
+ *             </a> to monitor the current test
  *    status and test status description for the extension.</p>
  *          <p>An extension must have a test status of <code>PASSED</code> before it can be published. For more information,
  *    see <a href="https://docs.aws.amazon.com/cloudformation-cli/latest/userguide/resource-type-publish.html">Publishing
- *     extensions to make them available for public use</a> in the <i>CloudFormation CLI User
- *     Guide</i>.</p>
+ *    extensions to make them available for public use</a> in the <i>CloudFormation CLI User
+ *    Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

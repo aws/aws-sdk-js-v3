@@ -57,7 +57,7 @@ export interface DeleteChangeSetCommandOutput extends DeleteChangeSetOutput, __M
  *
  * @throws {@link InvalidChangeSetStatusException} (client fault)
  *  <p>The specified change set can't be used to update the stack. For example, the change set status might be
- *     <code>CREATE_IN_PROGRESS</code>, or the stack status might be <code>UPDATE_IN_PROGRESS</code>.</p>
+ *    <code>CREATE_IN_PROGRESS</code>, or the stack status might be <code>UPDATE_IN_PROGRESS</code>.</p>
  *
  * @throws {@link CloudFormationServiceException}
  * <p>Base exception class for all service exceptions from CloudFormation service.</p>

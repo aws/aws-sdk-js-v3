@@ -29,7 +29,7 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
 /**
  * @public
  * <p>Returns the stack instance that's associated with the specified StackSet, Amazon Web Services account, and
- *     Amazon Web Services Region.</p>
+ *    Amazon Web Services Region.</p>
  *          <p>For a list of stack instances that are associated with a specific StackSet, use <a>ListStackInstances</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
@@ -61,7 +61,7 @@ export interface DescribeStackInstanceCommandOutput extends DescribeStackInstanc
  * //     ],
  * //     Status: "CURRENT" || "OUTDATED" || "INOPERABLE",
  * //     StackInstanceStatus: { // StackInstanceComprehensiveStatus
- * //       DetailedStatus: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED" || "INOPERABLE" || "SKIPPED_SUSPENDED_ACCOUNT",
+ * //       DetailedStatus: "PENDING" || "RUNNING" || "SUCCEEDED" || "FAILED" || "CANCELLED" || "INOPERABLE" || "SKIPPED_SUSPENDED_ACCOUNT" || "FAILED_IMPORT",
  * //     },
  * //     StatusReason: "STRING_VALUE",
  * //     OrganizationalUnitId: "STRING_VALUE",

@@ -33,7 +33,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  *    is specified, the associated resources of the stack that the resource belongs to are returned.</p>
  *          <note>
  *             <p>Only the first 100 resources will be returned. If your stack has more resources than this, you should use
- *      <code>ListStackResources</code> instead.</p>
+ *     <code>ListStackResources</code> instead.</p>
  *          </note>
  *          <p>For deleted stacks, <code>DescribeStackResources</code> returns resource information for up to 90 days after the
  *    stack has been deleted.</p>
@@ -42,7 +42,7 @@ export interface DescribeStackResourcesCommandOutput extends DescribeStackResour
  *    the <code>LogicalResourceId</code> and <code>PhysicalResourceId</code>, go to the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/">CloudFormation User Guide</a>.</p>
  *          <note>
  *             <p>A <code>ValidationError</code> is returned if you specify both <code>StackName</code> and
- *      <code>PhysicalResourceId</code> in the same request.</p>
+ *     <code>PhysicalResourceId</code> in the same request.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

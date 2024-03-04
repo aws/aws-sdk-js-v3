@@ -403,7 +403,6 @@ import {
   ResourceDetail,
   ResourceIdentifierSummary,
   ResourceScanInProgressException,
-  ResourceScanLimitExceededException,
   ResourceScanNotFoundException,
   ResourceScanSummary,
   ResourceTargetDefinition,
@@ -470,6 +469,7 @@ import {
   Warnings,
 } from "../models/models_0";
 import {
+  ResourceScanLimitExceededException,
   StartResourceScanInput,
   StartResourceScanOutput,
   StopStackSetOperationInput,
@@ -9392,6 +9392,9 @@ const de_Stack = (output: any, context: __SerdeContext): Stack => {
   if (output[_REOC] != null) {
     contents[_REOC] = __parseBoolean(output[_REOC]);
   }
+  if (output[_DSeta] != null) {
+    contents[_DSeta] = __expectString(output[_DSeta]);
+  }
   return contents;
 };
 
@@ -9475,6 +9478,9 @@ const de_StackEvent = (output: any, context: __SerdeContext): StackEvent => {
   }
   if (output[_HFM] != null) {
     contents[_HFM] = __expectString(output[_HFM]);
+  }
+  if (output[_DSeta] != null) {
+    contents[_DSeta] = __expectString(output[_DSeta]);
   }
   return contents;
 };

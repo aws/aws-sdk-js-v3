@@ -33,11 +33,11 @@ export interface DetectStackResourceDriftCommandOutput extends DetectStackResour
  *    specified as template parameters. This information includes actual and expected property values for resources in
  *    which CloudFormation detects drift. Only resource properties explicitly defined in the stack template are checked for drift.
  *    For more information about stack and resource drift, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift.html">Detecting Unregulated Configuration Changes to
- *     Stacks and Resources</a>.</p>
+ *    Stacks and Resources</a>.</p>
  *          <p>Use <code>DetectStackResourceDrift</code> to detect drift on individual resources, or <a>DetectStackDrift</a> to detect drift on all resources in a given stack that support drift detection.</p>
  *          <p>Resources that don't currently support drift detection can't be checked. For a list of resources that support
  *    drift detection, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/using-cfn-stack-drift-resource-list.html">Resources that Support Drift
- *     Detection</a>.</p>
+ *    Detection</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
