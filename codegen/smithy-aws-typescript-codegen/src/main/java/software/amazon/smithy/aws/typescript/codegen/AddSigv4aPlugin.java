@@ -10,11 +10,11 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
+
+import software.amazon.smithy.aws.traits.auth.SigV4ATrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
 import software.amazon.smithy.model.Model;
 import software.amazon.smithy.model.knowledge.ServiceIndex;
-import software.amazon.smithy.model.knowledge.TopDownIndex;
-import software.amazon.smithy.model.shapes.OperationShape;
 import software.amazon.smithy.model.shapes.ServiceShape;
 import software.amazon.smithy.model.shapes.ShapeId;
 import software.amazon.smithy.model.traits.Trait;
@@ -36,49 +36,28 @@ public final class AddSigv4aPlugin implements TypeScriptIntegration {
         SymbolProvider symbolProvider,
         LanguageTarget target
     ) {
-        boolean useSigv4aCapableSigner = false;
+        final boolean addSigv4aSignerToConfig = ServiceIndex.of(model)
+            .getEffectiveAuthSchemes(settings.getService(), ServiceIndex.AuthSchemeMode.NO_AUTH_AWARE)
+            .containsKey(SigV4ATrait.ID);
 
-        ServiceIndex serviceIndex = ServiceIndex.of(model);
-        Set<ServiceShape> services = model.getServiceShapes();
-        for (ServiceShape service : services) {
-            Map<ShapeId, Trait> authSchemes = serviceIndex.getAuthSchemes(service);
-            useSigv4aCapableSigner = useSigv4aCapableSigner || usesSigv4a(authSchemes);
-            if (useSigv4aCapableSigner) {
-                break;
-            }
+        // the sigv4a trait also appears on operations, but we will not check
+        // them individually because it must appear on the service as well in that case.
 
-            TopDownIndex topDownIndex = TopDownIndex.of(model);
-            for (OperationShape operationShape : topDownIndex.getContainedOperations(service)) {
-                useSigv4aCapableSigner = usesSigv4a(operationShape.getAllTraits());
-                if (useSigv4aCapableSigner) {
-                    break;
-                }
-            }
-        }
-
-        if (!useSigv4aCapableSigner) {
+        if (!addSigv4aSignerToConfig) {
             return Collections.emptyMap();
         }
 
+        // TODO: add to shared config when sigv4a implementation is available in browser.
         switch (target) {
-            case SHARED:
+            case NODE:
                 return MapUtils.of("signerConstructor", writer -> {
-                    writer.addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
-                        .addImport("SignatureV4MultiRegion", "SignatureV4MultiRegion",
-                                AwsDependency.SIGNATURE_V4_MULTIREGION)
+                    writer
+                        .addDependency(AwsDependency.SIGNATURE_V4_MULTIREGION)
+                        .addImport("SignatureV4MultiRegion", null, AwsDependency.SIGNATURE_V4_MULTIREGION)
                         .write("SignatureV4MultiRegion");
                 });
             default:
                 return Collections.emptyMap();
         }
-    }
-
-    private boolean usesSigv4a(Collection<Trait> traits) {
-        return traits.stream()
-            .anyMatch(trait -> trait.toString().equals("aws.auth#sigv4a"));
-    }
-
-    private boolean usesSigv4a(Map<ShapeId, Trait> traits) {
-        return usesSigv4a(traits.values());
     }
 }
