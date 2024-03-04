@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.526.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.525.1...v3.526.0) (2024-03-04)
+
+
+### Features
+
+* **client-cloudformation:** Add DetailedStatus field to DescribeStackEvents and DescribeStacks APIs ([eafb296](https://github.com/aws/aws-sdk-js-v3/commit/eafb29606db024f9ea62f343c0d60bb366aa268d))
+* **client-fsx:** Added support for creating FSx for NetApp ONTAP file systems with up to 12 HA pairs, delivering up to 72 GB/s of read throughput and 12 GB/s of write throughput. ([a027f51](https://github.com/aws/aws-sdk-js-v3/commit/a027f51c7e81e348bd5ca75a2ad3d2a3c60d59af))
+* **client-organizations:** Documentation update for AWS Organizations ([21e4a07](https://github.com/aws/aws-sdk-js-v3/commit/21e4a07127254f1f14db27fc356bea8461ef03eb))
+
+
+
+
+
 ## [3.525.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.525.0...v3.525.1) (2024-03-01)
 
 

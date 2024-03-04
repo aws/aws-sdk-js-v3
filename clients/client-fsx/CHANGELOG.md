@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.526.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.525.1...v3.526.0) (2024-03-04)
+
+
+### Features
+
+* **client-fsx:** Added support for creating FSx for NetApp ONTAP file systems with up to 12 HA pairs, delivering up to 72 GB/s of read throughput and 12 GB/s of write throughput. ([a027f51](https://github.com/aws/aws-sdk-js-v3/commit/a027f51c7e81e348bd5ca75a2ad3d2a3c60d59af))
+
+
+
+
+
 # [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
 
 **Note:** Version bump only for package @aws-sdk/client-fsx

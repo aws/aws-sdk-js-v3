@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.526.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.525.1...v3.526.0) (2024-03-04)
+
+
+### Features
+
+* **client-cloudformation:** Add DetailedStatus field to DescribeStackEvents and DescribeStacks APIs ([eafb296](https://github.com/aws/aws-sdk-js-v3/commit/eafb29606db024f9ea62f343c0d60bb366aa268d))
+
+
+
+
+
 # [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudformation
