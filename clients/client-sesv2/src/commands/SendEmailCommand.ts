@@ -93,6 +93,12 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *           Charset: "STRING_VALUE",
  *         },
  *       },
+ *       Headers: [ // MessageHeaderList
+ *         { // MessageHeader
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *     Raw: { // RawMessage
  *       Data: "BLOB_VALUE", // required
@@ -101,6 +107,12 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *       TemplateName: "STRING_VALUE",
  *       TemplateArn: "STRING_VALUE",
  *       TemplateData: "STRING_VALUE",
+ *       Headers: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *   },
  *   EmailTags: [ // MessageTagList

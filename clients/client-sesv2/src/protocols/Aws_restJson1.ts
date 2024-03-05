@@ -358,6 +358,7 @@ import {
   ListRecommendationsFilterKey,
   MailFromDomainNotVerifiedException,
   Message,
+  MessageHeader,
   MessageInsightsDataSource,
   MessageInsightsFilters,
   MessageRejected,
@@ -4641,6 +4642,10 @@ const se_ExportDataSource = (input: ExportDataSource, context: __SerdeContext): 
 // se_ListRecommendationsFilter omitted.
 
 // se_Message omitted.
+
+// se_MessageHeader omitted.
+
+// se_MessageHeaderList omitted.
 
 /**
  * serializeAws_restJson1MessageInsightsDataSource

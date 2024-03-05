@@ -18,6 +18,13 @@ import {
 
 /**
  * @public
+ * <p>An HTTP 200 response if the request succeeds, or an error message if the request
+ *             fails.</p>
+ */
+export interface PutEmailIdentityFeedbackAttributesResponse {}
+
+/**
+ * @public
  * <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
  */
 export interface PutEmailIdentityMailFromAttributesRequest {
@@ -104,8 +111,8 @@ export interface PutSuppressedDestinationResponse {}
 export interface SendBulkEmailRequest {
   /**
    * @public
-   * <p>The email address to use as the "From" address for the email. The
-   *             address that you specify has to be verified.</p>
+   * <p>The email address to use as the "From" address for the email. The address that you
+   *             specify has to be verified.</p>
    */
   FromEmailAddress?: string;
 
@@ -244,8 +251,8 @@ export interface SendCustomVerificationEmailResponse {
 export interface SendEmailRequest {
   /**
    * @public
-   * <p>The email address to use as the "From" address for the email. The
-   *             address that you specify has to be verified.
+   * <p>The email address to use as the "From" address for the email. The address that you
+   *             specify has to be verified.
    *             </p>
    */
   FromEmailAddress?: string;
@@ -307,8 +314,8 @@ export interface SendEmailRequest {
 
   /**
    * @public
-   * <p>An object that contains the body of the message. You can send either a Simple message
-   *             Raw message or a template Message.</p>
+   * <p>An object that contains the body of the message. You can send either a Simple message,
+   *             Raw message, or a Templated message.</p>
    */
   Content: EmailContent | undefined;
 
@@ -344,10 +351,10 @@ export interface SendEmailResponse {
    * <p>A unique identifier for the message that is generated when the message is
    *             accepted.</p>
    *          <note>
-   *             <p>It's possible for Amazon SES to accept a message without sending it. This can happen
-   *                 when the message that you're trying to send has an attachment contains a virus, or
-   *                 when you send a templated email that contains invalid personalization content, for
-   *                 example.</p>
+   *             <p>It's possible for Amazon SES to accept a message without sending it. For example, this
+   *                 can happen when the message that you're trying to send has an attachment that
+   *                 contains a virus, or when you send a templated email that contains invalid
+   *                 personalization content.</p>
    *          </note>
    */
   MessageId?: string;

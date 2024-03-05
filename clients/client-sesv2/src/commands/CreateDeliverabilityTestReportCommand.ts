@@ -65,6 +65,12 @@ export interface CreateDeliverabilityTestReportCommandOutput
  *           Charset: "STRING_VALUE",
  *         },
  *       },
+ *       Headers: [ // MessageHeaderList
+ *         { // MessageHeader
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *     Raw: { // RawMessage
  *       Data: "BLOB_VALUE", // required
@@ -73,6 +79,12 @@ export interface CreateDeliverabilityTestReportCommandOutput
  *       TemplateName: "STRING_VALUE",
  *       TemplateArn: "STRING_VALUE",
  *       TemplateData: "STRING_VALUE",
+ *       Headers: [
+ *         {
+ *           Name: "STRING_VALUE", // required
+ *           Value: "STRING_VALUE", // required
+ *         },
+ *       ],
  *     },
  *   },
  *   Tags: [ // TagList

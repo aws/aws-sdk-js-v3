@@ -657,6 +657,42 @@ export interface Bounce {
 
 /**
  * @public
+ * <p>Contains the name and value of a message header that you add to an email.</p>
+ */
+export interface MessageHeader {
+  /**
+   * @public
+   * <p>The name of the message header. The message header name has to meet the following
+   *             criteria:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can contain any printable ASCII character (33 - 126) except for colon (:).</p>
+   *             </li>
+   *             <li>
+   *                <p>Can contain no more than 126 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  Name: string | undefined;
+
+  /**
+   * @public
+   * <p>The value of the message header. The message header value has to meet the following
+   *             criteria:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Can contain any printable ASCII character.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can contain no more than 870 characters.</p>
+   *             </li>
+   *          </ul>
+   */
+  Value: string | undefined;
+}
+
+/**
+ * @public
  * <p>An object that defines the email template to use for an email message, and the values
  *             to use for any message variables in that template. An <i>email
  *                 template</i> is a type of message template that contains content that you
@@ -684,6 +720,12 @@ export interface Template {
    *             The corresponding value defines the value to use for that variable.</p>
    */
   TemplateData?: string;
+
+  /**
+   * @public
+   * <p>The list of message headers that will be added to the email message.</p>
+   */
+  Headers?: MessageHeader[];
 }
 
 /**
@@ -1231,8 +1273,8 @@ export interface ContactListDestination {
 
   /**
    * @public
-   * <p>>The type of action to perform on the addresses. The following are the
-   *             possible values:</p>
+   * <p>>The type of action to perform on the addresses. The following are the possible
+   *             values:</p>
    *          <ul>
    *             <li>
    *                <p>PUT: add the addresses to the contact list. If the record already exists, it
@@ -1999,8 +2041,8 @@ export interface RawMessage {
    *                <p>Attachments must be in a file format that the Amazon SES supports.</p>
    *             </li>
    *             <li>
-   *                <p>The raw data of the message needs to base64-encoded if you are accessing
-   *                     Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an Amazon Web Services
+   *                <p>The raw data of the message needs to base64-encoded if you are accessing Amazon SES
+   *                     directly through the HTTPS interface. If you are accessing Amazon SES using an Amazon Web Services
    *                     SDK, the SDK takes care of the base 64-encoding for you.</p>
    *             </li>
    *             <li>
@@ -2037,6 +2079,12 @@ export interface Message {
    *             version of the message, or both.</p>
    */
   Body: Body | undefined;
+
+  /**
+   * @public
+   * <p>The list of message headers that will be added to the email message.</p>
+   */
+  Headers?: MessageHeader[];
 }
 
 /**
@@ -2074,8 +2122,8 @@ export interface EmailContent {
    *                     </p>
    *             </li>
    *             <li>
-   *                <p>The raw data of the message needs to base64-encoded if you are accessing
-   *                     Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an Amazon Web Services
+   *                <p>The raw data of the message needs to base64-encoded if you are accessing Amazon SES
+   *                     directly through the HTTPS interface. If you are accessing Amazon SES using an Amazon Web Services
    *                     SDK, the SDK takes care of the base 64-encoding for you.</p>
    *             </li>
    *             <li>
@@ -3206,20 +3254,24 @@ export interface DailyVolume {
 
 /**
  * @public
- * <p>An object containing additional settings for your VDM configuration as applicable to the Dashboard.</p>
+ * <p>An object containing additional settings for your VDM configuration as applicable to
+ *             the Dashboard.</p>
  */
 export interface DashboardAttributes {
   /**
    * @public
-   * <p>Specifies the status of your VDM engagement metrics collection. Can be one of the following:</p>
+   * <p>Specifies the status of your VDM engagement metrics collection. Can be one of the
+   *             following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ENABLED</code> – Amazon SES enables engagement metrics for your account.</p>
+   *                   <code>ENABLED</code> – Amazon SES enables engagement metrics for your
+   *                     account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISABLED</code> – Amazon SES disables engagement metrics for your account.</p>
+   *                   <code>DISABLED</code> – Amazon SES disables engagement metrics for your
+   *                     account.</p>
    *             </li>
    *          </ul>
    */
@@ -4177,20 +4229,24 @@ export interface SuppressionAttributes {
 
 /**
  * @public
- * <p>An object containing additional settings for your VDM configuration as applicable to the Guardian.</p>
+ * <p>An object containing additional settings for your VDM configuration as applicable to
+ *             the Guardian.</p>
  */
 export interface GuardianAttributes {
   /**
    * @public
-   * <p>Specifies the status of your VDM optimized shared delivery. Can be one of the following:</p>
+   * <p>Specifies the status of your VDM optimized shared delivery. Can be one of the
+   *             following:</p>
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>ENABLED</code> – Amazon SES enables optimized shared delivery for your account.</p>
+   *                   <code>ENABLED</code> – Amazon SES enables optimized shared delivery for your
+   *                     account.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>DISABLED</code> – Amazon SES disables optimized shared delivery for your account.</p>
+   *                   <code>DISABLED</code> – Amazon SES disables optimized shared delivery for
+   *                     your account.</p>
    *             </li>
    *          </ul>
    */
@@ -4220,13 +4276,15 @@ export interface VdmAttributes {
 
   /**
    * @public
-   * <p>Specifies additional settings for your VDM configuration as applicable to the Dashboard.</p>
+   * <p>Specifies additional settings for your VDM configuration as applicable to the
+   *             Dashboard.</p>
    */
   DashboardAttributes?: DashboardAttributes;
 
   /**
    * @public
-   * <p>Specifies additional settings for your VDM configuration as applicable to the Guardian.</p>
+   * <p>Specifies additional settings for your VDM configuration as applicable to the
+   *             Guardian.</p>
    */
   GuardianAttributes?: GuardianAttributes;
 }
@@ -4277,9 +4335,8 @@ export interface GetAccountResponse {
    *             Region.</p>
    *          <p>If the value is <code>false</code>, then your account is in the
    *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
-   *             email to verified identities. Additionally, the maximum number of emails you can send in
-   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
-   *             send per second (your maximum sending rate) is 1.</p>
+   *             email to verified identities.
+   *             </p>
    *          <p>If the value is <code>true</code>, then your account has production access. When your
    *             account has production access, you can send email to any address. The sending quota and
    *             maximum sending rate for your account vary based on your specific use case.</p>
@@ -5952,8 +6009,8 @@ export interface ListContactsRequest {
   /**
    * @public
    * <p>The number of contacts that may be returned at once, which is dependent on if there
-   *             are more or less contacts than the value of the PageSize. Use this parameter to
-   *             paginate results. If additional contacts exist beyond the specified limit, the
+   *             are more or less contacts than the value of the PageSize. Use this parameter to paginate
+   *             results. If additional contacts exist beyond the specified limit, the
    *                 <code>NextToken</code> element is sent in the response. Use the
    *                 <code>NextToken</code> value in subsequent requests to retrieve additional
    *             contacts.</p>
@@ -6764,9 +6821,8 @@ export interface PutAccountDetailsRequest {
    *             Amazon Web Services Region.</p>
    *          <p>If the value is <code>false</code>, then your account is in the
    *                 <i>sandbox</i>. When your account is in the sandbox, you can only send
-   *             email to verified identities. Additionally, the maximum number of emails you can send in
-   *             a 24-hour period (your sending quota) is 200, and the maximum number of emails you can
-   *             send per second (your maximum sending rate) is 1.</p>
+   *             email to verified identities.
+   *             </p>
    *          <p>If the value is <code>true</code>, then your account has production access. When your
    *             account has production access, you can send email to any address. The sending quota and
    *             maximum sending rate for your account vary based on your specific use case.</p>
@@ -7336,13 +7392,6 @@ export interface PutEmailIdentityFeedbackAttributesRequest {
    */
   EmailForwardingEnabled?: boolean;
 }
-
-/**
- * @public
- * <p>An HTTP 200 response if the request succeeds, or an error message if the request
- *             fails.</p>
- */
-export interface PutEmailIdentityFeedbackAttributesResponse {}
 
 /**
  * @internal

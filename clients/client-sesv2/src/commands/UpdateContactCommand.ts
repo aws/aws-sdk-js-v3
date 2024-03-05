@@ -28,9 +28,12 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
 
 /**
  * @public
- * <p>Updates a contact's preferences for a list. It is not necessary to specify all
- *             existing topic preferences in the TopicPreferences object, just the ones that need
- *             updating.</p>
+ * <p>Updates a contact's preferences for a list.</p>
+ *          <note>
+ *             <p>You must specify all existing topic preferences in the
+ *                     <code>TopicPreferences</code> object, not just the ones that need updating;
+ *                 otherwise, all your existing preferences will be removed.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
