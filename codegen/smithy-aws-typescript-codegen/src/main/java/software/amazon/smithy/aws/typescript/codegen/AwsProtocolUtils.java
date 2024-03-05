@@ -108,18 +108,7 @@ final class AwsProtocolUtils {
      */
     static void generateJsonParseBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-
-        // Include a JSON body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
-                + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
-                    writer.openBlock("if (encoded.length) {", "}", () -> {
-                        writer.write("return JSON.parse(encoded);");
-                    });
-                    writer.write("return {};");
-                });
-
-        writer.write("");
+        writer.addImport("parseJsonBody", "parseBody", AwsDependency.AWS_SDK_CORE);
     }
 
     static void generateJsonParseBodyWithQueryHeader(GenerationContext context) {
@@ -137,17 +126,7 @@ final class AwsProtocolUtils {
      */
     static void generateJsonParseErrorBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-
-        // Include a JSON body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
-        writer.openBlock("const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {",
-            "}", () -> {
-                writer.write("const value = await parseBody(errorBody, context);");
-                writer.write("value.message = value.message ?? value.Message;");
-                writer.write("return value;");
-            });
-
-        writer.write("");
+        writer.addImport("parseJsonErrorBody", "parseErrorBody", AwsDependency.AWS_SDK_CORE);
     }
 
     /**
@@ -158,36 +137,7 @@ final class AwsProtocolUtils {
      */
     static void generateXmlParseBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-
-        // Include an XML body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
-        writer.addImport("getValueFromTextNode", "__getValueFromTextNode", TypeScriptDependency.AWS_SMITHY_CLIENT);
-        writer.addDependency(TypeScriptDependency.XML_PARSER);
-        writer.addImport("XMLParser", null, TypeScriptDependency.XML_PARSER);
-        writer.openBlock("const parseBody = (streamBody: any, context: __SerdeContext): "
-                + "any => collectBodyString(streamBody, context).then(encoded => {", "});", () -> {
-                    writer.openBlock("if (encoded.length) {", "}", () -> {
-                        // Temporararily creating parser inside the function.
-                        // Parser would be moved to runtime config in https://github.com/aws/aws-sdk-js-v3/issues/3979
-                        writer.write("const parser = new XMLParser({ attributeNamePrefix: '', htmlEntities: true, "
-                            + "ignoreAttributes: false, ignoreDeclaration: true, parseTagValue: false, "
-                            + "trimValues: false, tagValueProcessor: (_: any, val: any) => "
-                            + "(val.trim() === '' && val.includes('\\n')) ? '': undefined });");
-                        writer.write("parser.addEntity('#xD', '\\r');");
-                        writer.write("parser.addEntity('#10', '\\n');");
-                        writer.write("const parsedObj = parser.parse(encoded);");
-                        writer.write("const textNodeName = '#text';");
-                        writer.write("const key = Object.keys(parsedObj)[0];");
-                        writer.write("const parsedObjToReturn = parsedObj[key];");
-                        writer.openBlock("if (parsedObjToReturn[textNodeName]) {", "}", () -> {
-                            writer.write("parsedObjToReturn[key] = parsedObjToReturn[textNodeName];");
-                            writer.write("delete parsedObjToReturn[textNodeName];");
-                        });
-                        writer.write("return __getValueFromTextNode(parsedObjToReturn);");
-                    });
-                    writer.write("return {};");
-                });
-        writer.write("");
+        writer.addImport("parseXmlBody", "parseBody", AwsDependency.AWS_SDK_CORE);
     }
 
     /**
@@ -198,19 +148,7 @@ final class AwsProtocolUtils {
      */
     static void generateXmlParseErrorBody(GenerationContext context) {
         TypeScriptWriter writer = context.getWriter();
-
-        // Include a JSON body parser used to deserialize documents from HTTP responses.
-        writer.addImport("SerdeContext", "__SerdeContext", TypeScriptDependency.SMITHY_TYPES);
-        writer.openBlock("const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {",
-            "}", () -> {
-                writer.write("const value = await parseBody(errorBody, context);");
-                writer.openBlock("if (value.Error) {", "}", () -> {
-                    writer.write("value.Error.message = value.Error.message ?? value.Error.Message;");
-                });
-                writer.write("return value;");
-            });
-
-        writer.write("");
+        writer.addImport("parseXmlErrorBody", "parseErrorBody", AwsDependency.AWS_SDK_CORE);
     }
 
     /**
