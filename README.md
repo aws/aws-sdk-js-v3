@@ -25,6 +25,9 @@ and provides step-by-step migration instructions to v3.
 To test your universal JavaScript code in Node.js, browser and react-native environments,
 visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
+Performance is crucial for the AWS SDK for JavaScript because it directly impacts the user experience.
+Please refer to [Performance](https://github.com/aws/aws-sdk-js-v3/tree/main/supplemental-docs/performance) section to know more.
+
 # Table of Contents
 
 1. [Getting Started](#getting-started)
