@@ -2189,7 +2189,7 @@ export interface MethodSetting {
 
   /**
    * @public
-   * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs.</p>
+   * <p>Specifies whether data trace logging is enabled for this method, which affects the log entries pushed to Amazon CloudWatch Logs. This can be useful to troubleshoot APIs, but can result in logging sensitive data. We recommend that you don't enable this option for production APIs.</p>
    */
   dataTraceEnabled?: boolean;
 
