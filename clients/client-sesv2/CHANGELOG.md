@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.527.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.526.0...v3.527.0) (2024-03-05)
+
+
+### Features
+
+* **client-sesv2:** Adds support for providing custom headers within SendEmail and SendBulkEmail for SESv2. ([4b858e0](https://github.com/aws/aws-sdk-js-v3/commit/4b858e0ae26c867e2b079b75620ed5dfd24b4bfc))
+
+
+
+
+
 # [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
 
 **Note:** Version bump only for package @aws-sdk/client-sesv2
