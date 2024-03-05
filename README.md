@@ -25,6 +25,9 @@ and provides step-by-step migration instructions to v3.
 To test your universal JavaScript code in Node.js, browser and react-native environments,
 visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
 
+Performance is crucial for the AWS SDK for JavaScript because it directly impacts the user experience.
+Please refer to [Performance](https://github.com/aws/aws-sdk-js-v3/tree/main/supplemental-docs/performance) section to know more.
+
 # Table of Contents
 
 1. [Getting Started](#getting-started)
@@ -41,6 +44,7 @@ visit our [code samples repo](https://github.com/aws-samples/aws-sdk-js-tests).
    1. [Abort Controller](#abort-controller)
    1. [Middleware Stack](#middleware-stack)
 1. [Working with the SDK in Lambda](#working-with-the-sdk-in-lambda)
+1. [Performance](#performance)
 1. [Install from Source](#install-from-source)
 1. [Giving feedback and contributing](#giving-feedback-and-contributing)
 1. [Release Cadence](#release-cadence)
@@ -228,6 +232,10 @@ export const handler = async (event) => {
   return response;
 };
 ```
+
+## Performance
+
+Please refer to supplemental docs on [performance](https://github.com/aws/aws-sdk-js-v3/tree/main/supplemental-docs/performance) to know more.
 
 ## Install from Source
 
