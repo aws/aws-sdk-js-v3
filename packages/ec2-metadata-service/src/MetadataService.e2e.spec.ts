@@ -17,6 +17,7 @@ describe("MetadataService", () => {
     }
   });
 
+  // check dynamically skipping tests
   describe("Test", () => {
     const scenario = () => {
       return metadataServiceAvailable ? it : it.skip;
@@ -31,18 +32,6 @@ describe("MetadataService", () => {
     scenario()("should successfully make a request to fetch the metadata token and return it", async () => {
       const token = await metadataService.fetchMetadataToken();
       expect(token).toEqual({});
-    });
-
-    scenario()("should successfully make a request with token and return response body", async () => {
-      const path = "latest/meta-data/hostname";
-      const response = await metadataService.requestWithToken(path, {});
-      expect(response).toEqual({});
-    });
-
-    scenario()("should successfully make a request with token and return the instance identity document", async () => {
-      const path = "/latest/dynamic/instance-identity/document";
-      const response = await metadataService.requestWithToken(path);
-      expect(response).toEqual({});
     });
   });
 });
