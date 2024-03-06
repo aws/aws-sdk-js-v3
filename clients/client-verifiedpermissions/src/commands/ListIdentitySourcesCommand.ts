@@ -73,6 +73,15 @@ export interface ListIdentitySourcesCommandOutput extends ListIdentitySourcesOut
  * //       lastUpdatedDate: new Date("TIMESTAMP"), // required
  * //       policyStoreId: "STRING_VALUE", // required
  * //       principalEntityType: "STRING_VALUE", // required
+ * //       configuration: { // ConfigurationItem Union: only one key present
+ * //         cognitoUserPoolConfiguration: { // CognitoUserPoolConfigurationItem
+ * //           userPoolArn: "STRING_VALUE", // required
+ * //           clientIds: [ // required
+ * //             "STRING_VALUE",
+ * //           ],
+ * //           issuer: "STRING_VALUE", // required
+ * //         },
+ * //       },
  * //     },
  * //   ],
  * // };

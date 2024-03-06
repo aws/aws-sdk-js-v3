@@ -49,7 +49,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyOutput, __Metadat
  *                         stored.</p>
  *                </li>
  *                <li>
- *                   <p>When you edit a static policy, You can change only certain elements of a static
+ *                   <p>When you edit a static policy, you can change only certain elements of a static
  *                         policy:</p>
  *                   <ul>
  *                      <li>
@@ -85,7 +85,7 @@ export interface UpdatePolicyCommandOutput extends UpdatePolicyOutput, __Metadat
  *          <note>
  *             <p>Verified Permissions is <i>
  *                   <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a>
- *                </i>. It can take a few seconds for a new or changed element to be propagate through
+ *                </i>. It can take a few seconds for a new or changed element to propagate through
  *     the service and be visible in the results of other Verified Permissions operations.</p>
  *          </note>
  * @example

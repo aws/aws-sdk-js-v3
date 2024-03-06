@@ -362,7 +362,7 @@ export class ValidationException extends __BaseException {
  * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
  *             as an identity provider for Verified Permissions.</p>
  *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a> structure that is
- *             used as a parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_Configuration.html">Configuration</a>.</p>
+ *             used as a parameter to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>.</p>
  *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
  *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
  *          </p>
@@ -386,6 +386,88 @@ export interface CognitoUserPoolConfiguration {
    *          </p>
    */
   clientIds?: string[];
+}
+
+/**
+ * @public
+ * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
+ *             as an identity provider for Verified Permissions.</p>
+ *          <p>This data type is used as a field that is part of an <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a> structure that is
+ *             part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>.</p>
+ *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
+ *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *          </p>
+ */
+export interface CognitoUserPoolConfigurationDetail {
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
+   *             authorized.</p>
+   *          <p>Example: <code>"userPoolArn":
+   *             "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
+   *          </p>
+   */
+  userPoolArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique application client IDs that are associated with the specified Amazon Cognito user
+   *             pool.</p>
+   *          <p>Example: <code>"clientIds": ["&amp;ExampleCogClientId;"]</code>
+   *          </p>
+   */
+  clientIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The OpenID Connect (OIDC) <code>issuer</code> ID of the Amazon Cognito user pool that contains the identities to be
+   *             authorized.</p>
+   *          <p>Example: <code>"issuer":
+   *             "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5"</code>
+   *          </p>
+   */
+  issuer: string | undefined;
+}
+
+/**
+ * @public
+ * <p>The configuration for an identity source that represents a connection to an Amazon Cognito user pool used
+ *             as an identity provider for Verified Permissions.</p>
+ *          <p>This data type is used as a field that is part of the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a> structure that is
+ *             part of the response to <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>.</p>
+ *          <p>Example:<code>"CognitoUserPoolConfiguration":\{"UserPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","ClientIds":
+ *             ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}</code>
+ *          </p>
+ */
+export interface CognitoUserPoolConfigurationItem {
+  /**
+   * @public
+   * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool that contains the identities to be
+   *             authorized.</p>
+   *          <p>Example: <code>"userPoolArn":
+   *             "arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5"</code>
+   *          </p>
+   */
+  userPoolArn: string | undefined;
+
+  /**
+   * @public
+   * <p>The unique application client IDs that are associated with the specified Amazon Cognito user
+   *             pool.</p>
+   *          <p>Example: <code>"clientIds": ["&amp;ExampleCogClientId;"]</code>
+   *          </p>
+   */
+  clientIds: string[] | undefined;
+
+  /**
+   * @public
+   * <p>The OpenID Connect (OIDC) <code>issuer</code> ID of the Amazon Cognito user pool that contains the identities to be
+   *             authorized.</p>
+   *          <p>Example: <code>"issuer":
+   *             "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_1a2b3c4d5"</code>
+   *          </p>
+   */
+  issuer: string | undefined;
 }
 
 /**
@@ -435,6 +517,102 @@ export namespace Configuration {
   }
 
   export const visit = <T>(value: Configuration, visitor: Visitor<T>): T => {
+    if (value.cognitoUserPoolConfiguration !== undefined)
+      return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Contains configuration information about an identity source.</p>
+ *          <p>This data type is a response parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>
+ *             operation.</p>
+ */
+export type ConfigurationDetail =
+  | ConfigurationDetail.CognitoUserPoolConfigurationMember
+  | ConfigurationDetail.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConfigurationDetail {
+  /**
+   * @public
+   * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
+   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
+   *             and one or more application client IDs.</p>
+   *          <p>Example:
+   *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *          </p>
+   */
+  export interface CognitoUserPoolConfigurationMember {
+    cognitoUserPoolConfiguration: CognitoUserPoolConfigurationDetail;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cognitoUserPoolConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    cognitoUserPoolConfiguration: (value: CognitoUserPoolConfigurationDetail) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ConfigurationDetail, visitor: Visitor<T>): T => {
+    if (value.cognitoUserPoolConfiguration !== undefined)
+      return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
+    return visitor._(value.$unknown[0], value.$unknown[1]);
+  };
+}
+
+/**
+ * @public
+ * <p>Contains configuration information about an identity source.</p>
+ *          <p>This data type is a response parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>
+ *             operation.</p>
+ */
+export type ConfigurationItem = ConfigurationItem.CognitoUserPoolConfigurationMember | ConfigurationItem.$UnknownMember;
+
+/**
+ * @public
+ */
+export namespace ConfigurationItem {
+  /**
+   * @public
+   * <p>Contains configuration details of a Amazon Cognito user pool that Verified Permissions can use as a source of
+   *             authenticated identities as entities. It specifies the <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of a Amazon Cognito user pool
+   *             and one or more application client IDs.</p>
+   *          <p>Example:
+   *             <code>"configuration":\{"cognitoUserPoolConfiguration":\{"userPoolArn":"arn:aws:cognito-idp:us-east-1:123456789012:userpool/us-east-1_1a2b3c4d5","clientIds":
+   *                 ["a1b2c3d4e5f6g7h8i9j0kalbmc"]\}\}</code>
+   *          </p>
+   */
+  export interface CognitoUserPoolConfigurationMember {
+    cognitoUserPoolConfiguration: CognitoUserPoolConfigurationItem;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   */
+  export interface $UnknownMember {
+    cognitoUserPoolConfiguration?: never;
+    $unknown: [string, any];
+  }
+
+  export interface Visitor<T> {
+    cognitoUserPoolConfiguration: (value: CognitoUserPoolConfigurationItem) => T;
+    _: (name: string, value: any) => T;
+  }
+
+  export const visit = <T>(value: ConfigurationItem, visitor: Visitor<T>): T => {
     if (value.cognitoUserPoolConfiguration !== undefined)
       return visitor.cognitoUserPoolConfiguration(value.cognitoUserPoolConfiguration);
     return visitor._(value.$unknown[0], value.$unknown[1]);
@@ -502,8 +680,11 @@ export interface CreateIdentitySourceInput {
    *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
-   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
+   *              different parameters, the retry fails with an <code>ConflictException</code>
    *              error.</p>
+   *          <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours,
+   *              the next request with the same parameters performs the operation again regardless of
+   *              the value of <code>ClientToken</code>.</p>
    */
   clientToken?: string;
 
@@ -740,8 +921,11 @@ export interface CreatePolicyInput {
    *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
-   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
+   *              different parameters, the retry fails with an <code>ConflictException</code>
    *              error.</p>
+   *          <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours,
+   *              the next request with the same parameters performs the operation again regardless of
+   *              the value of <code>ClientToken</code>.</p>
    */
   clientToken?: string;
 
@@ -888,8 +1072,11 @@ export interface CreatePolicyStoreInput {
    *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
-   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
+   *              different parameters, the retry fails with an <code>ConflictException</code>
    *              error.</p>
+   *          <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours,
+   *              the next request with the same parameters performs the operation again regardless of
+   *              the value of <code>ClientToken</code>.</p>
    */
   clientToken?: string;
 
@@ -958,8 +1145,11 @@ export interface CreatePolicyTemplateInput {
    *          <p>If you don't provide this value, then Amazon Web Services generates a random one for
    *              you.</p>
    *          <p>If you retry the operation with the same <code>ClientToken</code>, but with
-   *              different parameters, the retry fails with an <code>IdempotentParameterMismatch</code>
+   *              different parameters, the retry fails with an <code>ConflictException</code>
    *              error.</p>
+   *          <p>Verified Permissions recognizes a <code>ClientToken</code> for eight hours. After eight hours,
+   *              the next request with the same parameters performs the operation again regardless of
+   *              the value of <code>ClientToken</code>.</p>
    */
   clientToken?: string;
 
@@ -1187,13 +1377,17 @@ export type OpenIdIssuer = (typeof OpenIdIssuer)[keyof typeof OpenIdIssuer];
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>A structure that contains configuration of the identity source.</p>
- *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>
- *             operation.</p>
+ *          <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_GetIdentitySource.html">GetIdentitySource</a>
+ *             operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationDetail.html">ConfigurationDetail</a>.</p>
  */
 export interface IdentitySourceDetails {
   /**
    * @public
+   * @deprecated
+   *
    * <p>The application client IDs associated with the specified Amazon Cognito user pool that are
    *             enabled for this identity source.</p>
    */
@@ -1201,6 +1395,8 @@ export interface IdentitySourceDetails {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The <a href="https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html">Amazon Resource Name (ARN)</a> of the Amazon Cognito user pool whose identities are accessible to this Verified Permissions
    *             policy store.</p>
    */
@@ -1208,6 +1404,8 @@ export interface IdentitySourceDetails {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a
    *             URL string in the following format. This URL replaces the placeholders for both the
    *             Amazon Web Services Region and the user pool identifier with those appropriate for this user
@@ -1220,6 +1418,8 @@ export interface IdentitySourceDetails {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
    */
@@ -1238,9 +1438,11 @@ export interface GetIdentitySourceOutput {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>A structure that describes the configuration of the identity source.</p>
    */
-  details: IdentitySourceDetails | undefined;
+  details?: IdentitySourceDetails;
 
   /**
    * @public
@@ -1266,6 +1468,12 @@ export interface GetIdentitySourceOutput {
    *             identity source.</p>
    */
   principalEntityType: string | undefined;
+
+  /**
+   * @public
+   * <p>Contains configuration information about an identity source.</p>
+   */
+  configuration?: ConfigurationDetail;
 }
 
 /**
@@ -1309,10 +1517,7 @@ export interface StaticPolicyDefinitionDetail {
 
 /**
  * @public
- * <p>Contains information about a policy that was </p>
- *          <p/>
- *          <p>created by instantiating a policy template. </p>
- *          <p>This </p>
+ * <p>Contains information about a policy that was created by instantiating a policy template. </p>
  */
 export interface TemplateLinkedPolicyDefinitionDetail {
   /**
@@ -1612,7 +1817,7 @@ export interface GetSchemaOutput {
  * @public
  * <p>A structure that defines characteristics of an identity source that you can use to
  *             filter.</p>
- *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentityStores.html">ListIdentityStores</a>
+ *          <p>This data type is a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentityStores.html">ListIdentityStores</a>
  *             operation.</p>
  */
 export interface IdentitySourceFilter {
@@ -1669,13 +1874,17 @@ export interface ListIdentitySourcesInput {
 
 /**
  * @public
+ * @deprecated
+ *
  * <p>A structure that contains configuration of the identity source.</p>
- *          <p>This data type is used as a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_CreateIdentitySource.html">CreateIdentitySource</a>
- *             operation.</p>
+ *          <p>This data type was a response parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>
+ *             operation. Replaced by <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ConfigurationItem.html">ConfigurationItem</a>.</p>
  */
 export interface IdentitySourceItemDetails {
   /**
    * @public
+   * @deprecated
+   *
    * <p>The application client IDs associated with the specified Amazon Cognito user pool that are
    *             enabled for this identity source.</p>
    */
@@ -1683,12 +1892,16 @@ export interface IdentitySourceItemDetails {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The Amazon Cognito user pool whose identities are accessible to this Verified Permissions policy store.</p>
    */
   userPoolArn?: string;
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>The well-known URL that points to this user pool's OIDC discovery endpoint. This is a
    *             URL string in the following format. This URL replaces the placeholders for both the
    *             Amazon Web Services Region and the user pool identifier with those appropriate for this user
@@ -1701,6 +1914,8 @@ export interface IdentitySourceItemDetails {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>A string that identifies the type of OIDC service represented by this identity source. </p>
    *          <p>At this time, the only valid value is <code>cognito</code>.</p>
    */
@@ -1710,7 +1925,7 @@ export interface IdentitySourceItemDetails {
 /**
  * @public
  * <p>A structure that defines an identity source.</p>
- *          <p>This data type is used as a request parameter for the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentityStores.html">ListIdentityStores</a>
+ *          <p>This data type is a response parameter to the <a href="https://docs.aws.amazon.com/verifiedpermissions/latest/apireference/API_ListIdentitySources.html">ListIdentitySources</a>
  *             operation.</p>
  */
 export interface IdentitySourceItem {
@@ -1722,10 +1937,12 @@ export interface IdentitySourceItem {
 
   /**
    * @public
+   * @deprecated
+   *
    * <p>A structure that contains the details of the associated identity provider
    *             (IdP).</p>
    */
-  details: IdentitySourceItemDetails | undefined;
+  details?: IdentitySourceItemDetails;
 
   /**
    * @public
@@ -1751,6 +1968,12 @@ export interface IdentitySourceItem {
    *             identity source.</p>
    */
   principalEntityType: string | undefined;
+
+  /**
+   * @public
+   * <p>Contains configuration information about an identity source.</p>
+   */
+  configuration?: ConfigurationItem;
 }
 
 /**
@@ -3260,8 +3483,10 @@ export interface IsAuthorizedWithTokenInput {
    * @public
    * <p>Specifies an identity token for the principal to be authorized. This token is provided
    *             to you by the identity provider (IdP) associated with the specified identity source. You must
-   *             specify either an <code>AccessToken</code> or an <code>IdentityToken</code>, or
+   *             specify either an <code>accessToken</code>, an <code>identityToken</code>, or
    *             both.</p>
+   *          <p>Must be an ID token. Verified Permissions returns an error if the <code>token_use</code> claim in the
+   *             submitted token isn't <code>id</code>.</p>
    */
   identityToken?: string;
 
@@ -3269,8 +3494,10 @@ export interface IsAuthorizedWithTokenInput {
    * @public
    * <p>Specifies an access token for the principal to be authorized. This token is provided
    *             to you by the identity provider (IdP) associated with the specified identity source. You must
-   *             specify either an <code>AccessToken</code>, or an <code>IdentityToken</code>, or
+   *             specify either an <code>accessToken</code>, an <code>identityToken</code>, or
    *             both.</p>
+   *          <p>Must be an access token. Verified Permissions returns an error if the <code>token_use</code> claim in
+   *             the submitted token isn't <code>access</code>.</p>
    */
   accessToken?: string;
 
@@ -3386,10 +3613,52 @@ export const CognitoUserPoolConfigurationFilterSensitiveLog = (obj: CognitoUserP
 /**
  * @internal
  */
+export const CognitoUserPoolConfigurationDetailFilterSensitiveLog = (obj: CognitoUserPoolConfigurationDetail): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const CognitoUserPoolConfigurationItemFilterSensitiveLog = (obj: CognitoUserPoolConfigurationItem): any => ({
+  ...obj,
+  ...(obj.clientIds && { clientIds: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
 export const ConfigurationFilterSensitiveLog = (obj: Configuration): any => {
   if (obj.cognitoUserPoolConfiguration !== undefined)
     return {
       cognitoUserPoolConfiguration: CognitoUserPoolConfigurationFilterSensitiveLog(obj.cognitoUserPoolConfiguration),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ConfigurationDetailFilterSensitiveLog = (obj: ConfigurationDetail): any => {
+  if (obj.cognitoUserPoolConfiguration !== undefined)
+    return {
+      cognitoUserPoolConfiguration: CognitoUserPoolConfigurationDetailFilterSensitiveLog(
+        obj.cognitoUserPoolConfiguration
+      ),
+    };
+  if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
+};
+
+/**
+ * @internal
+ */
+export const ConfigurationItemFilterSensitiveLog = (obj: ConfigurationItem): any => {
+  if (obj.cognitoUserPoolConfiguration !== undefined)
+    return {
+      cognitoUserPoolConfiguration: CognitoUserPoolConfigurationItemFilterSensitiveLog(
+        obj.cognitoUserPoolConfiguration
+      ),
     };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
@@ -3489,6 +3758,7 @@ export const GetIdentitySourceOutputFilterSensitiveLog = (obj: GetIdentitySource
   ...obj,
   ...(obj.details && { details: IdentitySourceDetailsFilterSensitiveLog(obj.details) }),
   ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+  ...(obj.configuration && { configuration: ConfigurationDetailFilterSensitiveLog(obj.configuration) }),
 });
 
 /**
@@ -3588,6 +3858,7 @@ export const IdentitySourceItemFilterSensitiveLog = (obj: IdentitySourceItem): a
   ...obj,
   ...(obj.details && { details: IdentitySourceItemDetailsFilterSensitiveLog(obj.details) }),
   ...(obj.principalEntityType && { principalEntityType: SENSITIVE_STRING }),
+  ...(obj.configuration && { configuration: ConfigurationItemFilterSensitiveLog(obj.configuration) }),
 });
 
 /**

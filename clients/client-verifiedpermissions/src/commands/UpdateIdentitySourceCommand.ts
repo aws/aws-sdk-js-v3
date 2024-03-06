@@ -41,7 +41,7 @@ export interface UpdateIdentitySourceCommandOutput extends UpdateIdentitySourceO
  *          <note>
  *             <p>Verified Permissions is <i>
  *                   <a href="https://wikipedia.org/wiki/Eventual_consistency">eventually consistent</a>
- *                </i>. It can take a few seconds for a new or changed element to be propagate through
+ *                </i>. It can take a few seconds for a new or changed element to propagate through
  *     the service and be visible in the results of other Verified Permissions operations.</p>
  *          </note>
  * @example

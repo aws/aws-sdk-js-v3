@@ -1495,6 +1495,14 @@ const de_BatchIsAuthorizedOutputList = (output: any, context: __SerdeContext): B
 
 // de_ClientIds omitted.
 
+// de_CognitoUserPoolConfigurationDetail omitted.
+
+// de_CognitoUserPoolConfigurationItem omitted.
+
+// de_ConfigurationDetail omitted.
+
+// de_ConfigurationItem omitted.
+
 // de_ConflictException omitted.
 
 /**
@@ -1596,6 +1604,7 @@ const de_CreatePolicyTemplateOutput = (output: any, context: __SerdeContext): Cr
  */
 const de_GetIdentitySourceOutput = (output: any, context: __SerdeContext): GetIdentitySourceOutput => {
   return take(output, {
+    configuration: (_: any) => _json(__expectUnion(_)),
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     details: _json,
     identitySourceId: __expectString,
@@ -1669,6 +1678,7 @@ const de_GetSchemaOutput = (output: any, context: __SerdeContext): GetSchemaOutp
  */
 const de_IdentitySourceItem = (output: any, context: __SerdeContext): IdentitySourceItem => {
   return take(output, {
+    configuration: (_: any) => _json(__expectUnion(_)),
     createdDate: (_: any) => __expectNonNull(__parseRfc3339DateTimeWithOffset(_)),
     details: _json,
     identitySourceId: __expectString,

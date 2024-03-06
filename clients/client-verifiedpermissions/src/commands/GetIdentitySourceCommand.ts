@@ -63,6 +63,15 @@ export interface GetIdentitySourceCommandOutput extends GetIdentitySourceOutput,
  * //   lastUpdatedDate: new Date("TIMESTAMP"), // required
  * //   policyStoreId: "STRING_VALUE", // required
  * //   principalEntityType: "STRING_VALUE", // required
+ * //   configuration: { // ConfigurationDetail Union: only one key present
+ * //     cognitoUserPoolConfiguration: { // CognitoUserPoolConfigurationDetail
+ * //       userPoolArn: "STRING_VALUE", // required
+ * //       clientIds: [ // required
+ * //         "STRING_VALUE",
+ * //       ],
+ * //       issuer: "STRING_VALUE", // required
+ * //     },
+ * //   },
  * // };
  *
  * ```
