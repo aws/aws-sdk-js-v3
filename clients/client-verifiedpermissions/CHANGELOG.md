@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.528.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.527.0...v3.528.0) (2024-03-06)
+
+
+### Features
+
+* **client-verifiedpermissions:** Deprecating details in favor of configuration for GetIdentitySource and ListIdentitySources APIs. ([d430c2c](https://github.com/aws/aws-sdk-js-v3/commit/d430c2c9b3d3dbbd3109c44511984966936364f6))
+
+
+
+
+
 # [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
 
 **Note:** Version bump only for package @aws-sdk/client-verifiedpermissions
