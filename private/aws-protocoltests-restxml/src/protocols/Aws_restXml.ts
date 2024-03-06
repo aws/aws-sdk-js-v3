@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { loadRestXmlErrorCode, parseXmlBody as parseBody, parseXmlErrorBody as parseErrorBody } from "@aws-sdk/core";
 import { XmlNode as __XmlNode, XmlText as __XmlText } from "@aws-sdk/xml-builder";
 import { requestBuilder as rb } from "@smithy/core";
 import {
@@ -17,7 +18,6 @@ import {
   expectUnion as __expectUnion,
   extendedEncodeURIComponent as __extendedEncodeURIComponent,
   getArrayIfSingleItem as __getArrayIfSingleItem,
-  getValueFromTextNode as __getValueFromTextNode,
   map,
   parseBoolean as __parseBoolean,
   parseEpochTimestamp as __parseEpochTimestamp,
@@ -38,7 +38,6 @@ import {
   ResponseMetadata as __ResponseMetadata,
   SerdeContext as __SerdeContext,
 } from "@smithy/types";
-import { XMLParser } from "fast-xml-parser";
 import { v4 as generateIdempotencyToken } from "uuid";
 
 import {
@@ -4619,47 +4618,3 @@ const _xt = "x-timestamplist";
 const _xt_ = "x-targetepochseconds";
 const _xt__ = "x-targethttpdate";
 const _xt___ = "x-targetdatetime";
-
-const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then((encoded) => {
-    if (encoded.length) {
-      const parser = new XMLParser({
-        attributeNamePrefix: "",
-        htmlEntities: true,
-        ignoreAttributes: false,
-        ignoreDeclaration: true,
-        parseTagValue: false,
-        trimValues: false,
-        tagValueProcessor: (_: any, val: any) => (val.trim() === "" && val.includes("\n") ? "" : undefined),
-      });
-      parser.addEntity("#xD", "\r");
-      parser.addEntity("#10", "\n");
-      const parsedObj = parser.parse(encoded);
-      const textNodeName = "#text";
-      const key = Object.keys(parsedObj)[0];
-      const parsedObjToReturn = parsedObj[key];
-      if (parsedObjToReturn[textNodeName]) {
-        parsedObjToReturn[key] = parsedObjToReturn[textNodeName];
-        delete parsedObjToReturn[textNodeName];
-      }
-      return __getValueFromTextNode(parsedObjToReturn);
-    }
-    return {};
-  });
-
-const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
-  const value = await parseBody(errorBody, context);
-  if (value.Error) {
-    value.Error.message = value.Error.message ?? value.Error.Message;
-  }
-  return value;
-};
-
-const loadRestXmlErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  if (data.Error?.Code !== undefined) {
-    return data.Error.Code;
-  }
-  if (output.statusCode == 404) {
-    return "NotFound";
-  }
-};

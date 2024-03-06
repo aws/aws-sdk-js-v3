@@ -1,4 +1,5 @@
 // smithy-typescript generated code
+import { loadRestJsonErrorCode, parseJsonBody as parseBody, parseJsonErrorBody as parseErrorBody } from "@aws-sdk/core";
 import { requestBuilder as rb } from "@smithy/core";
 import { HttpRequest as __HttpRequest, HttpResponse as __HttpResponse } from "@smithy/protocol-http";
 import {
@@ -1083,54 +1084,3 @@ const _TK = "TagKeys";
 const _UI = "UserId";
 const _UIs = "UserIds";
 const _tK = "tagKeys";
-
-const parseBody = (streamBody: any, context: __SerdeContext): any =>
-  collectBodyString(streamBody, context).then((encoded) => {
-    if (encoded.length) {
-      return JSON.parse(encoded);
-    }
-    return {};
-  });
-
-const parseErrorBody = async (errorBody: any, context: __SerdeContext) => {
-  const value = await parseBody(errorBody, context);
-  value.message = value.message ?? value.Message;
-  return value;
-};
-
-/**
- * Load an error code for the aws.rest-json-1.1 protocol.
- */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
-  const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
-
-  const sanitizeErrorCode = (rawValue: string | number): string => {
-    let cleanValue = rawValue;
-    if (typeof cleanValue === "number") {
-      cleanValue = cleanValue.toString();
-    }
-    if (cleanValue.indexOf(",") >= 0) {
-      cleanValue = cleanValue.split(",")[0];
-    }
-    if (cleanValue.indexOf(":") >= 0) {
-      cleanValue = cleanValue.split(":")[0];
-    }
-    if (cleanValue.indexOf("#") >= 0) {
-      cleanValue = cleanValue.split("#")[1];
-    }
-    return cleanValue;
-  };
-
-  const headerKey = findKey(output.headers, "x-amzn-errortype");
-  if (headerKey !== undefined) {
-    return sanitizeErrorCode(output.headers[headerKey]);
-  }
-
-  if (data.code !== undefined) {
-    return sanitizeErrorCode(data.code);
-  }
-
-  if (data["__type"] !== undefined) {
-    return sanitizeErrorCode(data["__type"]);
-  }
-};
