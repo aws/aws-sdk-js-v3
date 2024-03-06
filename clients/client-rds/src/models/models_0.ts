@@ -5129,6 +5129,13 @@ export interface CreateDBClusterMessage {
    *          <p>Valid for: Aurora DB clusters only</p>
    */
   EnableLocalWriteForwarding?: boolean;
+
+  /**
+   * @public
+   * <p>The CA certificate identifier to use for the DB cluster's server certificate.</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters</p>
+   */
+  CACertificateIdentifier?: string;
 }
 
 /**
@@ -5171,6 +5178,29 @@ export interface DBClusterRole {
    *             For information about supported feature names, see <a>DBEngineVersion</a>.</p>
    */
   FeatureName?: string;
+}
+
+/**
+ * @public
+ * <p>Returns the details of the DB instance’s server certificate.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+ *             instance</a> in the <i>Amazon RDS User Guide</i> and
+ *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+ *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+ *             User Guide</i>.</p>
+ */
+export interface CertificateDetails {
+  /**
+   * @public
+   * <p>The CA identifier of the CA certificate used for the DB instance's server certificate.</p>
+   */
+  CAIdentifier?: string;
+
+  /**
+   * @public
+   * <p>The expiration date of the DB instance’s server certificate.</p>
+   */
+  ValidTill?: Date;
 }
 
 /**
@@ -5483,6 +5513,17 @@ export interface ClusterPendingModifiedValues {
    * <p>The storage type for the DB cluster.</p>
    */
   StorageType?: string;
+
+  /**
+   * @public
+   * <p>Returns the details of the DB instance’s server certificate.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  CertificateDetails?: CertificateDetails;
 }
 
 /**
@@ -6182,6 +6223,17 @@ export interface DBCluster {
    *          <p>This setting is only for non-Aurora Multi-AZ DB clusters.</p>
    */
   StorageThroughput?: number;
+
+  /**
+   * @public
+   * <p>Returns the details of the DB instance’s server certificate.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i> and
+   *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
+   *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
+   *             User Guide</i>.</p>
+   */
+  CertificateDetails?: CertificateDetails;
 }
 
 /**
@@ -7077,7 +7129,7 @@ export interface CreateDBInstanceMessage {
    *                             16384 for RDS Custom for SQL Server.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Provisioned IOPS storage (io1): Must be an integer from 40 to 65536 for RDS Custom for Oracle,
+   *                      <p>Provisioned IOPS storage (io1, io2): Must be an integer from 40 to 65536 for RDS Custom for Oracle,
    *                            16384 for RDS Custom for SQL Server.</p>
    *                   </li>
    *                </ul>
@@ -7087,10 +7139,10 @@ export interface CreateDBInstanceMessage {
    *                <p>Constraints to the amount of storage for each storage type are the following:</p>
    *                <ul>
    *                   <li>
-   *                      <p>General Purpose (SSD) storage (gp3): Must be an integer from 20 to 64000.</p>
+   *                      <p>General Purpose (SSD) storage (gp3): Must be an integer from 20 to 65536.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 64000.</p>
+   *                      <p>Provisioned IOPS storage (io1, io2): Must be an integer from 100 to 65536.</p>
    *                   </li>
    *                </ul>
    *             </dd>
@@ -7102,7 +7154,7 @@ export interface CreateDBInstanceMessage {
    *                      <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</p>
+   *                      <p>Provisioned IOPS storage (io1, io2): Must be an integer from 100 to 65536.</p>
    *                   </li>
    *                   <li>
    *                      <p>Magnetic storage (standard): Must be an integer from 5 to 3072.</p>
@@ -7117,7 +7169,7 @@ export interface CreateDBInstanceMessage {
    *                      <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</p>
+   *                      <p>Provisioned IOPS storage (io1, io2): Must be an integer from 100 to 65536.</p>
    *                   </li>
    *                   <li>
    *                      <p>Magnetic storage (standard): Must be an integer from 5 to 3072.</p>
@@ -7132,7 +7184,7 @@ export interface CreateDBInstanceMessage {
    *                      <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</p>
+   *                      <p>Provisioned IOPS storage (io1, io2): Must be an integer from 100 to 65536.</p>
    *                   </li>
    *                   <li>
    *                      <p>Magnetic storage (standard): Must be an integer from 10 to 3072.</p>
@@ -7147,7 +7199,7 @@ export interface CreateDBInstanceMessage {
    *                      <p>General Purpose (SSD) storage (gp2, gp3): Must be an integer from 20 to 65536.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Provisioned IOPS storage (io1): Must be an integer from 100 to 65536.</p>
+   *                      <p>Provisioned IOPS storage (io1, io2): Must be an integer from 100 to 65536.</p>
    *                   </li>
    *                   <li>
    *                      <p>Magnetic storage (standard): Must be an integer from 5 to 3072.</p>
@@ -7170,7 +7222,7 @@ export interface CreateDBInstanceMessage {
    *                      </ul>
    *                   </li>
    *                   <li>
-   *                      <p>Provisioned IOPS storage (io1):</p>
+   *                      <p>Provisioned IOPS storage (io1, io2):</p>
    *                      <ul>
    *                         <li>
    *                            <p>Enterprise and Standard editions: Must be an integer from 100 to 16384.</p>
@@ -7785,10 +7837,10 @@ export interface CreateDBInstanceMessage {
   /**
    * @public
    * <p>The storage type to associate with the DB instance.</p>
-   *          <p>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value for the
+   *          <p>If you specify <code>io1</code>, <code>io2</code>, or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
    *          <p>This setting doesn't apply to Amazon Aurora DB instances. Storage is managed by the DB cluster.</p>
-   *          <p>Valid Values: <code>gp2 | gp3 | io1 | standard</code>
+   *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
    *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter
    *           is specified. Otherwise, <code>gp2</code>.</p>
@@ -8343,29 +8395,6 @@ export const AutomationMode = {
  * @public
  */
 export type AutomationMode = (typeof AutomationMode)[keyof typeof AutomationMode];
-
-/**
- * @public
- * <p>Returns the details of the DB instance’s server certificate.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
- *             instance</a> in the <i>Amazon RDS User Guide</i> and
- *             <a href="https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/UsingWithRDS.SSL.html">
- *             Using SSL/TLS to encrypt a connection to a DB cluster</a> in the <i>Amazon Aurora
- *             User Guide</i>.</p>
- */
-export interface CertificateDetails {
-  /**
-   * @public
-   * <p>The CA identifier of the CA certificate used for the DB instance's server certificate.</p>
-   */
-  CAIdentifier?: string;
-
-  /**
-   * @public
-   * <p>The expiration date of the DB instance’s server certificate.</p>
-   */
-  ValidTill?: Date;
-}
 
 /**
  * @public
@@ -9797,9 +9826,9 @@ export interface CreateDBInstanceReadReplicaMessage {
   /**
    * @public
    * <p>The storage type to associate with the read replica.</p>
-   *          <p>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value for the
+   *          <p>If you specify <code>io1</code>, <code>io2</code>, or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
-   *          <p>Valid Values: <code>gp2 | gp3 | io1 | standard</code>
+   *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
    *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter
    *             is specified. Otherwise, <code>gp2</code>.</p>

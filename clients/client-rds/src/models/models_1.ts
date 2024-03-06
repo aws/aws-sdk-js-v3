@@ -6550,7 +6550,7 @@ export interface ValidStorageOptions {
   /**
    * @public
    * <p>The valid storage types for your DB instance.
-   *             For example: gp2, gp3, io1.</p>
+   *             For example: gp2, gp3, io1, io2.</p>
    */
   StorageType?: string;
 
@@ -7934,6 +7934,13 @@ export interface ModifyDBClusterMessage {
    *          <p>Valid for: Aurora DB clusters only</p>
    */
   EnableLimitlessDatabase?: boolean;
+
+  /**
+   * @public
+   * <p>The CA certificate identifier to use for the DB cluster's server certificate.</p>
+   *          <p>Valid for Cluster Type: Multi-AZ DB clusters</p>
+   */
+  CACertificateIdentifier?: string;
 }
 
 /**
@@ -8646,7 +8653,7 @@ export interface ModifyDBInstanceMessage {
   /**
    * @public
    * <p>The storage type to associate with the DB instance.</p>
-   *          <p>If you specify Provisioned IOPS (<code>io1</code>),
+   *          <p>If you specify <code>io1</code>), <code>io2</code>, or <code>gp3</code>
    *           you must also include a value for the <code>Iops</code> parameter.</p>
    *          <p>If you choose to migrate your DB instance from using standard storage to using
    *             Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process
@@ -8659,7 +8666,7 @@ export interface ModifyDBInstanceMessage {
    *             instance are suspended. No other Amazon RDS operations can take place for the instance,
    *             including modifying the instance, rebooting the instance, deleting the instance,
    *             creating a read replica for the instance, and creating a DB snapshot of the instance.</p>
-   *          <p>Valid Values: <code>gp2 | gp3 | io1 | standard</code>
+   *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
    *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter
    *           is specified. Otherwise, <code>gp2</code>.</p>
@@ -12414,9 +12421,9 @@ export interface RestoreDBInstanceFromDBSnapshotMessage {
   /**
    * @public
    * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *          <p>Valid Values: <code>gp2 | gp3 | io1 | standard</code>
+   *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
-   *          <p>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value for the
+   *          <p>If you specify <code>io1</code>, <code>io2</code>, or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
    *          <p>Default: <code>io1</code> if the <code>Iops</code> parameter
    *             is specified, otherwise <code>gp2</code>
@@ -13048,9 +13055,9 @@ export interface RestoreDBInstanceFromS3Message {
   /**
    * @public
    * <p>Specifies the storage type to be associated with the DB instance.</p>
-   *          <p>Valid Values: <code>gp2 | gp3 | io1 | standard</code>
+   *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
-   *          <p>If you specify <code>io1</code> or <code>gp3</code>,
+   *          <p>If you specify <code>io1</code>, <code>io2</code>, or <code>gp3</code>,
    *             you must also include a value for the <code>Iops</code> parameter.</p>
    *          <p>Default: <code>io1</code>
    *             if the <code>Iops</code> parameter is specified;
@@ -13672,14 +13679,14 @@ export interface RestoreDBInstanceToPointInTimeMessage {
   /**
    * @public
    * <p>The storage type to associate with the DB instance.</p>
-   *          <p>Valid Values: <code>gp2 | gp3 | io1 | standard</code>
+   *          <p>Valid Values: <code>gp2 | gp3 | io1 | io2 | standard</code>
    *          </p>
    *          <p>Default: <code>io1</code>, if the <code>Iops</code> parameter
    *             is specified. Otherwise, <code>gp2</code>.</p>
    *          <p>Constraints:</p>
    *          <ul>
    *             <li>
-   *                <p>If you specify <code>io1</code> or <code>gp3</code>, you must also include a value for the
+   *                <p>If you specify <code>io1</code>, <code>io2</code>, or <code>gp3</code>, you must also include a value for the
    *             <code>Iops</code> parameter.</p>
    *             </li>
    *          </ul>

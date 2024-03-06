@@ -127,6 +127,7 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  *   ManageMasterUserPassword: true || false,
  *   MasterUserSecretKmsKeyId: "STRING_VALUE",
  *   EnableLocalWriteForwarding: true || false,
+ *   CACertificateIdentifier: "STRING_VALUE",
  * };
  * const command = new CreateDBClusterCommand(input);
  * const response = await client.send(command);
@@ -278,6 +279,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
+ * //       CertificateDetails: { // CertificateDetails
+ * //         CAIdentifier: "STRING_VALUE",
+ * //         ValidTill: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //     DBClusterInstanceClass: "STRING_VALUE",
  * //     StorageType: "STRING_VALUE",
@@ -308,6 +313,10 @@ export interface CreateDBClusterCommandOutput extends CreateDBClusterResult, __M
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     CertificateDetails: {
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *

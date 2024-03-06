@@ -263,6 +263,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
+ * //       CertificateDetails: { // CertificateDetails
+ * //         CAIdentifier: "STRING_VALUE",
+ * //         ValidTill: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //     DBClusterInstanceClass: "STRING_VALUE",
  * //     StorageType: "STRING_VALUE",
@@ -293,6 +297,10 @@ export interface RestoreDBClusterToPointInTimeCommandOutput
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     CertificateDetails: {
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *

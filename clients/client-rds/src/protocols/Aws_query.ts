@@ -10536,6 +10536,9 @@ const se_CreateDBClusterMessage = (input: CreateDBClusterMessage, context: __Ser
   if (input[_ELWF] != null) {
     entries[_ELWF] = input[_ELWF];
   }
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
+  }
   return entries;
 };
 
@@ -13661,6 +13664,9 @@ const se_ModifyDBClusterMessage = (input: ModifyDBClusterMessage, context: __Ser
   if (input[_ELD] != null) {
     entries[_ELD] = input[_ELD];
   }
+  if (input[_CACI] != null) {
+    entries[_CACI] = input[_CACI];
+  }
   return entries;
 };
 
@@ -16663,6 +16669,9 @@ const de_ClusterPendingModifiedValues = (output: any, context: __SerdeContext): 
   if (output[_ST] != null) {
     contents[_ST] = __expectString(output[_ST]);
   }
+  if (output[_CD] != null) {
+    contents[_CD] = de_CertificateDetails(output[_CD], context);
+  }
   return contents;
 };
 
@@ -17303,6 +17312,9 @@ const de_DBCluster = (output: any, context: __SerdeContext): DBCluster => {
   }
   if (output[_STt] != null) {
     contents[_STt] = __strictParseInt32(output[_STt]) as number;
+  }
+  if (output[_CD] != null) {
+    contents[_CD] = de_CertificateDetails(output[_CD], context);
   }
   return contents;
 };

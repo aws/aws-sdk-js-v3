@@ -196,6 +196,10 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       },
  * //       Iops: Number("int"),
  * //       StorageType: "STRING_VALUE",
+ * //       CertificateDetails: { // CertificateDetails
+ * //         CAIdentifier: "STRING_VALUE",
+ * //         ValidTill: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //     DBClusterInstanceClass: "STRING_VALUE",
  * //     StorageType: "STRING_VALUE",
@@ -226,6 +230,10 @@ export interface StopDBClusterCommandOutput extends StopDBClusterResult, __Metad
  * //       MinRequiredACU: Number("double"),
  * //     },
  * //     StorageThroughput: Number("int"),
+ * //     CertificateDetails: {
+ * //       CAIdentifier: "STRING_VALUE",
+ * //       ValidTill: new Date("TIMESTAMP"),
+ * //     },
  * //   },
  * // };
  *

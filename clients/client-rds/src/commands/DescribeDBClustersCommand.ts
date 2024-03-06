@@ -208,6 +208,10 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         },
  * //         Iops: Number("int"),
  * //         StorageType: "STRING_VALUE",
+ * //         CertificateDetails: { // CertificateDetails
+ * //           CAIdentifier: "STRING_VALUE",
+ * //           ValidTill: new Date("TIMESTAMP"),
+ * //         },
  * //       },
  * //       DBClusterInstanceClass: "STRING_VALUE",
  * //       StorageType: "STRING_VALUE",
@@ -238,6 +242,10 @@ export interface DescribeDBClustersCommandOutput extends DBClusterMessage, __Met
  * //         MinRequiredACU: Number("double"),
  * //       },
  * //       StorageThroughput: Number("int"),
+ * //       CertificateDetails: {
+ * //         CAIdentifier: "STRING_VALUE",
+ * //         ValidTill: new Date("TIMESTAMP"),
+ * //       },
  * //     },
  * //   ],
  * // };
