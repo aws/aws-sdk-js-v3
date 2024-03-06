@@ -2920,7 +2920,8 @@ export interface LifecyclePolicyDetailExclusionRulesAmis {
 export interface LifecyclePolicyDetailExclusionRules {
   /**
    * @public
-   * <p>Contains a list of tags that Image Builder uses to skip lifecycle actions for resources that have them.</p>
+   * <p>Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image
+   * 			resources that have them.</p>
    */
   tagMap?: Record<string, string>;
 
@@ -3043,8 +3044,8 @@ export interface LifecyclePolicyResourceSelection {
 
   /**
    * @public
-   * <p>A list of tags that are used as selection criteria for the resources
-   * 			that the lifecycle policy applies to.</p>
+   * <p>A list of tags that are used as selection criteria for the Image Builder image
+   * 			resources that the lifecycle policy applies to.</p>
    */
   tagMap?: Record<string, string>;
 }
@@ -4774,6 +4775,7 @@ export const LifecycleExecutionStatus = {
   CANCELLING: "CANCELLING",
   FAILED: "FAILED",
   IN_PROGRESS: "IN_PROGRESS",
+  PENDING: "PENDING",
   SUCCESS: "SUCCESS",
 } as const;
 
@@ -7540,6 +7542,18 @@ export interface LifecycleExecutionResource {
    * 			container images distributed to ECR repositories.</p>
    */
   imageUris?: string[];
+
+  /**
+   * @public
+   * <p>The starting timestamp from the lifecycle action that was applied to the resource.</p>
+   */
+  startTime?: Date;
+
+  /**
+   * @public
+   * <p>The ending timestamp from the lifecycle action that was applied to the resource.</p>
+   */
+  endTime?: Date;
 }
 
 /**

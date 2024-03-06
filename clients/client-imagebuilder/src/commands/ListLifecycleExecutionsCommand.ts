@@ -51,7 +51,7 @@ export interface ListLifecycleExecutionsCommandOutput extends ListLifecycleExecu
  * //         hasImpactedResources: true || false,
  * //       },
  * //       state: { // LifecycleExecutionState
- * //         status: "IN_PROGRESS" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS",
+ * //         status: "IN_PROGRESS" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS" || "PENDING",
  * //         reason: "STRING_VALUE",
  * //       },
  * //       startTime: new Date("TIMESTAMP"),

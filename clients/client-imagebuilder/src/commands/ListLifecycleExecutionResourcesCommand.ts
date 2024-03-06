@@ -51,7 +51,7 @@ export interface ListLifecycleExecutionResourcesCommandOutput
  * // { // ListLifecycleExecutionResourcesResponse
  * //   lifecycleExecutionId: "STRING_VALUE",
  * //   lifecycleExecutionState: { // LifecycleExecutionState
- * //     status: "IN_PROGRESS" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS",
+ * //     status: "IN_PROGRESS" || "CANCELLED" || "CANCELLING" || "FAILED" || "SUCCESS" || "PENDING",
  * //     reason: "STRING_VALUE",
  * //   },
  * //   resources: [ // LifecycleExecutionResourceList
@@ -79,6 +79,8 @@ export interface ListLifecycleExecutionResourcesCommandOutput
  * //       imageUris: [ // StringList
  * //         "STRING_VALUE",
  * //       ],
+ * //       startTime: new Date("TIMESTAMP"),
+ * //       endTime: new Date("TIMESTAMP"),
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

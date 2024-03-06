@@ -270,6 +270,7 @@ import {
   LaunchPermissionConfiguration,
   LaunchTemplateConfiguration,
   LifecycleExecution,
+  LifecycleExecutionResource,
   LifecyclePolicy,
   LifecyclePolicyDetail,
   LifecyclePolicyDetailAction,
@@ -3202,7 +3203,7 @@ export const de_ListLifecycleExecutionResourcesCommand = async (
     lifecycleExecutionId: __expectString,
     lifecycleExecutionState: _json,
     nextToken: __expectString,
-    resources: _json,
+    resources: (_) => de_LifecycleExecutionResourceList(_, context),
   });
   Object.assign(contents, doc);
   return contents;
@@ -4504,11 +4505,36 @@ const de_LifecycleExecution = (output: any, context: __SerdeContext): LifecycleE
   }) as any;
 };
 
-// de_LifecycleExecutionResource omitted.
+/**
+ * deserializeAws_restJson1LifecycleExecutionResource
+ */
+const de_LifecycleExecutionResource = (output: any, context: __SerdeContext): LifecycleExecutionResource => {
+  return take(output, {
+    accountId: __expectString,
+    action: _json,
+    endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    imageUris: _json,
+    region: __expectString,
+    resourceId: __expectString,
+    snapshots: _json,
+    startTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    state: _json,
+  }) as any;
+};
 
 // de_LifecycleExecutionResourceAction omitted.
 
-// de_LifecycleExecutionResourceList omitted.
+/**
+ * deserializeAws_restJson1LifecycleExecutionResourceList
+ */
+const de_LifecycleExecutionResourceList = (output: any, context: __SerdeContext): LifecycleExecutionResource[] => {
+  const retVal = (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_LifecycleExecutionResource(entry, context);
+    });
+  return retVal;
+};
 
 // de_LifecycleExecutionResourcesImpactedSummary omitted.
 
