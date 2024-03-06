@@ -5,7 +5,16 @@ import { collectBodyString } from "../common";
 export const parseJsonBody = (streamBody: any, context: SerdeContext): any =>
   collectBodyString(streamBody, context).then((encoded) => {
     if (encoded.length) {
-      return JSON.parse(encoded);
+      try {
+        return JSON.parse(encoded);
+      } catch (e: any) {
+        if (e?.name === "SyntaxError") {
+          Object.defineProperty(e, "$responseBodyText", {
+            value: encoded,
+          });
+        }
+        throw e;
+      }
     }
     return {};
   });

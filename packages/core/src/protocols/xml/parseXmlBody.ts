@@ -18,7 +18,19 @@ export const parseXmlBody = (streamBody: any, context: SerdeContext): any =>
       });
       parser.addEntity("#xD", "\r");
       parser.addEntity("#10", "\n");
-      const parsedObj = parser.parse(encoded);
+
+      let parsedObj;
+      try {
+        parsedObj = parser.parse(encoded);
+      } catch (e: any) {
+        if (e && typeof e === "object") {
+          Object.defineProperty(e, "$responseBodyText", {
+            value: encoded,
+          });
+        }
+        throw e;
+      }
+
       const textNodeName = "#text";
       const key = Object.keys(parsedObj)[0];
       const parsedObjToReturn = parsedObj[key];
