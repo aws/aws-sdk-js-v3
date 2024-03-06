@@ -1,9 +1,9 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { HttpHandlerOptions } from "@aws-sdk/types";
-import { Endpoint } from "./Endpoint";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { sdkStreamMixin } from "@smithy/util-stream";
 
+import { Endpoint } from "./Endpoint";
 import { MetadataServiceOptions } from "./MetadataServiceOptions";
 
 /**
@@ -24,6 +24,7 @@ export class MetadataService {
    * Creates a new MetadataService object with a given set of options.
    */
   constructor(options?: MetadataServiceOptions) {
+    options = options || {};
     this.endpoint = options.endpoint ? options.endpoint : Endpoint.IPv4;
     this.httpOptions = {
       timeout: options?.httpOptions?.timeout || 0,
