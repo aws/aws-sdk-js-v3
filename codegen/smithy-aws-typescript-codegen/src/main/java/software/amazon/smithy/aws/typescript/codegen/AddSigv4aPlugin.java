@@ -24,6 +24,12 @@ import software.amazon.smithy.utils.SmithyInternalApi;
  */
 @SmithyInternalApi
 public final class AddSigv4aPlugin implements TypeScriptIntegration {
+
+    @Override
+    public boolean matchesSettings(TypeScriptSettings settings) {
+        return !settings.getExperimentalIdentityAndAuth();
+    }
+
     public Map<String, Consumer<TypeScriptWriter>> getRuntimeConfigWriters(
         TypeScriptSettings settings,
         Model model,
