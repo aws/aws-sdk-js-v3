@@ -85,7 +85,7 @@ export type ScalarAttributeType = (typeof ScalarAttributeType)[keyof typeof Scal
 
 /**
  * @public
- * <p>Represents an attribute for describing the key schema for the table and
+ * <p>Represents an attribute for describing the schema for the table and
  *             indexes.</p>
  */
 export interface AttributeDefinition {
@@ -640,6 +640,7 @@ export interface Projection {
    *                     index.</p>
    *             </li>
    *          </ul>
+   *          <p>When using the DynamoDB console, <code>ALL</code> is selected by default.</p>
    */
   ProjectionType?: ProjectionType;
 
@@ -5153,6 +5154,9 @@ export interface ExportTableToPointInTimeInput {
    * @public
    * <p>The ID of the Amazon Web Services account that owns the bucket the export will be
    *             stored in.</p>
+   *          <note>
+   *             <p>S3BucketOwner is a required parameter when exporting to a S3 bucket in another account.</p>
+   *          </note>
    */
   S3BucketOwner?: string;
 
@@ -10787,7 +10791,7 @@ export interface QueryInput {
    *             <p>A <code>FilterExpression</code> is applied after the items have already been read;
    *                 the process of filtering does not consume any additional read capacity units.</p>
    *          </note>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#Query.FilterExpression">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Query.FilterExpression.html">Filter Expressions</a> in the <i>Amazon DynamoDB Developer
    *                 Guide</i>.</p>
    */
   FilterExpression?: string;

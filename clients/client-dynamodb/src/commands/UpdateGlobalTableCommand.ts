@@ -48,7 +48,7 @@ export interface UpdateGlobalTableCommandOutput extends UpdateGlobalTableOutput,
  *             <p>
  *                 This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version
  *                     2017.11.29</a> of global tables. If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version
- *                         2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a> instead.
+ *                         2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html">UpdateTable</a> instead.
  *             </p>
  *             <p>
  *                 Although you can use <code>UpdateGlobalTable</code> to add replicas and remove
