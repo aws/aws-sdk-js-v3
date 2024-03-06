@@ -131,7 +131,7 @@ export interface DescribeCustomDomainAssociationsMessage {
 export interface DescribeDataSharesMessage {
   /**
    * @public
-   * <p>The identifier of the datashare to describe details of.</p>
+   * <p>The Amazon resource name (ARN) of the datashare to describe details of.</p>
    */
   DataShareArn?: string;
 
@@ -174,7 +174,7 @@ export interface DescribeDataSharesResult {
 export interface DescribeDataSharesForConsumerMessage {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the consumer that returns in the list of datashares.</p>
+   * <p>The Amazon Resource Name (ARN) of the consumer namespace that returns in the list of datashares.</p>
    */
   ConsumerArn?: string;
 
@@ -234,7 +234,7 @@ export interface DescribeDataSharesForConsumerResult {
 export interface DescribeDataSharesForProducerMessage {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the producer that returns in the list of datashares.</p>
+   * <p>The Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.</p>
    */
   ProducerArn?: string;
 
@@ -2759,7 +2759,7 @@ export class SnapshotCopyAlreadyDisabledFault extends __BaseException {
 export interface DisassociateDataShareConsumerMessage {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the datashare to remove association for. </p>
+   * <p>The Amazon Resource Name (ARN) of the datashare to remove association for.</p>
    */
   DataShareArn: string | undefined;
 
@@ -2772,7 +2772,7 @@ export interface DisassociateDataShareConsumerMessage {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the consumer that association for
+   * <p>The Amazon Resource Name (ARN) of the consumer namespace that association for
    *             the datashare is removed from.</p>
    */
   ConsumerArn?: string;
@@ -4098,6 +4098,17 @@ export interface ModifyClusterMessage {
   /**
    * @public
    * <p>The option to change the port of an Amazon Redshift cluster.</p>
+   *          <p>Valid Values:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>For clusters with ra3 nodes - Select a port within the ranges <code>5431-5455</code> or <code>8191-8215</code>. (If you have an existing cluster
+   *                 with ra3 nodes, it isn't required that you change the port to these ranges.)</p>
+   *             </li>
+   *             <li>
+   *                <p>For clusters with ds2 or dc2 nodes - Select a port within the range <code>1150-65535</code>.</p>
+   *             </li>
+   *          </ul>
    */
   Port?: number;
 
@@ -5074,7 +5085,8 @@ export interface RestoreFromClusterSnapshotMessage {
    * @public
    * <p>The port number on which the cluster accepts connections.</p>
    *          <p>Default: The same port as the original cluster.</p>
-   *          <p>Constraints: Must be between <code>1115</code> and <code>65535</code>.</p>
+   *          <p>Valid values: For clusters with ds2 or dc2 nodes, must be within the range <code>1150</code>-<code>65535</code>. For clusters with ra3 nodes, must be
+   *             within the ranges <code>5431</code>-<code>5455</code> or <code>8191</code>-<code>8215</code>.</p>
    */
   Port?: number;
 

@@ -594,7 +594,7 @@ export interface AquaConfiguration {
 export interface AssociateDataShareConsumerMessage {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.</p>
+   * <p>The Amazon Resource Name (ARN) of the datashare that the consumer is to use.</p>
    */
   DataShareArn: string | undefined;
 
@@ -606,7 +606,7 @@ export interface AssociateDataShareConsumerMessage {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the consumer that is associated with the
+   * <p>The Amazon Resource Name (ARN) of the consumer namespace associated with the
    *             datashare.</p>
    */
   ConsumerArn?: string;
@@ -698,13 +698,13 @@ export interface DataShareAssociation {
 export interface DataShare {
   /**
    * @public
-   * <p>An Amazon Resource Name (ARN) that references the datashare that is owned by a specific namespace of the producer cluster. A datashare ARN is in the <code>arn:aws:redshift:\{region\}:\{account-id\}:\{datashare\}:\{namespace-guid\}/\{datashare-name\}</code> format.</p>
+   * <p>The Amazon Resource Name (ARN) of the datashare that the consumer is to use.</p>
    */
   DataShareArn?: string;
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the producer.</p>
+   * <p>The Amazon Resource Name (ARN) of the producer namespace.</p>
    */
   ProducerArn?: string;
 
@@ -1204,7 +1204,7 @@ export class InvalidClusterSecurityGroupStateFault extends __BaseException {
 export interface AuthorizeDataShareMessage {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the datashare that producers are to authorize
+   * <p>The Amazon Resource Name (ARN) of the datashare namespace that producers are to authorize
    *             sharing for.</p>
    */
   DataShareArn: string | undefined;
@@ -1424,9 +1424,19 @@ export interface AuthorizeSnapshotAccessMessage {
 
   /**
    * @public
-   * <p>The identifier of the cluster the snapshot was created from. This parameter is
-   *             required if your IAM user has a policy containing a snapshot resource element that
-   *             specifies anything other than * for the cluster name.</p>
+   * <p>The identifier of the cluster the snapshot was created from.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <i>If the snapshot to access doesn't exist and the associated IAM policy doesn't allow access to all (*) snapshots</i> -  This parameter is required. Otherwise, permissions
+   *                 aren't available to check if the snapshot exists.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <i>If the snapshot to access exists</i> - This parameter isn't required. Redshift can retrieve the cluster identifier and use it to
+   *                 validate snapshot authorization.</p>
+   *             </li>
+   *          </ul>
    */
   SnapshotClusterIdentifier?: string;
 
@@ -4640,8 +4650,17 @@ export interface CreateClusterMessage {
    *             connections.</p>
    *          <p>Default: <code>5439</code>
    *          </p>
-   *          <p>Valid Values: <code>1150-65535</code>
-   *          </p>
+   *          <p>Valid Values:
+   *         </p>
+   *          <ul>
+   *             <li>
+   *                <p>For clusters with ra3 nodes - Select a port within the ranges <code>5431-5455</code> or <code>8191-8215</code>. (If you have an existing cluster
+   *                 with ra3 nodes, it isn't required that you change the port to these ranges.)</p>
+   *             </li>
+   *             <li>
+   *                <p>For clusters with ds2 or dc2 nodes - Select a port within the range <code>1150-65535</code>.</p>
+   *             </li>
+   *          </ul>
    */
   Port?: number;
 
@@ -7565,7 +7584,7 @@ export type DataShareStatusForProducer = (typeof DataShareStatusForProducer)[key
 export interface DeauthorizeDataShareMessage {
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the datashare to remove authorization from.</p>
+   * <p>The namespace Amazon Resource Name (ARN) of the datashare to remove authorization from.</p>
    */
   DataShareArn: string | undefined;
 
