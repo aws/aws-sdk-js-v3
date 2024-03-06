@@ -1,7 +1,31 @@
-/**
- * Load an error code for the aws.rest-json-1.1 protocol.
- */
-const loadRestJsonErrorCode = (output: __HttpResponse, data: any): string | undefined => {
+import type { HttpResponse, SerdeContext } from "@smithy/types";
+
+import { collectBodyString } from "../common";
+
+export const parseJsonBody = (streamBody: any, context: SerdeContext): any =>
+  collectBodyString(streamBody, context).then((encoded) => {
+    if (encoded.length) {
+      try {
+        return JSON.parse(encoded);
+      } catch (e: any) {
+        if (e?.name === "SyntaxError") {
+          Object.defineProperty(e, "$responseBodyText", {
+            value: encoded,
+          });
+        }
+        throw e;
+      }
+    }
+    return {};
+  });
+
+export const parseJsonErrorBody = async (errorBody: any, context: SerdeContext) => {
+  const value = await parseJsonBody(errorBody, context);
+  value.message = value.message ?? value.Message;
+  return value;
+};
+
+export const loadRestJsonErrorCode = (output: HttpResponse, data: any): string | undefined => {
   const findKey = (object: any, key: string) => Object.keys(object).find((k) => k.toLowerCase() === key.toLowerCase());
 
   const sanitizeErrorCode = (rawValue: string | number): string => {

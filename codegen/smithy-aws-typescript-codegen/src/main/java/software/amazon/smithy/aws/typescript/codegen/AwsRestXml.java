@@ -23,7 +23,6 @@ import java.util.Set;
 import software.amazon.smithy.aws.traits.ServiceTrait;
 import software.amazon.smithy.aws.traits.protocols.RestXmlTrait;
 import software.amazon.smithy.codegen.core.SymbolProvider;
-import software.amazon.smithy.codegen.core.SymbolReference;
 import software.amazon.smithy.model.knowledge.HttpBinding;
 import software.amazon.smithy.model.knowledge.HttpBinding.Location;
 import software.amazon.smithy.model.shapes.MemberShape;
@@ -110,24 +109,8 @@ final class AwsRestXml extends HttpBindingProtocolGenerator {
         TypeScriptWriter writer = context.getWriter();
         writer.addDependency(AwsDependency.XML_BUILDER);
 
-        // Generate a function that handles the complex rules around deserializing
-        // an error code from a rest-xml error.
-        SymbolReference responseType = getApplicationProtocol().getResponseType();
-        writer.openBlock("const loadRestXmlErrorCode = (\n"
-                       + "  output: $T,\n"
-                       + "  data: any\n"
-                       + "): string | undefined => {", "};", responseType, () -> {
-            // Attempt to fetch the error code from the specific location.
-            String errorCodeCheckLocation = getErrorBodyLocation(context, "data") + "?.Code";
-            String errorCodeAccessLocation = getErrorBodyLocation(context, "data") + ".Code";
-            writer.openBlock("if ($L !== undefined) {", "}", errorCodeCheckLocation, () -> {
-                writer.write("return $L;", errorCodeAccessLocation);
-            });
+        writer.addImport("loadRestXmlErrorCode", null, AwsDependency.AWS_SDK_CORE);
 
-            // Default a 404 status code to the NotFound code.
-            writer.openBlock("if (output.statusCode == 404) {", "}", () -> writer.write("return 'NotFound';"));
-        });
-        writer.write("");
         writer.write(
             context.getStringStore().flushVariableDeclarationCode()
         );
