@@ -351,7 +351,7 @@ export type FunctionUrlAuthType = (typeof FunctionUrlAuthType)[keyof typeof Func
 export interface AddPermissionRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -577,7 +577,7 @@ export type Architecture = (typeof Architecture)[keyof typeof Architecture];
 export interface CreateAliasRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -1061,7 +1061,7 @@ export interface CreateEventSourceMappingRequest {
 
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -1854,7 +1854,7 @@ export interface VpcConfig {
 export interface CreateFunctionRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -2679,7 +2679,7 @@ export type InvokeMode = (typeof InvokeMode)[keyof typeof InvokeMode];
 export interface CreateFunctionUrlConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -2804,7 +2804,7 @@ export interface CreateFunctionUrlConfigResponse {
 export interface DeleteAliasRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -2892,7 +2892,7 @@ export class ResourceInUseException extends __BaseException {
 export interface DeleteFunctionRequest {
   /**
    * @public
-   * <p>The name of the Lambda function or version.</p>
+   * <p>The name or ARN of the Lambda function or version.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -2928,7 +2928,7 @@ export interface DeleteFunctionRequest {
 export interface DeleteFunctionCodeSigningConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -2958,7 +2958,7 @@ export interface DeleteFunctionCodeSigningConfigRequest {
 export interface DeleteFunctionConcurrencyRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -2988,7 +2988,7 @@ export interface DeleteFunctionConcurrencyRequest {
 export interface DeleteFunctionEventInvokeConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3024,7 +3024,7 @@ export interface DeleteFunctionEventInvokeConfigRequest {
 export interface DeleteFunctionUrlConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3077,7 +3077,7 @@ export interface DeleteLayerVersionRequest {
 export interface DeleteProvisionedConcurrencyConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3135,7 +3135,7 @@ export interface GetAccountSettingsResponse {
 export interface GetAliasRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3204,7 +3204,7 @@ export interface GetEventSourceMappingRequest {
 export interface GetFunctionRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3312,7 +3312,7 @@ export interface GetFunctionResponse {
 export interface GetFunctionCodeSigningConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3348,7 +3348,7 @@ export interface GetFunctionCodeSigningConfigResponse {
 
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3378,7 +3378,7 @@ export interface GetFunctionCodeSigningConfigResponse {
 export interface GetFunctionConcurrencyRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3419,7 +3419,7 @@ export interface GetFunctionConcurrencyResponse {
 export interface GetFunctionConfigurationRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3511,7 +3511,7 @@ export interface FunctionEventInvokeConfig {
 export interface GetFunctionEventInvokeConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3547,7 +3547,7 @@ export interface GetFunctionEventInvokeConfigRequest {
 export interface GetFunctionUrlConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3805,7 +3805,7 @@ export interface GetLayerVersionPolicyResponse {
 export interface GetPolicyRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3858,7 +3858,7 @@ export interface GetPolicyResponse {
 export interface GetProvisionedConcurrencyConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -3973,7 +3973,7 @@ export class ProvisionedConcurrencyConfigNotFoundException extends __BaseExcepti
 export interface GetRuntimeManagementConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -4401,7 +4401,7 @@ export type LogType = (typeof LogType)[keyof typeof LogType];
 export interface InvocationRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -4825,7 +4825,7 @@ export class UnsupportedMediaTypeException extends __BaseException {
 export interface InvokeAsyncRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -4890,7 +4890,7 @@ export type ResponseStreamingInvocationType =
 export interface InvokeWithResponseStreamRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -5090,7 +5090,7 @@ export interface InvokeWithResponseStreamResponse {
 export interface ListAliasesRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -5221,7 +5221,7 @@ export interface ListEventSourceMappingsRequest {
 
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -5285,7 +5285,7 @@ export interface ListEventSourceMappingsResponse {
 export interface ListFunctionEventInvokeConfigsRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -5448,7 +5448,7 @@ export interface ListFunctionsByCodeSigningConfigResponse {
 export interface ListFunctionUrlConfigsRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -5751,7 +5751,7 @@ export interface ListLayerVersionsResponse {
 export interface ListProvisionedConcurrencyConfigsRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -5881,7 +5881,7 @@ export interface ListTagsResponse {
 export interface ListVersionsByFunctionRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6092,7 +6092,7 @@ export interface PublishLayerVersionResponse {
 export interface PublishVersionRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6149,7 +6149,7 @@ export interface PutFunctionCodeSigningConfigRequest {
 
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6185,7 +6185,7 @@ export interface PutFunctionCodeSigningConfigResponse {
 
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6215,7 +6215,7 @@ export interface PutFunctionCodeSigningConfigResponse {
 export interface PutFunctionConcurrencyRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6251,7 +6251,7 @@ export interface PutFunctionConcurrencyRequest {
 export interface PutFunctionEventInvokeConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6326,7 +6326,7 @@ export interface PutFunctionEventInvokeConfigRequest {
 export interface PutProvisionedConcurrencyConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6409,7 +6409,7 @@ export interface PutProvisionedConcurrencyConfigResponse {
 export interface PutRuntimeManagementConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6534,7 +6534,7 @@ export interface RemoveLayerVersionPermissionRequest {
 export interface RemovePermissionRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6617,7 +6617,7 @@ export interface UntagResourceRequest {
 export interface UpdateAliasRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6725,7 +6725,7 @@ export interface UpdateEventSourceMappingRequest {
 
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6881,7 +6881,7 @@ export interface UpdateEventSourceMappingRequest {
 export interface UpdateFunctionCodeRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -6972,7 +6972,7 @@ export interface UpdateFunctionCodeRequest {
 export interface UpdateFunctionConfigurationRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -7130,7 +7130,7 @@ export interface UpdateFunctionConfigurationRequest {
 export interface UpdateFunctionEventInvokeConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function, version, or alias.</p>
+   * <p>The name or ARN of the Lambda function, version, or alias.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
@@ -7205,7 +7205,7 @@ export interface UpdateFunctionEventInvokeConfigRequest {
 export interface UpdateFunctionUrlConfigRequest {
   /**
    * @public
-   * <p>The name of the Lambda function.</p>
+   * <p>The name or ARN of the Lambda function.</p>
    *          <p class="title">
    *             <b>Name formats</b>
    *          </p>
