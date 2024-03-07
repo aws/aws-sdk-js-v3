@@ -69,6 +69,8 @@ export interface ListWorkspacesCommandOutput extends ListWorkspacesResponse, __M
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       licenseType: "STRING_VALUE",
+ * //       grafanaToken: "STRING_VALUE",
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

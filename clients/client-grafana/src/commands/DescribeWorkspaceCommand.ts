@@ -97,6 +97,7 @@ export interface DescribeWorkspaceCommandOutput extends DescribeWorkspaceRespons
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     grafanaToken: "STRING_VALUE",
  * //   },
  * // };
  *

@@ -102,7 +102,9 @@ export const se_AssociateLicenseCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {};
+  const headers: any = map({}, isSerializableHeaderValue, {
+    [_gt]: input[_gT]!,
+  });
   b.bp("/workspaces/{workspaceId}/licenses/{licenseType}");
   b.p("workspaceId", () => input.workspaceId!, "{workspaceId}", false);
   b.p("licenseType", () => input.licenseType!, "{licenseType}", false);
@@ -1202,6 +1204,7 @@ const de_WorkspaceDescription = (output: any, context: __SerdeContext): Workspac
     endpoint: __expectString,
     freeTrialConsumed: __expectBoolean,
     freeTrialExpiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    grafanaToken: __expectString,
     grafanaVersion: __expectString,
     id: __expectString,
     licenseExpiration: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1242,8 +1245,10 @@ const de_WorkspaceSummary = (output: any, context: __SerdeContext): WorkspaceSum
     created: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     endpoint: __expectString,
+    grafanaToken: __expectString,
     grafanaVersion: __expectString,
     id: __expectString,
+    licenseType: __expectString,
     modified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
     notificationDestinations: _json,
@@ -1272,6 +1277,8 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _gI = "groupId";
+const _gT = "grafanaToken";
+const _gt = "grafana-token";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _rAS = "retryAfterSeconds";

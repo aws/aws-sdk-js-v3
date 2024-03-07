@@ -97,6 +97,7 @@ export interface DeleteWorkspaceCommandOutput extends DeleteWorkspaceResponse, _
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     grafanaToken: "STRING_VALUE",
  * //   },
  * // };
  *

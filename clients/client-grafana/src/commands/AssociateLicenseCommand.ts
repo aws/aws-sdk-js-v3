@@ -44,6 +44,7 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  * const input = { // AssociateLicenseRequest
  *   workspaceId: "STRING_VALUE", // required
  *   licenseType: "STRING_VALUE", // required
+ *   grafanaToken: "STRING_VALUE",
  * };
  * const command = new AssociateLicenseCommand(input);
  * const response = await client.send(command);
@@ -100,6 +101,7 @@ export interface AssociateLicenseCommandOutput extends AssociateLicenseResponse,
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     grafanaToken: "STRING_VALUE",
  * //   },
  * // };
  *

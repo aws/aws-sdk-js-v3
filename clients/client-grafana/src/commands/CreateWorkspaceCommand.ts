@@ -142,6 +142,7 @@ export interface CreateWorkspaceCommandOutput extends CreateWorkspaceResponse, _
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     grafanaToken: "STRING_VALUE",
  * //   },
  * // };
  *

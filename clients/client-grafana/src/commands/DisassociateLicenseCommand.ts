@@ -98,6 +98,7 @@ export interface DisassociateLicenseCommandOutput extends DisassociateLicenseRes
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     grafanaToken: "STRING_VALUE",
  * //   },
  * // };
  *

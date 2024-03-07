@@ -473,8 +473,18 @@ export interface AssociateLicenseRequest {
   /**
    * @public
    * <p>The type of license to associate with the workspace.</p>
+   *          <note>
+   *             <p>Amazon Managed Grafana workspaces no longer support Grafana Enterprise free trials.</p>
+   *          </note>
    */
   licenseType: LicenseType | undefined;
+
+  /**
+   * @public
+   * <p>A token from Grafana Labs that ties your Amazon Web Services account with a Grafana
+   *             Labs account. For more information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Register with Grafana Labs</a>.</p>
+   */
+  grafanaToken?: string;
 }
 
 /**
@@ -906,8 +916,10 @@ export interface WorkspaceDescription {
 
   /**
    * @public
-   * <p>Specifies whether this workspace has a full Grafana Enterprise license or a free trial
-   *             license.</p>
+   * <p>Specifies whether this workspace has a full Grafana Enterprise license.</p>
+   *          <note>
+   *             <p>Amazon Managed Grafana workspaces no longer support Grafana Enterprise free trials.</p>
+   *          </note>
    */
   licenseType?: LicenseType;
 
@@ -915,13 +927,19 @@ export interface WorkspaceDescription {
    * @public
    * <p>Specifies whether this workspace has already fully used its free trial for Grafana
    *             Enterprise.</p>
+   *          <note>
+   *             <p>Amazon Managed Grafana workspaces no longer support Grafana Enterprise free trials.</p>
+   *          </note>
    */
   freeTrialConsumed?: boolean;
 
   /**
    * @public
-   * <p>If this workspace has a full Grafana Enterprise license, this specifies when the
-   *             license ends and will need to be renewed.</p>
+   * <p>If this workspace has a full Grafana Enterprise license purchased through
+   *             Amazon Web Services Marketplace, this specifies when the
+   *             license ends and will need to be renewed. Purchasing the Enterprise plugins option
+   *             through Amazon Managed Grafana does not have an expiration. It is valid until the
+   *             license is removed.</p>
    */
   licenseExpiration?: Date;
 
@@ -929,6 +947,9 @@ export interface WorkspaceDescription {
    * @public
    * <p>If this workspace is currently in the free trial period for Grafana Enterprise, this
    *             value specifies when that free trial ends.</p>
+   *          <note>
+   *             <p>Amazon Managed Grafana workspaces no longer support Grafana Enterprise free trials.</p>
+   *          </note>
    */
   freeTrialExpiration?: Date;
 
@@ -956,6 +977,13 @@ export interface WorkspaceDescription {
    * <p>The configuration settings for network access to your workspace.</p>
    */
   networkAccessControl?: NetworkAccessConfiguration;
+
+  /**
+   * @public
+   * <p>The token that ties this workspace to a Grafana Labs account. For more information,
+   *             see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Register with Grafana Labs</a>.</p>
+   */
+  grafanaToken?: string;
 }
 
 /**
@@ -1184,7 +1212,7 @@ export interface UpdateWorkspaceAuthenticationRequest {
 
   /**
    * @public
-   * <p>Specifies whether this workspace uses SAML 2.0, IAM Identity Center (successor to Single Sign-On), or both to
+   * <p>Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to
    *             authenticate users for using the Grafana console within a workspace. For more
    *             information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User authentication in
    *                     Amazon Managed Grafana</a>.</p>
@@ -1262,11 +1290,12 @@ export interface UpdateWorkspaceConfigurationRequest {
 
   /**
    * @public
-   * <p>Specifies the version of Grafana to support in the new workspace.</p>
+   * <p>Specifies the version of Grafana to support in the workspace. If not specified,
+   *             keeps the current version of the workspace.</p>
    *          <p>Can only be used to upgrade (for example, from 8.4 to 9.4), not
    *             downgrade (for example, from 9.4 to 8.4).</p>
    *          <p>To know what versions are available to upgrade to for a specific workspace, see
-   *             the <code>ListVersions</code> operation.</p>
+   *             the <a href="https://docs.aws.amazon.com/grafana/latest/APIReference/API_ListVersions.html">ListVersions</a> operation.</p>
    */
   grafanaVersion?: string;
 }
@@ -1763,7 +1792,7 @@ export interface CreateWorkspaceRequest {
 
   /**
    * @public
-   * <p>Specifies whether this workspace uses SAML 2.0, IAM Identity Center (successor to Single Sign-On), or both to
+   * <p>Specifies whether this workspace uses SAML 2.0, IAM Identity Center, or both to
    *             authenticate users for using the Grafana console within a workspace. For more
    *             information, see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/authentication-in-AMG.html">User authentication in
    *                     Amazon Managed Grafana</a>.</p>
@@ -1809,8 +1838,9 @@ export interface CreateWorkspaceRequest {
 
   /**
    * @public
-   * <p>Specifies the version of Grafana to support in the new workspace.</p>
-   *          <p>To get a list of supported version, use the <code>ListVersions</code>
+   * <p>Specifies the version of Grafana to support in the new workspace. If not specified,
+   *             defaults to the latest version (for example, 9.4).</p>
+   *          <p>To get a list of supported versions, use the <code>ListVersions</code>
    *             operation.</p>
    */
   grafanaVersion?: string;
@@ -1962,6 +1992,22 @@ export interface WorkspaceSummary {
    * <p>The list of tags associated with the workspace.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>Specifies whether this workspace has a full Grafana Enterprise license.</p>
+   *          <note>
+   *             <p>Amazon Managed Grafana workspaces no longer support Grafana Enterprise free trials.</p>
+   *          </note>
+   */
+  licenseType?: LicenseType;
+
+  /**
+   * @public
+   * <p>The token that ties this workspace to a Grafana Labs account. For more information,
+   *             see <a href="https://docs.aws.amazon.com/grafana/latest/userguide/upgrade-to-Grafana-Enterprise.html#AMG-workspace-register-enterprise">Register with Grafana Labs</a>.</p>
+   */
+  grafanaToken?: string;
 }
 
 /**

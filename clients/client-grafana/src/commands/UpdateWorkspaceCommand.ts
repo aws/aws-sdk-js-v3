@@ -137,6 +137,7 @@ export interface UpdateWorkspaceCommandOutput extends UpdateWorkspaceResponse, _
  * //         "STRING_VALUE",
  * //       ],
  * //     },
+ * //     grafanaToken: "STRING_VALUE",
  * //   },
  * // };
  *
