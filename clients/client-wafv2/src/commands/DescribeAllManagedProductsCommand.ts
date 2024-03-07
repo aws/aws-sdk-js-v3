@@ -71,6 +71,27 @@ export interface DescribeAllManagedProductsCommandOutput extends DescribeAllMana
  * @throws {@link WAFInvalidOperationException} (client fault)
  *  <p>The operation isn't valid. </p>
  *
+ * @throws {@link WAFInvalidParameterException} (client fault)
+ *  <p>The operation failed because WAF didn't recognize a parameter in the request. For
+ *          example: </p>
+ *          <ul>
+ *             <li>
+ *                <p>You specified a parameter name or value that isn't valid.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your nested statement isn't valid. You might have tried to nest a statement that
+ *                can’t be nested. </p>
+ *             </li>
+ *             <li>
+ *                <p>You tried to update a <code>WebACL</code> with a <code>DefaultAction</code> that
+ *                isn't among the types available at <a>DefaultAction</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Your request references an ARN that is malformed, or corresponds to a resource
+ *                with which a web ACL can't be associated.</p>
+ *             </li>
+ *          </ul>
+ *
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *

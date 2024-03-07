@@ -91,6 +91,12 @@ export interface GetDecryptedAPIKeyCommandOutput extends GetDecryptedAPIKeyRespo
  *  <p>WAF couldn’t perform the operation because the resource that you requested isn’t
  *          valid. Check the resource, and try again.</p>
  *
+ * @throws {@link WAFNonexistentItemException} (client fault)
+ *  <p>WAF couldn’t perform the operation because your resource doesn't exist.
+ *        If you've just created a resource that you're using in this operation, you might
+ *        just need to wait a few minutes. It can take from a few seconds to a number of minutes
+ *        for changes to propagate. </p>
+ *
  * @throws {@link WAFV2ServiceException}
  * <p>Base exception class for all service exceptions from WAFV2 service.</p>
  *
