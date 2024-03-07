@@ -7681,7 +7681,7 @@ export interface ModifyDBClusterMessage {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Multi-AZ DB clusters - <code>io1</code>
+   *                <p>Multi-AZ DB clusters - <code>io1 | io2 | gp3</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -7938,6 +7938,8 @@ export interface ModifyDBClusterMessage {
   /**
    * @public
    * <p>The CA certificate identifier to use for the DB cluster's server certificate.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>Valid for Cluster Type: Multi-AZ DB clusters</p>
    */
   CACertificateIdentifier?: string;
@@ -8653,7 +8655,7 @@ export interface ModifyDBInstanceMessage {
   /**
    * @public
    * <p>The storage type to associate with the DB instance.</p>
-   *          <p>If you specify <code>io1</code>), <code>io2</code>, or <code>gp3</code>
+   *          <p>If you specify <code>io1</code>, <code>io2</code>, or <code>gp3</code>
    *           you must also include a value for the <code>Iops</code> parameter.</p>
    *          <p>If you choose to migrate your DB instance from using standard storage to using
    *             Provisioned IOPS, or from using Provisioned IOPS to using standard storage, the process

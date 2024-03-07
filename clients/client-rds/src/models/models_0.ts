@@ -4897,7 +4897,7 @@ export interface CreateDBClusterMessage {
    *                </p>
    *             </li>
    *             <li>
-   *                <p>Multi-AZ DB clusters - <code>io1</code>
+   *                <p>Multi-AZ DB clusters - <code>io1 | io2 | gp3</code>
    *                </p>
    *             </li>
    *          </ul>
@@ -5133,6 +5133,8 @@ export interface CreateDBClusterMessage {
   /**
    * @public
    * <p>The CA certificate identifier to use for the DB cluster's server certificate.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/UsingWithRDS.SSL.html">Using SSL/TLS to encrypt a connection to a DB
+   *             instance</a> in the <i>Amazon RDS User Guide</i>.</p>
    *          <p>Valid for Cluster Type: Multi-AZ DB clusters</p>
    */
   CACertificateIdentifier?: string;
