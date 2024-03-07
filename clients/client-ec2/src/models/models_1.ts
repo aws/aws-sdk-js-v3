@@ -4447,27 +4447,29 @@ export interface CreateImageRequest {
   /**
    * @public
    * <p>A name for the new image.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
+   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces
+   *       ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or
+   *       underscores(_)</p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>Indicates whether or not the instance should be automatically rebooted before creating
-   *        the image. Specify one of the following values:</p>
+   * <p>Indicates whether or not the instance should be automatically rebooted before creating the
+   *       image. Specify one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>true</code> - The instance is not rebooted before creating the image. This
-   *            creates crash-consistent snapshots that include only the data that has been written
-   *            to the volumes at the time the snapshots are created. Buffered data and data in
-   *            memory that has not yet been written to the volumes is not included in the snapshots.</p>
+   *           creates crash-consistent snapshots that include only the data that has been written to the
+   *           volumes at the time the snapshots are created. Buffered data and data in memory that has
+   *           not yet been written to the volumes is not included in the snapshots.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>false</code> - The instance is rebooted before creating the image. This
-   *            ensures that all buffered data and data in memory is written to the volumes before the
-   *            snapshots are created.</p>
+   *                   <code>false</code> - The instance is rebooted before creating the image. This ensures
+   *           that all buffered data and data in memory is written to the volumes before the snapshots
+   *           are created.</p>
    *             </li>
    *          </ul>
    *          <p>Default: <code>false</code>
@@ -4485,8 +4487,8 @@ export interface CreateImageRequest {
    *           <code>image</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that
-   *           are attached to the instance, the value for <code>ResourceType</code> must be
+   *                <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes
+   *           that are attached to the instance, the value for <code>ResourceType</code> must be
    *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
    *           created.</p>
    *             </li>

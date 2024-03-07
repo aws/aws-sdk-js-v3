@@ -12682,7 +12682,8 @@ export interface DescribeStaleSecurityGroupsResult {
 export interface DescribeStoreImageTasksRequest {
   /**
    * @public
-   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
+   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a
+   *       request.</p>
    */
   ImageIds?: string[];
 

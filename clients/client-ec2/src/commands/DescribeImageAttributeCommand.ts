@@ -28,7 +28,12 @@ export interface DescribeImageAttributeCommandOutput extends ImageAttribute, __M
 
 /**
  * @public
- * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute at a time.</p>
+ * <p>Describes the specified attribute of the specified AMI. You can specify only one attribute
+ *       at a time.</p>
+ *          <note>
+ *             <p>The order of the elements in the response, including those within nested structures,
+ *         might vary. Applications should not assume the elements appear in a particular order.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

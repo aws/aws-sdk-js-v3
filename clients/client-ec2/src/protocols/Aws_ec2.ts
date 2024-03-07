@@ -29054,6 +29054,16 @@ const se_CopyImageRequest = (input: CopyImageRequest, context: __SerdeContext): 
   if (input[_CITo] != null) {
     entries[_CITo] = input[_CITo];
   }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    if (input[_TS]?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
+  }
   return entries;
 };
 
@@ -50198,6 +50208,16 @@ const se_RegisterImageRequest = (input: RegisterImageRequest, context: __SerdeCo
   }
   if (input[_ISm] != null) {
     entries[_ISm] = input[_ISm];
+  }
+  if (input[_TS] != null) {
+    const memberEntries = se_TagSpecificationList(input[_TS], context);
+    if (input[_TS]?.length === 0) {
+      entries.TagSpecification = [];
+    }
+    Object.entries(memberEntries).forEach(([key, value]) => {
+      const loc = `TagSpecification.${key.substring(key.indexOf(".") + 1)}`;
+      entries[loc] = value;
+    });
   }
   return entries;
 };

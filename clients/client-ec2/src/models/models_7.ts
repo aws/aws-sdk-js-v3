@@ -1280,7 +1280,8 @@ export type ResetImageAttributeName = (typeof ResetImageAttributeName)[keyof typ
 export interface ResetImageAttributeRequest {
   /**
    * @public
-   * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
+   * <p>The attribute to reset (currently you can only reset the launch permission
+   *       attribute).</p>
    */
   Attribute: ResetImageAttributeName | undefined;
 

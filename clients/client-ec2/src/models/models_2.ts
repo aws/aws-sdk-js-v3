@@ -952,12 +952,13 @@ export interface CreateRestoreImageTaskRequest {
    *       snapshots, or both.</p>
    *          <ul>
    *             <li>
-   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
+   *           <code>image</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To
-   *           tag the snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>. The
-   *           same tag is applied to all of the snapshots that are created.</p>
+   *                <p>To tag the snapshots, the value for <code>ResourceType</code> must be
+   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
+   *           created.</p>
    *             </li>
    *          </ul>
    */

@@ -4249,8 +4249,9 @@ export interface DisableFastLaunchRequest {
 
   /**
    * @public
-   * <p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This parameter overrides
-   * 			any errors that are encountered while cleaning up resources in your account.</p>
+   * <p>Forces the image settings to turn off Windows fast launch for your Windows AMI. This
+   *       parameter overrides any errors that are encountered while cleaning up resources in your
+   *       account.</p>
    */
   Force?: boolean;
 
@@ -4275,28 +4276,29 @@ export interface DisableFastLaunchResult {
 
   /**
    * @public
-   * <p>The pre-provisioning resource type that must be cleaned after turning off Windows fast launch
-   * 			for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
+   * <p>The pre-provisioning resource type that must be cleaned after turning off Windows fast
+   *       launch for the Windows AMI. Supported values include: <code>snapshot</code>.</p>
    */
   ResourceType?: FastLaunchResourceType;
 
   /**
    * @public
-   * <p>Parameters that were used for Windows fast launch for the Windows AMI before
-   * 			Windows fast launch was disabled. This informs the clean-up process.</p>
+   * <p>Parameters that were used for Windows fast launch for the Windows AMI before Windows fast
+   *       launch was disabled. This informs the clean-up process.</p>
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
 
   /**
    * @public
-   * <p>The launch template that was used to launch Windows instances from pre-provisioned snapshots.</p>
+   * <p>The launch template that was used to launch Windows instances from pre-provisioned
+   *       snapshots.</p>
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
 
   /**
    * @public
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
-   * 			create pre-provisioned snapshots for Windows fast launch.</p>
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   *       pre-provisioned snapshots for Windows fast launch.</p>
    */
   MaxParallelLaunches?: number;
 
@@ -5528,39 +5530,42 @@ export interface EnableEbsEncryptionByDefaultResult {
  * <p>Request to create a launch template for a Windows fast launch enabled AMI.</p>
  *          <note>
  *             <p>Note - You can specify either the <code>LaunchTemplateName</code> or the
- * 				<code>LaunchTemplateId</code>, but not both.</p>
+ *           <code>LaunchTemplateId</code>, but not both.</p>
  *          </note>
  */
 export interface FastLaunchLaunchTemplateSpecificationRequest {
   /**
    * @public
-   * <p>Specify the ID of the launch template that the AMI should use for Windows fast launch.</p>
+   * <p>Specify the ID of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
    */
   LaunchTemplateId?: string;
 
   /**
    * @public
-   * <p>Specify the name of the launch template that the AMI should use for Windows fast launch.</p>
+   * <p>Specify the name of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
    */
   LaunchTemplateName?: string;
 
   /**
    * @public
-   * <p>Specify the version of the launch template that the AMI should use for Windows fast launch.</p>
+   * <p>Specify the version of the launch template that the AMI should use for Windows fast
+   *       launch.</p>
    */
   Version: string | undefined;
 }
 
 /**
  * @public
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch
- * 			enabled AMI.</p>
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
+ *       fast launch enabled AMI.</p>
  */
 export interface FastLaunchSnapshotConfigurationRequest {
   /**
    * @public
-   * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch
-   * 			enabled AMI.</p>
+   * <p>The number of pre-provisioned snapshots to keep on hand for a Windows fast launch enabled
+   *       AMI.</p>
    */
   TargetResourceCount?: number;
 }
@@ -5578,31 +5583,31 @@ export interface EnableFastLaunchRequest {
   /**
    * @public
    * <p>The type of resource to use for pre-provisioning the AMI for Windows fast launch.
-   * 			Supported values include: <code>snapshot</code>, which is the default value.</p>
+   *       Supported values include: <code>snapshot</code>, which is the default value.</p>
    */
   ResourceType?: string;
 
   /**
    * @public
    * <p>Configuration settings for creating and managing the snapshots that are used for
-   * 			pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
-   * 			must be <code>snapshot</code>.</p>
+   *       pre-provisioning the AMI for Windows fast launch. The associated <code>ResourceType</code>
+   *       must be <code>snapshot</code>.</p>
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationRequest;
 
   /**
    * @public
    * <p>The launch template to use when launching Windows instances from pre-provisioned
-   * 			snapshots. Launch template parameters can include either the name or ID of the launch
-   * 			template, but not both.</p>
+   *       snapshots. Launch template parameters can include either the name or ID of the launch
+   *       template, but not both.</p>
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationRequest;
 
   /**
    * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   * 			pre-provisioned snapshots for Windows fast launch. Value must be
-   * 			<code>6</code> or greater.</p>
+   *       pre-provisioned snapshots for Windows fast launch. Value must be <code>6</code> or
+   *       greater.</p>
    */
   MaxParallelLaunches?: number;
 
@@ -5627,28 +5632,30 @@ export interface EnableFastLaunchResult {
 
   /**
    * @public
-   * <p>The type of resource that was defined for pre-provisioning the AMI for Windows fast launch.</p>
+   * <p>The type of resource that was defined for pre-provisioning the AMI for Windows fast
+   *       launch.</p>
    */
   ResourceType?: FastLaunchResourceType;
 
   /**
    * @public
    * <p>Settings to create and manage the pre-provisioned snapshots that Amazon EC2 uses for faster
-   * 			launches from the Windows AMI. This property is returned when the associated
-   * 			<code>resourceType</code> is <code>snapshot</code>.</p>
+   *       launches from the Windows AMI. This property is returned when the associated
+   *         <code>resourceType</code> is <code>snapshot</code>.</p>
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
 
   /**
    * @public
-   * <p>The launch template that is used when launching Windows instances from pre-provisioned snapshots.</p>
+   * <p>The launch template that is used when launching Windows instances from pre-provisioned
+   *       snapshots.</p>
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
 
   /**
    * @public
-   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to
-   * 			create pre-provisioned snapshots for Windows fast launch.</p>
+   * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
+   *       pre-provisioned snapshots for Windows fast launch.</p>
    */
   MaxParallelLaunches?: number;
 
@@ -5949,10 +5956,10 @@ export interface EnableImageDeprecationRequest {
    * @public
    * <p>The date and time to deprecate the AMI, in UTC, in the following format:
    *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the
-   *       nearest minute.</p>
+   *       If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
    *          <p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10
-   *       years from now, except for public AMIs, where the upper limit is 2 years from the creation date.</p>
+   *       years from now, except for public AMIs, where the upper limit is 2 years from the creation
+   *       date.</p>
    */
   DeprecateAt: Date | undefined;
 
