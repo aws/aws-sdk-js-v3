@@ -46,6 +46,9 @@ export interface StartDeploymentCommandOutput extends Deployment, __MetadataBear
  *     "<keys>": "STRING_VALUE",
  *   },
  *   KmsKeyIdentifier: "STRING_VALUE",
+ *   DynamicExtensionParameters: { // DynamicParameterMap
+ *     "<keys>": "STRING_VALUE",
+ *   },
  * };
  * const command = new StartDeploymentCommand(input);
  * const response = await client.send(command);

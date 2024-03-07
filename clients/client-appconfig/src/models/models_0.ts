@@ -473,16 +473,18 @@ export interface ConfigurationProfile {
 
   /**
    * @public
-   * <p>The Amazon Resource Name of the Key Management Service key to encrypt new configuration data
-   *          versions in the AppConfig hosted configuration store. This
-   *          attribute is only used for <code>hosted</code> configuration types. To encrypt data managed
-   *          in other configuration stores, see the documentation for how to specify an KMS key for that particular service.</p>
+   * <p>The Amazon Resource Name of the Key Management Service key to encrypt new configuration
+   *          data versions in the AppConfig hosted configuration store. This attribute is only
+   *          used for <code>hosted</code> configuration types. To encrypt data managed in other
+   *          configuration stores, see the documentation for how to specify an KMS key
+   *          for that particular service.</p>
    */
   KmsKeyArn?: string;
 
   /**
    * @public
-   * <p>The Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.</p>
+   * <p>The Key Management Service key identifier (key ID, key alias, or key ARN) provided when
+   *          the resource was created or updated.</p>
    */
   KmsKeyIdentifier?: string;
 }
@@ -588,11 +590,11 @@ export interface CreateConfigurationProfileRequest {
 
   /**
    * @public
-   * <p>The identifier for an Key Management Service key to encrypt new configuration
-   *          data versions in the AppConfig hosted configuration store. This attribute is only
-   *          used for <code>hosted</code> configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
-   *          To encrypt data managed in other configuration stores, see the documentation for how to
-   *          specify an KMS key for that particular service.</p>
+   * <p>The identifier for an Key Management Service key to encrypt new configuration data
+   *          versions in the AppConfig hosted configuration store. This attribute is only used
+   *          for <code>hosted</code> configuration types. The identifier can be an KMS
+   *          key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data
+   *          managed in other configuration stores, see the documentation for how to specify an KMS key for that particular service.</p>
    */
   KmsKeyIdentifier?: string;
 }
@@ -935,9 +937,8 @@ export class ConflictException extends __BaseException {
  * @public
  * <p>A value such as an Amazon Resource Name (ARN) or an Amazon Simple Notification Service topic entered
  *          in an extension when invoked. Parameter values are specified in an extension association.
- *          For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
- *                AppConfig extensions</a> in the
- *          <i>AppConfig User Guide</i>.</p>
+ *          For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
+ *             workflows</a> in the <i>AppConfig User Guide</i>.</p>
  */
 export interface Parameter {
   /**
@@ -951,6 +952,14 @@ export interface Parameter {
    * <p>A parameter value must be specified in the extension association.</p>
    */
   Required?: boolean;
+
+  /**
+   * @public
+   * <p>Indicates whether this parameter's value can be supplied at the extension's action point
+   *          instead of during extension association. Dynamic parameters can't be marked
+   *             <code>Required</code>.</p>
+   */
+  Dynamic?: boolean;
 }
 
 /**
@@ -1778,7 +1787,8 @@ export interface Deployment {
 
   /**
    * @public
-   * <p>The Key Management Service key identifier (key ID, key alias, or key ARN) provided when the resource was created or updated.</p>
+   * <p>The Key Management Service key identifier (key ID, key alias, or key ARN) provided when
+   *          the resource was created or updated.</p>
    */
   KmsKeyIdentifier?: string;
 
@@ -2592,6 +2602,13 @@ export interface StartDeploymentRequest {
    * <p>The KMS key identifier (key ID, key alias, or key ARN). AppConfig uses this ID to encrypt the configuration data using a customer managed key. </p>
    */
   KmsKeyIdentifier?: string;
+
+  /**
+   * @public
+   * <p>A map of dynamic extension parameter names to values to pass to associated extensions
+   *          with <code>PRE_START_DEPLOYMENT</code> actions.</p>
+   */
+  DynamicExtensionParameters?: Record<string, string>;
 }
 
 /**
@@ -2719,11 +2736,11 @@ export interface UpdateConfigurationProfileRequest {
 
   /**
    * @public
-   * <p>The identifier for a Key Management Service key to encrypt new configuration
-   *          data versions in the AppConfig hosted configuration store. This attribute is only
-   *          used for <code>hosted</code> configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
-   *          To encrypt data managed in other configuration stores, see the documentation for how to
-   *          specify an KMS key for that particular service.</p>
+   * <p>The identifier for a Key Management Service key to encrypt new configuration data
+   *          versions in the AppConfig hosted configuration store. This attribute is only used
+   *          for <code>hosted</code> configuration types. The identifier can be an KMS
+   *          key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias. To encrypt data
+   *          managed in other configuration stores, see the documentation for how to specify an KMS key for that particular service.</p>
    */
   KmsKeyIdentifier?: string;
 }

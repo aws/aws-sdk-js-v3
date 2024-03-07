@@ -61,6 +61,7 @@ export interface GetExtensionCommandOutput extends Extension, __MetadataBearer {
  * //     "<keys>": { // Parameter
  * //       Description: "STRING_VALUE",
  * //       Required: true || false,
+ * //       Dynamic: true || false,
  * //     },
  * //   },
  * // };

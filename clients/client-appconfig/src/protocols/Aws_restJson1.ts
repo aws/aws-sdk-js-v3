@@ -825,6 +825,7 @@ export const se_StartDeploymentCommand = async (
       ConfigurationVersion: [],
       DeploymentStrategyId: [],
       Description: [],
+      DynamicExtensionParameters: (_) => _json(_),
       KmsKeyIdentifier: [],
       Tags: (_) => _json(_),
     })
@@ -2277,6 +2278,8 @@ const de_ServiceQuotaExceededExceptionRes = async (
 // se_ActionList omitted.
 
 // se_ActionsMap omitted.
+
+// se_DynamicParameterMap omitted.
 
 // se_Monitor omitted.
 

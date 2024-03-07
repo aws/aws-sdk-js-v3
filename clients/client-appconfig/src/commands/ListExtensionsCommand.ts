@@ -29,9 +29,8 @@ export interface ListExtensionsCommandOutput extends Extensions, __MetadataBeare
 /**
  * @public
  * <p>Lists all custom and Amazon Web Services authored AppConfig extensions in the
- *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
- *                AppConfig extensions</a> in the
- *          <i>AppConfig User Guide</i>.</p>
+ *          account. For more information about extensions, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
+ *             workflows</a> in the <i>AppConfig User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

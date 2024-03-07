@@ -29,9 +29,8 @@ export interface ListExtensionAssociationsCommandOutput extends ExtensionAssocia
 /**
  * @public
  * <p>Lists all AppConfig extension associations in the account. For more
- *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Working with
- *                AppConfig extensions</a> in the
- *          <i>AppConfig User Guide</i>.</p>
+ *          information about extensions and associations, see <a href="https://docs.aws.amazon.com/appconfig/latest/userguide/working-with-appconfig-extensions.html">Extending
+ *             workflows</a> in the <i>AppConfig User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
