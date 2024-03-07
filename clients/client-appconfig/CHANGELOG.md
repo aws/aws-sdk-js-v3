@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.529.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.528.0...v3.529.0) (2024-03-07)
+
+
+### Features
+
+* **client-appconfig:** AWS AppConfig now supports dynamic parameters, which enhance the functionality of AppConfig Extensions by allowing you to provide parameter values to your Extensions at the time you deploy your configuration. ([9159ba2](https://github.com/aws/aws-sdk-js-v3/commit/9159ba22e02156de09ece0ea98869063fa829f58))
+
+
+
+
+
 # [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
 
 **Note:** Version bump only for package @aws-sdk/client-appconfig

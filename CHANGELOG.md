@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.529.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.528.0...v3.529.0) (2024-03-07)
+
+
+### Features
+
+* **client-appconfig:** AWS AppConfig now supports dynamic parameters, which enhance the functionality of AppConfig Extensions by allowing you to provide parameter values to your Extensions at the time you deploy your configuration. ([9159ba2](https://github.com/aws/aws-sdk-js-v3/commit/9159ba22e02156de09ece0ea98869063fa829f58))
+* **client-ec2:** This release adds an optional parameter to RegisterImage and CopyImage APIs to support tagging AMIs at the time of creation. ([b6f2e1d](https://github.com/aws/aws-sdk-js-v3/commit/b6f2e1d506d7cb6cf015ed5b3280187c71bc01ce))
+* **client-grafana:** Adds support for the new GrafanaToken as part of the Amazon Managed Grafana Enterprise plugins upgrade to associate your AWS account with a Grafana Labs account. ([00943f4](https://github.com/aws/aws-sdk-js-v3/commit/00943f4ca3753f5ff478afd0c632b35ae2433d2b))
+* **client-payment-cryptography-data:** AWS Payment Cryptography EMV Decrypt Feature  Release ([9cbbeba](https://github.com/aws/aws-sdk-js-v3/commit/9cbbebadccfc50388012f38a63de3b48b7a17478))
+* **client-wafv2:** You can increase the max request body inspection size for some regional resources. The size setting is in the web ACL association config. Also, the AWSManagedRulesBotControlRuleSet EnableMachineLearning setting now takes a Boolean instead of a primitive boolean type, for languages like Java. ([e9ce4e8](https://github.com/aws/aws-sdk-js-v3/commit/e9ce4e899c80f758bc89f37848c08e8416e6c65c))
+
+
+
+
+
 # [3.528.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.527.0...v3.528.0) (2024-03-06)
 
 

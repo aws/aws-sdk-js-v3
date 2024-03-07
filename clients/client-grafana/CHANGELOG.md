@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.529.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.528.0...v3.529.0) (2024-03-07)
+
+
+### Features
+
+* **client-grafana:** Adds support for the new GrafanaToken as part of the Amazon Managed Grafana Enterprise plugins upgrade to associate your AWS account with a Grafana Labs account. ([00943f4](https://github.com/aws/aws-sdk-js-v3/commit/00943f4ca3753f5ff478afd0c632b35ae2433d2b))
+
+
+
+
+
 # [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
 
 **Note:** Version bump only for package @aws-sdk/client-grafana

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.529.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.528.0...v3.529.0) (2024-03-07)
+
+
+### Features
+
+* **client-payment-cryptography-data:** AWS Payment Cryptography EMV Decrypt Feature  Release ([9cbbeba](https://github.com/aws/aws-sdk-js-v3/commit/9cbbebadccfc50388012f38a63de3b48b7a17478))
+
+
+
+
+
 # [3.525.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.524.0...v3.525.0) (2024-02-29)
 
 **Note:** Version bump only for package @aws-sdk/client-payment-cryptography-data
