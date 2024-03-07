@@ -396,7 +396,7 @@ export interface EKSOnDeviceServiceConfiguration {
 
   /**
    * @public
-   * <p>The version of EKS Anywhere on the Snow Family device.</p>
+   * <p>The optional version of EKS Anywhere on the Snow Family device.</p>
    */
   EKSAnywhereVersion?: string;
 }
