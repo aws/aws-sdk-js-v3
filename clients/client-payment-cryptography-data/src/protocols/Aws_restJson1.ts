@@ -64,6 +64,7 @@ import {
   DukptEncryptionAttributes,
   DynamicCardVerificationCode,
   DynamicCardVerificationValue,
+  EmvEncryptionAttributes,
   EncryptionDecryptionAttributes,
   Ibm3624NaturalPin,
   Ibm3624PinFromOffset,
@@ -827,6 +828,8 @@ const de_VerificationFailedExceptionRes = async (
 // se_DynamicCardVerificationCode omitted.
 
 // se_DynamicCardVerificationValue omitted.
+
+// se_EmvEncryptionAttributes omitted.
 
 // se_EncryptionDecryptionAttributes omitted.
 

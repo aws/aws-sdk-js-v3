@@ -723,7 +723,7 @@ export interface DukptEncryptionAttributes {
 
   /**
    * @public
-   * <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size, for example, 128 bits. The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
+   * <p>The block cipher method to use for encryption.</p>
    *          <p>The default is CBC.</p>
    */
   Mode?: DukptEncryptionMode;
@@ -743,7 +743,77 @@ export interface DukptEncryptionAttributes {
 
   /**
    * @public
-   * <p>An input to cryptographic primitive used to provide the intial state. Typically the <code>InitializationVector</code> must have a random or psuedo-random value, but sometimes it only needs to be unpredictable or unique. If you don't provide a value, Amazon Web Services Payment Cryptography generates a random value.</p>
+   * <p>An input used to provide the intial state. If no value is provided, Amazon Web Services Payment Cryptography defaults it to zero.</p>
+   */
+  InitializationVector?: string;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const EmvMajorKeyDerivationMode = {
+  EMV_OPTION_A: "EMV_OPTION_A",
+  EMV_OPTION_B: "EMV_OPTION_B",
+} as const;
+
+/**
+ * @public
+ */
+export type EmvMajorKeyDerivationMode = (typeof EmvMajorKeyDerivationMode)[keyof typeof EmvMajorKeyDerivationMode];
+
+/**
+ * @public
+ * @enum
+ */
+export const EmvEncryptionMode = {
+  CBC: "CBC",
+  ECB: "ECB",
+} as const;
+
+/**
+ * @public
+ */
+export type EmvEncryptionMode = (typeof EmvEncryptionMode)[keyof typeof EmvEncryptionMode];
+
+/**
+ * @public
+ * <p>Parameters for plaintext encryption using EMV keys.</p>
+ */
+export interface EmvEncryptionAttributes {
+  /**
+   * @public
+   * <p>The EMV derivation mode to use for ICC master key derivation as per EMV version 4.3 book 2.</p>
+   */
+  MajorKeyDerivationMode: EmvMajorKeyDerivationMode | undefined;
+
+  /**
+   * @public
+   * <p>The Primary Account Number (PAN), a unique identifier for a payment credit or debit card and associates the card to a specific account holder.</p>
+   */
+  PrimaryAccountNumber: string | undefined;
+
+  /**
+   * @public
+   * <p>A number that identifies and differentiates payment cards with the same Primary Account Number (PAN).</p>
+   */
+  PanSequenceNumber: string | undefined;
+
+  /**
+   * @public
+   * <p>The derivation value used to derive the ICC session key. It is typically the application transaction counter value padded with zeros or previous ARQC value padded with zeros as per EMV version 4.3 book 2.</p>
+   */
+  SessionDerivationData: string | undefined;
+
+  /**
+   * @public
+   * <p>The block cipher method to use for encryption.</p>
+   */
+  Mode?: EmvEncryptionMode;
+
+  /**
+   * @public
+   * <p>An input used to provide the intial state. If no value is provided, Amazon Web Services Payment Cryptography defaults it to zero.</p>
    */
   InitializationVector?: string;
 }
@@ -775,13 +845,13 @@ export type EncryptionMode = (typeof EncryptionMode)[keyof typeof EncryptionMode
 export interface SymmetricEncryptionAttributes {
   /**
    * @public
-   * <p>The block cipher mode of operation. Block ciphers are designed to encrypt a block of data of fixed size (for example, 128 bits). The size of the input block is usually same as the size of the encrypted output block, while the key length can be different. A mode of operation describes how to repeatedly apply a cipher's single-block operation to securely transform amounts of data larger than a block.</p>
+   * <p>The block cipher method to use for encryption.</p>
    */
   Mode: EncryptionMode | undefined;
 
   /**
    * @public
-   * <p>An input to cryptographic primitive used to provide the intial state. The <code>InitializationVector</code> is typically required have a random or psuedo-random value, but sometimes it only needs to be unpredictable or unique. If a value is not provided, Amazon Web Services Payment Cryptography generates a random value.</p>
+   * <p>An input used to provide the intial state. If no value is provided, Amazon Web Services Payment Cryptography defaults it to zero.</p>
    */
   InitializationVector?: string;
 
@@ -799,6 +869,7 @@ export interface SymmetricEncryptionAttributes {
 export type EncryptionDecryptionAttributes =
   | EncryptionDecryptionAttributes.AsymmetricMember
   | EncryptionDecryptionAttributes.DukptMember
+  | EncryptionDecryptionAttributes.EmvMember
   | EncryptionDecryptionAttributes.SymmetricMember
   | EncryptionDecryptionAttributes.$UnknownMember;
 
@@ -814,6 +885,7 @@ export namespace EncryptionDecryptionAttributes {
     Symmetric: SymmetricEncryptionAttributes;
     Asymmetric?: never;
     Dukpt?: never;
+    Emv?: never;
     $unknown?: never;
   }
 
@@ -825,6 +897,7 @@ export namespace EncryptionDecryptionAttributes {
     Symmetric?: never;
     Asymmetric: AsymmetricEncryptionAttributes;
     Dukpt?: never;
+    Emv?: never;
     $unknown?: never;
   }
 
@@ -836,6 +909,19 @@ export namespace EncryptionDecryptionAttributes {
     Symmetric?: never;
     Asymmetric?: never;
     Dukpt: DukptEncryptionAttributes;
+    Emv?: never;
+    $unknown?: never;
+  }
+
+  /**
+   * @public
+   * <p>Parameters for plaintext encryption using EMV keys.</p>
+   */
+  export interface EmvMember {
+    Symmetric?: never;
+    Asymmetric?: never;
+    Dukpt?: never;
+    Emv: EmvEncryptionAttributes;
     $unknown?: never;
   }
 
@@ -846,6 +932,7 @@ export namespace EncryptionDecryptionAttributes {
     Symmetric?: never;
     Asymmetric?: never;
     Dukpt?: never;
+    Emv?: never;
     $unknown: [string, any];
   }
 
@@ -853,6 +940,7 @@ export namespace EncryptionDecryptionAttributes {
     Symmetric: (value: SymmetricEncryptionAttributes) => T;
     Asymmetric: (value: AsymmetricEncryptionAttributes) => T;
     Dukpt: (value: DukptEncryptionAttributes) => T;
+    Emv: (value: EmvEncryptionAttributes) => T;
     _: (name: string, value: any) => T;
   }
 
@@ -860,6 +948,7 @@ export namespace EncryptionDecryptionAttributes {
     if (value.Symmetric !== undefined) return visitor.Symmetric(value.Symmetric);
     if (value.Asymmetric !== undefined) return visitor.Asymmetric(value.Asymmetric);
     if (value.Dukpt !== undefined) return visitor.Dukpt(value.Dukpt);
+    if (value.Emv !== undefined) return visitor.Emv(value.Emv);
     return visitor._(value.$unknown[0], value.$unknown[1]);
   };
 }
@@ -899,13 +988,14 @@ export interface DecryptDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue: string | undefined;
 
   /**
    * @public
-   * <p>The decrypted plaintext data.</p>
+   * <p>The decrypted plaintext data in hexBinary format.</p>
    */
   PlainText: string | undefined;
 }
@@ -1081,6 +1171,9 @@ export interface EncryptDataInput {
   /**
    * @public
    * <p>The plaintext to be encrypted.</p>
+   *          <note>
+   *             <p>For encryption using asymmetric keys, plaintext data length is constrained by encryption key strength that you define in <code>KeyAlgorithm</code> and padding type that you define in <code>AsymmetricEncryptionAttributes</code>. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/encrypt-data.html">Encrypt data</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p>
+   *          </note>
    */
   PlainText: string | undefined;
 
@@ -1103,7 +1196,8 @@ export interface EncryptDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue?: string;
 
@@ -1155,7 +1249,8 @@ export interface GenerateCardValidationDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue: string | undefined;
 
@@ -1389,7 +1484,7 @@ export namespace MacAttributes {
 
   /**
    * @public
-   * <p>Parameters that are required for MAC generation or verification using DUKPT ISO 9797 algorithm2.</p>
+   * <p>Parameters that are required for MAC generation or verification using DUKPT ISO 9797 algorithm3.</p>
    */
   export interface DukptIso9797Algorithm3Member {
     Algorithm?: never;
@@ -1456,7 +1551,7 @@ export interface GenerateMacInput {
 
   /**
    * @public
-   * <p>The data for which a MAC is under generation.</p>
+   * <p>The data for which a MAC is under generation. This value must be hexBinary.</p>
    */
   MessageData: string | undefined;
 
@@ -1485,7 +1580,8 @@ export interface GenerateMacOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue: string | undefined;
 
@@ -1891,7 +1987,8 @@ export interface GeneratePinDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   GenerationKeyCheckValue: string | undefined;
 
@@ -1903,7 +2000,8 @@ export interface GeneratePinDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   EncryptionKeyCheckValue: string | undefined;
 
@@ -2052,7 +2150,8 @@ export interface ReEncryptDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue: string | undefined;
 
@@ -2190,13 +2289,13 @@ export interface TranslatePinDataInput {
 
   /**
    * @public
-   * <p>The format of the incoming PIN block data for tranlation within Amazon Web Services Payment Cryptography.</p>
+   * <p>The format of the incoming PIN block data for translation within Amazon Web Services Payment Cryptography.</p>
    */
   IncomingTranslationAttributes: TranslationIsoFormats | undefined;
 
   /**
    * @public
-   * <p>The format of the outgoing PIN block data after tranlation by Amazon Web Services Payment Cryptography.</p>
+   * <p>The format of the outgoing PIN block data after translation by Amazon Web Services Payment Cryptography.</p>
    */
   OutgoingTranslationAttributes: TranslationIsoFormats | undefined;
 
@@ -2208,7 +2307,7 @@ export interface TranslatePinDataInput {
 
   /**
    * @public
-   * <p>The attributes and values to use for incoming DUKPT encryption key for PIN block tranlation.</p>
+   * <p>The attributes and values to use for incoming DUKPT encryption key for PIN block translation.</p>
    */
   IncomingDukptAttributes?: DukptDerivationAttributes;
 
@@ -2225,7 +2324,7 @@ export interface TranslatePinDataInput {
 export interface TranslatePinDataOutput {
   /**
    * @public
-   * <p>The ougoing encrypted PIN block data after tranlation.</p>
+   * <p>The outgoing encrypted PIN block data after translation.</p>
    */
   PinBlock: string | undefined;
 
@@ -2237,7 +2336,8 @@ export interface TranslatePinDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue: string | undefined;
 }
@@ -2566,7 +2666,8 @@ export interface VerifyAuthRequestCryptogramOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue: string | undefined;
 
@@ -2618,7 +2719,8 @@ export interface VerifyCardValidationDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue: string | undefined;
 }
@@ -2635,7 +2737,7 @@ export interface VerifyMacInput {
 
   /**
    * @public
-   * <p>The data on for which MAC is under verification.</p>
+   * <p>The data on for which MAC is under verification. This value must be hexBinary.</p>
    */
   MessageData: string | undefined;
 
@@ -2670,7 +2772,8 @@ export interface VerifyMacOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   KeyCheckValue: string | undefined;
 }
@@ -2815,7 +2918,8 @@ export interface VerifyPinDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   VerificationKeyCheckValue: string | undefined;
 
@@ -2827,7 +2931,8 @@ export interface VerifyPinDataOutput {
 
   /**
    * @public
-   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or "00" or "01" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram.</p>
+   * <p>The key check value (KCV) of the encryption key. The KCV is used to check if all parties holding a given key have the same key or to detect that a key has changed.</p>
+   *          <p>Amazon Web Services Payment Cryptography computes the KCV according to the CMAC specification.</p>
    */
   EncryptionKeyCheckValue: string | undefined;
 }
@@ -2837,6 +2942,15 @@ export interface VerifyPinDataOutput {
  */
 export const DukptEncryptionAttributesFilterSensitiveLog = (obj: DukptEncryptionAttributes): any => ({
   ...obj,
+  ...(obj.InitializationVector && { InitializationVector: SENSITIVE_STRING }),
+});
+
+/**
+ * @internal
+ */
+export const EmvEncryptionAttributesFilterSensitiveLog = (obj: EmvEncryptionAttributes): any => ({
+  ...obj,
+  ...(obj.PrimaryAccountNumber && { PrimaryAccountNumber: SENSITIVE_STRING }),
   ...(obj.InitializationVector && { InitializationVector: SENSITIVE_STRING }),
 });
 
@@ -2855,6 +2969,7 @@ export const EncryptionDecryptionAttributesFilterSensitiveLog = (obj: Encryption
   if (obj.Symmetric !== undefined) return { Symmetric: SymmetricEncryptionAttributesFilterSensitiveLog(obj.Symmetric) };
   if (obj.Asymmetric !== undefined) return { Asymmetric: obj.Asymmetric };
   if (obj.Dukpt !== undefined) return { Dukpt: DukptEncryptionAttributesFilterSensitiveLog(obj.Dukpt) };
+  if (obj.Emv !== undefined) return { Emv: EmvEncryptionAttributesFilterSensitiveLog(obj.Emv) };
   if (obj.$unknown !== undefined) return { [obj.$unknown[0]]: "UNKNOWN" };
 };
 
