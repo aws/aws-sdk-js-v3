@@ -46,6 +46,8 @@ export interface ForgotPasswordCommandOutput extends ForgotPasswordResponse, __M
  *                 <code>InvalidParameterException</code>. If your app client has a client secret and
  *             you don't provide a <code>SECRET_HASH</code> parameter, this API returns
  *                 <code>NotAuthorizedException</code>.</p>
+ *          <p>To use this API operation, your user pool must have self-service account recovery
+ *             configured. Use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html">AdminSetUserPassword</a> if you manage passwords as an administrator.</p>
  *          <note>
  *             <p>Amazon Cognito doesn't evaluate Identity and Access Management (IAM) policies in requests for this API operation. For
  *     this operation, you can't use IAM credentials to authorize requests, and you can't

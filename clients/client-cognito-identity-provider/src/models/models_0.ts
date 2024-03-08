@@ -247,7 +247,9 @@ export interface NumberAttributeConstraintsType {
 
   /**
    * @public
-   * <p>The maximum value of an attribute that is of the number data type.</p>
+   * <p>The maximum length of a number attribute value. Must be a number less than or equal to
+   *             <code>2^1023</code>, represented as a string with a length of 131072 characters or
+   *             fewer.</p>
    */
   MaxValue?: string;
 }
@@ -265,7 +267,9 @@ export interface StringAttributeConstraintsType {
 
   /**
    * @public
-   * <p>The maximum length.</p>
+   * <p>The maximum length of a string attribute value. Must be a number less than or equal to
+   *             <code>2^1023</code>, represented as a string with a length of 131072 characters or
+   *             fewer.</p>
    */
   MaxLength?: string;
 }
@@ -511,9 +515,11 @@ export interface AdminAddUserToGroupRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -557,9 +563,11 @@ export interface AdminConfirmSignUpRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -1272,9 +1280,11 @@ export interface AdminDeleteUserRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 }
@@ -1292,9 +1302,11 @@ export interface AdminDeleteUserAttributesRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -1398,9 +1410,11 @@ export interface AdminDisableUserRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 }
@@ -1425,9 +1439,11 @@ export interface AdminEnableUserRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 }
@@ -1452,9 +1468,11 @@ export interface AdminForgetDeviceRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -1504,9 +1522,11 @@ export interface AdminGetDeviceRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 }
@@ -1573,9 +1593,11 @@ export interface AdminGetUserRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 }
@@ -2301,9 +2323,11 @@ export interface AdminListDevicesRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -2350,9 +2374,11 @@ export interface AdminListDevicesResponse {
 export interface AdminListGroupsForUserRequest {
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -2467,9 +2493,11 @@ export interface AdminListUserAuthEventsRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -2806,9 +2834,11 @@ export interface AdminRemoveUserFromGroupRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -2832,9 +2862,11 @@ export interface AdminResetUserPasswordRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -3278,9 +3310,11 @@ export interface AdminSetUserMFAPreferenceRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -3308,9 +3342,11 @@ export interface AdminSetUserPasswordRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -3348,9 +3384,11 @@ export interface AdminSetUserSettingsRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -3381,9 +3419,11 @@ export interface AdminUpdateAuthEventFeedbackRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -3436,9 +3476,11 @@ export interface AdminUpdateDeviceStatusRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -3474,9 +3516,11 @@ export interface AdminUpdateUserAttributesRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -3557,9 +3601,11 @@ export interface AdminUserGlobalSignOutRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 }
@@ -3874,9 +3920,11 @@ export interface ConfirmForgotPasswordRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -3972,9 +4020,11 @@ export interface ConfirmSignUpRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -7571,9 +7621,11 @@ export interface ForgotPasswordRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 
@@ -8979,8 +9031,8 @@ export interface ListUsersRequest {
    * @public
    * <p>A filter string of the form "<i>AttributeName</i>
    *             <i>Filter-Type</i> "<i>AttributeValue</i>"". Quotation marks
-   *             within the filter string must be escaped using the backslash (\) character. For example,
-   *                 "<code>family_name</code> = \"Reddy\"".</p>
+   *             within the filter string must be escaped using the backslash (<code>\</code>) character. For example,
+   *             <code>"family_name = \"Reddy\""</code>.</p>
    *          <ul>
    *             <li>
    *                <p>
@@ -8989,9 +9041,9 @@ export interface ListUsersRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <i>Filter-Type</i>: For an exact match, use =, for example,
-   *                         "<code>given_name</code> = \"Jon\"". For a prefix ("starts with") match, use
-   *                     ^=, for example, "<code>given_name</code> ^= \"Jon\"". </p>
+   *                   <i>Filter-Type</i>: For an exact match, use <code>=</code>, for example,
+   *                     "<code>given_name = \"Jon\"</code>". For a prefix ("starts with") match, use
+   *                     <code>^=</code>, for example, "<code>given_name ^= \"Jon\"</code>". </p>
    *             </li>
    *             <li>
    *                <p>
@@ -9175,9 +9227,11 @@ export interface ResendConfirmationCodeRequest {
 
   /**
    * @public
-   * <p>The username of the user that you want to query or modify. The value of this parameter is typically your user's
-   * username, but it can be any of their alias attributes. If <code>username</code> isn't an alias attribute in
-   * your user pool, you can also use their <code>sub</code> in this request.</p>
+   * <p>The username of the user that you want to query or modify. The value of this parameter
+   *             is typically your user's username, but it can be any of their alias attributes. If
+   *                 <code>username</code> isn't an alias attribute in your user pool, this value
+   *             must be the <code>sub</code> of a local user or the username of a user from a
+   *             third-party IdP.</p>
    */
   Username: string | undefined;
 

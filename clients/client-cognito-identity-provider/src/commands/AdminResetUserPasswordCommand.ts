@@ -38,6 +38,8 @@ export interface AdminResetUserPasswordCommandOutput extends AdminResetUserPassw
  * @public
  * <p>Resets the specified user's password in a user pool as an administrator. Works on any
  *             user.</p>
+ *          <p>To use this API operation, your user pool must have self-service account recovery
+ *             configured. Use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserPassword.html">AdminSetUserPassword</a> if you manage passwords as an administrator.</p>
  *          <note>
  *             <p>This action might generate an SMS text message. Starting June 1, 2021, US telecom carriers
  *             require you to register an origination phone number before you can send SMS messages
