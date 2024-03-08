@@ -266,7 +266,7 @@ export interface BedrockAgentRuntimeClientResolvedConfig extends BedrockAgentRun
 
 /**
  * @public
- * Amazon Bedrock Agent
+ * <p>Contains APIs related to model invocation and querying of knowledge bases.</p>
  */
 export class BedrockAgentRuntimeClient extends __Client<
   __HttpHandlerOptions,

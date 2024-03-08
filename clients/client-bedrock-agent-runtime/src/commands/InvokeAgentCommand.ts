@@ -37,7 +37,36 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
 
 /**
  * @public
- * Invokes the specified Bedrock model to run inference using the input provided in the request body.
+ * <p>Sends a prompt for the agent to process and respond to.</p>
+ *          <note>
+ *             <p>The CLI doesn't support <code>InvokeAgent</code>.</p>
+ *          </note>
+ *          <ul>
+ *             <li>
+ *                <p>To continue the same conversation with an agent, use the same <code>sessionId</code> value in the request.</p>
+ *             </li>
+ *             <li>
+ *                <p>To activate trace enablement, turn <code>enableTrace</code> to <code>true</code>. Trace enablement helps you follow the agent's reasoning process that led it to the information it processed, the actions it took, and the final result it yielded. For more information, see <a href="https://docs.aws.amazon.com/bedrock/latest/userguide/agents-test.html#trace-events">Trace enablement</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>End a conversation by setting <code>endSession</code> to <code>true</code>.</p>
+ *             </li>
+ *             <li>
+ *                <p>Include attributes for the session or prompt in the <code>sessionState</code> object.</p>
+ *             </li>
+ *          </ul>
+ *          <p>The response is returned in the <code>bytes</code> field of the <code>chunk</code> object.</p>
+ *          <ul>
+ *             <li>
+ *                <p>The <code>attribution</code> object contains citations for parts of the response.</p>
+ *             </li>
+ *             <li>
+ *                <p>If you set <code>enableTrace</code> to <code>true</code> in the request, you can trace the agent's steps and reasoning process that led it to the response.</p>
+ *             </li>
+ *             <li>
+ *                <p>Errors are also surfaced in the response.</p>
+ *             </li>
+ *          </ul>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -283,31 +312,31 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * @see {@link BedrockAgentRuntimeClientResolvedConfig | config} for BedrockAgentRuntimeClient's `config` shape.
  *
  * @throws {@link AccessDeniedException} (client fault)
- *  This exception is thrown when a request is denied per access permissions
+ *  <p>The request is denied because of missing access permissions. Check your permissions and retry your request.</p>
  *
  * @throws {@link BadGatewayException} (server fault)
- *  This exception is thrown when a request fails due to dependency like Lambda, Bedrock, STS resource
+ *  <p>There was an issue with a dependency due to a server issue. Retry your request.</p>
  *
  * @throws {@link ConflictException} (client fault)
- *  This exception is thrown when there is a conflict performing an operation
+ *  <p>There was a conflict performing an operation. Resolve the conflict and retry your request.</p>
  *
  * @throws {@link DependencyFailedException} (client fault)
- *  This exception is thrown when a request fails due to dependency like Lambda, Bedrock, STS resource due to a customer fault (i.e. bad configuration)
+ *  <p>There was an issue with a dependency. Check the resource configurations and retry the request.</p>
  *
  * @throws {@link InternalServerException} (server fault)
- *  This exception is thrown if there was an unexpected error during processing of request
+ *  <p>An internal server error occurred. Retry your request.</p>
  *
  * @throws {@link ResourceNotFoundException} (client fault)
- *  This exception is thrown when a resource referenced by the operation does not exist
+ *  <p>The specified resource ARN was not found. Check the ARN and try your request again.</p>
  *
  * @throws {@link ServiceQuotaExceededException} (client fault)
- *  This exception is thrown when a request is made beyond the service quota
+ *  <p>The number of requests exceeds the service quota. Resubmit your request later.</p>
  *
  * @throws {@link ThrottlingException} (client fault)
- *  This exception is thrown when the number of requests exceeds the limit
+ *  <p>The number of requests exceeds the limit. Resubmit your request later.</p>
  *
  * @throws {@link ValidationException} (client fault)
- *  This exception is thrown when the request's input validation fails
+ *  <p>Input validation failed. Check your request parameters and retry the request.</p>
  *
  * @throws {@link BedrockAgentRuntimeServiceException}
  * <p>Base exception class for all service exceptions from BedrockAgentRuntime service.</p>

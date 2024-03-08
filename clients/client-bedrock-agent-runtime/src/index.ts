@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * Amazon Bedrock Agent
+ * <p>Contains APIs related to model invocation and querying of knowledge bases.</p>
  *
  * @packageDocumentation
  */
