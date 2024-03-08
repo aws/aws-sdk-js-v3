@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.530.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.1...v3.530.0) (2024-03-08)
+
+
+### Features
+
+* **client-transfer:** Added DES_EDE3_CBC to the list of supported encryption algorithms for messages sent with an AS2 connector. ([7ab0843](https://github.com/aws/aws-sdk-js-v3/commit/7ab08437427df85b80de72383da17305f7d3b43f))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-transfer

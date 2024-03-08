@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.530.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.1...v3.530.0) (2024-03-08)
+
+
+### Features
+
+* **client-batch:** This release adds JobStateTimeLimitActions setting to the Job Queue API. It allows you to configure an action Batch can take for a blocking job in front of the queue after the defined period of time. The new parameter applies for ECS, EKS, and FARGATE Job Queues. ([53ef388](https://github.com/aws/aws-sdk-js-v3/commit/53ef3887c1336b5478971fbd76d3ddf761137b57))
+* **client-cloudtrail:** Added exceptions to CreateTrail, DescribeTrails, and ListImportFailures APIs. ([56b092a](https://github.com/aws/aws-sdk-js-v3/commit/56b092a2c5e3c10d024c181060b22754ce491525))
+* **client-cognito-identity-provider:** Add ConcurrentModificationException to SetUserPoolMfaConfig ([8c9c39b](https://github.com/aws/aws-sdk-js-v3/commit/8c9c39bf68769edfb47e2857e585eca3562d0c04))
+* **client-guardduty:** Add RDS Provisioned and Serverless Usage types ([d54999d](https://github.com/aws/aws-sdk-js-v3/commit/d54999d9c11ce45713324401d970fbddc793e5a7))
+* **client-transfer:** Added DES_EDE3_CBC to the list of supported encryption algorithms for messages sent with an AS2 connector. ([7ab0843](https://github.com/aws/aws-sdk-js-v3/commit/7ab08437427df85b80de72383da17305f7d3b43f))
+* **clients:** update client endpoints as of 2024-03-08 ([51a2e09](https://github.com/aws/aws-sdk-js-v3/commit/51a2e09d56bffcffabcb78de43bdd31d99d5d786))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 

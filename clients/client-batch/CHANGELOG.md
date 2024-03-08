@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.530.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.1...v3.530.0) (2024-03-08)
+
+
+### Features
+
+* **client-batch:** This release adds JobStateTimeLimitActions setting to the Job Queue API. It allows you to configure an action Batch can take for a blocking job in front of the queue after the defined period of time. The new parameter applies for ECS, EKS, and FARGATE Job Queues. ([53ef388](https://github.com/aws/aws-sdk-js-v3/commit/53ef3887c1336b5478971fbd76d3ddf761137b57))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-batch

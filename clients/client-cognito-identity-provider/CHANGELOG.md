@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.530.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.1...v3.530.0) (2024-03-08)
+
+
+### Features
+
+* **client-cognito-identity-provider:** Add ConcurrentModificationException to SetUserPoolMfaConfig ([8c9c39b](https://github.com/aws/aws-sdk-js-v3/commit/8c9c39bf68769edfb47e2857e585eca3562d0c04))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-cognito-identity-provider

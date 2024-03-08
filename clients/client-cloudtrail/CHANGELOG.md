@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.530.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.1...v3.530.0) (2024-03-08)
+
+
+### Features
+
+* **client-cloudtrail:** Added exceptions to CreateTrail, DescribeTrails, and ListImportFailures APIs. ([56b092a](https://github.com/aws/aws-sdk-js-v3/commit/56b092a2c5e3c10d024c181060b22754ce491525))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-cloudtrail
