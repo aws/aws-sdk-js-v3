@@ -61,6 +61,7 @@ export const EncryptionAlg = {
   AES128_CBC: "AES128_CBC",
   AES192_CBC: "AES192_CBC",
   AES256_CBC: "AES256_CBC",
+  DES_EDE3_CBC: "DES_EDE3_CBC",
   NONE: "NONE",
 } as const;
 
@@ -151,10 +152,16 @@ export interface As2ConnectorConfig {
   /**
    * @public
    * <p>The algorithm that is used to encrypt the file.</p>
-   *          <note>
-   *             <p>You can only specify <code>NONE</code> if the URL for your connector uses HTTPS. This ensures that
-   *         no traffic is sent in clear text.</p>
-   *          </note>
+   *          <p>Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Do not use the <code>DES_EDE3_CBC</code> algorithm unless you must support a legacy client that requires it, as it is a weak encryption algorithm.</p>
+   *             </li>
+   *             <li>
+   *                <p>You can only specify <code>NONE</code> if the URL for your connector uses HTTPS. Using HTTPS ensures that
+   *           no traffic is sent in clear text.</p>
+   *             </li>
+   *          </ul>
    */
   EncryptionAlgorithm?: EncryptionAlg;
 
@@ -938,6 +945,11 @@ export class ThrottlingException extends __BaseException {
  * @public
  * <p>Contains the details for an SFTP connector object. The connector object is used for transferring files to and from a
  *       partner's SFTP server.</p>
+ *          <note>
+ *             <p>Because the <code>SftpConnectorConfig</code> data type is used for both creating and updating SFTP connectors, its parameters,
+ *         <code>TrustedHostKeys</code> and <code>UserSecretId</code> are marked as not required. This is a bit misleading, as they are not required when
+ *       you are updating an existing SFTP connector, but <i>are required</i> when you are creating a new SFTP connector.</p>
+ *          </note>
  */
 export interface SftpConnectorConfig {
   /**
@@ -965,6 +977,15 @@ export interface SftpConnectorConfig {
    *             <code>ecdsa-sha2-nistp521</code>, depending on the size of the key you generated.</p>
    *             </li>
    *          </ul>
+   *          <p>Run this command to retrieve the SFTP server host key, where your SFTP server name is <code>ftp.host.com</code>.</p>
+   *          <p>
+   *             <code>ssh-keyscan ftp.host.com</code>
+   *          </p>
+   *          <p>This prints the public host key to standard output.</p>
+   *          <p>
+   *             <code>ftp.host.com ssh-rsa AAAAB3Nza...&lt;long-string-for-public-key</code>
+   *          </p>
+   *          <p>Copy and paste this string into the <code>TrustedHostKeys</code> field for the <code>create-connector</code> command or into the <b>Trusted host keys</b> field in the console.</p>
    */
   TrustedHostKeys?: string[];
 }
@@ -1151,9 +1172,39 @@ export interface EndpointDetails {
    * @public
    * <p>A list of address allocation IDs that are required to attach an Elastic IP address to your
    *       server's endpoint.</p>
+   *          <p>An address allocation ID corresponds to the allocation ID of an Elastic IP address. This
+   *       value can be retrieved from the <code>allocationId</code> field from the Amazon EC2
+   *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_Address.html">Address</a>
+   *       data type. One way to retrieve this value is by calling the EC2 <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html">DescribeAddresses</a> API.</p>
+   *          <p>This parameter is optional. Set this parameter if you want to make your VPC endpoint
+   *       public-facing. For details, see <a href="https://docs.aws.amazon.com/transfer/latest/userguide/create-server-in-vpc.html#create-internet-facing-endpoint">Create an internet-facing endpoint for your server</a>.</p>
    *          <note>
-   *             <p>This property can only be set when <code>EndpointType</code> is set to <code>VPC</code>
-   *         and it is only valid in the <code>UpdateServer</code> API.</p>
+   *             <p>This property can only be set as follows:</p>
+   *             <ul>
+   *                <li>
+   *                   <p>
+   *                      <code>EndpointType</code> must be set to
+   *             <code>VPC</code>
+   *                   </p>
+   *                </li>
+   *                <li>
+   *                   <p>The Transfer Family server must be offline.</p>
+   *                </li>
+   *                <li>
+   *                   <p>You cannot set this parameter for Transfer Family servers that use the FTP protocol.</p>
+   *                </li>
+   *                <li>
+   *                   <p>The server must already have <code>SubnetIds</code> populated (<code>SubnetIds</code> and <code>AddressAllocationIds</code> cannot be updated simultaneously).</p>
+   *                </li>
+   *                <li>
+   *                   <p>
+   *                      <code>AddressAllocationIds</code> can't contain duplicates, and must be equal in length to <code>SubnetIds</code>. For example,
+   *           if you have three subnet IDs, you must also specify three address allocation IDs.</p>
+   *                </li>
+   *                <li>
+   *                   <p>Call the <code>UpdateServer</code> API to set or change this parameter.</p>
+   *                </li>
+   *             </ul>
    *          </note>
    */
   AddressAllocationIds?: string[];

@@ -45,7 +45,7 @@ export interface UpdateConnectorCommandOutput extends UpdateConnectorResponse, _
  *     PartnerProfileId: "STRING_VALUE",
  *     MessageSubject: "STRING_VALUE",
  *     Compression: "ZLIB" || "DISABLED",
- *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "NONE",
+ *     EncryptionAlgorithm: "AES128_CBC" || "AES192_CBC" || "AES256_CBC" || "DES_EDE3_CBC" || "NONE",
  *     SigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE",
  *     MdnSigningAlgorithm: "SHA256" || "SHA384" || "SHA512" || "SHA1" || "NONE" || "DEFAULT",
  *     MdnResponse: "SYNC" || "NONE",
