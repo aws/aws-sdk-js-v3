@@ -27,7 +27,7 @@
     "@smithy/util-stream": "^2.1.1",
     "@aws-sdk/types": "3.515.0",
     "@aws-sdk/protocol-http": "3.374.0",
-    "@smithy/credential-provider-imds": "2.2.6"
+    "@smithy/node-config-provider": "2.2.5"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",
