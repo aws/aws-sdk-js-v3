@@ -2242,6 +2242,11 @@ export type DetectorFeature = (typeof DetectorFeature)[keyof typeof DetectorFeat
 /**
  * @public
  * <p>Contains information about a GuardDuty feature.</p>
+ *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
+ *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
+ *       You can add only one of these two features because Runtime Monitoring already includes the
+ *       threat detection for Amazon EKS resources. For more information, see
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
  */
 export interface DetectorFeatureConfiguration {
   /**
@@ -4152,26 +4157,31 @@ export interface DescribeOrganizationConfigurationResponse {
 
   /**
    * @public
-   * <p>Indicates the auto-enablement configuration of GuardDuty for the member accounts in the
+   * <p>Indicates the auto-enablement configuration of GuardDuty or any of the corresponding protection plans for the member accounts in the
    *       organization.</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>NEW</code>: Indicates that when a new account joins the organization, they will
-   *           have GuardDuty enabled automatically. </p>
+   *           have GuardDuty or any of the corresponding protection plans enabled automatically. </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ALL</code>: Indicates that all accounts in the organization have GuardDuty
-   *           enabled automatically. This includes <code>NEW</code> accounts that join the organization
+   *                   <code>ALL</code>: Indicates that all accounts in the organization have GuardDuty and any of the corresponding
+   *           protection plans enabled automatically. This includes <code>NEW</code> accounts that join the organization
    *           and accounts that may have been suspended or removed from the organization in
    *           GuardDuty.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>NONE</code>: Indicates that GuardDuty will not be automatically enabled for any
+   *                   <code>NONE</code>: Indicates that GuardDuty or any of the corresponding protection plans
+   *           will not be automatically enabled for any
    *           account in the organization. The administrator must manage GuardDuty for each account in
    *           the organization individually.</p>
+   *                <p>When you update the auto-enable setting from <code>ALL</code> or <code>NEW</code> to
+   *         <code>NONE</code>, this action doesn't disable the corresponding option for your existing accounts. This
+   *         configuration will apply to the new accounts that join the organization. After you update the auto-enable settings,
+   *         no new account will have the corresponding option as enabled.</p>
    *             </li>
    *          </ul>
    */
@@ -4339,6 +4349,11 @@ export type DetectorFeatureResult = (typeof DetectorFeatureResult)[keyof typeof 
 /**
  * @public
  * <p>Contains information about a GuardDuty feature.</p>
+ *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
+ *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
+ *       You can add only one of these two features because Runtime Monitoring already includes the
+ *       threat detection for Amazon EKS resources. For more information, see
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
  */
 export interface DetectorFeatureConfigurationResult {
   /**
@@ -7199,6 +7214,8 @@ export const UsageFeature = {
   FARGATE_RUNTIME_MONITORING: "FARGATE_RUNTIME_MONITORING",
   FLOW_LOGS: "FLOW_LOGS",
   LAMBDA_NETWORK_LOGS: "LAMBDA_NETWORK_LOGS",
+  RDS_DBI_PROTECTION_PROVISIONED: "RDS_DBI_PROTECTION_PROVISIONED",
+  RDS_DBI_PROTECTION_SERVERLESS: "RDS_DBI_PROTECTION_SERVERLESS",
   RDS_LOGIN_EVENTS: "RDS_LOGIN_EVENTS",
   S3_DATA_EVENTS: "S3_DATA_EVENTS",
 } as const;

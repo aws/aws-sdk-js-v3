@@ -28,7 +28,12 @@ export interface UpdateDetectorCommandOutput extends UpdateDetectorResponse, __M
 
 /**
  * @public
- * <p>Updates the GuardDuty detector specified by the detectorId.</p>
+ * <p>Updates the GuardDuty detector specified by the detector ID.</p>
+ *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
+ *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
+ *       You can add only one of these two features because Runtime Monitoring already includes the
+ *       threat detection for Amazon EKS resources. For more information, see
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>

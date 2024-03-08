@@ -28,10 +28,26 @@ export interface CreateDetectorCommandOutput extends CreateDetectorResponse, __M
 
 /**
  * @public
- * <p>Creates a single Amazon GuardDuty detector. A detector is a resource that represents the
+ * <p>Creates a single GuardDuty detector. A detector is a resource that represents the
  *       GuardDuty service. To start using GuardDuty, you must create a detector in each Region where
  *       you enable the service. You can have only one detector per account per Region. All data
  *       sources are enabled in a new detector by default.</p>
+ *          <ul>
+ *             <li>
+ *                <p>When you don't specify any <code>features</code>, with an
+ *           exception to <code>RUNTIME_MONITORING</code>, all the optional features are
+ *           enabled by default.</p>
+ *             </li>
+ *             <li>
+ *                <p>When you specify some of the <code>features</code>, any feature that is not specified in the
+ *           API call gets enabled by default, with an exception to <code>RUNTIME_MONITORING</code>. </p>
+ *             </li>
+ *          </ul>
+ *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
+ *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
+ *       You can add only one of these two features because Runtime Monitoring already includes the
+ *       threat detection for Amazon EKS resources. For more information, see
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>

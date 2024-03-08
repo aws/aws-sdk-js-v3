@@ -35,6 +35,11 @@ export interface UpdateOrganizationConfigurationCommandOutput
  * @public
  * <p>Configures the delegated administrator account with the provided values. You must provide
  *       a value for either <code>autoEnableOrganizationMembers</code> or <code>autoEnable</code>, but not both. </p>
+ *          <p>Specifying both EKS Runtime Monitoring (<code>EKS_RUNTIME_MONITORING</code>)
+ *       and Runtime Monitoring (<code>RUNTIME_MONITORING</code>) will cause an error.
+ *       You can add only one of these two features because Runtime Monitoring already includes the
+ *       threat detection for Amazon EKS resources. For more information, see
+ *       <a href="https://docs.aws.amazon.com/guardduty/latest/ug/runtime-monitoring.html">Runtime Monitoring</a>.</p>
  *          <p>There might be regional differences because some data sources might not be
  *       available in all the Amazon Web Services Regions where GuardDuty is presently supported. For more
  *       information, see <a href="https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_regions.html">Regions and endpoints</a>.</p>
