@@ -42,8 +42,11 @@ export class MetadataService {
     withToken?: boolean
   ): Promise<string> {
     let header = options.headers || {}; // Using provided headers or default to an empty object
+    /**
+     * Make request with token.
+     * Note that making the request call with token will result in an additional request to fetch the token.
+     */
     if (withToken) {
-      // make request with token
       header = {
         ...options?.headers,
         "X-aws-ec2-metadata-token": await this.fetchMetadataToken(),

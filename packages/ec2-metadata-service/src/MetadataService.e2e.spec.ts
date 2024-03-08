@@ -18,6 +18,14 @@ describe("MetadataService E2E Tests", () => {
   });
 
   it("should fetch instance ID successfully", async () => {
+    const instanceId = await metadataService.request("/latest/meta-data/instance-id", {}, false);
+    expect(instanceId).toBeDefined();
+    expect(typeof instanceId).toBe("string");
+    expect(instanceId.length).toBeGreaterThan(0);
+    console.log(instanceId);
+  });
+
+  it("should fetch instance ID successfully with token", async () => {
     const instanceId = await metadataService.request("/latest/meta-data/instance-id", {}, true);
     expect(instanceId).toBeDefined();
     expect(typeof instanceId).toBe("string");
