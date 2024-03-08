@@ -67,6 +67,9 @@ export interface ListImportFailuresCommandOutput extends ListImportFailuresRespo
  *  <p>A token that is not valid, or a token that was previously used in a request with
  *          different parameters. This exception is thrown if the token is not valid.</p>
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
  * @throws {@link OperationNotPermittedException} (client fault)
  *  <p>This exception is thrown when the requested operation is not permitted.</p>
  *

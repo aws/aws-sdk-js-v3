@@ -766,6 +766,11 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::AppConfig::Configuration</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::B2BI::Transformer</code>
    *                      </p>
    *                   </li>
@@ -836,7 +841,37 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::GreengrassV2::ComponentVersion</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::GreengrassV2::Deployment</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::GuardDuty::Detector</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::IoT::Certificate</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::IoT::Thing</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::IoTSiteWise::Asset</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::IoTSiteWise::TimeSeries</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -911,6 +946,21 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::S3::AccessPoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::S3ObjectLambda::AccessPoint</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>AWS::S3Outposts::Object</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::SageMaker::Endpoint</code>
    *                      </p>
    *                   </li>
@@ -951,22 +1001,12 @@ export interface AdvancedFieldSelector {
    *                   </li>
    *                   <li>
    *                      <p>
+   *                         <code>AWS::SWF::Domain</code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
    *                         <code>AWS::SQS::Queue</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3::AccessPoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3ObjectLambda::AccessPoint</code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>AWS::S3Outposts::Object</code>
    *                      </p>
    *                   </li>
    *                   <li>
@@ -1046,6 +1086,16 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:lambda:<region>:<account_ID>:function:<function_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When resources.type equals <code>AWS::AppConfig::Configuration</code>, and the operator is
+   *                set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the
+   *                following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:appconfig:<region>:<account_ID>:application/<application_ID>/environment/<environment_ID>/configuration/<configuration_profile_ID></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1189,6 +1239,26 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::GreengrassV2::ComponentVersion</code>, and the
+   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
+   *                the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:greengrass:<region>:<account_ID>:components/<component_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::GreengrassV2::Deployment</code>, and the
+   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
+   *                the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:greengrass:<region>:<account_ID>:deployments/<deployment_ID</code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::GuardDuty::Detector</code>, and the
    *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
    *                the following format:</p>
@@ -1196,6 +1266,46 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:guardduty:<region>:<account_ID>:detector/<detector_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::IoT::Certificate</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:iot:<region>:<account_ID>:cert/<certificate_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::IoT::Thing</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:iot:<region>:<account_ID>:thing/<thing_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::IoTSiteWise::Asset</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:iotsitewise:<region>:<account_ID>:asset/<asset_ID></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::IoTSiteWise::TimeSeries</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:iotsitewise:<region>:<account_ID>:timeseries/<timeseries_ID></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1339,6 +1449,44 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::S3::AccessPoint</code>, and the
+   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
+   *                one of the following formats. To log events on all objects in an S3 access point, we
+   *                recommend that you use only the access point ARN, don’t include the object path, and
+   *                use the <code>StartsWith</code> or <code>NotStartsWith</code> operators.</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name></code>
+   *                      </p>
+   *                   </li>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>/object/<object_path></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals
+   *                <code>AWS::S3ObjectLambda::AccessPoint</code>, and the operator is set to
+   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following
+   *                format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:s3-object-lambda:<region>:<account_ID>:accesspoint/<access_point_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::S3Outposts::Object</code>, and
+   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
+   *                in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::SageMaker::Endpoint</code>, and the operator is set to
    *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following format:</p>
    *                <ul>
@@ -1413,6 +1561,16 @@ export interface AdvancedFieldSelector {
    *                      </p>
    *                   </li>
    *                </ul>
+   *                <p>When <code>resources.type</code> equals <code>AWS::SWF::Domain</code>,
+   *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
+   *                must be in the following format:</p>
+   *                <ul>
+   *                   <li>
+   *                      <p>
+   *                         <code>arn:<partition>:swf:<region>:<account_ID>:domain/<domain_name></code>
+   *                      </p>
+   *                   </li>
+   *                </ul>
    *                <p>When <code>resources.type</code> equals <code>AWS::SQS::Queue</code>,
    *                and the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN
    *                must be in the following format:</p>
@@ -1420,44 +1578,6 @@ export interface AdvancedFieldSelector {
    *                   <li>
    *                      <p>
    *                         <code>arn:<partition>:sqs:<region>:<account_ID>:<queue_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::S3::AccessPoint</code>, and the
-   *                operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be in
-   *                one of the following formats. To log events on all objects in an S3 access point, we
-   *                recommend that you use only the access point ARN, don’t include the object path, and
-   *                use the <code>StartsWith</code> or <code>NotStartsWith</code> operators.</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name></code>
-   *                      </p>
-   *                   </li>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3:<region>:<account_ID>:accesspoint/<access_point_name>/object/<object_path></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals
-   *                <code>AWS::S3ObjectLambda::AccessPoint</code>, and the operator is set to
-   *                <code>Equals</code> or <code>NotEquals</code>, the ARN must be in the following
-   *                format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3-object-lambda:<region>:<account_ID>:accesspoint/<access_point_name></code>
-   *                      </p>
-   *                   </li>
-   *                </ul>
-   *                <p>When <code>resources.type</code> equals <code>AWS::S3Outposts::Object</code>, and
-   *                the operator is set to <code>Equals</code> or <code>NotEquals</code>, the ARN must be
-   *                in the following format:</p>
-   *                <ul>
-   *                   <li>
-   *                      <p>
-   *                         <code>arn:<partition>:s3-outposts:<region>:<account_ID>:<object_path></code>
    *                      </p>
    *                   </li>
    *                </ul>
@@ -1573,18 +1693,45 @@ export interface AdvancedFieldSelector {
 
 /**
  * @public
- * <p>Advanced event selectors let you create fine-grained selectors for the following CloudTrail event record ﬁelds. They help you control costs by logging only those
+ * <p>Advanced event selectors let you create fine-grained selectors for CloudTrail management and data events. They help you control costs by logging only those
  *          events that are important to you. For more information about advanced event selectors, see
- *             <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-management-events-with-cloudtrail.html">Logging management events</a> and
+ *          <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html">Logging data events</a> in the <i>CloudTrail User Guide</i>.</p>
+ *          <p>You cannot apply both event selectors and advanced event selectors to a trail.</p>
+ *          <p>
+ *             <b>Supported CloudTrail event record fields for management events</b>
+ *          </p>
  *          <ul>
+ *             <li>
+ *                <p>
+ *                   <code>eventCategory</code> (required)</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>eventSource</code>
+ *                </p>
+ *             </li>
  *             <li>
  *                <p>
  *                   <code>readOnly</code>
  *                </p>
  *             </li>
+ *          </ul>
+ *          <p>
+ *             <b>Supported CloudTrail event record fields for data events</b>
+ *          </p>
+ *          <ul>
  *             <li>
  *                <p>
- *                   <code>eventSource</code>
+ *                   <code>eventCategory</code> (required)</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>resources.type</code> (required)</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>readOnly</code>
  *                </p>
  *             </li>
  *             <li>
@@ -1594,21 +1741,14 @@ export interface AdvancedFieldSelector {
  *             </li>
  *             <li>
  *                <p>
- *                   <code>eventCategory</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>resources.type</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>
  *                   <code>resources.ARN</code>
  *                </p>
  *             </li>
  *          </ul>
- *          <p>You cannot apply both event selectors and advanced event selectors to a trail.</p>
+ *          <note>
+ *             <p>For event data stores for CloudTrail Insights events, Config configuration items, Audit Manager evidence, or events outside of Amazon Web Services, the only supported field is
+ *             <code>eventCategory</code>. </p>
+ *          </note>
  */
 export interface AdvancedEventSelector {
   /**
@@ -6263,7 +6403,10 @@ export interface LookupAttribute {
 
   /**
    * @public
-   * <p>Specifies a value for the specified AttributeKey.</p>
+   * <p>Specifies a value for the specified <code>AttributeKey</code>.</p>
+   *          <p>The maximum length for the <code>AttributeValue</code> is 2000 characters. The
+   *          following characters ('<code>_</code>', '<code> </code>', '<code>,</code>',
+   *          '<code>\\n</code>') count as two characters towards the 2000 character limit.</p>
    */
   AttributeValue: string | undefined;
 }

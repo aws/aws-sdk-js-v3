@@ -128,6 +128,9 @@ export interface CreateTrailCommandOutput extends CreateTrailResponse, __Metadat
  *  <p>This exception is thrown when the combination of parameters provided is not
  *          valid.</p>
  *
+ * @throws {@link InvalidParameterException} (client fault)
+ *  <p>The request includes a parameter that is not valid.</p>
+ *
  * @throws {@link InvalidS3BucketNameException} (client fault)
  *  <p>This exception is thrown when the provided S3 bucket name is not valid.</p>
  *
