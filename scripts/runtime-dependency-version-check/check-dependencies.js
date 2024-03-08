@@ -11,6 +11,33 @@ const root = path.join(__dirname, "..", "..");
 const packages = path.join(root, "packages");
 const walk = require("../utils/walk");
 
+const node_libraries = [
+  "buffer",
+  "child_process",
+  "crypto",
+  "dns",
+  "dns/promises",
+  "events",
+  "fs",
+  "fs/promises",
+  "http",
+  "http2",
+  "https",
+  "os",
+  "path",
+  "path/posix",
+  "path/win32",
+  "process",
+  "stream",
+  "stream/consumers",
+  "stream/promises",
+  "stream/web",
+  "tls",
+  "url",
+  "util",
+  "zlib",
+];
+
 (async () => {
   const errors = [];
 
@@ -44,17 +71,21 @@ const walk = require("../utils/walk");
       const importedDependencies = [];
       importedDependencies.push(
         ...new Set(
-          [...(contents.toString().match(/(from |import\()"(@(aws-sdk|smithy)\/.*?)";/g) || [])].map((_) =>
-            _.replace(/from "/g, "").replace(/";$/, "")
-          )
+          [...(contents.toString().match(/(from |import\()"(.*?)";/g) || [])]
+            .map((_) => _.replace(/from "/g, "").replace(/";$/, ""))
+            .filter((_) => !_.startsWith(".") && !node_libraries.includes(_))
         )
       );
 
       for (const dependency of importedDependencies) {
+        const dependencyPackageName = dependency.startsWith("@")
+          ? dependency.split("/").slice(0, 2).join("/")
+          : dependency.split("/")[0];
+
         if (
-          !(dependency in (pkgJson.dependencies ?? {})) &&
-          !(dependency in (pkgJson.peerDependencies ?? {})) &&
-          dependency !== pkgJson.name
+          !(dependencyPackageName in (pkgJson.dependencies ?? {})) &&
+          !(dependencyPackageName in (pkgJson.peerDependencies ?? {})) &&
+          dependencyPackageName !== pkgJson.name
         ) {
           errors.push(`${dependency} undeclared but imported in ${pkgJson.name} ${file}}`);
         }
