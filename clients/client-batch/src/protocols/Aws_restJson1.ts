@@ -130,6 +130,7 @@ import {
   JobDefinition,
   JobDependency,
   JobDetail,
+  JobStateTimeLimitAction,
   JobTimeout,
   KeyValuePair,
   KeyValuesPair,
@@ -230,6 +231,7 @@ export const se_CreateJobQueueCommand = async (
     take(input, {
       computeEnvironmentOrder: (_) => _json(_),
       jobQueueName: [],
+      jobStateTimeLimitActions: (_) => _json(_),
       priority: [],
       schedulingPolicyArn: [],
       state: [],
@@ -720,6 +722,7 @@ export const se_UpdateJobQueueCommand = async (
     take(input, {
       computeEnvironmentOrder: (_) => _json(_),
       jobQueue: [],
+      jobStateTimeLimitActions: (_) => _json(_),
       priority: [],
       schedulingPolicyArn: [],
       state: [],
@@ -1404,6 +1407,10 @@ const se_FairsharePolicy = (input: FairsharePolicy, context: __SerdeContext): an
 
 // se_JobDependencyList omitted.
 
+// se_JobStateTimeLimitAction omitted.
+
+// se_JobStateTimeLimitActions omitted.
+
 // se_JobTimeout omitted.
 
 // se_KeyValuePair omitted.
@@ -1755,6 +1762,10 @@ const de_JobDetailList = (output: any, context: __SerdeContext): JobDetail[] => 
 // de_JobQueueDetail omitted.
 
 // de_JobQueueDetailList omitted.
+
+// de_JobStateTimeLimitAction omitted.
+
+// de_JobStateTimeLimitActions omitted.
 
 // de_JobSummary omitted.
 

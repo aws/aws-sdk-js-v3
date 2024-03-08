@@ -63,6 +63,14 @@ export interface DescribeJobQueuesCommandOutput extends DescribeJobQueuesRespons
  * //       tags: { // TagrisTagsMap
  * //         "<keys>": "STRING_VALUE",
  * //       },
+ * //       jobStateTimeLimitActions: [ // JobStateTimeLimitActions
+ * //         { // JobStateTimeLimitAction
+ * //           reason: "STRING_VALUE", // required
+ * //           state: "RUNNABLE", // required
+ * //           maxTimeSeconds: Number("int"), // required
+ * //           action: "CANCEL", // required
+ * //         },
+ * //       ],
  * //     },
  * //   ],
  * //   nextToken: "STRING_VALUE",

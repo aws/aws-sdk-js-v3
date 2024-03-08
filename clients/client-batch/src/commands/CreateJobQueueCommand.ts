@@ -55,6 +55,14 @@ export interface CreateJobQueueCommandOutput extends CreateJobQueueResponse, __M
  *   tags: { // TagrisTagsMap
  *     "<keys>": "STRING_VALUE",
  *   },
+ *   jobStateTimeLimitActions: [ // JobStateTimeLimitActions
+ *     { // JobStateTimeLimitAction
+ *       reason: "STRING_VALUE", // required
+ *       state: "RUNNABLE", // required
+ *       maxTimeSeconds: Number("int"), // required
+ *       action: "CANCEL", // required
+ *     },
+ *   ],
  * };
  * const command = new CreateJobQueueCommand(input);
  * const response = await client.send(command);

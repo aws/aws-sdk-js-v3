@@ -961,6 +961,67 @@ export interface ComputeEnvironmentOrder {
  * @public
  * @enum
  */
+export const JobStateTimeLimitActionsAction = {
+  CANCEL: "CANCEL",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStateTimeLimitActionsAction =
+  (typeof JobStateTimeLimitActionsAction)[keyof typeof JobStateTimeLimitActionsAction];
+
+/**
+ * @public
+ * @enum
+ */
+export const JobStateTimeLimitActionsState = {
+  RUNNABLE: "RUNNABLE",
+} as const;
+
+/**
+ * @public
+ */
+export type JobStateTimeLimitActionsState =
+  (typeof JobStateTimeLimitActionsState)[keyof typeof JobStateTimeLimitActionsState];
+
+/**
+ * @public
+ * <p>Specifies an action that Batch will take after the job has remained at the head of the queue in the specified
+ *    state for longer than the specified time.</p>
+ */
+export interface JobStateTimeLimitAction {
+  /**
+   * @public
+   * <p>The reason to log for the action being taken.</p>
+   */
+  reason: string | undefined;
+
+  /**
+   * @public
+   * <p>The state of the job needed to trigger the action. The only supported value is "<code>RUNNABLE</code>".</p>
+   */
+  state: JobStateTimeLimitActionsState | undefined;
+
+  /**
+   * @public
+   * <p>The approximate amount of time, in seconds, that must pass with the job in the specified state before the action
+   *    is taken. The minimum value is 600 (10 minutes) and the maximum value is 86,400 (24 hours).</p>
+   */
+  maxTimeSeconds: number | undefined;
+
+  /**
+   * @public
+   * <p>The action to take when a job is at the head of the job queue in the specified state for the specified period of
+   *    time. The only supported value is "<code>CANCEL</code>", which will cancel the job.</p>
+   */
+  action: JobStateTimeLimitActionsAction | undefined;
+}
+
+/**
+ * @public
+ * @enum
+ */
 export const JQState = {
   DISABLED: "DISABLED",
   ENABLED: "ENABLED",
@@ -1040,6 +1101,13 @@ export interface CreateJobQueueRequest {
    *       in <i>Batch User Guide</i>.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The set of actions that Batch performs on jobs that remain at the head of the job queue in the specified state
+   *    longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
+   */
+  jobStateTimeLimitActions?: JobStateTimeLimitAction[];
 }
 
 /**
@@ -2819,7 +2887,7 @@ export interface TaskContainerProperties {
    *     <code>essential</code> parameter of a container is marked as false, its failure doesn't affect
    *    the rest of the containers in a task. If this parameter is omitted, a container is assumed to be
    *    essential.</p>
-   *          <p>All tasks must have at least one essential container. If you have an application that's
+   *          <p>All jobs must have at least one essential container. If you have an application that's
    *    composed of multiple containers, group containers that are used for a common purpose into
    *    components, and separate the different components into multiple task definitions. For more
    *    information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html">Application
@@ -4120,6 +4188,13 @@ export interface JobQueueDetail {
    *     <i>Batch User Guide</i>.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state
+   *    longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
+   */
+  jobStateTimeLimitActions?: JobStateTimeLimitAction[];
 }
 
 /**
@@ -4473,7 +4548,7 @@ export interface TaskContainerDetails {
    *     <code>essential</code> parameter of a container is marked as false, its failure doesn't affect
    *    the rest of the containers in a task. If this parameter is omitted, a container is assumed to be
    *    essential.</p>
-   *          <p>All tasks must have at least one essential container. If you have an application that's
+   *          <p>All jobs must have at least one essential container. If you have an application that's
    *    composed of multiple containers, group containers that are used for a common purpose into
    *    components, and separate the different components into multiple task definitions. For more
    *    information, see <a href="https://docs.aws.amazon.com/AmazonECS/latest/developerguide/application_architecture.html">Application
@@ -5188,8 +5263,29 @@ export interface JobDetail {
 
   /**
    * @public
-   * <p>A short, human-readable string to provide more details for the current status of the
-   *    job.</p>
+   * <p>A short, human-readable string to provide more details for the current status of the job.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>CAPACITY:INSUFFICIENT_INSTANCE_CAPACITY</code> - All compute environments have insufficient capacity to
+   *      service the job.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISCONFIGURATION:COMPUTE_ENVIRONMENT_MAX_RESOURCE</code> - All compute environments have a
+   *      <code>maxVcpu</code> setting that is smaller than the job requirements.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISCONFIGURATION:JOB_RESOURCE_REQUIREMENT</code> - All compute environments  have no connected instances
+   *      that meet the job requirements.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>MISCONFIGURATION:SERVICE_ROLE_PERMISSIONS</code> - All compute environments have problems with the
+   *      service role permissions.</p>
+   *             </li>
+   *          </ul>
    */
   statusReason?: string;
 
@@ -7059,6 +7155,13 @@ export interface UpdateJobQueueRequest {
    *          </note>
    */
   computeEnvironmentOrder?: ComputeEnvironmentOrder[];
+
+  /**
+   * @public
+   * <p>The set of actions that Batch perform on jobs that remain at the head of the job queue in the specified state
+   *    longer than specified times. Batch will perform each action after <code>maxTimeSeconds</code> has passed.</p>
+   */
+  jobStateTimeLimitActions?: JobStateTimeLimitAction[];
 }
 
 /**

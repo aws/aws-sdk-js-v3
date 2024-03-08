@@ -46,6 +46,14 @@ export interface UpdateJobQueueCommandOutput extends UpdateJobQueueResponse, __M
  *       computeEnvironment: "STRING_VALUE", // required
  *     },
  *   ],
+ *   jobStateTimeLimitActions: [ // JobStateTimeLimitActions
+ *     { // JobStateTimeLimitAction
+ *       reason: "STRING_VALUE", // required
+ *       state: "RUNNABLE", // required
+ *       maxTimeSeconds: Number("int"), // required
+ *       action: "CANCEL", // required
+ *     },
+ *   ],
  * };
  * const command = new UpdateJobQueueCommand(input);
  * const response = await client.send(command);
