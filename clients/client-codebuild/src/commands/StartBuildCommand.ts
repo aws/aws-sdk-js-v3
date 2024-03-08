@@ -28,7 +28,10 @@ export interface StartBuildCommandOutput extends StartBuildOutput, __MetadataBea
 
 /**
  * @public
- * <p>Starts running a build.</p>
+ * <p>Starts running a build with the settings defined in the project. These setting include: how to run a build,
+ *             where to get the source code, which build environment to use, which build commands to run, and where to store the build output.</p>
+ *          <p>You can also start a build run by overriding some of the build settings in the project. The overrides only apply for that
+ *             specific start build request. The settings in the project are unaltered.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
