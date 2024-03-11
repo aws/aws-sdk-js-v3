@@ -39,6 +39,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * const input = { // UpdateChannelRequest
  *   ChannelGroupName: "STRING_VALUE", // required
  *   ChannelName: "STRING_VALUE", // required
+ *   ETag: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  * };
  * const command = new UpdateChannelCommand(input);
@@ -56,6 +57,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
  * //       Url: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

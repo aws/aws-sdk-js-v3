@@ -38,6 +38,7 @@ export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupRespo
  * const client = new MediaPackageV2Client(config);
  * const input = { // UpdateChannelGroupRequest
  *   ChannelGroupName: "STRING_VALUE", // required
+ *   ETag: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  * };
  * const command = new UpdateChannelGroupCommand(input);
@@ -49,6 +50,7 @@ export interface UpdateChannelGroupCommandOutput extends UpdateChannelGroupRespo
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required
  * //   Description: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

@@ -109,6 +109,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  *       },
  *     },
  *   ],
+ *   ETag: "STRING_VALUE",
  * };
  * const command = new UpdateOriginEndpointCommand(input);
  * const response = await client.send(command);
@@ -190,6 +191,7 @@ export interface UpdateOriginEndpointCommandOutput extends UpdateOriginEndpointR
  * //       },
  * //     },
  * //   ],
+ * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

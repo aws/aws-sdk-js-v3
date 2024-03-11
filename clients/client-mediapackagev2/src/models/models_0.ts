@@ -479,6 +479,12 @@ export interface CreateChannelResponse {
 
   /**
    * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
+
+  /**
+   * @public
    * <p>The comma-separated list of tag key:value pairs assigned to the channel.</p>
    */
   Tags?: Record<string, string>;
@@ -590,6 +596,12 @@ export interface GetChannelResponse {
    * <p>The list of ingest endpoints.</p>
    */
   IngestEndpoints?: IngestEndpoint[];
+
+  /**
+   * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
 
   /**
    * @public
@@ -1443,6 +1455,12 @@ export interface CreateOriginEndpointResponse {
 
   /**
    * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
+
+  /**
+   * @public
    * <p>The comma-separated list of tag key:value pairs assigned to the origin endpoint.</p>
    */
   Tags?: Record<string, string>;
@@ -1574,6 +1592,12 @@ export interface GetOriginEndpointResponse {
    * <p>A low-latency HLS manifest configuration.</p>
    */
   LowLatencyHlsManifests?: GetLowLatencyHlsManifestConfiguration[];
+
+  /**
+   * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
 
   /**
    * @public
@@ -1913,6 +1937,12 @@ export interface UpdateOriginEndpointRequest {
    * <p>A low-latency HLS manifest configuration.</p>
    */
   LowLatencyHlsManifests?: CreateLowLatencyHlsManifestConfiguration[];
+
+  /**
+   * @public
+   * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
+   */
+  ETag?: string;
 }
 
 /**
@@ -1993,6 +2023,12 @@ export interface UpdateOriginEndpointResponse {
 
   /**
    * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
+
+  /**
+   * @public
    * <p>The comma-separated list of tag key:value pairs assigned to the origin endpoint.</p>
    */
   Tags?: Record<string, string>;
@@ -2013,6 +2049,12 @@ export interface UpdateChannelRequest {
    * <p>The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. </p>
    */
   ChannelName: string | undefined;
+
+  /**
+   * @public
+   * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
+   */
+  ETag?: string;
 
   /**
    * @public
@@ -2066,6 +2108,12 @@ export interface UpdateChannelResponse {
    * <p>The list of ingest endpoints.</p>
    */
   IngestEndpoints?: IngestEndpoint[];
+
+  /**
+   * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
 
   /**
    * @public
@@ -2142,6 +2190,12 @@ export interface CreateChannelGroupResponse {
    * <p>The date and time the channel group was modified.</p>
    */
   ModifiedAt: Date | undefined;
+
+  /**
+   * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
 
   /**
    * @public
@@ -2225,6 +2279,12 @@ export interface GetChannelGroupResponse {
 
   /**
    * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
+
+  /**
+   * @public
    * <p>The comma-separated list of tag key:value pairs assigned to the channel group.</p>
    */
   Tags?: Record<string, string>;
@@ -2276,6 +2336,12 @@ export interface UpdateChannelGroupRequest {
 
   /**
    * @public
+   * <p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>
+   */
+  ETag?: string;
+
+  /**
+   * @public
    * <p>Any descriptive information that you want to add to the channel group for future identification purposes.</p>
    */
   Description?: string;
@@ -2320,6 +2386,12 @@ export interface UpdateChannelGroupResponse {
    * <p>The description for your channel group.</p>
    */
   Description?: string;
+
+  /**
+   * @public
+   * <p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>
+   */
+  ETag?: string;
 
   /**
    * @public

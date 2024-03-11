@@ -537,9 +537,10 @@ export const se_UpdateChannelCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-  };
+    [_xauim]: input[_ET]!,
+  });
   b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}");
   b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
@@ -561,9 +562,10 @@ export const se_UpdateChannelGroupCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-  };
+    [_xauim]: input[_ET]!,
+  });
   b.bp("/channelGroup/{ChannelGroupName}");
   b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   let body: any;
@@ -584,9 +586,10 @@ export const se_UpdateOriginEndpointCommand = async (
   context: __SerdeContext
 ): Promise<__HttpRequest> => {
   const b = rb(input, context);
-  const headers: any = {
+  const headers: any = map({}, isSerializableHeaderValue, {
     "content-type": "application/json",
-  };
+    [_xauim]: input[_ET]!,
+  });
   b.bp("/channelGroup/{ChannelGroupName}/channel/{ChannelName}/originEndpoint/{OriginEndpointName}");
   b.p("ChannelGroupName", () => input.ChannelGroupName!, "{ChannelGroupName}", false);
   b.p("ChannelName", () => input.ChannelName!, "{ChannelName}", false);
@@ -626,6 +629,7 @@ export const de_CreateChannelCommand = async (
     ChannelName: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     IngestEndpoints: _json,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: _json,
@@ -653,6 +657,7 @@ export const de_CreateChannelGroupCommand = async (
     ChannelGroupName: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     EgressDomain: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: _json,
@@ -682,6 +687,7 @@ export const de_CreateOriginEndpointCommand = async (
     ContainerType: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     HlsManifests: (_) => de_GetHlsManifests(_, context),
     LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -799,6 +805,7 @@ export const de_GetChannelCommand = async (
     ChannelName: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     IngestEndpoints: _json,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: _json,
@@ -826,6 +833,7 @@ export const de_GetChannelGroupCommand = async (
     ChannelGroupName: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     EgressDomain: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: [, _json, `tags`],
@@ -878,6 +886,7 @@ export const de_GetOriginEndpointCommand = async (
     ContainerType: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     HlsManifests: (_) => de_GetHlsManifests(_, context),
     LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1089,6 +1098,7 @@ export const de_UpdateChannelCommand = async (
     ChannelName: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     IngestEndpoints: _json,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: [, _json, `tags`],
@@ -1116,6 +1126,7 @@ export const de_UpdateChannelGroupCommand = async (
     ChannelGroupName: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     EgressDomain: __expectString,
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Tags: [, _json, `tags`],
@@ -1145,6 +1156,7 @@ export const de_UpdateOriginEndpointCommand = async (
     ContainerType: __expectString,
     CreatedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     Description: __expectString,
+    ETag: __expectString,
     HlsManifests: (_) => de_GetHlsManifests(_, context),
     LowLatencyHlsManifests: (_) => de_GetLowLatencyHlsManifests(_, context),
     ModifiedAt: (_) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
@@ -1626,6 +1638,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
 const _CT = "ClientToken";
+const _ET = "ETag";
 const _MR = "MaxResults";
 const _NT = "NextToken";
 const _TK = "TagKeys";
@@ -1633,3 +1646,4 @@ const _mR = "maxResults";
 const _nT = "nextToken";
 const _tK = "tagKeys";
 const _xact = "x-amzn-client-token";
+const _xauim = "x-amzn-update-if-match";

@@ -59,6 +59,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
  * //       Url: "STRING_VALUE",
  * //     },
  * //   ],
+ * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

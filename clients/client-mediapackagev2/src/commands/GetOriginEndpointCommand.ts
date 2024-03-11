@@ -120,6 +120,7 @@ export interface GetOriginEndpointCommandOutput extends GetOriginEndpointRespons
  * //       },
  * //     },
  * //   ],
+ * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

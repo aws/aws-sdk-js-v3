@@ -47,6 +47,7 @@ export interface GetChannelGroupCommandOutput extends GetChannelGroupResponse, _
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required
  * //   Description: "STRING_VALUE",
+ * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

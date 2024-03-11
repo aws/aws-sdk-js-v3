@@ -193,6 +193,7 @@ export interface CreateOriginEndpointCommandOutput extends CreateOriginEndpointR
  * //       },
  * //     },
  * //   ],
+ * //   ETag: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

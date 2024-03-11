@@ -51,6 +51,7 @@ export interface CreateChannelGroupCommandOutput extends CreateChannelGroupRespo
  * //   EgressDomain: "STRING_VALUE", // required
  * //   CreatedAt: new Date("TIMESTAMP"), // required
  * //   ModifiedAt: new Date("TIMESTAMP"), // required
+ * //   ETag: "STRING_VALUE",
  * //   Description: "STRING_VALUE",
  * //   Tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",

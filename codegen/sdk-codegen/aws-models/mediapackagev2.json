@@ -387,6 +387,7 @@
                   "Url": "https://abcde-2.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
                 }
               ],
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -454,6 +455,7 @@
               "EgressDomain": "abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com",
               "CreatedAt": "2022-10-18T09:36:00.00Z",
               "ModifiedAt": "2022-10-18T09:36:00.00Z",
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -541,6 +543,13 @@
           "traits": {
             "smithy.api#documentation": "<p>The date and time the channel group was modified.</p>",
             "smithy.api#required": {}
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
           }
         },
         "Description": {
@@ -653,6 +662,13 @@
         "IngestEndpoints": {
           "target": "com.amazonaws.mediapackagev2#IngestEndpointList"
         },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.mediapackagev2#TagMap",
           "traits": {
@@ -689,8 +705,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The total duration (in seconds) of the manifest's content.</p>",
             "smithy.api#range": {
-              "min": 30,
-              "max": 900
+              "min": 30
             }
           }
         },
@@ -742,8 +757,7 @@
           "traits": {
             "smithy.api#documentation": "<p>The total duration (in seconds) of the manifest's content.</p>",
             "smithy.api#range": {
-              "min": 30,
-              "max": 900
+              "min": 30
             }
           }
         },
@@ -969,6 +983,7 @@
                   "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
                 }
               ],
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -1131,6 +1146,7 @@
                   "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointCMAF/exampleLLManifest2.m3u8"
                 }
               ],
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -1315,6 +1331,13 @@
           "target": "com.amazonaws.mediapackagev2#GetLowLatencyHlsManifests",
           "traits": {
             "smithy.api#documentation": "<p>A low-latency HLS manifest configuration.</p>"
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
           }
         },
         "Tags": {
@@ -1840,6 +1863,16 @@
         "smithy.api#documentation": "<p>The encryption type.</p>"
       }
     },
+    "com.amazonaws.mediapackagev2#EntityTag": {
+      "type": "string",
+      "traits": {
+        "smithy.api#length": {
+          "min": 1,
+          "max": 256
+        },
+        "smithy.api#pattern": "^[\\S]+$"
+      }
+    },
     "com.amazonaws.mediapackagev2#FilterConfiguration": {
       "type": "structure",
       "members": {
@@ -1932,6 +1965,7 @@
                   "Url": "https://abcde-2.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
                 }
               ],
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -1987,6 +2021,7 @@
               "EgressDomain": "abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com",
               "CreatedAt": "2022-10-18T09:36:00.00Z",
               "ModifiedAt": "2022-10-18T09:36:00.00Z",
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -2059,6 +2094,13 @@
           "target": "com.amazonaws.mediapackagev2#ResourceDescription",
           "traits": {
             "smithy.api#documentation": "<p>The description for your channel group.</p>"
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
           }
         },
         "Tags": {
@@ -2246,6 +2288,13 @@
         },
         "IngestEndpoints": {
           "target": "com.amazonaws.mediapackagev2#IngestEndpointList"
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
+          }
         },
         "Tags": {
           "target": "com.amazonaws.mediapackagev2#TagMap",
@@ -2480,6 +2529,7 @@
                   "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
                 }
               ],
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -2725,6 +2775,13 @@
           "target": "com.amazonaws.mediapackagev2#GetLowLatencyHlsManifests",
           "traits": {
             "smithy.api#documentation": "<p>A low-latency HLS manifest configuration.</p>"
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
           }
         },
         "Tags": {
@@ -4317,6 +4374,7 @@
                   "Url": "https://abcde-2.ingest.vwxyz.mediapackagev2.us-west-2.amazonaws.com/v1/exampleChannelGroup/exampleChannel/index"
                 }
               ],
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -4377,6 +4435,7 @@
               "EgressDomain": "abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com",
               "CreatedAt": "2022-10-18T09:36:00.00Z",
               "ModifiedAt": "2022-10-18T10:36:00.00Z",
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -4401,6 +4460,14 @@
             "smithy.api#documentation": "<p>The name that describes the channel group. The name is the primary identifier for the channel group, and must be unique for your account in the AWS Region.</p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>",
+            "smithy.api#httpHeader": "x-amzn-update-if-match"
           }
         },
         "Description": {
@@ -4458,6 +4525,13 @@
             "smithy.api#documentation": "<p>The description for your channel group.</p>"
           }
         },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
+          }
+        },
         "Tags": {
           "target": "com.amazonaws.mediapackagev2#TagMap",
           "traits": {
@@ -4488,6 +4562,14 @@
             "smithy.api#documentation": "<p>The name that describes the channel. The name is the primary identifier for the channel, and must be unique for your account in the AWS Region and channel group. </p>",
             "smithy.api#httpLabel": {},
             "smithy.api#required": {}
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>",
+            "smithy.api#httpHeader": "x-amzn-update-if-match"
           }
         },
         "Description": {
@@ -4547,6 +4629,13 @@
         },
         "IngestEndpoints": {
           "target": "com.amazonaws.mediapackagev2#IngestEndpointList"
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
+          }
         },
         "Tags": {
           "target": "com.amazonaws.mediapackagev2#TagMap",
@@ -4754,6 +4843,7 @@
                   "Url": "https://abcde.egress.vwxyz.mediapackagev2.us-west-2.amazonaws.com/out/v1/exampleChannelGroup/exampleChannel/exampleOriginEndpointTS/exampleLLManifest2.m3u8"
                 }
               ],
+              "ETag": "GlfT+dwAyGIR4wuy8nKWl1RDPwSrjQej9qUutLZxoxk=",
               "Tags": {
                 "key1": "value1",
                 "key2": "value2"
@@ -4837,6 +4927,14 @@
           "traits": {
             "aws.cloudformation#cfnExcludeProperty": {},
             "smithy.api#documentation": "<p>A low-latency HLS manifest configuration.</p>"
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The expected current Entity Tag (ETag) for the resource. If the specified ETag does not match the resource's current entity tag, the update request will be rejected.</p>",
+            "smithy.api#httpHeader": "x-amzn-update-if-match"
           }
         }
       },
@@ -4925,6 +5023,13 @@
           "target": "com.amazonaws.mediapackagev2#GetLowLatencyHlsManifests",
           "traits": {
             "smithy.api#documentation": "<p>A low-latency HLS manifest configuration.</p>"
+          }
+        },
+        "ETag": {
+          "target": "com.amazonaws.mediapackagev2#EntityTag",
+          "traits": {
+            "aws.cloudformation#cfnExcludeProperty": {},
+            "smithy.api#documentation": "<p>The current Entity Tag (ETag) associated with this resource. The entity tag can be used to safely make concurrent updates to the resource.</p>"
           }
         },
         "Tags": {
