@@ -854,7 +854,7 @@ export type ClusterMode = (typeof ClusterMode)[keyof typeof ClusterMode];
 /**
  * @public
  * <p>Represents the information required for client programs to connect to a cache
- *             node.</p>
+ *             node. This value is read-only.</p>
  */
 export interface Endpoint {
   /**
@@ -1175,7 +1175,7 @@ export interface NodeGroup {
 
   /**
    * @public
-   * <p>The endpoint of the replica nodes in this node group (shard).</p>
+   * <p>The endpoint of the replica nodes in this node group (shard). This value is read-only.</p>
    */
   ReaderEndpoint?: Endpoint;
 
@@ -5313,10 +5313,6 @@ export interface CreateReplicationGroupMessage {
    * @public
    * <p>Specifies the weekly time range during which maintenance on the cluster is performed.
    *             It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The
-   *             minimum maintenance window is a 60 minute period. Valid values for <code>ddd</code>
-   *             are:</p>
-   *          <p>Specifies the weekly time range during which maintenance on the cluster is performed.
-   *             It is specified as a range in the format ddd:hh24:mi-ddd:hh24:mi (24H Clock UTC). The
    *             minimum maintenance window is a 60 minute period.</p>
    *          <p>Valid values for <code>ddd</code> are:</p>
    *          <ul>
@@ -5909,14 +5905,14 @@ export interface ServerlessCache {
   /**
    * @public
    * <p>Represents the information required for client programs to connect to a cache
-   *             node.</p>
+   *             node. This value is read-only.</p>
    */
   Endpoint?: Endpoint;
 
   /**
    * @public
    * <p>Represents the information required for client programs to connect to a cache
-   *             node.</p>
+   *             node. This value is read-only.</p>
    */
   ReaderEndpoint?: Endpoint;
 
@@ -5934,7 +5930,7 @@ export interface ServerlessCache {
 
   /**
    * @public
-   * <p>If no subnet IDs are given and your VPC is in SFO, then ElastiCache will select 2 default subnets across AZs in your VPC.
+   * <p>If no subnet IDs are given and your VPC is in us-west-1, then ElastiCache will select 2 default subnets across AZs in your VPC.
    *            For all other Regions, if no subnet IDs are given then ElastiCache will select 3 default subnets across AZs in your default VPC.</p>
    */
   SubnetIds?: string[];

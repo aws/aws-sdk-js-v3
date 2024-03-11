@@ -32,8 +32,8 @@ export interface CreateReplicationGroupCommandOutput extends CreateReplicationGr
  *             group.</p>
  *          <p>This API can be used to create a standalone regional replication group or a secondary
  *             replication group associated with a Global datastore.</p>
- *          <p>A Redis (cluster mode disabled) replication group is a collection of clusters, where
- *             one of the clusters is a read/write primary and the others are read-only replicas.
+ *          <p>A Redis (cluster mode disabled) replication group is a collection of nodes, where
+ *             one of the nodes is a read/write primary and the others are read-only replicas.
  *             Writes to the primary are asynchronously propagated to the replicas.</p>
  *          <p>A Redis cluster-mode enabled cluster is comprised of from 1 to 90 shards (API/CLI:
  *             node groups). Each shard has a primary node and up to 5 read-only replica nodes. The
