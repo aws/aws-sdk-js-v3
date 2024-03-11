@@ -504,6 +504,20 @@ export class ThrottlingException extends __BaseException {
  * @public
  * @enum
  */
+export const PublishDeploymentStatus = {
+  DISABLED: "DISABLED",
+  ENABLED: "ENABLED",
+} as const;
+
+/**
+ * @public
+ */
+export type PublishDeploymentStatus = (typeof PublishDeploymentStatus)[keyof typeof PublishDeploymentStatus];
+
+/**
+ * @public
+ * @enum
+ */
 export const SyncConfigurationType = {
   CFN_STACK_SYNC: "CFN_STACK_SYNC",
 } as const;
@@ -512,6 +526,20 @@ export const SyncConfigurationType = {
  * @public
  */
 export type SyncConfigurationType = (typeof SyncConfigurationType)[keyof typeof SyncConfigurationType];
+
+/**
+ * @public
+ * @enum
+ */
+export const TriggerResourceUpdateOn = {
+  ANY_CHANGE: "ANY_CHANGE",
+  FILE_CHANGE: "FILE_CHANGE",
+} as const;
+
+/**
+ * @public
+ */
+export type TriggerResourceUpdateOn = (typeof TriggerResourceUpdateOn)[keyof typeof TriggerResourceUpdateOn];
 
 /**
  * @public
@@ -555,6 +583,18 @@ export interface CreateSyncConfigurationInput {
    * <p>The type of sync configuration.</p>
    */
   SyncType: SyncConfigurationType | undefined;
+
+  /**
+   * @public
+   * <p>Whether to enable or disable publishing of deployment status to source providers.</p>
+   */
+  PublishDeploymentStatus?: PublishDeploymentStatus;
+
+  /**
+   * @public
+   * <p>When to trigger Git sync to begin the stack update.</p>
+   */
+  TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
 }
 
 /**
@@ -617,6 +657,18 @@ export interface SyncConfiguration {
    * <p>The type of sync for a specific sync configuration.</p>
    */
   SyncType: SyncConfigurationType | undefined;
+
+  /**
+   * @public
+   * <p>Whether to enable or disable publishing of deployment status to source providers.</p>
+   */
+  PublishDeploymentStatus?: PublishDeploymentStatus;
+
+  /**
+   * @public
+   * <p>When to trigger Git sync to begin the stack update.</p>
+   */
+  TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
 }
 
 /**
@@ -2018,6 +2070,18 @@ export interface UpdateSyncConfigurationInput {
    * <p>The sync type for the sync configuration to be updated.</p>
    */
   SyncType: SyncConfigurationType | undefined;
+
+  /**
+   * @public
+   * <p>Whether to enable or disable publishing of deployment status to source providers.</p>
+   */
+  PublishDeploymentStatus?: PublishDeploymentStatus;
+
+  /**
+   * @public
+   * <p>When to trigger Git sync to begin the stack update.</p>
+   */
+  TriggerResourceUpdateOn?: TriggerResourceUpdateOn;
 }
 
 /**

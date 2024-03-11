@@ -46,6 +46,8 @@ export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigur
  *   ResourceName: "STRING_VALUE", // required
  *   RoleArn: "STRING_VALUE",
  *   SyncType: "CFN_STACK_SYNC", // required
+ *   PublishDeploymentStatus: "ENABLED" || "DISABLED",
+ *   TriggerResourceUpdateOn: "ANY_CHANGE" || "FILE_CHANGE",
  * };
  * const command = new UpdateSyncConfigurationCommand(input);
  * const response = await client.send(command);
@@ -60,6 +62,8 @@ export interface UpdateSyncConfigurationCommandOutput extends UpdateSyncConfigur
  * //     ResourceName: "STRING_VALUE", // required
  * //     RoleArn: "STRING_VALUE", // required
  * //     SyncType: "CFN_STACK_SYNC", // required
+ * //     PublishDeploymentStatus: "ENABLED" || "DISABLED",
+ * //     TriggerResourceUpdateOn: "ANY_CHANGE" || "FILE_CHANGE",
  * //   },
  * // };
  *
