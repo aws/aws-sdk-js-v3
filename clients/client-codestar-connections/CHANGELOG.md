@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.531.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.530.0...v3.531.0) (2024-03-11)
+
+
+### Features
+
+* **client-codestar-connections:** Added a sync configuration enum to disable publishing of deployment status to source providers (PublishDeploymentStatus). Added a sync configuration enum (TriggerStackUpdateOn) to only trigger changes. ([582eb00](https://github.com/aws/aws-sdk-js-v3/commit/582eb004423bc387f429daca66a49260daffb911))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-codestar-connections

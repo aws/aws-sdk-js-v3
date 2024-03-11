@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.531.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.530.0...v3.531.0) (2024-03-11)
+
+
+### Features
+
+* **client-mediapackagev2:** This release enables customers to safely update their MediaPackage v2 channel groups, channels and origin endpoints using entity tags. ([1e309c2](https://github.com/aws/aws-sdk-js-v3/commit/1e309c270c1d8bb23c9ccd08447455e191cca8f2))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-mediapackagev2
