@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.532.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.531.0...v3.532.0) (2024-03-12)
+
+
+### Features
+
+* **lib-storage:** improve performance by reducing buffer copies ([#5078](https://github.com/aws/aws-sdk-js-v3/issues/5078)) ([e2fb9d5](https://github.com/aws/aws-sdk-js-v3/commit/e2fb9d50d7d8e096d8cd02527141c7c86cc7321c))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/lib-storage

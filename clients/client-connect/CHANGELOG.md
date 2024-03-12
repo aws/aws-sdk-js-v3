@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.532.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.531.0...v3.532.0) (2024-03-12)
+
+
+### Features
+
+* **client-connect:** This release increases MaxResults limit to 500 in request for SearchUsers, SearchQueues and SearchRoutingProfiles APIs of Amazon Connect. ([069e57e](https://github.com/aws/aws-sdk-js-v3/commit/069e57ec15b4fd3298dc67f324e52e93c2faa57f))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

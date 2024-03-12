@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.532.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.531.0...v3.532.0) (2024-03-12)
+
+
+### Features
+
+* **client-kafka:** Added support for specifying the starting position of topic replication in MSK-Replicator. ([5526ef7](https://github.com/aws/aws-sdk-js-v3/commit/5526ef79be1e58c878587f4995a80e11df702df5))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-kafka

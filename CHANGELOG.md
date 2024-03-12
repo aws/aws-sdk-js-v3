@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.532.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.531.0...v3.532.0) (2024-03-12)
+
+
+### Features
+
+* **client-connect:** This release increases MaxResults limit to 500 in request for SearchUsers, SearchQueues and SearchRoutingProfiles APIs of Amazon Connect. ([069e57e](https://github.com/aws/aws-sdk-js-v3/commit/069e57ec15b4fd3298dc67f324e52e93c2faa57f))
+* **client-kafka:** Added support for specifying the starting position of topic replication in MSK-Replicator. ([5526ef7](https://github.com/aws/aws-sdk-js-v3/commit/5526ef79be1e58c878587f4995a80e11df702df5))
+* **lib-storage:** improve performance by reducing buffer copies ([#5078](https://github.com/aws/aws-sdk-js-v3/issues/5078)) ([e2fb9d5](https://github.com/aws/aws-sdk-js-v3/commit/e2fb9d50d7d8e096d8cd02527141c7c86cc7321c))
+
+
+
+
+
 # [3.531.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.530.0...v3.531.0) (2024-03-11)
 
 
