@@ -28,7 +28,25 @@ export interface DeleteQuickConnectCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * <p>Deletes a quick connect.</p>
+ * <p>Deletes a quick connect. </p>
+ *          <important>
+ *             <p>After calling <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_DeleteUser.html">DeleteUser</a>, it's important to
+ *     call <code>DeleteQuickConnect</code> to delete any records related to the deleted users. This
+ *     will help you:</p>
+ *             <ul>
+ *                <li>
+ *                   <p>Avoid dangling resources that impact your service quotas.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Remove deleted users so they don't appear to agents as transfer options.</p>
+ *                </li>
+ *                <li>
+ *                   <p>Avoid the disruption of other Amazon Connect processes, such as instance replication
+ *       and syncing if you're using <a href="https://docs.aws.amazon.com/connect/latest/adminguide/setup-connect-global-resiliency.html">Amazon Connect
+ *        Global Resiliency</a>. </p>
+ *                </li>
+ *             </ul>
+ *          </important>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

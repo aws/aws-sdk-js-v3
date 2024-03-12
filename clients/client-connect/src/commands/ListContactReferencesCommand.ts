@@ -30,7 +30,8 @@ export interface ListContactReferencesCommandOutput extends ListContactReference
  * @public
  * <p>This API is in preview release for Amazon Connect and is subject to change.</p>
  *          <p>For the specified <code>referenceTypes</code>, returns a list of references associated with
- *    the contact. </p>
+ *    the contact. <i>References</i> are links to documents that are related to a
+ *    contact, such as emails, attachments, or URLs.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -371,6 +371,11 @@ export interface AgentContactReference {
   /**
    * @public
    * <p>The <a href="https://docs.aws.amazon.com/connect/latest/adminguide/about-contact-states.html">state of the contact</a>.</p>
+   *          <note>
+   *             <p>When <code>AgentContactState</code> is set to <code>CONNECTED_ONHOLD</code>,
+   *      <code>StateStartTimestamp</code> is not changed. Instead, <code>StateStartTimestamp</code>
+   *     reflects the time the contact was <code>CONNECTED</code> to the agent.</p>
+   *          </note>
    */
   AgentContactState?: ContactState;
 
@@ -4864,6 +4869,12 @@ export interface CreateUseCaseResponse {
 /**
  * @public
  * <p>Contains information about the identity of a user.</p>
+ *          <note>
+ *             <p>For Amazon Connect instances that are created with the <code>EXISTING_DIRECTORY</code>
+ *     identity management type, <code>FirstName</code>, <code>LastName</code>, and <code>Email</code>
+ *     cannot be updated from within Amazon Connect because they are managed by the
+ *     directory.</p>
+ *          </note>
  */
 export interface UserIdentityInfo {
   /**
@@ -4937,7 +4948,10 @@ export interface UserPhoneConfig {
 
   /**
    * @public
-   * <p>The After Call Work (ACW) timeout setting, in seconds.</p>
+   * <p>The After Call Work (ACW) timeout setting, in seconds. This parameter has a minimum value of
+   *    0 and a maximum value of 2,000,000 seconds (24 days). Enter 0 if you don't want to allocate a
+   *    specific amount of ACW time. It essentially means an indefinite amount of time. When the
+   *    conversation ends, ACW starts; the agent must choose Close contact to end ACW. </p>
    *          <note>
    *             <p>When returned by a <code>SearchUsers</code> call, <code>AfterContactWorkTimeLimit</code> is
    *     returned in milliseconds. </p>
@@ -4961,6 +4975,18 @@ export interface CreateUserRequest {
    * <p>The user name for the account. For instances not using SAML for identity management, the
    *    user name can include up to 20 characters. If you are using SAML for identity management, the
    *    user name can include up to 64 characters from [a-zA-Z0-9_-.\@]+.</p>
+   *          <p>Username can include @ only if used in an email format. For example:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Correct: testuser</p>
+   *             </li>
+   *             <li>
+   *                <p>Correct: testuser@example.com</p>
+   *             </li>
+   *             <li>
+   *                <p>Incorrect: testuser@example</p>
+   *             </li>
+   *          </ul>
    */
   Username: string | undefined;
 

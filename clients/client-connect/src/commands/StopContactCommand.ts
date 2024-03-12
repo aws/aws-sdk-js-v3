@@ -28,8 +28,8 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
 
 /**
  * @public
- * <p>Ends the specified contact. This call does not work for voice contacts that use the
- *    following initiation methods:</p>
+ * <p>Ends the specified contact. Use this API to stop queued callbacks. It does not work for
+ *    voice contacts that use the following initiation methods:</p>
  *          <ul>
  *             <li>
  *                <p>DISCONNECT</p>
@@ -41,7 +41,7 @@ export interface StopContactCommandOutput extends StopContactResponse, __Metadat
  *                <p>QUEUE_TRANSFER</p>
  *             </li>
  *          </ul>
- *          <p>Chat and task contacts, however, can be terminated in any state, regardless of initiation
+ *          <p>Chat and task contacts can be terminated in any state, regardless of initiation
  *    method.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

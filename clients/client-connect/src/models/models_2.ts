@@ -1474,7 +1474,8 @@ export interface StartChatContactRequest {
 
   /**
    * @public
-   * <p>The initial message to be sent to the newly created chat.</p>
+   * <p>The initial message to be sent to the newly created chat. If you have a Lex bot in your
+   *    flow, the initial message is not delivered to the Lex bot.</p>
    */
   InitialMessage?: ChatMessage;
 
@@ -5041,10 +5042,9 @@ export interface UserSearchCriteria {
   /**
    * @public
    * <p>A leaf node condition which can be used to specify a string condition.</p>
-   *          <p>The currently supported values for <code>FieldName</code> are <code>username</code>,
-   *     <code>firstname</code>, <code>lastname</code>, <code>resourceId</code>,
-   *     <code>routingProfileId</code>, <code>securityProfileId</code>, <code>agentGroupId</code>, and
-   *     <code>agentGroupPathIds</code>.</p>
+   *          <p>The currently supported values for <code>FieldName</code> are <code>Username</code>,
+   *     <code>FirstName</code>, <code>LastName</code>, <code>RoutingProfileId</code>,
+   *     <code>SecurityProfileId</code>, <code>ResourceId</code>.</p>
    */
   StringCondition?: StringCondition;
 
