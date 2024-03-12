@@ -1,6 +1,6 @@
-import { Buffer } from "buffer";
+import { Buffer } from "buffer"; // do not remove this import: Node.js buffer or buffer NPM module for browser.
 
-export async function* getDataReadableStream(data: ReadableStream): AsyncGenerator<Buffer> {
+export async function* getDataReadableStream(data: ReadableStream): AsyncGenerator<Uint8Array> {
   // Get a lock on the stream.
   const reader = data.getReader();
 
@@ -9,9 +9,15 @@ export async function* getDataReadableStream(data: ReadableStream): AsyncGenerat
       // Read from the stream.
       const { done, value } = await reader.read();
       // Exit if we're done.
-      if (done) return;
-      // Else yield the chunk.
-      yield Buffer.from(value);
+      if (done) {
+        return;
+      }
+
+      if (Buffer.isBuffer(value) || value instanceof Uint8Array) {
+        yield value;
+      } else {
+        yield Buffer.from(value);
+      }
     }
   } catch (e) {
     throw e;
