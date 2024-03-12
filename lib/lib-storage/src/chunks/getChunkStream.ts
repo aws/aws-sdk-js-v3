@@ -37,6 +37,7 @@ export async function* getChunkStream<T>(
       partNumber += 1;
     }
   }
+
   yield {
     partNumber,
     data: currentBuffer.chunks.length !== 1 ? Buffer.concat(currentBuffer.chunks) : currentBuffer.chunks[0],
