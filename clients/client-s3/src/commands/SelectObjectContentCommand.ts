@@ -212,7 +212,7 @@ export interface SelectObjectContentCommandOutput extends SelectObjectContentOut
  * // { // SelectObjectContentOutput
  * //   Payload: { // SelectObjectContentEventStream Union: only one key present
  * //     Records: { // RecordsEvent
- * //       Payload: "BLOB_VALUE",
+ * //       Payload: new Uint8Array(),
  * //     },
  * //     Stats: { // StatsEvent
  * //       Details: { // Stats

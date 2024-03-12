@@ -51,7 +51,7 @@ export interface DescribeConfigurationRevisionCommandOutput
  * //   CreationTime: new Date("TIMESTAMP"),
  * //   Description: "STRING_VALUE",
  * //   Revision: Number("long"),
- * //   ServerProperties: "BLOB_VALUE",
+ * //   ServerProperties: new Uint8Array(),
  * // };
  *
  * ```

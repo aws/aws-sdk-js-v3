@@ -48,10 +48,10 @@ export interface GetRetainedMessageCommandOutput extends GetRetainedMessageRespo
  * const response = await client.send(command);
  * // { // GetRetainedMessageResponse
  * //   topic: "STRING_VALUE",
- * //   payload: "BLOB_VALUE",
+ * //   payload: new Uint8Array(),
  * //   qos: Number("int"),
  * //   lastModifiedTime: Number("long"),
- * //   userProperties: "BLOB_VALUE",
+ * //   userProperties: new Uint8Array(),
  * // };
  *
  * ```

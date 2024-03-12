@@ -34,7 +34,7 @@ export interface MalformedBlobCommandOutput extends __MetadataBearer {}
  * // const { RestJsonProtocolClient, MalformedBlobCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedBlobInput
- *   blob: "BLOB_VALUE",
+ *   blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new MalformedBlobCommand(input);
  * const response = await client.send(command);

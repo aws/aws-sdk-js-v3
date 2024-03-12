@@ -46,7 +46,7 @@ export interface ImportDocumentationPartsCommandOutput extends DocumentationPart
  *   restApiId: "STRING_VALUE", // required
  *   mode: "merge" || "overwrite",
  *   failOnWarnings: true || false,
- *   body: "BLOB_VALUE", // required
+ *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new ImportDocumentationPartsCommand(input);
  * const response = await client.send(command);

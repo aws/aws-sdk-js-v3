@@ -46,8 +46,8 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  *     defaultDocumentList: "DOCUMENT_VALUE",
  *     defaultNullDocument: "DOCUMENT_VALUE",
  *     defaultTimestamp: new Date("TIMESTAMP"),
- *     defaultBlob: "BLOB_VALUE",
- *     defaultByte: "BYTE_VALUE",
+ *     defaultBlob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *     defaultByte: 0, // BYTE_VALUE
  *     defaultShort: Number("short"),
  *     defaultInteger: Number("int"),
  *     defaultLong: Number("long"),
@@ -60,8 +60,8 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  *     defaultIntEnum: 1 || 2,
  *     emptyString: "STRING_VALUE",
  *     falseBoolean: true || false,
- *     emptyBlob: "BLOB_VALUE",
- *     zeroByte: "BYTE_VALUE",
+ *     emptyBlob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *     zeroByte: 0, // BYTE_VALUE
  *     zeroShort: Number("short"),
  *     zeroInteger: Number("int"),
  *     zeroLong: Number("long"),
@@ -88,8 +88,8 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  * //   defaultDocumentList: "DOCUMENT_VALUE",
  * //   defaultNullDocument: "DOCUMENT_VALUE",
  * //   defaultTimestamp: new Date("TIMESTAMP"),
- * //   defaultBlob: "BLOB_VALUE",
- * //   defaultByte: "BYTE_VALUE",
+ * //   defaultBlob: new Uint8Array(),
+ * //   defaultByte: 0, // BYTE_VALUE
  * //   defaultShort: Number("short"),
  * //   defaultInteger: Number("int"),
  * //   defaultLong: Number("long"),
@@ -102,8 +102,8 @@ export interface OperationWithDefaultsCommandOutput extends OperationWithDefault
  * //   defaultIntEnum: 1 || 2,
  * //   emptyString: "STRING_VALUE",
  * //   falseBoolean: true || false,
- * //   emptyBlob: "BLOB_VALUE",
- * //   zeroByte: "BYTE_VALUE",
+ * //   emptyBlob: new Uint8Array(),
+ * //   zeroByte: 0, // BYTE_VALUE
  * //   zeroShort: Number("short"),
  * //   zeroInteger: Number("int"),
  * //   zeroLong: Number("long"),

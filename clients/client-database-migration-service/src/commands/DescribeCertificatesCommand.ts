@@ -60,7 +60,7 @@ export interface DescribeCertificatesCommandOutput extends DescribeCertificatesR
  * //       CertificateIdentifier: "STRING_VALUE",
  * //       CertificateCreationDate: new Date("TIMESTAMP"),
  * //       CertificatePem: "STRING_VALUE",
- * //       CertificateWallet: "BLOB_VALUE",
+ * //       CertificateWallet: new Uint8Array(),
  * //       CertificateArn: "STRING_VALUE",
  * //       CertificateOwner: "STRING_VALUE",
  * //       ValidFromDate: new Date("TIMESTAMP"),

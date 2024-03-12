@@ -65,7 +65,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * //           "<keys>": { // AttributeValue Union: only one key present
  * //             S: "STRING_VALUE",
  * //             N: "STRING_VALUE",
- * //             B: "BLOB_VALUE",
+ * //             B: new Uint8Array(),
  * //             SS: [ // StringSetAttributeValue
  * //               "STRING_VALUE",
  * //             ],
@@ -73,13 +73,13 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * //               "STRING_VALUE",
  * //             ],
  * //             BS: [ // BinarySetAttributeValue
- * //               "BLOB_VALUE",
+ * //               new Uint8Array(),
  * //             ],
  * //             M: { // MapAttributeValue
  * //               "<keys>": {//  Union: only one key present
  * //                 S: "STRING_VALUE",
  * //                 N: "STRING_VALUE",
- * //                 B: "BLOB_VALUE",
+ * //                 B: new Uint8Array(),
  * //                 SS: [
  * //                   "STRING_VALUE",
  * //                 ],
@@ -87,7 +87,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 BS: [
- * //                   "BLOB_VALUE",
+ * //                   new Uint8Array(),
  * //                 ],
  * //                 M: {
  * //                   "<keys>": "<AttributeValue>",

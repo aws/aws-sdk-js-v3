@@ -49,7 +49,7 @@ export interface PutSolNetworkPackageContentCommandOutput extends PutSolNetworkP
  * const input = { // PutSolNetworkPackageContentInput
  *   nsdInfoId: "STRING_VALUE", // required
  *   contentType: "application/zip",
- *   file: "BLOB_VALUE", // required
+ *   file: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new PutSolNetworkPackageContentCommand(input);
  * const response = await client.send(command);

@@ -74,7 +74,7 @@ export interface ExecuteQueryCommandOutput extends Omit<ExecuteQueryOutput, "pay
  * const command = new ExecuteQueryCommand(input);
  * const response = await client.send(command);
  * // { // ExecuteQueryOutput
- * //   payload: "STREAMING_BLOB_VALUE", // required
+ * //   payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * // };
  *
  * ```

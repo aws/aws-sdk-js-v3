@@ -52,7 +52,7 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  * const client = new TranslateClient(config);
  * const input = { // TranslateDocumentRequest
  *   Document: { // Document
- *     Content: "BLOB_VALUE", // required
+ *     Content: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")     // required
  *     ContentType: "STRING_VALUE", // required
  *   },
  *   TerminologyNames: [ // ResourceNameList
@@ -70,7 +70,7 @@ export interface TranslateDocumentCommandOutput extends TranslateDocumentRespons
  * const response = await client.send(command);
  * // { // TranslateDocumentResponse
  * //   TranslatedDocument: { // TranslatedDocument
- * //     Content: "BLOB_VALUE", // required
+ * //     Content: new Uint8Array(), // required
  * //   },
  * //   SourceLanguageCode: "STRING_VALUE", // required
  * //   TargetLanguageCode: "STRING_VALUE", // required

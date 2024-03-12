@@ -137,7 +137,7 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  *   requestAttributes: "STRING_VALUE",
  *   contentType: "STRING_VALUE", // required
  *   accept: "STRING_VALUE",
- *   inputStream: "STREAMING_BLOB_VALUE", // required
+ *   inputStream: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes // required
  *   activeContexts: "STRING_VALUE",
  * };
  * const command = new PostContentCommand(input);
@@ -157,7 +157,7 @@ export interface PostContentCommandOutput extends Omit<PostContentResponse, "aud
  * //   slotToElicit: "STRING_VALUE",
  * //   inputTranscript: "STRING_VALUE",
  * //   encodedInputTranscript: "STRING_VALUE",
- * //   audioStream: "STREAMING_BLOB_VALUE",
+ * //   audioStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   botVersion: "STRING_VALUE",
  * //   sessionId: "STRING_VALUE",
  * //   activeContexts: "STRING_VALUE",

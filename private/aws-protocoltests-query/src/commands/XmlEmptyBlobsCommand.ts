@@ -37,7 +37,7 @@ export interface XmlEmptyBlobsCommandOutput extends XmlBlobsOutput, __MetadataBe
  * const command = new XmlEmptyBlobsCommand(input);
  * const response = await client.send(command);
  * // { // XmlBlobsOutput
- * //   data: "BLOB_VALUE",
+ * //   data: new Uint8Array(),
  * // };
  *
  * ```

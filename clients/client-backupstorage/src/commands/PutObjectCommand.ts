@@ -42,7 +42,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  *   BackupJobId: "STRING_VALUE", // required
  *   ObjectName: "STRING_VALUE", // required
  *   MetadataString: "STRING_VALUE",
- *   InlineChunk: "STREAMING_BLOB_VALUE",
+ *   InlineChunk: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  *   InlineChunkLength: Number("long"),
  *   InlineChunkChecksum: "STRING_VALUE",
  *   InlineChunkChecksumAlgorithm: "STRING_VALUE",

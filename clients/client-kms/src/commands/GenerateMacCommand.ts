@@ -67,7 +67,7 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * // const { KMSClient, GenerateMacCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // GenerateMacRequest
- *   Message: "BLOB_VALUE", // required
+ *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   KeyId: "STRING_VALUE", // required
  *   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512", // required
  *   GrantTokens: [ // GrantTokenList
@@ -78,7 +78,7 @@ export interface GenerateMacCommandOutput extends GenerateMacResponse, __Metadat
  * const command = new GenerateMacCommand(input);
  * const response = await client.send(command);
  * // { // GenerateMacResponse
- * //   Mac: "BLOB_VALUE",
+ * //   Mac: new Uint8Array(),
  * //   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512",
  * //   KeyId: "STRING_VALUE",
  * // };

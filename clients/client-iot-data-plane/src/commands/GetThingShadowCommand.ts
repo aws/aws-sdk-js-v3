@@ -53,7 +53,7 @@ export interface GetThingShadowCommandOutput extends GetThingShadowCommandOutput
  * const command = new GetThingShadowCommand(input);
  * const response = await client.send(command);
  * // { // GetThingShadowResponse
- * //   payload: "BLOB_VALUE",
+ * //   payload: new Uint8Array(),
  * // };
  *
  * ```

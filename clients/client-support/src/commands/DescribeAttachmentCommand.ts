@@ -61,7 +61,7 @@ export interface DescribeAttachmentCommandOutput extends DescribeAttachmentRespo
  * // { // DescribeAttachmentResponse
  * //   attachment: { // Attachment
  * //     fileName: "STRING_VALUE",
- * //     data: "BLOB_VALUE",
+ * //     data: new Uint8Array(),
  * //   },
  * // };
  *

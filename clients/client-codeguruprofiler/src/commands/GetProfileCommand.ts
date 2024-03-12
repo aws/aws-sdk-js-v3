@@ -125,7 +125,7 @@ export interface GetProfileCommandOutput extends GetProfileCommandOutputType, __
  * const command = new GetProfileCommand(input);
  * const response = await client.send(command);
  * // { // GetProfileResponse
- * //   profile: "BLOB_VALUE", // required
+ * //   profile: new Uint8Array(), // required
  * //   contentType: "STRING_VALUE", // required
  * //   contentEncoding: "STRING_VALUE",
  * // };

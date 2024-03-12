@@ -115,7 +115,7 @@ export interface GetMaintenanceWindowTaskCommandOutput extends GetMaintenanceWin
  * //     Lambda: { // MaintenanceWindowLambdaParameters
  * //       ClientContext: "STRING_VALUE",
  * //       Qualifier: "STRING_VALUE",
- * //       Payload: "BLOB_VALUE",
+ * //       Payload: new Uint8Array(),
  * //     },
  * //   },
  * //   Priority: Number("int"),

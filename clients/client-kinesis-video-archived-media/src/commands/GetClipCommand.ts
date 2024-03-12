@@ -94,7 +94,7 @@ export interface GetClipCommandOutput extends Omit<GetClipOutput, "Payload">, __
  * const response = await client.send(command);
  * // { // GetClipOutput
  * //   ContentType: "STRING_VALUE",
- * //   Payload: "STREAMING_BLOB_VALUE",
+ * //   Payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

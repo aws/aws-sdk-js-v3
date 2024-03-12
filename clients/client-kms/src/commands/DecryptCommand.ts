@@ -132,7 +132,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * // const { KMSClient, DecryptCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // DecryptRequest
- *   CiphertextBlob: "BLOB_VALUE", // required
+ *   CiphertextBlob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   EncryptionContext: { // EncryptionContextType
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -143,7 +143,7 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  *   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  *   Recipient: { // RecipientInfo
  *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
- *     AttestationDocument: "BLOB_VALUE",
+ *     AttestationDocument: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  *   DryRun: true || false,
  * };
@@ -151,9 +151,9 @@ export interface DecryptCommandOutput extends DecryptResponse, __MetadataBearer 
  * const response = await client.send(command);
  * // { // DecryptResponse
  * //   KeyId: "STRING_VALUE",
- * //   Plaintext: "BLOB_VALUE",
+ * //   Plaintext: new Uint8Array(),
  * //   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
- * //   CiphertextForRecipient: "BLOB_VALUE",
+ * //   CiphertextForRecipient: new Uint8Array(),
  * // };
  *
  * ```

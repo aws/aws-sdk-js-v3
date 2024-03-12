@@ -58,8 +58,8 @@ export interface CreateLocationHdfsCommandOutput extends CreateLocationHdfsRespo
  *   AuthenticationType: "SIMPLE" || "KERBEROS", // required
  *   SimpleUser: "STRING_VALUE",
  *   KerberosPrincipal: "STRING_VALUE",
- *   KerberosKeytab: "BLOB_VALUE",
- *   KerberosKrb5Conf: "BLOB_VALUE",
+ *   KerberosKeytab: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *   KerberosKrb5Conf: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   AgentArns: [ // AgentArnList // required
  *     "STRING_VALUE",
  *   ],

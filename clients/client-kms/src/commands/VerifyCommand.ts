@@ -74,9 +74,9 @@ export interface VerifyCommandOutput extends VerifyResponse, __MetadataBearer {}
  * const client = new KMSClient(config);
  * const input = { // VerifyRequest
  *   KeyId: "STRING_VALUE", // required
- *   Message: "BLOB_VALUE", // required
+ *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   MessageType: "RAW" || "DIGEST",
- *   Signature: "BLOB_VALUE", // required
+ *   Signature: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA", // required
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",

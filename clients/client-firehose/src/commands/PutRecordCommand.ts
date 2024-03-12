@@ -73,7 +73,7 @@ export interface PutRecordCommandOutput extends PutRecordOutput, __MetadataBeare
  * const input = { // PutRecordInput
  *   DeliveryStreamName: "STRING_VALUE", // required
  *   Record: { // Record
- *     Data: "BLOB_VALUE", // required
+ *     Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")     // required
  *   },
  * };
  * const command = new PutRecordCommand(input);

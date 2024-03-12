@@ -78,7 +78,7 @@ export interface GetLatestConfigurationCommandOutput
  * //   NextPollConfigurationToken: "STRING_VALUE",
  * //   NextPollIntervalInSeconds: Number("int"),
  * //   ContentType: "STRING_VALUE",
- * //   Configuration: "BLOB_VALUE",
+ * //   Configuration: new Uint8Array(),
  * //   VersionLabel: "STRING_VALUE",
  * // };
  *

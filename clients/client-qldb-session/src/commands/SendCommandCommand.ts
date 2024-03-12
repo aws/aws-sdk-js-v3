@@ -64,7 +64,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *   EndSession: {},
  *   CommitTransaction: { // CommitTransactionRequest
  *     TransactionId: "STRING_VALUE", // required
- *     CommitDigest: "BLOB_VALUE", // required
+ *     CommitDigest: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")     // required
  *   },
  *   AbortTransaction: {},
  *   ExecuteStatement: { // ExecuteStatementRequest
@@ -72,7 +72,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  *     Statement: "STRING_VALUE", // required
  *     Parameters: [ // StatementParameters
  *       { // ValueHolder
- *         IonBinary: "BLOB_VALUE",
+ *         IonBinary: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         IonText: "STRING_VALUE",
  *       },
  *     ],
@@ -104,7 +104,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * //   },
  * //   CommitTransaction: { // CommitTransactionResult
  * //     TransactionId: "STRING_VALUE",
- * //     CommitDigest: "BLOB_VALUE",
+ * //     CommitDigest: new Uint8Array(),
  * //     TimingInformation: {
  * //       ProcessingTimeMilliseconds: Number("long"),
  * //     },
@@ -122,7 +122,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * //     FirstPage: { // Page
  * //       Values: [ // ValueHolders
  * //         { // ValueHolder
- * //           IonBinary: "BLOB_VALUE",
+ * //           IonBinary: new Uint8Array(),
  * //           IonText: "STRING_VALUE",
  * //         },
  * //       ],
@@ -138,7 +138,7 @@ export interface SendCommandCommandOutput extends SendCommandResult, __MetadataB
  * //     Page: {
  * //       Values: [
  * //         {
- * //           IonBinary: "BLOB_VALUE",
+ * //           IonBinary: new Uint8Array(),
  * //           IonText: "STRING_VALUE",
  * //         },
  * //       ],

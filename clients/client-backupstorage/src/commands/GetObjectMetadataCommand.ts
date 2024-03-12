@@ -51,7 +51,7 @@ export interface GetObjectMetadataCommandOutput
  * const response = await client.send(command);
  * // { // GetObjectMetadataOutput
  * //   MetadataString: "STRING_VALUE",
- * //   MetadataBlob: "STREAMING_BLOB_VALUE",
+ * //   MetadataBlob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   MetadataBlobLength: Number("long"),
  * //   MetadataBlobChecksum: "STRING_VALUE",
  * //   MetadataBlobChecksumAlgorithm: "SHA256",

@@ -53,7 +53,7 @@ export interface GetRawMessageContentCommandOutput
  * const command = new GetRawMessageContentCommand(input);
  * const response = await client.send(command);
  * // { // GetRawMessageContentResponse
- * //   messageContent: "STREAMING_BLOB_VALUE", // required
+ * //   messageContent: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * // };
  *
  * ```

@@ -79,7 +79,7 @@ export interface SubscribeToShardCommandOutput extends SubscribeToShardOutput, _
  * //         { // Record
  * //           SequenceNumber: "STRING_VALUE", // required
  * //           ApproximateArrivalTimestamp: new Date("TIMESTAMP"),
- * //           Data: "BLOB_VALUE", // required
+ * //           Data: new Uint8Array(), // required
  * //           PartitionKey: "STRING_VALUE", // required
  * //           EncryptionType: "NONE" || "KMS",
  * //         },

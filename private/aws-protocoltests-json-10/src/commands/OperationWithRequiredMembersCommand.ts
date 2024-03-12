@@ -48,8 +48,8 @@ export interface OperationWithRequiredMembersCommandOutput
  * //     "STRING_VALUE",
  * //   ],
  * //   requiredTimestamp: new Date("TIMESTAMP"), // required
- * //   requiredBlob: "BLOB_VALUE", // required
- * //   requiredByte: "BYTE_VALUE", // required
+ * //   requiredBlob: new Uint8Array(), // required
+ * //   requiredByte: 0, // BYTE_VALUE // required
  * //   requiredShort: Number("short"), // required
  * //   requiredInteger: Number("int"), // required
  * //   requiredLong: Number("long"), // required

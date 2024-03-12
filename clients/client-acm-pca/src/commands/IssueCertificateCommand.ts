@@ -146,7 +146,7 @@ export interface IssueCertificateCommandOutput extends IssueCertificateResponse,
  *     },
  *   },
  *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   Csr: "BLOB_VALUE", // required
+ *   Csr: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   SigningAlgorithm: "SHA256WITHECDSA" || "SHA384WITHECDSA" || "SHA512WITHECDSA" || "SHA256WITHRSA" || "SHA384WITHRSA" || "SHA512WITHRSA", // required
  *   TemplateArn: "STRING_VALUE",
  *   Validity: { // Validity

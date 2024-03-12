@@ -34,12 +34,12 @@ export interface XmlBlobsCommandOutput extends XmlBlobsResponse, __MetadataBeare
  * // const { RestXmlProtocolClient, XmlBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlBlobsRequest
- *   data: "BLOB_VALUE",
+ *   data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
  * // { // XmlBlobsResponse
- * //   data: "BLOB_VALUE",
+ * //   data: new Uint8Array(),
  * // };
  *
  * ```

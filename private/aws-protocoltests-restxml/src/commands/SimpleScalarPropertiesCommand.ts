@@ -38,7 +38,7 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropert
  *   stringValue: "STRING_VALUE",
  *   trueBooleanValue: true || false,
  *   falseBooleanValue: true || false,
- *   byteValue: "BYTE_VALUE",
+ *   byteValue: 0, // BYTE_VALUE
  *   shortValue: Number("short"),
  *   integerValue: Number("int"),
  *   longValue: Number("long"),
@@ -52,7 +52,7 @@ export interface SimpleScalarPropertiesCommandOutput extends SimpleScalarPropert
  * //   stringValue: "STRING_VALUE",
  * //   trueBooleanValue: true || false,
  * //   falseBooleanValue: true || false,
- * //   byteValue: "BYTE_VALUE",
+ * //   byteValue: 0, // BYTE_VALUE
  * //   shortValue: Number("short"),
  * //   integerValue: Number("int"),
  * //   longValue: Number("long"),

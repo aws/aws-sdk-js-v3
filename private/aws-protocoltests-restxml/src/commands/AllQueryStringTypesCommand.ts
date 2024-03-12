@@ -41,7 +41,7 @@ export interface AllQueryStringTypesCommandOutput extends __MetadataBearer {}
  *   queryStringSet: [ // StringSet
  *     "STRING_VALUE",
  *   ],
- *   queryByte: "BYTE_VALUE",
+ *   queryByte: 0, // BYTE_VALUE
  *   queryShort: Number("short"),
  *   queryInteger: Number("int"),
  *   queryIntegerList: [ // IntegerList

@@ -39,7 +39,7 @@ export interface PutObjectCommandOutput extends PutObjectResponse, __MetadataBea
  * // const { MediaStoreDataClient, PutObjectCommand } = require("@aws-sdk/client-mediastore-data"); // CommonJS import
  * const client = new MediaStoreDataClient(config);
  * const input = { // PutObjectRequest
- *   Body: "STREAMING_BLOB_VALUE", // required
+ *   Body: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes // required
  *   Path: "STRING_VALUE", // required
  *   ContentType: "STRING_VALUE",
  *   CacheControl: "STRING_VALUE",

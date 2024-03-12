@@ -101,7 +101,7 @@ export interface SendEmailCommandOutput extends SendEmailResponse, __MetadataBea
  *       ],
  *     },
  *     Raw: { // RawMessage
- *       Data: "BLOB_VALUE", // required
+ *       Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *     },
  *     Template: { // Template
  *       TemplateName: "STRING_VALUE",

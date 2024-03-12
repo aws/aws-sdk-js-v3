@@ -58,7 +58,7 @@ export interface GetSolFunctionPackageDescriptorCommandOutput
  * const response = await client.send(command);
  * // { // GetSolFunctionPackageDescriptorOutput
  * //   contentType: "text/plain",
- * //   vnfd: "BLOB_VALUE",
+ * //   vnfd: new Uint8Array(),
  * // };
  *
  * ```

@@ -63,7 +63,7 @@ export interface RecognizeCelebritiesCommandOutput extends RecognizeCelebritiesR
  * const client = new RekognitionClient(config);
  * const input = { // RecognizeCelebritiesRequest
  *   Image: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",

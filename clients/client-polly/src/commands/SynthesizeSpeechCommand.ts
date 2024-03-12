@@ -63,7 +63,7 @@ export interface SynthesizeSpeechCommandOutput extends Omit<SynthesizeSpeechOutp
  * const command = new SynthesizeSpeechCommand(input);
  * const response = await client.send(command);
  * // { // SynthesizeSpeechOutput
- * //   AudioStream: "STREAMING_BLOB_VALUE",
+ * //   AudioStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   ContentType: "STRING_VALUE",
  * //   RequestCharacters: Number("int"),
  * // };

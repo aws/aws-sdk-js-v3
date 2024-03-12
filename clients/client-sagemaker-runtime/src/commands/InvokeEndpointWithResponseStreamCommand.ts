@@ -78,7 +78,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  * const client = new SageMakerRuntimeClient(config);
  * const input = { // InvokeEndpointWithResponseStreamInput
  *   EndpointName: "STRING_VALUE", // required
- *   Body: "BLOB_VALUE", // required
+ *   Body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   ContentType: "STRING_VALUE",
  *   Accept: "STRING_VALUE",
  *   CustomAttributes: "STRING_VALUE",
@@ -92,7 +92,7 @@ export interface InvokeEndpointWithResponseStreamCommandOutput
  * // { // InvokeEndpointWithResponseStreamOutput
  * //   Body: { // ResponseStream Union: only one key present
  * //     PayloadPart: { // PayloadPart
- * //       Bytes: "BLOB_VALUE",
+ * //       Bytes: new Uint8Array(),
  * //     },
  * //     ModelStreamError: { // ModelStreamError
  * //       Message: "STRING_VALUE",

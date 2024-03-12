@@ -50,7 +50,7 @@ export interface PostAgentProfileCommandOutput extends PostAgentProfileResponse,
  * const client = new CodeGuruProfilerClient(config);
  * const input = { // PostAgentProfileRequest
  *   profilingGroupName: "STRING_VALUE", // required
- *   agentProfile: "BLOB_VALUE", // required
+ *   agentProfile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   profileToken: "STRING_VALUE",
  *   contentType: "STRING_VALUE", // required
  * };

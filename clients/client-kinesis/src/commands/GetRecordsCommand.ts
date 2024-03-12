@@ -99,7 +99,7 @@ export interface GetRecordsCommandOutput extends GetRecordsOutput, __MetadataBea
  * //     { // Record
  * //       SequenceNumber: "STRING_VALUE", // required
  * //       ApproximateArrivalTimestamp: new Date("TIMESTAMP"),
- * //       Data: "BLOB_VALUE", // required
+ * //       Data: new Uint8Array(), // required
  * //       PartitionKey: "STRING_VALUE", // required
  * //       EncryptionType: "NONE" || "KMS",
  * //     },

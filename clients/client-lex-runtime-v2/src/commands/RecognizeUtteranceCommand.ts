@@ -122,7 +122,7 @@ export interface RecognizeUtteranceCommandOutput
  *   requestAttributes: "STRING_VALUE",
  *   requestContentType: "STRING_VALUE", // required
  *   responseContentType: "STRING_VALUE",
- *   inputStream: "STREAMING_BLOB_VALUE",
+ *   inputStream: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  * };
  * const command = new RecognizeUtteranceCommand(input);
  * const response = await client.send(command);
@@ -135,7 +135,7 @@ export interface RecognizeUtteranceCommandOutput
  * //   requestAttributes: "STRING_VALUE",
  * //   sessionId: "STRING_VALUE",
  * //   inputTranscript: "STRING_VALUE",
- * //   audioStream: "STREAMING_BLOB_VALUE",
+ * //   audioStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   recognizedBotMember: "STRING_VALUE",
  * // };
  *

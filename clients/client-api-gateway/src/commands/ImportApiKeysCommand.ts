@@ -43,7 +43,7 @@ export interface ImportApiKeysCommandOutput extends ApiKeyIds, __MetadataBearer 
  * // const { APIGatewayClient, ImportApiKeysCommand } = require("@aws-sdk/client-api-gateway"); // CommonJS import
  * const client = new APIGatewayClient(config);
  * const input = { // ImportApiKeysRequest
- *   body: "BLOB_VALUE", // required
+ *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   format: "csv", // required
  *   failOnWarnings: true || false,
  * };

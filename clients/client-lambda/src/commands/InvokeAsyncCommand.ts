@@ -49,7 +49,7 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * const client = new LambdaClient(config);
  * const input = { // InvokeAsyncRequest
  *   FunctionName: "STRING_VALUE", // required
- *   InvokeArgs: "STREAMING_BLOB_VALUE", // required
+ *   InvokeArgs: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes // required
  * };
  * const command = new InvokeAsyncCommand(input);
  * const response = await client.send(command);

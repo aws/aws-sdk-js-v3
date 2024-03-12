@@ -71,7 +71,7 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *         },
  *       ],
  *       content: { // DocumentContent Union: only one key present
- *         blob: "BLOB_VALUE",
+ *         blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         s3: { // S3
  *           bucket: "STRING_VALUE", // required
  *           key: "STRING_VALUE", // required

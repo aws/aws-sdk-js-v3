@@ -168,8 +168,8 @@ export interface ImportCertificateAuthorityCertificateCommandOutput extends __Me
  * const client = new ACMPCAClient(config);
  * const input = { // ImportCertificateAuthorityCertificateRequest
  *   CertificateAuthorityArn: "STRING_VALUE", // required
- *   Certificate: "BLOB_VALUE", // required
- *   CertificateChain: "BLOB_VALUE",
+ *   Certificate: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
+ *   CertificateChain: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new ImportCertificateAuthorityCertificateCommand(input);
  * const response = await client.send(command);

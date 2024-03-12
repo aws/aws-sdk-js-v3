@@ -48,7 +48,7 @@ export interface ExportCertificateCommandOutput extends ExportCertificateRespons
  * const client = new ACMClient(config);
  * const input = { // ExportCertificateRequest
  *   CertificateArn: "STRING_VALUE", // required
- *   Passphrase: "BLOB_VALUE", // required
+ *   Passphrase: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new ExportCertificateCommand(input);
  * const response = await client.send(command);

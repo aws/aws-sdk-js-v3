@@ -74,7 +74,7 @@ export interface UploadArchiveCommandOutput extends ArchiveCreationOutput, __Met
  *   accountId: "STRING_VALUE", // required
  *   archiveDescription: "STRING_VALUE",
  *   checksum: "STRING_VALUE",
- *   body: "STREAMING_BLOB_VALUE",
+ *   body: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  * };
  * const command = new UploadArchiveCommand(input);
  * const response = await client.send(command);

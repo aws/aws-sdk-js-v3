@@ -46,7 +46,7 @@ export interface SearchUsersByImageCommandOutput extends SearchUsersByImageRespo
  * const input = { // SearchUsersByImageRequest
  *   CollectionId: "STRING_VALUE", // required
  *   Image: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",

@@ -38,7 +38,7 @@ export interface SignPayloadCommandOutput extends SignPayloadResponse, __Metadat
  * const input = { // SignPayloadRequest
  *   profileName: "STRING_VALUE", // required
  *   profileOwner: "STRING_VALUE",
- *   payload: "BLOB_VALUE", // required
+ *   payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   payloadFormat: "STRING_VALUE", // required
  * };
  * const command = new SignPayloadCommand(input);
@@ -49,7 +49,7 @@ export interface SignPayloadCommandOutput extends SignPayloadResponse, __Metadat
  * //   metadata: { // Metadata
  * //     "<keys>": "STRING_VALUE",
  * //   },
- * //   signature: "BLOB_VALUE",
+ * //   signature: new Uint8Array(),
  * // };
  *
  * ```

@@ -108,9 +108,9 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * const client = new ACMClient(config);
  * const input = { // ImportCertificateRequest
  *   CertificateArn: "STRING_VALUE",
- *   Certificate: "BLOB_VALUE", // required
- *   PrivateKey: "BLOB_VALUE", // required
- *   CertificateChain: "BLOB_VALUE",
+ *   Certificate: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
+ *   PrivateKey: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
+ *   CertificateChain: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

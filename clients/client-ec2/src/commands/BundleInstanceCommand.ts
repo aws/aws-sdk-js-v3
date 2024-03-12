@@ -51,7 +51,7 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  *       AWSAccessKeyId: "STRING_VALUE",
  *       Bucket: "STRING_VALUE",
  *       Prefix: "STRING_VALUE",
- *       UploadPolicy: "BLOB_VALUE",
+ *       UploadPolicy: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       UploadPolicySignature: "STRING_VALUE",
  *     },
  *   },
@@ -75,7 +75,7 @@ export interface BundleInstanceCommandOutput extends BundleInstanceResult, __Met
  * //         AWSAccessKeyId: "STRING_VALUE",
  * //         Bucket: "STRING_VALUE",
  * //         Prefix: "STRING_VALUE",
- * //         UploadPolicy: "BLOB_VALUE",
+ * //         UploadPolicy: new Uint8Array(),
  * //         UploadPolicySignature: "STRING_VALUE",
  * //       },
  * //     },

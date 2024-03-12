@@ -51,7 +51,7 @@ export interface GetImageSetMetadataCommandOutput
  * const command = new GetImageSetMetadataCommand(input);
  * const response = await client.send(command);
  * // { // GetImageSetMetadataResponse
- * //   imageSetMetadataBlob: "STREAMING_BLOB_VALUE", // required
+ * //   imageSetMetadataBlob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * //   contentType: "STRING_VALUE",
  * //   contentEncoding: "STRING_VALUE",
  * // };

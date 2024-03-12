@@ -58,7 +58,7 @@ export interface GetMapTileCommandOutput extends GetMapTileCommandOutputType, __
  * const command = new GetMapTileCommand(input);
  * const response = await client.send(command);
  * // { // GetMapTileResponse
- * //   Blob: "BLOB_VALUE",
+ * //   Blob: new Uint8Array(),
  * //   ContentType: "STRING_VALUE",
  * //   CacheControl: "STRING_VALUE",
  * // };

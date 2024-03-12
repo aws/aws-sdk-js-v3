@@ -148,7 +148,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * const client = new KMSClient(config);
  * const input = { // EncryptRequest
  *   KeyId: "STRING_VALUE", // required
- *   Plaintext: "BLOB_VALUE", // required
+ *   Plaintext: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   EncryptionContext: { // EncryptionContextType
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -161,7 +161,7 @@ export interface EncryptCommandOutput extends EncryptResponse, __MetadataBearer 
  * const command = new EncryptCommand(input);
  * const response = await client.send(command);
  * // { // EncryptResponse
- * //   CiphertextBlob: "BLOB_VALUE",
+ * //   CiphertextBlob: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
  * //   EncryptionAlgorithm: "SYMMETRIC_DEFAULT" || "RSAES_OAEP_SHA_1" || "RSAES_OAEP_SHA_256" || "SM2PKE",
  * // };

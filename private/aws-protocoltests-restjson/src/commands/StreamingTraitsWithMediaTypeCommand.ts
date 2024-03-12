@@ -56,13 +56,13 @@ export interface StreamingTraitsWithMediaTypeCommandOutput
  * const client = new RestJsonProtocolClient(config);
  * const input = { // StreamingTraitsWithMediaTypeInputOutput
  *   foo: "STRING_VALUE",
- *   blob: "STREAMING_BLOB_VALUE",
+ *   blob: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  * };
  * const command = new StreamingTraitsWithMediaTypeCommand(input);
  * const response = await client.send(command);
  * // { // StreamingTraitsWithMediaTypeInputOutput
  * //   foo: "STRING_VALUE",
- * //   blob: "STREAMING_BLOB_VALUE",
+ * //   blob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

@@ -60,7 +60,7 @@ export interface SetUICustomizationCommandOutput extends SetUICustomizationRespo
  *   UserPoolId: "STRING_VALUE", // required
  *   ClientId: "STRING_VALUE",
  *   CSS: "STRING_VALUE",
- *   ImageFile: "BLOB_VALUE",
+ *   ImageFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new SetUICustomizationCommand(input);
  * const response = await client.send(command);

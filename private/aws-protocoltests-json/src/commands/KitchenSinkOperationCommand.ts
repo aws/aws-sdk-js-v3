@@ -34,7 +34,7 @@ export interface KitchenSinkOperationCommandOutput extends KitchenSink, __Metada
  * // const { JsonProtocolClient, KitchenSinkOperationCommand } = require("@aws-sdk/aws-protocoltests-json"); // CommonJS import
  * const client = new JsonProtocolClient(config);
  * const input = { // KitchenSink
- *   Blob: "BLOB_VALUE",
+ *   Blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   Boolean: true || false,
  *   Double: Number("double"),
  *   EmptyStruct: {},
@@ -82,7 +82,7 @@ export interface KitchenSinkOperationCommandOutput extends KitchenSink, __Metada
  *   },
  *   RecursiveList: [ // ListOfKitchenSinks
  *     {
- *       Blob: "BLOB_VALUE",
+ *       Blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       Boolean: true || false,
  *       Double: Number("double"),
  *       EmptyStruct: {},
@@ -147,7 +147,7 @@ export interface KitchenSinkOperationCommandOutput extends KitchenSink, __Metada
  * const command = new KitchenSinkOperationCommand(input);
  * const response = await client.send(command);
  * // { // KitchenSink
- * //   Blob: "BLOB_VALUE",
+ * //   Blob: new Uint8Array(),
  * //   Boolean: true || false,
  * //   Double: Number("double"),
  * //   EmptyStruct: {},
@@ -195,7 +195,7 @@ export interface KitchenSinkOperationCommandOutput extends KitchenSink, __Metada
  * //   },
  * //   RecursiveList: [ // ListOfKitchenSinks
  * //     {
- * //       Blob: "BLOB_VALUE",
+ * //       Blob: new Uint8Array(),
  * //       Boolean: true || false,
  * //       Double: Number("double"),
  * //       EmptyStruct: {},

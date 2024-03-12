@@ -52,7 +52,7 @@ export interface GetWorkUnitResultsCommandOutput
  * const command = new GetWorkUnitResultsCommand(input);
  * const response = await client.send(command);
  * // { // GetWorkUnitResultsResponse
- * //   ResultStream: "STREAMING_BLOB_VALUE",
+ * //   ResultStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

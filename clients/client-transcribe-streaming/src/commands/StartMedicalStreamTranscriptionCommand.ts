@@ -85,7 +85,7 @@ export interface StartMedicalStreamTranscriptionCommandOutput
  *   SessionId: "STRING_VALUE",
  *   AudioStream: { // AudioStream Union: only one key present
  *     AudioEvent: { // AudioEvent
- *       AudioChunk: "BLOB_VALUE",
+ *       AudioChunk: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     },
  *     ConfigurationEvent: { // ConfigurationEvent
  *       ChannelDefinitions: [ // ChannelDefinitions

@@ -67,7 +67,7 @@ export interface CreateDeliverabilityTestReportCommandOutput
  *       },
  *     },
  *     Raw: { // RawMessage
- *       Data: "BLOB_VALUE", // required
+ *       Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *     },
  *     Template: { // Template
  *       TemplateArn: "STRING_VALUE",

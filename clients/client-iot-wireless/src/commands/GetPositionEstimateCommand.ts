@@ -192,7 +192,7 @@ export interface GetPositionEstimateCommandOutput extends GetPositionEstimateCom
  * const command = new GetPositionEstimateCommand(input);
  * const response = await client.send(command);
  * // { // GetPositionEstimateResponse
- * //   GeoJsonPayload: "BLOB_VALUE",
+ * //   GeoJsonPayload: new Uint8Array(),
  * // };
  *
  * ```

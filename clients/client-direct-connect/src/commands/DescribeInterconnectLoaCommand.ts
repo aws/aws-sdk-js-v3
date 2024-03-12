@@ -50,7 +50,7 @@ export interface DescribeInterconnectLoaCommandOutput extends DescribeInterconne
  * const response = await client.send(command);
  * // { // DescribeInterconnectLoaResponse
  * //   loa: { // Loa
- * //     loaContent: "BLOB_VALUE",
+ * //     loaContent: new Uint8Array(),
  * //     loaContentType: "application/pdf",
  * //   },
  * // };

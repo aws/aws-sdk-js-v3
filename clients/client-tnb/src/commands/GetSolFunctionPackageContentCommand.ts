@@ -60,7 +60,7 @@ export interface GetSolFunctionPackageContentCommandOutput
  * const response = await client.send(command);
  * // { // GetSolFunctionPackageContentOutput
  * //   contentType: "application/zip",
- * //   packageContent: "BLOB_VALUE",
+ * //   packageContent: new Uint8Array(),
  * // };
  *
  * ```

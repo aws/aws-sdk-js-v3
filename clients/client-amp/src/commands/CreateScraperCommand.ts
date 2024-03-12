@@ -55,7 +55,7 @@ export interface CreateScraperCommandOutput extends CreateScraperResponse, __Met
  * const input = { // CreateScraperRequest
  *   alias: "STRING_VALUE",
  *   scrapeConfiguration: { // ScrapeConfiguration Union: only one key present
- *     configurationBlob: "BLOB_VALUE",
+ *     configurationBlob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  *   source: { // Source Union: only one key present
  *     eksConfiguration: { // EksConfiguration

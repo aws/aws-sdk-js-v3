@@ -53,13 +53,13 @@ export interface HttpPayloadTraitsCommandOutput extends HttpPayloadTraitsCommand
  * const client = new RestJsonProtocolClient(config);
  * const input = { // HttpPayloadTraitsInputOutput
  *   foo: "STRING_VALUE",
- *   blob: "BLOB_VALUE",
+ *   blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new HttpPayloadTraitsCommand(input);
  * const response = await client.send(command);
  * // { // HttpPayloadTraitsInputOutput
  * //   foo: "STRING_VALUE",
- * //   blob: "BLOB_VALUE",
+ * //   blob: new Uint8Array(),
  * // };
  *
  * ```

@@ -43,7 +43,7 @@ export interface ImportDecoderManifestCommandOutput extends ImportDecoderManifes
  *       canDbc: { // CanDbcDefinition
  *         networkInterface: "STRING_VALUE", // required
  *         canDbcFiles: [ // NetworkFilesList // required
- *           "BLOB_VALUE",
+ *           new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         ],
  *         signalsMap: { // ModelSignalsMap
  *           "<keys>": "STRING_VALUE",

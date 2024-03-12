@@ -83,7 +83,7 @@ export interface CreateFunctionCommandOutput extends FunctionConfiguration, __Me
  *   Role: "STRING_VALUE", // required
  *   Handler: "STRING_VALUE",
  *   Code: { // FunctionCode
- *     ZipFile: "BLOB_VALUE",
+ *     ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     S3Bucket: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
  *     S3ObjectVersion: "STRING_VALUE",

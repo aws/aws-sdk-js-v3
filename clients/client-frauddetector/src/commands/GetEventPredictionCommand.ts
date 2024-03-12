@@ -56,7 +56,7 @@ export interface GetEventPredictionCommandOutput extends GetEventPredictionResul
  *   },
  *   externalModelEndpointDataBlobs: { // ExternalModelEndpointDataBlobMap
  *     "<keys>": { // ModelEndpointDataBlob
- *       byteBuffer: "BLOB_VALUE",
+ *       byteBuffer: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       contentType: "STRING_VALUE",
  *     },
  *   },

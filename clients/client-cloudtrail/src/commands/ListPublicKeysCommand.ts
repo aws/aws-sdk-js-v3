@@ -53,7 +53,7 @@ export interface ListPublicKeysCommandOutput extends ListPublicKeysResponse, __M
  * // { // ListPublicKeysResponse
  * //   PublicKeyList: [ // PublicKeyList
  * //     { // PublicKey
- * //       Value: "BLOB_VALUE",
+ * //       Value: new Uint8Array(),
  * //       ValidityStartTime: new Date("TIMESTAMP"),
  * //       ValidityEndTime: new Date("TIMESTAMP"),
  * //       Fingerprint: "STRING_VALUE",

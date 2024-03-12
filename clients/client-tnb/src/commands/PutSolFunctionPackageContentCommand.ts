@@ -51,7 +51,7 @@ export interface PutSolFunctionPackageContentCommandOutput
  * const input = { // PutSolFunctionPackageContentInput
  *   vnfPkgId: "STRING_VALUE", // required
  *   contentType: "application/zip",
- *   file: "BLOB_VALUE", // required
+ *   file: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new PutSolFunctionPackageContentCommand(input);
  * const response = await client.send(command);

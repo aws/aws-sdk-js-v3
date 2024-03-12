@@ -41,7 +41,7 @@ export interface GetCredentialReportCommandOutput extends GetCredentialReportRes
  * const command = new GetCredentialReportCommand(input);
  * const response = await client.send(command);
  * // { // GetCredentialReportResponse
- * //   Content: "BLOB_VALUE",
+ * //   Content: new Uint8Array(),
  * //   ReportFormat: "text/csv",
  * //   GeneratedTime: new Date("TIMESTAMP"),
  * // };

@@ -61,7 +61,7 @@ export interface GetPackageVersionAssetCommandOutput
  * const command = new GetPackageVersionAssetCommand(input);
  * const response = await client.send(command);
  * // { // GetPackageVersionAssetResult
- * //   asset: "STREAMING_BLOB_VALUE",
+ * //   asset: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   assetName: "STRING_VALUE",
  * //   packageVersion: "STRING_VALUE",
  * //   packageVersionRevision: "STRING_VALUE",

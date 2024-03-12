@@ -39,7 +39,7 @@ export interface CreateWorkflowCommandOutput extends CreateWorkflowResponse, __M
  *   name: "STRING_VALUE",
  *   description: "STRING_VALUE",
  *   engine: "STRING_VALUE",
- *   definitionZip: "BLOB_VALUE",
+ *   definitionZip: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   definitionUri: "STRING_VALUE",
  *   main: "STRING_VALUE",
  *   parameterTemplate: { // WorkflowParameterTemplate

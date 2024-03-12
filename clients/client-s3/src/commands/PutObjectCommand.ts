@@ -175,7 +175,7 @@ export interface PutObjectCommandOutput extends PutObjectOutput, __MetadataBeare
  * const client = new S3Client(config);
  * const input = { // PutObjectRequest
  *   ACL: "private" || "public-read" || "public-read-write" || "authenticated-read" || "aws-exec-read" || "bucket-owner-read" || "bucket-owner-full-control",
- *   Body: "STREAMING_BLOB_VALUE",
+ *   Body: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  *   Bucket: "STRING_VALUE", // required
  *   CacheControl: "STRING_VALUE",
  *   ContentDisposition: "STRING_VALUE",

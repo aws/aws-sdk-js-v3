@@ -46,7 +46,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * const input = { // ImportCertificateMessage
  *   CertificateIdentifier: "STRING_VALUE", // required
  *   CertificatePem: "STRING_VALUE",
- *   CertificateWallet: "BLOB_VALUE",
+ *   CertificateWallet: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE",
@@ -62,7 +62,7 @@ export interface ImportCertificateCommandOutput extends ImportCertificateRespons
  * //     CertificateIdentifier: "STRING_VALUE",
  * //     CertificateCreationDate: new Date("TIMESTAMP"),
  * //     CertificatePem: "STRING_VALUE",
- * //     CertificateWallet: "BLOB_VALUE",
+ * //     CertificateWallet: new Uint8Array(),
  * //     CertificateArn: "STRING_VALUE",
  * //     CertificateOwner: "STRING_VALUE",
  * //     ValidFromDate: new Date("TIMESTAMP"),

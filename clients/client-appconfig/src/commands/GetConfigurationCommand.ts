@@ -69,7 +69,7 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  * const command = new GetConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // Configuration
- * //   Content: "BLOB_VALUE",
+ * //   Content: new Uint8Array(),
  * //   ConfigurationVersion: "STRING_VALUE",
  * //   ContentType: "STRING_VALUE",
  * // };

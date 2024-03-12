@@ -75,11 +75,11 @@ export interface GetColumnStatisticsForPartitionCommandOutput
  * //         },
  * //         DecimalColumnStatisticsData: { // DecimalColumnStatisticsData
  * //           MinimumValue: { // DecimalNumber
- * //             UnscaledValue: "BLOB_VALUE", // required
+ * //             UnscaledValue: new Uint8Array(), // required
  * //             Scale: Number("int"), // required
  * //           },
  * //           MaximumValue: {
- * //             UnscaledValue: "BLOB_VALUE", // required
+ * //             UnscaledValue: new Uint8Array(), // required
  * //             Scale: Number("int"), // required
  * //           },
  * //           NumberOfNulls: Number("long"), // required

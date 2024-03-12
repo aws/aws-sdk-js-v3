@@ -57,7 +57,7 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * const input = { // DetectAnomaliesRequest
  *   ProjectName: "STRING_VALUE", // required
  *   ModelVersion: "STRING_VALUE", // required
- *   Body: "STREAMING_BLOB_VALUE", // required
+ *   Body: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes // required
  *   ContentType: "STRING_VALUE", // required
  * };
  * const command = new DetectAnomaliesCommand(input);
@@ -78,7 +78,7 @@ export interface DetectAnomaliesCommandOutput extends DetectAnomaliesResponse, _
  * //         },
  * //       },
  * //     ],
- * //     AnomalyMask: "BLOB_VALUE",
+ * //     AnomalyMask: new Uint8Array(),
  * //   },
  * // };
  *

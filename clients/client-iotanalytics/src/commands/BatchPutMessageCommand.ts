@@ -40,7 +40,7 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  *   messages: [ // Messages // required
  *     { // Message
  *       messageId: "STRING_VALUE", // required
- *       payload: "BLOB_VALUE", // required
+ *       payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *     },
  *   ],
  * };

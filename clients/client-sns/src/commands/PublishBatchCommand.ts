@@ -67,7 +67,7 @@ export interface PublishBatchCommandOutput extends PublishBatchResponse, __Metad
  *         "<keys>": { // MessageAttributeValue
  *           DataType: "STRING_VALUE", // required
  *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           BinaryValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         },
  *       },
  *       MessageDeduplicationId: "STRING_VALUE",

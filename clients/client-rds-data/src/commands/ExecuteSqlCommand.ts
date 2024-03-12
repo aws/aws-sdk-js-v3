@@ -86,7 +86,7 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * //                 doubleValue: Number("double"),
  * //                 realValue: Number("float"),
  * //                 stringValue: "STRING_VALUE",
- * //                 blobValue: "BLOB_VALUE",
+ * //                 blobValue: new Uint8Array(),
  * //                 arrayValues: [ // ArrayValueList
  * //                   {//  Union: only one key present
  * //                     isNull: true || false,
@@ -96,7 +96,7 @@ export interface ExecuteSqlCommandOutput extends ExecuteSqlResponse, __MetadataB
  * //                     doubleValue: Number("double"),
  * //                     realValue: Number("float"),
  * //                     stringValue: "STRING_VALUE",
- * //                     blobValue: "BLOB_VALUE",
+ * //                     blobValue: new Uint8Array(),
  * //                     arrayValues: [
  * //                       "<Value>",
  * //                     ],

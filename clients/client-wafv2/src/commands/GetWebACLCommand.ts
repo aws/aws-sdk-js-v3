@@ -78,7 +78,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //         Priority: Number("int"), // required
  * //         Statement: { // Statement
  * //           ByteMatchStatement: { // ByteMatchStatement
- * //             SearchString: "BLOB_VALUE", // required
+ * //             SearchString: new Uint8Array(), // required
  * //             FieldToMatch: { // FieldToMatch
  * //               SingleHeader: { // SingleHeader
  * //                 Name: "STRING_VALUE", // required
@@ -473,7 +473,7 @@ export interface GetWebACLCommandOutput extends GetWebACLResponse, __MetadataBea
  * //             AggregateKeyType: "IP" || "FORWARDED_IP" || "CUSTOM_KEYS" || "CONSTANT", // required
  * //             ScopeDownStatement: {
  * //               ByteMatchStatement: {
- * //                 SearchString: "BLOB_VALUE", // required
+ * //                 SearchString: new Uint8Array(), // required
  * //                 FieldToMatch: "<FieldToMatch>", // required
  * //                 TextTransformations: "<TextTransformations>", // required
  * //                 PositionalConstraint: "EXACTLY" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CONTAINS_WORD", // required

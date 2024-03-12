@@ -51,7 +51,7 @@ export interface ImportTerminologyCommandOutput extends ImportTerminologyRespons
  *   MergeStrategy: "OVERWRITE", // required
  *   Description: "STRING_VALUE",
  *   TerminologyData: { // TerminologyData
- *     File: "BLOB_VALUE", // required
+ *     File: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")     // required
  *     Format: "CSV" || "TMX" || "TSV", // required
  *     Directionality: "UNI" || "MULTI",
  *   },

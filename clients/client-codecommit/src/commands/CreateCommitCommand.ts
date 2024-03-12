@@ -47,7 +47,7 @@ export interface CreateCommitCommandOutput extends CreateCommitOutput, __Metadat
  *     { // PutFileEntry
  *       filePath: "STRING_VALUE", // required
  *       fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
- *       fileContent: "BLOB_VALUE",
+ *       fileContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       sourceFile: { // SourceFileSpecifier
  *         filePath: "STRING_VALUE", // required
  *         isMove: true || false,

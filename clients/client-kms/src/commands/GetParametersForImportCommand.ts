@@ -124,8 +124,8 @@ export interface GetParametersForImportCommandOutput extends GetParametersForImp
  * const response = await client.send(command);
  * // { // GetParametersForImportResponse
  * //   KeyId: "STRING_VALUE",
- * //   ImportToken: "BLOB_VALUE",
- * //   PublicKey: "BLOB_VALUE",
+ * //   ImportToken: new Uint8Array(),
+ * //   PublicKey: new Uint8Array(),
  * //   ParametersValidTo: new Date("TIMESTAMP"),
  * // };
  *

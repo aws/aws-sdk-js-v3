@@ -46,7 +46,7 @@ export interface SampleChannelDataCommandOutput extends SampleChannelDataRespons
  * const response = await client.send(command);
  * // { // SampleChannelDataResponse
  * //   payloads: [ // MessagePayloads
- * //     "BLOB_VALUE",
+ * //     new Uint8Array(),
  * //   ],
  * // };
  *

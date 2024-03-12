@@ -56,7 +56,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  * // const { BedrockRuntimeClient, InvokeModelWithResponseStreamCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
  * const client = new BedrockRuntimeClient(config);
  * const input = { // InvokeModelWithResponseStreamRequest
- *   body: "BLOB_VALUE", // required
+ *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   contentType: "STRING_VALUE",
  *   accept: "STRING_VALUE",
  *   modelId: "STRING_VALUE", // required
@@ -66,7 +66,7 @@ export interface InvokeModelWithResponseStreamCommandOutput
  * // { // InvokeModelWithResponseStreamResponse
  * //   body: { // ResponseStream Union: only one key present
  * //     chunk: { // PayloadPart
- * //       bytes: "BLOB_VALUE",
+ * //       bytes: new Uint8Array(),
  * //     },
  * //     internalServerException: { // InternalServerException
  * //       message: "STRING_VALUE",

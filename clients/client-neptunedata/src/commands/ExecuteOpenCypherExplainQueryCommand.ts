@@ -66,7 +66,7 @@ export interface ExecuteOpenCypherExplainQueryCommandOutput
  * const command = new ExecuteOpenCypherExplainQueryCommand(input);
  * const response = await client.send(command);
  * // { // ExecuteOpenCypherExplainQueryOutput
- * //   results: "BLOB_VALUE", // required
+ * //   results: new Uint8Array(), // required
  * // };
  *
  * ```

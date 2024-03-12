@@ -87,7 +87,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  *   InvocationType: "Event" || "RequestResponse" || "DryRun",
  *   LogType: "None" || "Tail",
  *   ClientContext: "STRING_VALUE",
- *   Payload: "BLOB_VALUE",
+ *   Payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   Qualifier: "STRING_VALUE",
  * };
  * const command = new InvokeCommand(input);
@@ -96,7 +96,7 @@ export interface InvokeCommandOutput extends InvokeCommandOutputType, __Metadata
  * //   StatusCode: Number("int"),
  * //   FunctionError: "STRING_VALUE",
  * //   LogResult: "STRING_VALUE",
- * //   Payload: "BLOB_VALUE",
+ * //   Payload: new Uint8Array(),
  * //   ExecutedVersion: "STRING_VALUE",
  * // };
  *

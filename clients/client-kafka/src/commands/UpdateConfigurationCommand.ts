@@ -38,7 +38,7 @@ export interface UpdateConfigurationCommandOutput extends UpdateConfigurationRes
  * const input = { // UpdateConfigurationRequest
  *   Arn: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   ServerProperties: "BLOB_VALUE", // required
+ *   ServerProperties: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new UpdateConfigurationCommand(input);
  * const response = await client.send(command);

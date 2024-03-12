@@ -43,7 +43,7 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * const client = new RolesAnywhereClient(config);
  * const input = { // ImportCrlRequest
  *   name: "STRING_VALUE", // required
- *   crlData: "BLOB_VALUE", // required
+ *   crlData: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   enabled: true || false,
  *   tags: [ // TagList
  *     { // Tag
@@ -61,7 +61,7 @@ export interface ImportCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * //     crlArn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     enabled: true || false,
- * //     crlData: "BLOB_VALUE",
+ * //     crlData: new Uint8Array(),
  * //     trustAnchorArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),

@@ -55,12 +55,12 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  *   MessageAttributes: { // MessageBodyAttributeMap
  *     "<keys>": { // MessageAttributeValue
  *       StringValue: "STRING_VALUE",
- *       BinaryValue: "BLOB_VALUE",
+ *       BinaryValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       StringListValues: [ // StringList
  *         "STRING_VALUE",
  *       ],
  *       BinaryListValues: [ // BinaryList
- *         "BLOB_VALUE",
+ *         new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       ],
  *       DataType: "STRING_VALUE", // required
  *     },
@@ -68,12 +68,12 @@ export interface SendMessageCommandOutput extends SendMessageResult, __MetadataB
  *   MessageSystemAttributes: { // MessageBodySystemAttributeMap
  *     "<keys>": { // MessageSystemAttributeValue
  *       StringValue: "STRING_VALUE",
- *       BinaryValue: "BLOB_VALUE",
+ *       BinaryValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       StringListValues: [
  *         "STRING_VALUE",
  *       ],
  *       BinaryListValues: [
- *         "BLOB_VALUE",
+ *         new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       ],
  *       DataType: "STRING_VALUE", // required
  *     },

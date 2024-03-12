@@ -49,7 +49,7 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  *         StartMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
  *         StartValue: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           BinaryValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *           BooleanValue: true || false,
  *           NumberValue: "STRING_VALUE",
  *           DatetimeValue: new Date("TIMESTAMP"),
@@ -57,7 +57,7 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  *         EndMode: "FIRST" || "LAST" || "LAST_BEFORE_MISSING_VALUES" || "INCLUSIVE" || "EXCLUSIVE", // required
  *         EndValue: {//  Union: only one key present
  *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           BinaryValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *           BooleanValue: true || false,
  *           NumberValue: "STRING_VALUE",
  *           DatetimeValue: new Date("TIMESTAMP"),
@@ -93,7 +93,7 @@ export interface ListOutgoingTypedLinksCommandOutput extends ListOutgoingTypedLi
  * //           AttributeName: "STRING_VALUE", // required
  * //           Value: { // TypedAttributeValue Union: only one key present
  * //             StringValue: "STRING_VALUE",
- * //             BinaryValue: "BLOB_VALUE",
+ * //             BinaryValue: new Uint8Array(),
  * //             BooleanValue: true || false,
  * //             NumberValue: "STRING_VALUE",
  * //             DatetimeValue: new Date("TIMESTAMP"),

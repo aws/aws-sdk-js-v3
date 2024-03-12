@@ -57,7 +57,7 @@ export interface AddAttachmentsToSetCommandOutput extends AddAttachmentsToSetRes
  *   attachments: [ // Attachments // required
  *     { // Attachment
  *       fileName: "STRING_VALUE",
- *       data: "BLOB_VALUE",
+ *       data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     },
  *   ],
  * };

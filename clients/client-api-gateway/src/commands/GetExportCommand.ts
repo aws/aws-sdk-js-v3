@@ -57,7 +57,7 @@ export interface GetExportCommandOutput extends GetExportCommandOutputType, __Me
  * // { // ExportResponse
  * //   contentType: "STRING_VALUE",
  * //   contentDisposition: "STRING_VALUE",
- * //   body: "BLOB_VALUE",
+ * //   body: new Uint8Array(),
  * // };
  *
  * ```

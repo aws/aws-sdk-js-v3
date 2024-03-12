@@ -45,7 +45,7 @@ export interface UpdateCanaryCommandOutput extends UpdateCanaryResponse, __Metad
  *     S3Bucket: "STRING_VALUE",
  *     S3Key: "STRING_VALUE",
  *     S3Version: "STRING_VALUE",
- *     ZipFile: "BLOB_VALUE",
+ *     ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     Handler: "STRING_VALUE", // required
  *   },
  *   ExecutionRoleArn: "STRING_VALUE",

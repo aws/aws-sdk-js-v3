@@ -46,7 +46,7 @@ export interface GetReadSetCommandOutput extends Omit<GetReadSetResponse, "paylo
  * const command = new GetReadSetCommand(input);
  * const response = await client.send(command);
  * // { // GetReadSetResponse
- * //   payload: "STREAMING_BLOB_VALUE",
+ * //   payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

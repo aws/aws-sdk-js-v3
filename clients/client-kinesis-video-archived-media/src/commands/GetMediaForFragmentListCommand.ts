@@ -91,7 +91,7 @@ export interface GetMediaForFragmentListCommandOutput
  * const response = await client.send(command);
  * // { // GetMediaForFragmentListOutput
  * //   ContentType: "STRING_VALUE",
- * //   Payload: "STREAMING_BLOB_VALUE",
+ * //   Payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

@@ -38,7 +38,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  *     stringValue: "STRING_VALUE",
  *     booleanValue: true || false,
  *     numberValue: Number("int"),
- *     blobValue: "BLOB_VALUE",
+ *     blobValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     timestampValue: new Date("TIMESTAMP"),
  *     enumValue: "Foo" || "Baz" || "Bar" || "1" || "0",
  *     listValue: [ // StringList
@@ -59,7 +59,7 @@ export interface JsonUnionsCommandOutput extends UnionInputOutput, __MetadataBea
  * //     stringValue: "STRING_VALUE",
  * //     booleanValue: true || false,
  * //     numberValue: Number("int"),
- * //     blobValue: "BLOB_VALUE",
+ * //     blobValue: new Uint8Array(),
  * //     timestampValue: new Date("TIMESTAMP"),
  * //     enumValue: "Foo" || "Baz" || "Bar" || "1" || "0",
  * //     listValue: [ // StringList

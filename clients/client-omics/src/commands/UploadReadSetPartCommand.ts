@@ -49,7 +49,7 @@ export interface UploadReadSetPartCommandOutput extends UploadReadSetPartRespons
  *   uploadId: "STRING_VALUE", // required
  *   partSource: "STRING_VALUE", // required
  *   partNumber: Number("int"), // required
- *   payload: "STREAMING_BLOB_VALUE", // required
+ *   payload: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes // required
  * };
  * const command = new UploadReadSetPartCommand(input);
  * const response = await client.send(command);

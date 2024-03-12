@@ -42,7 +42,7 @@ export interface GetDigestCommandOutput extends GetDigestResponse, __MetadataBea
  * const command = new GetDigestCommand(input);
  * const response = await client.send(command);
  * // { // GetDigestResponse
- * //   Digest: "BLOB_VALUE", // required
+ * //   Digest: new Uint8Array(), // required
  * //   DigestTipAddress: { // ValueHolder
  * //     IonText: "STRING_VALUE",
  * //   },

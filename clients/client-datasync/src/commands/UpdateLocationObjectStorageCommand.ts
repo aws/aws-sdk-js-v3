@@ -54,7 +54,7 @@ export interface UpdateLocationObjectStorageCommandOutput
  *   AgentArns: [ // AgentArnList
  *     "STRING_VALUE",
  *   ],
- *   ServerCertificate: "BLOB_VALUE",
+ *   ServerCertificate: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new UpdateLocationObjectStorageCommand(input);
  * const response = await client.send(command);

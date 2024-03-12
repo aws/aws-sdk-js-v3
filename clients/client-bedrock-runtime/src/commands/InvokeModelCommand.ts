@@ -59,7 +59,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  * // const { BedrockRuntimeClient, InvokeModelCommand } = require("@aws-sdk/client-bedrock-runtime"); // CommonJS import
  * const client = new BedrockRuntimeClient(config);
  * const input = { // InvokeModelRequest
- *   body: "BLOB_VALUE", // required
+ *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   contentType: "STRING_VALUE",
  *   accept: "STRING_VALUE",
  *   modelId: "STRING_VALUE", // required
@@ -67,7 +67,7 @@ export interface InvokeModelCommandOutput extends InvokeModelCommandOutputType, 
  * const command = new InvokeModelCommand(input);
  * const response = await client.send(command);
  * // { // InvokeModelResponse
- * //   body: "BLOB_VALUE", // required
+ * //   body: new Uint8Array(), // required
  * //   contentType: "STRING_VALUE", // required
  * // };
  *

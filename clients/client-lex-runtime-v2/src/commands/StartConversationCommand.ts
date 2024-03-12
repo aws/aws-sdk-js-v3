@@ -223,7 +223,7 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  *       clientTimestampMillis: Number("long"),
  *     },
  *     AudioInputEvent: { // AudioInputEvent
- *       audioChunk: "BLOB_VALUE",
+ *       audioChunk: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       contentType: "STRING_VALUE", // required
  *       eventId: "STRING_VALUE",
  *       clientTimestampMillis: Number("long"),
@@ -406,7 +406,7 @@ export interface StartConversationCommandOutput extends StartConversationRespons
  * //       eventId: "STRING_VALUE",
  * //     },
  * //     AudioResponseEvent: { // AudioResponseEvent
- * //       audioChunk: "BLOB_VALUE",
+ * //       audioChunk: new Uint8Array(),
  * //       contentType: "STRING_VALUE",
  * //       eventId: "STRING_VALUE",
  * //     },

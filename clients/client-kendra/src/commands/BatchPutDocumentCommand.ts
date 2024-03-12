@@ -54,7 +54,7 @@ export interface BatchPutDocumentCommandOutput extends BatchPutDocumentResponse,
  *     { // Document
  *       Id: "STRING_VALUE", // required
  *       Title: "STRING_VALUE",
- *       Blob: "BLOB_VALUE",
+ *       Blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       S3Path: { // S3Path
  *         Bucket: "STRING_VALUE", // required
  *         Key: "STRING_VALUE", // required

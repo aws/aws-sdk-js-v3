@@ -52,7 +52,7 @@ export interface UpdateDatasetEntriesCommandOutput extends UpdateDatasetEntriesR
  * const input = { // UpdateDatasetEntriesRequest
  *   ProjectName: "STRING_VALUE", // required
  *   DatasetType: "STRING_VALUE", // required
- *   Changes: "BLOB_VALUE", // required
+ *   Changes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   ClientToken: "STRING_VALUE",
  * };
  * const command = new UpdateDatasetEntriesCommand(input);

@@ -65,11 +65,11 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  *         },
  *         DecimalColumnStatisticsData: { // DecimalColumnStatisticsData
  *           MinimumValue: { // DecimalNumber
- *             UnscaledValue: "BLOB_VALUE", // required
+ *             UnscaledValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
  *             Scale: Number("int"), // required
  *           },
  *           MaximumValue: {
- *             UnscaledValue: "BLOB_VALUE", // required
+ *             UnscaledValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")             // required
  *             Scale: Number("int"), // required
  *           },
  *           NumberOfNulls: Number("long"), // required
@@ -126,11 +126,11 @@ export interface UpdateColumnStatisticsForTableCommandOutput
  * //           },
  * //           DecimalColumnStatisticsData: { // DecimalColumnStatisticsData
  * //             MinimumValue: { // DecimalNumber
- * //               UnscaledValue: "BLOB_VALUE", // required
+ * //               UnscaledValue: new Uint8Array(), // required
  * //               Scale: Number("int"), // required
  * //             },
  * //             MaximumValue: {
- * //               UnscaledValue: "BLOB_VALUE", // required
+ * //               UnscaledValue: new Uint8Array(), // required
  * //               Scale: Number("int"), // required
  * //             },
  * //             NumberOfNulls: Number("long"), // required

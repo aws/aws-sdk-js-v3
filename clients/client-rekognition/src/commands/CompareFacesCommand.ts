@@ -87,7 +87,7 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  * const client = new RekognitionClient(config);
  * const input = { // CompareFacesRequest
  *   SourceImage: { // Image
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",
@@ -95,7 +95,7 @@ export interface CompareFacesCommandOutput extends CompareFacesResponse, __Metad
  *     },
  *   },
  *   TargetImage: {
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     S3Object: {
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",

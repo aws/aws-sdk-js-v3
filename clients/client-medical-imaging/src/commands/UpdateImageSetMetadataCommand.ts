@@ -45,8 +45,8 @@ export interface UpdateImageSetMetadataCommandOutput extends UpdateImageSetMetad
  *   latestVersionId: "STRING_VALUE", // required
  *   updateImageSetMetadataUpdates: { // MetadataUpdates Union: only one key present
  *     DICOMUpdates: { // DICOMUpdates
- *       removableAttributes: "BLOB_VALUE",
- *       updatableAttributes: "BLOB_VALUE",
+ *       removableAttributes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *       updatableAttributes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     },
  *   },
  * };

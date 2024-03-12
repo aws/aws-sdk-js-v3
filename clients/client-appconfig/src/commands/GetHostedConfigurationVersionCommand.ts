@@ -64,7 +64,7 @@ export interface GetHostedConfigurationVersionCommandOutput
  * //   ConfigurationProfileId: "STRING_VALUE",
  * //   VersionNumber: Number("int"),
  * //   Description: "STRING_VALUE",
- * //   Content: "BLOB_VALUE",
+ * //   Content: new Uint8Array(),
  * //   ContentType: "STRING_VALUE",
  * //   VersionLabel: "STRING_VALUE",
  * //   KmsKeyArn: "STRING_VALUE",

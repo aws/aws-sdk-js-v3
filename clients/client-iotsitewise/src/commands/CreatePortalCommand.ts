@@ -47,7 +47,7 @@ export interface CreatePortalCommandOutput extends CreatePortalResponse, __Metad
  *   portalContactEmail: "STRING_VALUE", // required
  *   clientToken: "STRING_VALUE",
  *   portalLogoImageFile: { // ImageFile
- *     data: "BLOB_VALUE", // required
+ *     data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")     // required
  *     type: "PNG", // required
  *   },
  *   roleArn: "STRING_VALUE", // required

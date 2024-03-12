@@ -59,7 +59,7 @@ export interface UpdateFunctionCommandOutput extends UpdateFunctionResult, __Met
  *       ],
  *     },
  *   },
- *   FunctionCode: "BLOB_VALUE", // required
+ *   FunctionCode: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new UpdateFunctionCommand(input);
  * const response = await client.send(command);

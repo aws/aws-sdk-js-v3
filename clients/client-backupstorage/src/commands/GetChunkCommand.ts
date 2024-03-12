@@ -44,7 +44,7 @@ export interface GetChunkCommandOutput extends Omit<GetChunkOutput, "Data">, __M
  * const command = new GetChunkCommand(input);
  * const response = await client.send(command);
  * // { // GetChunkOutput
- * //   Data: "STREAMING_BLOB_VALUE", // required
+ * //   Data: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * //   Length: Number("long"), // required
  * //   Checksum: "STRING_VALUE", // required
  * //   ChecksumAlgorithm: "SHA256", // required

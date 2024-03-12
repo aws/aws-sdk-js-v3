@@ -42,7 +42,7 @@ export interface PutChunkCommandOutput extends PutChunkOutput, __MetadataBearer 
  *   BackupJobId: "STRING_VALUE", // required
  *   UploadId: "STRING_VALUE", // required
  *   ChunkIndex: Number("long"), // required
- *   Data: "STREAMING_BLOB_VALUE", // required
+ *   Data: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes // required
  *   Length: Number("long"), // required
  *   Checksum: "STRING_VALUE", // required
  *   ChecksumAlgorithm: "SHA256", // required

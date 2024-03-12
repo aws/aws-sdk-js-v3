@@ -46,7 +46,7 @@ export interface PutRepositoryCatalogDataCommandOutput extends PutRepositoryCata
  *     operatingSystems: [ // OperatingSystemList
  *       "STRING_VALUE",
  *     ],
- *     logoImageBlob: "BLOB_VALUE",
+ *     logoImageBlob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     aboutText: "STRING_VALUE",
  *     usageText: "STRING_VALUE",
  *   },

@@ -47,13 +47,13 @@ export interface StreamingTraitsCommandOutput extends Omit<StreamingTraitsInputO
  * const client = new RestJsonProtocolClient(config);
  * const input = { // StreamingTraitsInputOutput
  *   foo: "STRING_VALUE",
- *   blob: "STREAMING_BLOB_VALUE",
+ *   blob: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  * };
  * const command = new StreamingTraitsCommand(input);
  * const response = await client.send(command);
  * // { // StreamingTraitsInputOutput
  * //   foo: "STRING_VALUE",
- * //   blob: "STREAMING_BLOB_VALUE",
+ * //   blob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

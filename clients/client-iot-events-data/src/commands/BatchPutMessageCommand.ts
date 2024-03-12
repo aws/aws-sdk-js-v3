@@ -44,7 +44,7 @@ export interface BatchPutMessageCommandOutput extends BatchPutMessageResponse, _
  *     { // Message
  *       messageId: "STRING_VALUE", // required
  *       inputName: "STRING_VALUE", // required
- *       payload: "BLOB_VALUE", // required
+ *       payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *       timestamp: { // TimestampValue
  *         timeInMillis: Number("long"),
  *       },

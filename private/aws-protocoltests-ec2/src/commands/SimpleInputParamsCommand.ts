@@ -40,7 +40,7 @@ export interface SimpleInputParamsCommandOutput extends __MetadataBearer {}
  *   Bam: Number("int"),
  *   FloatValue: Number("float"),
  *   Boo: Number("double"),
- *   Qux: "BLOB_VALUE",
+ *   Qux: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   FooEnum: "Foo" || "Baz" || "Bar" || "1" || "0",
  *   HasQueryName: "STRING_VALUE",
  *   HasQueryAndXmlName: "STRING_VALUE",

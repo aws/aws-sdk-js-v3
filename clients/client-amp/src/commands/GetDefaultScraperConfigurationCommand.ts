@@ -45,7 +45,7 @@ export interface GetDefaultScraperConfigurationCommandOutput
  * const command = new GetDefaultScraperConfigurationCommand(input);
  * const response = await client.send(command);
  * // { // GetDefaultScraperConfigurationResponse
- * //   configuration: "BLOB_VALUE", // required
+ * //   configuration: new Uint8Array(), // required
  * // };
  *
  * ```

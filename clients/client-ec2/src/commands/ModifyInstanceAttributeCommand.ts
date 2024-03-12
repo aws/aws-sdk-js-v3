@@ -91,7 +91,7 @@ export interface ModifyInstanceAttributeCommandOutput extends __MetadataBearer {
  *     Value: "STRING_VALUE",
  *   },
  *   UserData: { // BlobAttributeValue
- *     Value: "BLOB_VALUE",
+ *     Value: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  *   Value: "STRING_VALUE",
  *   DisableApiStop: {

@@ -38,7 +38,7 @@ export interface PutFileCommandOutput extends PutFileOutput, __MetadataBearer {}
  * const input = { // PutFileInput
  *   repositoryName: "STRING_VALUE", // required
  *   branchName: "STRING_VALUE", // required
- *   fileContent: "BLOB_VALUE", // required
+ *   fileContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   filePath: "STRING_VALUE", // required
  *   fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  *   parentCommitId: "STRING_VALUE",

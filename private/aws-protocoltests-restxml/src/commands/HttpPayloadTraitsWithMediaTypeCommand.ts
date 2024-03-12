@@ -59,13 +59,13 @@ export interface HttpPayloadTraitsWithMediaTypeCommandOutput
  * const client = new RestXmlProtocolClient(config);
  * const input = { // HttpPayloadTraitsWithMediaTypeInputOutput
  *   foo: "STRING_VALUE",
- *   blob: "BLOB_VALUE",
+ *   blob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new HttpPayloadTraitsWithMediaTypeCommand(input);
  * const response = await client.send(command);
  * // { // HttpPayloadTraitsWithMediaTypeInputOutput
  * //   foo: "STRING_VALUE",
- * //   blob: "BLOB_VALUE",
+ * //   blob: new Uint8Array(),
  * // };
  *
  * ```

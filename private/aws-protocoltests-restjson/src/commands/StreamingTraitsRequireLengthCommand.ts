@@ -48,7 +48,7 @@ export interface StreamingTraitsRequireLengthCommandOutput extends __MetadataBea
  * const client = new RestJsonProtocolClient(config);
  * const input = { // StreamingTraitsRequireLengthInput
  *   foo: "STRING_VALUE",
- *   blob: "STREAMING_BLOB_VALUE",
+ *   blob: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  * };
  * const command = new StreamingTraitsRequireLengthCommand(input);
  * const response = await client.send(command);

@@ -157,7 +157,7 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  *     Lambda: { // MaintenanceWindowLambdaParameters
  *       ClientContext: "STRING_VALUE",
  *       Qualifier: "STRING_VALUE",
- *       Payload: "BLOB_VALUE",
+ *       Payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     },
  *   },
  *   Priority: Number("int"),
@@ -245,7 +245,7 @@ export interface UpdateMaintenanceWindowTaskCommandOutput extends UpdateMaintena
  * //     Lambda: { // MaintenanceWindowLambdaParameters
  * //       ClientContext: "STRING_VALUE",
  * //       Qualifier: "STRING_VALUE",
- * //       Payload: "BLOB_VALUE",
+ * //       Payload: new Uint8Array(),
  * //     },
  * //   },
  * //   Priority: Number("int"),

@@ -67,14 +67,14 @@ export interface GenerateRandomCommandOutput extends GenerateRandomResponse, __M
  *   CustomKeyStoreId: "STRING_VALUE",
  *   Recipient: { // RecipientInfo
  *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
- *     AttestationDocument: "BLOB_VALUE",
+ *     AttestationDocument: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  * };
  * const command = new GenerateRandomCommand(input);
  * const response = await client.send(command);
  * // { // GenerateRandomResponse
- * //   Plaintext: "BLOB_VALUE",
- * //   CiphertextForRecipient: "BLOB_VALUE",
+ * //   Plaintext: new Uint8Array(),
+ * //   CiphertextForRecipient: new Uint8Array(),
  * // };
  *
  * ```
