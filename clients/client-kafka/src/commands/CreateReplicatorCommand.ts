@@ -71,6 +71,9 @@ export interface CreateReplicatorCommandOutput extends CreateReplicatorResponse,
  *         CopyAccessControlListsForTopics: true || false,
  *         CopyTopicConfigurations: true || false,
  *         DetectAndCopyNewTopics: true || false,
+ *         StartingPosition: { // ReplicationStartingPosition
+ *           Type: "LATEST" || "EARLIEST",
+ *         },
  *         TopicsToExclude: [ // __listOf__stringMax249
  *           "STRING_VALUE",
  *         ],

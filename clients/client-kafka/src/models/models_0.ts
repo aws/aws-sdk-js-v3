@@ -1791,6 +1791,33 @@ export type TargetCompressionType = (typeof TargetCompressionType)[keyof typeof 
 
 /**
  * @public
+ * @enum
+ */
+export const ReplicationStartingPositionType = {
+  EARLIEST: "EARLIEST",
+  LATEST: "LATEST",
+} as const;
+
+/**
+ * @public
+ */
+export type ReplicationStartingPositionType =
+  (typeof ReplicationStartingPositionType)[keyof typeof ReplicationStartingPositionType];
+
+/**
+ * @public
+ * <p>Configuration for specifying the position in the topics to start replicating from.</p>
+ */
+export interface ReplicationStartingPosition {
+  /**
+   * @public
+   * <p>The type of replication starting position.</p>
+   */
+  Type?: ReplicationStartingPositionType;
+}
+
+/**
+ * @public
  * <p>Details about topic replication.</p>
  */
 export interface TopicReplication {
@@ -1811,6 +1838,12 @@ export interface TopicReplication {
    * <p>Whether to periodically check for new topics and partitions.</p>
    */
   DetectAndCopyNewTopics?: boolean;
+
+  /**
+   * @public
+   * <p>Configuration for specifying the position in the topics to start replicating from.</p>
+   */
+  StartingPosition?: ReplicationStartingPosition;
 
   /**
    * @public
