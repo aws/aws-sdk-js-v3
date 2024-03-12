@@ -39,7 +39,7 @@ export function ssecMiddleware(options: PreviouslyResolved): InitializeMiddlewar
         if (value) {
           let valueForHash: Uint8Array;
           if (typeof value === "string") {
-            if (isValidBase64(value)) {
+            if (isValidBase64EncodedSSECustomerKey(value, options)) {
               valueForHash = options.base64Decoder(value);
             } else {
               valueForHash = options.utf8Decoder(value);
@@ -78,17 +78,14 @@ export const getSsecPlugin = (config: PreviouslyResolved): Pluggable<any, any> =
   },
 });
 
-function isValidBase64(str: string) {
+function isValidBase64EncodedSSECustomerKey(str: string, options: PreviouslyResolved) {
   const base64Regex = /^(?:[A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
 
   if (!base64Regex.test(str)) return false;
 
   try {
-    const decodedBytes = Buffer.from(str, "base64");
+    const decodedBytes = options.base64Decoder(str);
     if (decodedBytes.length !== 32) return false;
-
-    const reEncoded = decodedBytes.toString("base64");
-    return str === reEncoded;
   } catch {
     return false;
   }
