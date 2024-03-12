@@ -59,10 +59,10 @@ export interface VerifyMacCommandOutput extends VerifyMacResponse, __MetadataBea
  * // const { KMSClient, VerifyMacCommand } = require("@aws-sdk/client-kms"); // CommonJS import
  * const client = new KMSClient(config);
  * const input = { // VerifyMacRequest
- *   Message: "BLOB_VALUE", // required
+ *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   KeyId: "STRING_VALUE", // required
  *   MacAlgorithm: "HMAC_SHA_224" || "HMAC_SHA_256" || "HMAC_SHA_384" || "HMAC_SHA_512", // required
- *   Mac: "BLOB_VALUE", // required
+ *   Mac: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
  *   ],

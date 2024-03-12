@@ -62,7 +62,7 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  * //   Status: "CREATED" || "IN_PROGRESS" || "SUCCEEDED" || "FAILED" || "EXPIRED", // required
  * //   Confidence: Number("float"),
  * //   ReferenceImage: { // AuditImage
- * //     Bytes: "BLOB_VALUE",
+ * //     Bytes: new Uint8Array(),
  * //     S3Object: { // S3Object
  * //       Bucket: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
@@ -77,7 +77,7 @@ export interface GetFaceLivenessSessionResultsCommandOutput
  * //   },
  * //   AuditImages: [ // AuditImages
  * //     {
- * //       Bytes: "BLOB_VALUE",
+ * //       Bytes: new Uint8Array(),
  * //       S3Object: {
  * //         Bucket: "STRING_VALUE",
  * //         Name: "STRING_VALUE",

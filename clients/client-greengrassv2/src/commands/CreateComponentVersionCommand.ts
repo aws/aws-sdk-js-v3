@@ -104,7 +104,7 @@ export interface CreateComponentVersionCommandOutput extends CreateComponentVers
  * // const { GreengrassV2Client, CreateComponentVersionCommand } = require("@aws-sdk/client-greengrassv2"); // CommonJS import
  * const client = new GreengrassV2Client(config);
  * const input = { // CreateComponentVersionRequest
- *   inlineRecipe: "BLOB_VALUE",
+ *   inlineRecipe: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   lambdaFunction: { // LambdaFunctionRecipeSource
  *     lambdaArn: "STRING_VALUE", // required
  *     componentName: "STRING_VALUE",

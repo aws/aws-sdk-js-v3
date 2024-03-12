@@ -115,7 +115,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *           "<keys>": { // AttributeValue Union: only one key present
  *             S: "STRING_VALUE",
  *             N: "STRING_VALUE",
- *             B: "BLOB_VALUE",
+ *             B: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *             SS: [ // StringSetAttributeValue
  *               "STRING_VALUE",
  *             ],
@@ -123,13 +123,13 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *               "STRING_VALUE",
  *             ],
  *             BS: [ // BinarySetAttributeValue
- *               "BLOB_VALUE",
+ *               new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *             ],
  *             M: { // MapAttributeValue
  *               "<keys>": {//  Union: only one key present
  *                 S: "STRING_VALUE",
  *                 N: "STRING_VALUE",
- *                 B: "BLOB_VALUE",
+ *                 B: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *                 SS: [
  *                   "STRING_VALUE",
  *                 ],
@@ -137,7 +137,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  *                   "STRING_VALUE",
  *                 ],
  *                 BS: [
- *                   "BLOB_VALUE",
+ *                   new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *                 ],
  *                 M: {
  *                   "<keys>": "<AttributeValue>",
@@ -252,7 +252,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * //           "<keys>": { // AttributeValue Union: only one key present
  * //             S: "STRING_VALUE",
  * //             N: "STRING_VALUE",
- * //             B: "BLOB_VALUE",
+ * //             B: new Uint8Array(),
  * //             SS: [ // StringSetAttributeValue
  * //               "STRING_VALUE",
  * //             ],
@@ -260,13 +260,13 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * //               "STRING_VALUE",
  * //             ],
  * //             BS: [ // BinarySetAttributeValue
- * //               "BLOB_VALUE",
+ * //               new Uint8Array(),
  * //             ],
  * //             M: { // MapAttributeValue
  * //               "<keys>": {//  Union: only one key present
  * //                 S: "STRING_VALUE",
  * //                 N: "STRING_VALUE",
- * //                 B: "BLOB_VALUE",
+ * //                 B: new Uint8Array(),
  * //                 SS: [
  * //                   "STRING_VALUE",
  * //                 ],
@@ -274,7 +274,7 @@ export interface TransactWriteItemsCommandOutput extends TransactWriteItemsOutpu
  * //                   "STRING_VALUE",
  * //                 ],
  * //                 BS: [
- * //                   "BLOB_VALUE",
+ * //                   new Uint8Array(),
  * //                 ],
  * //                 M: {
  * //                   "<keys>": "<AttributeValue>",

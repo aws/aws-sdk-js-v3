@@ -56,7 +56,7 @@ export interface GetSolNetworkPackageDescriptorCommandOutput
  * const response = await client.send(command);
  * // { // GetSolNetworkPackageDescriptorOutput
  * //   contentType: "text/plain",
- * //   nsd: "BLOB_VALUE",
+ * //   nsd: new Uint8Array(),
  * // };
  *
  * ```

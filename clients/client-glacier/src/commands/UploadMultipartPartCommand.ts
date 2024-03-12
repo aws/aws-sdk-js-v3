@@ -98,7 +98,7 @@ export interface UploadMultipartPartCommandOutput extends UploadMultipartPartOut
  *   uploadId: "STRING_VALUE", // required
  *   checksum: "STRING_VALUE",
  *   range: "STRING_VALUE",
- *   body: "STREAMING_BLOB_VALUE",
+ *   body: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  * };
  * const command = new UploadMultipartPartCommand(input);
  * const response = await client.send(command);

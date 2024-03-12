@@ -142,7 +142,7 @@ export interface SendUsersMessagesCommandOutput extends SendUsersMessagesRespons
  *         FeedbackForwardingAddress: "STRING_VALUE",
  *         FromAddress: "STRING_VALUE",
  *         RawEmail: { // RawEmail
- *           Data: "BLOB_VALUE",
+ *           Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         },
  *         ReplyToAddresses: "<ListOf__string>",
  *         SimpleEmail: { // SimpleEmail

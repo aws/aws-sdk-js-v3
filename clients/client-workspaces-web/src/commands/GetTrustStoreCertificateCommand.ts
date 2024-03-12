@@ -49,7 +49,7 @@ export interface GetTrustStoreCertificateCommandOutput extends GetTrustStoreCert
  * //     issuer: "STRING_VALUE",
  * //     notValidBefore: new Date("TIMESTAMP"),
  * //     notValidAfter: new Date("TIMESTAMP"),
- * //     body: "BLOB_VALUE",
+ * //     body: new Uint8Array(),
  * //   },
  * // };
  *

@@ -123,8 +123,8 @@ export interface GenerateDataKeyPairWithoutPlaintextCommandOutput
  * const command = new GenerateDataKeyPairWithoutPlaintextCommand(input);
  * const response = await client.send(command);
  * // { // GenerateDataKeyPairWithoutPlaintextResponse
- * //   PrivateKeyCiphertextBlob: "BLOB_VALUE",
- * //   PublicKey: "BLOB_VALUE",
+ * //   PrivateKeyCiphertextBlob: new Uint8Array(),
+ * //   PublicKey: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
  * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2",
  * // };

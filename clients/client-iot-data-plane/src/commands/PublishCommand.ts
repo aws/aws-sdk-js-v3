@@ -52,7 +52,7 @@ export interface PublishCommandOutput extends __MetadataBearer {}
  *   topic: "STRING_VALUE", // required
  *   qos: Number("int"),
  *   retain: true || false,
- *   payload: "BLOB_VALUE",
+ *   payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   userProperties: "STRING_VALUE",
  *   payloadFormatIndicator: "UNSPECIFIED_BYTES" || "UTF8_DATA",
  *   contentType: "STRING_VALUE",

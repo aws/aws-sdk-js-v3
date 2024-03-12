@@ -92,7 +92,7 @@ export interface UpdateByteMatchSetCommandOutput extends UpdateByteMatchSetRespo
  *           Type: "URI" || "QUERY_STRING" || "HEADER" || "METHOD" || "BODY" || "SINGLE_QUERY_ARG" || "ALL_QUERY_ARGS", // required
  *           Data: "STRING_VALUE",
  *         },
- *         TargetString: "BLOB_VALUE", // required
+ *         TargetString: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")         // required
  *         TextTransformation: "NONE" || "COMPRESS_WHITE_SPACE" || "HTML_ENTITY_DECODE" || "LOWERCASE" || "CMD_LINE" || "URL_DECODE", // required
  *         PositionalConstraint: "EXACTLY" || "STARTS_WITH" || "ENDS_WITH" || "CONTAINS" || "CONTAINS_WORD", // required
  *       },

@@ -141,7 +141,7 @@ export interface SendRawEmailCommandOutput extends SendRawEmailResponse, __Metad
  *     "STRING_VALUE",
  *   ],
  *   RawMessage: { // RawMessage
- *     Data: "BLOB_VALUE", // required
+ *     Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")     // required
  *   },
  *   FromArn: "STRING_VALUE",
  *   SourceArn: "STRING_VALUE",

@@ -47,7 +47,7 @@ export interface CreateProjectCommandOutput extends CreateProjectResult, __Metad
  * const input = { // CreateProjectRequest
  *   name: "STRING_VALUE",
  *   region: "STRING_VALUE",
- *   contents: "BLOB_VALUE",
+ *   contents: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   snapshotId: "STRING_VALUE",
  * };
  * const command = new CreateProjectCommand(input);

@@ -59,7 +59,7 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
  *   Text: "STRING_VALUE",
  *   LanguageCode: "en" || "es" || "fr" || "de" || "it" || "pt" || "ar" || "hi" || "ja" || "ko" || "zh" || "zh-TW",
  *   EndpointArn: "STRING_VALUE",
- *   Bytes: "BLOB_VALUE",
+ *   Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   DocumentReaderConfig: { // DocumentReaderConfig
  *     DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
  *     DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",

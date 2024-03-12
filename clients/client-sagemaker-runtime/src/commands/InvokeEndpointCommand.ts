@@ -75,7 +75,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  * const client = new SageMakerRuntimeClient(config);
  * const input = { // InvokeEndpointInput
  *   EndpointName: "STRING_VALUE", // required
- *   Body: "BLOB_VALUE", // required
+ *   Body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   ContentType: "STRING_VALUE",
  *   Accept: "STRING_VALUE",
  *   CustomAttributes: "STRING_VALUE",
@@ -89,7 +89,7 @@ export interface InvokeEndpointCommandOutput extends InvokeEndpointCommandOutput
  * const command = new InvokeEndpointCommand(input);
  * const response = await client.send(command);
  * // { // InvokeEndpointOutput
- * //   Body: "BLOB_VALUE", // required
+ * //   Body: new Uint8Array(), // required
  * //   ContentType: "STRING_VALUE",
  * //   InvokedProductionVariant: "STRING_VALUE",
  * //   CustomAttributes: "STRING_VALUE",

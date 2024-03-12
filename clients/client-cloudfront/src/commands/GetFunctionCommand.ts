@@ -53,7 +53,7 @@ export interface GetFunctionCommandOutput extends GetFunctionCommandOutputType, 
  * const command = new GetFunctionCommand(input);
  * const response = await client.send(command);
  * // { // GetFunctionResult
- * //   FunctionCode: "BLOB_VALUE",
+ * //   FunctionCode: new Uint8Array(),
  * //   ETag: "STRING_VALUE",
  * //   ContentType: "STRING_VALUE",
  * // };

@@ -156,17 +156,17 @@ export interface GenerateDataKeyCommandOutput extends GenerateDataKeyResponse, _
  *   ],
  *   Recipient: { // RecipientInfo
  *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
- *     AttestationDocument: "BLOB_VALUE",
+ *     AttestationDocument: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  *   DryRun: true || false,
  * };
  * const command = new GenerateDataKeyCommand(input);
  * const response = await client.send(command);
  * // { // GenerateDataKeyResponse
- * //   CiphertextBlob: "BLOB_VALUE",
- * //   Plaintext: "BLOB_VALUE",
+ * //   CiphertextBlob: new Uint8Array(),
+ * //   Plaintext: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
- * //   CiphertextForRecipient: "BLOB_VALUE",
+ * //   CiphertextForRecipient: new Uint8Array(),
  * // };
  *
  * ```

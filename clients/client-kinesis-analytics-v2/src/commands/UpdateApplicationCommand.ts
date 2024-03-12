@@ -149,7 +149,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *       CodeContentTypeUpdate: "PLAINTEXT" || "ZIPFILE",
  *       CodeContentUpdate: { // CodeContentUpdate
  *         TextContentUpdate: "STRING_VALUE",
- *         ZipFileContentUpdate: "BLOB_VALUE",
+ *         ZipFileContentUpdate: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         S3ContentLocationUpdate: { // S3ContentLocationUpdate
  *           BucketARNUpdate: "STRING_VALUE",
  *           FileKeyUpdate: "STRING_VALUE",

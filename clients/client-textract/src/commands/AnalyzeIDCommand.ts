@@ -41,7 +41,7 @@ export interface AnalyzeIDCommandOutput extends AnalyzeIDResponse, __MetadataBea
  * const input = { // AnalyzeIDRequest
  *   DocumentPages: [ // DocumentPages // required
  *     { // Document
- *       Bytes: "BLOB_VALUE",
+ *       Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       S3Object: { // S3Object
  *         Bucket: "STRING_VALUE",
  *         Name: "STRING_VALUE",

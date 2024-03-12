@@ -48,7 +48,7 @@ export interface NotifyObjectCompleteCommandOutput extends NotifyObjectCompleteO
  *   ObjectChecksum: "STRING_VALUE", // required
  *   ObjectChecksumAlgorithm: "SUMMARY", // required
  *   MetadataString: "STRING_VALUE",
- *   MetadataBlob: "STREAMING_BLOB_VALUE",
+ *   MetadataBlob: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  *   MetadataBlobLength: Number("long"),
  *   MetadataBlobChecksum: "STRING_VALUE",
  *   MetadataBlobChecksumAlgorithm: "SHA256",

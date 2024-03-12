@@ -52,7 +52,7 @@ export interface GetMapGlyphsCommandOutput extends GetMapGlyphsCommandOutputType
  * const command = new GetMapGlyphsCommand(input);
  * const response = await client.send(command);
  * // { // GetMapGlyphsResponse
- * //   Blob: "BLOB_VALUE",
+ * //   Blob: new Uint8Array(),
  * //   ContentType: "STRING_VALUE",
  * //   CacheControl: "STRING_VALUE",
  * // };

@@ -103,7 +103,7 @@ export interface GetOTAUpdateCommandOutput extends GetOTAUpdateResponse, __Metad
  * //           },
  * //           customCodeSigning: { // CustomCodeSigning
  * //             signature: { // CodeSigningSignature
- * //               inlineDocument: "BLOB_VALUE",
+ * //               inlineDocument: new Uint8Array(),
  * //             },
  * //             certificateChain: { // CodeSigningCertificateChain
  * //               certificateName: "STRING_VALUE",

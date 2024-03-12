@@ -98,7 +98,7 @@ export interface PutRecordsCommandOutput extends PutRecordsOutput, __MetadataBea
  * const input = { // PutRecordsInput
  *   Records: [ // PutRecordsRequestEntryList // required
  *     { // PutRecordsRequestEntry
- *       Data: "BLOB_VALUE", // required
+ *       Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *       ExplicitHashKey: "STRING_VALUE",
  *       PartitionKey: "STRING_VALUE", // required
  *     },

@@ -56,7 +56,7 @@ export interface DescribeLocationObjectStorageCommandOutput
  * //     "STRING_VALUE",
  * //   ],
  * //   CreationTime: new Date("TIMESTAMP"),
- * //   ServerCertificate: "BLOB_VALUE",
+ * //   ServerCertificate: new Uint8Array(),
  * // };
  *
  * ```

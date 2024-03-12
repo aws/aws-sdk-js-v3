@@ -105,7 +105,7 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * //   messageFormat: "PlainText" || "CustomPayload" || "SSML" || "Composite",
  * //   dialogState: "ElicitIntent" || "ConfirmIntent" || "ElicitSlot" || "Fulfilled" || "ReadyForFulfillment" || "Failed",
  * //   slotToElicit: "STRING_VALUE",
- * //   audioStream: "STREAMING_BLOB_VALUE",
+ * //   audioStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   sessionId: "STRING_VALUE",
  * //   activeContexts: "STRING_VALUE",
  * // };

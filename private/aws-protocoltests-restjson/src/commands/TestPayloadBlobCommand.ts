@@ -57,13 +57,13 @@ export interface TestPayloadBlobCommandOutput extends TestPayloadBlobCommandOutp
  * const client = new RestJsonProtocolClient(config);
  * const input = { // TestPayloadBlobInputOutput
  *   contentType: "STRING_VALUE",
- *   data: "BLOB_VALUE",
+ *   data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new TestPayloadBlobCommand(input);
  * const response = await client.send(command);
  * // { // TestPayloadBlobInputOutput
  * //   contentType: "STRING_VALUE",
- * //   data: "BLOB_VALUE",
+ * //   data: new Uint8Array(),
  * // };
  *
  * ```

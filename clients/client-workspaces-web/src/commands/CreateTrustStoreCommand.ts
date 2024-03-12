@@ -45,7 +45,7 @@ export interface CreateTrustStoreCommandOutput extends CreateTrustStoreResponse,
  * const client = new WorkSpacesWebClient(config);
  * const input = { // CreateTrustStoreRequest
  *   certificateList: [ // CertificateList // required
- *     "BLOB_VALUE",
+ *     new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   ],
  *   tags: [ // TagList
  *     { // Tag

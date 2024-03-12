@@ -56,7 +56,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  *         longValue: Number("long"),
  *         doubleValue: Number("double"),
  *         stringValue: "STRING_VALUE",
- *         blobValue: "BLOB_VALUE",
+ *         blobValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         arrayValue: { // ArrayValue Union: only one key present
  *           booleanValues: [ // BooleanArray
  *             true || false,
@@ -114,7 +114,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * //         longValue: Number("long"),
  * //         doubleValue: Number("double"),
  * //         stringValue: "STRING_VALUE",
- * //         blobValue: "BLOB_VALUE",
+ * //         blobValue: new Uint8Array(),
  * //         arrayValue: { // ArrayValue Union: only one key present
  * //           booleanValues: [ // BooleanArray
  * //             true || false,
@@ -177,7 +177,7 @@ export interface ExecuteStatementCommandOutput extends ExecuteStatementResponse,
  * //       longValue: Number("long"),
  * //       doubleValue: Number("double"),
  * //       stringValue: "STRING_VALUE",
- * //       blobValue: "BLOB_VALUE",
+ * //       blobValue: new Uint8Array(),
  * //       arrayValue: "<ArrayValue>",
  * //     },
  * //   ],

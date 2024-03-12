@@ -56,12 +56,12 @@ export interface UpdateThingShadowCommandOutput extends UpdateThingShadowCommand
  * const input = { // UpdateThingShadowRequest
  *   thingName: "STRING_VALUE", // required
  *   shadowName: "STRING_VALUE",
- *   payload: "BLOB_VALUE", // required
+ *   payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new UpdateThingShadowCommand(input);
  * const response = await client.send(command);
  * // { // UpdateThingShadowResponse
- * //   payload: "BLOB_VALUE",
+ * //   payload: new Uint8Array(),
  * // };
  *
  * ```

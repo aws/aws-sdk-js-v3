@@ -52,7 +52,7 @@ export interface GetCodeBindingSourceCommandOutput extends GetCodeBindingSourceC
  * const command = new GetCodeBindingSourceCommand(input);
  * const response = await client.send(command);
  * // { // GetCodeBindingSourceResponse
- * //   Body: "BLOB_VALUE",
+ * //   Body: new Uint8Array(),
  * // };
  *
  * ```

@@ -170,7 +170,7 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
  *     ApplicationCodeConfiguration: { // ApplicationCodeConfiguration
  *       CodeContent: { // CodeContent
  *         TextContent: "STRING_VALUE",
- *         ZipFileContent: "BLOB_VALUE",
+ *         ZipFileContent: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         S3ContentLocation: { // S3ContentLocation
  *           BucketARN: "STRING_VALUE", // required
  *           FileKey: "STRING_VALUE", // required

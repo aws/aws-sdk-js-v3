@@ -50,7 +50,7 @@ export interface PutRestApiCommandOutput extends RestApi, __MetadataBearer {}
  *   parameters: { // MapOfStringToString
  *     "<keys>": "STRING_VALUE",
  *   },
- *   body: "BLOB_VALUE", // required
+ *   body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new PutRestApiCommand(input);
  * const response = await client.send(command);

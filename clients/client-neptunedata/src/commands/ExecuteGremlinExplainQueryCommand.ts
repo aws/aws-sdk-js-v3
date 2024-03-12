@@ -87,7 +87,7 @@ export interface ExecuteGremlinExplainQueryCommandOutput
  * const command = new ExecuteGremlinExplainQueryCommand(input);
  * const response = await client.send(command);
  * // { // ExecuteGremlinExplainQueryOutput
- * //   output: "BLOB_VALUE",
+ * //   output: new Uint8Array(),
  * // };
  *
  * ```

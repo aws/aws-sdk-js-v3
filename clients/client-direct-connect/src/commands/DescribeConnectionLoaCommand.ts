@@ -51,7 +51,7 @@ export interface DescribeConnectionLoaCommandOutput extends DescribeConnectionLo
  * const response = await client.send(command);
  * // { // DescribeConnectionLoaResponse
  * //   loa: { // Loa
- * //     loaContent: "BLOB_VALUE",
+ * //     loaContent: new Uint8Array(),
  * //     loaContentType: "application/pdf",
  * //   },
  * // };

@@ -91,7 +91,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * const client = new KMSClient(config);
  * const input = { // SignRequest
  *   KeyId: "STRING_VALUE", // required
- *   Message: "BLOB_VALUE", // required
+ *   Message: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   MessageType: "RAW" || "DIGEST",
  *   GrantTokens: [ // GrantTokenList
  *     "STRING_VALUE",
@@ -103,7 +103,7 @@ export interface SignCommandOutput extends SignResponse, __MetadataBearer {}
  * const response = await client.send(command);
  * // { // SignResponse
  * //   KeyId: "STRING_VALUE",
- * //   Signature: "BLOB_VALUE",
+ * //   Signature: new Uint8Array(),
  * //   SigningAlgorithm: "RSASSA_PSS_SHA_256" || "RSASSA_PSS_SHA_384" || "RSASSA_PSS_SHA_512" || "RSASSA_PKCS1_V1_5_SHA_256" || "RSASSA_PKCS1_V1_5_SHA_384" || "RSASSA_PKCS1_V1_5_SHA_512" || "ECDSA_SHA_256" || "ECDSA_SHA_384" || "ECDSA_SHA_512" || "SM2DSA",
  * // };
  *

@@ -51,7 +51,7 @@ export interface MergeBranchesBySquashCommandOutput extends MergeBranchesBySquas
  *       { // ReplaceContentEntry
  *         filePath: "STRING_VALUE", // required
  *         replacementType: "KEEP_BASE" || "KEEP_SOURCE" || "KEEP_DESTINATION" || "USE_NEW_CONTENT", // required
- *         content: "BLOB_VALUE",
+ *         content: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *         fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK",
  *       },
  *     ],

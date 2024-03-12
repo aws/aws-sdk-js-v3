@@ -63,7 +63,7 @@ export interface CreateFunctionCommandOutput extends CreateFunctionResult, __Met
  *       ],
  *     },
  *   },
- *   FunctionCode: "BLOB_VALUE", // required
+ *   FunctionCode: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new CreateFunctionCommand(input);
  * const response = await client.send(command);

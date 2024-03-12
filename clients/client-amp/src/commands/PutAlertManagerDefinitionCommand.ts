@@ -39,7 +39,7 @@ export interface PutAlertManagerDefinitionCommandOutput extends PutAlertManagerD
  * const client = new AmpClient(config);
  * const input = { // PutAlertManagerDefinitionRequest
  *   workspaceId: "STRING_VALUE", // required
- *   data: "BLOB_VALUE", // required
+ *   data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   clientToken: "STRING_VALUE",
  * };
  * const command = new PutAlertManagerDefinitionCommand(input);

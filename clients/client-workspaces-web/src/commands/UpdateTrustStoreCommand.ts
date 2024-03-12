@@ -38,7 +38,7 @@ export interface UpdateTrustStoreCommandOutput extends UpdateTrustStoreResponse,
  * const input = { // UpdateTrustStoreRequest
  *   trustStoreArn: "STRING_VALUE", // required
  *   certificatesToAdd: [ // CertificateList
- *     "BLOB_VALUE",
+ *     new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   ],
  *   certificatesToDelete: [ // CertificateThumbprintList
  *     "STRING_VALUE",

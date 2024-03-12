@@ -54,7 +54,7 @@ export interface PutSnapshotBlockCommandOutput extends PutSnapshotBlockResponse,
  * const input = { // PutSnapshotBlockRequest
  *   SnapshotId: "STRING_VALUE", // required
  *   BlockIndex: Number("int"), // required
- *   BlockData: "STREAMING_BLOB_VALUE", // required
+ *   BlockData: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes // required
  *   DataLength: Number("int"), // required
  *   Progress: Number("int"),
  *   Checksum: "STRING_VALUE", // required

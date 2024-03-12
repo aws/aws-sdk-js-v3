@@ -69,7 +69,7 @@ export interface GetObjectTorrentCommandOutput extends Omit<GetObjectTorrentOutp
  * const command = new GetObjectTorrentCommand(input);
  * const response = await client.send(command);
  * // { // GetObjectTorrentOutput
- * //   Body: "STREAMING_BLOB_VALUE",
+ * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   RequestCharged: "requester",
  * // };
  *

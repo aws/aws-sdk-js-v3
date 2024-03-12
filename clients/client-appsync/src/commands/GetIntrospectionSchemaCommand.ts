@@ -53,7 +53,7 @@ export interface GetIntrospectionSchemaCommandOutput
  * const command = new GetIntrospectionSchemaCommand(input);
  * const response = await client.send(command);
  * // { // GetIntrospectionSchemaResponse
- * //   schema: "BLOB_VALUE",
+ * //   schema: new Uint8Array(),
  * // };
  *
  * ```

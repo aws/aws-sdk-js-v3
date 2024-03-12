@@ -82,7 +82,7 @@ export interface GetJobOutputCommandOutput extends Omit<GetJobOutputOutput, "bod
  * const command = new GetJobOutputCommand(input);
  * const response = await client.send(command);
  * // { // GetJobOutputOutput
- * //   body: "STREAMING_BLOB_VALUE",
+ * //   body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   checksum: "STRING_VALUE",
  * //   status: Number("int"),
  * //   contentRange: "STRING_VALUE",

@@ -39,7 +39,7 @@ export interface StartSchemaCreationCommandOutput extends StartSchemaCreationRes
  * const client = new AppSyncClient(config);
  * const input = { // StartSchemaCreationRequest
  *   apiId: "STRING_VALUE", // required
- *   definition: "BLOB_VALUE", // required
+ *   definition: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new StartSchemaCreationCommand(input);
  * const response = await client.send(command);

@@ -59,8 +59,8 @@ export interface ListVirtualMFADevicesCommandOutput extends ListVirtualMFADevice
  * //   VirtualMFADevices: [ // virtualMFADeviceListType // required
  * //     { // VirtualMFADevice
  * //       SerialNumber: "STRING_VALUE", // required
- * //       Base32StringSeed: "BLOB_VALUE",
- * //       QRCodePNG: "BLOB_VALUE",
+ * //       Base32StringSeed: new Uint8Array(),
+ * //       QRCodePNG: new Uint8Array(),
  * //       User: { // User
  * //         Path: "STRING_VALUE", // required
  * //         UserName: "STRING_VALUE", // required

@@ -134,19 +134,19 @@ export interface GenerateDataKeyPairCommandOutput extends GenerateDataKeyPairRes
  *   ],
  *   Recipient: { // RecipientInfo
  *     KeyEncryptionAlgorithm: "RSAES_OAEP_SHA_256",
- *     AttestationDocument: "BLOB_VALUE",
+ *     AttestationDocument: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   },
  *   DryRun: true || false,
  * };
  * const command = new GenerateDataKeyPairCommand(input);
  * const response = await client.send(command);
  * // { // GenerateDataKeyPairResponse
- * //   PrivateKeyCiphertextBlob: "BLOB_VALUE",
- * //   PrivateKeyPlaintext: "BLOB_VALUE",
- * //   PublicKey: "BLOB_VALUE",
+ * //   PrivateKeyCiphertextBlob: new Uint8Array(),
+ * //   PrivateKeyPlaintext: new Uint8Array(),
+ * //   PublicKey: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
  * //   KeyPairSpec: "RSA_2048" || "RSA_3072" || "RSA_4096" || "ECC_NIST_P256" || "ECC_NIST_P384" || "ECC_NIST_P521" || "ECC_SECG_P256K1" || "SM2",
- * //   CiphertextForRecipient: "BLOB_VALUE",
+ * //   CiphertextForRecipient: new Uint8Array(),
  * // };
  *
  * ```

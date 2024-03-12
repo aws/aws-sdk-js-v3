@@ -44,7 +44,7 @@ export interface GetObjectCommandOutput extends Omit<GetObjectResponse, "Body">,
  * const command = new GetObjectCommand(input);
  * const response = await client.send(command);
  * // { // GetObjectResponse
- * //   Body: "STREAMING_BLOB_VALUE",
+ * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   CacheControl: "STRING_VALUE",
  * //   ContentRange: "STRING_VALUE",
  * //   ContentLength: Number("long"),

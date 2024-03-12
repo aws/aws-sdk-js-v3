@@ -56,7 +56,7 @@ export interface GetSnapshotBlockCommandOutput extends Omit<GetSnapshotBlockResp
  * const response = await client.send(command);
  * // { // GetSnapshotBlockResponse
  * //   DataLength: Number("int"),
- * //   BlockData: "STREAMING_BLOB_VALUE",
+ * //   BlockData: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   Checksum: "STRING_VALUE",
  * //   ChecksumAlgorithm: "SHA256",
  * // };

@@ -43,7 +43,7 @@ export interface GetComponentCommandOutput extends GetComponentResponse, __Metad
  * const response = await client.send(command);
  * // { // GetComponentResponse
  * //   recipeOutputFormat: "JSON" || "YAML", // required
- * //   recipe: "BLOB_VALUE", // required
+ * //   recipe: new Uint8Array(), // required
  * //   tags: { // TagMap
  * //     "<keys>": "STRING_VALUE",
  * //   },

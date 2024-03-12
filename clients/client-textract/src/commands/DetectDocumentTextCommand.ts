@@ -47,7 +47,7 @@ export interface DetectDocumentTextCommandOutput extends DetectDocumentTextRespo
  * const client = new TextractClient(config);
  * const input = { // DetectDocumentTextRequest
  *   Document: { // Document
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",

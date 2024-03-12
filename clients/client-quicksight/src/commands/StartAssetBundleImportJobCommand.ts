@@ -45,7 +45,7 @@ export interface StartAssetBundleImportJobCommandOutput extends StartAssetBundle
  *   AwsAccountId: "STRING_VALUE", // required
  *   AssetBundleImportJobId: "STRING_VALUE", // required
  *   AssetBundleImportSource: { // AssetBundleImportSource
- *     Body: "BLOB_VALUE",
+ *     Body: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     S3Uri: "STRING_VALUE",
  *   },
  *   OverrideParameters: { // AssetBundleImportJobOverrideParameters

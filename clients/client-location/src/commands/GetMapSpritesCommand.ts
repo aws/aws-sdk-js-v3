@@ -57,7 +57,7 @@ export interface GetMapSpritesCommandOutput extends GetMapSpritesCommandOutputTy
  * const command = new GetMapSpritesCommand(input);
  * const response = await client.send(command);
  * // { // GetMapSpritesResponse
- * //   Blob: "BLOB_VALUE",
+ * //   Blob: new Uint8Array(),
  * //   ContentType: "STRING_VALUE",
  * //   CacheControl: "STRING_VALUE",
  * // };

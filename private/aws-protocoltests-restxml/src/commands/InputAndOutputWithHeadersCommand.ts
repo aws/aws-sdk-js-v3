@@ -36,7 +36,7 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * const client = new RestXmlProtocolClient(config);
  * const input = { // InputAndOutputWithHeadersIO
  *   headerString: "STRING_VALUE",
- *   headerByte: "BYTE_VALUE",
+ *   headerByte: 0, // BYTE_VALUE
  *   headerShort: Number("short"),
  *   headerInteger: Number("int"),
  *   headerLong: Number("long"),
@@ -68,7 +68,7 @@ export interface InputAndOutputWithHeadersCommandOutput extends InputAndOutputWi
  * const response = await client.send(command);
  * // { // InputAndOutputWithHeadersIO
  * //   headerString: "STRING_VALUE",
- * //   headerByte: "BYTE_VALUE",
+ * //   headerByte: 0, // BYTE_VALUE
  * //   headerShort: Number("short"),
  * //   headerInteger: Number("int"),
  * //   headerLong: Number("long"),

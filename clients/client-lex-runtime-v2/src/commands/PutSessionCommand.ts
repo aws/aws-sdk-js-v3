@@ -168,7 +168,7 @@ export interface PutSessionCommandOutput extends Omit<PutSessionResponse, "audio
  * //   sessionState: "STRING_VALUE",
  * //   requestAttributes: "STRING_VALUE",
  * //   sessionId: "STRING_VALUE",
- * //   audioStream: "STREAMING_BLOB_VALUE",
+ * //   audioStream: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

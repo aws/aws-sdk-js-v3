@@ -51,7 +51,7 @@ export interface GetImageFrameCommandOutput extends Omit<GetImageFrameResponse, 
  * const command = new GetImageFrameCommand(input);
  * const response = await client.send(command);
  * // { // GetImageFrameResponse
- * //   imageFrameBlob: "STREAMING_BLOB_VALUE", // required
+ * //   imageFrameBlob: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes // required
  * //   contentType: "STRING_VALUE",
  * // };
  *

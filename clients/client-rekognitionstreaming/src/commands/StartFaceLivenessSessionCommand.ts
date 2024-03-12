@@ -63,7 +63,7 @@ export interface StartFaceLivenessSessionCommandOutput extends StartFaceLiveness
  *   ChallengeVersions: "STRING_VALUE", // required
  *   LivenessRequestStream: { // LivenessRequestStream Union: only one key present
  *     VideoEvent: { // VideoEvent
- *       VideoChunk: "BLOB_VALUE",
+ *       VideoChunk: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *       TimestampMillis: Number("long"),
  *     },
  *     ClientSessionInformationEvent: { // ClientSessionInformationEvent

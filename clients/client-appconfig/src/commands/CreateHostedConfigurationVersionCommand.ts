@@ -69,7 +69,7 @@ export interface CreateHostedConfigurationVersionCommandOutput
  *   ApplicationId: "STRING_VALUE", // required
  *   ConfigurationProfileId: "STRING_VALUE", // required
  *   Description: "STRING_VALUE",
- *   Content: "BLOB_VALUE", // required
+ *   Content: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   ContentType: "STRING_VALUE", // required
  *   LatestVersionNumber: Number("int"),
  *   VersionLabel: "STRING_VALUE",
@@ -81,7 +81,7 @@ export interface CreateHostedConfigurationVersionCommandOutput
  * //   ConfigurationProfileId: "STRING_VALUE",
  * //   VersionNumber: Number("int"),
  * //   Description: "STRING_VALUE",
- * //   Content: "BLOB_VALUE",
+ * //   Content: new Uint8Array(),
  * //   ContentType: "STRING_VALUE",
  * //   VersionLabel: "STRING_VALUE",
  * //   KmsKeyArn: "STRING_VALUE",

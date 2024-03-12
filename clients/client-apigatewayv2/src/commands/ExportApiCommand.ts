@@ -54,7 +54,7 @@ export interface ExportApiCommandOutput extends ExportApiCommandOutputType, __Me
  * const command = new ExportApiCommand(input);
  * const response = await client.send(command);
  * // { // ExportApiResponse
- * //   body: "BLOB_VALUE",
+ * //   body: new Uint8Array(),
  * // };
  *
  * ```

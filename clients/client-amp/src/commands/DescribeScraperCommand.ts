@@ -57,7 +57,7 @@ export interface DescribeScraperCommandOutput extends DescribeScraperResponse, _
  * //     },
  * //     statusReason: "STRING_VALUE",
  * //     scrapeConfiguration: { // ScrapeConfiguration Union: only one key present
- * //       configurationBlob: "BLOB_VALUE",
+ * //       configurationBlob: new Uint8Array(),
  * //     },
  * //     source: { // Source Union: only one key present
  * //       eksConfiguration: { // EksConfiguration

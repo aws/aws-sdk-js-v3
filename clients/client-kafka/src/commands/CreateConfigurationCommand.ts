@@ -41,7 +41,7 @@ export interface CreateConfigurationCommandOutput extends CreateConfigurationRes
  *     "STRING_VALUE",
  *   ],
  *   Name: "STRING_VALUE", // required
- *   ServerProperties: "BLOB_VALUE", // required
+ *   ServerProperties: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new CreateConfigurationCommand(input);
  * const response = await client.send(command);

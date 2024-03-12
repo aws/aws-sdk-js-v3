@@ -65,7 +65,7 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  * const input = { // ImportClientBrandingRequest
  *   ResourceId: "STRING_VALUE", // required
  *   DeviceTypeWindows: { // DefaultImportClientBrandingAttributes
- *     Logo: "BLOB_VALUE",
+ *     Logo: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     SupportEmail: "STRING_VALUE",
  *     SupportLink: "STRING_VALUE",
  *     ForgotPasswordLink: "STRING_VALUE",
@@ -74,7 +74,7 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *     },
  *   },
  *   DeviceTypeOsx: {
- *     Logo: "BLOB_VALUE",
+ *     Logo: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     SupportEmail: "STRING_VALUE",
  *     SupportLink: "STRING_VALUE",
  *     ForgotPasswordLink: "STRING_VALUE",
@@ -83,7 +83,7 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *     },
  *   },
  *   DeviceTypeAndroid: {
- *     Logo: "BLOB_VALUE",
+ *     Logo: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     SupportEmail: "STRING_VALUE",
  *     SupportLink: "STRING_VALUE",
  *     ForgotPasswordLink: "STRING_VALUE",
@@ -92,9 +92,9 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *     },
  *   },
  *   DeviceTypeIos: { // IosImportClientBrandingAttributes
- *     Logo: "BLOB_VALUE",
- *     Logo2x: "BLOB_VALUE",
- *     Logo3x: "BLOB_VALUE",
+ *     Logo: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *     Logo2x: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
+ *     Logo3x: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     SupportEmail: "STRING_VALUE",
  *     SupportLink: "STRING_VALUE",
  *     ForgotPasswordLink: "STRING_VALUE",
@@ -103,7 +103,7 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *     },
  *   },
  *   DeviceTypeLinux: {
- *     Logo: "BLOB_VALUE",
+ *     Logo: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     SupportEmail: "STRING_VALUE",
  *     SupportLink: "STRING_VALUE",
  *     ForgotPasswordLink: "STRING_VALUE",
@@ -112,7 +112,7 @@ export interface ImportClientBrandingCommandOutput extends ImportClientBrandingR
  *     },
  *   },
  *   DeviceTypeWeb: {
- *     Logo: "BLOB_VALUE",
+ *     Logo: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     SupportEmail: "STRING_VALUE",
  *     SupportLink: "STRING_VALUE",
  *     ForgotPasswordLink: "STRING_VALUE",

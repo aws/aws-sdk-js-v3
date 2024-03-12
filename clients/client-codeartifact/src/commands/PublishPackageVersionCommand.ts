@@ -59,7 +59,7 @@ export interface PublishPackageVersionCommandOutput extends PublishPackageVersio
  *   namespace: "STRING_VALUE",
  *   package: "STRING_VALUE", // required
  *   packageVersion: "STRING_VALUE", // required
- *   assetContent: "STREAMING_BLOB_VALUE", // required
+ *   assetContent: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes // required
  *   assetName: "STRING_VALUE", // required
  *   assetSHA256: "STRING_VALUE", // required
  *   unfinished: true || false,

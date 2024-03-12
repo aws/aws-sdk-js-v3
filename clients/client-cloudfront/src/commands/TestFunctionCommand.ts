@@ -53,7 +53,7 @@ export interface TestFunctionCommandOutput extends TestFunctionResult, __Metadat
  *   Name: "STRING_VALUE", // required
  *   IfMatch: "STRING_VALUE", // required
  *   Stage: "DEVELOPMENT" || "LIVE",
- *   EventObject: "BLOB_VALUE", // required
+ *   EventObject: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new TestFunctionCommand(input);
  * const response = await client.send(command);

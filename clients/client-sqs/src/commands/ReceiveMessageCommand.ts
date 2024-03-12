@@ -113,12 +113,12 @@ export interface ReceiveMessageCommandOutput extends ReceiveMessageResult, __Met
  * //       MessageAttributes: { // MessageBodyAttributeMap
  * //         "<keys>": { // MessageAttributeValue
  * //           StringValue: "STRING_VALUE",
- * //           BinaryValue: "BLOB_VALUE",
+ * //           BinaryValue: new Uint8Array(),
  * //           StringListValues: [ // StringList
  * //             "STRING_VALUE",
  * //           ],
  * //           BinaryListValues: [ // BinaryList
- * //             "BLOB_VALUE",
+ * //             new Uint8Array(),
  * //           ],
  * //           DataType: "STRING_VALUE", // required
  * //         },

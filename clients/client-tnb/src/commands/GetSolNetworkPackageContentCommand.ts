@@ -57,7 +57,7 @@ export interface GetSolNetworkPackageContentCommandOutput
  * const response = await client.send(command);
  * // { // GetSolNetworkPackageContentOutput
  * //   contentType: "application/zip",
- * //   nsdContent: "BLOB_VALUE",
+ * //   nsdContent: new Uint8Array(),
  * // };
  *
  * ```

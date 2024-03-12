@@ -34,12 +34,12 @@ export interface XmlEmptyBlobsCommandOutput extends XmlEmptyBlobsResponse, __Met
  * // const { RestXmlProtocolClient, XmlEmptyBlobsCommand } = require("@aws-sdk/aws-protocoltests-restxml"); // CommonJS import
  * const client = new RestXmlProtocolClient(config);
  * const input = { // XmlEmptyBlobsRequest
- *   data: "BLOB_VALUE",
+ *   data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new XmlEmptyBlobsCommand(input);
  * const response = await client.send(command);
  * // { // XmlEmptyBlobsResponse
- * //   data: "BLOB_VALUE",
+ * //   data: new Uint8Array(),
  * // };
  *
  * ```

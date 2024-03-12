@@ -37,7 +37,7 @@ export interface XmlBlobsCommandOutput extends XmlBlobsOutput, __MetadataBearer 
  * const command = new XmlBlobsCommand(input);
  * const response = await client.send(command);
  * // { // XmlBlobsOutput
- * //   data: "BLOB_VALUE",
+ * //   data: new Uint8Array(),
  * // };
  *
  * ```

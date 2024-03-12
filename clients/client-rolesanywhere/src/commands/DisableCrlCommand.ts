@@ -50,7 +50,7 @@ export interface DisableCrlCommandOutput extends CrlDetailResponse, __MetadataBe
  * //     crlArn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     enabled: true || false,
- * //     crlData: "BLOB_VALUE",
+ * //     crlData: new Uint8Array(),
  * //     trustAnchorArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),

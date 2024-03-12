@@ -47,7 +47,7 @@ export interface UploadLayerPartCommandOutput extends UploadLayerPartResponse, _
  *   uploadId: "STRING_VALUE", // required
  *   partFirstByte: Number("long"), // required
  *   partLastByte: Number("long"), // required
- *   layerPartBlob: "BLOB_VALUE", // required
+ *   layerPartBlob: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  * };
  * const command = new UploadLayerPartCommand(input);
  * const response = await client.send(command);

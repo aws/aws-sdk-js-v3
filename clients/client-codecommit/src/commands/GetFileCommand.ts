@@ -48,7 +48,7 @@ export interface GetFileCommandOutput extends GetFileOutput, __MetadataBearer {}
  * //   filePath: "STRING_VALUE", // required
  * //   fileMode: "EXECUTABLE" || "NORMAL" || "SYMLINK", // required
  * //   fileSize: Number("long"), // required
- * //   fileContent: "BLOB_VALUE", // required
+ * //   fileContent: new Uint8Array(), // required
  * // };
  *
  * ```

@@ -44,7 +44,7 @@ export interface MalformedContentTypeWithPayloadCommandOutput extends __Metadata
  * // const { RestJsonProtocolClient, MalformedContentTypeWithPayloadCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedContentTypeWithPayloadInput
- *   payload: "BLOB_VALUE",
+ *   payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new MalformedContentTypeWithPayloadCommand(input);
  * const response = await client.send(command);

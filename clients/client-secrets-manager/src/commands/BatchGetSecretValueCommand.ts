@@ -71,7 +71,7 @@ export interface BatchGetSecretValueCommandOutput extends BatchGetSecretValueRes
  * //       ARN: "STRING_VALUE",
  * //       Name: "STRING_VALUE",
  * //       VersionId: "STRING_VALUE",
- * //       SecretBinary: "BLOB_VALUE",
+ * //       SecretBinary: new Uint8Array(),
  * //       SecretString: "STRING_VALUE",
  * //       VersionStages: [ // SecretVersionStagesType
  * //         "STRING_VALUE",

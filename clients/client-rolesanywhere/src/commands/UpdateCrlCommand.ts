@@ -44,7 +44,7 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * const input = { // UpdateCrlRequest
  *   crlId: "STRING_VALUE", // required
  *   name: "STRING_VALUE",
- *   crlData: "BLOB_VALUE",
+ *   crlData: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new UpdateCrlCommand(input);
  * const response = await client.send(command);
@@ -54,7 +54,7 @@ export interface UpdateCrlCommandOutput extends CrlDetailResponse, __MetadataBea
  * //     crlArn: "STRING_VALUE",
  * //     name: "STRING_VALUE",
  * //     enabled: true || false,
- * //     crlData: "BLOB_VALUE",
+ * //     crlData: new Uint8Array(),
  * //     trustAnchorArn: "STRING_VALUE",
  * //     createdAt: new Date("TIMESTAMP"),
  * //     updatedAt: new Date("TIMESTAMP"),

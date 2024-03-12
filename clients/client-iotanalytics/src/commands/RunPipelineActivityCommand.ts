@@ -100,14 +100,14 @@ export interface RunPipelineActivityCommandOutput extends RunPipelineActivityRes
  *     },
  *   },
  *   payloads: [ // MessagePayloads // required
- *     "BLOB_VALUE",
+ *     new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   ],
  * };
  * const command = new RunPipelineActivityCommand(input);
  * const response = await client.send(command);
  * // { // RunPipelineActivityResponse
  * //   payloads: [ // MessagePayloads
- * //     "BLOB_VALUE",
+ * //     new Uint8Array(),
  * //   ],
  * //   logResult: "STRING_VALUE",
  * // };

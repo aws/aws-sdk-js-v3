@@ -47,7 +47,7 @@ export interface UpdateResourcePositionCommandOutput extends UpdateResourcePosit
  * const input = { // UpdateResourcePositionRequest
  *   ResourceIdentifier: "STRING_VALUE", // required
  *   ResourceType: "WirelessDevice" || "WirelessGateway", // required
- *   GeoJsonPayload: "BLOB_VALUE",
+ *   GeoJsonPayload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new UpdateResourcePositionCommand(input);
  * const response = await client.send(command);

@@ -34,10 +34,10 @@ export interface MalformedByteCommandOutput extends __MetadataBearer {}
  * // const { RestJsonProtocolClient, MalformedByteCommand } = require("@aws-sdk/aws-protocoltests-restjson"); // CommonJS import
  * const client = new RestJsonProtocolClient(config);
  * const input = { // MalformedByteInput
- *   byteInBody: "BYTE_VALUE",
- *   byteInPath: "BYTE_VALUE", // required
- *   byteInQuery: "BYTE_VALUE",
- *   byteInHeader: "BYTE_VALUE",
+ *   byteInBody: 0, // BYTE_VALUE
+ *   byteInPath: 0, // BYTE_VALUE // required
+ *   byteInQuery: 0, // BYTE_VALUE
+ *   byteInHeader: 0, // BYTE_VALUE
  * };
  * const command = new MalformedByteCommand(input);
  * const response = await client.send(command);

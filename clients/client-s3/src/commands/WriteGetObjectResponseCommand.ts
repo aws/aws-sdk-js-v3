@@ -77,7 +77,7 @@ export interface WriteGetObjectResponseCommandOutput extends __MetadataBearer {}
  * const input = { // WriteGetObjectResponseRequest
  *   RequestRoute: "STRING_VALUE", // required
  *   RequestToken: "STRING_VALUE", // required
- *   Body: "STREAMING_BLOB_VALUE",
+ *   Body: "MULTIPLE_TYPES_ACCEPTED", // see \@smithy/types -> StreamingBlobPayloadInputTypes
  *   StatusCode: Number("int"),
  *   ErrorCode: "STRING_VALUE",
  *   ErrorMessage: "STRING_VALUE",

@@ -130,7 +130,7 @@ export interface GenerateDataKeyWithoutPlaintextCommandOutput
  * const command = new GenerateDataKeyWithoutPlaintextCommand(input);
  * const response = await client.send(command);
  * // { // GenerateDataKeyWithoutPlaintextResponse
- * //   CiphertextBlob: "BLOB_VALUE",
+ * //   CiphertextBlob: new Uint8Array(),
  * //   KeyId: "STRING_VALUE",
  * // };
  *

@@ -74,7 +74,7 @@ export interface ResolveComponentCandidatesCommandOutput extends ResolveComponen
  * //       arn: "STRING_VALUE",
  * //       componentName: "STRING_VALUE",
  * //       componentVersion: "STRING_VALUE",
- * //       recipe: "BLOB_VALUE",
+ * //       recipe: new Uint8Array(),
  * //       vendorGuidance: "ACTIVE" || "DISCONTINUED" || "DELETED",
  * //       message: "STRING_VALUE",
  * //     },

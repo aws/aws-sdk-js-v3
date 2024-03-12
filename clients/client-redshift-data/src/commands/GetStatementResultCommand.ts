@@ -54,7 +54,7 @@ export interface GetStatementResultCommandOutput extends GetStatementResultRespo
  * //         longValue: Number("long"),
  * //         doubleValue: Number("double"),
  * //         stringValue: "STRING_VALUE",
- * //         blobValue: "BLOB_VALUE",
+ * //         blobValue: new Uint8Array(),
  * //       },
  * //     ],
  * //   ],

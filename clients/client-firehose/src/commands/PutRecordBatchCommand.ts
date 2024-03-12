@@ -92,7 +92,7 @@ export interface PutRecordBatchCommandOutput extends PutRecordBatchOutput, __Met
  *   DeliveryStreamName: "STRING_VALUE", // required
  *   Records: [ // PutRecordBatchRequestEntryList // required
  *     { // Record
- *       Data: "BLOB_VALUE", // required
+ *       Data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *     },
  *   ],
  * };

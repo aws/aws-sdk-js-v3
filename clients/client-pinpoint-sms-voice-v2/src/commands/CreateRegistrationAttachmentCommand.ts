@@ -45,7 +45,7 @@ export interface CreateRegistrationAttachmentCommandOutput
  * // const { PinpointSMSVoiceV2Client, CreateRegistrationAttachmentCommand } = require("@aws-sdk/client-pinpoint-sms-voice-v2"); // CommonJS import
  * const client = new PinpointSMSVoiceV2Client(config);
  * const input = { // CreateRegistrationAttachmentRequest
- *   AttachmentBody: "BLOB_VALUE",
+ *   AttachmentBody: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   AttachmentUrl: "STRING_VALUE",
  *   Tags: [ // TagList
  *     { // Tag

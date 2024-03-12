@@ -66,7 +66,7 @@ export interface UpdateScriptCommandOutput extends UpdateScriptOutput, __Metadat
  *     RoleArn: "STRING_VALUE",
  *     ObjectVersion: "STRING_VALUE",
  *   },
- *   ZipFile: "BLOB_VALUE",
+ *   ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new UpdateScriptCommand(input);
  * const response = await client.send(command);

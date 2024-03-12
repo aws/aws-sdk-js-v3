@@ -43,7 +43,7 @@ export interface UpdatePortalCommandOutput extends UpdatePortalResponse, __Metad
  *   portalLogoImage: { // Image
  *     id: "STRING_VALUE",
  *     file: { // ImageFile
- *       data: "BLOB_VALUE", // required
+ *       data: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *       type: "PNG", // required
  *     },
  *   },

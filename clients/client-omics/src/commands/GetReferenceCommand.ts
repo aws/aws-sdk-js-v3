@@ -47,7 +47,7 @@ export interface GetReferenceCommandOutput extends Omit<GetReferenceResponse, "p
  * const command = new GetReferenceCommand(input);
  * const response = await client.send(command);
  * // { // GetReferenceResponse
- * //   payload: "STREAMING_BLOB_VALUE",
+ * //   payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

@@ -55,7 +55,7 @@ export interface DescribeRuleGroupsNamespaceCommandOutput
  * //       statusCode: "STRING_VALUE", // required
  * //       statusReason: "STRING_VALUE",
  * //     },
- * //     data: "BLOB_VALUE", // required
+ * //     data: new Uint8Array(), // required
  * //     createdAt: new Date("TIMESTAMP"), // required
  * //     modifiedAt: new Date("TIMESTAMP"), // required
  * //     tags: { // TagMap

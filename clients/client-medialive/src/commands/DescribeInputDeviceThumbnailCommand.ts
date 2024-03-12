@@ -53,7 +53,7 @@ export interface DescribeInputDeviceThumbnailCommandOutput
  * const command = new DescribeInputDeviceThumbnailCommand(input);
  * const response = await client.send(command);
  * // { // DescribeInputDeviceThumbnailResponse
- * //   Body: "STREAMING_BLOB_VALUE",
+ * //   Body: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * //   ContentType: "image/jpeg",
  * //   ContentLength: Number("long"),
  * //   ETag: "STRING_VALUE",

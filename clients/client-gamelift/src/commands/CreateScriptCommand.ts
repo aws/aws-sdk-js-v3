@@ -82,7 +82,7 @@ export interface CreateScriptCommandOutput extends CreateScriptOutput, __Metadat
  *     RoleArn: "STRING_VALUE",
  *     ObjectVersion: "STRING_VALUE",
  *   },
- *   ZipFile: "BLOB_VALUE",
+ *   ZipFile: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   Tags: [ // TagList
  *     { // Tag
  *       Key: "STRING_VALUE", // required

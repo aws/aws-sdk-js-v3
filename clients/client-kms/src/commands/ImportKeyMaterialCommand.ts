@@ -141,8 +141,8 @@ export interface ImportKeyMaterialCommandOutput extends ImportKeyMaterialRespons
  * const client = new KMSClient(config);
  * const input = { // ImportKeyMaterialRequest
  *   KeyId: "STRING_VALUE", // required
- *   ImportToken: "BLOB_VALUE", // required
- *   EncryptedKeyMaterial: "BLOB_VALUE", // required
+ *   ImportToken: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
+ *   EncryptedKeyMaterial: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")   // required
  *   ValidTo: new Date("TIMESTAMP"),
  *   ExpirationModel: "KEY_MATERIAL_EXPIRES" || "KEY_MATERIAL_DOES_NOT_EXPIRE",
  * };

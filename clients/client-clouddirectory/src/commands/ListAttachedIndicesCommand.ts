@@ -58,7 +58,7 @@ export interface ListAttachedIndicesCommandOutput extends ListAttachedIndicesRes
  * //           },
  * //           Value: { // TypedAttributeValue Union: only one key present
  * //             StringValue: "STRING_VALUE",
- * //             BinaryValue: "BLOB_VALUE",
+ * //             BinaryValue: new Uint8Array(),
  * //             BooleanValue: true || false,
  * //             NumberValue: "STRING_VALUE",
  * //             DatetimeValue: new Date("TIMESTAMP"),

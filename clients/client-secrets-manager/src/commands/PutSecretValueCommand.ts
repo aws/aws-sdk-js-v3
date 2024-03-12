@@ -69,7 +69,7 @@ export interface PutSecretValueCommandOutput extends PutSecretValueResponse, __M
  * const input = { // PutSecretValueRequest
  *   SecretId: "STRING_VALUE", // required
  *   ClientRequestToken: "STRING_VALUE",
- *   SecretBinary: "BLOB_VALUE",
+ *   SecretBinary: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   SecretString: "STRING_VALUE",
  *   VersionStages: [ // SecretVersionStagesType
  *     "STRING_VALUE",

@@ -94,7 +94,7 @@ export interface InvokeAgentCommandOutput extends InvokeAgentResponse, __Metadat
  * // { // InvokeAgentResponse
  * //   completion: { // ResponseStream Union: only one key present
  * //     chunk: { // PayloadPart
- * //       bytes: "BLOB_VALUE",
+ * //       bytes: new Uint8Array(),
  * //       attribution: { // Attribution
  * //         citations: [ // Citations
  * //           { // Citation

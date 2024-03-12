@@ -66,7 +66,7 @@ export interface ClassifyDocumentCommandOutput extends ClassifyDocumentResponse,
  * const input = { // ClassifyDocumentRequest
  *   Text: "STRING_VALUE",
  *   EndpointArn: "STRING_VALUE", // required
- *   Bytes: "BLOB_VALUE",
+ *   Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   DocumentReaderConfig: { // DocumentReaderConfig
  *     DocumentReadAction: "TEXTRACT_DETECT_DOCUMENT_TEXT" || "TEXTRACT_ANALYZE_DOCUMENT", // required
  *     DocumentReadMode: "SERVICE_DEFAULT" || "FORCE_DOCUMENT_READ_ACTION",

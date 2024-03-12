@@ -61,7 +61,7 @@ export interface CancelBundleTaskCommandOutput extends CancelBundleTaskResult, _
  * //         AWSAccessKeyId: "STRING_VALUE",
  * //         Bucket: "STRING_VALUE",
  * //         Prefix: "STRING_VALUE",
- * //         UploadPolicy: "BLOB_VALUE",
+ * //         UploadPolicy: new Uint8Array(),
  * //         UploadPolicySignature: "STRING_VALUE",
  * //       },
  * //     },

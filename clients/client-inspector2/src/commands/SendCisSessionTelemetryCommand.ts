@@ -46,7 +46,7 @@ export interface SendCisSessionTelemetryCommandOutput extends SendCisSessionTele
  *     { // CisSessionMessage
  *       ruleId: "STRING_VALUE", // required
  *       status: "FAILED" || "PASSED" || "NOT_EVALUATED" || "INFORMATIONAL" || "UNKNOWN" || "NOT_APPLICABLE" || "ERROR", // required
- *       cisRuleDetails: "BLOB_VALUE", // required
+ *       cisRuleDetails: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")       // required
  *     },
  *   ],
  * };

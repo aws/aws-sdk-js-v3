@@ -53,7 +53,7 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  *         AttributeName: "STRING_VALUE", // required
  *         Value: { // TypedAttributeValue Union: only one key present
  *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           BinaryValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *           BooleanValue: true || false,
  *           NumberValue: "STRING_VALUE",
  *           DatetimeValue: new Date("TIMESTAMP"),
@@ -72,7 +72,7 @@ export interface UpdateLinkAttributesCommandOutput extends UpdateLinkAttributesR
  *         AttributeActionType: "CREATE_OR_UPDATE" || "DELETE",
  *         AttributeUpdateValue: {//  Union: only one key present
  *           StringValue: "STRING_VALUE",
- *           BinaryValue: "BLOB_VALUE",
+ *           BinaryValue: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *           BooleanValue: true || false,
  *           NumberValue: "STRING_VALUE",
  *           DatetimeValue: new Date("TIMESTAMP"),

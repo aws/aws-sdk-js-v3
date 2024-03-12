@@ -56,7 +56,7 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  *   LogType: "None" || "Tail",
  *   ClientContext: "STRING_VALUE",
  *   Qualifier: "STRING_VALUE",
- *   Payload: "BLOB_VALUE",
+ *   Payload: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  * };
  * const command = new InvokeWithResponseStreamCommand(input);
  * const response = await client.send(command);
@@ -65,7 +65,7 @@ export interface InvokeWithResponseStreamCommandOutput extends InvokeWithRespons
  * //   ExecutedVersion: "STRING_VALUE",
  * //   EventStream: { // InvokeWithResponseStreamResponseEvent Union: only one key present
  * //     PayloadChunk: { // InvokeResponseStreamUpdate
- * //       Payload: "BLOB_VALUE",
+ * //       Payload: new Uint8Array(),
  * //     },
  * //     InvokeComplete: { // InvokeWithResponseStreamCompleteEvent
  * //       ErrorCode: "STRING_VALUE",

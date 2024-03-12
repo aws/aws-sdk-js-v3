@@ -80,7 +80,7 @@ export interface ProvisionDeviceCommandOutput extends ProvisionDeviceResponse, _
  * //   DeviceId: "STRING_VALUE",
  * //   Arn: "STRING_VALUE", // required
  * //   Status: "STRING_VALUE", // required
- * //   Certificates: "BLOB_VALUE",
+ * //   Certificates: new Uint8Array(),
  * //   IotThingName: "STRING_VALUE",
  * // };
  *

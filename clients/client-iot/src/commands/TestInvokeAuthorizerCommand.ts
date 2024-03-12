@@ -50,7 +50,7 @@ export interface TestInvokeAuthorizerCommandOutput extends TestInvokeAuthorizerR
  *   },
  *   mqttContext: { // MqttContext
  *     username: "STRING_VALUE",
- *     password: "BLOB_VALUE",
+ *     password: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     clientId: "STRING_VALUE",
  *   },
  *   tlsContext: { // TlsContext

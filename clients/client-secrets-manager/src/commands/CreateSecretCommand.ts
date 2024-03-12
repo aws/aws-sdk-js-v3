@@ -75,7 +75,7 @@ export interface CreateSecretCommandOutput extends CreateSecretResponse, __Metad
  *   ClientRequestToken: "STRING_VALUE",
  *   Description: "STRING_VALUE",
  *   KmsKeyId: "STRING_VALUE",
- *   SecretBinary: "BLOB_VALUE",
+ *   SecretBinary: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *   SecretString: "STRING_VALUE",
  *   Tags: [ // TagListType
  *     { // Tag

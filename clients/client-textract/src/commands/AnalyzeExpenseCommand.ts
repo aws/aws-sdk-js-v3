@@ -54,7 +54,7 @@ export interface AnalyzeExpenseCommandOutput extends AnalyzeExpenseResponse, __M
  * const client = new TextractClient(config);
  * const input = { // AnalyzeExpenseRequest
  *   Document: { // Document
- *     Bytes: "BLOB_VALUE",
+ *     Bytes: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *     S3Object: { // S3Object
  *       Bucket: "STRING_VALUE",
  *       Name: "STRING_VALUE",

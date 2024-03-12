@@ -107,7 +107,7 @@ export interface CreateOTAUpdateCommandOutput extends CreateOTAUpdateResponse, _
  *         },
  *         customCodeSigning: { // CustomCodeSigning
  *           signature: { // CodeSigningSignature
- *             inlineDocument: "BLOB_VALUE",
+ *             inlineDocument: new Uint8Array(), // e.g. Buffer.from("") or new TextEncoder().encode("")
  *           },
  *           certificateChain: { // CodeSigningCertificateChain
  *             certificateName: "STRING_VALUE",

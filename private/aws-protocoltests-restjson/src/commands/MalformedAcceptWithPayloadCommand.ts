@@ -47,7 +47,7 @@ export interface MalformedAcceptWithPayloadCommandOutput
  * const command = new MalformedAcceptWithPayloadCommand(input);
  * const response = await client.send(command);
  * // { // MalformedAcceptWithPayloadOutput
- * //   payload: "BLOB_VALUE",
+ * //   payload: new Uint8Array(),
  * // };
  *
  * ```

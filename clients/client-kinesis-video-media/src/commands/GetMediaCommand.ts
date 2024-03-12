@@ -100,7 +100,7 @@ export interface GetMediaCommandOutput extends Omit<GetMediaOutput, "Payload">, 
  * const response = await client.send(command);
  * // { // GetMediaOutput
  * //   ContentType: "STRING_VALUE",
- * //   Payload: "STREAMING_BLOB_VALUE",
+ * //   Payload: "<SdkStream>", // see \@smithy/types -> StreamingBlobPayloadOutputTypes
  * // };
  *
  * ```

@@ -37,7 +37,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  *   unionValue: { // XmlUnionShape Union: only one key present
  *     stringValue: "STRING_VALUE",
  *     booleanValue: true || false,
- *     byteValue: "BYTE_VALUE",
+ *     byteValue: 0, // BYTE_VALUE
  *     shortValue: Number("short"),
  *     integerValue: Number("int"),
  *     longValue: Number("long"),
@@ -46,7 +46,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  *     unionValue: {//  Union: only one key present
  *       stringValue: "STRING_VALUE",
  *       booleanValue: true || false,
- *       byteValue: "BYTE_VALUE",
+ *       byteValue: 0, // BYTE_VALUE
  *       shortValue: Number("short"),
  *       integerValue: Number("int"),
  *       longValue: Number("long"),
@@ -56,7 +56,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  *       structValue: { // XmlNestedUnionStruct
  *         stringValue: "STRING_VALUE",
  *         booleanValue: true || false,
- *         byteValue: "BYTE_VALUE",
+ *         byteValue: 0, // BYTE_VALUE
  *         shortValue: Number("short"),
  *         integerValue: Number("int"),
  *         longValue: Number("long"),
@@ -67,7 +67,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  *     structValue: {
  *       stringValue: "STRING_VALUE",
  *       booleanValue: true || false,
- *       byteValue: "BYTE_VALUE",
+ *       byteValue: 0, // BYTE_VALUE
  *       shortValue: Number("short"),
  *       integerValue: Number("int"),
  *       longValue: Number("long"),
@@ -82,7 +82,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  * //   unionValue: { // XmlUnionShape Union: only one key present
  * //     stringValue: "STRING_VALUE",
  * //     booleanValue: true || false,
- * //     byteValue: "BYTE_VALUE",
+ * //     byteValue: 0, // BYTE_VALUE
  * //     shortValue: Number("short"),
  * //     integerValue: Number("int"),
  * //     longValue: Number("long"),
@@ -91,7 +91,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  * //     unionValue: {//  Union: only one key present
  * //       stringValue: "STRING_VALUE",
  * //       booleanValue: true || false,
- * //       byteValue: "BYTE_VALUE",
+ * //       byteValue: 0, // BYTE_VALUE
  * //       shortValue: Number("short"),
  * //       integerValue: Number("int"),
  * //       longValue: Number("long"),
@@ -101,7 +101,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  * //       structValue: { // XmlNestedUnionStruct
  * //         stringValue: "STRING_VALUE",
  * //         booleanValue: true || false,
- * //         byteValue: "BYTE_VALUE",
+ * //         byteValue: 0, // BYTE_VALUE
  * //         shortValue: Number("short"),
  * //         integerValue: Number("int"),
  * //         longValue: Number("long"),
@@ -112,7 +112,7 @@ export interface XmlUnionsCommandOutput extends XmlUnionsResponse, __MetadataBea
  * //     structValue: {
  * //       stringValue: "STRING_VALUE",
  * //       booleanValue: true || false,
- * //       byteValue: "BYTE_VALUE",
+ * //       byteValue: 0, // BYTE_VALUE
  * //       shortValue: Number("short"),
  * //       integerValue: Number("int"),
  * //       longValue: Number("long"),

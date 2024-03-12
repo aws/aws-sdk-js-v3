@@ -41,7 +41,7 @@ export interface SimpleScalarXmlPropertiesCommandOutput extends SimpleScalarXmlP
  * //   emptyStringValue: "STRING_VALUE",
  * //   trueBooleanValue: true || false,
  * //   falseBooleanValue: true || false,
- * //   byteValue: "BYTE_VALUE",
+ * //   byteValue: 0, // BYTE_VALUE
  * //   shortValue: Number("short"),
  * //   integerValue: Number("int"),
  * //   longValue: Number("long"),
