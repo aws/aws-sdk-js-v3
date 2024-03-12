@@ -33,7 +33,7 @@ export interface GetOpsItemCommandOutput extends GetOpsItemResponse, __MetadataB
  *     up OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  *          <p>Operations engineers and IT professionals use Amazon Web Services Systems Manager OpsCenter to view, investigate, and
  *    remediate operational issues impacting the performance and health of their Amazon Web Services resources. For
- *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the
+ *    more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">Amazon Web Services Systems Manager OpsCenter</a> in the
  *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -263,14 +263,14 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *                <p>You don't have permission to access the managed node.</p>
  *             </li>
  *             <li>
- *                <p>Amazon Web Services Systems Manager Agent(SSM Agent) isn't running. Verify that SSM Agent is
+ *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
  *      running.</p>
  *             </li>
  *             <li>
  *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
  *             </li>
  *             <li>
- *                <p>The managed node isn't in valid state. Valid states are: <code>Running</code>,
+ *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
  *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
  *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
  *             </li>
@@ -297,7 +297,7 @@ export interface CreateAssociationCommandOutput extends CreateAssociationResult,
  *  <p>TargetMap parameter isn't valid.</p>
  *
  * @throws {@link UnsupportedPlatformType} (client fault)
- *  <p>The document doesn't support the platform type of the given managed node ID(s). For example,
+ *  <p>The document doesn't support the platform type of the given managed node IDs. For example,
  *    you sent an document for a Windows managed node to a Linux node.</p>
  *
  * @throws {@link SSMServiceException}

@@ -639,14 +639,14 @@ export class InvalidCommandId extends __BaseException {
  *                <p>You don't have permission to access the managed node.</p>
  *             </li>
  *             <li>
- *                <p>Amazon Web Services Systems Manager Agent(SSM Agent) isn't running. Verify that SSM Agent is
+ *                <p>Amazon Web Services Systems Manager Agent (SSM Agent) isn't running. Verify that SSM Agent is
  *      running.</p>
  *             </li>
  *             <li>
  *                <p>SSM Agent isn't registered with the SSM endpoint. Try reinstalling SSM Agent.</p>
  *             </li>
  *             <li>
- *                <p>The managed node isn't in valid state. Valid states are: <code>Running</code>,
+ *                <p>The managed node isn't in a valid state. Valid states are: <code>Running</code>,
  *       <code>Pending</code>, <code>Stopped</code>, and <code>Stopping</code>. Invalid states are:
  *       <code>Shutting-down</code> and <code>Terminated</code>.</p>
  *             </li>
@@ -763,7 +763,7 @@ export interface CreateActivationRequest {
    * <p>The name of the Identity and Access Management (IAM) role that you want to assign to
    *    the managed node. This IAM role must provide AssumeRole permissions for the
    *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
-   *      IAM service role for a hybrid environment</a> in the
+   *      IAM service role for a hybrid and multicloud environment</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <note>
    *             <p>You can't specify an IAM service-linked role for this parameter. You must
@@ -953,7 +953,7 @@ export interface S3OutputLocation {
  * @public
  * <p>An S3 bucket where you want to store the results of this request.</p>
  *          <p>For the minimal permissions required to enable Amazon S3 output for an association,
- *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-state-assoc.html">Creating associations</a> in the <i>Systems Manager User Guide</i>. </p>
+ *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/state-manager-associations-creating.html#state-manager-associations-console">Create an association (console)</a> in the <i>Systems Manager User Guide</i>. </p>
  */
 export interface InstanceAssociationOutputLocation {
   /**
@@ -1120,7 +1120,7 @@ export interface TargetLocation {
  *             </li>
  *          </ul>
  *          <p>For more information about how to send commands that target managed nodes using
- *     <code>Key,Value</code> parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting">Targeting multiple instances</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *     <code>Key,Value</code> parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html#send-commands-targeting">Targeting multiple managed nodes</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  */
 export interface Target {
   /**
@@ -1169,7 +1169,7 @@ export interface CreateAssociationRequest {
 
   /**
    * @public
-   * <p>The document version you want to associate with the target(s). Can be a specific version or
+   * <p>The document version you want to associate with the targets. Can be a specific version or
    *    the default version.</p>
    *          <important>
    *             <p>State Manager doesn't support running associations that use a new version of a document if
@@ -1209,14 +1209,14 @@ export interface CreateAssociationRequest {
    * <p>The targets for the association. You can target managed nodes by using tags, Amazon Web Services resource
    *    groups, all managed nodes in an Amazon Web Services account, or individual managed node IDs. You can target all
    *    managed nodes in an Amazon Web Services account by specifying the <code>InstanceIds</code> key with a value of
-   *     <code>*</code>. For more information about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">Using targets and rate controls with State Manager associations</a> in the
+   *     <code>*</code>. For more information about choosing targets for an association, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-state-manager-targets-and-rate-controls.html">About targets and rate controls in State Manager associations</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Targets?: Target[];
 
   /**
    * @public
-   * <p>A cron expression when the association will be applied to the target(s).</p>
+   * <p>A cron expression when the association will be applied to the targets.</p>
    */
   ScheduleExpression?: string;
 
@@ -1835,7 +1835,7 @@ export class InvalidTargetMaps extends __BaseException {
 
 /**
  * @public
- * <p>The document doesn't support the platform type of the given managed node ID(s). For example,
+ * <p>The document doesn't support the platform type of the given managed node IDs. For example,
  *    you sent an document for a Windows managed node to a Linux node.</p>
  */
 export class UnsupportedPlatformType extends __BaseException {
@@ -2289,17 +2289,20 @@ export interface CreateDocumentRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (Amazon Web Services API)</a>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-console">Create an SSM
+   *       document (console)</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-cli.html">Create an SSM document (Amazon Web Services CLI)</a>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-document-cli">Create an
+   *       SSM document (command line)</a>
    *                </p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/create-ssm-document-api.html">Create an SSM document (API)</a>
+   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-using.html#create-ssm-document-api">Create an
+   *       SSM document (API)</a>
    *                </p>
    *             </li>
    *          </ul>
@@ -3193,7 +3196,7 @@ export interface CreateOpsItemRequest {
    *          <p>Use the <code>/aws/resources</code> key in OperationalData to specify a related resource in
    *    the request. Use the <code>/aws/automations</code> key in OperationalData to associate an
    *    Automation runbook with the OpsItem. To view Amazon Web Services CLI example commands that use these keys, see
-   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-manually-create-OpsItems.html">Creating OpsItems
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter-manually-create-OpsItems.html">Create OpsItems
    *     manually</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   OperationalData?: Record<string, OpsItemDataValue>;
@@ -3823,13 +3826,12 @@ export interface CreatePatchBaselineRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>BLOCK</code>
-   *                   </b>: Packages in the
-   *       <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't
-   *      installed under any circumstances. If a package was installed before it was added to the
-   *      Rejected patches list, it is considered non-compliant with the patch baseline, and its status
-   *      is reported as <code>InstalledRejected</code>.</p>
+   *                   <b>BLOCK</b>: Packages in the <b>Rejected
+   *       patches</b> list, and packages that include them as dependencies, aren't installed by
+   *      Patch Manager under any circumstances. If a package was installed before it was added to the
+   *       <b>Rejected patches</b> list, or is installed outside of Patch
+   *      Manager afterward, it's considered noncompliant with the patch baseline and its status is
+   *      reported as <i>InstalledRejected</i>.</p>
    *             </li>
    *          </ul>
    */
@@ -4033,8 +4035,8 @@ export interface ResourceDataSyncSource {
    * @public
    * <p>When you create a resource data sync, if you choose one of the Organizations options, then Systems Manager
    *    automatically enables all OpsData sources in the selected Amazon Web Services Regions for all Amazon Web Services accounts in
-   *    your organization (or in the selected organization units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html">About multiple account and Region resource data syncs</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    your organization (or in the selected organization units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager Explorer to display data from multiple accounts and Regions</a> in
+   *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   EnableAllOpsDataSources?: boolean;
 }
@@ -4475,7 +4477,8 @@ export interface DeleteInventoryResult {
 
   /**
    * @public
-   * <p>A summary of the delete operation. For more information about this summary, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary">Deleting custom inventory</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   * <p>A summary of the delete operation. For more information about this summary, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-inventory-custom.html#sysman-inventory-delete-summary">Understanding the delete inventory summary</a> in the
+   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   DeletionSummary?: InventoryDeletionSummary;
 }
@@ -7092,7 +7095,7 @@ export interface InstanceAssociation {
 
   /**
    * @public
-   * <p>The content of the association document for the managed node(s).</p>
+   * <p>The content of the association document for the managed nodes.</p>
    */
   Content?: string;
 
@@ -7542,7 +7545,7 @@ export interface InstanceAggregatedAssociationOverview {
 
   /**
    * @public
-   * <p>The number of associations for the managed node(s).</p>
+   * <p>The number of associations for the managed nodes.</p>
    */
   InstanceAssociationStatusAggregatedCount?: Record<string, number>;
 }
@@ -7685,9 +7688,9 @@ export interface InstanceInformation {
    *    property using the <a>CreateActivation</a> command. It is applied to the managed node
    *    by specifying the Activation Code and Activation ID when you install SSM Agent on the node, as
    *    explained in <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html">Install SSM Agent for a
-   *     hybrid environment (Linux)</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html">Install SSM Agent for a
-   *     hybrid environment (Windows)</a>. To retrieve the <code>Name</code> tag of an EC2 instance,
-   *    use the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>Amazon Web Services CLI Command Reference</i>.</p>
+   *     hybrid and multicloud environment (Linux)</a> and <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html">Install SSM Agent for a
+   *     hybrid and multicloud environment (Windows)</a>. To retrieve the <code>Name</code> tag of an
+   *    EC2 instance, use the Amazon EC2 <code>DescribeInstances</code> operation. For information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances.html">DescribeInstances</a> in the <i>Amazon EC2 API Reference</i> or <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-instances.html">describe-instances</a> in the <i>Amazon Web Services CLI Command Reference</i>.</p>
    */
   Name?: string;
 
@@ -8062,8 +8065,8 @@ export interface InstancePatchState {
    *    format and specify in the SSM document <code>AWS-RunPatchBaseline</code>, overrides the patches
    *    specified by the default patch baseline.</p>
    *          <p>For more information about the <code>InstallOverrideList</code> parameter, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-about-aws-runpatchbaseline.html">About the
-   *      <code>AWS-RunPatchBaseline</code>
-   *             </a> SSM document in the
+   *      <code>AWS-RunPatchBaseline SSM document</code>
+   *             </a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   InstallOverrideList?: string;

@@ -81,7 +81,9 @@ export interface PutComplianceItemsCommandOutput extends PutComplianceItemsResul
  *             </li>
  *             <li>
  *                <p>InstalledTime: The time the association, patch, or custom compliance item was applied to
- *      the resource. Specify the time by using the following format: yyyy-MM-dd'T'HH:mm:ss'Z'</p>
+ *      the resource. Specify the time by using the following format:
+ *       <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>
+ *                </p>
  *             </li>
  *          </ul>
  * @example

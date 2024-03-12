@@ -1055,21 +1055,8 @@ export interface UpdateMaintenanceWindowTaskRequest {
    *   maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's
    *   service-linked role.  If no service-linked role for Systems Manager exists in your account, it is created when you run
    *   <code>RegisterTaskWithMaintenanceWindow</code>.</p>
-   *          <p>For more information, see the following topics in the in the <i>Amazon Web Services Systems Manager User Guide</i>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
-   *     service-linked roles for Systems Manager</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should I use a service-linked role or a custom service role to run maintenance window tasks?
-   *    </a>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
+   *     service-linked roles for Systems Manager</a> in the in the <i>Amazon Web Services Systems Manager User Guide</i>:</p>
    */
   ServiceRoleArn?: string;
 
@@ -1340,7 +1327,7 @@ export interface UpdateManagedInstanceRoleRequest {
    * <p>The name of the Identity and Access Management (IAM) role that you want to assign to
    *    the managed node. This IAM role must provide AssumeRole permissions for the
    *    Amazon Web Services Systems Manager service principal <code>ssm.amazonaws.com</code>. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-service-role.html">Create an
-   *      IAM service role for a hybrid environment</a> in the
+   *      IAM service role for a hybrid and multicloud environment</a> in the
    *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <note>
    *             <p>You can't specify an IAM service-linked role for this parameter. You must
@@ -1620,13 +1607,12 @@ export interface UpdatePatchBaselineRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <b>
-   *                      <code>BLOCK</code>
-   *                   </b>: Packages in the
-   *       <code>RejectedPatches</code> list, and packages that include them as dependencies, aren't
-   *      installed under any circumstances. If a package was installed before it was added to the
-   *       <code>Rejected</code> patches list, it is considered non-compliant with the patch baseline,
-   *      and its status is reported as <code>InstalledRejected</code>.</p>
+   *                   <b>BLOCK</b>: Packages in the <b>Rejected
+   *       patches</b> list, and packages that include them as dependencies, aren't installed by
+   *      Patch Manager under any circumstances. If a package was installed before it was added to the
+   *       <b>Rejected patches</b> list, or is installed outside of Patch
+   *      Manager afterward, it's considered noncompliant with the patch baseline and its status is
+   *      reported as <i>InstalledRejected</i>.</p>
    *             </li>
    *          </ul>
    */

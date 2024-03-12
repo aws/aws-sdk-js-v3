@@ -33,7 +33,8 @@ export interface CreateActivationCommandOutput extends CreateActivationResult, _
  *    Systems Manager makes it possible to manage them using Systems Manager capabilities. You use the activation code and
  *    ID when installing SSM Agent on machines in your hybrid environment. For more information about
  *    requirements for managing on-premises machines using Systems Manager, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances.html">Setting up
- *     Amazon Web Services Systems Manager for hybrid environments</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+ *     Amazon Web Services Systems Manager for hybrid and multicloud environments</a> in the
+ *     <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  *          <note>
  *             <p>Amazon Elastic Compute Cloud (Amazon EC2) instances, edge devices, and on-premises servers and VMs that are
  *     configured for Systems Manager are all called <i>managed nodes</i>.</p>

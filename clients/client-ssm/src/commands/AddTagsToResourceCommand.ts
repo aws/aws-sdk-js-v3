@@ -73,7 +73,7 @@ export interface AddTagsToResourceCommandOutput extends AddTagsToResourceResult,
  *    Using a consistent set of tag keys makes it easier for you to manage your resources. You can
  *    search and filter the resources based on the tags you add. Tags don't have any semantic meaning
  *    to and are interpreted strictly as a string of characters.</p>
- *          <p>For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2) instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging your Amazon EC2
+ *          <p>For more information about using tags with Amazon Elastic Compute Cloud (Amazon EC2) instances, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2
  *     resources</a> in the <i>Amazon EC2 User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

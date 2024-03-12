@@ -727,7 +727,7 @@ export interface DescribeParametersRequest {
    *       <code>RAM Resource Share Created From Policy</code> must have been promoted to
    *     a standard Resource Share using the RAM
    *     <a href="https://docs.aws.amazon.com/ram/latest/APIReference/API_PromoteResourceShareCreatedFromPolicy.html">PromoteResourceShareCreatedFromPolicy</a> API operation.</p>
-   *             <p>For more information about sharing parameters, see <a href="systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working with
+   *             <p>For more information about sharing parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working with
    *      shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          </note>
    */
@@ -2506,7 +2506,7 @@ export interface GetDeployablePatchSnapshotForInstanceResult {
  * @public
  * <p>Patching for applications released by Microsoft is only available on EC2 instances and
  *    advanced instances. To patch applications released by Microsoft on on-premises servers and VMs,
- *    you must enable advanced instances. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Enabling
+ *    you must enable advanced instances. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-managedinstances-advanced.html">Turning on
  *     the advanced-instances tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  */
 export class UnsupportedFeatureRequiredException extends __BaseException {
@@ -3960,7 +3960,8 @@ export interface GetOpsItemRequest {
  *    history, and an alarm timeline graph. For the Amazon Web Services resource, OpsCenter aggregates information
  *    from Config, CloudTrail logs, and EventBridge, so you don't have
  *    to navigate across multiple console pages during your investigation. For more information, see
- *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
+ *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/OpsCenter.html">Amazon Web Services Systems Manager
+ *     OpsCenter</a> in the <i>Amazon Web Services Systems Manager User Guide</i>. </p>
  */
 export interface OpsItem {
   /**
@@ -4616,8 +4617,8 @@ export interface GetParametersRequest {
    *    parameters shared with you from another account, you must use the full ARNs.</p>
    *          <p>To query by parameter label, use <code>"Name": "name:label"</code>. To query by parameter
    *    version, use <code>"Name": "name:version"</code>.</p>
-   *          <p>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sharing.html">Working with shared parameters</a> in
-   *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>For more information about shared parameters, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-shared-parameters.html">Working with
+   *     shared parameters</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Names: string[] | undefined;
 
@@ -5156,8 +5157,8 @@ export interface LabelParameterVersionResult {
   /**
    * @public
    * <p>The label doesn't meet the requirements. For information about parameter label requirements,
-   *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html">Labeling parameters</a>
-   *    in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-labels.html">Working with parameter
+   *     labels</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   InvalidLabels?: string[];
 
@@ -6424,8 +6425,8 @@ export interface Command {
    * <p>The maximum number of managed nodes that are allowed to run the command at the same time.
    *    You can specify a number of managed nodes, such as 10, or a percentage of nodes, such as 10%. The
    *    default value is 50. For more information about how to use <code>MaxConcurrency</code>, see
-   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running
-   *     commands using Systems Manager Run Command</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *     <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Amazon Web Services Systems Manager
+   *     Run Command</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   MaxConcurrency?: string;
 
@@ -6434,8 +6435,8 @@ export interface Command {
    * <p>The maximum number of errors allowed before the system stops sending the command to
    *    additional targets. You can specify a number of errors, such as 10, or a percentage or errors,
    *    such as 10%. The default value is <code>0</code>. For more information about how to use
-   *     <code>MaxErrors</code>, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Running commands using Systems Manager Run
-   *     Command</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *     <code>MaxErrors</code>, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/run-command.html">Amazon Web Services Systems Manager Run Command</a> in the
+   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   MaxErrors?: string;
 
@@ -6609,13 +6610,15 @@ export interface ListComplianceItemsRequest {
  * @public
  * <p>A summary of the call execution that includes an execution ID, the type of execution (for
  *    example, <code>Command</code>), and the date/time of the execution using a datetime object that
- *    is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.</p>
+ *    is saved in the following format: <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>
+ *          </p>
  */
 export interface ComplianceExecutionSummary {
   /**
    * @public
    * <p>The time the execution ran as a datetime object that is saved in the following format:
-   *    yyyy-MM-dd'T'HH:mm:ss'Z'.</p>
+   *     <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>
+   *          </p>
    */
   ExecutionTime: Date | undefined;
 
@@ -7589,19 +7592,19 @@ export interface ListInventoryEntriesResult {
 
   /**
    * @public
-   * <p>The inventory schema version used by the managed node(s).</p>
+   * <p>The inventory schema version used by the managed nodes.</p>
    */
   SchemaVersion?: string;
 
   /**
    * @public
-   * <p>The time that inventory information was collected for the managed node(s).</p>
+   * <p>The time that inventory information was collected for the managed nodes.</p>
    */
   CaptureTime?: string;
 
   /**
    * @public
-   * <p>A list of inventory items on the managed node(s).</p>
+   * <p>A list of inventory items on the managed nodes.</p>
    */
   Entries?: Record<string, string>[];
 
@@ -8238,8 +8241,8 @@ export interface ResourceDataSyncSourceWithState {
    * @public
    * <p>When you create a resource data sync, if you choose one of the Organizations options, then Systems Manager
    *    automatically enables all OpsData sources in the selected Amazon Web Services Regions for all Amazon Web Services accounts in
-   *    your organization (or in the selected organization units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resouce-data-sync-multiple-accounts-and-regions.html">About multiple account and Region resource data syncs</a> in the
-   *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    your organization (or in the selected organization units). For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/Explorer-resource-data-sync.html">Setting up Systems Manager Explorer to display data from multiple accounts and Regions</a> in
+   *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   EnableAllOpsDataSources?: boolean;
 }
@@ -8415,8 +8418,8 @@ export interface ModifyDocumentPermissionRequest {
    * @public
    * <p>The Amazon Web Services users that should no longer have access to the document. The Amazon Web Services user
    *    can either be a group of account IDs or <i>All</i>. This action has a higher
-   *    priority than <i>AccountIdsToAdd</i>. If you specify an ID to add and the same ID
-   *    to remove, the system removes access to the document.</p>
+   *    priority than <code>AccountIdsToAdd</code>. If you specify an ID to add and the same ID to
+   *    remove, the system removes access to the document.</p>
    */
   AccountIdsToRemove?: string[];
 
@@ -8586,7 +8589,8 @@ export interface PutComplianceItemsRequest {
    * @public
    * <p>A summary of the call execution that includes an execution ID, the type of execution (for
    *    example, <code>Command</code>), and the date/time of the execution using a datetime object that
-   *    is saved in the following format: yyyy-MM-dd'T'HH:mm:ss'Z'.</p>
+   *    is saved in the following format: <code>yyyy-MM-dd'T'HH:mm:ss'Z'</code>
+   *          </p>
    */
   ExecutionSummary: ComplianceExecutionSummary | undefined;
 
@@ -9269,8 +9273,8 @@ export interface PutParameterRequest {
    *    Standard parameters are offered at no additional cost. </p>
    *          <p>Advanced parameters have a content size limit of 8 KB and can be configured to use parameter
    *    policies. You can create a maximum of 100,000 advanced parameters for each Region in an
-   *    Amazon Web Services account. Advanced parameters incur a charge. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Standard and
-   *     advanced parameter tiers</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    Amazon Web Services account. Advanced parameters incur a charge. For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Managing
+   *     parameter tiers</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <p>You can change a standard parameter to an advanced parameter any time. But you can't revert
    *    an advanced parameter to a standard parameter. Reverting an advanced parameter to a standard
    *    parameter would result in data loss because the system would truncate the size of the parameter
@@ -9318,8 +9322,8 @@ export interface PutParameterRequest {
    *      Amazon Web Services Region.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ps-default-tier.html">Specifying a
-   *     default parameter tier</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>For more information about configuring the default tier option, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html#ps-default-tier">Specifying a default parameter tier</a> in the
+   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Tier?: ParameterTier;
 
@@ -9383,7 +9387,7 @@ export interface PutParameterRequest {
    *     monitor whether your <code>aws:ec2:image</code> parameters are created successfully, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-paramstore-cwe.html">Setting
    *      up notifications or trigger actions based on Parameter Store events</a>. For more
    *     information about AMI format validation , see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html">Native parameter
-   *      support for Amazon Machine Image (AMI) IDs</a>. </p>
+   *      support for Amazon Machine Image IDs</a>. </p>
    *          </note>
    */
   DataType?: string;
@@ -9734,21 +9738,8 @@ export interface RegisterTaskWithMaintenanceWindowRequest {
    *   maintenance window task. If you do not specify a service role ARN, Systems Manager uses your account's
    *   service-linked role.  If no service-linked role for Systems Manager exists in your account, it is created when you run
    *   <code>RegisterTaskWithMaintenanceWindow</code>.</p>
-   *          <p>For more information, see the following topics in the in the <i>Amazon Web Services Systems Manager User Guide</i>:</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
-   *     service-linked roles for Systems Manager</a>
-   *                </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-maintenance-permissions.html#maintenance-window-tasks-service-role">Should I use a service-linked role or a custom service role to run maintenance window tasks?
-   *    </a>
-   *                </p>
-   *             </li>
-   *          </ul>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/using-service-linked-roles.html#slr-permissions">Using
+   *     service-linked roles for Systems Manager</a> in the in the <i>Amazon Web Services Systems Manager User Guide</i>:</p>
    */
   ServiceRoleArn?: string;
 
@@ -10213,8 +10204,8 @@ export class InvalidOutputFolder extends __BaseException {
 /**
  * @public
  * <p>The role name can't contain invalid characters. Also verify that you specified an IAM role for notifications that includes the required trust policy. For information about
- *    configuring the IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/rc-sns-notifications.html">Configuring Amazon SNS Notifications for Run Command</a> in the
- *     <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+ *    configuring the IAM role for Run Command notifications, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/monitoring-sns-notifications.html">Monitoring Systems Manager status changes using Amazon SNS notifications</a> in
+ *    the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
  */
 export class InvalidRole extends __BaseException {
   readonly name: "InvalidRole" = "InvalidRole";
@@ -10247,9 +10238,8 @@ export interface SendCommandRequest {
    *    IDs, we recommend using the <code>Targets</code> option instead. Using <code>Targets</code>,
    *    which accepts tag key-value pairs to identify the managed nodes to send commands to, you can a
    *    send command to tens, hundreds, or thousands of nodes at once.</p>
-   *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Using targets and rate
-   *     controls to send commands to a fleet</a> in the
-   *    <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run commands at scale</a>
+   *    in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   InstanceIds?: string[];
 
@@ -10262,8 +10252,8 @@ export interface SendCommandRequest {
    *    of nodes at once.</p>
    *          <p>To send a command to a smaller number of managed nodes, you can use the
    *     <code>InstanceIds</code> option instead.</p>
-   *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Sending commands to a
-   *     fleet</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *          <p>For more information about how to use targets, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/send-commands-multiple.html">Run commands at scale</a>
+   *    in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   Targets?: Target[];
 
@@ -10271,8 +10261,8 @@ export interface SendCommandRequest {
    * @public
    * <p>The name of the Amazon Web Services Systems Manager document (SSM document) to run. This can be a public document or a
    *    custom document. To run a shared document belonging to another account, specify the document
-   *    Amazon Resource Name (ARN). For more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using shared
-   *     SSM documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
+   *    Amazon Resource Name (ARN). For more information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Sharing SSM
+   *     documents</a> in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    *          <note>
    *             <p>If you specify a document name or ARN that hasn't been shared with your account, you
    *     receive an <code>InvalidDocument</code> error. </p>
@@ -10546,7 +10536,7 @@ export interface StartAutomationExecutionRequest {
    * @public
    * <p>The name of the SSM document to run. This can be a public document or a custom document. To
    *    run a shared document belonging to another account, specify the document ARN. For more
-   *    information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-using-shared.html">Using shared SSM documents</a>
+   *    information about how to use shared documents, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/documents-ssm-sharing.html">Sharing SSM documents</a>
    *    in the <i>Amazon Web Services Systems Manager User Guide</i>.</p>
    */
   DocumentName: string | undefined;

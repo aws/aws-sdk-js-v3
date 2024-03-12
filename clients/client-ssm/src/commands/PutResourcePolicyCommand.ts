@@ -42,11 +42,11 @@ export interface PutResourcePolicyCommandOutput extends PutResourcePolicyRespons
  *                   <code>Parameter</code> - The resource policy is used to share a parameter with other
  *      accounts using Resource Access Manager (RAM). </p>
  *                <p>To share a parameter, it must be in the advanced parameter tier. For information about
- *      parameter tiers, see <a href="https://docs.aws.amazon.com/parameter-store-       advanced-parameters.html">Managing parameter tiers</a>. For information about
- *      changing an existing standard parameter to an advanced parameter, see <a href="https://docs.aws.amazon.com/parameter-store-advanced-parameters.html#parameter-       store-advanced-parameters-enabling">Changing a standard parameter to an advanced
- *       parameter</a>.</p>
- *                <p>To share a <code>SecureString</code> parameter, it must be encrypted with a customer managed key, and you must share the key separately through Key Management Service. Amazon Web Services managed keys cannot be shared. Parameters encrypted with the default Amazon Web Services managed key can be updated to use a customer managed key instead. For KMS key definitions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#key-mgmt">KMS concepts</a> in
- *      the <i>Key Management Service Developer Guide</i>.</p>
+ *      parameter tiers, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html">Managing
+ *       parameter tiers</a>. For information about changing an existing standard parameter to an
+ *      advanced parameter, see <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-advanced-parameters.html#parameter-store-advanced-parameters-enabling">Changing a standard parameter to an advanced parameter</a>.</p>
+ *                <p>To share a <code>SecureString</code> parameter, it must be encrypted with a customer managed key, and you must share the key separately through Key Management Service. Amazon Web Services managed keys cannot be shared. Parameters encrypted with the default Amazon Web Services managed key can be updated to use a customer managed key instead. For KMS key definitions, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">KMS concepts</a> in the
+ *        <i>Key Management Service Developer Guide</i>.</p>
  *                <important>
  *                   <p>While you can share a parameter using the Systems Manager <code>PutResourcePolicy</code> operation,
  *       we recommend using Resource Access Manager (RAM) instead. This is because using
