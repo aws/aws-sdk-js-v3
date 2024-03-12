@@ -823,7 +823,7 @@ export interface ResourceTargetDefinition {
    *    causes the resource to be recreated. The value can be <code>Never</code>, <code>Always</code>, or
    *    <code>Conditionally</code>. To determine the conditions for a <code>Conditionally</code> recreation, see the update
    *    behavior for that <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">property</a> in the
-   *    CloudFormation User Guide.</p>
+   *    <i>CloudFormation User Guide</i>.</p>
    */
   RequiresRecreation?: RequiresRecreation;
 }
@@ -1555,7 +1555,7 @@ export interface ResourceToImport {
    * @public
    * <p>The type of resource to import into your stack, such as <code>AWS::S3::Bucket</code>. For a list of supported
    *    resource types, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/resource-import-supported-resources.html">Resources that support import
-   *    operations</a> in the CloudFormation User Guide.</p>
+   *    operations</a> in the <i>CloudFormation User Guide</i>.</p>
    */
   ResourceType: string | undefined;
 
@@ -3011,7 +3011,7 @@ export interface CreateStackSetInput {
    * @public
    * <p>The structure that contains the template body, with a minimum length of 1 byte and a maximum length of 51,200
    *    bytes. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a> in the
-   *    CloudFormation User Guide.</p>
+   *    <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but not both.</p>
    */
   TemplateBody?: string;
@@ -3021,7 +3021,7 @@ export interface CreateStackSetInput {
    * <p>The location of the file that contains the template body. The URL must point to a template (maximum size:
    *    460,800 bytes) that's located in an Amazon S3 bucket or a Systems Manager document. For more information, see
    *    <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html">Template Anatomy</a>
-   *    in the CloudFormation User Guide.</p>
+   *    in the <i>CloudFormation User Guide</i>.</p>
    *          <p>Conditional: You must specify either the TemplateBody or the TemplateURL parameter, but not both.</p>
    */
   TemplateURL?: string;
@@ -4814,7 +4814,7 @@ export interface StackEvent {
   /**
    * @public
    * <p>Type of resource. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types
-   *    Reference</a> in the CloudFormation User Guide.)</p>
+   *    Reference</a> in the <i>CloudFormation User Guide</i>.)</p>
    */
   ResourceType?: string;
 
@@ -5020,13 +5020,6 @@ export interface StackInstanceComprehensiveStatus {
    *                   <code>FAILED</code>: The operation in the specified account and Region failed. If the stack set operation
    *      fails in enough accounts within a Region, the failure tolerance for the stack set operation as a whole might be
    *      exceeded.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>FAILED_IMPORT</code>: The import of the stack instance in the specified account and Region failed and
-   *      left the stack in an unstable state. Once the issues causing the failure are fixed, the import operation can be
-   *      retried. If enough stack set operations fail in enough accounts within a Region, the failure tolerance for the
-   *      stack set operation as a whole might be exceeded.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5364,7 +5357,7 @@ export interface StackResourceDetail {
   /**
    * @public
    * <p>Type of resource. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types
-   *    Reference</a> in the CloudFormation User Guide.</p>
+   *    Reference</a> in the <i>CloudFormation User Guide</i>.</p>
    */
   ResourceType: string | undefined;
 
@@ -5395,7 +5388,7 @@ export interface StackResourceDetail {
   /**
    * @public
    * <p>The content of the <code>Metadata</code> attribute declared for the resource. For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-attribute-metadata.html">Metadata Attribute</a>
-   *    in the CloudFormation User Guide.</p>
+   *    in the <i>CloudFormation User Guide</i>.</p>
    */
   Metadata?: string;
 
@@ -5771,7 +5764,7 @@ export interface StackResource {
   /**
    * @public
    * <p>Type of resource. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types
-   *    Reference</a> in the CloudFormation User Guide.</p>
+   *    Reference</a> in the <i>CloudFormation User Guide</i>.</p>
    */
   ResourceType: string | undefined;
 
@@ -6643,7 +6636,7 @@ export interface StackSetOperation {
    *                <p>
    *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of
    *      operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status
-   *      codes</a> in the CloudFormation User Guide.</p>
+   *      codes</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -6727,7 +6720,7 @@ export interface StackSetOperation {
    *          <p>This information will only be present for stack set operations whose <code>Action</code> type is
    *    <code>DETECT_DRIFT</code>.</p>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-drift.html">Detecting Unmanaged Changes in Stack Sets</a> in
-   *    the CloudFormation User Guide.</p>
+   *    the <i>CloudFormation User Guide</i>.</p>
    */
   StackSetDriftDetectionDetails?: StackSetDriftDetectionDetails;
 
@@ -8738,7 +8731,7 @@ export interface StackInstanceResourceDriftsSummary {
   /**
    * @public
    * <p>Type of resource. For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types
-   *    Reference</a> in the CloudFormation User Guide.</p>
+   *    Reference</a> in the <i>CloudFormation User Guide</i>.</p>
    */
   ResourceType: string | undefined;
 
@@ -9142,7 +9135,7 @@ export interface StackResourceSummary {
   /**
    * @public
    * <p>Type of resource. (For more information, go to <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-template-resource-type-ref.html">Amazon Web Services Resource Types
-   *    Reference</a> in the CloudFormation User Guide.)</p>
+   *    Reference</a> in the <i>CloudFormation User Guide</i>.)</p>
    */
   ResourceType: string | undefined;
 
@@ -9646,7 +9639,7 @@ export interface StackSetOperationSummary {
    *                <p>
    *                   <code>QUEUED</code>: [Service-managed permissions] For automatic deployments that require a sequence of
    *      operations, the operation is queued to be performed. For more information, see the <a href="https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-concepts.html#stackset-status-codes">stack set operation status
-   *      codes</a> in the CloudFormation User Guide.</p>
+   *      codes</a> in the <i>CloudFormation User Guide</i>.</p>
    *             </li>
    *             <li>
    *                <p>
