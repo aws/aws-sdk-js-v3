@@ -34,6 +34,11 @@ export interface DescribeAvailabilityZonesCommandOutput extends DescribeAvailabi
  *          <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see
  *         <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html">Regions and zones</a>
  *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <note>
+ *             <p>The order of the elements in the response, including those within nested
+ *         structures, might vary. Applications should not assume the elements appear in a
+ *         particular order.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

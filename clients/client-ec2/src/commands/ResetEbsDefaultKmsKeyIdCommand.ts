@@ -32,8 +32,8 @@ export interface ResetEbsDefaultKmsKeyIdCommandOutput extends ResetEbsDefaultKms
  *       to the Amazon Web Services managed KMS key for EBS.</p>
  *          <p>After resetting the default KMS key to the Amazon Web Services managed KMS key, you can continue to encrypt by a
  *       customer managed KMS key by specifying it when you create the volume. For more information, see
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
- *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
+ *       in the <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -35,8 +35,8 @@ export interface GetSnapshotBlockPublicAccessStateCommandOutput
  * @public
  * <p>Gets the current state of <i>block public access for snapshots</i> setting
  *       for the account and Region.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-public-access-snapshots.html">
- *       Block public access for snapshots</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/block-public-access-snapshots.html">
+ *       Block public access for snapshots</a> in the <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

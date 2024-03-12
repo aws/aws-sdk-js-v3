@@ -2340,7 +2340,7 @@ export interface DescribeAvailabilityZonesRequest {
    *                   <code>group-name</code> - For Availability Zones, use the Region name. For Local
    *           Zones, use the name of the group associated with the Local Zone (for example,
    *             <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated
-   *           with the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p>
+   *           with the Wavelength Zone (for example, <code>us-east-1-wl1</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2722,8 +2722,7 @@ export interface DescribeBundleTasksRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>progress</code> - The level of task completion, as a percentage (for example,
-   *           20%).</p>
+   *                   <code>progress</code> - The level of task completion, as a percentage (for example, 20%).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -2735,14 +2734,12 @@ export interface DescribeBundleTasksRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>start-time</code> - The time the task started (for example,
-   *           2013-09-15T17:15:20.000Z).</p>
+   *                   <code>start-time</code> - The time the task started (for example, 2013-09-15T17:15:20.000Z).</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>state</code> - The state of the task (<code>pending</code> |
-   *             <code>waiting-for-shutdown</code> | <code>bundling</code> | <code>storing</code> |
-   *             <code>cancelling</code> | <code>complete</code> | <code>failed</code>).</p>
+   *                   <code>state</code> - The state of the task (<code>pending</code> | <code>waiting-for-shutdown</code> | <code>bundling</code> |
+   *            <code>storing</code> | <code>cancelling</code> | <code>complete</code> | <code>failed</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -5496,14 +5493,14 @@ export type FastLaunchResourceType = (typeof FastLaunchResourceType)[keyof typeo
 
 /**
  * @public
- * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows
- *       fast launch enabled Windows AMI.</p>
+ * <p>Configuration settings for creating and managing pre-provisioned snapshots for a Windows fast launch
+ * 			enabled Windows AMI.</p>
  */
 export interface FastLaunchSnapshotConfigurationResponse {
   /**
    * @public
-   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast
-   *       launch enabled AMI.</p>
+   * <p>The number of pre-provisioned snapshots requested to keep on hand for a Windows fast launch
+   * 			enabled AMI.</p>
    */
   TargetResourceCount?: number;
 }
@@ -5528,9 +5525,8 @@ export type FastLaunchStateCode = (typeof FastLaunchStateCode)[keyof typeof Fast
 
 /**
  * @public
- * <p>Describe details about a Windows image with Windows fast launch enabled that meets the
- *       requested criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action
- *       filters.</p>
+ * <p>Describe details about a Windows image with Windows fast launch enabled that meets the requested
+ * 			criteria. Criteria are defined by the <code>DescribeFastLaunchImages</code> action filters.</p>
  */
 export interface DescribeFastLaunchImagesSuccessItem {
   /**
@@ -5542,28 +5538,28 @@ export interface DescribeFastLaunchImagesSuccessItem {
   /**
    * @public
    * <p>The resource type that Amazon EC2 uses for pre-provisioning the Windows AMI. Supported values
-   *       include: <code>snapshot</code>.</p>
+   * 			include: <code>snapshot</code>.</p>
    */
   ResourceType?: FastLaunchResourceType;
 
   /**
    * @public
-   * <p>A group of parameters that are used for pre-provisioning the associated Windows AMI using
-   *       snapshots.</p>
+   * <p>A group of parameters that are used for pre-provisioning the associated
+   * 			Windows AMI using snapshots.</p>
    */
   SnapshotConfiguration?: FastLaunchSnapshotConfigurationResponse;
 
   /**
    * @public
-   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches Windows
-   *       instances from pre-provisioned snapshots.</p>
+   * <p>The launch template that the Windows fast launch enabled AMI uses when it launches
+   * 			Windows instances from pre-provisioned snapshots.</p>
    */
   LaunchTemplate?: FastLaunchLaunchTemplateSpecificationResponse;
 
   /**
    * @public
    * <p>The maximum number of instances that Amazon EC2 can launch at the same time to create
-   *       pre-provisioned snapshots for Windows fast launch.</p>
+   * 			pre-provisioned snapshots for Windows fast launch.</p>
    */
   MaxParallelLaunches?: number;
 
@@ -5598,8 +5594,8 @@ export interface DescribeFastLaunchImagesSuccessItem {
 export interface DescribeFastLaunchImagesResult {
   /**
    * @public
-   * <p>A collection of details about the fast-launch enabled Windows images that meet the
-   *       requested criteria.</p>
+   * <p>A collection of details about the fast-launch enabled Windows images that meet
+   * 			the requested criteria.</p>
    */
   FastLaunchImages?: DescribeFastLaunchImagesSuccessItem[];
 
@@ -8322,9 +8318,9 @@ export interface DescribeImageAttributeRequest {
    * @public
    * <p>The AMI attribute.</p>
    *          <p>
-   *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is
-   *       deprecated. Using this attribute returns the <code>Client.AuthFailure</code> error. To get
-   *       information about the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
+   *             <b>Note</b>: The <code>blockDeviceMapping</code> attribute is deprecated.
+   *    	    Using this attribute returns the <code>Client.AuthFailure</code> error. To get information about
+   *    	    the block device mappings for an AMI, use the <a>DescribeImages</a> action.</p>
    */
   Attribute: ImageAttributeName | undefined;
 
@@ -8423,8 +8419,7 @@ export interface ImageAttribute {
 
   /**
    * @public
-   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is
-   *       enabled.</p>
+   * <p>Indicates whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
    */
   SriovNetSupport?: AttributeValue;
 
@@ -8444,9 +8439,9 @@ export interface ImageAttribute {
    * @public
    * <p>Base64 representation of the non-volatile UEFI variable store. To retrieve the UEFI data,
    *       use the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetInstanceUefiData">GetInstanceUefiData</a> command. You can inspect and modify the UEFI data by using the
-   *         <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
+   *       <a href="https://github.com/awslabs/python-uefivars">python-uefivars tool</a> on
    *       GitHub. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/uefi-secure-boot.html">UEFI Secure Boot</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
+   *       <i>Amazon EC2 User Guide</i>.</p>
    */
   UefiData?: AttributeValue;
 
@@ -8468,7 +8463,8 @@ export interface ImageAttribute {
    *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
    *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
    *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   ImdsSupport?: AttributeValue;
 }
@@ -8479,13 +8475,14 @@ export interface ImageAttribute {
 export interface DescribeImagesRequest {
   /**
    * @public
-   * <p>Scopes the images by users with explicit launch permissions. Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request), or <code>all</code>
-   *       (public AMIs).</p>
+   * <p>Scopes the images by users with explicit launch permissions.
+   *        Specify an Amazon Web Services account ID, <code>self</code> (the sender of the request),
+   * 				or <code>all</code> (public AMIs).</p>
    *          <ul>
    *             <li>
-   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs shared
-   *           with that specific Amazon Web Services account ID are returned. However, AMIs that are
-   *           shared with the account’s organization or organizational unit (OU) are not
+   *                <p>If you specify an Amazon Web Services account ID that is not your own, only AMIs
+   *           shared with that specific Amazon Web Services account ID are returned. However, AMIs that
+   *           are shared with the account’s organization or organizational unit (OU) are not
    *           returned.</p>
    *             </li>
    *             <li>
@@ -8506,19 +8503,18 @@ export interface DescribeImagesRequest {
    *          <ul>
    *             <li>
    *                <p>
-   *                   <code>architecture</code> - The image architecture (<code>i386</code> |
-   *             <code>x86_64</code> | <code>arm64</code> | <code>x86_64_mac</code> |
-   *             <code>arm64_mac</code>).</p>
+   *                   <code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> |
+   *           <code>arm64</code> | <code>x86_64_mac</code> | <code>arm64_mac</code>).</p>
    *             </li>
    *             <li>
    *                <p>
    *                   <code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates
-   *           whether the Amazon EBS volume is deleted on instance termination.</p>
+   *         	whether the Amazon EBS volume is deleted on instance termination.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block
-   *           device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
+   *                   <code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for
+   *           example, <code>/dev/sdh</code> or <code>xvdh</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8527,8 +8523,7 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in
-   *           GiB.</p>
+   *                   <code>block-device-mapping.volume-size</code> - The volume size of the Amazon EBS volume, in GiB.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8538,8 +8533,7 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS
-   *           volume is encrypted.</p>
+   *                   <code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the Amazon EBS volume is encrypted.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8555,8 +8549,8 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking with
-   *           ENA is enabled.</p>
+   *                   <code>ena-support</code> - A Boolean that indicates whether enhanced networking
+   *           with ENA is enabled.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8590,22 +8584,19 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> |
-   *             <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained
-   *           list. This is not the Amazon Web Services account alias that can be set using the IAM
-   *           console. We recommend that you use the <b>Owner</b> request
-   *           parameter instead of this filter.</p>
+   *                   <code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>).
+   *           The valid aliases are defined in an Amazon-maintained list. This is not the Amazon Web Services account alias that can be
+   *         	set using the IAM console. We recommend that you use the <b>Owner</b>
+   *         	request parameter instead of this filter.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend
-   *           that you use the <b>Owner</b> request parameter instead of this
-   *           filter.</p>
+   *                   <code>owner-id</code> - The Amazon Web Services account ID of the owner. We recommend that you use the
+   *       		<b>Owner</b> request parameter instead of this filter.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>platform</code> - The platform. The only supported value is
-   *           <code>windows</code>.</p>
+   *                   <code>platform</code> - The platform. The only supported value is <code>windows</code>.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8613,8 +8604,7 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>product-code.type</code> - The type of the product code
-   *           (<code>marketplace</code>).</p>
+   *                   <code>product-code.type</code> - The type of the product code (<code>marketplace</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8622,8 +8612,7 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>root-device-name</code> - The device name of the root device volume (for example,
-   *             <code>/dev/sda1</code>).</p>
+   *                   <code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8651,8 +8640,8 @@ export interface DescribeImagesRequest {
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates that
-   *           enhanced networking with the Intel 82599 VF interface is enabled.</p>
+   *                   <code>sriov-net-support</code> - A value of <code>simple</code> indicates
+   *                     that enhanced networking with the Intel 82599 VF interface is enabled.</p>
    *             </li>
    *             <li>
    *                <p>
@@ -8682,9 +8671,9 @@ export interface DescribeImagesRequest {
   /**
    * @public
    * <p>Scopes the results to images with the specified owners. You can specify a combination of
-   *         Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and
-   *         <code>aws-marketplace</code>. If you omit this parameter, the results include all images for
-   *       which you have launch permissions, regardless of ownership.</p>
+   *       Amazon Web Services account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>.
+   *       If you omit this parameter, the results include all images for which you have launch permissions,
+   *       regardless of ownership.</p>
    */
   Owners?: string[];
 
@@ -8901,9 +8890,9 @@ export interface Image {
 
   /**
    * @public
-   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code>
-   *       if this image has public launch permissions or <code>false</code> if it has only implicit and
-   *       explicit launch permissions.</p>
+   * <p>Indicates whether the image has public launch permissions. The value is <code>true</code> if
+   * 				this image has public launch permissions or <code>false</code>
+   * 				if it has only implicit and explicit launch permissions.</p>
    */
   Public?: boolean;
 
@@ -8937,10 +8926,11 @@ export interface Image {
    * @public
    * <p>The operation of the Amazon EC2 instance and the billing code that is associated with the AMI.
    *         <code>usageOperation</code> corresponds to the <a href="https://docs.aws.amazon.com/cur/latest/userguide/Lineitem-columns.html#Lineitem-details-O-Operation">lineitem/Operation</a> column on your Amazon Web Services Cost and Usage Report and in the <a href="https://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/price-changes.html">Amazon Web Services Price
-   *         List API</a>. You can view these fields on the <b>Instances</b> or <b>AMIs</b> pages in the Amazon EC2 console,
-   *       or in the responses that are returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a> command in
-   *       the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a> command in the
-   *       CLI.</p>
+   *         	List API</a>. You can view these fields on the <b>Instances</b> or
+   *     	<b>AMIs</b> pages in the Amazon EC2 console, or in the responses that are
+   *     	returned by the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeImages.html">DescribeImages</a>
+   *     	command in the Amazon EC2 API, or the <a href="https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html">describe-images</a>
+   *     	command in the CLI.</p>
    */
   UsageOperation?: string;
 
@@ -8958,8 +8948,7 @@ export interface Image {
 
   /**
    * @public
-   * <p>The current state of the AMI. If the state is <code>available</code>, the image is
-   *       successfully registered and can be used to launch an instance.</p>
+   * <p>The current state of the AMI. If the state is <code>available</code>, the image is successfully registered and can be used to launch an instance.</p>
    */
   State?: ImageState;
 
@@ -8990,8 +8979,8 @@ export interface Image {
 
   /**
    * @public
-   * <p>The Amazon Web Services account alias (for example, <code>amazon</code>, <code>self</code>)
-   *       or the Amazon Web Services account ID of the AMI owner.</p>
+   * <p>The Amazon Web Services account alias (for example, <code>amazon</code>, <code>self</code>) or
+   *        the Amazon Web Services account ID of the AMI owner.</p>
    */
   ImageOwnerAlias?: string;
 
@@ -9009,15 +8998,13 @@ export interface Image {
 
   /**
    * @public
-   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance
-   *       store volume.</p>
+   * <p>The type of root device used by the AMI. The AMI can use an Amazon EBS volume or an instance store volume.</p>
    */
   RootDeviceType?: DeviceType;
 
   /**
    * @public
-   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is
-   *       enabled.</p>
+   * <p>Specifies whether enhanced networking with the Intel 82599 Virtual Function interface is enabled.</p>
    */
   SriovNetSupport?: string;
 
@@ -9048,16 +9035,18 @@ export interface Image {
 
   /**
    * @public
-   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>If the image is configured for NitroTPM support, the value is <code>v2.0</code>.
+   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html">NitroTPM</a> in the
+   *       <i>Amazon EC2 User Guide</i>.</p>
    */
   TpmSupport?: TpmSupportValues;
 
   /**
    * @public
    * <p>The date and time to deprecate the AMI, in UTC, in the following format:
-   *         <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
-   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
+   *      <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z.
+   *       If you specified a value for seconds, Amazon EC2 rounds the seconds to the
+   *       nearest minute.</p>
    */
   DeprecationTime?: string;
 
@@ -9067,7 +9056,8 @@ export interface Image {
    *       from this AMI will have <code>HttpTokens</code> automatically set to <code>required</code> so
    *       that, by default, the instance requires that IMDSv2 is used when requesting instance metadata.
    *       In addition, <code>HttpPutResponseHopLimit</code> is set to <code>2</code>. For more
-   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    */
   ImdsSupport?: ImdsSupportValues;
 

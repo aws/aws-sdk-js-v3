@@ -31,9 +31,9 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  * <p>Attaches an EBS volume to a running or stopped instance and exposes it to the instance
  *       with the specified device name.</p>
  *          <p>Encrypted EBS volumes must be attached to instances that support Amazon EBS encryption. For
- *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
  *          <p>After you attach an EBS volume, you must make it available. For more information, see
- *       <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-using-volumes.html">Make an EBS volume available for use</a>.</p>
+ *       <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-using-volumes.html">Make an EBS volume available for use</a>.</p>
  *          <p>If a volume has an Amazon Web Services Marketplace product code:</p>
  *          <ul>
  *             <li>
@@ -51,8 +51,8 @@ export interface AttachVolumeCommandOutput extends VolumeAttachment, __MetadataB
  *           instance.</p>
  *             </li>
  *          </ul>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html">Attach an Amazon EBS volume to an instance</a> in the
- *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-attaching-volume.html">Attach an Amazon EBS volume to an instance</a> in the
+ *         <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

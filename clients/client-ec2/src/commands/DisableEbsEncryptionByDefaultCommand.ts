@@ -35,8 +35,8 @@ export interface DisableEbsEncryptionByDefaultCommandOutput
  *       enabling encryption when you create each volume.</p>
  *          <p>Disabling encryption by default does not change the encryption status of your
  *       existing volumes.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
- *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
+ *       <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

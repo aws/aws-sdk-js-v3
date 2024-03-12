@@ -33,12 +33,12 @@ export interface CreateVolumeCommandOutput extends Volume, __MetadataBearer {}
  *       Any Amazon Web Services Marketplace product codes from the snapshot are propagated to the volume.</p>
  *          <p>You can create encrypted volumes. Encrypted volumes must be attached to instances that
  *       support Amazon EBS encryption. Volumes that are created from encrypted snapshots are also automatically
- *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a>
- *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       encrypted. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a>
+ *       in the <i>Amazon EBS User Guide</i>.</p>
  *          <p>You can tag your volumes during creation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2
  *         resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
- *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-creating-volume.html">Create an Amazon EBS volume</a> in the
- *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-creating-volume.html">Create an Amazon EBS volume</a> in the
+ *         <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -28,39 +28,37 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
 
 /**
  * @public
- * <p>Creates a set of DHCP options for your VPC. After creating the set, you must
- * 				associate it with the VPC, causing all existing and new instances that you launch in
- * 				the VPC to use this set of DHCP options. The following are the individual DHCP
- * 				options you can specify. For more information about the options, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p>
+ * <p>Creates a custom set of DHCP options. After you create a DHCP option set, you associate
+ * 	       it with a VPC. After you associate a DHCP option set with a VPC, all existing and newly
+ * 	       launched instances in the VPC use this set of DHCP options.</p>
+ *          <p>The following are the individual DHCP options you can specify. For more information, see
+ *            <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a>
+ *            in the <i>Amazon VPC User Guide</i>.</p>
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>domain-name-servers</code> - The IP addresses of up to four domain name
- *                     servers, or AmazonProvidedDNS. The default DHCP option set specifies
- *                     AmazonProvidedDNS. If specifying more than one domain name server, specify the
- *                     IP addresses in a single parameter, separated by commas. To have your instance
- *                     receive a custom DNS hostname as specified in <code>domain-name</code>, you must
- *                     set <code>domain-name-servers</code> to a custom DNS server.</p>
- *             </li>
- *             <li>
- *                <p>
- *                   <code>domain-name</code> - If you're using AmazonProvidedDNS in
- *                    <code>us-east-1</code>, specify <code>ec2.internal</code>. If you're using
- *                    AmazonProvidedDNS in another Region, specify
- *                    <code>region.compute.internal</code> (for example,
- *                    <code>ap-northeast-1.compute.internal</code>). Otherwise, specify a domain
- *                    name (for example, <code>ExampleCompany.com</code>). This value is used to complete
- *                    unqualified DNS hostnames. <b>Important</b>: Some
- *                    Linux operating systems accept multiple domain names separated by spaces.
+ *                   <code>domain-name</code> - If you're using AmazonProvidedDNS in <code>us-east-1</code>,
+ *                    specify <code>ec2.internal</code>. If you're using AmazonProvidedDNS in any other Region,
+ *                    specify <code>region.compute.internal</code>. Otherwise, specify a custom domain name.
+ *                    This value is used to complete unqualified DNS hostnames.</p>
+ *                <p>Some Linux operating systems accept multiple domain names separated by spaces.
  *                    However, Windows and other Linux operating systems treat the value as a single
- *                    domain, which results in unexpected behavior. If your DHCP options set is
- *                    associated with a VPC that has instances with multiple operating systems,
- *                    specify only one domain name.</p>
+ *                    domain, which results in unexpected behavior. If your DHCP option set is
+ *                    associated with a VPC that has instances running operating systems that treat
+ *                    the value as a single domain, specify only one domain name.</p>
  *             </li>
  *             <li>
  *                <p>
- *                   <code>ntp-servers</code> - The IP addresses of up to four Network Time Protocol (NTP)
- *                    servers.</p>
+ *                   <code>domain-name-servers</code> - The IP addresses of up to four DNS servers,
+ *                    or AmazonProvidedDNS. To specify multiple domain name servers in a single parameter,
+ *                    separate the IP addresses using commas. To have your instances receive custom DNS
+ *                    hostnames as specified in <code>domain-name</code>, you must specify a custom DNS
+ *                    server.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ntp-servers</code> - The IP addresses of up to eight Network Time Protocol (NTP)
+ *                    servers (four IPv4 addresses and four IPv6 addresses).</p>
  *             </li>
  *             <li>
  *                <p>
@@ -70,16 +68,16 @@ export interface CreateDhcpOptionsCommandOutput extends CreateDhcpOptionsResult,
  *             <li>
  *                <p>
  *                   <code>netbios-node-type</code> - The NetBIOS node type (1, 2, 4, or 8). We recommend that
- *                    you specify 2 (broadcast and multicast are not currently supported). For more information
- *                    about these node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p>
+ *                    you specify 2. Broadcast and multicast are not supported. For more information about
+ *                    NetBIOS node types, see <a href="http://www.ietf.org/rfc/rfc2132.txt">RFC 2132</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>
+ *                   <code>ipv6-preferred-lease-time</code> - A value (in seconds, minutes, hours, or years) for how frequently a running instance with an IPv6 assigned to it goes through DHCPv6 lease renewal.
+ *                    Acceptable values are between 140 and 2147483647 seconds (approximately 68 years). If no value is entered, the default lease time is 140 seconds. If you use long-term addressing for EC2 instances, you can increase the lease time and avoid frequent
+ *                    lease renewal requests. Lease renewal typically occurs when half of the lease time has elapsed.</p>
  *             </li>
  *          </ul>
- *          <p>Your VPC automatically starts out with a set of DHCP options that includes only a DNS
- * 			server that we provide (AmazonProvidedDNS). If you create a set of options, and if your
- * 			VPC has an internet gateway, make sure to set the <code>domain-name-servers</code>
- * 			option either to <code>AmazonProvidedDNS</code> or to a domain name server of your
- * 			choice. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_DHCP_Options.html">DHCP options sets</a> in the
- * 			<i>Amazon VPC User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

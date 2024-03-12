@@ -31,8 +31,8 @@ export interface ModifySnapshotTierCommandOutput extends ModifySnapshotTierResul
  * <p>Archives an Amazon EBS snapshot. When you archive a snapshot, it is converted to a full
  *       snapshot that includes all of the blocks of data that were written to the volume at the
  *       time the snapshot was created, and moved from the standard tier to the archive
- *       tier. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-archive.html">Archive Amazon EBS snapshots</a>
- *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       tier. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshot-archive.html">Archive Amazon EBS snapshots</a>
+ *       in the <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

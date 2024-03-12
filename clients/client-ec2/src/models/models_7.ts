@@ -1280,8 +1280,7 @@ export type ResetImageAttributeName = (typeof ResetImageAttributeName)[keyof typ
 export interface ResetImageAttributeRequest {
   /**
    * @public
-   * <p>The attribute to reset (currently you can only reset the launch permission
-   *       attribute).</p>
+   * <p>The attribute to reset (currently you can only reset the launch permission attribute).</p>
    */
   Attribute: ResetImageAttributeName | undefined;
 
@@ -1520,8 +1519,8 @@ export interface RestoreSnapshotFromRecycleBinResult {
 
   /**
    * @public
-   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *       <i>Amazon EBS User Guide</i>.</p>
    */
   OutpostArn?: string;
 
@@ -1797,7 +1796,7 @@ export interface RevokeSecurityGroupIngressRequest {
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.</p>
+   *            If the protocol is ICMP, this is the ICMP type or -1 (all ICMP types).</p>
    */
   FromPort?: number;
 
@@ -1847,7 +1846,7 @@ export interface RevokeSecurityGroupIngressRequest {
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *          If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.</p>
+   *          If the protocol is ICMP, this is the ICMP code or -1 (all ICMP codes).</p>
    */
   ToPort?: number;
 
@@ -2188,6 +2187,8 @@ export interface InstanceMetadataOptionsRequest {
   /**
    * @public
    * <p>Enables or disables the IPv6 endpoint for the instance metadata service.</p>
+   *          <p>Default: <code>disabled</code>
+   *          </p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState;
 

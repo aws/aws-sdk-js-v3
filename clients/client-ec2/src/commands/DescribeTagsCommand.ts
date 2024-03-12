@@ -31,6 +31,11 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResult, __Metadat
  * <p>Describes the specified tags for your EC2 resources.</p>
  *          <p>For more information about tags, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tag your Amazon EC2 resources</a> in the
  *             <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <note>
+ *             <p>The order of the elements in the response, including those within nested
+ *             structures, might vary. Applications should not assume the elements appear in a
+ *             particular order.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

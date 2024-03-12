@@ -1896,8 +1896,10 @@ export interface InstanceMetadataOptionsResponse {
    * @public
    * <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the
    *             number, the further instance metadata requests can travel.</p>
-   *          <p>Default: 1</p>
-   *          <p>Possible values: Integers from 1 to 64</p>
+   *          <p>Default: <code>1</code>
+   *          </p>
+   *          <p>Possible values: Integers from <code>1</code> to <code>64</code>
+   *          </p>
    */
   HttpPutResponseHopLimit?: number;
 
@@ -1914,6 +1916,8 @@ export interface InstanceMetadataOptionsResponse {
    * @public
    * <p>Indicates whether the IPv6 endpoint for the instance metadata service is enabled or
    *             disabled.</p>
+   *          <p>Default: <code>disabled</code>
+   *          </p>
    */
   HttpProtocolIpv6?: InstanceMetadataProtocolState;
 
@@ -9795,13 +9799,16 @@ export interface SecurityGroupReference {
 
   /**
    * @public
-   * <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see <a href="https://docs.aws.amazon.com/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a> in the <i>VPC Peering Guide</i>.</p>
+   * <p>The ID of the VPC peering connection (if applicable). For more information about security group referencing for peering connections, see <a href="https://docs.aws.amazon.com/vpc/latest/peering/vpc-peering-security-groups.html">Update your security groups to reference peer security groups</a> in the <i>VPC Peering Guide</i>.</p>
    */
   VpcPeeringConnectionId?: string;
 
   /**
    * @public
-   * <p>The ID of the transit gateway (if applicable). For more information about security group referencing for transit gateways, see <a href="https://docs.aws.amazon.com/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>The ID of the transit gateway (if applicable).</p>
    */
   TransitGatewayId?: string;
 }
@@ -10842,7 +10849,7 @@ export interface InstanceNetworkInterfaceSpecification {
    *             assigned to a new network interface, not an existing one. You cannot specify more than one
    *             network interface in the request. If launching into a default subnet, the default value is
    *             <code>true</code>.</p>
-   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
    * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   AssociatePublicIpAddress?: boolean;
@@ -12579,14 +12586,15 @@ export interface DescribeStaleSecurityGroupsRequest {
 export interface StaleIpPermission {
   /**
    * @public
-   * <p>The start of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
-   *         -1 indicates all ICMP types. </p>
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
    */
   FromPort?: number;
 
   /**
    * @public
-   * <p>The IP protocol name (for <code>tcp</code>, <code>udp</code>, and <code>icmp</code>) or number  (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number
+   *           (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
    */
   IpProtocol?: string;
 
@@ -12604,8 +12612,8 @@ export interface StaleIpPermission {
 
   /**
    * @public
-   * <p>The end of the port range for the TCP and UDP protocols, or an ICMP type number. A value of
-   *         <code>-1</code> indicates all ICMP types. </p>
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).</p>
    */
   ToPort?: number;
 
@@ -12682,8 +12690,7 @@ export interface DescribeStaleSecurityGroupsResult {
 export interface DescribeStoreImageTasksRequest {
   /**
    * @public
-   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a
-   *       request.</p>
+   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
    */
   ImageIds?: string[];
 

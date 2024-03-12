@@ -28,18 +28,17 @@ export interface DescribeImagesCommandOutput extends DescribeImagesResult, __Met
 
 /**
  * @public
- * <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the
- *       images available to you.</p>
- *          <p>The images available to you include public images, private images that you own, and
- *       private images owned by other Amazon Web Services accounts for which you have explicit launch
- *       permissions.</p>
+ * <p>Describes the specified images (AMIs, AKIs, and ARIs) available to you or all of the images available to you.</p>
+ *          <p>The images available to you include public images, private images that you own, and private images owned by other
+ *        Amazon Web Services accounts for which you have explicit launch permissions.</p>
  *          <p>Recently deregistered images appear in the returned results for a short interval and then
  *       return empty results. After all instances that reference a deregistered AMI are terminated,
  *       specifying the ID of the image will eventually return an error indicating that the AMI ID
  *       cannot be found.</p>
  *          <note>
- *             <p>The order of the elements in the response, including those within nested structures,
- *         might vary. Applications should not assume the elements appear in a particular order.</p>
+ *             <p>The order of the elements in the response, including those within nested
+ *          structures, might vary. Applications should not assume the elements appear in a
+ *          particular order.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

@@ -44,8 +44,7 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *         <code>ok</code>. If the check fails, the overall status is <code>impaired</code>. If the
  *       status is <code>insufficient-data</code>, then the checks might still be taking place on your
  *       volume at the time. We recommend that you retry the request. For more information about volume
- *       status, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-volume-status.html">Monitor the status of your volumes</a> in the
- *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *       status, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/monitoring-volume-status.html">Monitor the status of your volumes</a> in the <i>Amazon EBS User Guide</i>.</p>
  *          <p>
  *             <i>Events</i>: Reflect the cause of a volume status and might require you to
  *       take action. For example, if your volume returns an <code>impaired</code> status, then the
@@ -62,6 +61,11 @@ export interface DescribeVolumeStatusCommandOutput extends DescribeVolumeStatusR
  *          <p>Volume status is based on the volume status checks, and does not reflect the volume state.
  *       Therefore, volume status does not indicate volumes in the <code>error</code> state (for
  *       example, when a volume is incapable of accepting I/O.)</p>
+ *          <note>
+ *             <p>The order of the elements in the response, including those within nested
+ *         structures, might vary. Applications should not assume the elements appear in a
+ *         particular order.</p>
+ *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

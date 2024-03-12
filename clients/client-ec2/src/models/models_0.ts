@@ -862,7 +862,10 @@ export interface TransitGatewayVpcAttachmentOptions {
 
   /**
    * @public
-   * <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
@@ -6358,12 +6361,12 @@ export interface AuthorizeClientVpnIngressResult {
 
 /**
  * @public
- * <p>Describes an IPv4 range.</p>
+ * <p>Describes an IPv4 address range.</p>
  */
 export interface IpRange {
   /**
    * @public
-   * <p>The IPv4 CIDR range. You can either specify a CIDR range or a source security group,
+   * <p>The IPv4 address range. You can either specify a CIDR block or a source security group,
    *             not both. To specify a single IPv4 address, use the /32 prefix length.</p>
    */
   CidrIp?: string;
@@ -6379,12 +6382,12 @@ export interface IpRange {
 
 /**
  * @public
- * <p>Describes an IPv6 range.</p>
+ * <p>Describes an IPv6 address range.</p>
  */
 export interface Ipv6Range {
   /**
    * @public
-   * <p>The IPv6 CIDR range. You can either specify a CIDR range or a source security group,
+   * <p>The IPv6 address range. You can either specify a CIDR block or a source security group,
    *         not both. To specify a single IPv6 address, use the /128 prefix length.</p>
    */
   CidrIpv6?: string;
@@ -6477,14 +6480,13 @@ export interface UserIdGroupPair {
 
 /**
  * @public
- * <p>Describes a set of permissions for a security group rule.</p>
+ * <p>Describes the permissions for a security group rule.</p>
  */
 export interface IpPermission {
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *         If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
-   *         If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+   *         If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
    */
   FromPort?: number;
 
@@ -6503,13 +6505,13 @@ export interface IpPermission {
 
   /**
    * @public
-   * <p>The IPv4 ranges.</p>
+   * <p>The IPv4 address ranges.</p>
    */
   IpRanges?: IpRange[];
 
   /**
    * @public
-   * <p>The IPv6 ranges.</p>
+   * <p>The IPv6 address ranges.</p>
    */
   Ipv6Ranges?: Ipv6Range[];
 
@@ -6522,8 +6524,8 @@ export interface IpPermission {
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *           If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes.
-   *           If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+   *           If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).
+   *           If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
    */
   ToPort?: number;
 
@@ -6554,8 +6556,7 @@ export interface AuthorizeSecurityGroupEgressRequest {
 
   /**
    * @public
-   * <p>The sets of IP permissions. You can't specify a destination security group and a CIDR IP
-   *             address range in the same set of permissions.</p>
+   * <p>The permissions for the security group rules.</p>
    */
   IpPermissions?: IpPermission[];
 
@@ -6567,40 +6568,37 @@ export interface AuthorizeSecurityGroupEgressRequest {
 
   /**
    * @public
-   * <p>Not supported. Use a set of IP permissions to specify the CIDR.</p>
+   * <p>Not supported. Use IP permissions instead.</p>
    */
   CidrIp?: string;
 
   /**
    * @public
-   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   * <p>Not supported. Use IP permissions instead.</p>
    */
   FromPort?: number;
 
   /**
    * @public
-   * <p>Not supported. Use a set of IP permissions to specify the protocol name or
-   *             number.</p>
+   * <p>Not supported. Use IP permissions instead.</p>
    */
   IpProtocol?: string;
 
   /**
    * @public
-   * <p>Not supported. Use a set of IP permissions to specify the port.</p>
+   * <p>Not supported. Use IP permissions instead.</p>
    */
   ToPort?: number;
 
   /**
    * @public
-   * <p>Not supported. Use a set of IP permissions to specify a
-   *             destination security group.</p>
+   * <p>Not supported. Use IP permissions instead.</p>
    */
   SourceSecurityGroupName?: string;
 
   /**
    * @public
-   * <p>Not supported. Use a set of IP permissions to specify a
-   *             destination security group.</p>
+   * <p>Not supported. Use IP permissions instead.</p>
    */
   SourceSecurityGroupOwnerId?: string;
 }
@@ -6681,16 +6679,15 @@ export interface SecurityGroupRule {
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
-   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+   *             If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
    */
   FromPort?: number;
 
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 codes.
-   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+   *             If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).
+   *             If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
    */
   ToPort?: number;
 
@@ -6754,80 +6751,74 @@ export interface AuthorizeSecurityGroupEgressResult {
 export interface AuthorizeSecurityGroupIngressRequest {
   /**
    * @public
-   * <p>The IPv4 address range, in CIDR format. You can't specify this parameter when specifying a source
-   *       security group. To specify an IPv6 address range, use a set of IP permissions.</p>
-   *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+   * <p>The IPv4 address range, in CIDR format.</p>
+   *          <p>To specify an IPv6 address range, use IP permissions instead.</p>
+   *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    */
   CidrIp?: string;
 
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *            If the protocol is ICMP, this is the type number. A value of -1 indicates all ICMP types.
-   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
-   *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+   *            If the protocol is ICMP, this is the ICMP type or -1 (all ICMP types).</p>
+   *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    */
   FromPort?: number;
 
   /**
    * @public
-   * <p>The ID of the security group. You must specify either the security group ID or the
-   * 			security group name in the request. For security groups in a nondefault VPC, you must
-   * 			specify the security group ID.</p>
+   * <p>The ID of the security group.</p>
    */
   GroupId?: string;
 
   /**
    * @public
-   * <p>[Default VPC] The name of the security group. You must specify either the
-   *             security group ID or the security group name in the request. For security groups in a
-   *             nondefault VPC, you must specify the security group ID.</p>
+   * <p>[Default VPC] The name of the security group. For security groups for a default VPC
+   *          you can specify either the ID or the name of the security group. For security groups for
+   *          a nondefault VPC, you must specify the ID of the security group.</p>
    */
   GroupName?: string;
 
   /**
    * @public
-   * <p>The sets of IP permissions.</p>
+   * <p>The permissions for the security group rules.</p>
    */
   IpPermissions?: IpPermission[];
 
   /**
    * @public
    * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number
-   *       (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify <code>icmpv6</code>, use a set of IP permissions.</p>
-   *          <p>Use <code>-1</code> to specify all protocols. If you specify <code>-1</code> or a
-   *          protocol other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports
-   *          is allowed, regardless of any ports you specify.</p>
-   *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+   *       (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify all protocols, use <code>-1</code>.</p>
+   *          <p>To specify <code>icmpv6</code>, use IP permissions instead.</p>
+   *          <p>If you specify a protocol other than one of the supported values, traffic is allowed
+   *          on all ports, regardless of any ports that you specify.</p>
+   *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    */
   IpProtocol?: string;
 
   /**
    * @public
-   * <p>[Default VPC] The name of the source security group. You can't specify this parameter
-   *          in combination with the following parameters: the CIDR IP address range, the start of the port range,
-   *          the IP protocol, and the end of the port range. Creates rules that grant full ICMP, UDP, and TCP access.
-   *          To create a rule with a specific IP protocol and port range, use a set of IP permissions instead.
-   *          The source security group must be in the same VPC.</p>
+   * <p>[Default VPC] The name of the source security group.</p>
+   *          <p>The rule grants full ICMP, UDP, and TCP access. To create a rule with a specific protocol
+   *              and port range, specify a set of IP permissions instead.</p>
    */
   SourceSecurityGroupName?: string;
 
   /**
    * @public
-   * <p>[Nondefault VPC] The Amazon Web Services account ID for the source security group, if the source security group is
-   *          in a different account. You can't specify this parameter in combination with the following parameters:
-   *          the CIDR IP address range, the IP protocol, the start of the port range, and the end of the port range.
-   *          Creates rules that grant full ICMP, UDP, and TCP access. To create a rule with a specific IP protocol
-   *          and port range, use a set of IP permissions instead.</p>
+   * <p>The Amazon Web Services account ID for the source security group, if the source security group is
+   *          in a different account.</p>
+   *          <p>The rule grants full ICMP, UDP, and TCP access. To create a rule with a specific protocol
+   *          and port range, use IP permissions instead.</p>
    */
   SourceSecurityGroupOwnerId?: string;
 
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *            If the protocol is ICMP, this is the code. A value of -1 indicates all ICMP codes.
-   *            If you specify all ICMP types, you must specify all ICMP codes.</p>
-   *          <p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+   *            If the protocol is ICMP, this is the ICMP code or -1 (all ICMP codes).
+   *            If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
+   *          <p>To specify multiple rules and descriptions for the rules, use IP permissions instead.</p>
    */
   ToPort?: number;
 
@@ -6841,7 +6832,7 @@ export interface AuthorizeSecurityGroupIngressRequest {
 
   /**
    * @public
-   * <p>[VPC Only] The tags applied to the security group rule.</p>
+   * <p>The tags applied to the security group rule.</p>
    */
   TagSpecifications?: TagSpecification[];
 }
@@ -6865,23 +6856,21 @@ export interface AuthorizeSecurityGroupIngressResult {
 
 /**
  * @public
- * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed
- *       AMI.</p>
+ * <p>Describes the storage parameters for Amazon S3 and Amazon S3 buckets for an instance store-backed AMI.</p>
  */
 export interface S3Storage {
   /**
    * @public
    * <p>The access key ID of the owner of the bucket. Before you specify a value for your access
-   *       key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best Practices for Amazon Web Services
-   *         accounts</a> in the <i>Account ManagementReference Guide</i>.</p>
+   *        key ID, review and follow the guidance in <a href="https://docs.aws.amazon.com/accounts/latest/reference/best-practices.html">Best
+   *          Practices for Amazon Web Services accounts</a> in the <i>Account ManagementReference
+   *            Guide</i>.</p>
    */
   AWSAccessKeyId?: string;
 
   /**
    * @public
-   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a
-   *       new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone
-   *       else, Amazon EC2 returns an error.</p>
+   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.</p>
    */
   Bucket?: string;
 
@@ -6893,8 +6882,7 @@ export interface S3Storage {
 
   /**
    * @public
-   * <p>An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your
-   *       behalf.</p>
+   * <p>An Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.</p>
    */
   UploadPolicy?: Uint8Array;
 
@@ -6931,9 +6919,7 @@ export interface BundleInstanceRequest {
 
   /**
    * @public
-   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a
-   *       new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone
-   *       else, Amazon EC2 returns an error.</p>
+   * <p>The bucket in which to store the AMI. You can specify a bucket that you already own or a new bucket that Amazon EC2 creates on your behalf. If you specify a bucket that belongs to someone else, Amazon EC2 returns an error.</p>
    */
   Storage: Storage | undefined;
 
@@ -7843,9 +7829,9 @@ export interface CopyFpgaImageResult {
 export interface CopyImageRequest {
   /**
    * @public
-   * <p>Unique, case-sensitive identifier you provide to ensure idempotency of the request. For
-   *       more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
-   *       in the <i>Amazon EC2 API Reference</i>.</p>
+   * <p>Unique, case-sensitive identifier you provide to ensure
+   *        idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">Ensuring idempotency</a>
+   *        in the <i>Amazon EC2 API Reference</i>.</p>
    */
   ClientToken?: string;
 
@@ -7860,16 +7846,16 @@ export interface CopyImageRequest {
    * <p>Specifies whether the destination snapshots of the copied image should be encrypted. You
    *       can encrypt a copy of an unencrypted snapshot, but you cannot create an unencrypted copy of an
    *       encrypted snapshot. The default KMS key for Amazon EBS is used unless you specify a non-default
-   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
-   *         <i>Amazon EC2 User Guide</i>.</p>
+   *       Key Management Service (KMS) KMS key using <code>KmsKeyId</code>. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
+   *         <i>Amazon EBS User Guide</i>.</p>
    */
   Encrypted?: boolean;
 
   /**
    * @public
-   * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating encrypted volumes.
-   *       If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used. If you
-   *       specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
+   * <p>The identifier of the symmetric Key Management Service (KMS) KMS key to use when creating
+   *    		encrypted volumes. If this parameter is not specified, your Amazon Web Services managed KMS key for Amazon EBS is used.
+   *    		If you specify a KMS key, you must also set the encrypted state to <code>true</code>.</p>
    *          <p>You can specify a KMS key using any of the following:</p>
    *          <ul>
    *             <li>
@@ -7885,8 +7871,8 @@ export interface CopyImageRequest {
    *                <p>Alias ARN. For example, arn:aws:kms:us-east-1:012345678910:alias/ExampleAlias.</p>
    *             </li>
    *          </ul>
-   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier
-   *       that is not valid, the action can appear to complete, but eventually fails.</p>
+   *          <p>Amazon Web Services authenticates the KMS key asynchronously. Therefore, if you specify an identifier that is not valid,
+   *       the action can appear to complete, but eventually fails.</p>
    *          <p>The specified KMS key must exist in the destination Region.</p>
    *          <p>Amazon EBS does not support asymmetric KMS keys.</p>
    */
@@ -7912,12 +7898,13 @@ export interface CopyImageRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this
-   *       parameter when copying an AMI from an Amazon Web Services Region to an Outpost. The AMI must be in the
-   *       Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from
-   *       one Outpost to another, or within the same Outpost.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copy AMIs from an Amazon Web Services
-   *         Region to an Outpost</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only
+   *   		specify this parameter when copying an AMI from an Amazon Web Services Region to an Outpost.
+   *   		The AMI must be in the Region of the destination Outpost. You cannot copy an
+   *   		AMI from an Outpost to a Region, from one Outpost to another, or within the same
+   *   		Outpost.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-amis">Copy AMIs from an Amazon Web Services
+   *         Region to an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
 
@@ -7957,7 +7944,7 @@ export interface CopyImageRequest {
    *             </li>
    *             <li>
    *                <p>To tag the new snapshots, the value for <code>ResourceType</code> must be
-   *             <code>snapshot</code>. The same tag is applied to all the new snapshots.</p>
+   *           <code>snapshot</code>. The same tag is applied to all the new snapshots.</p>
    *             </li>
    *          </ul>
    *          <p>If you specify other values for <code>ResourceType</code>, the request fails.</p>
@@ -7995,9 +7982,9 @@ export interface CopySnapshotRequest {
    * 		The snapshot must be in the Region for the destination Outpost. You cannot copy a
    * 		snapshot from an Outpost to a Region, from one Outpost to another, or within the same
    * 		Outpost.</p>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#copy-snapshots">
    *   		Copy snapshots from an Amazon Web Services Region to an Outpost</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *   		<i>Amazon EBS User Guide</i>.</p>
    */
   DestinationOutpostArn?: string;
 
@@ -8018,8 +8005,8 @@ export interface CopySnapshotRequest {
    * <p>To encrypt a copy of an unencrypted snapshot if encryption by default is not enabled,
    *       enable encryption using this parameter. Otherwise, omit this parameter. Encrypted snapshots
    *       are encrypted, even if you omit this parameter and encryption by default is not enabled. You
-   *       cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html">Amazon EBS encryption</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       cannot set this parameter to false. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html">Amazon EBS encryption</a> in the
+   *       <i>Amazon EBS User Guide</i>.</p>
    */
   Encrypted?: boolean;
 

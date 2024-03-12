@@ -1071,7 +1071,7 @@ export interface Subnet {
   /**
    * @public
    * <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
-   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
    * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   MapPublicIpOnLaunch?: boolean;
@@ -3959,10 +3959,10 @@ export interface CreateFlowLogsRequest {
 
   /**
    * @public
-   * <p>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to a CloudWatch Logs log group in
-   *             your account.</p>
-   *          <p>This parameter is required if the destination type is <code>cloud-watch-logs</code>
-   *             and unsupported otherwise.</p>
+   * <p>The ARN of the IAM role that allows Amazon EC2 to publish flow logs to the log destination.</p>
+   *          <p>This parameter is required if the destination type is <code>cloud-watch-logs</code>,
+   *             or if the destination type is <code>kinesis-data-firehose</code> and the delivery stream
+   *             and the resources to monitor are in different accounts.</p>
    */
   DeliverLogsPermissionArn?: string;
 
@@ -4280,8 +4280,8 @@ export interface EbsBlockDevice {
 
   /**
    * @public
-   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *                 <i>Amazon EC2 User Guide</i>.</p>
+   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the
+   *                 <i>Amazon EBS User Guide</i>.</p>
    */
   VolumeType?: VolumeType;
 
@@ -4314,10 +4314,10 @@ export interface EbsBlockDevice {
    * @public
    * <p>Indicates whether the encryption state of an EBS volume is changed while being
    *             restored from a backing snapshot. The effect of setting the encryption state to <code>true</code> depends on
-   * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-parameters">Amazon EBS encryption</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption.html#encryption-parameters">Amazon EBS encryption</a> in the <i>Amazon EBS User Guide</i>.</p>
    *          <p>In no case can you remove encryption from an encrypted volume.</p>
    *          <p>Encrypted volumes can only be attached to instances that support Amazon EBS encryption. For
-   *             more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported instance types</a>.</p>
+   *             more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances">Supported instance types</a>.</p>
    *          <p>This parameter is not returned by <a>DescribeImageAttribute</a>.</p>
    *          <p>For <a>CreateImage</a> and <a>RegisterImage</a>, whether you can
    *             include this parameter, and the allowed values differ depending on the type of block
@@ -4447,29 +4447,27 @@ export interface CreateImageRequest {
   /**
    * @public
    * <p>A name for the new image.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces
-   *       ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or
-   *       underscores(_)</p>
+   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>Indicates whether or not the instance should be automatically rebooted before creating the
-   *       image. Specify one of the following values:</p>
+   * <p>Indicates whether or not the instance should be automatically rebooted before creating
+   *        the image. Specify one of the following values:</p>
    *          <ul>
    *             <li>
    *                <p>
    *                   <code>true</code> - The instance is not rebooted before creating the image. This
-   *           creates crash-consistent snapshots that include only the data that has been written to the
-   *           volumes at the time the snapshots are created. Buffered data and data in memory that has
-   *           not yet been written to the volumes is not included in the snapshots.</p>
+   *            creates crash-consistent snapshots that include only the data that has been written
+   *            to the volumes at the time the snapshots are created. Buffered data and data in
+   *            memory that has not yet been written to the volumes is not included in the snapshots.</p>
    *             </li>
    *             <li>
    *                <p>
-   *                   <code>false</code> - The instance is rebooted before creating the image. This ensures
-   *           that all buffered data and data in memory is written to the volumes before the snapshots
-   *           are created.</p>
+   *                   <code>false</code> - The instance is rebooted before creating the image. This
+   *            ensures that all buffered data and data in memory is written to the volumes before the
+   *            snapshots are created.</p>
    *             </li>
    *          </ul>
    *          <p>Default: <code>false</code>
@@ -4487,8 +4485,8 @@ export interface CreateImageRequest {
    *           <code>image</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes
-   *           that are attached to the instance, the value for <code>ResourceType</code> must be
+   *                <p>To tag the snapshots that are created of the root volume and of other Amazon EBS volumes that
+   *           are attached to the instance, the value for <code>ResourceType</code> must be
    *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
    *           created.</p>
    *             </li>
@@ -6330,8 +6328,8 @@ export interface LaunchTemplateEbsBlockDeviceRequest {
 
   /**
    * @public
-   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *                 <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the
+   *                 <i>Amazon EBS User Guide</i>.</p>
    */
   VolumeType?: VolumeType;
 
@@ -7054,7 +7052,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecificationRequest {
   /**
    * @public
    * <p>Associates a public IPv4 address with eth0 for a new network interface.</p>
-   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
    * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   AssociatePublicIpAddress?: boolean;
@@ -8468,7 +8466,7 @@ export interface LaunchTemplateInstanceNetworkInterfaceSpecification {
    * @public
    * <p>Indicates whether to associate a public IPv4 address with eth0 for a new network
    *             interface.</p>
-   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
    * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   AssociatePublicIpAddress?: boolean;

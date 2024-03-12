@@ -952,13 +952,12 @@ export interface CreateRestoreImageTaskRequest {
    *       snapshots, or both.</p>
    *          <ul>
    *             <li>
-   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be
-   *           <code>image</code>.</p>
+   *                <p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p>
    *             </li>
    *             <li>
-   *                <p>To tag the snapshots, the value for <code>ResourceType</code> must be
-   *             <code>snapshot</code>. The same tag is applied to all of the snapshots that are
-   *           created.</p>
+   *                <p>To
+   *           tag the snapshots, the value for <code>ResourceType</code> must be <code>snapshot</code>. The
+   *           same tag is applied to all of the snapshots that are created.</p>
    *             </li>
    *          </ul>
    */
@@ -1486,7 +1485,7 @@ export interface CreateSnapshotRequest {
    *   			the same Outpost as the volume.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot">Create local snapshots from volumes on an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-snapshot">Create local snapshots from volumes on an Outpost</a> in the <i>Amazon EBS User Guide</i>.</p>
    */
   OutpostArn?: string;
 
@@ -1653,8 +1652,8 @@ export interface Snapshot {
 
   /**
    * @public
-   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *   		<i>Amazon EBS User Guide</i>.</p>
    */
   OutpostArn?: string;
 
@@ -1763,9 +1762,9 @@ export interface CreateSnapshotsRequest {
    *   				be created on the same Outpost as the instance.</p>
    *             </li>
    *          </ul>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot">
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#create-multivol-snapshot">
    *   		Create multi-volume local snapshots from instances on an Outpost</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *   		<i>Amazon EBS User Guide</i>.</p>
    */
   OutpostArn?: string;
 
@@ -1859,8 +1858,8 @@ export interface SnapshotInfo {
 
   /**
    * @public
-   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
-   *   		<i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>The ARN of the Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html">Amazon EBS local snapshots on Outposts</a> in the
+   *   		<i>Amazon EBS User Guide</i>.</p>
    */
   OutpostArn?: string;
 
@@ -3073,8 +3072,10 @@ export interface TransitGatewayRequestOptions {
 
   /**
    * @public
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
-   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
@@ -3184,8 +3185,10 @@ export interface TransitGatewayOptions {
 
   /**
    * @public
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
-   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
@@ -4532,11 +4535,13 @@ export interface CreateTransitGatewayVpcAttachmentRequestOptions {
 
   /**
    * @public
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    *          <p>If you don't enable or disable SecurityGroupReferencingSupport in the request, the
    *          attachment will inherit the security group referencing support setting on the transit
    *          gateway.</p>
-   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
@@ -5415,10 +5420,10 @@ export interface CreateVolumeRequest {
    * <p>Indicates whether the volume should be encrypted.
    *       The effect of setting the encryption state to <code>true</code> depends on
    * the volume origin (new or from a snapshot), starting encryption state, ownership, and whether encryption by default is enabled.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#encryption-by-default">Encryption by default</a>
-   *       in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *       For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/work-with-ebs-encr.html#encryption-by-default">Encryption by default</a>
+   *       in the <i>Amazon EBS User Guide</i>.</p>
    *          <p>Encrypted Amazon EBS volumes must be attached to instances that support Amazon EBS encryption.
-   *       For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_supported_instances">Supported
+   *       For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-encryption-requirements.html#ebs-encryption_supported_instances">Supported
    *         instance types</a>.</p>
    */
   Encrypted?: boolean;
@@ -5547,8 +5552,8 @@ export interface CreateVolumeRequest {
    *          <important>
    *             <p>Throughput Optimized HDD (<code>st1</code>) and Cold HDD (<code>sc1</code>) volumes can't be used as boot volumes.</p>
    *          </important>
-   *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the
-   *       <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the
+   *       <i>Amazon EBS User Guide</i>.</p>
    *          <p>Default: <code>gp2</code>
    *          </p>
    */
@@ -5573,8 +5578,8 @@ export interface CreateVolumeRequest {
    * <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the
    *     	volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is
    *     	supported with <code>io1</code> and <code>io2</code> volumes only. For more information,
-   *     	see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
-   *     		Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   *     	see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
+   *     		Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
    */
   MultiAttachEnabled?: boolean;
 

@@ -33,7 +33,7 @@ export interface DescribeSecurityGroupReferencesCommandOutput
 
 /**
  * @public
- * <p>Describes the VPCs on the other side of a VPC peering connection or the VPCs attached to a transit gateway that are referencing the security groups you've specified in this request.</p>
+ * <p>Describes the VPCs on the other side of a VPC peering connection that are referencing the security groups you've specified in this request.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

@@ -3132,8 +3132,8 @@ export interface ImportVolumeResult {
 export interface ListImagesInRecycleBinRequest {
   /**
    * @public
-   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that are in the
-   *       Recycle Bin. You can specify up to 20 IDs in a single request.</p>
+   * <p>The IDs of the AMIs to list. Omit this parameter to list all of the AMIs that
+   *       are in the Recycle Bin. You can specify up to 20 IDs in a single request.</p>
    */
   ImageIds?: string[];
 
@@ -4287,15 +4287,13 @@ export interface ModifyIdFormatRequest {
 export interface LaunchPermissionModifications {
   /**
    * @public
-   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of
-   *       launch permissions for the AMI.</p>
+   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to add to the list of launch permissions for the AMI.</p>
    */
   Add?: LaunchPermission[];
 
   /**
    * @public
-   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of
-   *       launch permissions for the AMI.</p>
+   * <p>The Amazon Web Services account ID, organization ARN, or OU ARN to remove from the list of launch permissions for the AMI.</p>
    */
   Remove?: LaunchPermission[];
 }
@@ -4308,8 +4306,7 @@ export interface ModifyImageAttributeRequest {
   /**
    * @public
    * <p>The name of the attribute to modify.</p>
-   *          <p>Valid values: <code>description</code> | <code>imdsSupport</code> |
-   *         <code>launchPermission</code>
+   *          <p>Valid values: <code>description</code> | <code>imdsSupport</code> | <code>launchPermission</code>
    *          </p>
    */
   Attribute?: string;
@@ -4334,8 +4331,8 @@ export interface ModifyImageAttributeRequest {
 
   /**
    * @public
-   * <p>The operation type. This parameter can be used only when the <code>Attribute</code>
-   *       parameter is <code>launchPermission</code>.</p>
+   * <p>The operation type.
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
   OperationType?: OperationType;
 
@@ -4347,23 +4344,22 @@ export interface ModifyImageAttributeRequest {
 
   /**
    * @public
-   * <p>The user groups. This parameter can be used only when the <code>Attribute</code> parameter
-   *       is <code>launchPermission</code>.</p>
+   * <p>The user groups.
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
   UserGroups?: string[];
 
   /**
    * @public
-   * <p>The Amazon Web Services account IDs. This parameter can be used only when the
-   *         <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * <p>The Amazon Web Services account IDs.
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
   UserIds?: string[];
 
   /**
    * @public
-   * <p>The value of the attribute being modified. This parameter can be used only when the
-   *         <code>Attribute</code> parameter is <code>description</code> or
-   *       <code>imdsSupport</code>.</p>
+   * <p>The value of the attribute being modified.
+   *        This parameter can be used only when the <code>Attribute</code> parameter is <code>description</code> or <code>imdsSupport</code>.</p>
    */
   Value?: string;
 
@@ -4377,15 +4373,13 @@ export interface ModifyImageAttributeRequest {
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when
-   *       the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of an organization. This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
   OrganizationArns?: string[];
 
   /**
    * @public
-   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used
-   *       only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
+   * <p>The Amazon Resource Name (ARN) of an organizational unit (OU). This parameter can be used only when the <code>Attribute</code> parameter is <code>launchPermission</code>.</p>
    */
   OrganizationalUnitArns?: string[];
 
@@ -4393,13 +4387,13 @@ export interface ModifyImageAttributeRequest {
    * @public
    * <p>Set to <code>v2.0</code> to indicate that IMDSv2 is specified in the AMI. Instances
    *       launched from this AMI will have <code>HttpTokens</code> automatically set to
-   *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
+   *       <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
    *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
-   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *       <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <important>
-   *             <p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the
-   *         value to <code>v2.0</code>, you can't undo it. The only way to “reset” your AMI is to create
-   *         a new AMI from the underlying snapshot.</p>
+   *             <p>Do not use this parameter unless your AMI software supports IMDSv2. After you set the value to <code>v2.0</code>,
+   *         you can't undo it. The only way to “reset” your AMI is to create a new AMI from the underlying snapshot.</p>
    *          </important>
    */
   ImdsSupport?: AttributeValue;
@@ -5065,8 +5059,6 @@ export interface ModifyInstanceMetadataOptionsRequest {
    *             metadata. Set to <code>disabled</code> to turn off access to instance tags from the
    *             instance metadata. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#work-with-tags-in-IMDS">Work with
    *                 instance tags using the instance metadata</a>.</p>
-   *          <p>Default: <code>disabled</code>
-   *          </p>
    */
   InstanceMetadataTags?: InstanceMetadataTagsState;
 }
@@ -5898,16 +5890,15 @@ export interface SecurityGroupRuleRequest {
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *             If the protocol is ICMP or ICMPv6, this is the type number. A value of -1 indicates all ICMP/ICMPv6 types.
-   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+   *             If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
    */
   FromPort?: number;
 
   /**
    * @public
    * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *             If the protocol is ICMP or ICMPv6, this is the code. A value of -1 indicates all ICMP/ICMPv6 codes.
-   *             If you specify all ICMP/ICMPv6 types, you must specify all ICMP/ICMPv6 codes.</p>
+   *             If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).
+   *             If the start port is -1 (all ICMP types), then the end port must be -1 (all ICMP codes).</p>
    */
   ToPort?: number;
 
@@ -6198,7 +6189,7 @@ export interface ModifySubnetAttributeRequest {
    * @public
    * <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the
    *             specified subnet should be assigned a public IPv4 address.</p>
-   *          <p>Starting on February 1, 2024, Amazon Web Services will charge for all public IPv4 addresses, including public IPv4 addresses
+   *          <p>Amazon Web Services charges for all public IPv4 addresses, including public IPv4 addresses
    * associated with running instances and Elastic IP addresses. For more information, see the <i>Public IPv4 Address</i> tab on the <a href="http://aws.amazon.com/vpc/pricing/">Amazon VPC pricing page</a>.</p>
    */
   MapPublicIpOnLaunch?: AttributeBooleanValue;
@@ -6544,8 +6535,10 @@ export interface ModifyTransitGatewayOptions {
 
   /**
    * @public
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
-   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-transit-gateways.html#create-tgw">Create a transit gateway</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
@@ -6691,8 +6684,10 @@ export interface ModifyTransitGatewayVpcAttachmentRequestOptions {
 
   /**
    * @public
-   * <p>Enables you to reference a security group across VPCs attached to a transit gateway (TGW). Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
-   *          <p>For important information about this feature, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-vpc-attachments.html#create-vpc-attachment">Create a transit gateway attachment to a VPC</a> in the <i>Amazon Web Services Transit Gateway Guide</i>.</p>
+   * <note>
+   *             <p>This parameter is in preview and may not be available for your account.</p>
+   *          </note>
+   *          <p>Enables you to reference a security group across VPCs attached to a transit gateway. Use this option to simplify security group management and control of instance-to-instance traffic across VPCs that are connected by transit gateway. You can also use this option to migrate from VPC peering (which was the only option that supported security group referencing) to transit gateways (which now also support security group referencing). This option is disabled by default and there are no additional costs to use this feature.</p>
    */
   SecurityGroupReferencingSupport?: SecurityGroupReferencingSupportValue;
 
@@ -7409,7 +7404,7 @@ export interface ModifyVolumeRequest {
 
   /**
    * @public
-   * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * <p>The target EBS volume type of the volume. For more information, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volume-types.html">Amazon EBS volume types</a> in the <i>Amazon EBS User Guide</i>.</p>
    *          <p>Default: The existing type is retained.</p>
    */
   VolumeType?: VolumeType;
@@ -7456,8 +7451,8 @@ export interface ModifyVolumeRequest {
    * 		volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">
    * 			Nitro-based instances</a> in the same Availability Zone. This parameter is
    * 		supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see
-   * 		<a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html">
-   * 			Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+   * 	  <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-volumes-multi.html">
+   * 			Amazon EBS Multi-Attach</a> in the <i>Amazon EBS User Guide</i>.</p>
    */
   MultiAttachEnabled?: boolean;
 }
@@ -8607,7 +8602,7 @@ export interface ProvisionByoipCidrRequest {
   /**
    * @public
    * <p>The public IPv4 or IPv6 address range, in CIDR notation. The most specific IPv4 prefix that you can
-   *          specify is /24. The most specific IPv6 prefix you can specify is /56. The address range cannot overlap with another address range that you've
+   *           specify is /24. The most specific IPv6 address range that you can bring is /48 for CIDRs that are publicly advertisable and /56 for CIDRs that are not publicly advertisable. The address range cannot overlap with another address range that you've
    *          brought to this or another Region.</p>
    */
   Cidr: string | undefined;
@@ -9147,29 +9142,28 @@ export interface RegisterImageRequest {
   /**
    * @public
    * <p>The full path to your AMI manifest in Amazon S3 storage. The specified bucket must have the
-   *         <code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be
-   *       accessed by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
-   *         <i>Amazon S3 Service Developer Guide</i>.</p>
+   *    		<code>aws-exec-read</code> canned access control list (ACL) to ensure that it can be accessed
+   *    		by Amazon EC2. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl">Canned ACLs</a> in the
+   *    		<i>Amazon S3 Service Developer Guide</i>.</p>
    */
   ImageLocation?: string;
 
   /**
    * @public
    * <p>The architecture of the AMI.</p>
-   *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>. For instance store-backed AMIs, the
-   *       architecture specified in the manifest file.</p>
+   *          <p>Default: For Amazon EBS-backed AMIs, <code>i386</code>.
+   *         For instance store-backed AMIs, the architecture specified in the manifest file.</p>
    */
   Architecture?: ArchitectureValues;
 
   /**
    * @public
    * <p>The block device mapping entries.</p>
-   *          <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the
-   *       encryption state of the volume.</p>
-   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost
-   *       or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can be used
-   *       to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami">Amazon EBS local
-   *         snapshots on Outposts</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *          <p>If you specify an Amazon EBS volume using the ID of an Amazon EBS snapshot, you can't specify the encryption state of the volume.</p>
+   *          <p>If you create an AMI on an Outpost, then all backing snapshots must be on the same
+   *       Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can
+   *       be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/ebs/latest/userguide/snapshots-outposts.html#ami">Amazon EBS local
+   *         snapshots on Outposts</a> in the <i>Amazon EBS User Guide</i>.</p>
    */
   BlockDeviceMappings?: BlockDeviceMapping[];
 
@@ -9189,10 +9183,8 @@ export interface RegisterImageRequest {
 
   /**
    * @public
-   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any
-   *       instances that you launch from the AMI.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make
-   *       instances launched from the AMI unreachable.</p>
+   * <p>Set to <code>true</code> to enable enhanced networking with ENA for the AMI and any instances that you launch from the AMI.</p>
+   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
    */
   EnaSupport?: boolean;
 
@@ -9205,21 +9197,18 @@ export interface RegisterImageRequest {
   /**
    * @public
    * <p>A name for your AMI.</p>
-   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces
-   *       ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or
-   *       underscores(_)</p>
+   *          <p>Constraints: 3-128 alphanumeric characters, parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes (/), dashes (-), single quotes ('), at-signs (@), or underscores(_)</p>
    */
   Name: string | undefined;
 
   /**
    * @public
-   * <p>The billing product codes. Your account must be authorized to specify billing product
-   *       codes.</p>
+   * <p>The billing product codes. Your account must be authorized to specify billing product codes.</p>
    *          <p>If your account is not authorized to specify billing product codes, you can publish AMIs
    *       that include billable software and list them on the Amazon Web Services Marketplace. You must first register as a seller
    *       on the Amazon Web Services Marketplace. For more information, see <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/user-guide-for-sellers.html">Getting started as a
-   *         seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based products</a> in the
-   *         <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
+   *         seller</a> and <a href="https://docs.aws.amazon.com/marketplace/latest/userguide/ami-products.html">AMI-based
+   *         products</a> in the <i>Amazon Web Services Marketplace Seller Guide</i>.</p>
    */
   BillingProducts?: string[];
 
@@ -9237,11 +9226,9 @@ export interface RegisterImageRequest {
 
   /**
    * @public
-   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual
-   *       Function interface for the AMI and any instances that you launch from the AMI.</p>
+   * <p>Set to <code>simple</code> to enable enhanced networking with the Intel 82599 Virtual Function interface for the AMI and any instances that you launch from the AMI.</p>
    *          <p>There is no way to disable <code>sriovNetSupport</code> at this time.</p>
-   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make
-   *       instances launched from the AMI unreachable.</p>
+   *          <p>This option is supported only for HVM AMIs. Specifying this option with a PV AMI can make instances launched from the AMI unreachable.</p>
    */
   SriovNetSupport?: string;
 
@@ -9255,11 +9242,9 @@ export interface RegisterImageRequest {
 
   /**
    * @public
-   * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI
-   *       supports both UEFI and Legacy BIOS.</p>
+   * <p>The boot mode of the AMI. A value of <code>uefi-preferred</code> indicates that the AMI supports both UEFI and Legacy BIOS.</p>
    *          <note>
-   *             <p>The operating system contained in the AMI must be configured to support the specified
-   *         boot mode.</p>
+   *             <p>The operating system contained in the AMI must be configured to support the specified boot mode.</p>
    *          </note>
    *          <p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html">Boot modes</a> in the
    *         <i>Amazon EC2 User Guide</i>.</p>
@@ -9289,10 +9274,10 @@ export interface RegisterImageRequest {
    *       launched from this AMI will have <code>HttpTokens</code> automatically set to
    *         <code>required</code> so that, by default, the instance requires that IMDSv2 is used when
    *       requesting instance metadata. In addition, <code>HttpPutResponseHopLimit</code> is set to
-   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
+   *         <code>2</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-IMDS-new-instances.html#configure-IMDS-new-instances-ami-configuration">Configure
+   *         the AMI</a> in the <i>Amazon EC2 User Guide</i>.</p>
    *          <note>
-   *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support
-   *         IMDSv2.</p>
+   *             <p>If you set the value to <code>v2.0</code>, make sure that your AMI software can support IMDSv2.</p>
    *          </note>
    */
   ImdsSupport?: ImdsSupportValues;

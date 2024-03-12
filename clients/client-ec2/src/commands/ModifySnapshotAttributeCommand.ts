@@ -34,8 +34,8 @@ export interface ModifySnapshotAttributeCommandOutput extends __MetadataBearer {
  *       you must use multiple operations. You can make up to 500 modifications to a snapshot in a single operation.</p>
  *          <p>Encrypted snapshots and snapshots with Amazon Web Services Marketplace product codes cannot be made
  *       public. Snapshots encrypted with your default KMS key cannot be shared with other accounts.</p>
- *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
- *         <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ *          <p>For more information about modifying snapshot permissions, see <a href="https://docs.aws.amazon.com/ebs/latest/userguide/ebs-modifying-snapshot-permissions.html">Share a snapshot</a> in the
+ *         <i>Amazon EBS User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
