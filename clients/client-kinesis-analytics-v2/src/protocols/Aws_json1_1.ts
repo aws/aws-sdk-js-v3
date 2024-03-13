@@ -1900,6 +1900,7 @@ const se_UpdateApplicationRequest = (input: UpdateApplicationRequest, context: _
     ConditionalToken: [],
     CurrentApplicationVersionId: [],
     RunConfigurationUpdate: _json,
+    RuntimeEnvironmentUpdate: [],
     ServiceExecutionRoleUpdate: [],
   });
 };
@@ -2193,6 +2194,7 @@ const de_RollbackApplicationResponse = (output: any, context: __SerdeContext): R
 const de_SnapshotDetails = (output: any, context: __SerdeContext): SnapshotDetails => {
   return take(output, {
     ApplicationVersionId: __expectLong,
+    RuntimeEnvironment: __expectString,
     SnapshotCreationTimestamp: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     SnapshotName: __expectString,
     SnapshotStatus: __expectString,

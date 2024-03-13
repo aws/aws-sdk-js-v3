@@ -37,8 +37,8 @@ export interface RollbackApplicationCommandOutput extends RollbackApplicationRes
  *         <p>You can roll back an application only if it is in the <code>UPDATING</code>
  *             or <code>AUTOSCALING</code> status.</p>
  *         <p>When you rollback an application, it loads state data from the last successful snapshot.
- *         If the application has no snapshots, Kinesis Data Analytics rejects the rollback request.</p>
- *         <p>This action is not supported for Kinesis Data Analytics for SQL applications.</p>
+ *         If the application has no snapshots, Managed Service for Apache Flink rejects the rollback request.</p>
+ *         <p>This action is not supported for Managed Service for Apache Flink for SQL applications.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

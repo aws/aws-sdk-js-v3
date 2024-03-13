@@ -32,7 +32,7 @@ export interface StartApplicationCommandOutput extends StartApplicationResponse,
 
 /**
  * @public
- * <p>Starts the specified Kinesis Data Analytics application. After creating an application, you must exclusively call this operation to
+ * <p>Starts the specified Managed Service for Apache Flink application. After creating an application, you must exclusively call this operation to
  *       start your application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

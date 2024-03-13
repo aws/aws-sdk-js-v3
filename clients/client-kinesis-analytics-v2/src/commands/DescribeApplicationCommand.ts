@@ -32,7 +32,7 @@ export interface DescribeApplicationCommandOutput extends DescribeApplicationRes
 
 /**
  * @public
- * <p>Returns information about a specific Kinesis Data Analytics application.</p>
+ * <p>Returns information about a specific Managed Service for Apache Flink application.</p>
  *          <p>If you want to retrieve a list of all applications in your account,
  *       use the <a>ListApplications</a> operation.</p>
  * @example

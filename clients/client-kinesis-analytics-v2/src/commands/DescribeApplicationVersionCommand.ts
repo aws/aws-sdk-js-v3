@@ -34,7 +34,7 @@ export interface DescribeApplicationVersionCommandOutput extends DescribeApplica
  * @public
  * <p>Provides a detailed description of a specified version of the application. To see a list of all the versions of an application, invoke the <a>ListApplicationVersions</a> operation.</p>
  *          <note>
- *             <p>This operation is supported only for Amazon Kinesis Data Analytics for Apache Flink.</p>
+ *             <p>This operation is supported only for Managed Service for Apache Flink.</p>
  *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

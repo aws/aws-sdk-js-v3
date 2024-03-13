@@ -37,7 +37,7 @@ export interface StopApplicationCommandOutput extends StopApplicationResponse, _
  *         parameter to <code>true</code>.</p>
  *          <p>You can use the <a>DescribeApplication</a> operation to find the application status.
  *        </p>
- *          <p>Kinesis Data Analytics takes a snapshot when the application is stopped, unless <code>Force</code> is set
+ *          <p>Managed Service for Apache Flink takes a snapshot when the application is stopped, unless <code>Force</code> is set
  *           to <code>true</code>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

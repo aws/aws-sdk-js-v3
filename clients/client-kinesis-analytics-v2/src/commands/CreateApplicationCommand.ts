@@ -32,8 +32,8 @@ export interface CreateApplicationCommandOutput extends CreateApplicationRespons
 
 /**
  * @public
- * <p>Creates a Kinesis Data Analytics application. For information about creating a
- *           Kinesis Data Analytics application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating an
+ * <p>Creates a Managed Service for Apache Flink application. For information about creating a
+ *           Managed Service for Apache Flink application, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/getting-started.html">Creating an
  *         Application</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

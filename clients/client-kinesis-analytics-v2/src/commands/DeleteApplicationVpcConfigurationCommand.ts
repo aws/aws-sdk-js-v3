@@ -40,7 +40,7 @@ export interface DeleteApplicationVpcConfigurationCommandOutput
 
 /**
  * @public
- * <p>Removes a VPC configuration from a Kinesis Data Analytics application.</p>
+ * <p>Removes a VPC configuration from a Managed Service for Apache Flink application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

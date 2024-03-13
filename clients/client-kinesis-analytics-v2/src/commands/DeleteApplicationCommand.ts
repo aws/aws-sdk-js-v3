@@ -32,7 +32,7 @@ export interface DeleteApplicationCommandOutput extends DeleteApplicationRespons
 
 /**
  * @public
- * <p>Deletes the specified application. Kinesis Data Analytics halts application execution and deletes the application.</p>
+ * <p>Deletes the specified application. Managed Service for Apache Flink halts application execution and deletes the application.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

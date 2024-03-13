@@ -41,7 +41,7 @@ export interface DeleteApplicationCloudWatchLoggingOptionCommandOutput
 
 /**
  * @public
- * <p>Deletes an Amazon CloudWatch log stream from an Kinesis Data Analytics application. </p>
+ * <p>Deletes an Amazon CloudWatch log stream from an SQL-based Kinesis Data Analytics application. </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript

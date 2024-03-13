@@ -32,7 +32,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * @public
- * <p>Removes one or more tags from a Kinesis Data Analytics application. For more information, see
+ * <p>Removes one or more tags from a Managed Service for Apache Flink application. For more information, see
  *         <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/how-tagging.html">Using Tagging</a>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

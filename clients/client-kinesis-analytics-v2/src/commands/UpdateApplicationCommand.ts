@@ -32,15 +32,10 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
 
 /**
  * @public
- * <p>Updates an existing Kinesis Data Analytics application. Using this operation, you
+ * <p>Updates an existing Managed Service for Apache Flink application. Using this operation, you
  *       can update application code, input configuration, and output configuration. </p>
- *          <p>Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you update
+ *          <p>Managed Service for Apache Flink updates the <code>ApplicationVersionId</code> each time you update
  *       your application. </p>
- *          <note>
- *             <p>You cannot update the <code>RuntimeEnvironment</code> of an existing application. If you
- *     need to update an application's <code>RuntimeEnvironment</code>, you must delete the application
- *     and create it again.</p>
- *          </note>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -249,6 +244,7 @@ export interface UpdateApplicationCommandOutput extends UpdateApplicationRespons
  *     },
  *   ],
  *   ConditionalToken: "STRING_VALUE",
+ *   RuntimeEnvironmentUpdate: "SQL-1_0" || "FLINK-1_6" || "FLINK-1_8" || "ZEPPELIN-FLINK-1_0" || "FLINK-1_11" || "FLINK-1_13" || "ZEPPELIN-FLINK-2_0" || "FLINK-1_15" || "ZEPPELIN-FLINK-3_0",
  * };
  * const command = new UpdateApplicationCommand(input);
  * const response = await client.send(command);

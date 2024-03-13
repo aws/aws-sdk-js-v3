@@ -28,7 +28,7 @@ export interface AddApplicationCloudWatchLoggingOptionRequest {
 
   /**
    * @public
-   * <p>The version ID of the Kinesis Data Analytics application. You must provide the
+   * <p>The version ID of the SQL-based Kinesis Data Analytics application. You must provide the
    *         <code>CurrentApplicationVersionId</code> or the <code>ConditionalToken</code>.You can
    *       retrieve the application version ID using <a>DescribeApplication</a>. For better
    *       concurrency support, use the <code>ConditionalToken</code> parameter instead of
@@ -94,7 +94,7 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
 
   /**
    * @public
-   * <p>The new version ID of the Kinesis Data Analytics application. Kinesis Data Analytics
+   * <p>The new version ID of the SQL-based Kinesis Data Analytics application. Kinesis Data Analytics
    *       updates the <code>ApplicationVersionId</code> each time you change the CloudWatch logging
    *       options. </p>
    */
@@ -102,7 +102,7 @@ export interface AddApplicationCloudWatchLoggingOptionResponse {
 
   /**
    * @public
-   * <p>The descriptions of the current CloudWatch logging options for the Kinesis Data Analytics application.</p>
+   * <p>The descriptions of the current CloudWatch logging options for the SQL-based Kinesis Data Analytics application.</p>
    */
   CloudWatchLoggingOptionDescriptions?: CloudWatchLoggingOptionDescription[];
 }
@@ -1149,7 +1149,7 @@ export interface AddApplicationOutputResponse {
  * <p>For a SQL-based Kinesis Data Analytics application, identifies the Amazon S3
  *       bucket and object that contains the reference data.</p>
  *
- *          <p>A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a>
+ *          <p>A SQL-based Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a>
  *         operation to trigger reloading of data into your application. </p>
  */
 export interface S3ReferenceDataSource {
@@ -1184,7 +1184,7 @@ export interface ReferenceDataSource {
    * @public
    * <p>Identifies the S3 bucket and object that contains the reference data.
    *
-   *       A Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. </p>
+   *       A SQL-based Kinesis Data Analytics application loads reference data only once. If the data changes, you call the <a>UpdateApplication</a> operation to trigger reloading of data into your application. </p>
    */
   S3ReferenceDataSource?: S3ReferenceDataSource;
 
@@ -1419,7 +1419,7 @@ export interface AddApplicationVpcConfigurationResponse {
 
   /**
    * @public
-   * <p>Provides the current application version. Kinesis Data Analytics updates the ApplicationVersionId each
+   * <p>Provides the current application version. Managed Service for Apache Flink updates the ApplicationVersionId each
    *       time you update the application.</p>
    */
   ApplicationVersionId?: number;
@@ -1433,7 +1433,7 @@ export interface AddApplicationVpcConfigurationResponse {
 
 /**
  * @public
- * <p>For a Kinesis Data Analytics application provides a
+ * <p>For a Managed Service for Apache Flink application provides a
  *       description of an Amazon S3 object, including the Amazon Resource Name (ARN) of the S3 bucket,
  *       the name of the Amazon S3 object that contains the data, and the version number of the Amazon
  *       S3 object that contains the data. </p>
@@ -1461,18 +1461,18 @@ export interface S3ContentLocation {
 /**
  * @public
  * <p>Specifies either the application code, or the location of the application code, for a
- *       Flink-based Kinesis Data Analytics application. </p>
+ *       Managed Service for Apache Flink application. </p>
  */
 export interface CodeContent {
   /**
    * @public
-   * <p>The text-format code for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>The text-format code for a Managed Service for Apache Flink application.</p>
    */
   TextContent?: string;
 
   /**
    * @public
-   * <p>The zip-format code for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>The zip-format code for a Managed Service for Apache Flink application.</p>
    */
   ZipFileContent?: Uint8Array;
 
@@ -1541,7 +1541,7 @@ export interface S3ApplicationCodeLocationDescription {
 
 /**
  * @public
- * <p>Describes details about the code of a Kinesis Data Analytics application.</p>
+ * <p>Describes details about the code of a Managed Service for Apache Flink application.</p>
  */
 export interface CodeContentDescription {
   /**
@@ -1638,7 +1638,7 @@ export interface CodeContentUpdate {
 
 /**
  * @public
- * <p>Describes code configuration updates for an application. This is supported for a Flink-based Kinesis Data Analytics application or a SQL-based Kinesis Data Analytics application.</p>
+ * <p>Describes code configuration updates for an application. This is supported for a Managed Service for Apache Flink application or a SQL-based Kinesis Data Analytics application.</p>
  */
 export interface ApplicationCodeConfigurationUpdate {
   /**
@@ -1656,12 +1656,12 @@ export interface ApplicationCodeConfigurationUpdate {
 
 /**
  * @public
- * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
  */
 export interface ApplicationSnapshotConfiguration {
   /**
    * @public
-   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
    */
   SnapshotsEnabled: boolean | undefined;
 }
@@ -1686,7 +1686,7 @@ export interface PropertyGroup {
 
 /**
  * @public
- * <p>Describes execution properties for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes execution properties for a Managed Service for Apache Flink application.</p>
  */
 export interface EnvironmentProperties {
   /**
@@ -1722,7 +1722,7 @@ export type ConfigurationType = (typeof ConfigurationType)[keyof typeof Configur
 export interface CheckpointConfiguration {
   /**
    * @public
-   * <p>Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior.
+   * <p>Describes whether the application uses Managed Service for Apache Flink' default checkpointing behavior.
    *     You must set this property to <code>CUSTOM</code> in order to set the
    *       <code>CheckpointingEnabled</code>, <code>CheckpointInterval</code>, or <code>MinPauseBetweenCheckpoints</code> parameters.</p>
    *          <note>
@@ -1748,7 +1748,7 @@ export interface CheckpointConfiguration {
 
   /**
    * @public
-   * <p>Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether checkpointing is enabled for a Managed Service for Apache Flink application.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
    *     the application will use a <code>CheckpointingEnabled</code> value of <code>true</code>, even if this value
@@ -1845,7 +1845,7 @@ export interface MonitoringConfiguration {
 
 /**
  * @public
- * <p>Describes parameters for how a Flink-based Kinesis Data Analytics application
+ * <p>Describes parameters for how a Managed Service for Apache Flink application
  *       executes multiple tasks simultaneously. For more information about parallelism,
  *       see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html">Parallel Execution</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
  *         Documentation</a>.</p>
@@ -1853,15 +1853,15 @@ export interface MonitoringConfiguration {
 export interface ParallelismConfiguration {
   /**
    * @public
-   * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. You must set this property to <code>CUSTOM</code>
+   * <p>Describes whether the application uses the default parallelism for the Managed Service for Apache Flink service. You must set this property to <code>CUSTOM</code>
    *     in order to change your application's <code>AutoScalingEnabled</code>, <code>Parallelism</code>, or <code>ParallelismPerKPU</code> properties.</p>
    */
   ConfigurationType: ConfigurationType | undefined;
 
   /**
    * @public
-   * <p>Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform. If <code>AutoScalingEnabled</code>
-   *       is set to True, Kinesis Data Analytics increases the <code>CurrentParallelism</code> value in response to application
+   * <p>Describes the initial number of parallel tasks that a Managed Service for Apache Flink application can perform. If <code>AutoScalingEnabled</code>
+   *       is set to True, Managed Service for Apache Flink increases the <code>CurrentParallelism</code> value in response to application
    *     load. The service can increase the <code>CurrentParallelism</code> value up to the maximum parallelism, which is
    *       <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
    *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If
@@ -1872,22 +1872,22 @@ export interface ParallelismConfiguration {
 
   /**
    * @public
-   * <p>Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit
+   * <p>Describes the number of parallel tasks that a Managed Service for Apache Flink application can perform per Kinesis Processing Unit
    *       (KPU) used by the application. For more
-   *       information about KPUs, see <a href="http://aws.amazon.com/kinesis/data-analytics/pricing/">Amazon Kinesis Data Analytics Pricing</a>.</p>
+   *       information about KPUs, see <a href="http://aws.amazon.com/kinesis/data-analytics/pricing/">Amazon Managed Service for Apache Flink Pricing</a>.</p>
    */
   ParallelismPerKPU?: number;
 
   /**
    * @public
-   * <p>Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
+   * <p>Describes whether the Managed Service for Apache Flink service can increase the parallelism of the application in response to increased throughput.</p>
    */
   AutoScalingEnabled?: boolean;
 }
 
 /**
  * @public
- * <p>Describes configuration parameters for a Flink-based Kinesis Data Analytics application or a Studio notebook.</p>
+ * <p>Describes configuration parameters for a Managed Service for Apache Flink application or a Studio notebook.</p>
  */
 export interface FlinkApplicationConfiguration {
   /**
@@ -1956,12 +1956,12 @@ export interface GlueDataCatalogConfiguration {
 
 /**
  * @public
- * <p>The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+ * <p>The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface CatalogConfiguration {
   /**
    * @public
-   * <p>The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Managed Service for Apache Flink Studio notebook.</p>
    */
   GlueDataCatalogConfiguration: GlueDataCatalogConfiguration | undefined;
 }
@@ -2018,7 +2018,7 @@ export interface CustomArtifactConfiguration {
 
   /**
    * @public
-   * <p>For a Kinesis Data Analytics application provides a
+   * <p>For a Managed Service for Apache Flink application provides a
    *       description of an Amazon S3 object, including the Amazon Resource Name (ARN) of the S3 bucket,
    *       the name of the Amazon S3 object that contains the data, and the version number of the Amazon
    *       S3 object that contains the data. </p>
@@ -2052,7 +2052,7 @@ export interface S3ContentBaseLocation {
 
 /**
  * @public
- * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.</p>
+ * <p>The information required to deploy a Managed Service for Apache Flink Studio notebook as an application with durable state.</p>
  */
 export interface DeployAsApplicationConfiguration {
   /**
@@ -2065,7 +2065,7 @@ export interface DeployAsApplicationConfiguration {
 
 /**
  * @public
- * <p>Describes configuration parameters for Amazon CloudWatch logging for a Kinesis Data Analytics Studio notebook. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
+ * <p>Describes configuration parameters for Amazon CloudWatch logging for a Managed Service for Apache Flink Studio notebook. For more information about CloudWatch logging, see <a href="https://docs.aws.amazon.com/kinesisanalytics/latest/java/monitoring-overview.html">Monitoring</a>.</p>
  */
 export interface ZeppelinMonitoringConfiguration {
   /**
@@ -2077,24 +2077,24 @@ export interface ZeppelinMonitoringConfiguration {
 
 /**
  * @public
- * <p>The configuration of a Kinesis Data Analytics Studio notebook.</p>
+ * <p>The configuration of a Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface ZeppelinApplicationConfiguration {
   /**
    * @public
-   * <p>The monitoring configuration of a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The monitoring configuration of a Managed Service for Apache Flink Studio notebook.</p>
    */
   MonitoringConfiguration?: ZeppelinMonitoringConfiguration;
 
   /**
    * @public
-   * <p>The Amazon Glue Data Catalog that you use in queries in a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The Amazon Glue Data Catalog that you use in queries in a Managed Service for Apache Flink Studio notebook.</p>
    */
   CatalogConfiguration?: CatalogConfiguration;
 
   /**
    * @public
-   * <p>The information required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.</p>
+   * <p>The information required to deploy a Managed Service for Apache Flink Studio notebook as an application with durable state.</p>
    */
   DeployAsApplicationConfiguration?: DeployAsApplicationConfiguration;
 
@@ -2107,7 +2107,7 @@ export interface ZeppelinApplicationConfiguration {
 
 /**
  * @public
- * <p>Specifies the creation parameters for a Kinesis Data Analytics application.</p>
+ * <p>Specifies the creation parameters for a Managed Service for Apache Flink application.</p>
  */
 export interface ApplicationConfiguration {
   /**
@@ -2118,25 +2118,25 @@ export interface ApplicationConfiguration {
 
   /**
    * @public
-   * <p>The creation and update parameters for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>The creation and update parameters for a Managed Service for Apache Flink application.</p>
    */
   FlinkApplicationConfiguration?: FlinkApplicationConfiguration;
 
   /**
    * @public
-   * <p>Describes execution properties for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes execution properties for a Managed Service for Apache Flink application.</p>
    */
   EnvironmentProperties?: EnvironmentProperties;
 
   /**
    * @public
-   * <p>The code location and type parameters for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>The code location and type parameters for a Managed Service for Apache Flink application.</p>
    */
   ApplicationCodeConfiguration?: ApplicationCodeConfiguration;
 
   /**
    * @public
-   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
    */
   ApplicationSnapshotConfiguration?: ApplicationSnapshotConfiguration;
 
@@ -2148,19 +2148,19 @@ export interface ApplicationConfiguration {
 
   /**
    * @public
-   * <p>The configuration parameters for a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The configuration parameters for a Managed Service for Apache Flink Studio notebook.</p>
    */
   ZeppelinApplicationConfiguration?: ZeppelinApplicationConfiguration;
 }
 
 /**
  * @public
- * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
  */
 export interface ApplicationSnapshotConfigurationDescription {
   /**
    * @public
-   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
    */
   SnapshotsEnabled: boolean | undefined;
 }
@@ -2179,12 +2179,12 @@ export interface EnvironmentPropertyDescriptions {
 
 /**
  * @public
- * <p>Describes checkpointing parameters for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes checkpointing parameters for a Managed Service for Apache Flink application.</p>
  */
 export interface CheckpointConfigurationDescription {
   /**
    * @public
-   * <p>Describes whether the application uses the default checkpointing behavior in Kinesis Data Analytics. </p>
+   * <p>Describes whether the application uses the default checkpointing behavior in Managed Service for Apache Flink. </p>
    *          <note>
    *             <p>If this value is set to <code>DEFAULT</code>, the application will use the following values,
    *       even if they are set to other values using APIs or
@@ -2209,7 +2209,7 @@ export interface CheckpointConfigurationDescription {
 
   /**
    * @public
-   * <p>Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether checkpointing is enabled for a Managed Service for Apache Flink application.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
    *     the application will use a <code>CheckpointingEnabled</code> value of <code>true</code>, even if this value is set to
@@ -2268,20 +2268,20 @@ export interface MonitoringConfigurationDescription {
 
 /**
  * @public
- * <p>Describes parameters for how a Flink-based Kinesis Data Analytics application
+ * <p>Describes parameters for how a Managed Service for Apache Flink application
  *       executes multiple tasks simultaneously.</p>
  */
 export interface ParallelismConfigurationDescription {
   /**
    * @public
-   * <p>Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. </p>
+   * <p>Describes whether the application uses the default parallelism for the Managed Service for Apache Flink service. </p>
    */
   ConfigurationType?: ConfigurationType;
 
   /**
    * @public
-   * <p>Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-   *       If <code>AutoScalingEnabled</code> is set to True, then Kinesis Data Analytics can increase the <code>CurrentParallelism</code> value in response to application
+   * <p>Describes the initial number of parallel tasks that a Managed Service for Apache Flink application can perform.
+   *       If <code>AutoScalingEnabled</code> is set to True, then Managed Service for Apache Flink can increase the <code>CurrentParallelism</code> value in response to application
    *     load. The service can increase <code>CurrentParallelism</code> up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
    *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service can
    *     reduce the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
@@ -2290,15 +2290,15 @@ export interface ParallelismConfigurationDescription {
 
   /**
    * @public
-   * <p>Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per
+   * <p>Describes the number of parallel tasks that a Managed Service for Apache Flink application can perform per
    *       Kinesis Processing Unit (KPU) used by the application.</p>
    */
   ParallelismPerKPU?: number;
 
   /**
    * @public
-   * <p>Describes the current number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-   *       If <code>AutoScalingEnabled</code> is set to True, Kinesis Data Analytics can increase this value in response to application
+   * <p>Describes the current number of parallel tasks that a Managed Service for Apache Flink application can perform.
+   *       If <code>AutoScalingEnabled</code> is set to True, Managed Service for Apache Flink can increase this value in response to application
    *     load. The service can increase this value up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
    *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service can reduce
    *     the <code>CurrentParallelism</code> value down to the <code>Parallelism</code> setting.</p>
@@ -2307,14 +2307,14 @@ export interface ParallelismConfigurationDescription {
 
   /**
    * @public
-   * <p>Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.</p>
+   * <p>Describes whether the Managed Service for Apache Flink service can increase the parallelism of the application in response to increased throughput.</p>
    */
   AutoScalingEnabled?: boolean;
 }
 
 /**
  * @public
- * <p>Describes configuration parameters for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes configuration parameters for a Managed Service for Apache Flink application.</p>
  */
 export interface FlinkApplicationConfigurationDescription {
   /**
@@ -2382,7 +2382,7 @@ export interface ApplicationRestoreConfiguration {
 
 /**
  * @public
- * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes the starting parameters for a Managed Service for Apache Flink application.</p>
  */
 export interface FlinkRunConfiguration {
   /**
@@ -2406,7 +2406,7 @@ export interface FlinkRunConfiguration {
 
 /**
  * @public
- * <p>Describes the starting properties for a Kinesis Data Analytics application.</p>
+ * <p>Describes the starting properties for a Managed Service for Apache Flink application.</p>
  */
 export interface RunConfigurationDescription {
   /**
@@ -2417,7 +2417,7 @@ export interface RunConfigurationDescription {
 
   /**
    * @public
-   * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes the starting parameters for a Managed Service for Apache Flink application.</p>
    */
   FlinkRunConfigurationDescription?: FlinkRunConfiguration;
 }
@@ -2463,12 +2463,12 @@ export interface GlueDataCatalogConfigurationDescription {
 
 /**
  * @public
- * <p>The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Kinesis Data Analytics Studio notebook.</p>
+ * <p>The configuration parameters for the default Amazon Glue database. You use this database for Apache Flink SQL queries and table API transforms that you write in a Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface CatalogConfigurationDescription {
   /**
    * @public
-   * <p>The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Managed Service for Apache Flink Studio notebook.</p>
    */
   GlueDataCatalogConfigurationDescription: GlueDataCatalogConfigurationDescription | undefined;
 }
@@ -2487,7 +2487,7 @@ export interface CustomArtifactConfigurationDescription {
 
   /**
    * @public
-   * <p>For a Kinesis Data Analytics application provides a
+   * <p>For a Managed Service for Apache Flink application provides a
    *       description of an Amazon S3 object, including the Amazon Resource Name (ARN) of the S3 bucket,
    *       the name of the Amazon S3 object that contains the data, and the version number of the Amazon
    *       S3 object that contains the data. </p>
@@ -2533,7 +2533,7 @@ export interface DeployAsApplicationConfigurationDescription {
 
 /**
  * @public
- * <p>The monitoring configuration for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
+ * <p>The monitoring configuration for Apache Zeppelin within a Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface ZeppelinMonitoringConfigurationDescription {
   /**
@@ -2545,24 +2545,24 @@ export interface ZeppelinMonitoringConfigurationDescription {
 
 /**
  * @public
- * <p>The configuration of a Kinesis Data Analytics Studio notebook.</p>
+ * <p>The configuration of a Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface ZeppelinApplicationConfigurationDescription {
   /**
    * @public
-   * <p>The monitoring configuration of a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The monitoring configuration of a Managed Service for Apache Flink Studio notebook.</p>
    */
   MonitoringConfigurationDescription: ZeppelinMonitoringConfigurationDescription | undefined;
 
   /**
    * @public
-   * <p>The Amazon Glue Data Catalog that is associated with the Kinesis Data Analytics Studio notebook.</p>
+   * <p>The Amazon Glue Data Catalog that is associated with the Managed Service for Apache Flink Studio notebook.</p>
    */
   CatalogConfigurationDescription?: CatalogConfigurationDescription;
 
   /**
    * @public
-   * <p>The parameters required to deploy a Kinesis Data Analytics Studio notebook as an application with durable state.</p>
+   * <p>The parameters required to deploy a Managed Service for Apache Flink Studio notebook as an application with durable state.</p>
    */
   DeployAsApplicationConfigurationDescription?: DeployAsApplicationConfigurationDescription;
 
@@ -2575,7 +2575,7 @@ export interface ZeppelinApplicationConfigurationDescription {
 
 /**
  * @public
- * <p>Describes details about the application code and starting parameters for a Kinesis Data Analytics application.</p>
+ * <p>Describes details about the application code and starting parameters for a Managed Service for Apache Flink application.</p>
  */
 export interface ApplicationConfigurationDescription {
   /**
@@ -2586,31 +2586,31 @@ export interface ApplicationConfigurationDescription {
 
   /**
    * @public
-   * <p>The details about the application code for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>The details about the application code for a Managed Service for Apache Flink application.</p>
    */
   ApplicationCodeConfigurationDescription?: ApplicationCodeConfigurationDescription;
 
   /**
    * @public
-   * <p>The details about the starting properties for a Kinesis Data Analytics application.</p>
+   * <p>The details about the starting properties for a Managed Service for Apache Flink application.</p>
    */
   RunConfigurationDescription?: RunConfigurationDescription;
 
   /**
    * @public
-   * <p>The details about a Flink-based Kinesis Data Analytics application.</p>
+   * <p>The details about a Managed Service for Apache Flink application.</p>
    */
   FlinkApplicationConfigurationDescription?: FlinkApplicationConfigurationDescription;
 
   /**
    * @public
-   * <p>Describes execution properties for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes execution properties for a Managed Service for Apache Flink application.</p>
    */
   EnvironmentPropertyDescriptions?: EnvironmentPropertyDescriptions;
 
   /**
    * @public
-   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
    */
   ApplicationSnapshotConfigurationDescription?: ApplicationSnapshotConfigurationDescription;
 
@@ -2622,14 +2622,14 @@ export interface ApplicationConfigurationDescription {
 
   /**
    * @public
-   * <p>The configuration parameters for a Kinesis Data Analytics Studio notebook.</p>
+   * <p>The configuration parameters for a Managed Service for Apache Flink Studio notebook.</p>
    */
   ZeppelinApplicationConfigurationDescription?: ZeppelinApplicationConfigurationDescription;
 }
 
 /**
  * @public
- * <p>Describes updates to whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes updates to whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
  */
 export interface ApplicationSnapshotConfigurationUpdate {
   /**
@@ -2641,7 +2641,7 @@ export interface ApplicationSnapshotConfigurationUpdate {
 
 /**
  * @public
- * <p>Describes updates to the execution property groups for a Flink-based Kinesis Data Analytics application or a Studio notebook.</p>
+ * <p>Describes updates to the execution property groups for a Managed Service for Apache Flink application or a Studio notebook.</p>
  */
 export interface EnvironmentPropertyUpdates {
   /**
@@ -2653,13 +2653,13 @@ export interface EnvironmentPropertyUpdates {
 
 /**
  * @public
- * <p>Describes updates to the checkpointing parameters for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes updates to the checkpointing parameters for a Managed Service for Apache Flink application.</p>
  */
 export interface CheckpointConfigurationUpdate {
   /**
    * @public
    * <p>Describes updates to whether the application uses the default checkpointing behavior of
-   *       Kinesis Data Analytics. You must set this property to <code>CUSTOM</code> in order to set the
+   *       Managed Service for Apache Flink. You must set this property to <code>CUSTOM</code> in order to set the
    *       <code>CheckpointingEnabled</code>, <code>CheckpointInterval</code>, or <code>MinPauseBetweenCheckpoints</code> parameters.
    *       </p>
    *          <note>
@@ -2753,7 +2753,7 @@ export interface MonitoringConfigurationUpdate {
 export interface ParallelismConfigurationUpdate {
   /**
    * @public
-   * <p>Describes updates to whether the application uses the default parallelism for the Kinesis Data Analytics service, or if a custom parallelism is used.
+   * <p>Describes updates to whether the application uses the default parallelism for the Managed Service for Apache Flink service, or if a custom parallelism is used.
    *     You must set this property to <code>CUSTOM</code>
    *     in order to change your application's <code>AutoScalingEnabled</code>, <code>Parallelism</code>, or <code>ParallelismPerKPU</code> properties.</p>
    */
@@ -2762,7 +2762,7 @@ export interface ParallelismConfigurationUpdate {
   /**
    * @public
    * <p>Describes updates to the initial number of parallel tasks an application can perform. If <code>AutoScalingEnabled</code> is set to True, then
-   *       Kinesis Data Analytics can increase the <code>CurrentParallelism</code> value in response to application
+   *       Managed Service for Apache Flink can increase the <code>CurrentParallelism</code> value in response to application
    *     load. The service can increase <code>CurrentParallelism</code> up to the maximum parallelism, which is <code>ParalellismPerKPU</code> times the maximum KPUs for the application.
    *     The maximum KPUs for an application is 32 by default, and can be increased by requesting a limit increase. If application load is reduced, the service will
    *     reduce <code>CurrentParallelism</code> down to the <code>Parallelism</code> setting.</p>
@@ -2777,14 +2777,14 @@ export interface ParallelismConfigurationUpdate {
 
   /**
    * @public
-   * <p>Describes updates to whether the Kinesis Data Analytics service can increase the parallelism of a Flink-based Kinesis Data Analytics application in response to increased throughput.</p>
+   * <p>Describes updates to whether the Managed Service for Apache Flink service can increase the parallelism of a Managed Service for Apache Flink application in response to increased throughput.</p>
    */
   AutoScalingEnabledUpdate?: boolean;
 }
 
 /**
  * @public
- * <p>Describes updates to the configuration parameters for a Flink-based Kinesis Data Analytics application.</p>
+ * <p>Describes updates to the configuration parameters for a Managed Service for Apache Flink application.</p>
  */
 export interface FlinkApplicationConfigurationUpdate {
   /**
@@ -3165,7 +3165,7 @@ export interface VpcConfigurationUpdate {
 
 /**
  * @public
- * <p>Updates to the configuration of the Glue Data Catalog that you use for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+ * <p>Updates to the configuration of the Glue Data Catalog that you use for SQL queries that you write in a Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface GlueDataCatalogConfigurationUpdate {
   /**
@@ -3177,12 +3177,12 @@ export interface GlueDataCatalogConfigurationUpdate {
 
 /**
  * @public
- * <p>Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+ * <p>Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface CatalogConfigurationUpdate {
   /**
    * @public
-   * <p>Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Kinesis Data Analytics Studio notebook.</p>
+   * <p>Updates to the configuration parameters for the default Amazon Glue database. You use this database for SQL queries that you write in a Managed Service for Apache Flink Studio notebook.</p>
    */
   GlueDataCatalogConfigurationUpdate: GlueDataCatalogConfigurationUpdate | undefined;
 }
@@ -3219,30 +3219,30 @@ export interface DeployAsApplicationConfigurationUpdate {
 
 /**
  * @public
- * <p>Updates to the monitoring configuration for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
+ * <p>Updates to the monitoring configuration for Apache Zeppelin within a Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface ZeppelinMonitoringConfigurationUpdate {
   /**
    * @public
-   * <p>Updates to the logging level for Apache Zeppelin within a Kinesis Data Analytics Studio notebook.</p>
+   * <p>Updates to the logging level for Apache Zeppelin within a Managed Service for Apache Flink Studio notebook.</p>
    */
   LogLevelUpdate: LogLevel | undefined;
 }
 
 /**
  * @public
- * <p>Updates to the configuration of Kinesis Data Analytics Studio notebook.</p>
+ * <p>Updates to the configuration of Managed Service for Apache Flink Studio notebook.</p>
  */
 export interface ZeppelinApplicationConfigurationUpdate {
   /**
    * @public
-   * <p>Updates to the monitoring configuration of a Kinesis Data Analytics Studio notebook.</p>
+   * <p>Updates to the monitoring configuration of a Managed Service for Apache Flink Studio notebook.</p>
    */
   MonitoringConfigurationUpdate?: ZeppelinMonitoringConfigurationUpdate;
 
   /**
    * @public
-   * <p>Updates to the configuration of the Amazon Glue Data Catalog that is associated with the Kinesis Data Analytics Studio notebook.</p>
+   * <p>Updates to the configuration of the Amazon Glue Data Catalog that is associated with the Managed Service for Apache Flink Studio notebook.</p>
    */
   CatalogConfigurationUpdate?: CatalogConfigurationUpdate;
 
@@ -3280,19 +3280,19 @@ export interface ApplicationConfigurationUpdate {
 
   /**
    * @public
-   * <p>Describes updates to a Flink-based Kinesis Data Analytics application's configuration.</p>
+   * <p>Describes updates to a Managed Service for Apache Flink application's configuration.</p>
    */
   FlinkApplicationConfigurationUpdate?: FlinkApplicationConfigurationUpdate;
 
   /**
    * @public
-   * <p>Describes updates to the environment properties for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes updates to the environment properties for a Managed Service for Apache Flink application.</p>
    */
   EnvironmentPropertyUpdates?: EnvironmentPropertyUpdates;
 
   /**
    * @public
-   * <p>Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes whether snapshots are enabled for a Managed Service for Apache Flink application.</p>
    */
   ApplicationSnapshotConfigurationUpdate?: ApplicationSnapshotConfigurationUpdate;
 
@@ -3304,7 +3304,7 @@ export interface ApplicationConfigurationUpdate {
 
   /**
    * @public
-   * <p>Updates to the configuration of a Kinesis Data Analytics Studio notebook.</p>
+   * <p>Updates to the configuration of a Managed Service for Apache Flink Studio notebook.</p>
    */
   ZeppelinApplicationConfigurationUpdate?: ZeppelinApplicationConfigurationUpdate;
 }
@@ -3429,7 +3429,7 @@ export interface ApplicationDetail {
 
   /**
    * @public
-   * <p>Provides the current application version. Kinesis Data Analytics updates the
+   * <p>Provides the current application version. Managed Service for Apache Flink updates the
    *         <code>ApplicationVersionId</code> each time you update the application.</p>
    */
   ApplicationVersionId: number | undefined;
@@ -3448,7 +3448,7 @@ export interface ApplicationDetail {
 
   /**
    * @public
-   * <p>Describes details about the application code and starting parameters for a Kinesis Data Analytics application.</p>
+   * <p>Describes details about the application code and starting parameters for a Managed Service for Apache Flink application.</p>
    */
   ApplicationConfigurationDescription?: ApplicationConfigurationDescription;
 
@@ -3492,7 +3492,7 @@ export interface ApplicationDetail {
 
   /**
    * @public
-   * <p>To create a Kinesis Data Analytics Studio notebook, you must set the mode to <code>INTERACTIVE</code>. However, for a Kinesis Data Analytics for Apache Flink application, the mode is optional.</p>
+   * <p>To create a Managed Service for Apache Flink Studio notebook, you must set the mode to <code>INTERACTIVE</code>. However, for a Managed Service for Apache Flink application, the mode is optional.</p>
    */
   ApplicationMode?: ApplicationMode;
 }
@@ -3546,7 +3546,7 @@ export interface ApplicationSummary {
 
   /**
    * @public
-   * <p>For a Kinesis Data Analytics for Apache Flink application, the mode is <code>STREAMING</code>. For a Kinesis Data Analytics Studio notebook, it is <code>INTERACTIVE</code>.</p>
+   * <p>For a Managed Service for Apache Flink application, the mode is <code>STREAMING</code>. For a Managed Service for Apache Flink Studio notebook, it is <code>INTERACTIVE</code>.</p>
    */
   ApplicationMode?: ApplicationMode;
 }
@@ -3558,7 +3558,7 @@ export interface ApplicationSummary {
 export interface ApplicationVersionSummary {
   /**
    * @public
-   * <p>The ID of the application version. Kinesis Data Analytics updates the <code>ApplicationVersionId</code> each time you update the application.</p>
+   * <p>The ID of the application version. Managed Service for Apache Flink updates the <code>ApplicationVersionId</code> each time you update the application.</p>
    */
   ApplicationVersionId: number | undefined;
 
@@ -3667,7 +3667,7 @@ export interface CreateApplicationRequest {
 
   /**
    * @public
-   * <p>Use the <code>STREAMING</code> mode to create a Kinesis Data Analytics For Flink application. To create a Kinesis Data Analytics Studio notebook, use the
+   * <p>Use the <code>STREAMING</code> mode to create a Managed Service for Apache Flink application. To create a Managed Service for Apache Flink Studio notebook, use the
    *     <code>INTERACTIVE</code> mode.</p>
    */
   ApplicationMode?: ApplicationMode;
@@ -3679,7 +3679,7 @@ export interface CreateApplicationRequest {
 export interface CreateApplicationResponse {
   /**
    * @public
-   * <p>In response to your <code>CreateApplication</code> request, Kinesis Data Analytics returns a
+   * <p>In response to your <code>CreateApplication</code> request, Managed Service for Apache Flink returns a
    *       response with details of the application it created.</p>
    */
   ApplicationDetail: ApplicationDetail | undefined;
@@ -4117,7 +4117,7 @@ export interface DeleteApplicationVpcConfigurationRequest {
 export interface DeleteApplicationVpcConfigurationResponse {
   /**
    * @public
-   * <p>The ARN of the Kinesis Data Analytics application.</p>
+   * <p>The ARN of the Managed Service for Apache Flink application.</p>
    */
   ApplicationARN?: string;
 
@@ -4140,7 +4140,7 @@ export interface DescribeApplicationRequest {
 
   /**
    * @public
-   * <p>Displays verbose information about a Kinesis Data Analytics application, including the application's job plan.</p>
+   * <p>Displays verbose information about a Managed Service for Apache Flink application, including the application's job plan.</p>
    */
   IncludeAdditionalDetails?: boolean;
 }
@@ -4219,6 +4219,12 @@ export interface SnapshotDetails {
    * <p>The timestamp of the application snapshot.</p>
    */
   SnapshotCreationTimestamp?: Date;
+
+  /**
+   * @public
+   * <p>The Flink Runtime for the application snapshot.</p>
+   */
+  RuntimeEnvironment?: RuntimeEnvironment;
 }
 
 /**
@@ -4300,7 +4306,7 @@ export interface DiscoverInputSchemaRequest {
   /**
    * @public
    * <p>The point at which you want Kinesis Data Analytics to start reading records from the
-   *       specified streaming source discovery purposes.</p>
+   *       specified streaming source for discovery purposes.</p>
    */
   InputStartingPositionConfiguration?: InputStartingPositionConfiguration;
 
@@ -4632,12 +4638,12 @@ export interface SqlRunConfiguration {
 
 /**
  * @public
- * <p>Describes the starting parameters for an Kinesis Data Analytics application.</p>
+ * <p>Describes the starting parameters for an Managed Service for Apache Flink application.</p>
  */
 export interface RunConfiguration {
   /**
    * @public
-   * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes the starting parameters for a Managed Service for Apache Flink application.</p>
    */
   FlinkRunConfiguration?: FlinkRunConfiguration;
 
@@ -4667,7 +4673,7 @@ export interface StartApplicationRequest {
 
   /**
    * @public
-   * <p>Identifies the run configuration (start parameters) of a Kinesis Data Analytics application.</p>
+   * <p>Identifies the run configuration (start parameters) of a Managed Service for Apache Flink application.</p>
    */
   RunConfiguration?: RunConfiguration;
 }
@@ -4690,14 +4696,14 @@ export interface StopApplicationRequest {
   /**
    * @public
    * <p>Set to <code>true</code> to force the application to stop. If you set <code>Force</code>
-   *           to <code>true</code>, Kinesis Data Analytics stops the application without taking a snapshot.
+   *           to <code>true</code>, Managed Service for Apache Flink stops the application without taking a snapshot.
    *       </p>
    *           <note>
    *             <p>Force-stopping your application may lead to data loss or duplication.
    *               To prevent data loss or duplicate processing of data during application restarts,
    *               we recommend you to take frequent snapshots of your application.</p>
    *          </note>
-   *          <p>You can only force stop a Flink-based Kinesis Data Analytics application. You can't force stop a SQL-based Kinesis Data Analytics application.</p>
+   *          <p>You can only force stop a Managed Service for Apache Flink application. You can't force stop a SQL-based Kinesis Data Analytics application.</p>
    *          <p>The application must be in the
    *           <code>STARTING</code>, <code>UPDATING</code>, <code>STOPPING</code>, <code>AUTOSCALING</code>, or
    *           <code>RUNNING</code> status. </p>
@@ -4738,7 +4744,7 @@ export interface TagResourceResponse {}
 export interface UntagResourceRequest {
   /**
    * @public
-   * <p>The ARN of the Kinesis Data Analytics application from which to remove the tags.</p>
+   * <p>The ARN of the Managed Service for Apache Flink application from which to remove the tags.</p>
    */
   ResourceARN: string | undefined;
 
@@ -4756,12 +4762,12 @@ export interface UntagResourceResponse {}
 
 /**
  * @public
- * <p>Describes the updates to the starting parameters for a Kinesis Data Analytics application.</p>
+ * <p>Describes the updates to the starting parameters for a Managed Service for Apache Flink application.</p>
  */
 export interface RunConfigurationUpdate {
   /**
    * @public
-   * <p>Describes the starting parameters for a Flink-based Kinesis Data Analytics application.</p>
+   * <p>Describes the starting parameters for a Managed Service for Apache Flink application.</p>
    */
   FlinkRunConfiguration?: FlinkRunConfiguration;
 
@@ -4827,6 +4833,20 @@ export interface UpdateApplicationRequest {
    *       <code>CurrentApplicationVersionId</code>.</p>
    */
   ConditionalToken?: string;
+
+  /**
+   * @public
+   * <p>Updates the Managed Service for Apache Flink runtime environment used to run your code. To avoid issues you must:</p>
+   *         <ul>
+   *             <li>
+   *                <p>Ensure your new jar and dependencies are compatible with the new runtime selected.</p>
+   *             </li>
+   *             <li>
+   *                <p>Ensure your new code's state is compatible with the snapshot from which your application will start</p>
+   *             </li>
+   *          </ul>
+   */
+  RuntimeEnvironmentUpdate?: RuntimeEnvironment;
 }
 
 /**
