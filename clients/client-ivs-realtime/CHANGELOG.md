@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
+
+
+### Features
+
+* **client-ivs-realtime:** adds support for multiple new composition layout configuration options (grid, pip) ([376fe5a](https://github.com/aws/aws-sdk-js-v3/commit/376fe5a8d56b2816d60d31615a2c2644a8e7a6ba))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-ivs-realtime

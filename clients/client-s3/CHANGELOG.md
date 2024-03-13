@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
+
+
+### Features
+
+* **client-s3:** This release makes the default option for S3 on Outposts request signing to use the SigV4A algorithm when using AWS Common Runtime (CRT). ([2ddd8ec](https://github.com/aws/aws-sdk-js-v3/commit/2ddd8ec13eaba4609acedfcf9ded5a380db8ae2e))
+
+
+
+
+
 ## [3.529.1](https://github.com/aws/aws-sdk-js-v3/compare/v3.529.0...v3.529.1) (2024-03-08)
 
 **Note:** Version bump only for package @aws-sdk/client-s3

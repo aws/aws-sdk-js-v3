@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
+
+
+### Features
+
+* **client-ivs-realtime:** adds support for multiple new composition layout configuration options (grid, pip) ([376fe5a](https://github.com/aws/aws-sdk-js-v3/commit/376fe5a8d56b2816d60d31615a2c2644a8e7a6ba))
+* **client-kinesis-analytics-v2:** Support new RuntimeEnvironmentUpdate parameter within UpdateApplication API allowing callers to change the Flink version upon which their application runs. ([bf5a23e](https://github.com/aws/aws-sdk-js-v3/commit/bf5a23e3962d806dc7138684c74e39ca9253849d))
+* **client-s3:** This release makes the default option for S3 on Outposts request signing to use the SigV4A algorithm when using AWS Common Runtime (CRT). ([2ddd8ec](https://github.com/aws/aws-sdk-js-v3/commit/2ddd8ec13eaba4609acedfcf9ded5a380db8ae2e))
+
+
+
+
+
 # [3.532.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.531.0...v3.532.0) (2024-03-12)
 
 

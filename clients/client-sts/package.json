@@ -1,7 +1,7 @@
 {
   "name": "@aws-sdk/client-sts",
   "description": "AWS SDK for JavaScript Sts Client for Node.js, Browser and React Native",
-  "version": "3.529.1",
+  "version": "3.533.0",
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",
     "build:cjs": "node ../../scripts/compilation/inline client-sts",
@@ -87,7 +87,7 @@
   },
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@aws-sdk/credential-provider-node": "^3.529.1"
+    "@aws-sdk/credential-provider-node": "^3.533.0"
   },
   "browser": {
     "./dist-es/runtimeConfig": "./dist-es/runtimeConfig.browser"
