@@ -48,6 +48,22 @@ export interface GetCompositionCommandOutput extends GetCompositionResponse, __M
  * //     layout: { // LayoutConfiguration
  * //       grid: { // GridConfiguration
  * //         featuredParticipantAttribute: "STRING_VALUE",
+ * //         omitStoppedVideo: true || false,
+ * //         videoAspectRatio: "AUTO" || "VIDEO" || "SQUARE" || "PORTRAIT",
+ * //         videoFillMode: "FILL" || "COVER" || "CONTAIN",
+ * //         gridGap: Number("int"),
+ * //       },
+ * //       pip: { // PipConfiguration
+ * //         featuredParticipantAttribute: "STRING_VALUE",
+ * //         omitStoppedVideo: true || false,
+ * //         videoFillMode: "FILL" || "COVER" || "CONTAIN",
+ * //         gridGap: Number("int"),
+ * //         pipParticipantAttribute: "STRING_VALUE",
+ * //         pipBehavior: "STATIC" || "DYNAMIC",
+ * //         pipOffset: Number("int"),
+ * //         pipPosition: "TOP_LEFT" || "TOP_RIGHT" || "BOTTOM_LEFT" || "BOTTOM_RIGHT",
+ * //         pipWidth: Number("int"),
+ * //         pipHeight: Number("int"),
  * //       },
  * //     },
  * //     destinations: [ // DestinationList // required

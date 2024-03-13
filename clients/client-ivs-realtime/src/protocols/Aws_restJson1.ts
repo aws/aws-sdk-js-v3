@@ -111,6 +111,7 @@ import {
   ParticipantTokenCapability,
   ParticipantTokenConfiguration,
   PendingVerification,
+  PipConfiguration,
   RecordingConfiguration,
   ResourceNotFoundException,
   S3DestinationConfiguration,
@@ -1489,6 +1490,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ParticipantTokenConfigurations omitted.
 
+// se_PipConfiguration omitted.
+
 // se_RecordingConfiguration omitted.
 
 // se_S3DestinationConfiguration omitted.
@@ -1732,6 +1735,8 @@ const de_ParticipantTokenList = (output: any, context: __SerdeContext): Particip
     });
   return retVal;
 };
+
+// de_PipConfiguration omitted.
 
 // de_RecordingConfiguration omitted.
 

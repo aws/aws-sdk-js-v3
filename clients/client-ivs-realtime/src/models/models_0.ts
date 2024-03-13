@@ -899,6 +899,37 @@ export interface Destination {
 
 /**
  * @public
+ * @enum
+ */
+export const VideoAspectRatio = {
+  AUTO: "AUTO",
+  PORTRAIT: "PORTRAIT",
+  SQUARE: "SQUARE",
+  VIDEO: "VIDEO",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoAspectRatio = (typeof VideoAspectRatio)[keyof typeof VideoAspectRatio];
+
+/**
+ * @public
+ * @enum
+ */
+export const VideoFillMode = {
+  CONTAIN: "CONTAIN",
+  COVER: "COVER",
+  FILL: "FILL",
+} as const;
+
+/**
+ * @public
+ */
+export type VideoFillMode = (typeof VideoFillMode)[keyof typeof VideoFillMode];
+
+/**
+ * @public
  * <p>Configuration information specific to Grid layout, for server-side composition. See
  *          "Layouts" in <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/server-side-composition.html">Server-Side
  *             Composition</a>.</p>
@@ -911,6 +942,140 @@ export interface GridConfiguration {
    *          slot.</p>
    */
   featuredParticipantAttribute?: string;
+
+  /**
+   * @public
+   * <p>Determines whether to omit participants with stopped video in the composition. Default: <code>false</code>.</p>
+   */
+  omitStoppedVideo?: boolean;
+
+  /**
+   * @public
+   * <p>Sets the non-featured participant display mode. Default: <code>VIDEO</code>.</p>
+   */
+  videoAspectRatio?: VideoAspectRatio;
+
+  /**
+   * @public
+   * <p>Defines how video fits within the participant tile. When not set,
+   * 	  <code>videoFillMode</code> defaults to <code>COVER</code> fill mode for participants in the grid
+   * 	  and to <code>CONTAIN</code> fill mode for featured participants.</p>
+   */
+  videoFillMode?: VideoFillMode;
+
+  /**
+   * @public
+   * <p>Specifies the spacing between participant tiles in pixels. Default: <code>2</code>.</p>
+   */
+  gridGap?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const PipBehavior = {
+  DYNAMIC: "DYNAMIC",
+  STATIC: "STATIC",
+} as const;
+
+/**
+ * @public
+ */
+export type PipBehavior = (typeof PipBehavior)[keyof typeof PipBehavior];
+
+/**
+ * @public
+ * @enum
+ */
+export const PipPosition = {
+  BOTTOM_LEFT: "BOTTOM_LEFT",
+  BOTTOM_RIGHT: "BOTTOM_RIGHT",
+  TOP_LEFT: "TOP_LEFT",
+  TOP_RIGHT: "TOP_RIGHT",
+} as const;
+
+/**
+ * @public
+ */
+export type PipPosition = (typeof PipPosition)[keyof typeof PipPosition];
+
+/**
+ * @public
+ * <p>Configuration information specific to Picture-in-Picture (PiP) layout,
+ * 	        for <a href="https://docs.aws.amazon.com/ivs/latest/RealTimeUserGuide/server-side-composition.html">server-side composition</a>.
+ * 	  </p>
+ */
+export interface PipConfiguration {
+  /**
+   * @public
+   * <p>This attribute name identifies the featured slot. A participant with this attribute set
+   *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a> is placed in the featured
+   *          slot.</p>
+   */
+  featuredParticipantAttribute?: string;
+
+  /**
+   * @public
+   * <p>Determines whether to omit participants with stopped video in the composition. Default: <code>false</code>.</p>
+   */
+  omitStoppedVideo?: boolean;
+
+  /**
+   * @public
+   * <p>Defines how video fits within the participant tile. Default: <code>COVER</code>.
+   * </p>
+   */
+  videoFillMode?: VideoFillMode;
+
+  /**
+   * @public
+   * <p>Specifies the spacing between participant tiles in pixels. Default: <code>0</code>.</p>
+   */
+  gridGap?: number;
+
+  /**
+   * @public
+   * <p>Identifies the PiP slot. A participant with this attribute set
+   *          to <code>"true"</code> (as a string value) in <a>ParticipantTokenConfiguration</a>
+   * 		 is placed in the PiP slot.</p>
+   */
+  pipParticipantAttribute?: string;
+
+  /**
+   * @public
+   * <p>Defines PiP behavior when all participants have left. Default: <code>STATIC</code>.</p>
+   */
+  pipBehavior?: PipBehavior;
+
+  /**
+   * @public
+   * <p>Sets the PiP window’s offset position in pixels from the closest edges determined by <code>PipPosition</code>.
+   * 	  Default: <code>0</code>.</p>
+   */
+  pipOffset?: number;
+
+  /**
+   * @public
+   * <p>Determines the corner position of the PiP window. Default: <code>BOTTOM_RIGHT</code>.</p>
+   */
+  pipPosition?: PipPosition;
+
+  /**
+   * @public
+   * <p>Specifies the width of the PiP window in pixels. When this is not set explicitly,
+   * 	        <code>pipWidth</code>’s value will be based on the size of the composition and the
+   * 			aspect ratio of the participant’s video.</p>
+   */
+  pipWidth?: number;
+
+  /**
+   * @public
+   * <p>Specifies the height of the PiP window in pixels. When this is not set explicitly,
+   * 	        <code>pipHeight</code>’s value will be based on the size of the composition and the
+   * 			aspect ratio of the participant’s video.</p>
+   */
+  pipHeight?: number;
 }
 
 /**
@@ -923,6 +1088,12 @@ export interface LayoutConfiguration {
    * <p>Configuration related to grid layout. Default: Grid layout.</p>
    */
   grid?: GridConfiguration;
+
+  /**
+   * @public
+   * <p>Configuration related to PiP layout.</p>
+   */
+  pip?: PipConfiguration;
 }
 
 /**
