@@ -4772,7 +4772,9 @@ export interface DescribeGlobalClustersMessage {
 
   /**
    * @public
-   * <p>This parameter isn't currently supported.</p>
+   * <p>A filter that specifies one or more global database clusters to describe. This parameter is case-sensitive.</p>
+   *          <p>Currently, the only supported filter is <code>region</code>.</p>
+   *          <p>If used, the request returns information about any global cluster with at least one member (primary or secondary) in the specified Amazon Web Services Regions.</p>
    */
   Filters?: Filter[];
 

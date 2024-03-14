@@ -7011,14 +7011,19 @@ export interface CreateDBInstanceMessage {
    *             </dd>
    *             <dt>RDS for Db2</dt>
    *             <dd>
-   *                <p>The name of the database to create when the DB instance is created. If this parameter isn't specified, no database is created in the DB instance.</p>
+   *                <p>The name of the database to create when the DB instance is created. If
+   *                         this parameter isn't specified, no database is created in the DB instance.
+   *                         In some cases, we recommend that you don't add a database name. For more
+   *                         information, see <a href="https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/db2-db-instance-prereqs.html#db2-prereqs-additional-considerations">Additional considerations</a> in the <i>Amazon RDS User
+   *                             Guide</i>.</p>
    *                <p>Constraints:</p>
    *                <ul>
    *                   <li>
    *                      <p>Must contain 1 to 64 letters or numbers.</p>
    *                   </li>
    *                   <li>
-   *                      <p>Must begin with a letter. Subsequent characters can be letters, underscores, or digits (0-9).</p>
+   *                      <p>Must begin with a letter. Subsequent characters can be letters,
+   *                                 underscores, or digits (0-9).</p>
    *                   </li>
    *                   <li>
    *                      <p>Can't be a word reserved by the specified database engine.</p>
