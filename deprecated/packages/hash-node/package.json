@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@smithy/hash-node": "^1.0.1",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "engines": {
     "node": ">=14.0.0"

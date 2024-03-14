@@ -3,7 +3,7 @@
   "version": "3.374.0",
   "dependencies": {
     "@smithy/shared-ini-file-loader": "^1.0.1",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@tsconfig/recommended": "1.0.1",

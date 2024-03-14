@@ -23,7 +23,7 @@
     "@aws-sdk/types": "*",
     "@smithy/eventstream-codec": "^2.1.4",
     "@smithy/types": "^2.11.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@smithy/util-utf8": "^2.2.0",

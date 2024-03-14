@@ -208,22 +208,6 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * @throws {@link S3ServiceException}
  * <p>Base exception class for all service exceptions from S3 service.</p>
  *
- * @example To create a bucket
- * ```javascript
- * // The following example creates a bucket.
- * const input = {
- *   "Bucket": "examplebucket"
- * };
- * const command = new CreateBucketCommand(input);
- * const response = await client.send(command);
- * /* response ==
- * {
- *   "Location": "/examplebucket"
- * }
- * *\/
- * // example id: to-create-a-bucket--1472851826060
- * ```
- *
  * @example To create a bucket in a specific region
  * ```javascript
  * // The following example creates a bucket. The request specifies an AWS region where to create the bucket.
@@ -241,6 +225,22 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  * }
  * *\/
  * // example id: to-create-a-bucket-in-a-specific-region-1483399072992
+ * ```
+ *
+ * @example To create a bucket
+ * ```javascript
+ * // The following example creates a bucket.
+ * const input = {
+ *   "Bucket": "examplebucket"
+ * };
+ * const command = new CreateBucketCommand(input);
+ * const response = await client.send(command);
+ * /* response ==
+ * {
+ *   "Location": "/examplebucket"
+ * }
+ * *\/
+ * // example id: to-create-a-bucket--1472851826060
  * ```
  *
  */

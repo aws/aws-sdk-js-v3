@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@smithy/md5-js": "^1.0.1",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "typesVersions": {
     "<4.0": {
