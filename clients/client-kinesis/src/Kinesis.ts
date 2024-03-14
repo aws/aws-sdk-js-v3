@@ -234,6 +234,7 @@ export interface Kinesis {
   /**
    * @see {@link DeleteStreamCommand}
    */
+  deleteStream(): Promise<DeleteStreamCommandOutput>;
   deleteStream(args: DeleteStreamCommandInput, options?: __HttpHandlerOptions): Promise<DeleteStreamCommandOutput>;
   deleteStream(args: DeleteStreamCommandInput, cb: (err: any, data?: DeleteStreamCommandOutput) => void): void;
   deleteStream(
@@ -245,6 +246,7 @@ export interface Kinesis {
   /**
    * @see {@link DeregisterStreamConsumerCommand}
    */
+  deregisterStreamConsumer(): Promise<DeregisterStreamConsumerCommandOutput>;
   deregisterStreamConsumer(
     args: DeregisterStreamConsumerCommandInput,
     options?: __HttpHandlerOptions
@@ -262,6 +264,7 @@ export interface Kinesis {
   /**
    * @see {@link DescribeLimitsCommand}
    */
+  describeLimits(): Promise<DescribeLimitsCommandOutput>;
   describeLimits(
     args: DescribeLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -276,6 +279,7 @@ export interface Kinesis {
   /**
    * @see {@link DescribeStreamCommand}
    */
+  describeStream(): Promise<DescribeStreamCommandOutput>;
   describeStream(
     args: DescribeStreamCommandInput,
     options?: __HttpHandlerOptions
@@ -290,6 +294,7 @@ export interface Kinesis {
   /**
    * @see {@link DescribeStreamConsumerCommand}
    */
+  describeStreamConsumer(): Promise<DescribeStreamConsumerCommandOutput>;
   describeStreamConsumer(
     args: DescribeStreamConsumerCommandInput,
     options?: __HttpHandlerOptions
@@ -307,6 +312,7 @@ export interface Kinesis {
   /**
    * @see {@link DescribeStreamSummaryCommand}
    */
+  describeStreamSummary(): Promise<DescribeStreamSummaryCommandOutput>;
   describeStreamSummary(
     args: DescribeStreamSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -420,6 +426,7 @@ export interface Kinesis {
   /**
    * @see {@link ListShardsCommand}
    */
+  listShards(): Promise<ListShardsCommandOutput>;
   listShards(args: ListShardsCommandInput, options?: __HttpHandlerOptions): Promise<ListShardsCommandOutput>;
   listShards(args: ListShardsCommandInput, cb: (err: any, data?: ListShardsCommandOutput) => void): void;
   listShards(
@@ -448,6 +455,7 @@ export interface Kinesis {
   /**
    * @see {@link ListStreamsCommand}
    */
+  listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
   listStreams(
@@ -459,6 +467,7 @@ export interface Kinesis {
   /**
    * @see {@link ListTagsForStreamCommand}
    */
+  listTagsForStream(): Promise<ListTagsForStreamCommandOutput>;
   listTagsForStream(
     args: ListTagsForStreamCommandInput,
     options?: __HttpHandlerOptions

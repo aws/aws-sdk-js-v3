@@ -125,6 +125,7 @@ export interface NetworkMonitor {
   /**
    * @see {@link ListMonitorsCommand}
    */
+  listMonitors(): Promise<ListMonitorsCommandOutput>;
   listMonitors(args: ListMonitorsCommandInput, options?: __HttpHandlerOptions): Promise<ListMonitorsCommandOutput>;
   listMonitors(args: ListMonitorsCommandInput, cb: (err: any, data?: ListMonitorsCommandOutput) => void): void;
   listMonitors(

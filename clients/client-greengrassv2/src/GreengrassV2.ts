@@ -249,6 +249,7 @@ export interface GreengrassV2 {
   /**
    * @see {@link CreateComponentVersionCommand}
    */
+  createComponentVersion(): Promise<CreateComponentVersionCommandOutput>;
   createComponentVersion(
     args: CreateComponentVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -348,6 +349,7 @@ export interface GreengrassV2 {
   /**
    * @see {@link DisassociateServiceRoleFromAccountCommand}
    */
+  disassociateServiceRoleFromAccount(): Promise<DisassociateServiceRoleFromAccountCommandOutput>;
   disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -432,6 +434,7 @@ export interface GreengrassV2 {
   /**
    * @see {@link GetServiceRoleForAccountCommand}
    */
+  getServiceRoleForAccount(): Promise<GetServiceRoleForAccountCommandOutput>;
   getServiceRoleForAccount(
     args: GetServiceRoleForAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -466,6 +469,7 @@ export interface GreengrassV2 {
   /**
    * @see {@link ListComponentsCommand}
    */
+  listComponents(): Promise<ListComponentsCommandOutput>;
   listComponents(
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
@@ -497,6 +501,7 @@ export interface GreengrassV2 {
   /**
    * @see {@link ListCoreDevicesCommand}
    */
+  listCoreDevices(): Promise<ListCoreDevicesCommandOutput>;
   listCoreDevices(
     args: ListCoreDevicesCommandInput,
     options?: __HttpHandlerOptions
@@ -511,6 +516,7 @@ export interface GreengrassV2 {
   /**
    * @see {@link ListDeploymentsCommand}
    */
+  listDeployments(): Promise<ListDeploymentsCommandOutput>;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
@@ -576,6 +582,7 @@ export interface GreengrassV2 {
   /**
    * @see {@link ResolveComponentCandidatesCommand}
    */
+  resolveComponentCandidates(): Promise<ResolveComponentCandidatesCommandOutput>;
   resolveComponentCandidates(
     args: ResolveComponentCandidatesCommandInput,
     options?: __HttpHandlerOptions

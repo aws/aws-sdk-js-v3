@@ -234,6 +234,7 @@ export interface Translate {
   /**
    * @see {@link ListLanguagesCommand}
    */
+  listLanguages(): Promise<ListLanguagesCommandOutput>;
   listLanguages(args: ListLanguagesCommandInput, options?: __HttpHandlerOptions): Promise<ListLanguagesCommandOutput>;
   listLanguages(args: ListLanguagesCommandInput, cb: (err: any, data?: ListLanguagesCommandOutput) => void): void;
   listLanguages(
@@ -245,6 +246,7 @@ export interface Translate {
   /**
    * @see {@link ListParallelDataCommand}
    */
+  listParallelData(): Promise<ListParallelDataCommandOutput>;
   listParallelData(
     args: ListParallelDataCommandInput,
     options?: __HttpHandlerOptions
@@ -279,6 +281,7 @@ export interface Translate {
   /**
    * @see {@link ListTerminologiesCommand}
    */
+  listTerminologies(): Promise<ListTerminologiesCommandOutput>;
   listTerminologies(
     args: ListTerminologiesCommandInput,
     options?: __HttpHandlerOptions
@@ -296,6 +299,7 @@ export interface Translate {
   /**
    * @see {@link ListTextTranslationJobsCommand}
    */
+  listTextTranslationJobs(): Promise<ListTextTranslationJobsCommandOutput>;
   listTextTranslationJobs(
     args: ListTextTranslationJobsCommandInput,
     options?: __HttpHandlerOptions

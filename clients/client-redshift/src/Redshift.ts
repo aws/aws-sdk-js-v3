@@ -1204,6 +1204,7 @@ export interface Redshift {
   /**
    * @see {@link CreateSnapshotScheduleCommand}
    */
+  createSnapshotSchedule(): Promise<CreateSnapshotScheduleCommandOutput>;
   createSnapshotSchedule(
     args: CreateSnapshotScheduleCommandInput,
     options?: __HttpHandlerOptions
@@ -1571,6 +1572,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeAccountAttributesCommand}
    */
+  describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -1588,6 +1590,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeAuthenticationProfilesCommand}
    */
+  describeAuthenticationProfiles(): Promise<DescribeAuthenticationProfilesCommandOutput>;
   describeAuthenticationProfiles(
     args: DescribeAuthenticationProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1605,6 +1608,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeClusterDbRevisionsCommand}
    */
+  describeClusterDbRevisions(): Promise<DescribeClusterDbRevisionsCommandOutput>;
   describeClusterDbRevisions(
     args: DescribeClusterDbRevisionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1622,6 +1626,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeClusterParameterGroupsCommand}
    */
+  describeClusterParameterGroups(): Promise<DescribeClusterParameterGroupsCommandOutput>;
   describeClusterParameterGroups(
     args: DescribeClusterParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1656,6 +1661,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeClustersCommand}
    */
+  describeClusters(): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -1673,6 +1679,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeClusterSecurityGroupsCommand}
    */
+  describeClusterSecurityGroups(): Promise<DescribeClusterSecurityGroupsCommandOutput>;
   describeClusterSecurityGroups(
     args: DescribeClusterSecurityGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1690,6 +1697,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeClusterSnapshotsCommand}
    */
+  describeClusterSnapshots(): Promise<DescribeClusterSnapshotsCommandOutput>;
   describeClusterSnapshots(
     args: DescribeClusterSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -1707,6 +1715,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeClusterSubnetGroupsCommand}
    */
+  describeClusterSubnetGroups(): Promise<DescribeClusterSubnetGroupsCommandOutput>;
   describeClusterSubnetGroups(
     args: DescribeClusterSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1724,6 +1733,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeClusterTracksCommand}
    */
+  describeClusterTracks(): Promise<DescribeClusterTracksCommandOutput>;
   describeClusterTracks(
     args: DescribeClusterTracksCommandInput,
     options?: __HttpHandlerOptions
@@ -1741,6 +1751,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeClusterVersionsCommand}
    */
+  describeClusterVersions(): Promise<DescribeClusterVersionsCommandOutput>;
   describeClusterVersions(
     args: DescribeClusterVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1758,6 +1769,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeCustomDomainAssociationsCommand}
    */
+  describeCustomDomainAssociations(): Promise<DescribeCustomDomainAssociationsCommandOutput>;
   describeCustomDomainAssociations(
     args: DescribeCustomDomainAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1775,6 +1787,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeDataSharesCommand}
    */
+  describeDataShares(): Promise<DescribeDataSharesCommandOutput>;
   describeDataShares(
     args: DescribeDataSharesCommandInput,
     options?: __HttpHandlerOptions
@@ -1792,6 +1805,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeDataSharesForConsumerCommand}
    */
+  describeDataSharesForConsumer(): Promise<DescribeDataSharesForConsumerCommandOutput>;
   describeDataSharesForConsumer(
     args: DescribeDataSharesForConsumerCommandInput,
     options?: __HttpHandlerOptions
@@ -1809,6 +1823,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeDataSharesForProducerCommand}
    */
+  describeDataSharesForProducer(): Promise<DescribeDataSharesForProducerCommandOutput>;
   describeDataSharesForProducer(
     args: DescribeDataSharesForProducerCommandInput,
     options?: __HttpHandlerOptions
@@ -1843,6 +1858,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeEndpointAccessCommand}
    */
+  describeEndpointAccess(): Promise<DescribeEndpointAccessCommandOutput>;
   describeEndpointAccess(
     args: DescribeEndpointAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -1860,6 +1876,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeEndpointAuthorizationCommand}
    */
+  describeEndpointAuthorization(): Promise<DescribeEndpointAuthorizationCommandOutput>;
   describeEndpointAuthorization(
     args: DescribeEndpointAuthorizationCommandInput,
     options?: __HttpHandlerOptions
@@ -1877,6 +1894,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeEventCategoriesCommand}
    */
+  describeEventCategories(): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1894,6 +1912,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -1908,6 +1927,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeEventSubscriptionsCommand}
    */
+  describeEventSubscriptions(): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1925,6 +1945,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeHsmClientCertificatesCommand}
    */
+  describeHsmClientCertificates(): Promise<DescribeHsmClientCertificatesCommandOutput>;
   describeHsmClientCertificates(
     args: DescribeHsmClientCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1942,6 +1963,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeHsmConfigurationsCommand}
    */
+  describeHsmConfigurations(): Promise<DescribeHsmConfigurationsCommandOutput>;
   describeHsmConfigurations(
     args: DescribeHsmConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1959,6 +1981,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeInboundIntegrationsCommand}
    */
+  describeInboundIntegrations(): Promise<DescribeInboundIntegrationsCommandOutput>;
   describeInboundIntegrations(
     args: DescribeInboundIntegrationsCommandInput,
     options?: __HttpHandlerOptions
@@ -2010,6 +2033,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeOrderableClusterOptionsCommand}
    */
+  describeOrderableClusterOptions(): Promise<DescribeOrderableClusterOptionsCommandOutput>;
   describeOrderableClusterOptions(
     args: DescribeOrderableClusterOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2044,6 +2068,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeRedshiftIdcApplicationsCommand}
    */
+  describeRedshiftIdcApplications(): Promise<DescribeRedshiftIdcApplicationsCommandOutput>;
   describeRedshiftIdcApplications(
     args: DescribeRedshiftIdcApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -2061,6 +2086,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeReservedNodeExchangeStatusCommand}
    */
+  describeReservedNodeExchangeStatus(): Promise<DescribeReservedNodeExchangeStatusCommandOutput>;
   describeReservedNodeExchangeStatus(
     args: DescribeReservedNodeExchangeStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -2078,6 +2104,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeReservedNodeOfferingsCommand}
    */
+  describeReservedNodeOfferings(): Promise<DescribeReservedNodeOfferingsCommandOutput>;
   describeReservedNodeOfferings(
     args: DescribeReservedNodeOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -2095,6 +2122,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeReservedNodesCommand}
    */
+  describeReservedNodes(): Promise<DescribeReservedNodesCommandOutput>;
   describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
     options?: __HttpHandlerOptions
@@ -2126,6 +2154,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeScheduledActionsCommand}
    */
+  describeScheduledActions(): Promise<DescribeScheduledActionsCommandOutput>;
   describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2143,6 +2172,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeSnapshotCopyGrantsCommand}
    */
+  describeSnapshotCopyGrants(): Promise<DescribeSnapshotCopyGrantsCommandOutput>;
   describeSnapshotCopyGrants(
     args: DescribeSnapshotCopyGrantsCommandInput,
     options?: __HttpHandlerOptions
@@ -2160,6 +2190,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeSnapshotSchedulesCommand}
    */
+  describeSnapshotSchedules(): Promise<DescribeSnapshotSchedulesCommandOutput>;
   describeSnapshotSchedules(
     args: DescribeSnapshotSchedulesCommandInput,
     options?: __HttpHandlerOptions
@@ -2177,6 +2208,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeStorageCommand}
    */
+  describeStorage(): Promise<DescribeStorageCommandOutput>;
   describeStorage(
     args: DescribeStorageCommandInput,
     options?: __HttpHandlerOptions
@@ -2191,6 +2223,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeTableRestoreStatusCommand}
    */
+  describeTableRestoreStatus(): Promise<DescribeTableRestoreStatusCommandOutput>;
   describeTableRestoreStatus(
     args: DescribeTableRestoreStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -2208,6 +2241,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeTagsCommand}
    */
+  describeTags(): Promise<DescribeTagsCommandOutput>;
   describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
   describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   describeTags(
@@ -2219,6 +2253,7 @@ export interface Redshift {
   /**
    * @see {@link DescribeUsageLimitsCommand}
    */
+  describeUsageLimits(): Promise<DescribeUsageLimitsCommandOutput>;
   describeUsageLimits(
     args: DescribeUsageLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -2346,6 +2381,7 @@ export interface Redshift {
   /**
    * @see {@link GetClusterCredentialsWithIAMCommand}
    */
+  getClusterCredentialsWithIAM(): Promise<GetClusterCredentialsWithIAMCommandOutput>;
   getClusterCredentialsWithIAM(
     args: GetClusterCredentialsWithIAMCommandInput,
     options?: __HttpHandlerOptions
@@ -2414,6 +2450,7 @@ export interface Redshift {
   /**
    * @see {@link ListRecommendationsCommand}
    */
+  listRecommendations(): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -2891,6 +2928,7 @@ export interface Redshift {
   /**
    * @see {@link RevokeEndpointAccessCommand}
    */
+  revokeEndpointAccess(): Promise<RevokeEndpointAccessCommandOutput>;
   revokeEndpointAccess(
     args: RevokeEndpointAccessCommandInput,
     options?: __HttpHandlerOptions

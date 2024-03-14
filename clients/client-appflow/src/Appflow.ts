@@ -240,6 +240,7 @@ export interface Appflow {
   /**
    * @see {@link DescribeConnectorProfilesCommand}
    */
+  describeConnectorProfiles(): Promise<DescribeConnectorProfilesCommandOutput>;
   describeConnectorProfiles(
     args: DescribeConnectorProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -257,6 +258,7 @@ export interface Appflow {
   /**
    * @see {@link DescribeConnectorsCommand}
    */
+  describeConnectors(): Promise<DescribeConnectorsCommandOutput>;
   describeConnectors(
     args: DescribeConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -302,6 +304,7 @@ export interface Appflow {
   /**
    * @see {@link ListConnectorEntitiesCommand}
    */
+  listConnectorEntities(): Promise<ListConnectorEntitiesCommandOutput>;
   listConnectorEntities(
     args: ListConnectorEntitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -319,6 +322,7 @@ export interface Appflow {
   /**
    * @see {@link ListConnectorsCommand}
    */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -333,6 +337,7 @@ export interface Appflow {
   /**
    * @see {@link ListFlowsCommand}
    */
+  listFlows(): Promise<ListFlowsCommandOutput>;
   listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
   listFlows(args: ListFlowsCommandInput, cb: (err: any, data?: ListFlowsCommandOutput) => void): void;
   listFlows(
@@ -361,6 +366,7 @@ export interface Appflow {
   /**
    * @see {@link RegisterConnectorCommand}
    */
+  registerConnector(): Promise<RegisterConnectorCommandOutput>;
   registerConnector(
     args: RegisterConnectorCommandInput,
     options?: __HttpHandlerOptions
@@ -378,6 +384,7 @@ export interface Appflow {
   /**
    * @see {@link ResetConnectorMetadataCacheCommand}
    */
+  resetConnectorMetadataCache(): Promise<ResetConnectorMetadataCacheCommandOutput>;
   resetConnectorMetadataCache(
     args: ResetConnectorMetadataCacheCommandInput,
     options?: __HttpHandlerOptions

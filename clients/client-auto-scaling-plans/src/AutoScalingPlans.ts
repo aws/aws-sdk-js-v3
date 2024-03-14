@@ -98,6 +98,7 @@ export interface AutoScalingPlans {
   /**
    * @see {@link DescribeScalingPlansCommand}
    */
+  describeScalingPlans(): Promise<DescribeScalingPlansCommandOutput>;
   describeScalingPlans(
     args: DescribeScalingPlansCommandInput,
     options?: __HttpHandlerOptions

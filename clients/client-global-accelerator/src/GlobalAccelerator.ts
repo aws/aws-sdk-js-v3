@@ -824,6 +824,7 @@ export interface GlobalAccelerator {
   /**
    * @see {@link ListAcceleratorsCommand}
    */
+  listAccelerators(): Promise<ListAcceleratorsCommandOutput>;
   listAccelerators(
     args: ListAcceleratorsCommandInput,
     options?: __HttpHandlerOptions
@@ -841,6 +842,7 @@ export interface GlobalAccelerator {
   /**
    * @see {@link ListByoipCidrsCommand}
    */
+  listByoipCidrs(): Promise<ListByoipCidrsCommandOutput>;
   listByoipCidrs(
     args: ListByoipCidrsCommandInput,
     options?: __HttpHandlerOptions
@@ -855,6 +857,7 @@ export interface GlobalAccelerator {
   /**
    * @see {@link ListCrossAccountAttachmentsCommand}
    */
+  listCrossAccountAttachments(): Promise<ListCrossAccountAttachmentsCommandOutput>;
   listCrossAccountAttachments(
     args: ListCrossAccountAttachmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -872,6 +875,7 @@ export interface GlobalAccelerator {
   /**
    * @see {@link ListCrossAccountResourceAccountsCommand}
    */
+  listCrossAccountResourceAccounts(): Promise<ListCrossAccountResourceAccountsCommandOutput>;
   listCrossAccountResourceAccounts(
     args: ListCrossAccountResourceAccountsCommandInput,
     options?: __HttpHandlerOptions
@@ -906,6 +910,7 @@ export interface GlobalAccelerator {
   /**
    * @see {@link ListCustomRoutingAcceleratorsCommand}
    */
+  listCustomRoutingAccelerators(): Promise<ListCustomRoutingAcceleratorsCommandOutput>;
   listCustomRoutingAccelerators(
     args: ListCustomRoutingAcceleratorsCommandInput,
     options?: __HttpHandlerOptions

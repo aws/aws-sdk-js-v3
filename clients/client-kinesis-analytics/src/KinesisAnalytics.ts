@@ -331,6 +331,7 @@ export interface KinesisAnalytics {
   /**
    * @see {@link DiscoverInputSchemaCommand}
    */
+  discoverInputSchema(): Promise<DiscoverInputSchemaCommandOutput>;
   discoverInputSchema(
     args: DiscoverInputSchemaCommandInput,
     options?: __HttpHandlerOptions
@@ -348,6 +349,7 @@ export interface KinesisAnalytics {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions

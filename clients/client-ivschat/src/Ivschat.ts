@@ -116,6 +116,7 @@ export interface Ivschat {
   /**
    * @see {@link CreateRoomCommand}
    */
+  createRoom(): Promise<CreateRoomCommandOutput>;
   createRoom(args: CreateRoomCommandInput, options?: __HttpHandlerOptions): Promise<CreateRoomCommandOutput>;
   createRoom(args: CreateRoomCommandInput, cb: (err: any, data?: CreateRoomCommandOutput) => void): void;
   createRoom(
@@ -208,6 +209,7 @@ export interface Ivschat {
   /**
    * @see {@link ListLoggingConfigurationsCommand}
    */
+  listLoggingConfigurations(): Promise<ListLoggingConfigurationsCommandOutput>;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -225,6 +227,7 @@ export interface Ivschat {
   /**
    * @see {@link ListRoomsCommand}
    */
+  listRooms(): Promise<ListRoomsCommandOutput>;
   listRooms(args: ListRoomsCommandInput, options?: __HttpHandlerOptions): Promise<ListRoomsCommandOutput>;
   listRooms(args: ListRoomsCommandInput, cb: (err: any, data?: ListRoomsCommandOutput) => void): void;
   listRooms(

@@ -250,6 +250,7 @@ export interface KafkaConnect {
   /**
    * @see {@link ListConnectorsCommand}
    */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -264,6 +265,7 @@ export interface KafkaConnect {
   /**
    * @see {@link ListCustomPluginsCommand}
    */
+  listCustomPlugins(): Promise<ListCustomPluginsCommandOutput>;
   listCustomPlugins(
     args: ListCustomPluginsCommandInput,
     options?: __HttpHandlerOptions
@@ -298,6 +300,7 @@ export interface KafkaConnect {
   /**
    * @see {@link ListWorkerConfigurationsCommand}
    */
+  listWorkerConfigurations(): Promise<ListWorkerConfigurationsCommandOutput>;
   listWorkerConfigurations(
     args: ListWorkerConfigurationsCommandInput,
     options?: __HttpHandlerOptions

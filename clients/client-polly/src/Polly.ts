@@ -68,6 +68,7 @@ export interface Polly {
   /**
    * @see {@link DescribeVoicesCommand}
    */
+  describeVoices(): Promise<DescribeVoicesCommandOutput>;
   describeVoices(
     args: DescribeVoicesCommandInput,
     options?: __HttpHandlerOptions
@@ -110,6 +111,7 @@ export interface Polly {
   /**
    * @see {@link ListLexiconsCommand}
    */
+  listLexicons(): Promise<ListLexiconsCommandOutput>;
   listLexicons(args: ListLexiconsCommandInput, options?: __HttpHandlerOptions): Promise<ListLexiconsCommandOutput>;
   listLexicons(args: ListLexiconsCommandInput, cb: (err: any, data?: ListLexiconsCommandOutput) => void): void;
   listLexicons(
@@ -121,6 +123,7 @@ export interface Polly {
   /**
    * @see {@link ListSpeechSynthesisTasksCommand}
    */
+  listSpeechSynthesisTasks(): Promise<ListSpeechSynthesisTasksCommandOutput>;
   listSpeechSynthesisTasks(
     args: ListSpeechSynthesisTasksCommandInput,
     options?: __HttpHandlerOptions

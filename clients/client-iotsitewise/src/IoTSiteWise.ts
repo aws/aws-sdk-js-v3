@@ -855,6 +855,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link DeleteTimeSeriesCommand}
    */
+  deleteTimeSeries(): Promise<DeleteTimeSeriesCommandOutput>;
   deleteTimeSeries(
     args: DeleteTimeSeriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1016,6 +1017,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link DescribeDefaultEncryptionConfigurationCommand}
    */
+  describeDefaultEncryptionConfiguration(): Promise<DescribeDefaultEncryptionConfigurationCommandOutput>;
   describeDefaultEncryptionConfiguration(
     args: DescribeDefaultEncryptionConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1064,6 +1066,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link DescribeLoggingOptionsCommand}
    */
+  describeLoggingOptions(): Promise<DescribeLoggingOptionsCommandOutput>;
   describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1109,6 +1112,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link DescribeStorageConfigurationCommand}
    */
+  describeStorageConfiguration(): Promise<DescribeStorageConfigurationCommandOutput>;
   describeStorageConfiguration(
     args: DescribeStorageConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1126,6 +1130,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link DescribeTimeSeriesCommand}
    */
+  describeTimeSeries(): Promise<DescribeTimeSeriesCommandOutput>;
   describeTimeSeries(
     args: DescribeTimeSeriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1216,6 +1221,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link GetAssetPropertyValueCommand}
    */
+  getAssetPropertyValue(): Promise<GetAssetPropertyValueCommandOutput>;
   getAssetPropertyValue(
     args: GetAssetPropertyValueCommandInput,
     options?: __HttpHandlerOptions
@@ -1233,6 +1239,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link GetAssetPropertyValueHistoryCommand}
    */
+  getAssetPropertyValueHistory(): Promise<GetAssetPropertyValueHistoryCommandOutput>;
   getAssetPropertyValueHistory(
     args: GetAssetPropertyValueHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -1267,6 +1274,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListAccessPoliciesCommand}
    */
+  listAccessPolicies(): Promise<ListAccessPoliciesCommandOutput>;
   listAccessPolicies(
     args: ListAccessPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -1329,6 +1337,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListAssetModelsCommand}
    */
+  listAssetModels(): Promise<ListAssetModelsCommandOutput>;
   listAssetModels(
     args: ListAssetModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -1377,6 +1386,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListAssetsCommand}
    */
+  listAssets(): Promise<ListAssetsCommandOutput>;
   listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
   listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
   listAssets(
@@ -1405,6 +1415,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListBulkImportJobsCommand}
    */
+  listBulkImportJobs(): Promise<ListBulkImportJobsCommandOutput>;
   listBulkImportJobs(
     args: ListBulkImportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1453,6 +1464,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListGatewaysCommand}
    */
+  listGateways(): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
   listGateways(
@@ -1464,6 +1476,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListPortalsCommand}
    */
+  listPortals(): Promise<ListPortalsCommandOutput>;
   listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
   listPortals(args: ListPortalsCommandInput, cb: (err: any, data?: ListPortalsCommandOutput) => void): void;
   listPortals(
@@ -1520,6 +1533,7 @@ export interface IoTSiteWise {
   /**
    * @see {@link ListTimeSeriesCommand}
    */
+  listTimeSeries(): Promise<ListTimeSeriesCommandOutput>;
   listTimeSeries(
     args: ListTimeSeriesCommandInput,
     options?: __HttpHandlerOptions

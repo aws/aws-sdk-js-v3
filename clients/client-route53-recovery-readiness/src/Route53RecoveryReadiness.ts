@@ -477,6 +477,7 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link ListCellsCommand}
    */
+  listCells(): Promise<ListCellsCommandOutput>;
   listCells(args: ListCellsCommandInput, options?: __HttpHandlerOptions): Promise<ListCellsCommandOutput>;
   listCells(args: ListCellsCommandInput, cb: (err: any, data?: ListCellsCommandOutput) => void): void;
   listCells(
@@ -488,6 +489,7 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link ListCrossAccountAuthorizationsCommand}
    */
+  listCrossAccountAuthorizations(): Promise<ListCrossAccountAuthorizationsCommandOutput>;
   listCrossAccountAuthorizations(
     args: ListCrossAccountAuthorizationsCommandInput,
     options?: __HttpHandlerOptions
@@ -505,6 +507,7 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link ListReadinessChecksCommand}
    */
+  listReadinessChecks(): Promise<ListReadinessChecksCommandOutput>;
   listReadinessChecks(
     args: ListReadinessChecksCommandInput,
     options?: __HttpHandlerOptions
@@ -522,6 +525,7 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link ListRecoveryGroupsCommand}
    */
+  listRecoveryGroups(): Promise<ListRecoveryGroupsCommandOutput>;
   listRecoveryGroups(
     args: ListRecoveryGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -539,6 +543,7 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link ListResourceSetsCommand}
    */
+  listResourceSets(): Promise<ListResourceSetsCommandOutput>;
   listResourceSets(
     args: ListResourceSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -556,6 +561,7 @@ export interface Route53RecoveryReadiness {
   /**
    * @see {@link ListRulesCommand}
    */
+  listRules(): Promise<ListRulesCommandOutput>;
   listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
   listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
   listRules(

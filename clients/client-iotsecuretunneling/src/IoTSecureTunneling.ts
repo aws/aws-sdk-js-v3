@@ -85,6 +85,7 @@ export interface IoTSecureTunneling {
   /**
    * @see {@link ListTunnelsCommand}
    */
+  listTunnels(): Promise<ListTunnelsCommandOutput>;
   listTunnels(args: ListTunnelsCommandInput, options?: __HttpHandlerOptions): Promise<ListTunnelsCommandOutput>;
   listTunnels(args: ListTunnelsCommandInput, cb: (err: any, data?: ListTunnelsCommandOutput) => void): void;
   listTunnels(
@@ -96,6 +97,7 @@ export interface IoTSecureTunneling {
   /**
    * @see {@link OpenTunnelCommand}
    */
+  openTunnel(): Promise<OpenTunnelCommandOutput>;
   openTunnel(args: OpenTunnelCommandInput, options?: __HttpHandlerOptions): Promise<OpenTunnelCommandOutput>;
   openTunnel(args: OpenTunnelCommandInput, cb: (err: any, data?: OpenTunnelCommandOutput) => void): void;
   openTunnel(

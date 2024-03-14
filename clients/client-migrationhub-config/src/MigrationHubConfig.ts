@@ -69,6 +69,7 @@ export interface MigrationHubConfig {
   /**
    * @see {@link DescribeHomeRegionControlsCommand}
    */
+  describeHomeRegionControls(): Promise<DescribeHomeRegionControlsCommandOutput>;
   describeHomeRegionControls(
     args: DescribeHomeRegionControlsCommandInput,
     options?: __HttpHandlerOptions
@@ -86,6 +87,7 @@ export interface MigrationHubConfig {
   /**
    * @see {@link GetHomeRegionCommand}
    */
+  getHomeRegion(): Promise<GetHomeRegionCommandOutput>;
   getHomeRegion(args: GetHomeRegionCommandInput, options?: __HttpHandlerOptions): Promise<GetHomeRegionCommandOutput>;
   getHomeRegion(args: GetHomeRegionCommandInput, cb: (err: any, data?: GetHomeRegionCommandOutput) => void): void;
   getHomeRegion(

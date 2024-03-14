@@ -625,6 +625,7 @@ export interface EventBridge {
   /**
    * @see {@link DescribeEventBusCommand}
    */
+  describeEventBus(): Promise<DescribeEventBusCommandOutput>;
   describeEventBus(
     args: DescribeEventBusCommandInput,
     options?: __HttpHandlerOptions
@@ -723,6 +724,7 @@ export interface EventBridge {
   /**
    * @see {@link ListApiDestinationsCommand}
    */
+  listApiDestinations(): Promise<ListApiDestinationsCommandOutput>;
   listApiDestinations(
     args: ListApiDestinationsCommandInput,
     options?: __HttpHandlerOptions
@@ -740,6 +742,7 @@ export interface EventBridge {
   /**
    * @see {@link ListArchivesCommand}
    */
+  listArchives(): Promise<ListArchivesCommandOutput>;
   listArchives(args: ListArchivesCommandInput, options?: __HttpHandlerOptions): Promise<ListArchivesCommandOutput>;
   listArchives(args: ListArchivesCommandInput, cb: (err: any, data?: ListArchivesCommandOutput) => void): void;
   listArchives(
@@ -751,6 +754,7 @@ export interface EventBridge {
   /**
    * @see {@link ListConnectionsCommand}
    */
+  listConnections(): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -765,6 +769,7 @@ export interface EventBridge {
   /**
    * @see {@link ListEndpointsCommand}
    */
+  listEndpoints(): Promise<ListEndpointsCommandOutput>;
   listEndpoints(args: ListEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<ListEndpointsCommandOutput>;
   listEndpoints(args: ListEndpointsCommandInput, cb: (err: any, data?: ListEndpointsCommandOutput) => void): void;
   listEndpoints(
@@ -776,6 +781,7 @@ export interface EventBridge {
   /**
    * @see {@link ListEventBusesCommand}
    */
+  listEventBuses(): Promise<ListEventBusesCommandOutput>;
   listEventBuses(
     args: ListEventBusesCommandInput,
     options?: __HttpHandlerOptions
@@ -790,6 +796,7 @@ export interface EventBridge {
   /**
    * @see {@link ListEventSourcesCommand}
    */
+  listEventSources(): Promise<ListEventSourcesCommandOutput>;
   listEventSources(
     args: ListEventSourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -841,6 +848,7 @@ export interface EventBridge {
   /**
    * @see {@link ListReplaysCommand}
    */
+  listReplays(): Promise<ListReplaysCommandOutput>;
   listReplays(args: ListReplaysCommandInput, options?: __HttpHandlerOptions): Promise<ListReplaysCommandOutput>;
   listReplays(args: ListReplaysCommandInput, cb: (err: any, data?: ListReplaysCommandOutput) => void): void;
   listReplays(
@@ -869,6 +877,7 @@ export interface EventBridge {
   /**
    * @see {@link ListRulesCommand}
    */
+  listRules(): Promise<ListRulesCommandOutput>;
   listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
   listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
   listRules(
@@ -942,6 +951,7 @@ export interface EventBridge {
   /**
    * @see {@link PutPermissionCommand}
    */
+  putPermission(): Promise<PutPermissionCommandOutput>;
   putPermission(args: PutPermissionCommandInput, options?: __HttpHandlerOptions): Promise<PutPermissionCommandOutput>;
   putPermission(args: PutPermissionCommandInput, cb: (err: any, data?: PutPermissionCommandOutput) => void): void;
   putPermission(
@@ -975,6 +985,7 @@ export interface EventBridge {
   /**
    * @see {@link RemovePermissionCommand}
    */
+  removePermission(): Promise<RemovePermissionCommandOutput>;
   removePermission(
     args: RemovePermissionCommandInput,
     options?: __HttpHandlerOptions

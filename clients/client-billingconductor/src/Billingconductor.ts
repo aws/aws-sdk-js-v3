@@ -454,6 +454,7 @@ export interface Billingconductor {
   /**
    * @see {@link ListAccountAssociationsCommand}
    */
+  listAccountAssociations(): Promise<ListAccountAssociationsCommandOutput>;
   listAccountAssociations(
     args: ListAccountAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -471,6 +472,7 @@ export interface Billingconductor {
   /**
    * @see {@link ListBillingGroupCostReportsCommand}
    */
+  listBillingGroupCostReports(): Promise<ListBillingGroupCostReportsCommandOutput>;
   listBillingGroupCostReports(
     args: ListBillingGroupCostReportsCommandInput,
     options?: __HttpHandlerOptions
@@ -488,6 +490,7 @@ export interface Billingconductor {
   /**
    * @see {@link ListBillingGroupsCommand}
    */
+  listBillingGroups(): Promise<ListBillingGroupsCommandOutput>;
   listBillingGroups(
     args: ListBillingGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -505,6 +508,7 @@ export interface Billingconductor {
   /**
    * @see {@link ListCustomLineItemsCommand}
    */
+  listCustomLineItems(): Promise<ListCustomLineItemsCommandOutput>;
   listCustomLineItems(
     args: ListCustomLineItemsCommandInput,
     options?: __HttpHandlerOptions
@@ -539,6 +543,7 @@ export interface Billingconductor {
   /**
    * @see {@link ListPricingPlansCommand}
    */
+  listPricingPlans(): Promise<ListPricingPlansCommandOutput>;
   listPricingPlans(
     args: ListPricingPlansCommandInput,
     options?: __HttpHandlerOptions
@@ -573,6 +578,7 @@ export interface Billingconductor {
   /**
    * @see {@link ListPricingRulesCommand}
    */
+  listPricingRules(): Promise<ListPricingRulesCommandOutput>;
   listPricingRules(
     args: ListPricingRulesCommandInput,
     options?: __HttpHandlerOptions

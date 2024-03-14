@@ -411,6 +411,7 @@ export interface FinspaceData {
   /**
    * @see {@link GetWorkingLocationCommand}
    */
+  getWorkingLocation(): Promise<GetWorkingLocationCommandOutput>;
   getWorkingLocation(
     args: GetWorkingLocationCommandInput,
     options?: __HttpHandlerOptions
@@ -442,6 +443,7 @@ export interface FinspaceData {
   /**
    * @see {@link ListDatasetsCommand}
    */
+  listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   listDatasets(

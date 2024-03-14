@@ -319,6 +319,7 @@ export interface Chatbot {
   /**
    * @see {@link DescribeChimeWebhookConfigurationsCommand}
    */
+  describeChimeWebhookConfigurations(): Promise<DescribeChimeWebhookConfigurationsCommandOutput>;
   describeChimeWebhookConfigurations(
     args: DescribeChimeWebhookConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -336,6 +337,7 @@ export interface Chatbot {
   /**
    * @see {@link DescribeSlackChannelConfigurationsCommand}
    */
+  describeSlackChannelConfigurations(): Promise<DescribeSlackChannelConfigurationsCommandOutput>;
   describeSlackChannelConfigurations(
     args: DescribeSlackChannelConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -353,6 +355,7 @@ export interface Chatbot {
   /**
    * @see {@link DescribeSlackUserIdentitiesCommand}
    */
+  describeSlackUserIdentities(): Promise<DescribeSlackUserIdentitiesCommandOutput>;
   describeSlackUserIdentities(
     args: DescribeSlackUserIdentitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -370,6 +373,7 @@ export interface Chatbot {
   /**
    * @see {@link DescribeSlackWorkspacesCommand}
    */
+  describeSlackWorkspaces(): Promise<DescribeSlackWorkspacesCommandOutput>;
   describeSlackWorkspaces(
     args: DescribeSlackWorkspacesCommandInput,
     options?: __HttpHandlerOptions
@@ -387,6 +391,7 @@ export interface Chatbot {
   /**
    * @see {@link GetAccountPreferencesCommand}
    */
+  getAccountPreferences(): Promise<GetAccountPreferencesCommandOutput>;
   getAccountPreferences(
     args: GetAccountPreferencesCommandInput,
     options?: __HttpHandlerOptions
@@ -421,6 +426,7 @@ export interface Chatbot {
   /**
    * @see {@link ListMicrosoftTeamsChannelConfigurationsCommand}
    */
+  listMicrosoftTeamsChannelConfigurations(): Promise<ListMicrosoftTeamsChannelConfigurationsCommandOutput>;
   listMicrosoftTeamsChannelConfigurations(
     args: ListMicrosoftTeamsChannelConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -438,6 +444,7 @@ export interface Chatbot {
   /**
    * @see {@link ListMicrosoftTeamsConfiguredTeamsCommand}
    */
+  listMicrosoftTeamsConfiguredTeams(): Promise<ListMicrosoftTeamsConfiguredTeamsCommandOutput>;
   listMicrosoftTeamsConfiguredTeams(
     args: ListMicrosoftTeamsConfiguredTeamsCommandInput,
     options?: __HttpHandlerOptions
@@ -455,6 +462,7 @@ export interface Chatbot {
   /**
    * @see {@link ListMicrosoftTeamsUserIdentitiesCommand}
    */
+  listMicrosoftTeamsUserIdentities(): Promise<ListMicrosoftTeamsUserIdentitiesCommandOutput>;
   listMicrosoftTeamsUserIdentities(
     args: ListMicrosoftTeamsUserIdentitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -472,6 +480,7 @@ export interface Chatbot {
   /**
    * @see {@link UpdateAccountPreferencesCommand}
    */
+  updateAccountPreferences(): Promise<UpdateAccountPreferencesCommandOutput>;
   updateAccountPreferences(
     args: UpdateAccountPreferencesCommandInput,
     options?: __HttpHandlerOptions

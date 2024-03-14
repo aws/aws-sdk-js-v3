@@ -239,6 +239,7 @@ export interface RUM {
   /**
    * @see {@link ListAppMonitorsCommand}
    */
+  listAppMonitors(): Promise<ListAppMonitorsCommandOutput>;
   listAppMonitors(
     args: ListAppMonitorsCommandInput,
     options?: __HttpHandlerOptions

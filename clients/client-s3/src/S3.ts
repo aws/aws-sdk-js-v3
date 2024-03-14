@@ -1456,6 +1456,7 @@ export interface S3 {
   /**
    * @see {@link ListBucketsCommand}
    */
+  listBuckets(): Promise<ListBucketsCommandOutput>;
   listBuckets(args: ListBucketsCommandInput, options?: __HttpHandlerOptions): Promise<ListBucketsCommandOutput>;
   listBuckets(args: ListBucketsCommandInput, cb: (err: any, data?: ListBucketsCommandOutput) => void): void;
   listBuckets(
@@ -1467,6 +1468,7 @@ export interface S3 {
   /**
    * @see {@link ListDirectoryBucketsCommand}
    */
+  listDirectoryBuckets(): Promise<ListDirectoryBucketsCommandOutput>;
   listDirectoryBuckets(
     args: ListDirectoryBucketsCommandInput,
     options?: __HttpHandlerOptions

@@ -325,6 +325,7 @@ export interface EMRContainers {
   /**
    * @see {@link ListJobTemplatesCommand}
    */
+  listJobTemplates(): Promise<ListJobTemplatesCommandOutput>;
   listJobTemplates(
     args: ListJobTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -376,6 +377,7 @@ export interface EMRContainers {
   /**
    * @see {@link ListVirtualClustersCommand}
    */
+  listVirtualClusters(): Promise<ListVirtualClustersCommandOutput>;
   listVirtualClusters(
     args: ListVirtualClustersCommandInput,
     options?: __HttpHandlerOptions

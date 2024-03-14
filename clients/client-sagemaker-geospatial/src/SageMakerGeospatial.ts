@@ -247,6 +247,7 @@ export interface SageMakerGeospatial {
   /**
    * @see {@link ListEarthObservationJobsCommand}
    */
+  listEarthObservationJobs(): Promise<ListEarthObservationJobsCommandOutput>;
   listEarthObservationJobs(
     args: ListEarthObservationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -264,6 +265,7 @@ export interface SageMakerGeospatial {
   /**
    * @see {@link ListRasterDataCollectionsCommand}
    */
+  listRasterDataCollections(): Promise<ListRasterDataCollectionsCommandOutput>;
   listRasterDataCollections(
     args: ListRasterDataCollectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -298,6 +300,7 @@ export interface SageMakerGeospatial {
   /**
    * @see {@link ListVectorEnrichmentJobsCommand}
    */
+  listVectorEnrichmentJobs(): Promise<ListVectorEnrichmentJobsCommandOutput>;
   listVectorEnrichmentJobs(
     args: ListVectorEnrichmentJobsCommandInput,
     options?: __HttpHandlerOptions

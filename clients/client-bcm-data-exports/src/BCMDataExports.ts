@@ -132,6 +132,7 @@ export interface BCMDataExports {
   /**
    * @see {@link ListExportsCommand}
    */
+  listExports(): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
   listExports(
@@ -143,6 +144,7 @@ export interface BCMDataExports {
   /**
    * @see {@link ListTablesCommand}
    */
+  listTables(): Promise<ListTablesCommandOutput>;
   listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
   listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
   listTables(

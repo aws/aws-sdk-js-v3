@@ -195,6 +195,7 @@ export interface ElasticTranscoder {
   /**
    * @see {@link ListPipelinesCommand}
    */
+  listPipelines(): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
   listPipelines(
@@ -206,6 +207,7 @@ export interface ElasticTranscoder {
   /**
    * @see {@link ListPresetsCommand}
    */
+  listPresets(): Promise<ListPresetsCommandOutput>;
   listPresets(args: ListPresetsCommandInput, options?: __HttpHandlerOptions): Promise<ListPresetsCommandOutput>;
   listPresets(args: ListPresetsCommandInput, cb: (err: any, data?: ListPresetsCommandOutput) => void): void;
   listPresets(

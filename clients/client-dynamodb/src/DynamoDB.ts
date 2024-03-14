@@ -437,6 +437,7 @@ export interface DynamoDB {
   /**
    * @see {@link DescribeEndpointsCommand}
    */
+  describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -533,6 +534,7 @@ export interface DynamoDB {
   /**
    * @see {@link DescribeLimitsCommand}
    */
+  describeLimits(): Promise<DescribeLimitsCommandOutput>;
   describeLimits(
     args: DescribeLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -699,6 +701,7 @@ export interface DynamoDB {
   /**
    * @see {@link ListBackupsCommand}
    */
+  listBackups(): Promise<ListBackupsCommandOutput>;
   listBackups(args: ListBackupsCommandInput, options?: __HttpHandlerOptions): Promise<ListBackupsCommandOutput>;
   listBackups(args: ListBackupsCommandInput, cb: (err: any, data?: ListBackupsCommandOutput) => void): void;
   listBackups(
@@ -710,6 +713,7 @@ export interface DynamoDB {
   /**
    * @see {@link ListContributorInsightsCommand}
    */
+  listContributorInsights(): Promise<ListContributorInsightsCommandOutput>;
   listContributorInsights(
     args: ListContributorInsightsCommandInput,
     options?: __HttpHandlerOptions
@@ -727,6 +731,7 @@ export interface DynamoDB {
   /**
    * @see {@link ListExportsCommand}
    */
+  listExports(): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
   listExports(
@@ -738,6 +743,7 @@ export interface DynamoDB {
   /**
    * @see {@link ListGlobalTablesCommand}
    */
+  listGlobalTables(): Promise<ListGlobalTablesCommandOutput>;
   listGlobalTables(
     args: ListGlobalTablesCommandInput,
     options?: __HttpHandlerOptions
@@ -755,6 +761,7 @@ export interface DynamoDB {
   /**
    * @see {@link ListImportsCommand}
    */
+  listImports(): Promise<ListImportsCommandOutput>;
   listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
   listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
   listImports(
@@ -766,6 +773,7 @@ export interface DynamoDB {
   /**
    * @see {@link ListTablesCommand}
    */
+  listTables(): Promise<ListTablesCommandOutput>;
   listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
   listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
   listTables(

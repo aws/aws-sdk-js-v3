@@ -383,6 +383,7 @@ export interface Transfer {
   /**
    * @see {@link CreateServerCommand}
    */
+  createServer(): Promise<CreateServerCommandOutput>;
   createServer(args: CreateServerCommandInput, options?: __HttpHandlerOptions): Promise<CreateServerCommandOutput>;
   createServer(args: CreateServerCommandInput, cb: (err: any, data?: CreateServerCommandOutput) => void): void;
   createServer(
@@ -789,6 +790,7 @@ export interface Transfer {
   /**
    * @see {@link ListCertificatesCommand}
    */
+  listCertificates(): Promise<ListCertificatesCommandOutput>;
   listCertificates(
     args: ListCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -806,6 +808,7 @@ export interface Transfer {
   /**
    * @see {@link ListConnectorsCommand}
    */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -845,6 +848,7 @@ export interface Transfer {
   /**
    * @see {@link ListProfilesCommand}
    */
+  listProfiles(): Promise<ListProfilesCommandOutput>;
   listProfiles(args: ListProfilesCommandInput, options?: __HttpHandlerOptions): Promise<ListProfilesCommandOutput>;
   listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
   listProfiles(
@@ -856,6 +860,7 @@ export interface Transfer {
   /**
    * @see {@link ListSecurityPoliciesCommand}
    */
+  listSecurityPolicies(): Promise<ListSecurityPoliciesCommandOutput>;
   listSecurityPolicies(
     args: ListSecurityPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -873,6 +878,7 @@ export interface Transfer {
   /**
    * @see {@link ListServersCommand}
    */
+  listServers(): Promise<ListServersCommandOutput>;
   listServers(args: ListServersCommandInput, options?: __HttpHandlerOptions): Promise<ListServersCommandOutput>;
   listServers(args: ListServersCommandInput, cb: (err: any, data?: ListServersCommandOutput) => void): void;
   listServers(
@@ -912,6 +918,7 @@ export interface Transfer {
   /**
    * @see {@link ListWorkflowsCommand}
    */
+  listWorkflows(): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
   listWorkflows(

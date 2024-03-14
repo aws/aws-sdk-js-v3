@@ -1222,6 +1222,7 @@ export interface CloudFront {
   /**
    * @see {@link DeleteRealtimeLogConfigCommand}
    */
+  deleteRealtimeLogConfig(): Promise<DeleteRealtimeLogConfigCommandOutput>;
   deleteRealtimeLogConfig(
     args: DeleteRealtimeLogConfigCommandInput,
     options?: __HttpHandlerOptions
@@ -1671,6 +1672,7 @@ export interface CloudFront {
   /**
    * @see {@link GetRealtimeLogConfigCommand}
    */
+  getRealtimeLogConfig(): Promise<GetRealtimeLogConfigCommandOutput>;
   getRealtimeLogConfig(
     args: GetRealtimeLogConfigCommandInput,
     options?: __HttpHandlerOptions
@@ -1756,6 +1758,7 @@ export interface CloudFront {
   /**
    * @see {@link ListCachePoliciesCommand}
    */
+  listCachePolicies(): Promise<ListCachePoliciesCommandOutput>;
   listCachePolicies(
     args: ListCachePoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -1773,6 +1776,7 @@ export interface CloudFront {
   /**
    * @see {@link ListCloudFrontOriginAccessIdentitiesCommand}
    */
+  listCloudFrontOriginAccessIdentities(): Promise<ListCloudFrontOriginAccessIdentitiesCommandOutput>;
   listCloudFrontOriginAccessIdentities(
     args: ListCloudFrontOriginAccessIdentitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -1807,6 +1811,7 @@ export interface CloudFront {
   /**
    * @see {@link ListContinuousDeploymentPoliciesCommand}
    */
+  listContinuousDeploymentPolicies(): Promise<ListContinuousDeploymentPoliciesCommandOutput>;
   listContinuousDeploymentPolicies(
     args: ListContinuousDeploymentPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -1824,6 +1829,7 @@ export interface CloudFront {
   /**
    * @see {@link ListDistributionsCommand}
    */
+  listDistributions(): Promise<ListDistributionsCommandOutput>;
   listDistributions(
     args: ListDistributionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1892,6 +1898,7 @@ export interface CloudFront {
   /**
    * @see {@link ListDistributionsByRealtimeLogConfigCommand}
    */
+  listDistributionsByRealtimeLogConfig(): Promise<ListDistributionsByRealtimeLogConfigCommandOutput>;
   listDistributionsByRealtimeLogConfig(
     args: ListDistributionsByRealtimeLogConfigCommandInput,
     options?: __HttpHandlerOptions
@@ -1943,6 +1950,7 @@ export interface CloudFront {
   /**
    * @see {@link ListFieldLevelEncryptionConfigsCommand}
    */
+  listFieldLevelEncryptionConfigs(): Promise<ListFieldLevelEncryptionConfigsCommandOutput>;
   listFieldLevelEncryptionConfigs(
     args: ListFieldLevelEncryptionConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -1960,6 +1968,7 @@ export interface CloudFront {
   /**
    * @see {@link ListFieldLevelEncryptionProfilesCommand}
    */
+  listFieldLevelEncryptionProfiles(): Promise<ListFieldLevelEncryptionProfilesCommandOutput>;
   listFieldLevelEncryptionProfiles(
     args: ListFieldLevelEncryptionProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1977,6 +1986,7 @@ export interface CloudFront {
   /**
    * @see {@link ListFunctionsCommand}
    */
+  listFunctions(): Promise<ListFunctionsCommandOutput>;
   listFunctions(args: ListFunctionsCommandInput, options?: __HttpHandlerOptions): Promise<ListFunctionsCommandOutput>;
   listFunctions(args: ListFunctionsCommandInput, cb: (err: any, data?: ListFunctionsCommandOutput) => void): void;
   listFunctions(
@@ -2005,6 +2015,7 @@ export interface CloudFront {
   /**
    * @see {@link ListKeyGroupsCommand}
    */
+  listKeyGroups(): Promise<ListKeyGroupsCommandOutput>;
   listKeyGroups(args: ListKeyGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListKeyGroupsCommandOutput>;
   listKeyGroups(args: ListKeyGroupsCommandInput, cb: (err: any, data?: ListKeyGroupsCommandOutput) => void): void;
   listKeyGroups(
@@ -2016,6 +2027,7 @@ export interface CloudFront {
   /**
    * @see {@link ListKeyValueStoresCommand}
    */
+  listKeyValueStores(): Promise<ListKeyValueStoresCommandOutput>;
   listKeyValueStores(
     args: ListKeyValueStoresCommandInput,
     options?: __HttpHandlerOptions
@@ -2033,6 +2045,7 @@ export interface CloudFront {
   /**
    * @see {@link ListOriginAccessControlsCommand}
    */
+  listOriginAccessControls(): Promise<ListOriginAccessControlsCommandOutput>;
   listOriginAccessControls(
     args: ListOriginAccessControlsCommandInput,
     options?: __HttpHandlerOptions
@@ -2050,6 +2063,7 @@ export interface CloudFront {
   /**
    * @see {@link ListOriginRequestPoliciesCommand}
    */
+  listOriginRequestPolicies(): Promise<ListOriginRequestPoliciesCommandOutput>;
   listOriginRequestPolicies(
     args: ListOriginRequestPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -2067,6 +2081,7 @@ export interface CloudFront {
   /**
    * @see {@link ListPublicKeysCommand}
    */
+  listPublicKeys(): Promise<ListPublicKeysCommandOutput>;
   listPublicKeys(
     args: ListPublicKeysCommandInput,
     options?: __HttpHandlerOptions
@@ -2081,6 +2096,7 @@ export interface CloudFront {
   /**
    * @see {@link ListRealtimeLogConfigsCommand}
    */
+  listRealtimeLogConfigs(): Promise<ListRealtimeLogConfigsCommandOutput>;
   listRealtimeLogConfigs(
     args: ListRealtimeLogConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -2098,6 +2114,7 @@ export interface CloudFront {
   /**
    * @see {@link ListResponseHeadersPoliciesCommand}
    */
+  listResponseHeadersPolicies(): Promise<ListResponseHeadersPoliciesCommandOutput>;
   listResponseHeadersPolicies(
     args: ListResponseHeadersPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -2115,6 +2132,7 @@ export interface CloudFront {
   /**
    * @see {@link ListStreamingDistributionsCommand}
    */
+  listStreamingDistributions(): Promise<ListStreamingDistributionsCommandOutput>;
   listStreamingDistributions(
     args: ListStreamingDistributionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2408,6 +2426,7 @@ export interface CloudFront {
   /**
    * @see {@link UpdateRealtimeLogConfigCommand}
    */
+  updateRealtimeLogConfig(): Promise<UpdateRealtimeLogConfigCommandOutput>;
   updateRealtimeLogConfig(
     args: UpdateRealtimeLogConfigCommandInput,
     options?: __HttpHandlerOptions

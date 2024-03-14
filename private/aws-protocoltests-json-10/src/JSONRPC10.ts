@@ -85,6 +85,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link EmptyInputAndEmptyOutputCommand}
    */
+  emptyInputAndEmptyOutput(): Promise<EmptyInputAndEmptyOutputCommandOutput>;
   emptyInputAndEmptyOutput(
     args: EmptyInputAndEmptyOutputCommandInput,
     options?: __HttpHandlerOptions
@@ -102,6 +103,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link EndpointOperationCommand}
    */
+  endpointOperation(): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -136,6 +138,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link GreetingWithErrorsCommand}
    */
+  greetingWithErrors(): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
     options?: __HttpHandlerOptions
@@ -153,6 +156,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link HostWithPathOperationCommand}
    */
+  hostWithPathOperation(): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -170,6 +174,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link JsonUnionsCommand}
    */
+  jsonUnions(): Promise<JsonUnionsCommandOutput>;
   jsonUnions(args: JsonUnionsCommandInput, options?: __HttpHandlerOptions): Promise<JsonUnionsCommandOutput>;
   jsonUnions(args: JsonUnionsCommandInput, cb: (err: any, data?: JsonUnionsCommandOutput) => void): void;
   jsonUnions(
@@ -181,6 +186,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link NoInputAndNoOutputCommand}
    */
+  noInputAndNoOutput(): Promise<NoInputAndNoOutputCommandOutput>;
   noInputAndNoOutput(
     args: NoInputAndNoOutputCommandInput,
     options?: __HttpHandlerOptions
@@ -198,6 +204,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link NoInputAndOutputCommand}
    */
+  noInputAndOutput(): Promise<NoInputAndOutputCommandOutput>;
   noInputAndOutput(
     args: NoInputAndOutputCommandInput,
     options?: __HttpHandlerOptions
@@ -215,6 +222,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link OperationWithDefaultsCommand}
    */
+  operationWithDefaults(): Promise<OperationWithDefaultsCommandOutput>;
   operationWithDefaults(
     args: OperationWithDefaultsCommandInput,
     options?: __HttpHandlerOptions
@@ -249,6 +257,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link OperationWithRequiredMembersCommand}
    */
+  operationWithRequiredMembers(): Promise<OperationWithRequiredMembersCommandOutput>;
   operationWithRequiredMembers(
     args: OperationWithRequiredMembersCommandInput,
     options?: __HttpHandlerOptions
@@ -266,6 +275,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link PutWithContentEncodingCommand}
    */
+  putWithContentEncoding(): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
     options?: __HttpHandlerOptions
@@ -283,6 +293,7 @@ export interface JSONRPC10 {
   /**
    * @see {@link SimpleScalarPropertiesCommand}
    */
+  simpleScalarProperties(): Promise<SimpleScalarPropertiesCommandOutput>;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
     options?: __HttpHandlerOptions

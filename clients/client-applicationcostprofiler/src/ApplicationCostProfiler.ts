@@ -98,6 +98,7 @@ export interface ApplicationCostProfiler {
   /**
    * @see {@link ListReportDefinitionsCommand}
    */
+  listReportDefinitions(): Promise<ListReportDefinitionsCommandOutput>;
   listReportDefinitions(
     args: ListReportDefinitionsCommandInput,
     options?: __HttpHandlerOptions

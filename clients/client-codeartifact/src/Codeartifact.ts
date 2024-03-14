@@ -581,6 +581,7 @@ export interface Codeartifact {
   /**
    * @see {@link ListDomainsCommand}
    */
+  listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
   listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
   listDomains(
@@ -654,6 +655,7 @@ export interface Codeartifact {
   /**
    * @see {@link ListRepositoriesCommand}
    */
+  listRepositories(): Promise<ListRepositoriesCommandOutput>;
   listRepositories(
     args: ListRepositoriesCommandInput,
     options?: __HttpHandlerOptions

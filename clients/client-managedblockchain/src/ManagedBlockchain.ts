@@ -281,6 +281,7 @@ export interface ManagedBlockchain {
   /**
    * @see {@link ListAccessorsCommand}
    */
+  listAccessors(): Promise<ListAccessorsCommandOutput>;
   listAccessors(args: ListAccessorsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccessorsCommandOutput>;
   listAccessors(args: ListAccessorsCommandInput, cb: (err: any, data?: ListAccessorsCommandOutput) => void): void;
   listAccessors(
@@ -292,6 +293,7 @@ export interface ManagedBlockchain {
   /**
    * @see {@link ListInvitationsCommand}
    */
+  listInvitations(): Promise<ListInvitationsCommandOutput>;
   listInvitations(
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
@@ -317,6 +319,7 @@ export interface ManagedBlockchain {
   /**
    * @see {@link ListNetworksCommand}
    */
+  listNetworks(): Promise<ListNetworksCommandOutput>;
   listNetworks(args: ListNetworksCommandInput, options?: __HttpHandlerOptions): Promise<ListNetworksCommandOutput>;
   listNetworks(args: ListNetworksCommandInput, cb: (err: any, data?: ListNetworksCommandOutput) => void): void;
   listNetworks(

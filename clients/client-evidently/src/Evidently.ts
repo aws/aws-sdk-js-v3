@@ -472,6 +472,7 @@ export interface Evidently {
   /**
    * @see {@link ListProjectsCommand}
    */
+  listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   listProjects(
@@ -500,6 +501,7 @@ export interface Evidently {
   /**
    * @see {@link ListSegmentsCommand}
    */
+  listSegments(): Promise<ListSegmentsCommandOutput>;
   listSegments(args: ListSegmentsCommandInput, options?: __HttpHandlerOptions): Promise<ListSegmentsCommandOutput>;
   listSegments(args: ListSegmentsCommandInput, cb: (err: any, data?: ListSegmentsCommandOutput) => void): void;
   listSegments(

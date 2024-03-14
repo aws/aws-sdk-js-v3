@@ -1087,6 +1087,7 @@ export interface Comprehend {
   /**
    * @see {@link DetectEntitiesCommand}
    */
+  detectEntities(): Promise<DetectEntitiesCommandOutput>;
   detectEntities(
     args: DetectEntitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -1205,6 +1206,7 @@ export interface Comprehend {
   /**
    * @see {@link ListDatasetsCommand}
    */
+  listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   listDatasets(
@@ -1216,6 +1218,7 @@ export interface Comprehend {
   /**
    * @see {@link ListDocumentClassificationJobsCommand}
    */
+  listDocumentClassificationJobs(): Promise<ListDocumentClassificationJobsCommandOutput>;
   listDocumentClassificationJobs(
     args: ListDocumentClassificationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1233,6 +1236,7 @@ export interface Comprehend {
   /**
    * @see {@link ListDocumentClassifiersCommand}
    */
+  listDocumentClassifiers(): Promise<ListDocumentClassifiersCommandOutput>;
   listDocumentClassifiers(
     args: ListDocumentClassifiersCommandInput,
     options?: __HttpHandlerOptions
@@ -1250,6 +1254,7 @@ export interface Comprehend {
   /**
    * @see {@link ListDocumentClassifierSummariesCommand}
    */
+  listDocumentClassifierSummaries(): Promise<ListDocumentClassifierSummariesCommandOutput>;
   listDocumentClassifierSummaries(
     args: ListDocumentClassifierSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -1267,6 +1272,7 @@ export interface Comprehend {
   /**
    * @see {@link ListDominantLanguageDetectionJobsCommand}
    */
+  listDominantLanguageDetectionJobs(): Promise<ListDominantLanguageDetectionJobsCommandOutput>;
   listDominantLanguageDetectionJobs(
     args: ListDominantLanguageDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1284,6 +1290,7 @@ export interface Comprehend {
   /**
    * @see {@link ListEndpointsCommand}
    */
+  listEndpoints(): Promise<ListEndpointsCommandOutput>;
   listEndpoints(args: ListEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<ListEndpointsCommandOutput>;
   listEndpoints(args: ListEndpointsCommandInput, cb: (err: any, data?: ListEndpointsCommandOutput) => void): void;
   listEndpoints(
@@ -1295,6 +1302,7 @@ export interface Comprehend {
   /**
    * @see {@link ListEntitiesDetectionJobsCommand}
    */
+  listEntitiesDetectionJobs(): Promise<ListEntitiesDetectionJobsCommandOutput>;
   listEntitiesDetectionJobs(
     args: ListEntitiesDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1312,6 +1320,7 @@ export interface Comprehend {
   /**
    * @see {@link ListEntityRecognizersCommand}
    */
+  listEntityRecognizers(): Promise<ListEntityRecognizersCommandOutput>;
   listEntityRecognizers(
     args: ListEntityRecognizersCommandInput,
     options?: __HttpHandlerOptions
@@ -1329,6 +1338,7 @@ export interface Comprehend {
   /**
    * @see {@link ListEntityRecognizerSummariesCommand}
    */
+  listEntityRecognizerSummaries(): Promise<ListEntityRecognizerSummariesCommandOutput>;
   listEntityRecognizerSummaries(
     args: ListEntityRecognizerSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -1346,6 +1356,7 @@ export interface Comprehend {
   /**
    * @see {@link ListEventsDetectionJobsCommand}
    */
+  listEventsDetectionJobs(): Promise<ListEventsDetectionJobsCommandOutput>;
   listEventsDetectionJobs(
     args: ListEventsDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1380,6 +1391,7 @@ export interface Comprehend {
   /**
    * @see {@link ListFlywheelsCommand}
    */
+  listFlywheels(): Promise<ListFlywheelsCommandOutput>;
   listFlywheels(args: ListFlywheelsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlywheelsCommandOutput>;
   listFlywheels(args: ListFlywheelsCommandInput, cb: (err: any, data?: ListFlywheelsCommandOutput) => void): void;
   listFlywheels(
@@ -1391,6 +1403,7 @@ export interface Comprehend {
   /**
    * @see {@link ListKeyPhrasesDetectionJobsCommand}
    */
+  listKeyPhrasesDetectionJobs(): Promise<ListKeyPhrasesDetectionJobsCommandOutput>;
   listKeyPhrasesDetectionJobs(
     args: ListKeyPhrasesDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1408,6 +1421,7 @@ export interface Comprehend {
   /**
    * @see {@link ListPiiEntitiesDetectionJobsCommand}
    */
+  listPiiEntitiesDetectionJobs(): Promise<ListPiiEntitiesDetectionJobsCommandOutput>;
   listPiiEntitiesDetectionJobs(
     args: ListPiiEntitiesDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1425,6 +1439,7 @@ export interface Comprehend {
   /**
    * @see {@link ListSentimentDetectionJobsCommand}
    */
+  listSentimentDetectionJobs(): Promise<ListSentimentDetectionJobsCommandOutput>;
   listSentimentDetectionJobs(
     args: ListSentimentDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1459,6 +1474,7 @@ export interface Comprehend {
   /**
    * @see {@link ListTargetedSentimentDetectionJobsCommand}
    */
+  listTargetedSentimentDetectionJobs(): Promise<ListTargetedSentimentDetectionJobsCommandOutput>;
   listTargetedSentimentDetectionJobs(
     args: ListTargetedSentimentDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1476,6 +1492,7 @@ export interface Comprehend {
   /**
    * @see {@link ListTopicsDetectionJobsCommand}
    */
+  listTopicsDetectionJobs(): Promise<ListTopicsDetectionJobsCommandOutput>;
   listTopicsDetectionJobs(
     args: ListTopicsDetectionJobsCommandInput,
     options?: __HttpHandlerOptions

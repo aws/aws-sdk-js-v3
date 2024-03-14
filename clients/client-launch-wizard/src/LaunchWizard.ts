@@ -128,6 +128,7 @@ export interface LaunchWizard {
   /**
    * @see {@link ListDeploymentsCommand}
    */
+  listDeployments(): Promise<ListDeploymentsCommandOutput>;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
@@ -159,6 +160,7 @@ export interface LaunchWizard {
   /**
    * @see {@link ListWorkloadsCommand}
    */
+  listWorkloads(): Promise<ListWorkloadsCommandOutput>;
   listWorkloads(args: ListWorkloadsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkloadsCommandOutput>;
   listWorkloads(args: ListWorkloadsCommandInput, cb: (err: any, data?: ListWorkloadsCommandOutput) => void): void;
   listWorkloads(

@@ -384,6 +384,7 @@ export interface PcaConnectorAd {
   /**
    * @see {@link ListConnectorsCommand}
    */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -398,6 +399,7 @@ export interface PcaConnectorAd {
   /**
    * @see {@link ListDirectoryRegistrationsCommand}
    */
+  listDirectoryRegistrations(): Promise<ListDirectoryRegistrationsCommandOutput>;
   listDirectoryRegistrations(
     args: ListDirectoryRegistrationsCommandInput,
     options?: __HttpHandlerOptions

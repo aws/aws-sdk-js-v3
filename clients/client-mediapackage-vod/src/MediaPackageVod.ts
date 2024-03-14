@@ -243,6 +243,7 @@ export interface MediaPackageVod {
   /**
    * @see {@link ListAssetsCommand}
    */
+  listAssets(): Promise<ListAssetsCommandOutput>;
   listAssets(args: ListAssetsCommandInput, options?: __HttpHandlerOptions): Promise<ListAssetsCommandOutput>;
   listAssets(args: ListAssetsCommandInput, cb: (err: any, data?: ListAssetsCommandOutput) => void): void;
   listAssets(
@@ -254,6 +255,7 @@ export interface MediaPackageVod {
   /**
    * @see {@link ListPackagingConfigurationsCommand}
    */
+  listPackagingConfigurations(): Promise<ListPackagingConfigurationsCommandOutput>;
   listPackagingConfigurations(
     args: ListPackagingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -271,6 +273,7 @@ export interface MediaPackageVod {
   /**
    * @see {@link ListPackagingGroupsCommand}
    */
+  listPackagingGroups(): Promise<ListPackagingGroupsCommandOutput>;
   listPackagingGroups(
     args: ListPackagingGroupsCommandInput,
     options?: __HttpHandlerOptions

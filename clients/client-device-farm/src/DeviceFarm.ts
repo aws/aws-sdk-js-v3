@@ -673,6 +673,7 @@ export interface DeviceFarm {
   /**
    * @see {@link GetAccountSettingsCommand}
    */
+  getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -791,6 +792,7 @@ export interface DeviceFarm {
   /**
    * @see {@link GetOfferingStatusCommand}
    */
+  getOfferingStatus(): Promise<GetOfferingStatusCommandOutput>;
   getOfferingStatus(
     args: GetOfferingStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -886,6 +888,7 @@ export interface DeviceFarm {
   /**
    * @see {@link GetTestGridSessionCommand}
    */
+  getTestGridSession(): Promise<GetTestGridSessionCommandOutput>;
   getTestGridSession(
     args: GetTestGridSessionCommandInput,
     options?: __HttpHandlerOptions
@@ -959,6 +962,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListDeviceInstancesCommand}
    */
+  listDeviceInstances(): Promise<ListDeviceInstancesCommandOutput>;
   listDeviceInstances(
     args: ListDeviceInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -990,6 +994,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListDevicesCommand}
    */
+  listDevices(): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   listDevices(
@@ -1001,6 +1006,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListInstanceProfilesCommand}
    */
+  listInstanceProfiles(): Promise<ListInstanceProfilesCommandOutput>;
   listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1046,6 +1052,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListOfferingPromotionsCommand}
    */
+  listOfferingPromotions(): Promise<ListOfferingPromotionsCommandOutput>;
   listOfferingPromotions(
     args: ListOfferingPromotionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1063,6 +1070,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListOfferingsCommand}
    */
+  listOfferings(): Promise<ListOfferingsCommandOutput>;
   listOfferings(args: ListOfferingsCommandInput, options?: __HttpHandlerOptions): Promise<ListOfferingsCommandOutput>;
   listOfferings(args: ListOfferingsCommandInput, cb: (err: any, data?: ListOfferingsCommandOutput) => void): void;
   listOfferings(
@@ -1074,6 +1082,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListOfferingTransactionsCommand}
    */
+  listOfferingTransactions(): Promise<ListOfferingTransactionsCommandOutput>;
   listOfferingTransactions(
     args: ListOfferingTransactionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1091,6 +1100,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListProjectsCommand}
    */
+  listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   listProjects(
@@ -1169,6 +1179,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListTestGridProjectsCommand}
    */
+  listTestGridProjects(): Promise<ListTestGridProjectsCommandOutput>;
   listTestGridProjects(
     args: ListTestGridProjectsCommandInput,
     options?: __HttpHandlerOptions
@@ -1276,6 +1287,7 @@ export interface DeviceFarm {
   /**
    * @see {@link ListVPCEConfigurationsCommand}
    */
+  listVPCEConfigurations(): Promise<ListVPCEConfigurationsCommandOutput>;
   listVPCEConfigurations(
     args: ListVPCEConfigurationsCommandInput,
     options?: __HttpHandlerOptions

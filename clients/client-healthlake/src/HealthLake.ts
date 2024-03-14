@@ -170,6 +170,7 @@ export interface HealthLake {
   /**
    * @see {@link ListFHIRDatastoresCommand}
    */
+  listFHIRDatastores(): Promise<ListFHIRDatastoresCommandOutput>;
   listFHIRDatastores(
     args: ListFHIRDatastoresCommandInput,
     options?: __HttpHandlerOptions

@@ -1185,6 +1185,7 @@ export interface StorageGateway {
   /**
    * @see {@link DescribeTapeArchivesCommand}
    */
+  describeTapeArchives(): Promise<DescribeTapeArchivesCommandOutput>;
   describeTapeArchives(
     args: DescribeTapeArchivesCommandInput,
     options?: __HttpHandlerOptions
@@ -1334,6 +1335,7 @@ export interface StorageGateway {
   /**
    * @see {@link ListAutomaticTapeCreationPoliciesCommand}
    */
+  listAutomaticTapeCreationPolicies(): Promise<ListAutomaticTapeCreationPoliciesCommandOutput>;
   listAutomaticTapeCreationPolicies(
     args: ListAutomaticTapeCreationPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -1351,6 +1353,7 @@ export interface StorageGateway {
   /**
    * @see {@link ListFileSharesCommand}
    */
+  listFileShares(): Promise<ListFileSharesCommandOutput>;
   listFileShares(
     args: ListFileSharesCommandInput,
     options?: __HttpHandlerOptions
@@ -1365,6 +1368,7 @@ export interface StorageGateway {
   /**
    * @see {@link ListFileSystemAssociationsCommand}
    */
+  listFileSystemAssociations(): Promise<ListFileSystemAssociationsCommandOutput>;
   listFileSystemAssociations(
     args: ListFileSystemAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1382,6 +1386,7 @@ export interface StorageGateway {
   /**
    * @see {@link ListGatewaysCommand}
    */
+  listGateways(): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
   listGateways(
@@ -1424,6 +1429,7 @@ export interface StorageGateway {
   /**
    * @see {@link ListTapePoolsCommand}
    */
+  listTapePools(): Promise<ListTapePoolsCommandOutput>;
   listTapePools(args: ListTapePoolsCommandInput, options?: __HttpHandlerOptions): Promise<ListTapePoolsCommandOutput>;
   listTapePools(args: ListTapePoolsCommandInput, cb: (err: any, data?: ListTapePoolsCommandOutput) => void): void;
   listTapePools(
@@ -1435,6 +1441,7 @@ export interface StorageGateway {
   /**
    * @see {@link ListTapesCommand}
    */
+  listTapes(): Promise<ListTapesCommandOutput>;
   listTapes(args: ListTapesCommandInput, options?: __HttpHandlerOptions): Promise<ListTapesCommandOutput>;
   listTapes(args: ListTapesCommandInput, cb: (err: any, data?: ListTapesCommandOutput) => void): void;
   listTapes(
@@ -1480,6 +1487,7 @@ export interface StorageGateway {
   /**
    * @see {@link ListVolumesCommand}
    */
+  listVolumes(): Promise<ListVolumesCommandOutput>;
   listVolumes(args: ListVolumesCommandInput, options?: __HttpHandlerOptions): Promise<ListVolumesCommandOutput>;
   listVolumes(args: ListVolumesCommandInput, cb: (err: any, data?: ListVolumesCommandOutput) => void): void;
   listVolumes(

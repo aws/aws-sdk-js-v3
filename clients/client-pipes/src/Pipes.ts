@@ -76,6 +76,7 @@ export interface Pipes {
   /**
    * @see {@link ListPipesCommand}
    */
+  listPipes(): Promise<ListPipesCommandOutput>;
   listPipes(args: ListPipesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipesCommandOutput>;
   listPipes(args: ListPipesCommandInput, cb: (err: any, data?: ListPipesCommandOutput) => void): void;
   listPipes(

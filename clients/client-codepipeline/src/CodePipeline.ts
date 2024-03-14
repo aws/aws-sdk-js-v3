@@ -333,6 +333,7 @@ export interface CodePipeline {
   /**
    * @see {@link DeregisterWebhookWithThirdPartyCommand}
    */
+  deregisterWebhookWithThirdParty(): Promise<DeregisterWebhookWithThirdPartyCommandOutput>;
   deregisterWebhookWithThirdParty(
     args: DeregisterWebhookWithThirdPartyCommandInput,
     options?: __HttpHandlerOptions
@@ -485,6 +486,7 @@ export interface CodePipeline {
   /**
    * @see {@link ListActionTypesCommand}
    */
+  listActionTypes(): Promise<ListActionTypesCommandOutput>;
   listActionTypes(
     args: ListActionTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -516,6 +518,7 @@ export interface CodePipeline {
   /**
    * @see {@link ListPipelinesCommand}
    */
+  listPipelines(): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
   listPipelines(
@@ -544,6 +547,7 @@ export interface CodePipeline {
   /**
    * @see {@link ListWebhooksCommand}
    */
+  listWebhooks(): Promise<ListWebhooksCommandOutput>;
   listWebhooks(args: ListWebhooksCommandInput, options?: __HttpHandlerOptions): Promise<ListWebhooksCommandOutput>;
   listWebhooks(args: ListWebhooksCommandInput, cb: (err: any, data?: ListWebhooksCommandOutput) => void): void;
   listWebhooks(
@@ -696,6 +700,7 @@ export interface CodePipeline {
   /**
    * @see {@link RegisterWebhookWithThirdPartyCommand}
    */
+  registerWebhookWithThirdParty(): Promise<RegisterWebhookWithThirdPartyCommandOutput>;
   registerWebhookWithThirdParty(
     args: RegisterWebhookWithThirdPartyCommandInput,
     options?: __HttpHandlerOptions

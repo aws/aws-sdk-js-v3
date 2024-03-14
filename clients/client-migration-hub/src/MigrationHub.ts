@@ -266,6 +266,7 @@ export interface MigrationHub {
   /**
    * @see {@link ListApplicationStatesCommand}
    */
+  listApplicationStates(): Promise<ListApplicationStatesCommandOutput>;
   listApplicationStates(
     args: ListApplicationStatesCommandInput,
     options?: __HttpHandlerOptions
@@ -317,6 +318,7 @@ export interface MigrationHub {
   /**
    * @see {@link ListMigrationTasksCommand}
    */
+  listMigrationTasks(): Promise<ListMigrationTasksCommandOutput>;
   listMigrationTasks(
     args: ListMigrationTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -334,6 +336,7 @@ export interface MigrationHub {
   /**
    * @see {@link ListProgressUpdateStreamsCommand}
    */
+  listProgressUpdateStreams(): Promise<ListProgressUpdateStreamsCommandOutput>;
   listProgressUpdateStreams(
     args: ListProgressUpdateStreamsCommandInput,
     options?: __HttpHandlerOptions

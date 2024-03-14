@@ -218,6 +218,7 @@ export interface MediaConvert {
   /**
    * @see {@link DeletePolicyCommand}
    */
+  deletePolicy(): Promise<DeletePolicyCommandOutput>;
   deletePolicy(args: DeletePolicyCommandInput, options?: __HttpHandlerOptions): Promise<DeletePolicyCommandOutput>;
   deletePolicy(args: DeletePolicyCommandInput, cb: (err: any, data?: DeletePolicyCommandOutput) => void): void;
   deletePolicy(
@@ -251,6 +252,7 @@ export interface MediaConvert {
   /**
    * @see {@link DescribeEndpointsCommand}
    */
+  describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -310,6 +312,7 @@ export interface MediaConvert {
   /**
    * @see {@link GetPolicyCommand}
    */
+  getPolicy(): Promise<GetPolicyCommandOutput>;
   getPolicy(args: GetPolicyCommandInput, options?: __HttpHandlerOptions): Promise<GetPolicyCommandOutput>;
   getPolicy(args: GetPolicyCommandInput, cb: (err: any, data?: GetPolicyCommandOutput) => void): void;
   getPolicy(
@@ -343,6 +346,7 @@ export interface MediaConvert {
   /**
    * @see {@link ListJobsCommand}
    */
+  listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   listJobs(
@@ -354,6 +358,7 @@ export interface MediaConvert {
   /**
    * @see {@link ListJobTemplatesCommand}
    */
+  listJobTemplates(): Promise<ListJobTemplatesCommandOutput>;
   listJobTemplates(
     args: ListJobTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -371,6 +376,7 @@ export interface MediaConvert {
   /**
    * @see {@link ListPresetsCommand}
    */
+  listPresets(): Promise<ListPresetsCommandOutput>;
   listPresets(args: ListPresetsCommandInput, options?: __HttpHandlerOptions): Promise<ListPresetsCommandOutput>;
   listPresets(args: ListPresetsCommandInput, cb: (err: any, data?: ListPresetsCommandOutput) => void): void;
   listPresets(
@@ -382,6 +388,7 @@ export interface MediaConvert {
   /**
    * @see {@link ListQueuesCommand}
    */
+  listQueues(): Promise<ListQueuesCommandOutput>;
   listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
   listQueues(args: ListQueuesCommandInput, cb: (err: any, data?: ListQueuesCommandOutput) => void): void;
   listQueues(

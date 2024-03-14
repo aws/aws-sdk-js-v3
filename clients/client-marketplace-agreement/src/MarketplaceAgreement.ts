@@ -63,6 +63,7 @@ export interface MarketplaceAgreement {
   /**
    * @see {@link SearchAgreementsCommand}
    */
+  searchAgreements(): Promise<SearchAgreementsCommandOutput>;
   searchAgreements(
     args: SearchAgreementsCommandInput,
     options?: __HttpHandlerOptions

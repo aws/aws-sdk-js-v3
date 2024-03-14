@@ -573,6 +573,7 @@ export interface Greengrass {
   /**
    * @see {@link CreateConnectorDefinitionCommand}
    */
+  createConnectorDefinition(): Promise<CreateConnectorDefinitionCommandOutput>;
   createConnectorDefinition(
     args: CreateConnectorDefinitionCommandInput,
     options?: __HttpHandlerOptions
@@ -607,6 +608,7 @@ export interface Greengrass {
   /**
    * @see {@link CreateCoreDefinitionCommand}
    */
+  createCoreDefinition(): Promise<CreateCoreDefinitionCommandOutput>;
   createCoreDefinition(
     args: CreateCoreDefinitionCommandInput,
     options?: __HttpHandlerOptions
@@ -658,6 +660,7 @@ export interface Greengrass {
   /**
    * @see {@link CreateDeviceDefinitionCommand}
    */
+  createDeviceDefinition(): Promise<CreateDeviceDefinitionCommandOutput>;
   createDeviceDefinition(
     args: CreateDeviceDefinitionCommandInput,
     options?: __HttpHandlerOptions
@@ -692,6 +695,7 @@ export interface Greengrass {
   /**
    * @see {@link CreateFunctionDefinitionCommand}
    */
+  createFunctionDefinition(): Promise<CreateFunctionDefinitionCommandOutput>;
   createFunctionDefinition(
     args: CreateFunctionDefinitionCommandInput,
     options?: __HttpHandlerOptions
@@ -771,6 +775,7 @@ export interface Greengrass {
   /**
    * @see {@link CreateLoggerDefinitionCommand}
    */
+  createLoggerDefinition(): Promise<CreateLoggerDefinitionCommandOutput>;
   createLoggerDefinition(
     args: CreateLoggerDefinitionCommandInput,
     options?: __HttpHandlerOptions
@@ -805,6 +810,7 @@ export interface Greengrass {
   /**
    * @see {@link CreateResourceDefinitionCommand}
    */
+  createResourceDefinition(): Promise<CreateResourceDefinitionCommandOutput>;
   createResourceDefinition(
     args: CreateResourceDefinitionCommandInput,
     options?: __HttpHandlerOptions
@@ -856,6 +862,7 @@ export interface Greengrass {
   /**
    * @see {@link CreateSubscriptionDefinitionCommand}
    */
+  createSubscriptionDefinition(): Promise<CreateSubscriptionDefinitionCommandOutput>;
   createSubscriptionDefinition(
     args: CreateSubscriptionDefinitionCommandInput,
     options?: __HttpHandlerOptions
@@ -1037,6 +1044,7 @@ export interface Greengrass {
   /**
    * @see {@link DisassociateServiceRoleFromAccountCommand}
    */
+  disassociateServiceRoleFromAccount(): Promise<DisassociateServiceRoleFromAccountCommandOutput>;
   disassociateServiceRoleFromAccount(
     args: DisassociateServiceRoleFromAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -1385,6 +1393,7 @@ export interface Greengrass {
   /**
    * @see {@link GetServiceRoleForAccountCommand}
    */
+  getServiceRoleForAccount(): Promise<GetServiceRoleForAccountCommandOutput>;
   getServiceRoleForAccount(
     args: GetServiceRoleForAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -1470,6 +1479,7 @@ export interface Greengrass {
   /**
    * @see {@link ListBulkDeploymentsCommand}
    */
+  listBulkDeployments(): Promise<ListBulkDeploymentsCommandOutput>;
   listBulkDeployments(
     args: ListBulkDeploymentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1487,6 +1497,7 @@ export interface Greengrass {
   /**
    * @see {@link ListConnectorDefinitionsCommand}
    */
+  listConnectorDefinitions(): Promise<ListConnectorDefinitionsCommandOutput>;
   listConnectorDefinitions(
     args: ListConnectorDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1521,6 +1532,7 @@ export interface Greengrass {
   /**
    * @see {@link ListCoreDefinitionsCommand}
    */
+  listCoreDefinitions(): Promise<ListCoreDefinitionsCommandOutput>;
   listCoreDefinitions(
     args: ListCoreDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1569,6 +1581,7 @@ export interface Greengrass {
   /**
    * @see {@link ListDeviceDefinitionsCommand}
    */
+  listDeviceDefinitions(): Promise<ListDeviceDefinitionsCommandOutput>;
   listDeviceDefinitions(
     args: ListDeviceDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1603,6 +1616,7 @@ export interface Greengrass {
   /**
    * @see {@link ListFunctionDefinitionsCommand}
    */
+  listFunctionDefinitions(): Promise<ListFunctionDefinitionsCommandOutput>;
   listFunctionDefinitions(
     args: ListFunctionDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1654,6 +1668,7 @@ export interface Greengrass {
   /**
    * @see {@link ListGroupsCommand}
    */
+  listGroups(): Promise<ListGroupsCommandOutput>;
   listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
   listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   listGroups(
@@ -1682,6 +1697,7 @@ export interface Greengrass {
   /**
    * @see {@link ListLoggerDefinitionsCommand}
    */
+  listLoggerDefinitions(): Promise<ListLoggerDefinitionsCommandOutput>;
   listLoggerDefinitions(
     args: ListLoggerDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1716,6 +1732,7 @@ export interface Greengrass {
   /**
    * @see {@link ListResourceDefinitionsCommand}
    */
+  listResourceDefinitions(): Promise<ListResourceDefinitionsCommandOutput>;
   listResourceDefinitions(
     args: ListResourceDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1750,6 +1767,7 @@ export interface Greengrass {
   /**
    * @see {@link ListSubscriptionDefinitionsCommand}
    */
+  listSubscriptionDefinitions(): Promise<ListSubscriptionDefinitionsCommandOutput>;
   listSubscriptionDefinitions(
     args: ListSubscriptionDefinitionsCommandInput,
     options?: __HttpHandlerOptions

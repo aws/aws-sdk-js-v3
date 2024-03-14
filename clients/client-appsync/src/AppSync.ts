@@ -921,6 +921,7 @@ export interface AppSync {
   /**
    * @see {@link ListDomainNamesCommand}
    */
+  listDomainNames(): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
     options?: __HttpHandlerOptions
@@ -946,6 +947,7 @@ export interface AppSync {
   /**
    * @see {@link ListGraphqlApisCommand}
    */
+  listGraphqlApis(): Promise<ListGraphqlApisCommandOutput>;
   listGraphqlApis(
     args: ListGraphqlApisCommandInput,
     options?: __HttpHandlerOptions
@@ -1067,6 +1069,7 @@ export interface AppSync {
   /**
    * @see {@link StartDataSourceIntrospectionCommand}
    */
+  startDataSourceIntrospection(): Promise<StartDataSourceIntrospectionCommandOutput>;
   startDataSourceIntrospection(
     args: StartDataSourceIntrospectionCommandInput,
     options?: __HttpHandlerOptions

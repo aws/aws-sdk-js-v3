@@ -530,6 +530,7 @@ export interface SSOAdmin {
   /**
    * @see {@link CreateInstanceCommand}
    */
+  createInstance(): Promise<CreateInstanceCommandOutput>;
   createInstance(
     args: CreateInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -1272,6 +1273,7 @@ export interface SSOAdmin {
   /**
    * @see {@link ListApplicationProvidersCommand}
    */
+  listApplicationProviders(): Promise<ListApplicationProvidersCommandOutput>;
   listApplicationProviders(
     args: ListApplicationProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -1323,6 +1325,7 @@ export interface SSOAdmin {
   /**
    * @see {@link ListInstancesCommand}
    */
+  listInstances(): Promise<ListInstancesCommandOutput>;
   listInstances(args: ListInstancesCommandInput, options?: __HttpHandlerOptions): Promise<ListInstancesCommandOutput>;
   listInstances(args: ListInstancesCommandInput, cb: (err: any, data?: ListInstancesCommandOutput) => void): void;
   listInstances(

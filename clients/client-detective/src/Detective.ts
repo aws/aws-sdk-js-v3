@@ -212,6 +212,7 @@ export interface Detective {
   /**
    * @see {@link CreateGraphCommand}
    */
+  createGraph(): Promise<CreateGraphCommandOutput>;
   createGraph(args: CreateGraphCommandInput, options?: __HttpHandlerOptions): Promise<CreateGraphCommandOutput>;
   createGraph(args: CreateGraphCommandInput, cb: (err: any, data?: CreateGraphCommandOutput) => void): void;
   createGraph(
@@ -273,6 +274,7 @@ export interface Detective {
   /**
    * @see {@link DisableOrganizationAdminAccountCommand}
    */
+  disableOrganizationAdminAccount(): Promise<DisableOrganizationAdminAccountCommandOutput>;
   disableOrganizationAdminAccount(
     args: DisableOrganizationAdminAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -369,6 +371,7 @@ export interface Detective {
   /**
    * @see {@link ListGraphsCommand}
    */
+  listGraphs(): Promise<ListGraphsCommandOutput>;
   listGraphs(args: ListGraphsCommandInput, options?: __HttpHandlerOptions): Promise<ListGraphsCommandOutput>;
   listGraphs(args: ListGraphsCommandInput, cb: (err: any, data?: ListGraphsCommandOutput) => void): void;
   listGraphs(
@@ -411,6 +414,7 @@ export interface Detective {
   /**
    * @see {@link ListInvitationsCommand}
    */
+  listInvitations(): Promise<ListInvitationsCommandOutput>;
   listInvitations(
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
@@ -436,6 +440,7 @@ export interface Detective {
   /**
    * @see {@link ListOrganizationAdminAccountsCommand}
    */
+  listOrganizationAdminAccounts(): Promise<ListOrganizationAdminAccountsCommandOutput>;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
     options?: __HttpHandlerOptions

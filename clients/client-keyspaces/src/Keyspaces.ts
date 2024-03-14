@@ -156,6 +156,7 @@ export interface Keyspaces {
   /**
    * @see {@link ListKeyspacesCommand}
    */
+  listKeyspaces(): Promise<ListKeyspacesCommandOutput>;
   listKeyspaces(args: ListKeyspacesCommandInput, options?: __HttpHandlerOptions): Promise<ListKeyspacesCommandOutput>;
   listKeyspaces(args: ListKeyspacesCommandInput, cb: (err: any, data?: ListKeyspacesCommandOutput) => void): void;
   listKeyspaces(

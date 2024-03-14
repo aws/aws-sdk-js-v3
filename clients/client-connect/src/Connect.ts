@@ -3446,6 +3446,7 @@ export interface Connect {
   /**
    * @see {@link ListInstancesCommand}
    */
+  listInstances(): Promise<ListInstancesCommandOutput>;
   listInstances(args: ListInstancesCommandInput, options?: __HttpHandlerOptions): Promise<ListInstancesCommandOutput>;
   listInstances(args: ListInstancesCommandInput, cb: (err: any, data?: ListInstancesCommandOutput) => void): void;
   listInstances(
@@ -3536,6 +3537,7 @@ export interface Connect {
   /**
    * @see {@link ListPhoneNumbersV2Command}
    */
+  listPhoneNumbersV2(): Promise<ListPhoneNumbersV2CommandOutput>;
   listPhoneNumbersV2(
     args: ListPhoneNumbersV2CommandInput,
     options?: __HttpHandlerOptions
@@ -3790,6 +3792,7 @@ export interface Connect {
   /**
    * @see {@link ListTrafficDistributionGroupsCommand}
    */
+  listTrafficDistributionGroups(): Promise<ListTrafficDistributionGroupsCommandOutput>;
   listTrafficDistributionGroups(
     args: ListTrafficDistributionGroupsCommandInput,
     options?: __HttpHandlerOptions

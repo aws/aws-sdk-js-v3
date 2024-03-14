@@ -428,6 +428,7 @@ export interface MTurk {
   /**
    * @see {@link GetAccountBalanceCommand}
    */
+  getAccountBalance(): Promise<GetAccountBalanceCommandOutput>;
   getAccountBalance(
     args: GetAccountBalanceCommandInput,
     options?: __HttpHandlerOptions
@@ -535,6 +536,7 @@ export interface MTurk {
   /**
    * @see {@link ListBonusPaymentsCommand}
    */
+  listBonusPayments(): Promise<ListBonusPaymentsCommandOutput>;
   listBonusPayments(
     args: ListBonusPaymentsCommandInput,
     options?: __HttpHandlerOptions
@@ -552,6 +554,7 @@ export interface MTurk {
   /**
    * @see {@link ListHITsCommand}
    */
+  listHITs(): Promise<ListHITsCommandOutput>;
   listHITs(args: ListHITsCommandInput, options?: __HttpHandlerOptions): Promise<ListHITsCommandOutput>;
   listHITs(args: ListHITsCommandInput, cb: (err: any, data?: ListHITsCommandOutput) => void): void;
   listHITs(
@@ -580,6 +583,7 @@ export interface MTurk {
   /**
    * @see {@link ListQualificationRequestsCommand}
    */
+  listQualificationRequests(): Promise<ListQualificationRequestsCommandOutput>;
   listQualificationRequests(
     args: ListQualificationRequestsCommandInput,
     options?: __HttpHandlerOptions
@@ -614,6 +618,7 @@ export interface MTurk {
   /**
    * @see {@link ListReviewableHITsCommand}
    */
+  listReviewableHITs(): Promise<ListReviewableHITsCommandOutput>;
   listReviewableHITs(
     args: ListReviewableHITsCommandInput,
     options?: __HttpHandlerOptions
@@ -648,6 +653,7 @@ export interface MTurk {
   /**
    * @see {@link ListWorkerBlocksCommand}
    */
+  listWorkerBlocks(): Promise<ListWorkerBlocksCommandOutput>;
   listWorkerBlocks(
     args: ListWorkerBlocksCommandInput,
     options?: __HttpHandlerOptions

@@ -236,6 +236,7 @@ export interface CodeStar {
   /**
    * @see {@link ListProjectsCommand}
    */
+  listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   listProjects(
@@ -289,6 +290,7 @@ export interface CodeStar {
   /**
    * @see {@link ListUserProfilesCommand}
    */
+  listUserProfiles(): Promise<ListUserProfilesCommandOutput>;
   listUserProfiles(
     args: ListUserProfilesCommandInput,
     options?: __HttpHandlerOptions

@@ -160,6 +160,7 @@ export interface OSIS {
   /**
    * @see {@link ListPipelineBlueprintsCommand}
    */
+  listPipelineBlueprints(): Promise<ListPipelineBlueprintsCommandOutput>;
   listPipelineBlueprints(
     args: ListPipelineBlueprintsCommandInput,
     options?: __HttpHandlerOptions
@@ -177,6 +178,7 @@ export interface OSIS {
   /**
    * @see {@link ListPipelinesCommand}
    */
+  listPipelines(): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
   listPipelines(

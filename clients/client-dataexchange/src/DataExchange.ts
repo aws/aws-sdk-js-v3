@@ -339,6 +339,7 @@ export interface DataExchange {
   /**
    * @see {@link ListDataSetsCommand}
    */
+  listDataSets(): Promise<ListDataSetsCommandOutput>;
   listDataSets(args: ListDataSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDataSetsCommandOutput>;
   listDataSets(args: ListDataSetsCommandInput, cb: (err: any, data?: ListDataSetsCommandOutput) => void): void;
   listDataSets(
@@ -350,6 +351,7 @@ export interface DataExchange {
   /**
    * @see {@link ListEventActionsCommand}
    */
+  listEventActions(): Promise<ListEventActionsCommandOutput>;
   listEventActions(
     args: ListEventActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -367,6 +369,7 @@ export interface DataExchange {
   /**
    * @see {@link ListJobsCommand}
    */
+  listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   listJobs(

@@ -924,6 +924,7 @@ export interface Route53 {
   /**
    * @see {@link GetCheckerIpRangesCommand}
    */
+  getCheckerIpRanges(): Promise<GetCheckerIpRangesCommandOutput>;
   getCheckerIpRanges(
     args: GetCheckerIpRangesCommandInput,
     options?: __HttpHandlerOptions
@@ -952,6 +953,7 @@ export interface Route53 {
   /**
    * @see {@link GetGeoLocationCommand}
    */
+  getGeoLocation(): Promise<GetGeoLocationCommandOutput>;
   getGeoLocation(
     args: GetGeoLocationCommandInput,
     options?: __HttpHandlerOptions
@@ -980,6 +982,7 @@ export interface Route53 {
   /**
    * @see {@link GetHealthCheckCountCommand}
    */
+  getHealthCheckCount(): Promise<GetHealthCheckCountCommandOutput>;
   getHealthCheckCount(
     args: GetHealthCheckCountCommandInput,
     options?: __HttpHandlerOptions
@@ -1042,6 +1045,7 @@ export interface Route53 {
   /**
    * @see {@link GetHostedZoneCountCommand}
    */
+  getHostedZoneCount(): Promise<GetHostedZoneCountCommandOutput>;
   getHostedZoneCount(
     args: GetHostedZoneCountCommandInput,
     options?: __HttpHandlerOptions
@@ -1161,6 +1165,7 @@ export interface Route53 {
   /**
    * @see {@link GetTrafficPolicyInstanceCountCommand}
    */
+  getTrafficPolicyInstanceCount(): Promise<GetTrafficPolicyInstanceCountCommandOutput>;
   getTrafficPolicyInstanceCount(
     args: GetTrafficPolicyInstanceCountCommandInput,
     options?: __HttpHandlerOptions
@@ -1192,6 +1197,7 @@ export interface Route53 {
   /**
    * @see {@link ListCidrCollectionsCommand}
    */
+  listCidrCollections(): Promise<ListCidrCollectionsCommandOutput>;
   listCidrCollections(
     args: ListCidrCollectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1226,6 +1232,7 @@ export interface Route53 {
   /**
    * @see {@link ListGeoLocationsCommand}
    */
+  listGeoLocations(): Promise<ListGeoLocationsCommandOutput>;
   listGeoLocations(
     args: ListGeoLocationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1243,6 +1250,7 @@ export interface Route53 {
   /**
    * @see {@link ListHealthChecksCommand}
    */
+  listHealthChecks(): Promise<ListHealthChecksCommandOutput>;
   listHealthChecks(
     args: ListHealthChecksCommandInput,
     options?: __HttpHandlerOptions
@@ -1260,6 +1268,7 @@ export interface Route53 {
   /**
    * @see {@link ListHostedZonesCommand}
    */
+  listHostedZones(): Promise<ListHostedZonesCommandOutput>;
   listHostedZones(
     args: ListHostedZonesCommandInput,
     options?: __HttpHandlerOptions
@@ -1274,6 +1283,7 @@ export interface Route53 {
   /**
    * @see {@link ListHostedZonesByNameCommand}
    */
+  listHostedZonesByName(): Promise<ListHostedZonesByNameCommandOutput>;
   listHostedZonesByName(
     args: ListHostedZonesByNameCommandInput,
     options?: __HttpHandlerOptions
@@ -1308,6 +1318,7 @@ export interface Route53 {
   /**
    * @see {@link ListQueryLoggingConfigsCommand}
    */
+  listQueryLoggingConfigs(): Promise<ListQueryLoggingConfigsCommandOutput>;
   listQueryLoggingConfigs(
     args: ListQueryLoggingConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -1342,6 +1353,7 @@ export interface Route53 {
   /**
    * @see {@link ListReusableDelegationSetsCommand}
    */
+  listReusableDelegationSets(): Promise<ListReusableDelegationSetsCommandOutput>;
   listReusableDelegationSets(
     args: ListReusableDelegationSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1393,6 +1405,7 @@ export interface Route53 {
   /**
    * @see {@link ListTrafficPoliciesCommand}
    */
+  listTrafficPolicies(): Promise<ListTrafficPoliciesCommandOutput>;
   listTrafficPolicies(
     args: ListTrafficPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -1410,6 +1423,7 @@ export interface Route53 {
   /**
    * @see {@link ListTrafficPolicyInstancesCommand}
    */
+  listTrafficPolicyInstances(): Promise<ListTrafficPolicyInstancesCommandOutput>;
   listTrafficPolicyInstances(
     args: ListTrafficPolicyInstancesCommandInput,
     options?: __HttpHandlerOptions

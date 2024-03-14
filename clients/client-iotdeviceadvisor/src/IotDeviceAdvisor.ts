@@ -117,6 +117,7 @@ export interface IotDeviceAdvisor {
   /**
    * @see {@link GetEndpointCommand}
    */
+  getEndpoint(): Promise<GetEndpointCommandOutput>;
   getEndpoint(args: GetEndpointCommandInput, options?: __HttpHandlerOptions): Promise<GetEndpointCommandOutput>;
   getEndpoint(args: GetEndpointCommandInput, cb: (err: any, data?: GetEndpointCommandOutput) => void): void;
   getEndpoint(
@@ -173,6 +174,7 @@ export interface IotDeviceAdvisor {
   /**
    * @see {@link ListSuiteDefinitionsCommand}
    */
+  listSuiteDefinitions(): Promise<ListSuiteDefinitionsCommandOutput>;
   listSuiteDefinitions(
     args: ListSuiteDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -190,6 +192,7 @@ export interface IotDeviceAdvisor {
   /**
    * @see {@link ListSuiteRunsCommand}
    */
+  listSuiteRuns(): Promise<ListSuiteRunsCommandOutput>;
   listSuiteRuns(args: ListSuiteRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListSuiteRunsCommandOutput>;
   listSuiteRuns(args: ListSuiteRunsCommandInput, cb: (err: any, data?: ListSuiteRunsCommandOutput) => void): void;
   listSuiteRuns(

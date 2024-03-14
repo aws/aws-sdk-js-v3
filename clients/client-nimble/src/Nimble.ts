@@ -707,6 +707,7 @@ export interface Nimble {
   /**
    * @see {@link ListEulasCommand}
    */
+  listEulas(): Promise<ListEulasCommandOutput>;
   listEulas(args: ListEulasCommandInput, options?: __HttpHandlerOptions): Promise<ListEulasCommandOutput>;
   listEulas(args: ListEulasCommandInput, cb: (err: any, data?: ListEulasCommandOutput) => void): void;
   listEulas(
@@ -837,6 +838,7 @@ export interface Nimble {
   /**
    * @see {@link ListStudiosCommand}
    */
+  listStudios(): Promise<ListStudiosCommandOutput>;
   listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
   listStudios(args: ListStudiosCommandInput, cb: (err: any, data?: ListStudiosCommandOutput) => void): void;
   listStudios(

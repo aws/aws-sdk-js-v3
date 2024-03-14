@@ -425,6 +425,7 @@ export interface CodeDeploy {
   /**
    * @see {@link ContinueDeploymentCommand}
    */
+  continueDeployment(): Promise<ContinueDeploymentCommandOutput>;
   continueDeployment(
     args: ContinueDeploymentCommandInput,
     options?: __HttpHandlerOptions
@@ -561,6 +562,7 @@ export interface CodeDeploy {
   /**
    * @see {@link DeleteGitHubAccountTokenCommand}
    */
+  deleteGitHubAccountToken(): Promise<DeleteGitHubAccountTokenCommandOutput>;
   deleteGitHubAccountToken(
     args: DeleteGitHubAccountTokenCommandInput,
     options?: __HttpHandlerOptions
@@ -578,6 +580,7 @@ export interface CodeDeploy {
   /**
    * @see {@link DeleteResourcesByExternalIdCommand}
    */
+  deleteResourcesByExternalId(): Promise<DeleteResourcesByExternalIdCommandOutput>;
   deleteResourcesByExternalId(
     args: DeleteResourcesByExternalIdCommandInput,
     options?: __HttpHandlerOptions
@@ -756,6 +759,7 @@ export interface CodeDeploy {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -773,6 +777,7 @@ export interface CodeDeploy {
   /**
    * @see {@link ListDeploymentConfigsCommand}
    */
+  listDeploymentConfigs(): Promise<ListDeploymentConfigsCommandOutput>;
   listDeploymentConfigs(
     args: ListDeploymentConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -824,6 +829,7 @@ export interface CodeDeploy {
   /**
    * @see {@link ListDeploymentsCommand}
    */
+  listDeployments(): Promise<ListDeploymentsCommandOutput>;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
@@ -855,6 +861,7 @@ export interface CodeDeploy {
   /**
    * @see {@link ListGitHubAccountTokenNamesCommand}
    */
+  listGitHubAccountTokenNames(): Promise<ListGitHubAccountTokenNamesCommandOutput>;
   listGitHubAccountTokenNames(
     args: ListGitHubAccountTokenNamesCommandInput,
     options?: __HttpHandlerOptions
@@ -872,6 +879,7 @@ export interface CodeDeploy {
   /**
    * @see {@link ListOnPremisesInstancesCommand}
    */
+  listOnPremisesInstances(): Promise<ListOnPremisesInstancesCommandOutput>;
   listOnPremisesInstances(
     args: ListOnPremisesInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -906,6 +914,7 @@ export interface CodeDeploy {
   /**
    * @see {@link PutLifecycleEventHookExecutionStatusCommand}
    */
+  putLifecycleEventHookExecutionStatus(): Promise<PutLifecycleEventHookExecutionStatusCommandOutput>;
   putLifecycleEventHookExecutionStatus(
     args: PutLifecycleEventHookExecutionStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -974,6 +983,7 @@ export interface CodeDeploy {
   /**
    * @see {@link SkipWaitTimeForInstanceTerminationCommand}
    */
+  skipWaitTimeForInstanceTermination(): Promise<SkipWaitTimeForInstanceTerminationCommandOutput>;
   skipWaitTimeForInstanceTermination(
     args: SkipWaitTimeForInstanceTerminationCommandInput,
     options?: __HttpHandlerOptions
@@ -1027,6 +1037,7 @@ export interface CodeDeploy {
   /**
    * @see {@link UpdateApplicationCommand}
    */
+  updateApplication(): Promise<UpdateApplicationCommandOutput>;
   updateApplication(
     args: UpdateApplicationCommandInput,
     options?: __HttpHandlerOptions

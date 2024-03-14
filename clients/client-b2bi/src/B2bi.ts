@@ -348,6 +348,7 @@ export interface B2bi {
   /**
    * @see {@link ListCapabilitiesCommand}
    */
+  listCapabilities(): Promise<ListCapabilitiesCommandOutput>;
   listCapabilities(
     args: ListCapabilitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -365,6 +366,7 @@ export interface B2bi {
   /**
    * @see {@link ListPartnershipsCommand}
    */
+  listPartnerships(): Promise<ListPartnershipsCommandOutput>;
   listPartnerships(
     args: ListPartnershipsCommandInput,
     options?: __HttpHandlerOptions
@@ -382,6 +384,7 @@ export interface B2bi {
   /**
    * @see {@link ListProfilesCommand}
    */
+  listProfiles(): Promise<ListProfilesCommandOutput>;
   listProfiles(args: ListProfilesCommandInput, options?: __HttpHandlerOptions): Promise<ListProfilesCommandOutput>;
   listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
   listProfiles(
@@ -410,6 +413,7 @@ export interface B2bi {
   /**
    * @see {@link ListTransformersCommand}
    */
+  listTransformers(): Promise<ListTransformersCommandOutput>;
   listTransformers(
     args: ListTransformersCommandInput,
     options?: __HttpHandlerOptions

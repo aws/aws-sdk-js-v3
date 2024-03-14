@@ -106,6 +106,7 @@ export interface IoTFleetHub {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions

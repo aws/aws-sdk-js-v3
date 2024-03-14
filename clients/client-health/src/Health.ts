@@ -129,6 +129,7 @@ export interface Health {
   /**
    * @see {@link DescribeAffectedEntitiesForOrganizationCommand}
    */
+  describeAffectedEntitiesForOrganization(): Promise<DescribeAffectedEntitiesForOrganizationCommandOutput>;
   describeAffectedEntitiesForOrganization(
     args: DescribeAffectedEntitiesForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -146,6 +147,7 @@ export interface Health {
   /**
    * @see {@link DescribeEntityAggregatesCommand}
    */
+  describeEntityAggregates(): Promise<DescribeEntityAggregatesCommandOutput>;
   describeEntityAggregates(
     args: DescribeEntityAggregatesCommandInput,
     options?: __HttpHandlerOptions
@@ -231,6 +233,7 @@ export interface Health {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -245,6 +248,7 @@ export interface Health {
   /**
    * @see {@link DescribeEventsForOrganizationCommand}
    */
+  describeEventsForOrganization(): Promise<DescribeEventsForOrganizationCommandOutput>;
   describeEventsForOrganization(
     args: DescribeEventsForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -262,6 +266,7 @@ export interface Health {
   /**
    * @see {@link DescribeEventTypesCommand}
    */
+  describeEventTypes(): Promise<DescribeEventTypesCommandOutput>;
   describeEventTypes(
     args: DescribeEventTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -279,6 +284,7 @@ export interface Health {
   /**
    * @see {@link DescribeHealthServiceStatusForOrganizationCommand}
    */
+  describeHealthServiceStatusForOrganization(): Promise<DescribeHealthServiceStatusForOrganizationCommandOutput>;
   describeHealthServiceStatusForOrganization(
     args: DescribeHealthServiceStatusForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -296,6 +302,7 @@ export interface Health {
   /**
    * @see {@link DisableHealthServiceAccessForOrganizationCommand}
    */
+  disableHealthServiceAccessForOrganization(): Promise<DisableHealthServiceAccessForOrganizationCommandOutput>;
   disableHealthServiceAccessForOrganization(
     args: DisableHealthServiceAccessForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -313,6 +320,7 @@ export interface Health {
   /**
    * @see {@link EnableHealthServiceAccessForOrganizationCommand}
    */
+  enableHealthServiceAccessForOrganization(): Promise<EnableHealthServiceAccessForOrganizationCommandOutput>;
   enableHealthServiceAccessForOrganization(
     args: EnableHealthServiceAccessForOrganizationCommandInput,
     options?: __HttpHandlerOptions

@@ -694,6 +694,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeAccountLimitsCommand}
    */
+  describeAccountLimits(): Promise<DescribeAccountLimitsCommandOutput>;
   describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -711,6 +712,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeAdjustmentTypesCommand}
    */
+  describeAdjustmentTypes(): Promise<DescribeAdjustmentTypesCommandOutput>;
   describeAdjustmentTypes(
     args: DescribeAdjustmentTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -728,6 +730,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeAutoScalingGroupsCommand}
    */
+  describeAutoScalingGroups(): Promise<DescribeAutoScalingGroupsCommandOutput>;
   describeAutoScalingGroups(
     args: DescribeAutoScalingGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -745,6 +748,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeAutoScalingInstancesCommand}
    */
+  describeAutoScalingInstances(): Promise<DescribeAutoScalingInstancesCommandOutput>;
   describeAutoScalingInstances(
     args: DescribeAutoScalingInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -762,6 +766,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeAutoScalingNotificationTypesCommand}
    */
+  describeAutoScalingNotificationTypes(): Promise<DescribeAutoScalingNotificationTypesCommandOutput>;
   describeAutoScalingNotificationTypes(
     args: DescribeAutoScalingNotificationTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -796,6 +801,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeLaunchConfigurationsCommand}
    */
+  describeLaunchConfigurations(): Promise<DescribeLaunchConfigurationsCommandOutput>;
   describeLaunchConfigurations(
     args: DescribeLaunchConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -830,6 +836,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeLifecycleHookTypesCommand}
    */
+  describeLifecycleHookTypes(): Promise<DescribeLifecycleHookTypesCommandOutput>;
   describeLifecycleHookTypes(
     args: DescribeLifecycleHookTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -881,6 +888,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeMetricCollectionTypesCommand}
    */
+  describeMetricCollectionTypes(): Promise<DescribeMetricCollectionTypesCommandOutput>;
   describeMetricCollectionTypes(
     args: DescribeMetricCollectionTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -898,6 +906,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeNotificationConfigurationsCommand}
    */
+  describeNotificationConfigurations(): Promise<DescribeNotificationConfigurationsCommandOutput>;
   describeNotificationConfigurations(
     args: DescribeNotificationConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -915,6 +924,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribePoliciesCommand}
    */
+  describePolicies(): Promise<DescribePoliciesCommandOutput>;
   describePolicies(
     args: DescribePoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -932,6 +942,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeScalingActivitiesCommand}
    */
+  describeScalingActivities(): Promise<DescribeScalingActivitiesCommandOutput>;
   describeScalingActivities(
     args: DescribeScalingActivitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -949,6 +960,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeScalingProcessTypesCommand}
    */
+  describeScalingProcessTypes(): Promise<DescribeScalingProcessTypesCommandOutput>;
   describeScalingProcessTypes(
     args: DescribeScalingProcessTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -966,6 +978,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeScheduledActionsCommand}
    */
+  describeScheduledActions(): Promise<DescribeScheduledActionsCommandOutput>;
   describeScheduledActions(
     args: DescribeScheduledActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -983,6 +996,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeTagsCommand}
    */
+  describeTags(): Promise<DescribeTagsCommandOutput>;
   describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
   describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   describeTags(
@@ -994,6 +1008,7 @@ export interface AutoScaling {
   /**
    * @see {@link DescribeTerminationPolicyTypesCommand}
    */
+  describeTerminationPolicyTypes(): Promise<DescribeTerminationPolicyTypesCommandOutput>;
   describeTerminationPolicyTypes(
     args: DescribeTerminationPolicyTypesCommandInput,
     options?: __HttpHandlerOptions

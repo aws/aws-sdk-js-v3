@@ -196,6 +196,7 @@ export interface DocDBElastic {
   /**
    * @see {@link ListClustersCommand}
    */
+  listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   listClusters(
@@ -207,6 +208,7 @@ export interface DocDBElastic {
   /**
    * @see {@link ListClusterSnapshotsCommand}
    */
+  listClusterSnapshots(): Promise<ListClusterSnapshotsCommandOutput>;
   listClusterSnapshots(
     args: ListClusterSnapshotsCommandInput,
     options?: __HttpHandlerOptions

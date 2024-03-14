@@ -380,6 +380,7 @@ export interface CodeStarConnections {
   /**
    * @see {@link ListConnectionsCommand}
    */
+  listConnections(): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -394,6 +395,7 @@ export interface CodeStarConnections {
   /**
    * @see {@link ListHostsCommand}
    */
+  listHosts(): Promise<ListHostsCommandOutput>;
   listHosts(args: ListHostsCommandInput, options?: __HttpHandlerOptions): Promise<ListHostsCommandOutput>;
   listHosts(args: ListHostsCommandInput, cb: (err: any, data?: ListHostsCommandOutput) => void): void;
   listHosts(
@@ -405,6 +407,7 @@ export interface CodeStarConnections {
   /**
    * @see {@link ListRepositoryLinksCommand}
    */
+  listRepositoryLinks(): Promise<ListRepositoryLinksCommandOutput>;
   listRepositoryLinks(
     args: ListRepositoryLinksCommandInput,
     options?: __HttpHandlerOptions

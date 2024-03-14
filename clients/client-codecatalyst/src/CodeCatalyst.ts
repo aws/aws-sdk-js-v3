@@ -454,6 +454,7 @@ export interface CodeCatalyst {
   /**
    * @see {@link GetUserDetailsCommand}
    */
+  getUserDetails(): Promise<GetUserDetailsCommandOutput>;
   getUserDetails(
     args: GetUserDetailsCommandInput,
     options?: __HttpHandlerOptions
@@ -493,6 +494,7 @@ export interface CodeCatalyst {
   /**
    * @see {@link ListAccessTokensCommand}
    */
+  listAccessTokens(): Promise<ListAccessTokensCommandOutput>;
   listAccessTokens(
     args: ListAccessTokensCommandInput,
     options?: __HttpHandlerOptions
@@ -600,6 +602,7 @@ export interface CodeCatalyst {
   /**
    * @see {@link ListSpacesCommand}
    */
+  listSpaces(): Promise<ListSpacesCommandOutput>;
   listSpaces(args: ListSpacesCommandInput, options?: __HttpHandlerOptions): Promise<ListSpacesCommandOutput>;
   listSpaces(args: ListSpacesCommandInput, cb: (err: any, data?: ListSpacesCommandOutput) => void): void;
   listSpaces(
@@ -763,6 +766,7 @@ export interface CodeCatalyst {
   /**
    * @see {@link VerifySessionCommand}
    */
+  verifySession(): Promise<VerifySessionCommandOutput>;
   verifySession(args: VerifySessionCommandInput, options?: __HttpHandlerOptions): Promise<VerifySessionCommandOutput>;
   verifySession(args: VerifySessionCommandInput, cb: (err: any, data?: VerifySessionCommandOutput) => void): void;
   verifySession(

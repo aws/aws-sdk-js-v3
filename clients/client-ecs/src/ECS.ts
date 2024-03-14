@@ -344,6 +344,7 @@ export interface ECS {
   /**
    * @see {@link CreateClusterCommand}
    */
+  createCluster(): Promise<CreateClusterCommandOutput>;
   createCluster(args: CreateClusterCommandInput, options?: __HttpHandlerOptions): Promise<CreateClusterCommandOutput>;
   createCluster(args: CreateClusterCommandInput, cb: (err: any, data?: CreateClusterCommandOutput) => void): void;
   createCluster(
@@ -512,6 +513,7 @@ export interface ECS {
   /**
    * @see {@link DescribeCapacityProvidersCommand}
    */
+  describeCapacityProviders(): Promise<DescribeCapacityProvidersCommandOutput>;
   describeCapacityProviders(
     args: DescribeCapacityProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -529,6 +531,7 @@ export interface ECS {
   /**
    * @see {@link DescribeClustersCommand}
    */
+  describeClusters(): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -625,6 +628,7 @@ export interface ECS {
   /**
    * @see {@link DiscoverPollEndpointCommand}
    */
+  discoverPollEndpoint(): Promise<DiscoverPollEndpointCommandOutput>;
   discoverPollEndpoint(
     args: DiscoverPollEndpointCommandInput,
     options?: __HttpHandlerOptions
@@ -673,6 +677,7 @@ export interface ECS {
   /**
    * @see {@link ListAccountSettingsCommand}
    */
+  listAccountSettings(): Promise<ListAccountSettingsCommandOutput>;
   listAccountSettings(
     args: ListAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -704,6 +709,7 @@ export interface ECS {
   /**
    * @see {@link ListClustersCommand}
    */
+  listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   listClusters(
@@ -715,6 +721,7 @@ export interface ECS {
   /**
    * @see {@link ListContainerInstancesCommand}
    */
+  listContainerInstances(): Promise<ListContainerInstancesCommandOutput>;
   listContainerInstances(
     args: ListContainerInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -732,6 +739,7 @@ export interface ECS {
   /**
    * @see {@link ListServicesCommand}
    */
+  listServices(): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
   listServices(
@@ -777,6 +785,7 @@ export interface ECS {
   /**
    * @see {@link ListTaskDefinitionFamiliesCommand}
    */
+  listTaskDefinitionFamilies(): Promise<ListTaskDefinitionFamiliesCommandOutput>;
   listTaskDefinitionFamilies(
     args: ListTaskDefinitionFamiliesCommandInput,
     options?: __HttpHandlerOptions
@@ -794,6 +803,7 @@ export interface ECS {
   /**
    * @see {@link ListTaskDefinitionsCommand}
    */
+  listTaskDefinitions(): Promise<ListTaskDefinitionsCommandOutput>;
   listTaskDefinitions(
     args: ListTaskDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -811,6 +821,7 @@ export interface ECS {
   /**
    * @see {@link ListTasksCommand}
    */
+  listTasks(): Promise<ListTasksCommandOutput>;
   listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
   listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
   listTasks(
@@ -884,6 +895,7 @@ export interface ECS {
   /**
    * @see {@link RegisterContainerInstanceCommand}
    */
+  registerContainerInstance(): Promise<RegisterContainerInstanceCommandOutput>;
   registerContainerInstance(
     args: RegisterContainerInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -968,6 +980,7 @@ export interface ECS {
   /**
    * @see {@link SubmitContainerStateChangeCommand}
    */
+  submitContainerStateChange(): Promise<SubmitContainerStateChangeCommandOutput>;
   submitContainerStateChange(
     args: SubmitContainerStateChangeCommandInput,
     options?: __HttpHandlerOptions
@@ -985,6 +998,7 @@ export interface ECS {
   /**
    * @see {@link SubmitTaskStateChangeCommand}
    */
+  submitTaskStateChange(): Promise<SubmitTaskStateChangeCommandOutput>;
   submitTaskStateChange(
     args: SubmitTaskStateChangeCommandInput,
     options?: __HttpHandlerOptions

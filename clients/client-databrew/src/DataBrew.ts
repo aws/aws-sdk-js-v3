@@ -522,6 +522,7 @@ export interface DataBrew {
   /**
    * @see {@link ListDatasetsCommand}
    */
+  listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   listDatasets(
@@ -544,6 +545,7 @@ export interface DataBrew {
   /**
    * @see {@link ListJobsCommand}
    */
+  listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   listJobs(
@@ -555,6 +557,7 @@ export interface DataBrew {
   /**
    * @see {@link ListProjectsCommand}
    */
+  listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   listProjects(
@@ -566,6 +569,7 @@ export interface DataBrew {
   /**
    * @see {@link ListRecipesCommand}
    */
+  listRecipes(): Promise<ListRecipesCommandOutput>;
   listRecipes(args: ListRecipesCommandInput, options?: __HttpHandlerOptions): Promise<ListRecipesCommandOutput>;
   listRecipes(args: ListRecipesCommandInput, cb: (err: any, data?: ListRecipesCommandOutput) => void): void;
   listRecipes(
@@ -594,6 +598,7 @@ export interface DataBrew {
   /**
    * @see {@link ListRulesetsCommand}
    */
+  listRulesets(): Promise<ListRulesetsCommandOutput>;
   listRulesets(args: ListRulesetsCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesetsCommandOutput>;
   listRulesets(args: ListRulesetsCommandInput, cb: (err: any, data?: ListRulesetsCommandOutput) => void): void;
   listRulesets(
@@ -605,6 +610,7 @@ export interface DataBrew {
   /**
    * @see {@link ListSchedulesCommand}
    */
+  listSchedules(): Promise<ListSchedulesCommandOutput>;
   listSchedules(args: ListSchedulesCommandInput, options?: __HttpHandlerOptions): Promise<ListSchedulesCommandOutput>;
   listSchedules(args: ListSchedulesCommandInput, cb: (err: any, data?: ListSchedulesCommandOutput) => void): void;
   listSchedules(

@@ -258,6 +258,7 @@ export interface SecurityLake {
   /**
    * @see {@link CreateDataLakeOrganizationConfigurationCommand}
    */
+  createDataLakeOrganizationConfiguration(): Promise<CreateDataLakeOrganizationConfigurationCommandOutput>;
   createDataLakeOrganizationConfiguration(
     args: CreateDataLakeOrganizationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -357,6 +358,7 @@ export interface SecurityLake {
   /**
    * @see {@link DeleteDataLakeExceptionSubscriptionCommand}
    */
+  deleteDataLakeExceptionSubscription(): Promise<DeleteDataLakeExceptionSubscriptionCommandOutput>;
   deleteDataLakeExceptionSubscription(
     args: DeleteDataLakeExceptionSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -374,6 +376,7 @@ export interface SecurityLake {
   /**
    * @see {@link DeleteDataLakeOrganizationConfigurationCommand}
    */
+  deleteDataLakeOrganizationConfiguration(): Promise<DeleteDataLakeOrganizationConfigurationCommandOutput>;
   deleteDataLakeOrganizationConfiguration(
     args: DeleteDataLakeOrganizationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -425,6 +428,7 @@ export interface SecurityLake {
   /**
    * @see {@link DeregisterDataLakeDelegatedAdministratorCommand}
    */
+  deregisterDataLakeDelegatedAdministrator(): Promise<DeregisterDataLakeDelegatedAdministratorCommandOutput>;
   deregisterDataLakeDelegatedAdministrator(
     args: DeregisterDataLakeDelegatedAdministratorCommandInput,
     options?: __HttpHandlerOptions
@@ -442,6 +446,7 @@ export interface SecurityLake {
   /**
    * @see {@link GetDataLakeExceptionSubscriptionCommand}
    */
+  getDataLakeExceptionSubscription(): Promise<GetDataLakeExceptionSubscriptionCommandOutput>;
   getDataLakeExceptionSubscription(
     args: GetDataLakeExceptionSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -459,6 +464,7 @@ export interface SecurityLake {
   /**
    * @see {@link GetDataLakeOrganizationConfigurationCommand}
    */
+  getDataLakeOrganizationConfiguration(): Promise<GetDataLakeOrganizationConfigurationCommandOutput>;
   getDataLakeOrganizationConfiguration(
     args: GetDataLakeOrganizationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -476,6 +482,7 @@ export interface SecurityLake {
   /**
    * @see {@link GetDataLakeSourcesCommand}
    */
+  getDataLakeSources(): Promise<GetDataLakeSourcesCommandOutput>;
   getDataLakeSources(
     args: GetDataLakeSourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -504,6 +511,7 @@ export interface SecurityLake {
   /**
    * @see {@link ListDataLakeExceptionsCommand}
    */
+  listDataLakeExceptions(): Promise<ListDataLakeExceptionsCommandOutput>;
   listDataLakeExceptions(
     args: ListDataLakeExceptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -521,6 +529,7 @@ export interface SecurityLake {
   /**
    * @see {@link ListDataLakesCommand}
    */
+  listDataLakes(): Promise<ListDataLakesCommandOutput>;
   listDataLakes(args: ListDataLakesCommandInput, options?: __HttpHandlerOptions): Promise<ListDataLakesCommandOutput>;
   listDataLakes(args: ListDataLakesCommandInput, cb: (err: any, data?: ListDataLakesCommandOutput) => void): void;
   listDataLakes(
@@ -532,6 +541,7 @@ export interface SecurityLake {
   /**
    * @see {@link ListLogSourcesCommand}
    */
+  listLogSources(): Promise<ListLogSourcesCommandOutput>;
   listLogSources(
     args: ListLogSourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -546,6 +556,7 @@ export interface SecurityLake {
   /**
    * @see {@link ListSubscribersCommand}
    */
+  listSubscribers(): Promise<ListSubscribersCommandOutput>;
   listSubscribers(
     args: ListSubscribersCommandInput,
     options?: __HttpHandlerOptions

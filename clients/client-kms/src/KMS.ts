@@ -300,6 +300,7 @@ export interface KMS {
   /**
    * @see {@link CreateKeyCommand}
    */
+  createKey(): Promise<CreateKeyCommandOutput>;
   createKey(args: CreateKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateKeyCommandOutput>;
   createKey(args: CreateKeyCommandInput, cb: (err: any, data?: CreateKeyCommandOutput) => void): void;
   createKey(
@@ -367,6 +368,7 @@ export interface KMS {
   /**
    * @see {@link DescribeCustomKeyStoresCommand}
    */
+  describeCustomKeyStores(): Promise<DescribeCustomKeyStoresCommandOutput>;
   describeCustomKeyStores(
     args: DescribeCustomKeyStoresCommandInput,
     options?: __HttpHandlerOptions
@@ -555,6 +557,7 @@ export interface KMS {
   /**
    * @see {@link GenerateRandomCommand}
    */
+  generateRandom(): Promise<GenerateRandomCommandOutput>;
   generateRandom(
     args: GenerateRandomCommandInput,
     options?: __HttpHandlerOptions
@@ -642,6 +645,7 @@ export interface KMS {
   /**
    * @see {@link ListAliasesCommand}
    */
+  listAliases(): Promise<ListAliasesCommandOutput>;
   listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
   listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
   listAliases(
@@ -678,6 +682,7 @@ export interface KMS {
   /**
    * @see {@link ListKeysCommand}
    */
+  listKeys(): Promise<ListKeysCommandOutput>;
   listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
   listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
   listKeys(
@@ -756,6 +761,7 @@ export interface KMS {
   /**
    * @see {@link RetireGrantCommand}
    */
+  retireGrant(): Promise<RetireGrantCommandOutput>;
   retireGrant(args: RetireGrantCommandInput, options?: __HttpHandlerOptions): Promise<RetireGrantCommandOutput>;
   retireGrant(args: RetireGrantCommandInput, cb: (err: any, data?: RetireGrantCommandOutput) => void): void;
   retireGrant(

@@ -1360,6 +1360,7 @@ export interface Pinpoint {
   /**
    * @see {@link GetAppsCommand}
    */
+  getApps(): Promise<GetAppsCommandOutput>;
   getApps(args: GetAppsCommandInput, options?: __HttpHandlerOptions): Promise<GetAppsCommandOutput>;
   getApps(args: GetAppsCommandInput, cb: (err: any, data?: GetAppsCommandOutput) => void): void;
   getApps(
@@ -1772,6 +1773,7 @@ export interface Pinpoint {
   /**
    * @see {@link GetRecommenderConfigurationsCommand}
    */
+  getRecommenderConfigurations(): Promise<GetRecommenderConfigurationsCommandOutput>;
   getRecommenderConfigurations(
     args: GetRecommenderConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1980,6 +1982,7 @@ export interface Pinpoint {
   /**
    * @see {@link ListTemplatesCommand}
    */
+  listTemplates(): Promise<ListTemplatesCommandOutput>;
   listTemplates(args: ListTemplatesCommandInput, options?: __HttpHandlerOptions): Promise<ListTemplatesCommandOutput>;
   listTemplates(args: ListTemplatesCommandInput, cb: (err: any, data?: ListTemplatesCommandOutput) => void): void;
   listTemplates(

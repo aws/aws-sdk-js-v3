@@ -60,6 +60,7 @@ export interface ElasticInference {
   /**
    * @see {@link DescribeAcceleratorsCommand}
    */
+  describeAccelerators(): Promise<DescribeAcceleratorsCommandOutput>;
   describeAccelerators(
     args: DescribeAcceleratorsCommandInput,
     options?: __HttpHandlerOptions
@@ -77,6 +78,7 @@ export interface ElasticInference {
   /**
    * @see {@link DescribeAcceleratorTypesCommand}
    */
+  describeAcceleratorTypes(): Promise<DescribeAcceleratorTypesCommandOutput>;
   describeAcceleratorTypes(
     args: DescribeAcceleratorTypesCommandInput,
     options?: __HttpHandlerOptions

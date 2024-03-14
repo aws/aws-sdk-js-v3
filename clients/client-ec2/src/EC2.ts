@@ -3667,6 +3667,7 @@ export interface EC2 {
   /**
    * @see {@link AcceptTransitGatewayMulticastDomainAssociationsCommand}
    */
+  acceptTransitGatewayMulticastDomainAssociations(): Promise<AcceptTransitGatewayMulticastDomainAssociationsCommandOutput>;
   acceptTransitGatewayMulticastDomainAssociations(
     args: AcceptTransitGatewayMulticastDomainAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -3769,6 +3770,7 @@ export interface EC2 {
   /**
    * @see {@link AllocateAddressCommand}
    */
+  allocateAddress(): Promise<AllocateAddressCommandOutput>;
   allocateAddress(
     args: AllocateAddressCommandInput,
     options?: __HttpHandlerOptions
@@ -3879,6 +3881,7 @@ export interface EC2 {
   /**
    * @see {@link AssociateAddressCommand}
    */
+  associateAddress(): Promise<AssociateAddressCommandOutput>;
   associateAddress(
     args: AssociateAddressCommandInput,
     options?: __HttpHandlerOptions
@@ -4281,6 +4284,7 @@ export interface EC2 {
   /**
    * @see {@link AuthorizeSecurityGroupIngressCommand}
    */
+  authorizeSecurityGroupIngress(): Promise<AuthorizeSecurityGroupIngressCommandOutput>;
   authorizeSecurityGroupIngress(
     args: AuthorizeSecurityGroupIngressCommandInput,
     options?: __HttpHandlerOptions
@@ -4414,6 +4418,7 @@ export interface EC2 {
   /**
    * @see {@link CancelImportTaskCommand}
    */
+  cancelImportTask(): Promise<CancelImportTaskCommandOutput>;
   cancelImportTask(
     args: CancelImportTaskCommandInput,
     options?: __HttpHandlerOptions
@@ -4679,6 +4684,7 @@ export interface EC2 {
   /**
    * @see {@link CreateDefaultVpcCommand}
    */
+  createDefaultVpc(): Promise<CreateDefaultVpcCommandOutput>;
   createDefaultVpc(
     args: CreateDefaultVpcCommandInput,
     options?: __HttpHandlerOptions
@@ -4797,6 +4803,7 @@ export interface EC2 {
   /**
    * @see {@link CreateInstanceEventWindowCommand}
    */
+  createInstanceEventWindow(): Promise<CreateInstanceEventWindowCommandOutput>;
   createInstanceEventWindow(
     args: CreateInstanceEventWindowCommandInput,
     options?: __HttpHandlerOptions
@@ -4831,6 +4838,7 @@ export interface EC2 {
   /**
    * @see {@link CreateInternetGatewayCommand}
    */
+  createInternetGateway(): Promise<CreateInternetGatewayCommandOutput>;
   createInternetGateway(
     args: CreateInternetGatewayCommandInput,
     options?: __HttpHandlerOptions
@@ -4848,6 +4856,7 @@ export interface EC2 {
   /**
    * @see {@link CreateIpamCommand}
    */
+  createIpam(): Promise<CreateIpamCommandOutput>;
   createIpam(args: CreateIpamCommandInput, options?: __HttpHandlerOptions): Promise<CreateIpamCommandOutput>;
   createIpam(args: CreateIpamCommandInput, cb: (err: any, data?: CreateIpamCommandOutput) => void): void;
   createIpam(
@@ -4873,6 +4882,7 @@ export interface EC2 {
   /**
    * @see {@link CreateIpamResourceDiscoveryCommand}
    */
+  createIpamResourceDiscovery(): Promise<CreateIpamResourceDiscoveryCommandOutput>;
   createIpamResourceDiscovery(
     args: CreateIpamResourceDiscoveryCommandInput,
     options?: __HttpHandlerOptions
@@ -5153,6 +5163,7 @@ export interface EC2 {
   /**
    * @see {@link CreatePlacementGroupCommand}
    */
+  createPlacementGroup(): Promise<CreatePlacementGroupCommandOutput>;
   createPlacementGroup(
     args: CreatePlacementGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -5170,6 +5181,7 @@ export interface EC2 {
   /**
    * @see {@link CreatePublicIpv4PoolCommand}
    */
+  createPublicIpv4Pool(): Promise<CreatePublicIpv4PoolCommandOutput>;
   createPublicIpv4Pool(
     args: CreatePublicIpv4PoolCommandInput,
     options?: __HttpHandlerOptions
@@ -5384,6 +5396,7 @@ export interface EC2 {
   /**
    * @see {@link CreateTrafficMirrorFilterCommand}
    */
+  createTrafficMirrorFilter(): Promise<CreateTrafficMirrorFilterCommandOutput>;
   createTrafficMirrorFilter(
     args: CreateTrafficMirrorFilterCommandInput,
     options?: __HttpHandlerOptions
@@ -5435,6 +5448,7 @@ export interface EC2 {
   /**
    * @see {@link CreateTrafficMirrorTargetCommand}
    */
+  createTrafficMirrorTarget(): Promise<CreateTrafficMirrorTargetCommandOutput>;
   createTrafficMirrorTarget(
     args: CreateTrafficMirrorTargetCommandInput,
     options?: __HttpHandlerOptions
@@ -5452,6 +5466,7 @@ export interface EC2 {
   /**
    * @see {@link CreateTransitGatewayCommand}
    */
+  createTransitGateway(): Promise<CreateTransitGatewayCommandOutput>;
   createTransitGateway(
     args: CreateTransitGatewayCommandInput,
     options?: __HttpHandlerOptions
@@ -5673,6 +5688,7 @@ export interface EC2 {
   /**
    * @see {@link CreateVerifiedAccessInstanceCommand}
    */
+  createVerifiedAccessInstance(): Promise<CreateVerifiedAccessInstanceCommandOutput>;
   createVerifiedAccessInstance(
     args: CreateVerifiedAccessInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -5718,6 +5734,7 @@ export interface EC2 {
   /**
    * @see {@link CreateVpcCommand}
    */
+  createVpc(): Promise<CreateVpcCommandOutput>;
   createVpc(args: CreateVpcCommandInput, options?: __HttpHandlerOptions): Promise<CreateVpcCommandOutput>;
   createVpc(args: CreateVpcCommandInput, cb: (err: any, data?: CreateVpcCommandOutput) => void): void;
   createVpc(
@@ -5763,6 +5780,7 @@ export interface EC2 {
   /**
    * @see {@link CreateVpcEndpointServiceConfigurationCommand}
    */
+  createVpcEndpointServiceConfiguration(): Promise<CreateVpcEndpointServiceConfigurationCommandOutput>;
   createVpcEndpointServiceConfiguration(
     args: CreateVpcEndpointServiceConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -6124,6 +6142,7 @@ export interface EC2 {
   /**
    * @see {@link DeleteKeyPairCommand}
    */
+  deleteKeyPair(): Promise<DeleteKeyPairCommandOutput>;
   deleteKeyPair(args: DeleteKeyPairCommandInput, options?: __HttpHandlerOptions): Promise<DeleteKeyPairCommandOutput>;
   deleteKeyPair(args: DeleteKeyPairCommandInput, cb: (err: any, data?: DeleteKeyPairCommandOutput) => void): void;
   deleteKeyPair(
@@ -6135,6 +6154,7 @@ export interface EC2 {
   /**
    * @see {@link DeleteLaunchTemplateCommand}
    */
+  deleteLaunchTemplate(): Promise<DeleteLaunchTemplateCommandOutput>;
   deleteLaunchTemplate(
     args: DeleteLaunchTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -6486,6 +6506,7 @@ export interface EC2 {
   /**
    * @see {@link DeleteSecurityGroupCommand}
    */
+  deleteSecurityGroup(): Promise<DeleteSecurityGroupCommandOutput>;
   deleteSecurityGroup(
     args: DeleteSecurityGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -6517,6 +6538,7 @@ export interface EC2 {
   /**
    * @see {@link DeleteSpotDatafeedSubscriptionCommand}
    */
+  deleteSpotDatafeedSubscription(): Promise<DeleteSpotDatafeedSubscriptionCommandOutput>;
   deleteSpotDatafeedSubscription(
     args: DeleteSpotDatafeedSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -7136,6 +7158,7 @@ export interface EC2 {
   /**
    * @see {@link DeregisterTransitGatewayMulticastGroupMembersCommand}
    */
+  deregisterTransitGatewayMulticastGroupMembers(): Promise<DeregisterTransitGatewayMulticastGroupMembersCommandOutput>;
   deregisterTransitGatewayMulticastGroupMembers(
     args: DeregisterTransitGatewayMulticastGroupMembersCommandInput,
     options?: __HttpHandlerOptions
@@ -7153,6 +7176,7 @@ export interface EC2 {
   /**
    * @see {@link DeregisterTransitGatewayMulticastGroupSourcesCommand}
    */
+  deregisterTransitGatewayMulticastGroupSources(): Promise<DeregisterTransitGatewayMulticastGroupSourcesCommandOutput>;
   deregisterTransitGatewayMulticastGroupSources(
     args: DeregisterTransitGatewayMulticastGroupSourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -7170,6 +7194,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeAccountAttributesCommand}
    */
+  describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -7187,6 +7212,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeAddressesCommand}
    */
+  describeAddresses(): Promise<DescribeAddressesCommandOutput>;
   describeAddresses(
     args: DescribeAddressesCommandInput,
     options?: __HttpHandlerOptions
@@ -7204,6 +7230,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeAddressesAttributeCommand}
    */
+  describeAddressesAttribute(): Promise<DescribeAddressesAttributeCommandOutput>;
   describeAddressesAttribute(
     args: DescribeAddressesAttributeCommandInput,
     options?: __HttpHandlerOptions
@@ -7221,6 +7248,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeAddressTransfersCommand}
    */
+  describeAddressTransfers(): Promise<DescribeAddressTransfersCommandOutput>;
   describeAddressTransfers(
     args: DescribeAddressTransfersCommandInput,
     options?: __HttpHandlerOptions
@@ -7238,6 +7266,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeAggregateIdFormatCommand}
    */
+  describeAggregateIdFormat(): Promise<DescribeAggregateIdFormatCommandOutput>;
   describeAggregateIdFormat(
     args: DescribeAggregateIdFormatCommandInput,
     options?: __HttpHandlerOptions
@@ -7255,6 +7284,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeAvailabilityZonesCommand}
    */
+  describeAvailabilityZones(): Promise<DescribeAvailabilityZonesCommandOutput>;
   describeAvailabilityZones(
     args: DescribeAvailabilityZonesCommandInput,
     options?: __HttpHandlerOptions
@@ -7272,6 +7302,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeAwsNetworkPerformanceMetricSubscriptionsCommand}
    */
+  describeAwsNetworkPerformanceMetricSubscriptions(): Promise<DescribeAwsNetworkPerformanceMetricSubscriptionsCommandOutput>;
   describeAwsNetworkPerformanceMetricSubscriptions(
     args: DescribeAwsNetworkPerformanceMetricSubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -7289,6 +7320,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeBundleTasksCommand}
    */
+  describeBundleTasks(): Promise<DescribeBundleTasksCommandOutput>;
   describeBundleTasks(
     args: DescribeBundleTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -7340,6 +7372,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeCapacityReservationFleetsCommand}
    */
+  describeCapacityReservationFleets(): Promise<DescribeCapacityReservationFleetsCommandOutput>;
   describeCapacityReservationFleets(
     args: DescribeCapacityReservationFleetsCommandInput,
     options?: __HttpHandlerOptions
@@ -7357,6 +7390,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeCapacityReservationsCommand}
    */
+  describeCapacityReservations(): Promise<DescribeCapacityReservationsCommandOutput>;
   describeCapacityReservations(
     args: DescribeCapacityReservationsCommandInput,
     options?: __HttpHandlerOptions
@@ -7374,6 +7408,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeCarrierGatewaysCommand}
    */
+  describeCarrierGateways(): Promise<DescribeCarrierGatewaysCommandOutput>;
   describeCarrierGateways(
     args: DescribeCarrierGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -7391,6 +7426,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeClassicLinkInstancesCommand}
    */
+  describeClassicLinkInstances(): Promise<DescribeClassicLinkInstancesCommandOutput>;
   describeClassicLinkInstances(
     args: DescribeClassicLinkInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -7442,6 +7478,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeClientVpnEndpointsCommand}
    */
+  describeClientVpnEndpoints(): Promise<DescribeClientVpnEndpointsCommandOutput>;
   describeClientVpnEndpoints(
     args: DescribeClientVpnEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -7493,6 +7530,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeCoipPoolsCommand}
    */
+  describeCoipPools(): Promise<DescribeCoipPoolsCommandOutput>;
   describeCoipPools(
     args: DescribeCoipPoolsCommandInput,
     options?: __HttpHandlerOptions
@@ -7510,6 +7548,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeConversionTasksCommand}
    */
+  describeConversionTasks(): Promise<DescribeConversionTasksCommandOutput>;
   describeConversionTasks(
     args: DescribeConversionTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -7527,6 +7566,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeCustomerGatewaysCommand}
    */
+  describeCustomerGateways(): Promise<DescribeCustomerGatewaysCommandOutput>;
   describeCustomerGateways(
     args: DescribeCustomerGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -7544,6 +7584,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeDhcpOptionsCommand}
    */
+  describeDhcpOptions(): Promise<DescribeDhcpOptionsCommandOutput>;
   describeDhcpOptions(
     args: DescribeDhcpOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -7561,6 +7602,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeEgressOnlyInternetGatewaysCommand}
    */
+  describeEgressOnlyInternetGateways(): Promise<DescribeEgressOnlyInternetGatewaysCommandOutput>;
   describeEgressOnlyInternetGateways(
     args: DescribeEgressOnlyInternetGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -7578,6 +7620,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeElasticGpusCommand}
    */
+  describeElasticGpus(): Promise<DescribeElasticGpusCommandOutput>;
   describeElasticGpus(
     args: DescribeElasticGpusCommandInput,
     options?: __HttpHandlerOptions
@@ -7595,6 +7638,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeExportImageTasksCommand}
    */
+  describeExportImageTasks(): Promise<DescribeExportImageTasksCommandOutput>;
   describeExportImageTasks(
     args: DescribeExportImageTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -7612,6 +7656,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeExportTasksCommand}
    */
+  describeExportTasks(): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -7629,6 +7674,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeFastLaunchImagesCommand}
    */
+  describeFastLaunchImages(): Promise<DescribeFastLaunchImagesCommandOutput>;
   describeFastLaunchImages(
     args: DescribeFastLaunchImagesCommandInput,
     options?: __HttpHandlerOptions
@@ -7646,6 +7692,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeFastSnapshotRestoresCommand}
    */
+  describeFastSnapshotRestores(): Promise<DescribeFastSnapshotRestoresCommandOutput>;
   describeFastSnapshotRestores(
     args: DescribeFastSnapshotRestoresCommandInput,
     options?: __HttpHandlerOptions
@@ -7697,6 +7744,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeFleetsCommand}
    */
+  describeFleets(): Promise<DescribeFleetsCommandOutput>;
   describeFleets(
     args: DescribeFleetsCommandInput,
     options?: __HttpHandlerOptions
@@ -7711,6 +7759,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeFlowLogsCommand}
    */
+  describeFlowLogs(): Promise<DescribeFlowLogsCommandOutput>;
   describeFlowLogs(
     args: DescribeFlowLogsCommandInput,
     options?: __HttpHandlerOptions
@@ -7745,6 +7794,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeFpgaImagesCommand}
    */
+  describeFpgaImages(): Promise<DescribeFpgaImagesCommandOutput>;
   describeFpgaImages(
     args: DescribeFpgaImagesCommandInput,
     options?: __HttpHandlerOptions
@@ -7762,6 +7812,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeHostReservationOfferingsCommand}
    */
+  describeHostReservationOfferings(): Promise<DescribeHostReservationOfferingsCommandOutput>;
   describeHostReservationOfferings(
     args: DescribeHostReservationOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -7779,6 +7830,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeHostReservationsCommand}
    */
+  describeHostReservations(): Promise<DescribeHostReservationsCommandOutput>;
   describeHostReservations(
     args: DescribeHostReservationsCommandInput,
     options?: __HttpHandlerOptions
@@ -7796,6 +7848,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeHostsCommand}
    */
+  describeHosts(): Promise<DescribeHostsCommandOutput>;
   describeHosts(args: DescribeHostsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeHostsCommandOutput>;
   describeHosts(args: DescribeHostsCommandInput, cb: (err: any, data?: DescribeHostsCommandOutput) => void): void;
   describeHosts(
@@ -7807,6 +7860,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIamInstanceProfileAssociationsCommand}
    */
+  describeIamInstanceProfileAssociations(): Promise<DescribeIamInstanceProfileAssociationsCommandOutput>;
   describeIamInstanceProfileAssociations(
     args: DescribeIamInstanceProfileAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -7841,6 +7895,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIdFormatCommand}
    */
+  describeIdFormat(): Promise<DescribeIdFormatCommandOutput>;
   describeIdFormat(
     args: DescribeIdFormatCommandInput,
     options?: __HttpHandlerOptions
@@ -7875,6 +7930,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeImagesCommand}
    */
+  describeImages(): Promise<DescribeImagesCommandOutput>;
   describeImages(
     args: DescribeImagesCommandInput,
     options?: __HttpHandlerOptions
@@ -7889,6 +7945,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeImportImageTasksCommand}
    */
+  describeImportImageTasks(): Promise<DescribeImportImageTasksCommandOutput>;
   describeImportImageTasks(
     args: DescribeImportImageTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -7906,6 +7963,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeImportSnapshotTasksCommand}
    */
+  describeImportSnapshotTasks(): Promise<DescribeImportSnapshotTasksCommandOutput>;
   describeImportSnapshotTasks(
     args: DescribeImportSnapshotTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -7940,6 +7998,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstanceConnectEndpointsCommand}
    */
+  describeInstanceConnectEndpoints(): Promise<DescribeInstanceConnectEndpointsCommandOutput>;
   describeInstanceConnectEndpoints(
     args: DescribeInstanceConnectEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -7957,6 +8016,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstanceCreditSpecificationsCommand}
    */
+  describeInstanceCreditSpecifications(): Promise<DescribeInstanceCreditSpecificationsCommandOutput>;
   describeInstanceCreditSpecifications(
     args: DescribeInstanceCreditSpecificationsCommandInput,
     options?: __HttpHandlerOptions
@@ -7974,6 +8034,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstanceEventNotificationAttributesCommand}
    */
+  describeInstanceEventNotificationAttributes(): Promise<DescribeInstanceEventNotificationAttributesCommandOutput>;
   describeInstanceEventNotificationAttributes(
     args: DescribeInstanceEventNotificationAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -7991,6 +8052,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstanceEventWindowsCommand}
    */
+  describeInstanceEventWindows(): Promise<DescribeInstanceEventWindowsCommandOutput>;
   describeInstanceEventWindows(
     args: DescribeInstanceEventWindowsCommandInput,
     options?: __HttpHandlerOptions
@@ -8008,6 +8070,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstancesCommand}
    */
+  describeInstances(): Promise<DescribeInstancesCommandOutput>;
   describeInstances(
     args: DescribeInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -8025,6 +8088,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstanceStatusCommand}
    */
+  describeInstanceStatus(): Promise<DescribeInstanceStatusCommandOutput>;
   describeInstanceStatus(
     args: DescribeInstanceStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -8042,6 +8106,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstanceTopologyCommand}
    */
+  describeInstanceTopology(): Promise<DescribeInstanceTopologyCommandOutput>;
   describeInstanceTopology(
     args: DescribeInstanceTopologyCommandInput,
     options?: __HttpHandlerOptions
@@ -8059,6 +8124,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstanceTypeOfferingsCommand}
    */
+  describeInstanceTypeOfferings(): Promise<DescribeInstanceTypeOfferingsCommandOutput>;
   describeInstanceTypeOfferings(
     args: DescribeInstanceTypeOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -8076,6 +8142,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInstanceTypesCommand}
    */
+  describeInstanceTypes(): Promise<DescribeInstanceTypesCommandOutput>;
   describeInstanceTypes(
     args: DescribeInstanceTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -8093,6 +8160,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeInternetGatewaysCommand}
    */
+  describeInternetGateways(): Promise<DescribeInternetGatewaysCommandOutput>;
   describeInternetGateways(
     args: DescribeInternetGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -8110,6 +8178,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIpamByoasnCommand}
    */
+  describeIpamByoasn(): Promise<DescribeIpamByoasnCommandOutput>;
   describeIpamByoasn(
     args: DescribeIpamByoasnCommandInput,
     options?: __HttpHandlerOptions
@@ -8127,6 +8196,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIpamPoolsCommand}
    */
+  describeIpamPools(): Promise<DescribeIpamPoolsCommandOutput>;
   describeIpamPools(
     args: DescribeIpamPoolsCommandInput,
     options?: __HttpHandlerOptions
@@ -8144,6 +8214,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIpamResourceDiscoveriesCommand}
    */
+  describeIpamResourceDiscoveries(): Promise<DescribeIpamResourceDiscoveriesCommandOutput>;
   describeIpamResourceDiscoveries(
     args: DescribeIpamResourceDiscoveriesCommandInput,
     options?: __HttpHandlerOptions
@@ -8161,6 +8232,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIpamResourceDiscoveryAssociationsCommand}
    */
+  describeIpamResourceDiscoveryAssociations(): Promise<DescribeIpamResourceDiscoveryAssociationsCommandOutput>;
   describeIpamResourceDiscoveryAssociations(
     args: DescribeIpamResourceDiscoveryAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -8178,6 +8250,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIpamsCommand}
    */
+  describeIpams(): Promise<DescribeIpamsCommandOutput>;
   describeIpams(args: DescribeIpamsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeIpamsCommandOutput>;
   describeIpams(args: DescribeIpamsCommandInput, cb: (err: any, data?: DescribeIpamsCommandOutput) => void): void;
   describeIpams(
@@ -8189,6 +8262,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIpamScopesCommand}
    */
+  describeIpamScopes(): Promise<DescribeIpamScopesCommandOutput>;
   describeIpamScopes(
     args: DescribeIpamScopesCommandInput,
     options?: __HttpHandlerOptions
@@ -8206,6 +8280,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeIpv6PoolsCommand}
    */
+  describeIpv6Pools(): Promise<DescribeIpv6PoolsCommandOutput>;
   describeIpv6Pools(
     args: DescribeIpv6PoolsCommandInput,
     options?: __HttpHandlerOptions
@@ -8223,6 +8298,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeKeyPairsCommand}
    */
+  describeKeyPairs(): Promise<DescribeKeyPairsCommandOutput>;
   describeKeyPairs(
     args: DescribeKeyPairsCommandInput,
     options?: __HttpHandlerOptions
@@ -8240,6 +8316,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLaunchTemplatesCommand}
    */
+  describeLaunchTemplates(): Promise<DescribeLaunchTemplatesCommandOutput>;
   describeLaunchTemplates(
     args: DescribeLaunchTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -8257,6 +8334,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLaunchTemplateVersionsCommand}
    */
+  describeLaunchTemplateVersions(): Promise<DescribeLaunchTemplateVersionsCommandOutput>;
   describeLaunchTemplateVersions(
     args: DescribeLaunchTemplateVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -8274,6 +8352,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLocalGatewayRouteTablesCommand}
    */
+  describeLocalGatewayRouteTables(): Promise<DescribeLocalGatewayRouteTablesCommandOutput>;
   describeLocalGatewayRouteTables(
     args: DescribeLocalGatewayRouteTablesCommandInput,
     options?: __HttpHandlerOptions
@@ -8291,6 +8370,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommand}
    */
+  describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(): Promise<DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandOutput>;
   describeLocalGatewayRouteTableVirtualInterfaceGroupAssociations(
     args: DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -8308,6 +8388,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLocalGatewayRouteTableVpcAssociationsCommand}
    */
+  describeLocalGatewayRouteTableVpcAssociations(): Promise<DescribeLocalGatewayRouteTableVpcAssociationsCommandOutput>;
   describeLocalGatewayRouteTableVpcAssociations(
     args: DescribeLocalGatewayRouteTableVpcAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -8325,6 +8406,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLocalGatewaysCommand}
    */
+  describeLocalGateways(): Promise<DescribeLocalGatewaysCommandOutput>;
   describeLocalGateways(
     args: DescribeLocalGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -8342,6 +8424,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLocalGatewayVirtualInterfaceGroupsCommand}
    */
+  describeLocalGatewayVirtualInterfaceGroups(): Promise<DescribeLocalGatewayVirtualInterfaceGroupsCommandOutput>;
   describeLocalGatewayVirtualInterfaceGroups(
     args: DescribeLocalGatewayVirtualInterfaceGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -8359,6 +8442,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLocalGatewayVirtualInterfacesCommand}
    */
+  describeLocalGatewayVirtualInterfaces(): Promise<DescribeLocalGatewayVirtualInterfacesCommandOutput>;
   describeLocalGatewayVirtualInterfaces(
     args: DescribeLocalGatewayVirtualInterfacesCommandInput,
     options?: __HttpHandlerOptions
@@ -8376,6 +8460,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeLockedSnapshotsCommand}
    */
+  describeLockedSnapshots(): Promise<DescribeLockedSnapshotsCommandOutput>;
   describeLockedSnapshots(
     args: DescribeLockedSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -8393,6 +8478,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeManagedPrefixListsCommand}
    */
+  describeManagedPrefixLists(): Promise<DescribeManagedPrefixListsCommandOutput>;
   describeManagedPrefixLists(
     args: DescribeManagedPrefixListsCommandInput,
     options?: __HttpHandlerOptions
@@ -8410,6 +8496,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeMovingAddressesCommand}
    */
+  describeMovingAddresses(): Promise<DescribeMovingAddressesCommandOutput>;
   describeMovingAddresses(
     args: DescribeMovingAddressesCommandInput,
     options?: __HttpHandlerOptions
@@ -8427,6 +8514,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeNatGatewaysCommand}
    */
+  describeNatGateways(): Promise<DescribeNatGatewaysCommandOutput>;
   describeNatGateways(
     args: DescribeNatGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -8444,6 +8532,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeNetworkAclsCommand}
    */
+  describeNetworkAcls(): Promise<DescribeNetworkAclsCommandOutput>;
   describeNetworkAcls(
     args: DescribeNetworkAclsCommandInput,
     options?: __HttpHandlerOptions
@@ -8461,6 +8550,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeNetworkInsightsAccessScopeAnalysesCommand}
    */
+  describeNetworkInsightsAccessScopeAnalyses(): Promise<DescribeNetworkInsightsAccessScopeAnalysesCommandOutput>;
   describeNetworkInsightsAccessScopeAnalyses(
     args: DescribeNetworkInsightsAccessScopeAnalysesCommandInput,
     options?: __HttpHandlerOptions
@@ -8478,6 +8568,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeNetworkInsightsAccessScopesCommand}
    */
+  describeNetworkInsightsAccessScopes(): Promise<DescribeNetworkInsightsAccessScopesCommandOutput>;
   describeNetworkInsightsAccessScopes(
     args: DescribeNetworkInsightsAccessScopesCommandInput,
     options?: __HttpHandlerOptions
@@ -8495,6 +8586,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeNetworkInsightsAnalysesCommand}
    */
+  describeNetworkInsightsAnalyses(): Promise<DescribeNetworkInsightsAnalysesCommandOutput>;
   describeNetworkInsightsAnalyses(
     args: DescribeNetworkInsightsAnalysesCommandInput,
     options?: __HttpHandlerOptions
@@ -8512,6 +8604,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeNetworkInsightsPathsCommand}
    */
+  describeNetworkInsightsPaths(): Promise<DescribeNetworkInsightsPathsCommandOutput>;
   describeNetworkInsightsPaths(
     args: DescribeNetworkInsightsPathsCommandInput,
     options?: __HttpHandlerOptions
@@ -8546,6 +8639,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeNetworkInterfacePermissionsCommand}
    */
+  describeNetworkInterfacePermissions(): Promise<DescribeNetworkInterfacePermissionsCommandOutput>;
   describeNetworkInterfacePermissions(
     args: DescribeNetworkInterfacePermissionsCommandInput,
     options?: __HttpHandlerOptions
@@ -8563,6 +8657,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeNetworkInterfacesCommand}
    */
+  describeNetworkInterfaces(): Promise<DescribeNetworkInterfacesCommandOutput>;
   describeNetworkInterfaces(
     args: DescribeNetworkInterfacesCommandInput,
     options?: __HttpHandlerOptions
@@ -8580,6 +8675,7 @@ export interface EC2 {
   /**
    * @see {@link DescribePlacementGroupsCommand}
    */
+  describePlacementGroups(): Promise<DescribePlacementGroupsCommandOutput>;
   describePlacementGroups(
     args: DescribePlacementGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -8597,6 +8693,7 @@ export interface EC2 {
   /**
    * @see {@link DescribePrefixListsCommand}
    */
+  describePrefixLists(): Promise<DescribePrefixListsCommandOutput>;
   describePrefixLists(
     args: DescribePrefixListsCommandInput,
     options?: __HttpHandlerOptions
@@ -8614,6 +8711,7 @@ export interface EC2 {
   /**
    * @see {@link DescribePrincipalIdFormatCommand}
    */
+  describePrincipalIdFormat(): Promise<DescribePrincipalIdFormatCommandOutput>;
   describePrincipalIdFormat(
     args: DescribePrincipalIdFormatCommandInput,
     options?: __HttpHandlerOptions
@@ -8631,6 +8729,7 @@ export interface EC2 {
   /**
    * @see {@link DescribePublicIpv4PoolsCommand}
    */
+  describePublicIpv4Pools(): Promise<DescribePublicIpv4PoolsCommandOutput>;
   describePublicIpv4Pools(
     args: DescribePublicIpv4PoolsCommandInput,
     options?: __HttpHandlerOptions
@@ -8648,6 +8747,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeRegionsCommand}
    */
+  describeRegions(): Promise<DescribeRegionsCommandOutput>;
   describeRegions(
     args: DescribeRegionsCommandInput,
     options?: __HttpHandlerOptions
@@ -8662,6 +8762,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeReplaceRootVolumeTasksCommand}
    */
+  describeReplaceRootVolumeTasks(): Promise<DescribeReplaceRootVolumeTasksCommandOutput>;
   describeReplaceRootVolumeTasks(
     args: DescribeReplaceRootVolumeTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -8679,6 +8780,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeReservedInstancesCommand}
    */
+  describeReservedInstances(): Promise<DescribeReservedInstancesCommandOutput>;
   describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -8696,6 +8798,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeReservedInstancesListingsCommand}
    */
+  describeReservedInstancesListings(): Promise<DescribeReservedInstancesListingsCommandOutput>;
   describeReservedInstancesListings(
     args: DescribeReservedInstancesListingsCommandInput,
     options?: __HttpHandlerOptions
@@ -8713,6 +8816,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeReservedInstancesModificationsCommand}
    */
+  describeReservedInstancesModifications(): Promise<DescribeReservedInstancesModificationsCommandOutput>;
   describeReservedInstancesModifications(
     args: DescribeReservedInstancesModificationsCommandInput,
     options?: __HttpHandlerOptions
@@ -8730,6 +8834,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeReservedInstancesOfferingsCommand}
    */
+  describeReservedInstancesOfferings(): Promise<DescribeReservedInstancesOfferingsCommandOutput>;
   describeReservedInstancesOfferings(
     args: DescribeReservedInstancesOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -8747,6 +8852,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeRouteTablesCommand}
    */
+  describeRouteTables(): Promise<DescribeRouteTablesCommandOutput>;
   describeRouteTables(
     args: DescribeRouteTablesCommandInput,
     options?: __HttpHandlerOptions
@@ -8781,6 +8887,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeScheduledInstancesCommand}
    */
+  describeScheduledInstances(): Promise<DescribeScheduledInstancesCommandOutput>;
   describeScheduledInstances(
     args: DescribeScheduledInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -8815,6 +8922,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSecurityGroupRulesCommand}
    */
+  describeSecurityGroupRules(): Promise<DescribeSecurityGroupRulesCommandOutput>;
   describeSecurityGroupRules(
     args: DescribeSecurityGroupRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -8832,6 +8940,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSecurityGroupsCommand}
    */
+  describeSecurityGroups(): Promise<DescribeSecurityGroupsCommandOutput>;
   describeSecurityGroups(
     args: DescribeSecurityGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -8866,6 +8975,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSnapshotsCommand}
    */
+  describeSnapshots(): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -8883,6 +8993,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSnapshotTierStatusCommand}
    */
+  describeSnapshotTierStatus(): Promise<DescribeSnapshotTierStatusCommandOutput>;
   describeSnapshotTierStatus(
     args: DescribeSnapshotTierStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -8900,6 +9011,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSpotDatafeedSubscriptionCommand}
    */
+  describeSpotDatafeedSubscription(): Promise<DescribeSpotDatafeedSubscriptionCommandOutput>;
   describeSpotDatafeedSubscription(
     args: DescribeSpotDatafeedSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -8951,6 +9063,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSpotFleetRequestsCommand}
    */
+  describeSpotFleetRequests(): Promise<DescribeSpotFleetRequestsCommandOutput>;
   describeSpotFleetRequests(
     args: DescribeSpotFleetRequestsCommandInput,
     options?: __HttpHandlerOptions
@@ -8968,6 +9081,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSpotInstanceRequestsCommand}
    */
+  describeSpotInstanceRequests(): Promise<DescribeSpotInstanceRequestsCommandOutput>;
   describeSpotInstanceRequests(
     args: DescribeSpotInstanceRequestsCommandInput,
     options?: __HttpHandlerOptions
@@ -8985,6 +9099,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSpotPriceHistoryCommand}
    */
+  describeSpotPriceHistory(): Promise<DescribeSpotPriceHistoryCommandOutput>;
   describeSpotPriceHistory(
     args: DescribeSpotPriceHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -9019,6 +9134,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeStoreImageTasksCommand}
    */
+  describeStoreImageTasks(): Promise<DescribeStoreImageTasksCommandOutput>;
   describeStoreImageTasks(
     args: DescribeStoreImageTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -9036,6 +9152,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeSubnetsCommand}
    */
+  describeSubnets(): Promise<DescribeSubnetsCommandOutput>;
   describeSubnets(
     args: DescribeSubnetsCommandInput,
     options?: __HttpHandlerOptions
@@ -9050,6 +9167,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTagsCommand}
    */
+  describeTags(): Promise<DescribeTagsCommandOutput>;
   describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
   describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   describeTags(
@@ -9061,6 +9179,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTrafficMirrorFiltersCommand}
    */
+  describeTrafficMirrorFilters(): Promise<DescribeTrafficMirrorFiltersCommandOutput>;
   describeTrafficMirrorFilters(
     args: DescribeTrafficMirrorFiltersCommandInput,
     options?: __HttpHandlerOptions
@@ -9078,6 +9197,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTrafficMirrorSessionsCommand}
    */
+  describeTrafficMirrorSessions(): Promise<DescribeTrafficMirrorSessionsCommandOutput>;
   describeTrafficMirrorSessions(
     args: DescribeTrafficMirrorSessionsCommandInput,
     options?: __HttpHandlerOptions
@@ -9095,6 +9215,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTrafficMirrorTargetsCommand}
    */
+  describeTrafficMirrorTargets(): Promise<DescribeTrafficMirrorTargetsCommandOutput>;
   describeTrafficMirrorTargets(
     args: DescribeTrafficMirrorTargetsCommandInput,
     options?: __HttpHandlerOptions
@@ -9112,6 +9233,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayAttachmentsCommand}
    */
+  describeTransitGatewayAttachments(): Promise<DescribeTransitGatewayAttachmentsCommandOutput>;
   describeTransitGatewayAttachments(
     args: DescribeTransitGatewayAttachmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -9129,6 +9251,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayConnectPeersCommand}
    */
+  describeTransitGatewayConnectPeers(): Promise<DescribeTransitGatewayConnectPeersCommandOutput>;
   describeTransitGatewayConnectPeers(
     args: DescribeTransitGatewayConnectPeersCommandInput,
     options?: __HttpHandlerOptions
@@ -9146,6 +9269,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayConnectsCommand}
    */
+  describeTransitGatewayConnects(): Promise<DescribeTransitGatewayConnectsCommandOutput>;
   describeTransitGatewayConnects(
     args: DescribeTransitGatewayConnectsCommandInput,
     options?: __HttpHandlerOptions
@@ -9163,6 +9287,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayMulticastDomainsCommand}
    */
+  describeTransitGatewayMulticastDomains(): Promise<DescribeTransitGatewayMulticastDomainsCommandOutput>;
   describeTransitGatewayMulticastDomains(
     args: DescribeTransitGatewayMulticastDomainsCommandInput,
     options?: __HttpHandlerOptions
@@ -9180,6 +9305,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayPeeringAttachmentsCommand}
    */
+  describeTransitGatewayPeeringAttachments(): Promise<DescribeTransitGatewayPeeringAttachmentsCommandOutput>;
   describeTransitGatewayPeeringAttachments(
     args: DescribeTransitGatewayPeeringAttachmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -9197,6 +9323,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayPolicyTablesCommand}
    */
+  describeTransitGatewayPolicyTables(): Promise<DescribeTransitGatewayPolicyTablesCommandOutput>;
   describeTransitGatewayPolicyTables(
     args: DescribeTransitGatewayPolicyTablesCommandInput,
     options?: __HttpHandlerOptions
@@ -9214,6 +9341,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayRouteTableAnnouncementsCommand}
    */
+  describeTransitGatewayRouteTableAnnouncements(): Promise<DescribeTransitGatewayRouteTableAnnouncementsCommandOutput>;
   describeTransitGatewayRouteTableAnnouncements(
     args: DescribeTransitGatewayRouteTableAnnouncementsCommandInput,
     options?: __HttpHandlerOptions
@@ -9231,6 +9359,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayRouteTablesCommand}
    */
+  describeTransitGatewayRouteTables(): Promise<DescribeTransitGatewayRouteTablesCommandOutput>;
   describeTransitGatewayRouteTables(
     args: DescribeTransitGatewayRouteTablesCommandInput,
     options?: __HttpHandlerOptions
@@ -9248,6 +9377,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewaysCommand}
    */
+  describeTransitGateways(): Promise<DescribeTransitGatewaysCommandOutput>;
   describeTransitGateways(
     args: DescribeTransitGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -9265,6 +9395,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTransitGatewayVpcAttachmentsCommand}
    */
+  describeTransitGatewayVpcAttachments(): Promise<DescribeTransitGatewayVpcAttachmentsCommandOutput>;
   describeTransitGatewayVpcAttachments(
     args: DescribeTransitGatewayVpcAttachmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -9282,6 +9413,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeTrunkInterfaceAssociationsCommand}
    */
+  describeTrunkInterfaceAssociations(): Promise<DescribeTrunkInterfaceAssociationsCommandOutput>;
   describeTrunkInterfaceAssociations(
     args: DescribeTrunkInterfaceAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -9299,6 +9431,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVerifiedAccessEndpointsCommand}
    */
+  describeVerifiedAccessEndpoints(): Promise<DescribeVerifiedAccessEndpointsCommandOutput>;
   describeVerifiedAccessEndpoints(
     args: DescribeVerifiedAccessEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -9316,6 +9449,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVerifiedAccessGroupsCommand}
    */
+  describeVerifiedAccessGroups(): Promise<DescribeVerifiedAccessGroupsCommandOutput>;
   describeVerifiedAccessGroups(
     args: DescribeVerifiedAccessGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -9333,6 +9467,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVerifiedAccessInstanceLoggingConfigurationsCommand}
    */
+  describeVerifiedAccessInstanceLoggingConfigurations(): Promise<DescribeVerifiedAccessInstanceLoggingConfigurationsCommandOutput>;
   describeVerifiedAccessInstanceLoggingConfigurations(
     args: DescribeVerifiedAccessInstanceLoggingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -9350,6 +9485,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVerifiedAccessInstancesCommand}
    */
+  describeVerifiedAccessInstances(): Promise<DescribeVerifiedAccessInstancesCommandOutput>;
   describeVerifiedAccessInstances(
     args: DescribeVerifiedAccessInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -9367,6 +9503,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVerifiedAccessTrustProvidersCommand}
    */
+  describeVerifiedAccessTrustProviders(): Promise<DescribeVerifiedAccessTrustProvidersCommandOutput>;
   describeVerifiedAccessTrustProviders(
     args: DescribeVerifiedAccessTrustProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -9401,6 +9538,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVolumesCommand}
    */
+  describeVolumes(): Promise<DescribeVolumesCommandOutput>;
   describeVolumes(
     args: DescribeVolumesCommandInput,
     options?: __HttpHandlerOptions
@@ -9415,6 +9553,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVolumesModificationsCommand}
    */
+  describeVolumesModifications(): Promise<DescribeVolumesModificationsCommandOutput>;
   describeVolumesModifications(
     args: DescribeVolumesModificationsCommandInput,
     options?: __HttpHandlerOptions
@@ -9432,6 +9571,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVolumeStatusCommand}
    */
+  describeVolumeStatus(): Promise<DescribeVolumeStatusCommandOutput>;
   describeVolumeStatus(
     args: DescribeVolumeStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -9466,6 +9606,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcClassicLinkCommand}
    */
+  describeVpcClassicLink(): Promise<DescribeVpcClassicLinkCommandOutput>;
   describeVpcClassicLink(
     args: DescribeVpcClassicLinkCommandInput,
     options?: __HttpHandlerOptions
@@ -9483,6 +9624,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcClassicLinkDnsSupportCommand}
    */
+  describeVpcClassicLinkDnsSupport(): Promise<DescribeVpcClassicLinkDnsSupportCommandOutput>;
   describeVpcClassicLinkDnsSupport(
     args: DescribeVpcClassicLinkDnsSupportCommandInput,
     options?: __HttpHandlerOptions
@@ -9500,6 +9642,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcEndpointConnectionNotificationsCommand}
    */
+  describeVpcEndpointConnectionNotifications(): Promise<DescribeVpcEndpointConnectionNotificationsCommandOutput>;
   describeVpcEndpointConnectionNotifications(
     args: DescribeVpcEndpointConnectionNotificationsCommandInput,
     options?: __HttpHandlerOptions
@@ -9517,6 +9660,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcEndpointConnectionsCommand}
    */
+  describeVpcEndpointConnections(): Promise<DescribeVpcEndpointConnectionsCommandOutput>;
   describeVpcEndpointConnections(
     args: DescribeVpcEndpointConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -9534,6 +9678,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcEndpointsCommand}
    */
+  describeVpcEndpoints(): Promise<DescribeVpcEndpointsCommandOutput>;
   describeVpcEndpoints(
     args: DescribeVpcEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -9551,6 +9696,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcEndpointServiceConfigurationsCommand}
    */
+  describeVpcEndpointServiceConfigurations(): Promise<DescribeVpcEndpointServiceConfigurationsCommandOutput>;
   describeVpcEndpointServiceConfigurations(
     args: DescribeVpcEndpointServiceConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -9585,6 +9731,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcEndpointServicesCommand}
    */
+  describeVpcEndpointServices(): Promise<DescribeVpcEndpointServicesCommandOutput>;
   describeVpcEndpointServices(
     args: DescribeVpcEndpointServicesCommandInput,
     options?: __HttpHandlerOptions
@@ -9602,6 +9749,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcPeeringConnectionsCommand}
    */
+  describeVpcPeeringConnections(): Promise<DescribeVpcPeeringConnectionsCommandOutput>;
   describeVpcPeeringConnections(
     args: DescribeVpcPeeringConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -9619,6 +9767,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpcsCommand}
    */
+  describeVpcs(): Promise<DescribeVpcsCommandOutput>;
   describeVpcs(args: DescribeVpcsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeVpcsCommandOutput>;
   describeVpcs(args: DescribeVpcsCommandInput, cb: (err: any, data?: DescribeVpcsCommandOutput) => void): void;
   describeVpcs(
@@ -9630,6 +9779,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpnConnectionsCommand}
    */
+  describeVpnConnections(): Promise<DescribeVpnConnectionsCommandOutput>;
   describeVpnConnections(
     args: DescribeVpnConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -9647,6 +9797,7 @@ export interface EC2 {
   /**
    * @see {@link DescribeVpnGatewaysCommand}
    */
+  describeVpnGateways(): Promise<DescribeVpnGatewaysCommandOutput>;
   describeVpnGateways(
     args: DescribeVpnGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -9777,6 +9928,7 @@ export interface EC2 {
   /**
    * @see {@link DisableAwsNetworkPerformanceMetricSubscriptionCommand}
    */
+  disableAwsNetworkPerformanceMetricSubscription(): Promise<DisableAwsNetworkPerformanceMetricSubscriptionCommandOutput>;
   disableAwsNetworkPerformanceMetricSubscription(
     args: DisableAwsNetworkPerformanceMetricSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -9794,6 +9946,7 @@ export interface EC2 {
   /**
    * @see {@link DisableEbsEncryptionByDefaultCommand}
    */
+  disableEbsEncryptionByDefault(): Promise<DisableEbsEncryptionByDefaultCommandOutput>;
   disableEbsEncryptionByDefault(
     args: DisableEbsEncryptionByDefaultCommandInput,
     options?: __HttpHandlerOptions
@@ -9856,6 +10009,7 @@ export interface EC2 {
   /**
    * @see {@link DisableImageBlockPublicAccessCommand}
    */
+  disableImageBlockPublicAccess(): Promise<DisableImageBlockPublicAccessCommandOutput>;
   disableImageBlockPublicAccess(
     args: DisableImageBlockPublicAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -9907,6 +10061,7 @@ export interface EC2 {
   /**
    * @see {@link DisableSerialConsoleAccessCommand}
    */
+  disableSerialConsoleAccess(): Promise<DisableSerialConsoleAccessCommandOutput>;
   disableSerialConsoleAccess(
     args: DisableSerialConsoleAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -9924,6 +10079,7 @@ export interface EC2 {
   /**
    * @see {@link DisableSnapshotBlockPublicAccessCommand}
    */
+  disableSnapshotBlockPublicAccess(): Promise<DisableSnapshotBlockPublicAccessCommandOutput>;
   disableSnapshotBlockPublicAccess(
     args: DisableSnapshotBlockPublicAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -9992,6 +10148,7 @@ export interface EC2 {
   /**
    * @see {@link DisableVpcClassicLinkDnsSupportCommand}
    */
+  disableVpcClassicLinkDnsSupport(): Promise<DisableVpcClassicLinkDnsSupportCommandOutput>;
   disableVpcClassicLinkDnsSupport(
     args: DisableVpcClassicLinkDnsSupportCommandInput,
     options?: __HttpHandlerOptions
@@ -10009,6 +10166,7 @@ export interface EC2 {
   /**
    * @see {@link DisassociateAddressCommand}
    */
+  disassociateAddress(): Promise<DisassociateAddressCommandOutput>;
   disassociateAddress(
     args: DisassociateAddressCommandInput,
     options?: __HttpHandlerOptions
@@ -10281,6 +10439,7 @@ export interface EC2 {
   /**
    * @see {@link EnableAwsNetworkPerformanceMetricSubscriptionCommand}
    */
+  enableAwsNetworkPerformanceMetricSubscription(): Promise<EnableAwsNetworkPerformanceMetricSubscriptionCommandOutput>;
   enableAwsNetworkPerformanceMetricSubscription(
     args: EnableAwsNetworkPerformanceMetricSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -10298,6 +10457,7 @@ export interface EC2 {
   /**
    * @see {@link EnableEbsEncryptionByDefaultCommand}
    */
+  enableEbsEncryptionByDefault(): Promise<EnableEbsEncryptionByDefaultCommandOutput>;
   enableEbsEncryptionByDefault(
     args: EnableEbsEncryptionByDefaultCommandInput,
     options?: __HttpHandlerOptions
@@ -10411,6 +10571,7 @@ export interface EC2 {
   /**
    * @see {@link EnableReachabilityAnalyzerOrganizationSharingCommand}
    */
+  enableReachabilityAnalyzerOrganizationSharing(): Promise<EnableReachabilityAnalyzerOrganizationSharingCommandOutput>;
   enableReachabilityAnalyzerOrganizationSharing(
     args: EnableReachabilityAnalyzerOrganizationSharingCommandInput,
     options?: __HttpHandlerOptions
@@ -10428,6 +10589,7 @@ export interface EC2 {
   /**
    * @see {@link EnableSerialConsoleAccessCommand}
    */
+  enableSerialConsoleAccess(): Promise<EnableSerialConsoleAccessCommandOutput>;
   enableSerialConsoleAccess(
     args: EnableSerialConsoleAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -10527,6 +10689,7 @@ export interface EC2 {
   /**
    * @see {@link EnableVpcClassicLinkDnsSupportCommand}
    */
+  enableVpcClassicLinkDnsSupport(): Promise<EnableVpcClassicLinkDnsSupportCommandOutput>;
   enableVpcClassicLinkDnsSupport(
     args: EnableVpcClassicLinkDnsSupportCommandInput,
     options?: __HttpHandlerOptions
@@ -10640,6 +10803,7 @@ export interface EC2 {
   /**
    * @see {@link GetAwsNetworkPerformanceDataCommand}
    */
+  getAwsNetworkPerformanceData(): Promise<GetAwsNetworkPerformanceDataCommandOutput>;
   getAwsNetworkPerformanceData(
     args: GetAwsNetworkPerformanceDataCommandInput,
     options?: __HttpHandlerOptions
@@ -10742,6 +10906,7 @@ export interface EC2 {
   /**
    * @see {@link GetEbsDefaultKmsKeyIdCommand}
    */
+  getEbsDefaultKmsKeyId(): Promise<GetEbsDefaultKmsKeyIdCommandOutput>;
   getEbsDefaultKmsKeyId(
     args: GetEbsDefaultKmsKeyIdCommandInput,
     options?: __HttpHandlerOptions
@@ -10759,6 +10924,7 @@ export interface EC2 {
   /**
    * @see {@link GetEbsEncryptionByDefaultCommand}
    */
+  getEbsEncryptionByDefault(): Promise<GetEbsEncryptionByDefaultCommandOutput>;
   getEbsEncryptionByDefault(
     args: GetEbsEncryptionByDefaultCommandInput,
     options?: __HttpHandlerOptions
@@ -10827,6 +10993,7 @@ export interface EC2 {
   /**
    * @see {@link GetImageBlockPublicAccessStateCommand}
    */
+  getImageBlockPublicAccessState(): Promise<GetImageBlockPublicAccessStateCommandOutput>;
   getImageBlockPublicAccessState(
     args: GetImageBlockPublicAccessStateCommandInput,
     options?: __HttpHandlerOptions
@@ -11130,6 +11297,7 @@ export interface EC2 {
   /**
    * @see {@link GetSerialConsoleAccessStatusCommand}
    */
+  getSerialConsoleAccessStatus(): Promise<GetSerialConsoleAccessStatusCommandOutput>;
   getSerialConsoleAccessStatus(
     args: GetSerialConsoleAccessStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -11147,6 +11315,7 @@ export interface EC2 {
   /**
    * @see {@link GetSnapshotBlockPublicAccessStateCommand}
    */
+  getSnapshotBlockPublicAccessState(): Promise<GetSnapshotBlockPublicAccessStateCommandOutput>;
   getSnapshotBlockPublicAccessState(
     args: GetSnapshotBlockPublicAccessStateCommandInput,
     options?: __HttpHandlerOptions
@@ -11368,6 +11537,7 @@ export interface EC2 {
   /**
    * @see {@link GetVpnConnectionDeviceTypesCommand}
    */
+  getVpnConnectionDeviceTypes(): Promise<GetVpnConnectionDeviceTypesCommandOutput>;
   getVpnConnectionDeviceTypes(
     args: GetVpnConnectionDeviceTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -11419,6 +11589,7 @@ export interface EC2 {
   /**
    * @see {@link ImportImageCommand}
    */
+  importImage(): Promise<ImportImageCommandOutput>;
   importImage(args: ImportImageCommandInput, options?: __HttpHandlerOptions): Promise<ImportImageCommandOutput>;
   importImage(args: ImportImageCommandInput, cb: (err: any, data?: ImportImageCommandOutput) => void): void;
   importImage(
@@ -11455,6 +11626,7 @@ export interface EC2 {
   /**
    * @see {@link ImportSnapshotCommand}
    */
+  importSnapshot(): Promise<ImportSnapshotCommandOutput>;
   importSnapshot(
     args: ImportSnapshotCommandInput,
     options?: __HttpHandlerOptions
@@ -11480,6 +11652,7 @@ export interface EC2 {
   /**
    * @see {@link ListImagesInRecycleBinCommand}
    */
+  listImagesInRecycleBin(): Promise<ListImagesInRecycleBinCommandOutput>;
   listImagesInRecycleBin(
     args: ListImagesInRecycleBinCommandInput,
     options?: __HttpHandlerOptions
@@ -11497,6 +11670,7 @@ export interface EC2 {
   /**
    * @see {@link ListSnapshotsInRecycleBinCommand}
    */
+  listSnapshotsInRecycleBin(): Promise<ListSnapshotsInRecycleBinCommandOutput>;
   listSnapshotsInRecycleBin(
     args: ListSnapshotsInRecycleBinCommandInput,
     options?: __HttpHandlerOptions
@@ -11940,6 +12114,7 @@ export interface EC2 {
   /**
    * @see {@link ModifyLaunchTemplateCommand}
    */
+  modifyLaunchTemplate(): Promise<ModifyLaunchTemplateCommandOutput>;
   modifyLaunchTemplate(
     args: ModifyLaunchTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -12843,6 +13018,7 @@ export interface EC2 {
   /**
    * @see {@link RejectTransitGatewayMulticastDomainAssociationsCommand}
    */
+  rejectTransitGatewayMulticastDomainAssociations(): Promise<RejectTransitGatewayMulticastDomainAssociationsCommandOutput>;
   rejectTransitGatewayMulticastDomainAssociations(
     args: RejectTransitGatewayMulticastDomainAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -12928,6 +13104,7 @@ export interface EC2 {
   /**
    * @see {@link ReleaseAddressCommand}
    */
+  releaseAddress(): Promise<ReleaseAddressCommandOutput>;
   releaseAddress(
     args: ReleaseAddressCommandInput,
     options?: __HttpHandlerOptions
@@ -13117,6 +13294,7 @@ export interface EC2 {
   /**
    * @see {@link RequestSpotInstancesCommand}
    */
+  requestSpotInstances(): Promise<RequestSpotInstancesCommandOutput>;
   requestSpotInstances(
     args: RequestSpotInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -13151,6 +13329,7 @@ export interface EC2 {
   /**
    * @see {@link ResetEbsDefaultKmsKeyIdCommand}
    */
+  resetEbsDefaultKmsKeyId(): Promise<ResetEbsDefaultKmsKeyIdCommandOutput>;
   resetEbsDefaultKmsKeyId(
     args: ResetEbsDefaultKmsKeyIdCommandInput,
     options?: __HttpHandlerOptions
@@ -13372,6 +13551,7 @@ export interface EC2 {
   /**
    * @see {@link RevokeSecurityGroupIngressCommand}
    */
+  revokeSecurityGroupIngress(): Promise<RevokeSecurityGroupIngressCommandOutput>;
   revokeSecurityGroupIngress(
     args: RevokeSecurityGroupIngressCommandInput,
     options?: __HttpHandlerOptions
@@ -13677,6 +13857,7 @@ export interface EC2 {
   /**
    * @see {@link UpdateSecurityGroupRuleDescriptionsEgressCommand}
    */
+  updateSecurityGroupRuleDescriptionsEgress(): Promise<UpdateSecurityGroupRuleDescriptionsEgressCommandOutput>;
   updateSecurityGroupRuleDescriptionsEgress(
     args: UpdateSecurityGroupRuleDescriptionsEgressCommandInput,
     options?: __HttpHandlerOptions
@@ -13694,6 +13875,7 @@ export interface EC2 {
   /**
    * @see {@link UpdateSecurityGroupRuleDescriptionsIngressCommand}
    */
+  updateSecurityGroupRuleDescriptionsIngress(): Promise<UpdateSecurityGroupRuleDescriptionsIngressCommandOutput>;
   updateSecurityGroupRuleDescriptionsIngress(
     args: UpdateSecurityGroupRuleDescriptionsIngressCommandInput,
     options?: __HttpHandlerOptions

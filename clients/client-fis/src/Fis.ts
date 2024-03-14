@@ -301,6 +301,7 @@ export interface Fis {
   /**
    * @see {@link ListActionsCommand}
    */
+  listActions(): Promise<ListActionsCommandOutput>;
   listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
   listActions(args: ListActionsCommandInput, cb: (err: any, data?: ListActionsCommandOutput) => void): void;
   listActions(
@@ -329,6 +330,7 @@ export interface Fis {
   /**
    * @see {@link ListExperimentsCommand}
    */
+  listExperiments(): Promise<ListExperimentsCommandOutput>;
   listExperiments(
     args: ListExperimentsCommandInput,
     options?: __HttpHandlerOptions
@@ -360,6 +362,7 @@ export interface Fis {
   /**
    * @see {@link ListExperimentTemplatesCommand}
    */
+  listExperimentTemplates(): Promise<ListExperimentTemplatesCommandOutput>;
   listExperimentTemplates(
     args: ListExperimentTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -411,6 +414,7 @@ export interface Fis {
   /**
    * @see {@link ListTargetResourceTypesCommand}
    */
+  listTargetResourceTypes(): Promise<ListTargetResourceTypesCommandOutput>;
   listTargetResourceTypes(
     args: ListTargetResourceTypesCommandInput,
     options?: __HttpHandlerOptions

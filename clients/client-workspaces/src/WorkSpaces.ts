@@ -740,6 +740,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DeleteWorkspaceBundleCommand}
    */
+  deleteWorkspaceBundle(): Promise<DeleteWorkspaceBundleCommandOutput>;
   deleteWorkspaceBundle(
     args: DeleteWorkspaceBundleCommandInput,
     options?: __HttpHandlerOptions
@@ -808,6 +809,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeAccountCommand}
    */
+  describeAccount(): Promise<DescribeAccountCommandOutput>;
   describeAccount(
     args: DescribeAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -822,6 +824,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeAccountModificationsCommand}
    */
+  describeAccountModifications(): Promise<DescribeAccountModificationsCommandOutput>;
   describeAccountModifications(
     args: DescribeAccountModificationsCommandInput,
     options?: __HttpHandlerOptions
@@ -856,6 +859,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeApplicationsCommand}
    */
+  describeApplications(): Promise<DescribeApplicationsCommandOutput>;
   describeApplications(
     args: DescribeApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -941,6 +945,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeConnectionAliasesCommand}
    */
+  describeConnectionAliases(): Promise<DescribeConnectionAliasesCommandOutput>;
   describeConnectionAliases(
     args: DescribeConnectionAliasesCommandInput,
     options?: __HttpHandlerOptions
@@ -992,6 +997,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeIpGroupsCommand}
    */
+  describeIpGroups(): Promise<DescribeIpGroupsCommandOutput>;
   describeIpGroups(
     args: DescribeIpGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1037,6 +1043,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeWorkspaceBundlesCommand}
    */
+  describeWorkspaceBundles(): Promise<DescribeWorkspaceBundlesCommandOutput>;
   describeWorkspaceBundles(
     args: DescribeWorkspaceBundlesCommandInput,
     options?: __HttpHandlerOptions
@@ -1054,6 +1061,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeWorkspaceDirectoriesCommand}
    */
+  describeWorkspaceDirectories(): Promise<DescribeWorkspaceDirectoriesCommandOutput>;
   describeWorkspaceDirectories(
     args: DescribeWorkspaceDirectoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1088,6 +1096,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeWorkspaceImagesCommand}
    */
+  describeWorkspaceImages(): Promise<DescribeWorkspaceImagesCommandOutput>;
   describeWorkspaceImages(
     args: DescribeWorkspaceImagesCommandInput,
     options?: __HttpHandlerOptions
@@ -1105,6 +1114,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeWorkspacesCommand}
    */
+  describeWorkspaces(): Promise<DescribeWorkspacesCommandOutput>;
   describeWorkspaces(
     args: DescribeWorkspacesCommandInput,
     options?: __HttpHandlerOptions
@@ -1122,6 +1132,7 @@ export interface WorkSpaces {
   /**
    * @see {@link DescribeWorkspacesConnectionStatusCommand}
    */
+  describeWorkspacesConnectionStatus(): Promise<DescribeWorkspacesConnectionStatusCommandOutput>;
   describeWorkspacesConnectionStatus(
     args: DescribeWorkspacesConnectionStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -1275,6 +1286,7 @@ export interface WorkSpaces {
   /**
    * @see {@link ModifyAccountCommand}
    */
+  modifyAccount(): Promise<ModifyAccountCommandOutput>;
   modifyAccount(args: ModifyAccountCommandInput, options?: __HttpHandlerOptions): Promise<ModifyAccountCommandOutput>;
   modifyAccount(args: ModifyAccountCommandInput, cb: (err: any, data?: ModifyAccountCommandOutput) => void): void;
   modifyAccount(
@@ -1597,6 +1609,7 @@ export interface WorkSpaces {
   /**
    * @see {@link UpdateWorkspaceBundleCommand}
    */
+  updateWorkspaceBundle(): Promise<UpdateWorkspaceBundleCommandOutput>;
   updateWorkspaceBundle(
     args: UpdateWorkspaceBundleCommandInput,
     options?: __HttpHandlerOptions

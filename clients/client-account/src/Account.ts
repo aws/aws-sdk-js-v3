@@ -117,6 +117,7 @@ export interface Account {
   /**
    * @see {@link GetContactInformationCommand}
    */
+  getContactInformation(): Promise<GetContactInformationCommandOutput>;
   getContactInformation(
     args: GetContactInformationCommandInput,
     options?: __HttpHandlerOptions
@@ -151,6 +152,7 @@ export interface Account {
   /**
    * @see {@link ListRegionsCommand}
    */
+  listRegions(): Promise<ListRegionsCommandOutput>;
   listRegions(args: ListRegionsCommandInput, options?: __HttpHandlerOptions): Promise<ListRegionsCommandOutput>;
   listRegions(args: ListRegionsCommandInput, cb: (err: any, data?: ListRegionsCommandOutput) => void): void;
   listRegions(

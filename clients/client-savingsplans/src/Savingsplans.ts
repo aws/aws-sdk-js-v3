@@ -112,6 +112,7 @@ export interface Savingsplans {
   /**
    * @see {@link DescribeSavingsPlansCommand}
    */
+  describeSavingsPlans(): Promise<DescribeSavingsPlansCommandOutput>;
   describeSavingsPlans(
     args: DescribeSavingsPlansCommandInput,
     options?: __HttpHandlerOptions
@@ -129,6 +130,7 @@ export interface Savingsplans {
   /**
    * @see {@link DescribeSavingsPlansOfferingRatesCommand}
    */
+  describeSavingsPlansOfferingRates(): Promise<DescribeSavingsPlansOfferingRatesCommandOutput>;
   describeSavingsPlansOfferingRates(
     args: DescribeSavingsPlansOfferingRatesCommandInput,
     options?: __HttpHandlerOptions
@@ -146,6 +148,7 @@ export interface Savingsplans {
   /**
    * @see {@link DescribeSavingsPlansOfferingsCommand}
    */
+  describeSavingsPlansOfferings(): Promise<DescribeSavingsPlansOfferingsCommandOutput>;
   describeSavingsPlansOfferings(
     args: DescribeSavingsPlansOfferingsCommandInput,
     options?: __HttpHandlerOptions

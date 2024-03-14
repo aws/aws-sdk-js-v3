@@ -316,6 +316,7 @@ export interface BackupGateway {
   /**
    * @see {@link ListGatewaysCommand}
    */
+  listGateways(): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
   listGateways(
@@ -327,6 +328,7 @@ export interface BackupGateway {
   /**
    * @see {@link ListHypervisorsCommand}
    */
+  listHypervisors(): Promise<ListHypervisorsCommandOutput>;
   listHypervisors(
     args: ListHypervisorsCommandInput,
     options?: __HttpHandlerOptions
@@ -358,6 +360,7 @@ export interface BackupGateway {
   /**
    * @see {@link ListVirtualMachinesCommand}
    */
+  listVirtualMachines(): Promise<ListVirtualMachinesCommandOutput>;
   listVirtualMachines(
     args: ListVirtualMachinesCommandInput,
     options?: __HttpHandlerOptions

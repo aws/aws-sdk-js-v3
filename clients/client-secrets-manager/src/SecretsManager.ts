@@ -141,6 +141,7 @@ export interface SecretsManager {
   /**
    * @see {@link BatchGetSecretValueCommand}
    */
+  batchGetSecretValue(): Promise<BatchGetSecretValueCommandOutput>;
   batchGetSecretValue(
     args: BatchGetSecretValueCommandInput,
     options?: __HttpHandlerOptions
@@ -228,6 +229,7 @@ export interface SecretsManager {
   /**
    * @see {@link GetRandomPasswordCommand}
    */
+  getRandomPassword(): Promise<GetRandomPasswordCommandOutput>;
   getRandomPassword(
     args: GetRandomPasswordCommandInput,
     options?: __HttpHandlerOptions
@@ -276,6 +278,7 @@ export interface SecretsManager {
   /**
    * @see {@link ListSecretsCommand}
    */
+  listSecrets(): Promise<ListSecretsCommandOutput>;
   listSecrets(args: ListSecretsCommandInput, options?: __HttpHandlerOptions): Promise<ListSecretsCommandOutput>;
   listSecrets(args: ListSecretsCommandInput, cb: (err: any, data?: ListSecretsCommandOutput) => void): void;
   listSecrets(

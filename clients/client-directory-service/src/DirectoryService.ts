@@ -736,6 +736,7 @@ export interface DirectoryService {
   /**
    * @see {@link DescribeDirectoriesCommand}
    */
+  describeDirectories(): Promise<DescribeDirectoriesCommandOutput>;
   describeDirectories(
     args: DescribeDirectoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -770,6 +771,7 @@ export interface DirectoryService {
   /**
    * @see {@link DescribeEventTopicsCommand}
    */
+  describeEventTopics(): Promise<DescribeEventTopicsCommandOutput>;
   describeEventTopics(
     args: DescribeEventTopicsCommandInput,
     options?: __HttpHandlerOptions
@@ -852,6 +854,7 @@ export interface DirectoryService {
   /**
    * @see {@link DescribeSnapshotsCommand}
    */
+  describeSnapshots(): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -869,6 +872,7 @@ export interface DirectoryService {
   /**
    * @see {@link DescribeTrustsCommand}
    */
+  describeTrusts(): Promise<DescribeTrustsCommandOutput>;
   describeTrusts(
     args: DescribeTrustsCommandInput,
     options?: __HttpHandlerOptions
@@ -1000,6 +1004,7 @@ export interface DirectoryService {
   /**
    * @see {@link GetDirectoryLimitsCommand}
    */
+  getDirectoryLimits(): Promise<GetDirectoryLimitsCommandOutput>;
   getDirectoryLimits(
     args: GetDirectoryLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -1062,6 +1067,7 @@ export interface DirectoryService {
   /**
    * @see {@link ListLogSubscriptionsCommand}
    */
+  listLogSubscriptions(): Promise<ListLogSubscriptionsCommandOutput>;
   listLogSubscriptions(
     args: ListLogSubscriptionsCommandInput,
     options?: __HttpHandlerOptions

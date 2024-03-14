@@ -378,6 +378,7 @@ export interface CleanRoomsML {
   /**
    * @see {@link ListAudienceExportJobsCommand}
    */
+  listAudienceExportJobs(): Promise<ListAudienceExportJobsCommandOutput>;
   listAudienceExportJobs(
     args: ListAudienceExportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -395,6 +396,7 @@ export interface CleanRoomsML {
   /**
    * @see {@link ListAudienceGenerationJobsCommand}
    */
+  listAudienceGenerationJobs(): Promise<ListAudienceGenerationJobsCommandOutput>;
   listAudienceGenerationJobs(
     args: ListAudienceGenerationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -412,6 +414,7 @@ export interface CleanRoomsML {
   /**
    * @see {@link ListAudienceModelsCommand}
    */
+  listAudienceModels(): Promise<ListAudienceModelsCommandOutput>;
   listAudienceModels(
     args: ListAudienceModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -429,6 +432,7 @@ export interface CleanRoomsML {
   /**
    * @see {@link ListConfiguredAudienceModelsCommand}
    */
+  listConfiguredAudienceModels(): Promise<ListConfiguredAudienceModelsCommandOutput>;
   listConfiguredAudienceModels(
     args: ListConfiguredAudienceModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -463,6 +467,7 @@ export interface CleanRoomsML {
   /**
    * @see {@link ListTrainingDatasetsCommand}
    */
+  listTrainingDatasets(): Promise<ListTrainingDatasetsCommandOutput>;
   listTrainingDatasets(
     args: ListTrainingDatasetsCommandInput,
     options?: __HttpHandlerOptions

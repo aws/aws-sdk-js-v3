@@ -476,6 +476,7 @@ export interface ChimeSDKIdentity {
   /**
    * @see {@link ListAppInstancesCommand}
    */
+  listAppInstances(): Promise<ListAppInstancesCommandOutput>;
   listAppInstances(
     args: ListAppInstancesCommandInput,
     options?: __HttpHandlerOptions

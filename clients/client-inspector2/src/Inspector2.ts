@@ -355,6 +355,7 @@ export interface Inspector2 {
   /**
    * @see {@link BatchGetAccountStatusCommand}
    */
+  batchGetAccountStatus(): Promise<BatchGetAccountStatusCommandOutput>;
   batchGetAccountStatus(
     args: BatchGetAccountStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -423,6 +424,7 @@ export interface Inspector2 {
   /**
    * @see {@link BatchGetMemberEc2DeepInspectionStatusCommand}
    */
+  batchGetMemberEc2DeepInspectionStatus(): Promise<BatchGetMemberEc2DeepInspectionStatusCommandOutput>;
   batchGetMemberEc2DeepInspectionStatus(
     args: BatchGetMemberEc2DeepInspectionStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -581,6 +583,7 @@ export interface Inspector2 {
   /**
    * @see {@link DescribeOrganizationConfigurationCommand}
    */
+  describeOrganizationConfiguration(): Promise<DescribeOrganizationConfigurationCommandOutput>;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -598,6 +601,7 @@ export interface Inspector2 {
   /**
    * @see {@link DisableCommand}
    */
+  disable(): Promise<DisableCommandOutput>;
   disable(args: DisableCommandInput, options?: __HttpHandlerOptions): Promise<DisableCommandOutput>;
   disable(args: DisableCommandInput, cb: (err: any, data?: DisableCommandOutput) => void): void;
   disable(
@@ -705,6 +709,7 @@ export interface Inspector2 {
   /**
    * @see {@link GetConfigurationCommand}
    */
+  getConfiguration(): Promise<GetConfigurationCommandOutput>;
   getConfiguration(
     args: GetConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -722,6 +727,7 @@ export interface Inspector2 {
   /**
    * @see {@link GetDelegatedAdminAccountCommand}
    */
+  getDelegatedAdminAccount(): Promise<GetDelegatedAdminAccountCommandOutput>;
   getDelegatedAdminAccount(
     args: GetDelegatedAdminAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -739,6 +745,7 @@ export interface Inspector2 {
   /**
    * @see {@link GetEc2DeepInspectionConfigurationCommand}
    */
+  getEc2DeepInspectionConfiguration(): Promise<GetEc2DeepInspectionConfigurationCommandOutput>;
   getEc2DeepInspectionConfiguration(
     args: GetEc2DeepInspectionConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -773,6 +780,7 @@ export interface Inspector2 {
   /**
    * @see {@link GetFindingsReportStatusCommand}
    */
+  getFindingsReportStatus(): Promise<GetFindingsReportStatusCommandOutput>;
   getFindingsReportStatus(
     args: GetFindingsReportStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -812,6 +820,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListAccountPermissionsCommand}
    */
+  listAccountPermissions(): Promise<ListAccountPermissionsCommandOutput>;
   listAccountPermissions(
     args: ListAccountPermissionsCommandInput,
     options?: __HttpHandlerOptions
@@ -829,6 +838,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListCisScanConfigurationsCommand}
    */
+  listCisScanConfigurations(): Promise<ListCisScanConfigurationsCommandOutput>;
   listCisScanConfigurations(
     args: ListCisScanConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -880,6 +890,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListCisScansCommand}
    */
+  listCisScans(): Promise<ListCisScansCommandOutput>;
   listCisScans(args: ListCisScansCommandInput, options?: __HttpHandlerOptions): Promise<ListCisScansCommandOutput>;
   listCisScans(args: ListCisScansCommandInput, cb: (err: any, data?: ListCisScansCommandOutput) => void): void;
   listCisScans(
@@ -891,6 +902,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListCoverageCommand}
    */
+  listCoverage(): Promise<ListCoverageCommandOutput>;
   listCoverage(args: ListCoverageCommandInput, options?: __HttpHandlerOptions): Promise<ListCoverageCommandOutput>;
   listCoverage(args: ListCoverageCommandInput, cb: (err: any, data?: ListCoverageCommandOutput) => void): void;
   listCoverage(
@@ -902,6 +914,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListCoverageStatisticsCommand}
    */
+  listCoverageStatistics(): Promise<ListCoverageStatisticsCommandOutput>;
   listCoverageStatistics(
     args: ListCoverageStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -919,6 +932,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListDelegatedAdminAccountsCommand}
    */
+  listDelegatedAdminAccounts(): Promise<ListDelegatedAdminAccountsCommandOutput>;
   listDelegatedAdminAccounts(
     args: ListDelegatedAdminAccountsCommandInput,
     options?: __HttpHandlerOptions
@@ -936,6 +950,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListFiltersCommand}
    */
+  listFilters(): Promise<ListFiltersCommandOutput>;
   listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
   listFilters(args: ListFiltersCommandInput, cb: (err: any, data?: ListFiltersCommandOutput) => void): void;
   listFilters(
@@ -964,6 +979,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListFindingsCommand}
    */
+  listFindings(): Promise<ListFindingsCommandOutput>;
   listFindings(args: ListFindingsCommandInput, options?: __HttpHandlerOptions): Promise<ListFindingsCommandOutput>;
   listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
   listFindings(
@@ -975,6 +991,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListMembersCommand}
    */
+  listMembers(): Promise<ListMembersCommandOutput>;
   listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
   listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
   listMembers(
@@ -1003,6 +1020,7 @@ export interface Inspector2 {
   /**
    * @see {@link ListUsageTotalsCommand}
    */
+  listUsageTotals(): Promise<ListUsageTotalsCommandOutput>;
   listUsageTotals(
     args: ListUsageTotalsCommandInput,
     options?: __HttpHandlerOptions
@@ -1169,6 +1187,7 @@ export interface Inspector2 {
   /**
    * @see {@link UpdateEc2DeepInspectionConfigurationCommand}
    */
+  updateEc2DeepInspectionConfiguration(): Promise<UpdateEc2DeepInspectionConfigurationCommandOutput>;
   updateEc2DeepInspectionConfiguration(
     args: UpdateEc2DeepInspectionConfigurationCommandInput,
     options?: __HttpHandlerOptions

@@ -128,6 +128,7 @@ export interface CloudControl {
   /**
    * @see {@link ListResourceRequestsCommand}
    */
+  listResourceRequests(): Promise<ListResourceRequestsCommandOutput>;
   listResourceRequests(
     args: ListResourceRequestsCommandInput,
     options?: __HttpHandlerOptions

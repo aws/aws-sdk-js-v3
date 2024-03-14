@@ -300,6 +300,7 @@ export interface AppIntegrations {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -334,6 +335,7 @@ export interface AppIntegrations {
   /**
    * @see {@link ListDataIntegrationsCommand}
    */
+  listDataIntegrations(): Promise<ListDataIntegrationsCommandOutput>;
   listDataIntegrations(
     args: ListDataIntegrationsCommandInput,
     options?: __HttpHandlerOptions
@@ -368,6 +370,7 @@ export interface AppIntegrations {
   /**
    * @see {@link ListEventIntegrationsCommand}
    */
+  listEventIntegrations(): Promise<ListEventIntegrationsCommandOutput>;
   listEventIntegrations(
     args: ListEventIntegrationsCommandInput,
     options?: __HttpHandlerOptions

@@ -510,6 +510,7 @@ export interface SSMContacts {
   /**
    * @see {@link ListContactsCommand}
    */
+  listContacts(): Promise<ListContactsCommandOutput>;
   listContacts(args: ListContactsCommandInput, options?: __HttpHandlerOptions): Promise<ListContactsCommandOutput>;
   listContacts(args: ListContactsCommandInput, cb: (err: any, data?: ListContactsCommandOutput) => void): void;
   listContacts(
@@ -521,6 +522,7 @@ export interface SSMContacts {
   /**
    * @see {@link ListEngagementsCommand}
    */
+  listEngagements(): Promise<ListEngagementsCommandOutput>;
   listEngagements(
     args: ListEngagementsCommandInput,
     options?: __HttpHandlerOptions
@@ -637,6 +639,7 @@ export interface SSMContacts {
   /**
    * @see {@link ListRotationsCommand}
    */
+  listRotations(): Promise<ListRotationsCommandOutput>;
   listRotations(args: ListRotationsCommandInput, options?: __HttpHandlerOptions): Promise<ListRotationsCommandOutput>;
   listRotations(args: ListRotationsCommandInput, cb: (err: any, data?: ListRotationsCommandOutput) => void): void;
   listRotations(

@@ -810,6 +810,7 @@ export interface IoTWireless {
   /**
    * @see {@link CreateDeviceProfileCommand}
    */
+  createDeviceProfile(): Promise<CreateDeviceProfileCommandOutput>;
   createDeviceProfile(
     args: CreateDeviceProfileCommandInput,
     options?: __HttpHandlerOptions
@@ -875,6 +876,7 @@ export interface IoTWireless {
   /**
    * @see {@link CreateServiceProfileCommand}
    */
+  createServiceProfile(): Promise<CreateServiceProfileCommandOutput>;
   createServiceProfile(
     args: CreateServiceProfileCommandInput,
     options?: __HttpHandlerOptions
@@ -1328,6 +1330,7 @@ export interface IoTWireless {
   /**
    * @see {@link GetEventConfigurationByResourceTypesCommand}
    */
+  getEventConfigurationByResourceTypes(): Promise<GetEventConfigurationByResourceTypesCommandOutput>;
   getEventConfigurationByResourceTypes(
     args: GetEventConfigurationByResourceTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -1356,6 +1359,7 @@ export interface IoTWireless {
   /**
    * @see {@link GetLogLevelsByResourceTypesCommand}
    */
+  getLogLevelsByResourceTypes(): Promise<GetLogLevelsByResourceTypesCommandOutput>;
   getLogLevelsByResourceTypes(
     args: GetLogLevelsByResourceTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -1469,6 +1473,7 @@ export interface IoTWireless {
   /**
    * @see {@link GetPositionEstimateCommand}
    */
+  getPositionEstimate(): Promise<GetPositionEstimateCommandOutput>;
   getPositionEstimate(
     args: GetPositionEstimateCommandInput,
     options?: __HttpHandlerOptions
@@ -1537,6 +1542,7 @@ export interface IoTWireless {
   /**
    * @see {@link GetServiceEndpointCommand}
    */
+  getServiceEndpoint(): Promise<GetServiceEndpointCommandOutput>;
   getServiceEndpoint(
     args: GetServiceEndpointCommandInput,
     options?: __HttpHandlerOptions
@@ -1724,6 +1730,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListDestinationsCommand}
    */
+  listDestinations(): Promise<ListDestinationsCommandOutput>;
   listDestinations(
     args: ListDestinationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1741,6 +1748,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListDeviceProfilesCommand}
    */
+  listDeviceProfiles(): Promise<ListDeviceProfilesCommandOutput>;
   listDeviceProfiles(
     args: ListDeviceProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1792,6 +1800,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListFuotaTasksCommand}
    */
+  listFuotaTasks(): Promise<ListFuotaTasksCommandOutput>;
   listFuotaTasks(
     args: ListFuotaTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -1806,6 +1815,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListMulticastGroupsCommand}
    */
+  listMulticastGroups(): Promise<ListMulticastGroupsCommandOutput>;
   listMulticastGroups(
     args: ListMulticastGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1840,6 +1850,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListNetworkAnalyzerConfigurationsCommand}
    */
+  listNetworkAnalyzerConfigurations(): Promise<ListNetworkAnalyzerConfigurationsCommandOutput>;
   listNetworkAnalyzerConfigurations(
     args: ListNetworkAnalyzerConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1857,6 +1868,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListPartnerAccountsCommand}
    */
+  listPartnerAccounts(): Promise<ListPartnerAccountsCommandOutput>;
   listPartnerAccounts(
     args: ListPartnerAccountsCommandInput,
     options?: __HttpHandlerOptions
@@ -1874,6 +1886,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListPositionConfigurationsCommand}
    */
+  listPositionConfigurations(): Promise<ListPositionConfigurationsCommandOutput>;
   listPositionConfigurations(
     args: ListPositionConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1908,6 +1921,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListServiceProfilesCommand}
    */
+  listServiceProfiles(): Promise<ListServiceProfilesCommandOutput>;
   listServiceProfiles(
     args: ListServiceProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1942,6 +1956,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListWirelessDeviceImportTasksCommand}
    */
+  listWirelessDeviceImportTasks(): Promise<ListWirelessDeviceImportTasksCommandOutput>;
   listWirelessDeviceImportTasks(
     args: ListWirelessDeviceImportTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -1959,6 +1974,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListWirelessDevicesCommand}
    */
+  listWirelessDevices(): Promise<ListWirelessDevicesCommandOutput>;
   listWirelessDevices(
     args: ListWirelessDevicesCommandInput,
     options?: __HttpHandlerOptions
@@ -1976,6 +1992,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListWirelessGatewaysCommand}
    */
+  listWirelessGateways(): Promise<ListWirelessGatewaysCommandOutput>;
   listWirelessGateways(
     args: ListWirelessGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -1993,6 +2010,7 @@ export interface IoTWireless {
   /**
    * @see {@link ListWirelessGatewayTaskDefinitionsCommand}
    */
+  listWirelessGatewayTaskDefinitions(): Promise<ListWirelessGatewayTaskDefinitionsCommandOutput>;
   listWirelessGatewayTaskDefinitions(
     args: ListWirelessGatewayTaskDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2044,6 +2062,7 @@ export interface IoTWireless {
   /**
    * @see {@link ResetAllResourceLogLevelsCommand}
    */
+  resetAllResourceLogLevels(): Promise<ResetAllResourceLogLevelsCommandOutput>;
   resetAllResourceLogLevels(
     args: ResetAllResourceLogLevelsCommandInput,
     options?: __HttpHandlerOptions
@@ -2267,6 +2286,7 @@ export interface IoTWireless {
   /**
    * @see {@link UpdateEventConfigurationByResourceTypesCommand}
    */
+  updateEventConfigurationByResourceTypes(): Promise<UpdateEventConfigurationByResourceTypesCommandOutput>;
   updateEventConfigurationByResourceTypes(
     args: UpdateEventConfigurationByResourceTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -2298,6 +2318,7 @@ export interface IoTWireless {
   /**
    * @see {@link UpdateLogLevelsByResourceTypesCommand}
    */
+  updateLogLevelsByResourceTypes(): Promise<UpdateLogLevelsByResourceTypesCommandOutput>;
   updateLogLevelsByResourceTypes(
     args: UpdateLogLevelsByResourceTypesCommandInput,
     options?: __HttpHandlerOptions

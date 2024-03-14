@@ -114,6 +114,7 @@ export interface IoTDataPlane {
   /**
    * @see {@link ListRetainedMessagesCommand}
    */
+  listRetainedMessages(): Promise<ListRetainedMessagesCommandOutput>;
   listRetainedMessages(
     args: ListRetainedMessagesCommandInput,
     options?: __HttpHandlerOptions

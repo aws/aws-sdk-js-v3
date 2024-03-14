@@ -247,6 +247,7 @@ export interface DataPipeline {
   /**
    * @see {@link ListPipelinesCommand}
    */
+  listPipelines(): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
   listPipelines(

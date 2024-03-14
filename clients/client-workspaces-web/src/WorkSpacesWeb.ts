@@ -517,6 +517,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link CreatePortalCommand}
    */
+  createPortal(): Promise<CreatePortalCommandOutput>;
   createPortal(args: CreatePortalCommandInput, options?: __HttpHandlerOptions): Promise<CreatePortalCommandOutput>;
   createPortal(args: CreatePortalCommandInput, cb: (err: any, data?: CreatePortalCommandOutput) => void): void;
   createPortal(
@@ -966,6 +967,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ListBrowserSettingsCommand}
    */
+  listBrowserSettings(): Promise<ListBrowserSettingsCommandOutput>;
   listBrowserSettings(
     args: ListBrowserSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1000,6 +1002,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ListIpAccessSettingsCommand}
    */
+  listIpAccessSettings(): Promise<ListIpAccessSettingsCommandOutput>;
   listIpAccessSettings(
     args: ListIpAccessSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1017,6 +1020,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ListNetworkSettingsCommand}
    */
+  listNetworkSettings(): Promise<ListNetworkSettingsCommandOutput>;
   listNetworkSettings(
     args: ListNetworkSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1034,6 +1038,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ListPortalsCommand}
    */
+  listPortals(): Promise<ListPortalsCommandOutput>;
   listPortals(args: ListPortalsCommandInput, options?: __HttpHandlerOptions): Promise<ListPortalsCommandOutput>;
   listPortals(args: ListPortalsCommandInput, cb: (err: any, data?: ListPortalsCommandOutput) => void): void;
   listPortals(
@@ -1079,6 +1084,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ListTrustStoresCommand}
    */
+  listTrustStores(): Promise<ListTrustStoresCommandOutput>;
   listTrustStores(
     args: ListTrustStoresCommandInput,
     options?: __HttpHandlerOptions
@@ -1093,6 +1099,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ListUserAccessLoggingSettingsCommand}
    */
+  listUserAccessLoggingSettings(): Promise<ListUserAccessLoggingSettingsCommandOutput>;
   listUserAccessLoggingSettings(
     args: ListUserAccessLoggingSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1110,6 +1117,7 @@ export interface WorkSpacesWeb {
   /**
    * @see {@link ListUserSettingsCommand}
    */
+  listUserSettings(): Promise<ListUserSettingsCommandOutput>;
   listUserSettings(
     args: ListUserSettingsCommandInput,
     options?: __HttpHandlerOptions

@@ -541,6 +541,7 @@ export interface AppMesh {
   /**
    * @see {@link ListMeshesCommand}
    */
+  listMeshes(): Promise<ListMeshesCommandOutput>;
   listMeshes(args: ListMeshesCommandInput, options?: __HttpHandlerOptions): Promise<ListMeshesCommandOutput>;
   listMeshes(args: ListMeshesCommandInput, cb: (err: any, data?: ListMeshesCommandOutput) => void): void;
   listMeshes(

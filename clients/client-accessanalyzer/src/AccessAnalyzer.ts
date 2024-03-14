@@ -487,6 +487,7 @@ export interface AccessAnalyzer {
   /**
    * @see {@link ListAnalyzersCommand}
    */
+  listAnalyzers(): Promise<ListAnalyzersCommandOutput>;
   listAnalyzers(args: ListAnalyzersCommandInput, options?: __HttpHandlerOptions): Promise<ListAnalyzersCommandOutput>;
   listAnalyzers(args: ListAnalyzersCommandInput, cb: (err: any, data?: ListAnalyzersCommandOutput) => void): void;
   listAnalyzers(
@@ -540,6 +541,7 @@ export interface AccessAnalyzer {
   /**
    * @see {@link ListPolicyGenerationsCommand}
    */
+  listPolicyGenerations(): Promise<ListPolicyGenerationsCommandOutput>;
   listPolicyGenerations(
     args: ListPolicyGenerationsCommandInput,
     options?: __HttpHandlerOptions

@@ -145,6 +145,7 @@ export interface ARCZonalShift {
   /**
    * @see {@link ListAutoshiftsCommand}
    */
+  listAutoshifts(): Promise<ListAutoshiftsCommandOutput>;
   listAutoshifts(
     args: ListAutoshiftsCommandInput,
     options?: __HttpHandlerOptions
@@ -159,6 +160,7 @@ export interface ARCZonalShift {
   /**
    * @see {@link ListManagedResourcesCommand}
    */
+  listManagedResources(): Promise<ListManagedResourcesCommandOutput>;
   listManagedResources(
     args: ListManagedResourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -176,6 +178,7 @@ export interface ARCZonalShift {
   /**
    * @see {@link ListZonalShiftsCommand}
    */
+  listZonalShifts(): Promise<ListZonalShiftsCommandOutput>;
   listZonalShifts(
     args: ListZonalShiftsCommandInput,
     options?: __HttpHandlerOptions

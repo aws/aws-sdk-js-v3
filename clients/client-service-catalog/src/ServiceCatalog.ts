@@ -1027,6 +1027,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link DescribeProductCommand}
    */
+  describeProduct(): Promise<DescribeProductCommandOutput>;
   describeProduct(
     args: DescribeProductCommandInput,
     options?: __HttpHandlerOptions
@@ -1041,6 +1042,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link DescribeProductAsAdminCommand}
    */
+  describeProductAsAdmin(): Promise<DescribeProductAsAdminCommandOutput>;
   describeProductAsAdmin(
     args: DescribeProductAsAdminCommandInput,
     options?: __HttpHandlerOptions
@@ -1075,6 +1077,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link DescribeProvisionedProductCommand}
    */
+  describeProvisionedProduct(): Promise<DescribeProvisionedProductCommandOutput>;
   describeProvisionedProduct(
     args: DescribeProvisionedProductCommandInput,
     options?: __HttpHandlerOptions
@@ -1109,6 +1112,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link DescribeProvisioningArtifactCommand}
    */
+  describeProvisioningArtifact(): Promise<DescribeProvisioningArtifactCommandOutput>;
   describeProvisioningArtifact(
     args: DescribeProvisioningArtifactCommandInput,
     options?: __HttpHandlerOptions
@@ -1126,6 +1130,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link DescribeProvisioningParametersCommand}
    */
+  describeProvisioningParameters(): Promise<DescribeProvisioningParametersCommandOutput>;
   describeProvisioningParameters(
     args: DescribeProvisioningParametersCommandInput,
     options?: __HttpHandlerOptions
@@ -1208,6 +1213,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link DisableAWSOrganizationsAccessCommand}
    */
+  disableAWSOrganizationsAccess(): Promise<DisableAWSOrganizationsAccessCommandOutput>;
   disableAWSOrganizationsAccess(
     args: DisableAWSOrganizationsAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -1310,6 +1316,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link EnableAWSOrganizationsAccessCommand}
    */
+  enableAWSOrganizationsAccess(): Promise<EnableAWSOrganizationsAccessCommandOutput>;
   enableAWSOrganizationsAccess(
     args: EnableAWSOrganizationsAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -1361,6 +1368,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link GetAWSOrganizationsAccessStatusCommand}
    */
+  getAWSOrganizationsAccessStatus(): Promise<GetAWSOrganizationsAccessStatusCommandOutput>;
   getAWSOrganizationsAccessStatus(
     args: GetAWSOrganizationsAccessStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -1378,6 +1386,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link GetProvisionedProductOutputsCommand}
    */
+  getProvisionedProductOutputs(): Promise<GetProvisionedProductOutputsCommandOutput>;
   getProvisionedProductOutputs(
     args: GetProvisionedProductOutputsCommandInput,
     options?: __HttpHandlerOptions
@@ -1412,6 +1421,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link ListAcceptedPortfolioSharesCommand}
    */
+  listAcceptedPortfolioShares(): Promise<ListAcceptedPortfolioSharesCommandOutput>;
   listAcceptedPortfolioShares(
     args: ListAcceptedPortfolioSharesCommandInput,
     options?: __HttpHandlerOptions
@@ -1511,6 +1521,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link ListPortfoliosCommand}
    */
+  listPortfolios(): Promise<ListPortfoliosCommandOutput>;
   listPortfolios(
     args: ListPortfoliosCommandInput,
     options?: __HttpHandlerOptions
@@ -1559,6 +1570,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link ListProvisionedProductPlansCommand}
    */
+  listProvisionedProductPlans(): Promise<ListProvisionedProductPlansCommandOutput>;
   listProvisionedProductPlans(
     args: ListProvisionedProductPlansCommandInput,
     options?: __HttpHandlerOptions
@@ -1610,6 +1622,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link ListRecordHistoryCommand}
    */
+  listRecordHistory(): Promise<ListRecordHistoryCommandOutput>;
   listRecordHistory(
     args: ListRecordHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -1644,6 +1657,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link ListServiceActionsCommand}
    */
+  listServiceActions(): Promise<ListServiceActionsCommandOutput>;
   listServiceActions(
     args: ListServiceActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1695,6 +1709,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link ListTagOptionsCommand}
    */
+  listTagOptions(): Promise<ListTagOptionsCommandOutput>;
   listTagOptions(
     args: ListTagOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1794,6 +1809,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link ScanProvisionedProductsCommand}
    */
+  scanProvisionedProducts(): Promise<ScanProvisionedProductsCommandOutput>;
   scanProvisionedProducts(
     args: ScanProvisionedProductsCommandInput,
     options?: __HttpHandlerOptions
@@ -1811,6 +1827,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link SearchProductsCommand}
    */
+  searchProducts(): Promise<SearchProductsCommandOutput>;
   searchProducts(
     args: SearchProductsCommandInput,
     options?: __HttpHandlerOptions
@@ -1825,6 +1842,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link SearchProductsAsAdminCommand}
    */
+  searchProductsAsAdmin(): Promise<SearchProductsAsAdminCommandOutput>;
   searchProductsAsAdmin(
     args: SearchProductsAsAdminCommandInput,
     options?: __HttpHandlerOptions
@@ -1842,6 +1860,7 @@ export interface ServiceCatalog {
   /**
    * @see {@link SearchProvisionedProductsCommand}
    */
+  searchProvisionedProducts(): Promise<SearchProvisionedProductsCommandOutput>;
   searchProvisionedProducts(
     args: SearchProvisionedProductsCommandInput,
     options?: __HttpHandlerOptions

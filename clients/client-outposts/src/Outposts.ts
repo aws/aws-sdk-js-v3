@@ -285,6 +285,7 @@ export interface Outposts {
   /**
    * @see {@link ListCatalogItemsCommand}
    */
+  listCatalogItems(): Promise<ListCatalogItemsCommandOutput>;
   listCatalogItems(
     args: ListCatalogItemsCommandInput,
     options?: __HttpHandlerOptions
@@ -302,6 +303,7 @@ export interface Outposts {
   /**
    * @see {@link ListOrdersCommand}
    */
+  listOrders(): Promise<ListOrdersCommandOutput>;
   listOrders(args: ListOrdersCommandInput, options?: __HttpHandlerOptions): Promise<ListOrdersCommandOutput>;
   listOrders(args: ListOrdersCommandInput, cb: (err: any, data?: ListOrdersCommandOutput) => void): void;
   listOrders(
@@ -313,6 +315,7 @@ export interface Outposts {
   /**
    * @see {@link ListOutpostsCommand}
    */
+  listOutposts(): Promise<ListOutpostsCommandOutput>;
   listOutposts(args: ListOutpostsCommandInput, options?: __HttpHandlerOptions): Promise<ListOutpostsCommandOutput>;
   listOutposts(args: ListOutpostsCommandInput, cb: (err: any, data?: ListOutpostsCommandOutput) => void): void;
   listOutposts(
@@ -324,6 +327,7 @@ export interface Outposts {
   /**
    * @see {@link ListSitesCommand}
    */
+  listSites(): Promise<ListSitesCommandOutput>;
   listSites(args: ListSitesCommandInput, options?: __HttpHandlerOptions): Promise<ListSitesCommandOutput>;
   listSites(args: ListSitesCommandInput, cb: (err: any, data?: ListSitesCommandOutput) => void): void;
   listSites(

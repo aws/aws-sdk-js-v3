@@ -350,6 +350,7 @@ export interface ControlTower {
   /**
    * @see {@link ListBaselinesCommand}
    */
+  listBaselines(): Promise<ListBaselinesCommandOutput>;
   listBaselines(args: ListBaselinesCommandInput, options?: __HttpHandlerOptions): Promise<ListBaselinesCommandOutput>;
   listBaselines(args: ListBaselinesCommandInput, cb: (err: any, data?: ListBaselinesCommandOutput) => void): void;
   listBaselines(
@@ -361,6 +362,7 @@ export interface ControlTower {
   /**
    * @see {@link ListEnabledBaselinesCommand}
    */
+  listEnabledBaselines(): Promise<ListEnabledBaselinesCommandOutput>;
   listEnabledBaselines(
     args: ListEnabledBaselinesCommandInput,
     options?: __HttpHandlerOptions
@@ -395,6 +397,7 @@ export interface ControlTower {
   /**
    * @see {@link ListLandingZonesCommand}
    */
+  listLandingZones(): Promise<ListLandingZonesCommandOutput>;
   listLandingZones(
     args: ListLandingZonesCommandInput,
     options?: __HttpHandlerOptions

@@ -371,6 +371,7 @@ export interface ServiceDiscovery {
   /**
    * @see {@link ListNamespacesCommand}
    */
+  listNamespaces(): Promise<ListNamespacesCommandOutput>;
   listNamespaces(
     args: ListNamespacesCommandInput,
     options?: __HttpHandlerOptions
@@ -385,6 +386,7 @@ export interface ServiceDiscovery {
   /**
    * @see {@link ListOperationsCommand}
    */
+  listOperations(): Promise<ListOperationsCommandOutput>;
   listOperations(
     args: ListOperationsCommandInput,
     options?: __HttpHandlerOptions
@@ -399,6 +401,7 @@ export interface ServiceDiscovery {
   /**
    * @see {@link ListServicesCommand}
    */
+  listServices(): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
   listServices(

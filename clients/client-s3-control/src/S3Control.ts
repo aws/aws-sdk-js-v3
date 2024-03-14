@@ -577,6 +577,7 @@ export interface S3Control {
   /**
    * @see {@link CreateAccessGrantsInstanceCommand}
    */
+  createAccessGrantsInstance(): Promise<CreateAccessGrantsInstanceCommandOutput>;
   createAccessGrantsInstance(
     args: CreateAccessGrantsInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -718,6 +719,7 @@ export interface S3Control {
   /**
    * @see {@link DeleteAccessGrantsInstanceCommand}
    */
+  deleteAccessGrantsInstance(): Promise<DeleteAccessGrantsInstanceCommandOutput>;
   deleteAccessGrantsInstance(
     args: DeleteAccessGrantsInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -735,6 +737,7 @@ export interface S3Control {
   /**
    * @see {@link DeleteAccessGrantsInstanceResourcePolicyCommand}
    */
+  deleteAccessGrantsInstanceResourcePolicy(): Promise<DeleteAccessGrantsInstanceResourcePolicyCommandOutput>;
   deleteAccessGrantsInstanceResourcePolicy(
     args: DeleteAccessGrantsInstanceResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -950,6 +953,7 @@ export interface S3Control {
   /**
    * @see {@link DeletePublicAccessBlockCommand}
    */
+  deletePublicAccessBlock(): Promise<DeletePublicAccessBlockCommandOutput>;
   deletePublicAccessBlock(
     args: DeletePublicAccessBlockCommandInput,
     options?: __HttpHandlerOptions
@@ -1046,6 +1050,7 @@ export interface S3Control {
   /**
    * @see {@link DissociateAccessGrantsIdentityCenterCommand}
    */
+  dissociateAccessGrantsIdentityCenter(): Promise<DissociateAccessGrantsIdentityCenterCommandOutput>;
   dissociateAccessGrantsIdentityCenter(
     args: DissociateAccessGrantsIdentityCenterCommandInput,
     options?: __HttpHandlerOptions
@@ -1077,6 +1082,7 @@ export interface S3Control {
   /**
    * @see {@link GetAccessGrantsInstanceCommand}
    */
+  getAccessGrantsInstance(): Promise<GetAccessGrantsInstanceCommandOutput>;
   getAccessGrantsInstance(
     args: GetAccessGrantsInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -1111,6 +1117,7 @@ export interface S3Control {
   /**
    * @see {@link GetAccessGrantsInstanceResourcePolicyCommand}
    */
+  getAccessGrantsInstanceResourcePolicy(): Promise<GetAccessGrantsInstanceResourcePolicyCommandOutput>;
   getAccessGrantsInstanceResourcePolicy(
     args: GetAccessGrantsInstanceResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -1444,6 +1451,7 @@ export interface S3Control {
   /**
    * @see {@link GetPublicAccessBlockCommand}
    */
+  getPublicAccessBlock(): Promise<GetPublicAccessBlockCommandOutput>;
   getPublicAccessBlock(
     args: GetPublicAccessBlockCommandInput,
     options?: __HttpHandlerOptions
@@ -1512,6 +1520,7 @@ export interface S3Control {
   /**
    * @see {@link ListAccessGrantsCommand}
    */
+  listAccessGrants(): Promise<ListAccessGrantsCommandOutput>;
   listAccessGrants(
     args: ListAccessGrantsCommandInput,
     options?: __HttpHandlerOptions
@@ -1529,6 +1538,7 @@ export interface S3Control {
   /**
    * @see {@link ListAccessGrantsInstancesCommand}
    */
+  listAccessGrantsInstances(): Promise<ListAccessGrantsInstancesCommandOutput>;
   listAccessGrantsInstances(
     args: ListAccessGrantsInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -1546,6 +1556,7 @@ export interface S3Control {
   /**
    * @see {@link ListAccessGrantsLocationsCommand}
    */
+  listAccessGrantsLocations(): Promise<ListAccessGrantsLocationsCommandOutput>;
   listAccessGrantsLocations(
     args: ListAccessGrantsLocationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1563,6 +1574,7 @@ export interface S3Control {
   /**
    * @see {@link ListAccessPointsCommand}
    */
+  listAccessPoints(): Promise<ListAccessPointsCommandOutput>;
   listAccessPoints(
     args: ListAccessPointsCommandInput,
     options?: __HttpHandlerOptions
@@ -1580,6 +1592,7 @@ export interface S3Control {
   /**
    * @see {@link ListAccessPointsForObjectLambdaCommand}
    */
+  listAccessPointsForObjectLambda(): Promise<ListAccessPointsForObjectLambdaCommandOutput>;
   listAccessPointsForObjectLambda(
     args: ListAccessPointsForObjectLambdaCommandInput,
     options?: __HttpHandlerOptions
@@ -1597,6 +1610,7 @@ export interface S3Control {
   /**
    * @see {@link ListJobsCommand}
    */
+  listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   listJobs(
@@ -1608,6 +1622,7 @@ export interface S3Control {
   /**
    * @see {@link ListMultiRegionAccessPointsCommand}
    */
+  listMultiRegionAccessPoints(): Promise<ListMultiRegionAccessPointsCommandOutput>;
   listMultiRegionAccessPoints(
     args: ListMultiRegionAccessPointsCommandInput,
     options?: __HttpHandlerOptions
@@ -1625,6 +1640,7 @@ export interface S3Control {
   /**
    * @see {@link ListRegionalBucketsCommand}
    */
+  listRegionalBuckets(): Promise<ListRegionalBucketsCommandOutput>;
   listRegionalBuckets(
     args: ListRegionalBucketsCommandInput,
     options?: __HttpHandlerOptions
@@ -1642,6 +1658,7 @@ export interface S3Control {
   /**
    * @see {@link ListStorageLensConfigurationsCommand}
    */
+  listStorageLensConfigurations(): Promise<ListStorageLensConfigurationsCommandOutput>;
   listStorageLensConfigurations(
     args: ListStorageLensConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1659,6 +1676,7 @@ export interface S3Control {
   /**
    * @see {@link ListStorageLensGroupsCommand}
    */
+  listStorageLensGroups(): Promise<ListStorageLensGroupsCommandOutput>;
   listStorageLensGroups(
     args: ListStorageLensGroupsCommandInput,
     options?: __HttpHandlerOptions

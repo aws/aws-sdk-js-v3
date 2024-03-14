@@ -29,6 +29,7 @@ export interface PersonalizeRuntime {
   /**
    * @see {@link GetActionRecommendationsCommand}
    */
+  getActionRecommendations(): Promise<GetActionRecommendationsCommandOutput>;
   getActionRecommendations(
     args: GetActionRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -63,6 +64,7 @@ export interface PersonalizeRuntime {
   /**
    * @see {@link GetRecommendationsCommand}
    */
+  getRecommendations(): Promise<GetRecommendationsCommandOutput>;
   getRecommendations(
     args: GetRecommendationsCommandInput,
     options?: __HttpHandlerOptions

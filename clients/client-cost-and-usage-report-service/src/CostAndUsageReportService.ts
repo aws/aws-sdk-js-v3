@@ -69,6 +69,7 @@ export interface CostAndUsageReportService {
   /**
    * @see {@link DescribeReportDefinitionsCommand}
    */
+  describeReportDefinitions(): Promise<DescribeReportDefinitionsCommandOutput>;
   describeReportDefinitions(
     args: DescribeReportDefinitionsCommandInput,
     options?: __HttpHandlerOptions

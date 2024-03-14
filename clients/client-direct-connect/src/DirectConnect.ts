@@ -556,6 +556,7 @@ export interface DirectConnect {
   /**
    * @see {@link ConfirmCustomerAgreementCommand}
    */
+  confirmCustomerAgreement(): Promise<ConfirmCustomerAgreementCommandOutput>;
   confirmCustomerAgreement(
     args: ConfirmCustomerAgreementCommandInput,
     options?: __HttpHandlerOptions
@@ -624,6 +625,7 @@ export interface DirectConnect {
   /**
    * @see {@link CreateBGPPeerCommand}
    */
+  createBGPPeer(): Promise<CreateBGPPeerCommandOutput>;
   createBGPPeer(args: CreateBGPPeerCommandInput, options?: __HttpHandlerOptions): Promise<CreateBGPPeerCommandOutput>;
   createBGPPeer(args: CreateBGPPeerCommandInput, cb: (err: any, data?: CreateBGPPeerCommandOutput) => void): void;
   createBGPPeer(
@@ -782,6 +784,7 @@ export interface DirectConnect {
   /**
    * @see {@link DeleteBGPPeerCommand}
    */
+  deleteBGPPeer(): Promise<DeleteBGPPeerCommandOutput>;
   deleteBGPPeer(args: DeleteBGPPeerCommandInput, options?: __HttpHandlerOptions): Promise<DeleteBGPPeerCommandOutput>;
   deleteBGPPeer(args: DeleteBGPPeerCommandInput, cb: (err: any, data?: DeleteBGPPeerCommandOutput) => void): void;
   deleteBGPPeer(
@@ -827,6 +830,7 @@ export interface DirectConnect {
   /**
    * @see {@link DeleteDirectConnectGatewayAssociationCommand}
    */
+  deleteDirectConnectGatewayAssociation(): Promise<DeleteDirectConnectGatewayAssociationCommandOutput>;
   deleteDirectConnectGatewayAssociation(
     args: DeleteDirectConnectGatewayAssociationCommandInput,
     options?: __HttpHandlerOptions
@@ -923,6 +927,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeConnectionsCommand}
    */
+  describeConnections(): Promise<DescribeConnectionsCommandOutput>;
   describeConnections(
     args: DescribeConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -957,6 +962,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeCustomerMetadataCommand}
    */
+  describeCustomerMetadata(): Promise<DescribeCustomerMetadataCommandOutput>;
   describeCustomerMetadata(
     args: DescribeCustomerMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -974,6 +980,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeDirectConnectGatewayAssociationProposalsCommand}
    */
+  describeDirectConnectGatewayAssociationProposals(): Promise<DescribeDirectConnectGatewayAssociationProposalsCommandOutput>;
   describeDirectConnectGatewayAssociationProposals(
     args: DescribeDirectConnectGatewayAssociationProposalsCommandInput,
     options?: __HttpHandlerOptions
@@ -991,6 +998,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeDirectConnectGatewayAssociationsCommand}
    */
+  describeDirectConnectGatewayAssociations(): Promise<DescribeDirectConnectGatewayAssociationsCommandOutput>;
   describeDirectConnectGatewayAssociations(
     args: DescribeDirectConnectGatewayAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1008,6 +1016,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeDirectConnectGatewayAttachmentsCommand}
    */
+  describeDirectConnectGatewayAttachments(): Promise<DescribeDirectConnectGatewayAttachmentsCommandOutput>;
   describeDirectConnectGatewayAttachments(
     args: DescribeDirectConnectGatewayAttachmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1025,6 +1034,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeDirectConnectGatewaysCommand}
    */
+  describeDirectConnectGateways(): Promise<DescribeDirectConnectGatewaysCommandOutput>;
   describeDirectConnectGateways(
     args: DescribeDirectConnectGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -1076,6 +1086,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeInterconnectsCommand}
    */
+  describeInterconnects(): Promise<DescribeInterconnectsCommandOutput>;
   describeInterconnects(
     args: DescribeInterconnectsCommandInput,
     options?: __HttpHandlerOptions
@@ -1093,6 +1104,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeLagsCommand}
    */
+  describeLags(): Promise<DescribeLagsCommandOutput>;
   describeLags(args: DescribeLagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeLagsCommandOutput>;
   describeLags(args: DescribeLagsCommandInput, cb: (err: any, data?: DescribeLagsCommandOutput) => void): void;
   describeLags(
@@ -1115,6 +1127,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeLocationsCommand}
    */
+  describeLocations(): Promise<DescribeLocationsCommandOutput>;
   describeLocations(
     args: DescribeLocationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1160,6 +1173,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeVirtualGatewaysCommand}
    */
+  describeVirtualGateways(): Promise<DescribeVirtualGatewaysCommandOutput>;
   describeVirtualGateways(
     args: DescribeVirtualGatewaysCommandInput,
     options?: __HttpHandlerOptions
@@ -1177,6 +1191,7 @@ export interface DirectConnect {
   /**
    * @see {@link DescribeVirtualInterfacesCommand}
    */
+  describeVirtualInterfaces(): Promise<DescribeVirtualInterfacesCommandOutput>;
   describeVirtualInterfaces(
     args: DescribeVirtualInterfacesCommandInput,
     options?: __HttpHandlerOptions
@@ -1228,6 +1243,7 @@ export interface DirectConnect {
   /**
    * @see {@link ListVirtualInterfaceTestHistoryCommand}
    */
+  listVirtualInterfaceTestHistory(): Promise<ListVirtualInterfaceTestHistoryCommandOutput>;
   listVirtualInterfaceTestHistory(
     args: ListVirtualInterfaceTestHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -1335,6 +1351,7 @@ export interface DirectConnect {
   /**
    * @see {@link UpdateDirectConnectGatewayAssociationCommand}
    */
+  updateDirectConnectGatewayAssociation(): Promise<UpdateDirectConnectGatewayAssociationCommandOutput>;
   updateDirectConnectGatewayAssociation(
     args: UpdateDirectConnectGatewayAssociationCommandInput,
     options?: __HttpHandlerOptions

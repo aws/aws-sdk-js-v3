@@ -389,6 +389,7 @@ export interface MigrationHubOrchestrator {
   /**
    * @see {@link ListPluginsCommand}
    */
+  listPlugins(): Promise<ListPluginsCommandOutput>;
   listPlugins(args: ListPluginsCommandInput, options?: __HttpHandlerOptions): Promise<ListPluginsCommandOutput>;
   listPlugins(args: ListPluginsCommandInput, cb: (err: any, data?: ListPluginsCommandOutput) => void): void;
   listPlugins(
@@ -417,6 +418,7 @@ export interface MigrationHubOrchestrator {
   /**
    * @see {@link ListTemplatesCommand}
    */
+  listTemplates(): Promise<ListTemplatesCommandOutput>;
   listTemplates(args: ListTemplatesCommandInput, options?: __HttpHandlerOptions): Promise<ListTemplatesCommandOutput>;
   listTemplates(args: ListTemplatesCommandInput, cb: (err: any, data?: ListTemplatesCommandOutput) => void): void;
   listTemplates(
@@ -462,6 +464,7 @@ export interface MigrationHubOrchestrator {
   /**
    * @see {@link ListWorkflowsCommand}
    */
+  listWorkflows(): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
   listWorkflows(

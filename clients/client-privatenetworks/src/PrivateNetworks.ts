@@ -392,6 +392,7 @@ export interface PrivateNetworks {
   /**
    * @see {@link ListNetworksCommand}
    */
+  listNetworks(): Promise<ListNetworksCommandOutput>;
   listNetworks(args: ListNetworksCommandInput, options?: __HttpHandlerOptions): Promise<ListNetworksCommandOutput>;
   listNetworks(args: ListNetworksCommandInput, cb: (err: any, data?: ListNetworksCommandOutput) => void): void;
   listNetworks(
@@ -448,6 +449,7 @@ export interface PrivateNetworks {
   /**
    * @see {@link PingCommand}
    */
+  ping(): Promise<PingCommandOutput>;
   ping(args: PingCommandInput, options?: __HttpHandlerOptions): Promise<PingCommandOutput>;
   ping(args: PingCommandInput, cb: (err: any, data?: PingCommandOutput) => void): void;
   ping(args: PingCommandInput, options: __HttpHandlerOptions, cb: (err: any, data?: PingCommandOutput) => void): void;

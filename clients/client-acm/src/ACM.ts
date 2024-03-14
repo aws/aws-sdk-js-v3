@@ -169,6 +169,7 @@ export interface ACM {
   /**
    * @see {@link GetAccountConfigurationCommand}
    */
+  getAccountConfiguration(): Promise<GetAccountConfigurationCommandOutput>;
   getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -217,6 +218,7 @@ export interface ACM {
   /**
    * @see {@link ListCertificatesCommand}
    */
+  listCertificates(): Promise<ListCertificatesCommandOutput>;
   listCertificates(
     args: ListCertificatesCommandInput,
     options?: __HttpHandlerOptions

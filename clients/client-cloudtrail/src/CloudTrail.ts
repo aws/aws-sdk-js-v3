@@ -371,6 +371,7 @@ export interface CloudTrail {
   /**
    * @see {@link DescribeQueryCommand}
    */
+  describeQuery(): Promise<DescribeQueryCommandOutput>;
   describeQuery(args: DescribeQueryCommandInput, options?: __HttpHandlerOptions): Promise<DescribeQueryCommandOutput>;
   describeQuery(args: DescribeQueryCommandInput, cb: (err: any, data?: DescribeQueryCommandOutput) => void): void;
   describeQuery(
@@ -382,6 +383,7 @@ export interface CloudTrail {
   /**
    * @see {@link DescribeTrailsCommand}
    */
+  describeTrails(): Promise<DescribeTrailsCommandOutput>;
   describeTrails(
     args: DescribeTrailsCommandInput,
     options?: __HttpHandlerOptions
@@ -486,6 +488,7 @@ export interface CloudTrail {
   /**
    * @see {@link GetInsightSelectorsCommand}
    */
+  getInsightSelectors(): Promise<GetInsightSelectorsCommandOutput>;
   getInsightSelectors(
     args: GetInsightSelectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -559,6 +562,7 @@ export interface CloudTrail {
   /**
    * @see {@link ListChannelsCommand}
    */
+  listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
   listChannels(
@@ -570,6 +574,7 @@ export interface CloudTrail {
   /**
    * @see {@link ListEventDataStoresCommand}
    */
+  listEventDataStores(): Promise<ListEventDataStoresCommandOutput>;
   listEventDataStores(
     args: ListEventDataStoresCommandInput,
     options?: __HttpHandlerOptions
@@ -604,6 +609,7 @@ export interface CloudTrail {
   /**
    * @see {@link ListImportsCommand}
    */
+  listImports(): Promise<ListImportsCommandOutput>;
   listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
   listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
   listImports(
@@ -632,6 +638,7 @@ export interface CloudTrail {
   /**
    * @see {@link ListPublicKeysCommand}
    */
+  listPublicKeys(): Promise<ListPublicKeysCommandOutput>;
   listPublicKeys(
     args: ListPublicKeysCommandInput,
     options?: __HttpHandlerOptions
@@ -668,6 +675,7 @@ export interface CloudTrail {
   /**
    * @see {@link ListTrailsCommand}
    */
+  listTrails(): Promise<ListTrailsCommandOutput>;
   listTrails(args: ListTrailsCommandInput, options?: __HttpHandlerOptions): Promise<ListTrailsCommandOutput>;
   listTrails(args: ListTrailsCommandInput, cb: (err: any, data?: ListTrailsCommandOutput) => void): void;
   listTrails(
@@ -679,6 +687,7 @@ export interface CloudTrail {
   /**
    * @see {@link LookupEventsCommand}
    */
+  lookupEvents(): Promise<LookupEventsCommandOutput>;
   lookupEvents(args: LookupEventsCommandInput, options?: __HttpHandlerOptions): Promise<LookupEventsCommandOutput>;
   lookupEvents(args: LookupEventsCommandInput, cb: (err: any, data?: LookupEventsCommandOutput) => void): void;
   lookupEvents(
@@ -803,6 +812,7 @@ export interface CloudTrail {
   /**
    * @see {@link StartImportCommand}
    */
+  startImport(): Promise<StartImportCommandOutput>;
   startImport(args: StartImportCommandInput, options?: __HttpHandlerOptions): Promise<StartImportCommandOutput>;
   startImport(args: StartImportCommandInput, cb: (err: any, data?: StartImportCommandOutput) => void): void;
   startImport(
@@ -825,6 +835,7 @@ export interface CloudTrail {
   /**
    * @see {@link StartQueryCommand}
    */
+  startQuery(): Promise<StartQueryCommandOutput>;
   startQuery(args: StartQueryCommandInput, options?: __HttpHandlerOptions): Promise<StartQueryCommandOutput>;
   startQuery(args: StartQueryCommandInput, cb: (err: any, data?: StartQueryCommandOutput) => void): void;
   startQuery(

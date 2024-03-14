@@ -1031,6 +1031,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListComponentsCommand}
    */
+  listComponents(): Promise<ListComponentsCommandOutput>;
   listComponents(
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1045,6 +1046,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListContainerRecipesCommand}
    */
+  listContainerRecipes(): Promise<ListContainerRecipesCommandOutput>;
   listContainerRecipes(
     args: ListContainerRecipesCommandInput,
     options?: __HttpHandlerOptions
@@ -1062,6 +1064,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListDistributionConfigurationsCommand}
    */
+  listDistributionConfigurations(): Promise<ListDistributionConfigurationsCommandOutput>;
   listDistributionConfigurations(
     args: ListDistributionConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1130,6 +1133,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListImagePipelinesCommand}
    */
+  listImagePipelines(): Promise<ListImagePipelinesCommandOutput>;
   listImagePipelines(
     args: ListImagePipelinesCommandInput,
     options?: __HttpHandlerOptions
@@ -1147,6 +1151,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListImageRecipesCommand}
    */
+  listImageRecipes(): Promise<ListImageRecipesCommandOutput>;
   listImageRecipes(
     args: ListImageRecipesCommandInput,
     options?: __HttpHandlerOptions
@@ -1164,6 +1169,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListImagesCommand}
    */
+  listImages(): Promise<ListImagesCommandOutput>;
   listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
   listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
   listImages(
@@ -1175,6 +1181,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListImageScanFindingAggregationsCommand}
    */
+  listImageScanFindingAggregations(): Promise<ListImageScanFindingAggregationsCommandOutput>;
   listImageScanFindingAggregations(
     args: ListImageScanFindingAggregationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1192,6 +1199,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListImageScanFindingsCommand}
    */
+  listImageScanFindings(): Promise<ListImageScanFindingsCommandOutput>;
   listImageScanFindings(
     args: ListImageScanFindingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1209,6 +1217,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListInfrastructureConfigurationsCommand}
    */
+  listInfrastructureConfigurations(): Promise<ListInfrastructureConfigurationsCommandOutput>;
   listInfrastructureConfigurations(
     args: ListInfrastructureConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1260,6 +1269,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListLifecyclePoliciesCommand}
    */
+  listLifecyclePolicies(): Promise<ListLifecyclePoliciesCommandOutput>;
   listLifecyclePolicies(
     args: ListLifecyclePoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -1294,6 +1304,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListWaitingWorkflowStepsCommand}
    */
+  listWaitingWorkflowSteps(): Promise<ListWaitingWorkflowStepsCommandOutput>;
   listWaitingWorkflowSteps(
     args: ListWaitingWorkflowStepsCommandInput,
     options?: __HttpHandlerOptions
@@ -1345,6 +1356,7 @@ export interface Imagebuilder {
   /**
    * @see {@link ListWorkflowsCommand}
    */
+  listWorkflows(): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
   listWorkflows(

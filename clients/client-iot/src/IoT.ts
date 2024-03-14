@@ -1494,6 +1494,7 @@ export interface IoT {
   /**
    * @see {@link AddThingToBillingGroupCommand}
    */
+  addThingToBillingGroup(): Promise<AddThingToBillingGroupCommandOutput>;
   addThingToBillingGroup(
     args: AddThingToBillingGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -1511,6 +1512,7 @@ export interface IoT {
   /**
    * @see {@link AddThingToThingGroupCommand}
    */
+  addThingToThingGroup(): Promise<AddThingToThingGroupCommandOutput>;
   addThingToThingGroup(
     args: AddThingToThingGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -1700,6 +1702,7 @@ export interface IoT {
   /**
    * @see {@link ClearDefaultAuthorizerCommand}
    */
+  clearDefaultAuthorizer(): Promise<ClearDefaultAuthorizerCommandOutput>;
   clearDefaultAuthorizer(
     args: ClearDefaultAuthorizerCommandInput,
     options?: __HttpHandlerOptions
@@ -1929,6 +1932,7 @@ export interface IoT {
   /**
    * @see {@link CreateKeysAndCertificateCommand}
    */
+  createKeysAndCertificate(): Promise<CreateKeysAndCertificateCommandOutput>;
   createKeysAndCertificate(
     args: CreateKeysAndCertificateCommandInput,
     options?: __HttpHandlerOptions
@@ -2216,6 +2220,7 @@ export interface IoT {
   /**
    * @see {@link DeleteAccountAuditConfigurationCommand}
    */
+  deleteAccountAuditConfiguration(): Promise<DeleteAccountAuditConfigurationCommandOutput>;
   deleteAccountAuditConfiguration(
     args: DeleteAccountAuditConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -2583,6 +2588,7 @@ export interface IoT {
   /**
    * @see {@link DeleteRegistrationCodeCommand}
    */
+  deleteRegistrationCode(): Promise<DeleteRegistrationCodeCommandOutput>;
   deleteRegistrationCode(
     args: DeleteRegistrationCodeCommandInput,
     options?: __HttpHandlerOptions
@@ -2766,6 +2772,7 @@ export interface IoT {
   /**
    * @see {@link DescribeAccountAuditConfigurationCommand}
    */
+  describeAccountAuditConfiguration(): Promise<DescribeAccountAuditConfigurationCommandOutput>;
   describeAccountAuditConfiguration(
     args: DescribeAccountAuditConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -2953,6 +2960,7 @@ export interface IoT {
   /**
    * @see {@link DescribeDefaultAuthorizerCommand}
    */
+  describeDefaultAuthorizer(): Promise<DescribeDefaultAuthorizerCommandOutput>;
   describeDefaultAuthorizer(
     args: DescribeDefaultAuthorizerCommandInput,
     options?: __HttpHandlerOptions
@@ -3021,6 +3029,7 @@ export interface IoT {
   /**
    * @see {@link DescribeEndpointCommand}
    */
+  describeEndpoint(): Promise<DescribeEndpointCommandOutput>;
   describeEndpoint(
     args: DescribeEndpointCommandInput,
     options?: __HttpHandlerOptions
@@ -3038,6 +3047,7 @@ export interface IoT {
   /**
    * @see {@link DescribeEventConfigurationsCommand}
    */
+  describeEventConfigurations(): Promise<DescribeEventConfigurationsCommandOutput>;
   describeEventConfigurations(
     args: DescribeEventConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -3416,6 +3426,7 @@ export interface IoT {
   /**
    * @see {@link GetBehaviorModelTrainingSummariesCommand}
    */
+  getBehaviorModelTrainingSummaries(): Promise<GetBehaviorModelTrainingSummariesCommandOutput>;
   getBehaviorModelTrainingSummaries(
     args: GetBehaviorModelTrainingSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -3464,6 +3475,7 @@ export interface IoT {
   /**
    * @see {@link GetEffectivePoliciesCommand}
    */
+  getEffectivePolicies(): Promise<GetEffectivePoliciesCommandOutput>;
   getEffectivePolicies(
     args: GetEffectivePoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -3481,6 +3493,7 @@ export interface IoT {
   /**
    * @see {@link GetIndexingConfigurationCommand}
    */
+  getIndexingConfiguration(): Promise<GetIndexingConfigurationCommandOutput>;
   getIndexingConfiguration(
     args: GetIndexingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -3512,6 +3525,7 @@ export interface IoT {
   /**
    * @see {@link GetLoggingOptionsCommand}
    */
+  getLoggingOptions(): Promise<GetLoggingOptionsCommandOutput>;
   getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -3551,6 +3565,7 @@ export interface IoT {
   /**
    * @see {@link GetPackageConfigurationCommand}
    */
+  getPackageConfiguration(): Promise<GetPackageConfigurationCommandOutput>;
   getPackageConfiguration(
     args: GetPackageConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -3627,6 +3642,7 @@ export interface IoT {
   /**
    * @see {@link GetRegistrationCodeCommand}
    */
+  getRegistrationCode(): Promise<GetRegistrationCodeCommandOutput>;
   getRegistrationCode(
     args: GetRegistrationCodeCommandInput,
     options?: __HttpHandlerOptions
@@ -3683,6 +3699,7 @@ export interface IoT {
   /**
    * @see {@link GetV2LoggingOptionsCommand}
    */
+  getV2LoggingOptions(): Promise<GetV2LoggingOptionsCommandOutput>;
   getV2LoggingOptions(
     args: GetV2LoggingOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -3700,6 +3717,7 @@ export interface IoT {
   /**
    * @see {@link ListActiveViolationsCommand}
    */
+  listActiveViolations(): Promise<ListActiveViolationsCommandOutput>;
   listActiveViolations(
     args: ListActiveViolationsCommandInput,
     options?: __HttpHandlerOptions
@@ -3734,6 +3752,7 @@ export interface IoT {
   /**
    * @see {@link ListAuditFindingsCommand}
    */
+  listAuditFindings(): Promise<ListAuditFindingsCommandOutput>;
   listAuditFindings(
     args: ListAuditFindingsCommandInput,
     options?: __HttpHandlerOptions
@@ -3785,6 +3804,7 @@ export interface IoT {
   /**
    * @see {@link ListAuditSuppressionsCommand}
    */
+  listAuditSuppressions(): Promise<ListAuditSuppressionsCommandOutput>;
   listAuditSuppressions(
     args: ListAuditSuppressionsCommandInput,
     options?: __HttpHandlerOptions
@@ -3816,6 +3836,7 @@ export interface IoT {
   /**
    * @see {@link ListAuthorizersCommand}
    */
+  listAuthorizers(): Promise<ListAuthorizersCommandOutput>;
   listAuthorizers(
     args: ListAuthorizersCommandInput,
     options?: __HttpHandlerOptions
@@ -3830,6 +3851,7 @@ export interface IoT {
   /**
    * @see {@link ListBillingGroupsCommand}
    */
+  listBillingGroups(): Promise<ListBillingGroupsCommandOutput>;
   listBillingGroups(
     args: ListBillingGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -3847,6 +3869,7 @@ export interface IoT {
   /**
    * @see {@link ListCACertificatesCommand}
    */
+  listCACertificates(): Promise<ListCACertificatesCommandOutput>;
   listCACertificates(
     args: ListCACertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -3864,6 +3887,7 @@ export interface IoT {
   /**
    * @see {@link ListCertificateProvidersCommand}
    */
+  listCertificateProviders(): Promise<ListCertificateProvidersCommandOutput>;
   listCertificateProviders(
     args: ListCertificateProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -3881,6 +3905,7 @@ export interface IoT {
   /**
    * @see {@link ListCertificatesCommand}
    */
+  listCertificates(): Promise<ListCertificatesCommandOutput>;
   listCertificates(
     args: ListCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -3915,6 +3940,7 @@ export interface IoT {
   /**
    * @see {@link ListCustomMetricsCommand}
    */
+  listCustomMetrics(): Promise<ListCustomMetricsCommandOutput>;
   listCustomMetrics(
     args: ListCustomMetricsCommandInput,
     options?: __HttpHandlerOptions
@@ -3932,6 +3958,7 @@ export interface IoT {
   /**
    * @see {@link ListDetectMitigationActionsExecutionsCommand}
    */
+  listDetectMitigationActionsExecutions(): Promise<ListDetectMitigationActionsExecutionsCommandOutput>;
   listDetectMitigationActionsExecutions(
     args: ListDetectMitigationActionsExecutionsCommandInput,
     options?: __HttpHandlerOptions
@@ -3966,6 +3993,7 @@ export interface IoT {
   /**
    * @see {@link ListDimensionsCommand}
    */
+  listDimensions(): Promise<ListDimensionsCommandOutput>;
   listDimensions(
     args: ListDimensionsCommandInput,
     options?: __HttpHandlerOptions
@@ -3980,6 +4008,7 @@ export interface IoT {
   /**
    * @see {@link ListDomainConfigurationsCommand}
    */
+  listDomainConfigurations(): Promise<ListDomainConfigurationsCommandOutput>;
   listDomainConfigurations(
     args: ListDomainConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -3997,6 +4026,7 @@ export interface IoT {
   /**
    * @see {@link ListFleetMetricsCommand}
    */
+  listFleetMetrics(): Promise<ListFleetMetricsCommandOutput>;
   listFleetMetrics(
     args: ListFleetMetricsCommandInput,
     options?: __HttpHandlerOptions
@@ -4014,6 +4044,7 @@ export interface IoT {
   /**
    * @see {@link ListIndicesCommand}
    */
+  listIndices(): Promise<ListIndicesCommandOutput>;
   listIndices(args: ListIndicesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndicesCommandOutput>;
   listIndices(args: ListIndicesCommandInput, cb: (err: any, data?: ListIndicesCommandOutput) => void): void;
   listIndices(
@@ -4059,6 +4090,7 @@ export interface IoT {
   /**
    * @see {@link ListJobsCommand}
    */
+  listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   listJobs(
@@ -4070,6 +4102,7 @@ export interface IoT {
   /**
    * @see {@link ListJobTemplatesCommand}
    */
+  listJobTemplates(): Promise<ListJobTemplatesCommandOutput>;
   listJobTemplates(
     args: ListJobTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -4087,6 +4120,7 @@ export interface IoT {
   /**
    * @see {@link ListManagedJobTemplatesCommand}
    */
+  listManagedJobTemplates(): Promise<ListManagedJobTemplatesCommandOutput>;
   listManagedJobTemplates(
     args: ListManagedJobTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -4121,6 +4155,7 @@ export interface IoT {
   /**
    * @see {@link ListMitigationActionsCommand}
    */
+  listMitigationActions(): Promise<ListMitigationActionsCommandOutput>;
   listMitigationActions(
     args: ListMitigationActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -4138,6 +4173,7 @@ export interface IoT {
   /**
    * @see {@link ListOTAUpdatesCommand}
    */
+  listOTAUpdates(): Promise<ListOTAUpdatesCommandOutput>;
   listOTAUpdates(
     args: ListOTAUpdatesCommandInput,
     options?: __HttpHandlerOptions
@@ -4152,6 +4188,7 @@ export interface IoT {
   /**
    * @see {@link ListOutgoingCertificatesCommand}
    */
+  listOutgoingCertificates(): Promise<ListOutgoingCertificatesCommandOutput>;
   listOutgoingCertificates(
     args: ListOutgoingCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -4169,6 +4206,7 @@ export interface IoT {
   /**
    * @see {@link ListPackagesCommand}
    */
+  listPackages(): Promise<ListPackagesCommandOutput>;
   listPackages(args: ListPackagesCommandInput, options?: __HttpHandlerOptions): Promise<ListPackagesCommandOutput>;
   listPackages(args: ListPackagesCommandInput, cb: (err: any, data?: ListPackagesCommandOutput) => void): void;
   listPackages(
@@ -4197,6 +4235,7 @@ export interface IoT {
   /**
    * @see {@link ListPoliciesCommand}
    */
+  listPolicies(): Promise<ListPoliciesCommandOutput>;
   listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
   listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
   listPolicies(
@@ -4276,6 +4315,7 @@ export interface IoT {
   /**
    * @see {@link ListProvisioningTemplatesCommand}
    */
+  listProvisioningTemplates(): Promise<ListProvisioningTemplatesCommandOutput>;
   listProvisioningTemplates(
     args: ListProvisioningTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -4327,6 +4367,7 @@ export interface IoT {
   /**
    * @see {@link ListRoleAliasesCommand}
    */
+  listRoleAliases(): Promise<ListRoleAliasesCommandOutput>;
   listRoleAliases(
     args: ListRoleAliasesCommandInput,
     options?: __HttpHandlerOptions
@@ -4341,6 +4382,7 @@ export interface IoT {
   /**
    * @see {@link ListScheduledAuditsCommand}
    */
+  listScheduledAudits(): Promise<ListScheduledAuditsCommandOutput>;
   listScheduledAudits(
     args: ListScheduledAuditsCommandInput,
     options?: __HttpHandlerOptions
@@ -4358,6 +4400,7 @@ export interface IoT {
   /**
    * @see {@link ListSecurityProfilesCommand}
    */
+  listSecurityProfiles(): Promise<ListSecurityProfilesCommandOutput>;
   listSecurityProfiles(
     args: ListSecurityProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -4392,6 +4435,7 @@ export interface IoT {
   /**
    * @see {@link ListStreamsCommand}
    */
+  listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
   listStreams(
@@ -4454,6 +4498,7 @@ export interface IoT {
   /**
    * @see {@link ListThingGroupsCommand}
    */
+  listThingGroups(): Promise<ListThingGroupsCommandOutput>;
   listThingGroups(
     args: ListThingGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -4519,6 +4564,7 @@ export interface IoT {
   /**
    * @see {@link ListThingRegistrationTasksCommand}
    */
+  listThingRegistrationTasks(): Promise<ListThingRegistrationTasksCommandOutput>;
   listThingRegistrationTasks(
     args: ListThingRegistrationTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -4536,6 +4582,7 @@ export interface IoT {
   /**
    * @see {@link ListThingsCommand}
    */
+  listThings(): Promise<ListThingsCommandOutput>;
   listThings(args: ListThingsCommandInput, options?: __HttpHandlerOptions): Promise<ListThingsCommandOutput>;
   listThings(args: ListThingsCommandInput, cb: (err: any, data?: ListThingsCommandOutput) => void): void;
   listThings(
@@ -4581,6 +4628,7 @@ export interface IoT {
   /**
    * @see {@link ListThingTypesCommand}
    */
+  listThingTypes(): Promise<ListThingTypesCommandOutput>;
   listThingTypes(
     args: ListThingTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -4595,6 +4643,7 @@ export interface IoT {
   /**
    * @see {@link ListTopicRuleDestinationsCommand}
    */
+  listTopicRuleDestinations(): Promise<ListTopicRuleDestinationsCommandOutput>;
   listTopicRuleDestinations(
     args: ListTopicRuleDestinationsCommandInput,
     options?: __HttpHandlerOptions
@@ -4612,6 +4661,7 @@ export interface IoT {
   /**
    * @see {@link ListTopicRulesCommand}
    */
+  listTopicRules(): Promise<ListTopicRulesCommandOutput>;
   listTopicRules(
     args: ListTopicRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -4626,6 +4676,7 @@ export interface IoT {
   /**
    * @see {@link ListV2LoggingLevelsCommand}
    */
+  listV2LoggingLevels(): Promise<ListV2LoggingLevelsCommandOutput>;
   listV2LoggingLevels(
     args: ListV2LoggingLevelsCommandInput,
     options?: __HttpHandlerOptions
@@ -4756,6 +4807,7 @@ export interface IoT {
   /**
    * @see {@link RemoveThingFromBillingGroupCommand}
    */
+  removeThingFromBillingGroup(): Promise<RemoveThingFromBillingGroupCommandOutput>;
   removeThingFromBillingGroup(
     args: RemoveThingFromBillingGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -4773,6 +4825,7 @@ export interface IoT {
   /**
    * @see {@link RemoveThingFromThingGroupCommand}
    */
+  removeThingFromThingGroup(): Promise<RemoveThingFromThingGroupCommandOutput>;
   removeThingFromThingGroup(
     args: RemoveThingFromThingGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -4886,6 +4939,7 @@ export interface IoT {
   /**
    * @see {@link SetV2LoggingOptionsCommand}
    */
+  setV2LoggingOptions(): Promise<SetV2LoggingOptionsCommandOutput>;
   setV2LoggingOptions(
     args: SetV2LoggingOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -5061,6 +5115,7 @@ export interface IoT {
   /**
    * @see {@link UpdateAccountAuditConfigurationCommand}
    */
+  updateAccountAuditConfiguration(): Promise<UpdateAccountAuditConfigurationCommandOutput>;
   updateAccountAuditConfiguration(
     args: UpdateAccountAuditConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -5245,6 +5300,7 @@ export interface IoT {
   /**
    * @see {@link UpdateEventConfigurationsCommand}
    */
+  updateEventConfigurations(): Promise<UpdateEventConfigurationsCommandOutput>;
   updateEventConfigurations(
     args: UpdateEventConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -5279,6 +5335,7 @@ export interface IoT {
   /**
    * @see {@link UpdateIndexingConfigurationCommand}
    */
+  updateIndexingConfiguration(): Promise<UpdateIndexingConfigurationCommandOutput>;
   updateIndexingConfiguration(
     args: UpdateIndexingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -5335,6 +5392,7 @@ export interface IoT {
   /**
    * @see {@link UpdatePackageConfigurationCommand}
    */
+  updatePackageConfiguration(): Promise<UpdatePackageConfigurationCommandOutput>;
   updatePackageConfiguration(
     args: UpdatePackageConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -5473,6 +5531,7 @@ export interface IoT {
   /**
    * @see {@link UpdateThingGroupsForThingCommand}
    */
+  updateThingGroupsForThing(): Promise<UpdateThingGroupsForThingCommandOutput>;
   updateThingGroupsForThing(
     args: UpdateThingGroupsForThingCommandInput,
     options?: __HttpHandlerOptions

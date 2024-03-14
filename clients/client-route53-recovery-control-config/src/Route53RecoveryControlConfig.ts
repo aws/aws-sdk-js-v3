@@ -199,6 +199,7 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link CreateSafetyRuleCommand}
    */
+  createSafetyRule(): Promise<CreateSafetyRuleCommandOutput>;
   createSafetyRule(
     args: CreateSafetyRuleCommandInput,
     options?: __HttpHandlerOptions
@@ -377,6 +378,7 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link ListClustersCommand}
    */
+  listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   listClusters(
@@ -388,6 +390,7 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link ListControlPanelsCommand}
    */
+  listControlPanels(): Promise<ListControlPanelsCommandOutput>;
   listControlPanels(
     args: ListControlPanelsCommandInput,
     options?: __HttpHandlerOptions
@@ -509,6 +512,7 @@ export interface Route53RecoveryControlConfig {
   /**
    * @see {@link UpdateSafetyRuleCommand}
    */
+  updateSafetyRule(): Promise<UpdateSafetyRuleCommandOutput>;
   updateSafetyRule(
     args: UpdateSafetyRuleCommandInput,
     options?: __HttpHandlerOptions

@@ -434,6 +434,7 @@ export interface LakeFormation {
   /**
    * @see {@link CreateLakeFormationIdentityCenterConfigurationCommand}
    */
+  createLakeFormationIdentityCenterConfiguration(): Promise<CreateLakeFormationIdentityCenterConfigurationCommandOutput>;
   createLakeFormationIdentityCenterConfiguration(
     args: CreateLakeFormationIdentityCenterConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -479,6 +480,7 @@ export interface LakeFormation {
   /**
    * @see {@link DeleteDataCellsFilterCommand}
    */
+  deleteDataCellsFilter(): Promise<DeleteDataCellsFilterCommandOutput>;
   deleteDataCellsFilter(
     args: DeleteDataCellsFilterCommandInput,
     options?: __HttpHandlerOptions
@@ -496,6 +498,7 @@ export interface LakeFormation {
   /**
    * @see {@link DeleteLakeFormationIdentityCenterConfigurationCommand}
    */
+  deleteLakeFormationIdentityCenterConfiguration(): Promise<DeleteLakeFormationIdentityCenterConfigurationCommandOutput>;
   deleteLakeFormationIdentityCenterConfiguration(
     args: DeleteLakeFormationIdentityCenterConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -575,6 +578,7 @@ export interface LakeFormation {
   /**
    * @see {@link DescribeLakeFormationIdentityCenterConfigurationCommand}
    */
+  describeLakeFormationIdentityCenterConfiguration(): Promise<DescribeLakeFormationIdentityCenterConfigurationCommandOutput>;
   describeLakeFormationIdentityCenterConfiguration(
     args: DescribeLakeFormationIdentityCenterConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -626,6 +630,7 @@ export interface LakeFormation {
   /**
    * @see {@link ExtendTransactionCommand}
    */
+  extendTransaction(): Promise<ExtendTransactionCommandOutput>;
   extendTransaction(
     args: ExtendTransactionCommandInput,
     options?: __HttpHandlerOptions
@@ -660,6 +665,7 @@ export interface LakeFormation {
   /**
    * @see {@link GetDataLakeSettingsCommand}
    */
+  getDataLakeSettings(): Promise<GetDataLakeSettingsCommandOutput>;
   getDataLakeSettings(
     args: GetDataLakeSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -843,6 +849,7 @@ export interface LakeFormation {
   /**
    * @see {@link ListDataCellsFilterCommand}
    */
+  listDataCellsFilter(): Promise<ListDataCellsFilterCommandOutput>;
   listDataCellsFilter(
     args: ListDataCellsFilterCommandInput,
     options?: __HttpHandlerOptions
@@ -860,6 +867,7 @@ export interface LakeFormation {
   /**
    * @see {@link ListLakeFormationOptInsCommand}
    */
+  listLakeFormationOptIns(): Promise<ListLakeFormationOptInsCommandOutput>;
   listLakeFormationOptIns(
     args: ListLakeFormationOptInsCommandInput,
     options?: __HttpHandlerOptions
@@ -877,6 +885,7 @@ export interface LakeFormation {
   /**
    * @see {@link ListLFTagsCommand}
    */
+  listLFTags(): Promise<ListLFTagsCommandOutput>;
   listLFTags(args: ListLFTagsCommandInput, options?: __HttpHandlerOptions): Promise<ListLFTagsCommandOutput>;
   listLFTags(args: ListLFTagsCommandInput, cb: (err: any, data?: ListLFTagsCommandOutput) => void): void;
   listLFTags(
@@ -888,6 +897,7 @@ export interface LakeFormation {
   /**
    * @see {@link ListPermissionsCommand}
    */
+  listPermissions(): Promise<ListPermissionsCommandOutput>;
   listPermissions(
     args: ListPermissionsCommandInput,
     options?: __HttpHandlerOptions
@@ -902,6 +912,7 @@ export interface LakeFormation {
   /**
    * @see {@link ListResourcesCommand}
    */
+  listResources(): Promise<ListResourcesCommandOutput>;
   listResources(args: ListResourcesCommandInput, options?: __HttpHandlerOptions): Promise<ListResourcesCommandOutput>;
   listResources(args: ListResourcesCommandInput, cb: (err: any, data?: ListResourcesCommandOutput) => void): void;
   listResources(
@@ -930,6 +941,7 @@ export interface LakeFormation {
   /**
    * @see {@link ListTransactionsCommand}
    */
+  listTransactions(): Promise<ListTransactionsCommandOutput>;
   listTransactions(
     args: ListTransactionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1066,6 +1078,7 @@ export interface LakeFormation {
   /**
    * @see {@link StartTransactionCommand}
    */
+  startTransaction(): Promise<StartTransactionCommandOutput>;
   startTransaction(
     args: StartTransactionCommandInput,
     options?: __HttpHandlerOptions
@@ -1100,6 +1113,7 @@ export interface LakeFormation {
   /**
    * @see {@link UpdateLakeFormationIdentityCenterConfigurationCommand}
    */
+  updateLakeFormationIdentityCenterConfiguration(): Promise<UpdateLakeFormationIdentityCenterConfigurationCommandOutput>;
   updateLakeFormationIdentityCenterConfiguration(
     args: UpdateLakeFormationIdentityCenterConfigurationCommandInput,
     options?: __HttpHandlerOptions

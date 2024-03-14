@@ -319,6 +319,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DeleteFirewallCommand}
    */
+  deleteFirewall(): Promise<DeleteFirewallCommandOutput>;
   deleteFirewall(
     args: DeleteFirewallCommandInput,
     options?: __HttpHandlerOptions
@@ -333,6 +334,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DeleteFirewallPolicyCommand}
    */
+  deleteFirewallPolicy(): Promise<DeleteFirewallPolicyCommandOutput>;
   deleteFirewallPolicy(
     args: DeleteFirewallPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -367,6 +369,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DeleteRuleGroupCommand}
    */
+  deleteRuleGroup(): Promise<DeleteRuleGroupCommandOutput>;
   deleteRuleGroup(
     args: DeleteRuleGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -381,6 +384,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DeleteTLSInspectionConfigurationCommand}
    */
+  deleteTLSInspectionConfiguration(): Promise<DeleteTLSInspectionConfigurationCommandOutput>;
   deleteTLSInspectionConfiguration(
     args: DeleteTLSInspectionConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -398,6 +402,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DescribeFirewallCommand}
    */
+  describeFirewall(): Promise<DescribeFirewallCommandOutput>;
   describeFirewall(
     args: DescribeFirewallCommandInput,
     options?: __HttpHandlerOptions
@@ -415,6 +420,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DescribeFirewallPolicyCommand}
    */
+  describeFirewallPolicy(): Promise<DescribeFirewallPolicyCommandOutput>;
   describeFirewallPolicy(
     args: DescribeFirewallPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -432,6 +438,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DescribeLoggingConfigurationCommand}
    */
+  describeLoggingConfiguration(): Promise<DescribeLoggingConfigurationCommandOutput>;
   describeLoggingConfiguration(
     args: DescribeLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -466,6 +473,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DescribeRuleGroupCommand}
    */
+  describeRuleGroup(): Promise<DescribeRuleGroupCommandOutput>;
   describeRuleGroup(
     args: DescribeRuleGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -483,6 +491,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DescribeRuleGroupMetadataCommand}
    */
+  describeRuleGroupMetadata(): Promise<DescribeRuleGroupMetadataCommandOutput>;
   describeRuleGroupMetadata(
     args: DescribeRuleGroupMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -500,6 +509,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link DescribeTLSInspectionConfigurationCommand}
    */
+  describeTLSInspectionConfiguration(): Promise<DescribeTLSInspectionConfigurationCommandOutput>;
   describeTLSInspectionConfiguration(
     args: DescribeTLSInspectionConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -534,6 +544,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link ListFirewallPoliciesCommand}
    */
+  listFirewallPolicies(): Promise<ListFirewallPoliciesCommandOutput>;
   listFirewallPolicies(
     args: ListFirewallPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -551,6 +562,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link ListFirewallsCommand}
    */
+  listFirewalls(): Promise<ListFirewallsCommandOutput>;
   listFirewalls(args: ListFirewallsCommandInput, options?: __HttpHandlerOptions): Promise<ListFirewallsCommandOutput>;
   listFirewalls(args: ListFirewallsCommandInput, cb: (err: any, data?: ListFirewallsCommandOutput) => void): void;
   listFirewalls(
@@ -562,6 +574,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link ListRuleGroupsCommand}
    */
+  listRuleGroups(): Promise<ListRuleGroupsCommandOutput>;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -593,6 +606,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link ListTLSInspectionConfigurationsCommand}
    */
+  listTLSInspectionConfigurations(): Promise<ListTLSInspectionConfigurationsCommandOutput>;
   listTLSInspectionConfigurations(
     args: ListTLSInspectionConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -666,6 +680,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link UpdateFirewallDescriptionCommand}
    */
+  updateFirewallDescription(): Promise<UpdateFirewallDescriptionCommandOutput>;
   updateFirewallDescription(
     args: UpdateFirewallDescriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -683,6 +698,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link UpdateFirewallEncryptionConfigurationCommand}
    */
+  updateFirewallEncryptionConfiguration(): Promise<UpdateFirewallEncryptionConfigurationCommandOutput>;
   updateFirewallEncryptionConfiguration(
     args: UpdateFirewallEncryptionConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -734,6 +750,7 @@ export interface NetworkFirewall {
   /**
    * @see {@link UpdateLoggingConfigurationCommand}
    */
+  updateLoggingConfiguration(): Promise<UpdateLoggingConfigurationCommandOutput>;
   updateLoggingConfiguration(
     args: UpdateLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions

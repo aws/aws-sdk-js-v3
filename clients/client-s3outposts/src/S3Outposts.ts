@@ -69,6 +69,7 @@ export interface S3Outposts {
   /**
    * @see {@link ListEndpointsCommand}
    */
+  listEndpoints(): Promise<ListEndpointsCommandOutput>;
   listEndpoints(args: ListEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<ListEndpointsCommandOutput>;
   listEndpoints(args: ListEndpointsCommandInput, cb: (err: any, data?: ListEndpointsCommandOutput) => void): void;
   listEndpoints(
@@ -80,6 +81,7 @@ export interface S3Outposts {
   /**
    * @see {@link ListOutpostsWithS3Command}
    */
+  listOutpostsWithS3(): Promise<ListOutpostsWithS3CommandOutput>;
   listOutpostsWithS3(
     args: ListOutpostsWithS3CommandInput,
     options?: __HttpHandlerOptions

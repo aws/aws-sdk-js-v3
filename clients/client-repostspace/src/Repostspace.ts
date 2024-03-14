@@ -96,6 +96,7 @@ export interface Repostspace {
   /**
    * @see {@link ListSpacesCommand}
    */
+  listSpaces(): Promise<ListSpacesCommandOutput>;
   listSpaces(args: ListSpacesCommandInput, options?: __HttpHandlerOptions): Promise<ListSpacesCommandOutput>;
   listSpaces(args: ListSpacesCommandInput, cb: (err: any, data?: ListSpacesCommandOutput) => void): void;
   listSpaces(

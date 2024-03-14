@@ -393,6 +393,7 @@ export interface Route53Domains {
   /**
    * @see {@link GetContactReachabilityStatusCommand}
    */
+  getContactReachabilityStatus(): Promise<GetContactReachabilityStatusCommandOutput>;
   getContactReachabilityStatus(
     args: GetContactReachabilityStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -458,6 +459,7 @@ export interface Route53Domains {
   /**
    * @see {@link ListDomainsCommand}
    */
+  listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
   listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
   listDomains(
@@ -469,6 +471,7 @@ export interface Route53Domains {
   /**
    * @see {@link ListOperationsCommand}
    */
+  listOperations(): Promise<ListOperationsCommandOutput>;
   listOperations(
     args: ListOperationsCommandInput,
     options?: __HttpHandlerOptions
@@ -483,6 +486,7 @@ export interface Route53Domains {
   /**
    * @see {@link ListPricesCommand}
    */
+  listPrices(): Promise<ListPricesCommandOutput>;
   listPrices(args: ListPricesCommandInput, options?: __HttpHandlerOptions): Promise<ListPricesCommandOutput>;
   listPrices(args: ListPricesCommandInput, cb: (err: any, data?: ListPricesCommandOutput) => void): void;
   listPrices(
@@ -564,6 +568,7 @@ export interface Route53Domains {
   /**
    * @see {@link ResendContactReachabilityEmailCommand}
    */
+  resendContactReachabilityEmail(): Promise<ResendContactReachabilityEmailCommandOutput>;
   resendContactReachabilityEmail(
     args: ResendContactReachabilityEmailCommandInput,
     options?: __HttpHandlerOptions
@@ -714,6 +719,7 @@ export interface Route53Domains {
   /**
    * @see {@link ViewBillingCommand}
    */
+  viewBilling(): Promise<ViewBillingCommandOutput>;
   viewBilling(args: ViewBillingCommandInput, options?: __HttpHandlerOptions): Promise<ViewBillingCommandOutput>;
   viewBilling(args: ViewBillingCommandInput, cb: (err: any, data?: ViewBillingCommandOutput) => void): void;
   viewBilling(

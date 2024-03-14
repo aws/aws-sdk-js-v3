@@ -377,6 +377,7 @@ export interface MachineLearning {
   /**
    * @see {@link DescribeBatchPredictionsCommand}
    */
+  describeBatchPredictions(): Promise<DescribeBatchPredictionsCommandOutput>;
   describeBatchPredictions(
     args: DescribeBatchPredictionsCommandInput,
     options?: __HttpHandlerOptions
@@ -394,6 +395,7 @@ export interface MachineLearning {
   /**
    * @see {@link DescribeDataSourcesCommand}
    */
+  describeDataSources(): Promise<DescribeDataSourcesCommandOutput>;
   describeDataSources(
     args: DescribeDataSourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -411,6 +413,7 @@ export interface MachineLearning {
   /**
    * @see {@link DescribeEvaluationsCommand}
    */
+  describeEvaluations(): Promise<DescribeEvaluationsCommandOutput>;
   describeEvaluations(
     args: DescribeEvaluationsCommandInput,
     options?: __HttpHandlerOptions
@@ -428,6 +431,7 @@ export interface MachineLearning {
   /**
    * @see {@link DescribeMLModelsCommand}
    */
+  describeMLModels(): Promise<DescribeMLModelsCommandOutput>;
   describeMLModels(
     args: DescribeMLModelsCommandInput,
     options?: __HttpHandlerOptions

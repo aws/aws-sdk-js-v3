@@ -229,6 +229,7 @@ export interface MediaStore {
   /**
    * @see {@link DescribeContainerCommand}
    */
+  describeContainer(): Promise<DescribeContainerCommandOutput>;
   describeContainer(
     args: DescribeContainerCommandInput,
     options?: __HttpHandlerOptions
@@ -305,6 +306,7 @@ export interface MediaStore {
   /**
    * @see {@link ListContainersCommand}
    */
+  listContainers(): Promise<ListContainersCommandOutput>;
   listContainers(
     args: ListContainersCommandInput,
     options?: __HttpHandlerOptions

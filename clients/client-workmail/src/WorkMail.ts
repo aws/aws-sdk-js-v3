@@ -1358,6 +1358,7 @@ export interface WorkMail {
   /**
    * @see {@link ListOrganizationsCommand}
    */
+  listOrganizations(): Promise<ListOrganizationsCommandOutput>;
   listOrganizations(
     args: ListOrganizationsCommandInput,
     options?: __HttpHandlerOptions

@@ -737,6 +737,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DeleteResourcePolicyCommand}
    */
+  deleteResourcePolicy(): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -805,6 +806,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeDeliveriesCommand}
    */
+  describeDeliveries(): Promise<DescribeDeliveriesCommandOutput>;
   describeDeliveries(
     args: DescribeDeliveriesCommandInput,
     options?: __HttpHandlerOptions
@@ -822,6 +824,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeDeliveryDestinationsCommand}
    */
+  describeDeliveryDestinations(): Promise<DescribeDeliveryDestinationsCommandOutput>;
   describeDeliveryDestinations(
     args: DescribeDeliveryDestinationsCommandInput,
     options?: __HttpHandlerOptions
@@ -839,6 +842,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeDeliverySourcesCommand}
    */
+  describeDeliverySources(): Promise<DescribeDeliverySourcesCommandOutput>;
   describeDeliverySources(
     args: DescribeDeliverySourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -856,6 +860,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeDestinationsCommand}
    */
+  describeDestinations(): Promise<DescribeDestinationsCommandOutput>;
   describeDestinations(
     args: DescribeDestinationsCommandInput,
     options?: __HttpHandlerOptions
@@ -873,6 +878,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeExportTasksCommand}
    */
+  describeExportTasks(): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -890,6 +896,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeLogGroupsCommand}
    */
+  describeLogGroups(): Promise<DescribeLogGroupsCommandOutput>;
   describeLogGroups(
     args: DescribeLogGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -907,6 +914,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeLogStreamsCommand}
    */
+  describeLogStreams(): Promise<DescribeLogStreamsCommandOutput>;
   describeLogStreams(
     args: DescribeLogStreamsCommandInput,
     options?: __HttpHandlerOptions
@@ -924,6 +932,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeMetricFiltersCommand}
    */
+  describeMetricFilters(): Promise<DescribeMetricFiltersCommandOutput>;
   describeMetricFilters(
     args: DescribeMetricFiltersCommandInput,
     options?: __HttpHandlerOptions
@@ -941,6 +950,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeQueriesCommand}
    */
+  describeQueries(): Promise<DescribeQueriesCommandOutput>;
   describeQueries(
     args: DescribeQueriesCommandInput,
     options?: __HttpHandlerOptions
@@ -955,6 +965,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeQueryDefinitionsCommand}
    */
+  describeQueryDefinitions(): Promise<DescribeQueryDefinitionsCommandOutput>;
   describeQueryDefinitions(
     args: DescribeQueryDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -972,6 +983,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DescribeResourcePoliciesCommand}
    */
+  describeResourcePolicies(): Promise<DescribeResourcePoliciesCommandOutput>;
   describeResourcePolicies(
     args: DescribeResourcePoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -1006,6 +1018,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link DisassociateKmsKeyCommand}
    */
+  disassociateKmsKey(): Promise<DisassociateKmsKeyCommandOutput>;
   disassociateKmsKey(
     args: DisassociateKmsKeyCommandInput,
     options?: __HttpHandlerOptions
@@ -1023,6 +1036,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link FilterLogEventsCommand}
    */
+  filterLogEvents(): Promise<FilterLogEventsCommandOutput>;
   filterLogEvents(
     args: FilterLogEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -1144,6 +1158,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link GetLogGroupFieldsCommand}
    */
+  getLogGroupFields(): Promise<GetLogGroupFieldsCommandOutput>;
   getLogGroupFields(
     args: GetLogGroupFieldsCommandInput,
     options?: __HttpHandlerOptions
@@ -1186,6 +1201,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link ListAnomaliesCommand}
    */
+  listAnomalies(): Promise<ListAnomaliesCommandOutput>;
   listAnomalies(args: ListAnomaliesCommandInput, options?: __HttpHandlerOptions): Promise<ListAnomaliesCommandOutput>;
   listAnomalies(args: ListAnomaliesCommandInput, cb: (err: any, data?: ListAnomaliesCommandOutput) => void): void;
   listAnomalies(
@@ -1197,6 +1213,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link ListLogAnomalyDetectorsCommand}
    */
+  listLogAnomalyDetectors(): Promise<ListLogAnomalyDetectorsCommandOutput>;
   listLogAnomalyDetectors(
     args: ListLogAnomalyDetectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -1406,6 +1423,7 @@ export interface CloudWatchLogs {
   /**
    * @see {@link PutResourcePolicyCommand}
    */
+  putResourcePolicy(): Promise<PutResourcePolicyCommandOutput>;
   putResourcePolicy(
     args: PutResourcePolicyCommandInput,
     options?: __HttpHandlerOptions

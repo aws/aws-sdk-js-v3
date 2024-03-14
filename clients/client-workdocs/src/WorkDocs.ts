@@ -518,6 +518,7 @@ export interface WorkDocs {
   /**
    * @see {@link DescribeActivitiesCommand}
    */
+  describeActivities(): Promise<DescribeActivitiesCommandOutput>;
   describeActivities(
     args: DescribeActivitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -651,6 +652,7 @@ export interface WorkDocs {
   /**
    * @see {@link DescribeUsersCommand}
    */
+  describeUsers(): Promise<DescribeUsersCommandOutput>;
   describeUsers(args: DescribeUsersCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUsersCommandOutput>;
   describeUsers(args: DescribeUsersCommandInput, cb: (err: any, data?: DescribeUsersCommandOutput) => void): void;
   describeUsers(
@@ -740,6 +742,7 @@ export interface WorkDocs {
   /**
    * @see {@link GetResourcesCommand}
    */
+  getResources(): Promise<GetResourcesCommandOutput>;
   getResources(args: GetResourcesCommandInput, options?: __HttpHandlerOptions): Promise<GetResourcesCommandOutput>;
   getResources(args: GetResourcesCommandInput, cb: (err: any, data?: GetResourcesCommandOutput) => void): void;
   getResources(
@@ -751,6 +754,7 @@ export interface WorkDocs {
   /**
    * @see {@link InitiateDocumentVersionUploadCommand}
    */
+  initiateDocumentVersionUpload(): Promise<InitiateDocumentVersionUploadCommandOutput>;
   initiateDocumentVersionUpload(
     args: InitiateDocumentVersionUploadCommandInput,
     options?: __HttpHandlerOptions
@@ -819,6 +823,7 @@ export interface WorkDocs {
   /**
    * @see {@link SearchResourcesCommand}
    */
+  searchResources(): Promise<SearchResourcesCommandOutput>;
   searchResources(
     args: SearchResourcesCommandInput,
     options?: __HttpHandlerOptions

@@ -760,6 +760,7 @@ export interface OpenSearch {
   /**
    * @see {@link DescribeInboundConnectionsCommand}
    */
+  describeInboundConnections(): Promise<DescribeInboundConnectionsCommandOutput>;
   describeInboundConnections(
     args: DescribeInboundConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -794,6 +795,7 @@ export interface OpenSearch {
   /**
    * @see {@link DescribeOutboundConnectionsCommand}
    */
+  describeOutboundConnections(): Promise<DescribeOutboundConnectionsCommandOutput>;
   describeOutboundConnections(
     args: DescribeOutboundConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -811,6 +813,7 @@ export interface OpenSearch {
   /**
    * @see {@link DescribePackagesCommand}
    */
+  describePackages(): Promise<DescribePackagesCommandOutput>;
   describePackages(
     args: DescribePackagesCommandInput,
     options?: __HttpHandlerOptions
@@ -828,6 +831,7 @@ export interface OpenSearch {
   /**
    * @see {@link DescribeReservedInstanceOfferingsCommand}
    */
+  describeReservedInstanceOfferings(): Promise<DescribeReservedInstanceOfferingsCommandOutput>;
   describeReservedInstanceOfferings(
     args: DescribeReservedInstanceOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -845,6 +849,7 @@ export interface OpenSearch {
   /**
    * @see {@link DescribeReservedInstancesCommand}
    */
+  describeReservedInstances(): Promise<DescribeReservedInstancesCommandOutput>;
   describeReservedInstances(
     args: DescribeReservedInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -896,6 +901,7 @@ export interface OpenSearch {
   /**
    * @see {@link GetCompatibleVersionsCommand}
    */
+  getCompatibleVersions(): Promise<GetCompatibleVersionsCommandOutput>;
   getCompatibleVersions(
     args: GetCompatibleVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1023,6 +1029,7 @@ export interface OpenSearch {
   /**
    * @see {@link ListDomainNamesCommand}
    */
+  listDomainNames(): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
     options?: __HttpHandlerOptions
@@ -1116,6 +1123,7 @@ export interface OpenSearch {
   /**
    * @see {@link ListVersionsCommand}
    */
+  listVersions(): Promise<ListVersionsCommandOutput>;
   listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
   listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
   listVersions(
@@ -1144,6 +1152,7 @@ export interface OpenSearch {
   /**
    * @see {@link ListVpcEndpointsCommand}
    */
+  listVpcEndpoints(): Promise<ListVpcEndpointsCommandOutput>;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
     options?: __HttpHandlerOptions

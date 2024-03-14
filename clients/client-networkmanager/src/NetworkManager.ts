@@ -639,6 +639,7 @@ export interface NetworkManager {
   /**
    * @see {@link CreateGlobalNetworkCommand}
    */
+  createGlobalNetwork(): Promise<CreateGlobalNetworkCommandOutput>;
   createGlobalNetwork(
     args: CreateGlobalNetworkCommandInput,
     options?: __HttpHandlerOptions
@@ -926,6 +927,7 @@ export interface NetworkManager {
   /**
    * @see {@link DescribeGlobalNetworksCommand}
    */
+  describeGlobalNetworks(): Promise<DescribeGlobalNetworksCommandOutput>;
   describeGlobalNetworks(
     args: DescribeGlobalNetworksCommandInput,
     options?: __HttpHandlerOptions
@@ -1443,6 +1445,7 @@ export interface NetworkManager {
   /**
    * @see {@link ListAttachmentsCommand}
    */
+  listAttachments(): Promise<ListAttachmentsCommandOutput>;
   listAttachments(
     args: ListAttachmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1457,6 +1460,7 @@ export interface NetworkManager {
   /**
    * @see {@link ListConnectPeersCommand}
    */
+  listConnectPeers(): Promise<ListConnectPeersCommandOutput>;
   listConnectPeers(
     args: ListConnectPeersCommandInput,
     options?: __HttpHandlerOptions
@@ -1491,6 +1495,7 @@ export interface NetworkManager {
   /**
    * @see {@link ListCoreNetworksCommand}
    */
+  listCoreNetworks(): Promise<ListCoreNetworksCommandOutput>;
   listCoreNetworks(
     args: ListCoreNetworksCommandInput,
     options?: __HttpHandlerOptions
@@ -1508,6 +1513,7 @@ export interface NetworkManager {
   /**
    * @see {@link ListOrganizationServiceAccessStatusCommand}
    */
+  listOrganizationServiceAccessStatus(): Promise<ListOrganizationServiceAccessStatusCommandOutput>;
   listOrganizationServiceAccessStatus(
     args: ListOrganizationServiceAccessStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -1525,6 +1531,7 @@ export interface NetworkManager {
   /**
    * @see {@link ListPeeringsCommand}
    */
+  listPeerings(): Promise<ListPeeringsCommandOutput>;
   listPeerings(args: ListPeeringsCommandInput, options?: __HttpHandlerOptions): Promise<ListPeeringsCommandOutput>;
   listPeerings(args: ListPeeringsCommandInput, cb: (err: any, data?: ListPeeringsCommandOutput) => void): void;
   listPeerings(

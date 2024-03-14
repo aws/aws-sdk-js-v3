@@ -606,6 +606,7 @@ export interface AuditManager {
   /**
    * @see {@link DeregisterAccountCommand}
    */
+  deregisterAccount(): Promise<DeregisterAccountCommandOutput>;
   deregisterAccount(
     args: DeregisterAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -623,6 +624,7 @@ export interface AuditManager {
   /**
    * @see {@link DeregisterOrganizationAdminAccountCommand}
    */
+  deregisterOrganizationAdminAccount(): Promise<DeregisterOrganizationAdminAccountCommandOutput>;
   deregisterOrganizationAdminAccount(
     args: DeregisterOrganizationAdminAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -657,6 +659,7 @@ export interface AuditManager {
   /**
    * @see {@link GetAccountStatusCommand}
    */
+  getAccountStatus(): Promise<GetAccountStatusCommandOutput>;
   getAccountStatus(
     args: GetAccountStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -741,6 +744,7 @@ export interface AuditManager {
   /**
    * @see {@link GetDelegationsCommand}
    */
+  getDelegations(): Promise<GetDelegationsCommandOutput>;
   getDelegations(
     args: GetDelegationsCommandInput,
     options?: __HttpHandlerOptions
@@ -851,6 +855,7 @@ export interface AuditManager {
   /**
    * @see {@link GetInsightsCommand}
    */
+  getInsights(): Promise<GetInsightsCommandOutput>;
   getInsights(args: GetInsightsCommandInput, options?: __HttpHandlerOptions): Promise<GetInsightsCommandOutput>;
   getInsights(args: GetInsightsCommandInput, cb: (err: any, data?: GetInsightsCommandOutput) => void): void;
   getInsights(
@@ -879,6 +884,7 @@ export interface AuditManager {
   /**
    * @see {@link GetOrganizationAdminAccountCommand}
    */
+  getOrganizationAdminAccount(): Promise<GetOrganizationAdminAccountCommandOutput>;
   getOrganizationAdminAccount(
     args: GetOrganizationAdminAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -896,6 +902,7 @@ export interface AuditManager {
   /**
    * @see {@link GetServicesInScopeCommand}
    */
+  getServicesInScope(): Promise<GetServicesInScopeCommandOutput>;
   getServicesInScope(
     args: GetServicesInScopeCommandInput,
     options?: __HttpHandlerOptions
@@ -975,6 +982,7 @@ export interface AuditManager {
   /**
    * @see {@link ListAssessmentReportsCommand}
    */
+  listAssessmentReports(): Promise<ListAssessmentReportsCommandOutput>;
   listAssessmentReports(
     args: ListAssessmentReportsCommandInput,
     options?: __HttpHandlerOptions
@@ -992,6 +1000,7 @@ export interface AuditManager {
   /**
    * @see {@link ListAssessmentsCommand}
    */
+  listAssessments(): Promise<ListAssessmentsCommandOutput>;
   listAssessments(
     args: ListAssessmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1006,6 +1015,7 @@ export interface AuditManager {
   /**
    * @see {@link ListControlDomainInsightsCommand}
    */
+  listControlDomainInsights(): Promise<ListControlDomainInsightsCommandOutput>;
   listControlDomainInsights(
     args: ListControlDomainInsightsCommandInput,
     options?: __HttpHandlerOptions
@@ -1085,6 +1095,7 @@ export interface AuditManager {
   /**
    * @see {@link ListNotificationsCommand}
    */
+  listNotifications(): Promise<ListNotificationsCommandOutput>;
   listNotifications(
     args: ListNotificationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1119,6 +1130,7 @@ export interface AuditManager {
   /**
    * @see {@link RegisterAccountCommand}
    */
+  registerAccount(): Promise<RegisterAccountCommandOutput>;
   registerAccount(
     args: RegisterAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -1302,6 +1314,7 @@ export interface AuditManager {
   /**
    * @see {@link UpdateSettingsCommand}
    */
+  updateSettings(): Promise<UpdateSettingsCommandOutput>;
   updateSettings(
     args: UpdateSettingsCommandInput,
     options?: __HttpHandlerOptions

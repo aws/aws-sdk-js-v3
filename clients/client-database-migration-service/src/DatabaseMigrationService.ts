@@ -681,6 +681,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link BatchStartRecommendationsCommand}
    */
+  batchStartRecommendations(): Promise<BatchStartRecommendationsCommandOutput>;
   batchStartRecommendations(
     args: BatchStartRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -780,6 +781,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link CreateInstanceProfileCommand}
    */
+  createInstanceProfile(): Promise<CreateInstanceProfileCommandOutput>;
   createInstanceProfile(
     args: CreateInstanceProfileCommandInput,
     options?: __HttpHandlerOptions
@@ -1117,6 +1119,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeAccountAttributesCommand}
    */
+  describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -1134,6 +1137,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeApplicableIndividualAssessmentsCommand}
    */
+  describeApplicableIndividualAssessments(): Promise<DescribeApplicableIndividualAssessmentsCommandOutput>;
   describeApplicableIndividualAssessments(
     args: DescribeApplicableIndividualAssessmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1151,6 +1155,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeCertificatesCommand}
    */
+  describeCertificates(): Promise<DescribeCertificatesCommandOutput>;
   describeCertificates(
     args: DescribeCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1168,6 +1173,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeConnectionsCommand}
    */
+  describeConnections(): Promise<DescribeConnectionsCommandOutput>;
   describeConnections(
     args: DescribeConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1202,6 +1208,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeDataProvidersCommand}
    */
+  describeDataProviders(): Promise<DescribeDataProvidersCommandOutput>;
   describeDataProviders(
     args: DescribeDataProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -1219,6 +1226,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeEndpointsCommand}
    */
+  describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -1253,6 +1261,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeEndpointTypesCommand}
    */
+  describeEndpointTypes(): Promise<DescribeEndpointTypesCommandOutput>;
   describeEndpointTypes(
     args: DescribeEndpointTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -1270,6 +1279,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeEngineVersionsCommand}
    */
+  describeEngineVersions(): Promise<DescribeEngineVersionsCommandOutput>;
   describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1287,6 +1297,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeEventCategoriesCommand}
    */
+  describeEventCategories(): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1304,6 +1315,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -1318,6 +1330,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeEventSubscriptionsCommand}
    */
+  describeEventSubscriptions(): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1352,6 +1365,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeFleetAdvisorCollectorsCommand}
    */
+  describeFleetAdvisorCollectors(): Promise<DescribeFleetAdvisorCollectorsCommandOutput>;
   describeFleetAdvisorCollectors(
     args: DescribeFleetAdvisorCollectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -1369,6 +1383,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeFleetAdvisorDatabasesCommand}
    */
+  describeFleetAdvisorDatabases(): Promise<DescribeFleetAdvisorDatabasesCommandOutput>;
   describeFleetAdvisorDatabases(
     args: DescribeFleetAdvisorDatabasesCommandInput,
     options?: __HttpHandlerOptions
@@ -1386,6 +1401,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeFleetAdvisorLsaAnalysisCommand}
    */
+  describeFleetAdvisorLsaAnalysis(): Promise<DescribeFleetAdvisorLsaAnalysisCommandOutput>;
   describeFleetAdvisorLsaAnalysis(
     args: DescribeFleetAdvisorLsaAnalysisCommandInput,
     options?: __HttpHandlerOptions
@@ -1403,6 +1419,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeFleetAdvisorSchemaObjectSummaryCommand}
    */
+  describeFleetAdvisorSchemaObjectSummary(): Promise<DescribeFleetAdvisorSchemaObjectSummaryCommandOutput>;
   describeFleetAdvisorSchemaObjectSummary(
     args: DescribeFleetAdvisorSchemaObjectSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -1420,6 +1437,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeFleetAdvisorSchemasCommand}
    */
+  describeFleetAdvisorSchemas(): Promise<DescribeFleetAdvisorSchemasCommandOutput>;
   describeFleetAdvisorSchemas(
     args: DescribeFleetAdvisorSchemasCommandInput,
     options?: __HttpHandlerOptions
@@ -1437,6 +1455,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeInstanceProfilesCommand}
    */
+  describeInstanceProfiles(): Promise<DescribeInstanceProfilesCommandOutput>;
   describeInstanceProfiles(
     args: DescribeInstanceProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1539,6 +1558,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeMigrationProjectsCommand}
    */
+  describeMigrationProjects(): Promise<DescribeMigrationProjectsCommandOutput>;
   describeMigrationProjects(
     args: DescribeMigrationProjectsCommandInput,
     options?: __HttpHandlerOptions
@@ -1556,6 +1576,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeOrderableReplicationInstancesCommand}
    */
+  describeOrderableReplicationInstances(): Promise<DescribeOrderableReplicationInstancesCommandOutput>;
   describeOrderableReplicationInstances(
     args: DescribeOrderableReplicationInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -1573,6 +1594,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribePendingMaintenanceActionsCommand}
    */
+  describePendingMaintenanceActions(): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1590,6 +1612,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeRecommendationLimitationsCommand}
    */
+  describeRecommendationLimitations(): Promise<DescribeRecommendationLimitationsCommandOutput>;
   describeRecommendationLimitations(
     args: DescribeRecommendationLimitationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1607,6 +1630,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeRecommendationsCommand}
    */
+  describeRecommendations(): Promise<DescribeRecommendationsCommandOutput>;
   describeRecommendations(
     args: DescribeRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1641,6 +1665,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeReplicationConfigsCommand}
    */
+  describeReplicationConfigs(): Promise<DescribeReplicationConfigsCommandOutput>;
   describeReplicationConfigs(
     args: DescribeReplicationConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -1658,6 +1683,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeReplicationInstancesCommand}
    */
+  describeReplicationInstances(): Promise<DescribeReplicationInstancesCommandOutput>;
   describeReplicationInstances(
     args: DescribeReplicationInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -1692,6 +1718,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeReplicationsCommand}
    */
+  describeReplications(): Promise<DescribeReplicationsCommandOutput>;
   describeReplications(
     args: DescribeReplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1709,6 +1736,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeReplicationSubnetGroupsCommand}
    */
+  describeReplicationSubnetGroups(): Promise<DescribeReplicationSubnetGroupsCommandOutput>;
   describeReplicationSubnetGroups(
     args: DescribeReplicationSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1743,6 +1771,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeReplicationTaskAssessmentResultsCommand}
    */
+  describeReplicationTaskAssessmentResults(): Promise<DescribeReplicationTaskAssessmentResultsCommandOutput>;
   describeReplicationTaskAssessmentResults(
     args: DescribeReplicationTaskAssessmentResultsCommandInput,
     options?: __HttpHandlerOptions
@@ -1760,6 +1789,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeReplicationTaskAssessmentRunsCommand}
    */
+  describeReplicationTaskAssessmentRuns(): Promise<DescribeReplicationTaskAssessmentRunsCommandOutput>;
   describeReplicationTaskAssessmentRuns(
     args: DescribeReplicationTaskAssessmentRunsCommandInput,
     options?: __HttpHandlerOptions
@@ -1777,6 +1807,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeReplicationTaskIndividualAssessmentsCommand}
    */
+  describeReplicationTaskIndividualAssessments(): Promise<DescribeReplicationTaskIndividualAssessmentsCommandOutput>;
   describeReplicationTaskIndividualAssessments(
     args: DescribeReplicationTaskIndividualAssessmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1794,6 +1825,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link DescribeReplicationTasksCommand}
    */
+  describeReplicationTasks(): Promise<DescribeReplicationTasksCommandOutput>;
   describeReplicationTasks(
     args: DescribeReplicationTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -1876,6 +1908,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link ListTagsForResourceCommand}
    */
+  listTagsForResource(): Promise<ListTagsForResourceCommandOutput>;
   listTagsForResource(
     args: ListTagsForResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -2153,6 +2186,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link RunFleetAdvisorLsaAnalysisCommand}
    */
+  runFleetAdvisorLsaAnalysis(): Promise<RunFleetAdvisorLsaAnalysisCommandOutput>;
   runFleetAdvisorLsaAnalysis(
     args: RunFleetAdvisorLsaAnalysisCommandInput,
     options?: __HttpHandlerOptions
@@ -2402,6 +2436,7 @@ export interface DatabaseMigrationService {
   /**
    * @see {@link UpdateSubscriptionsToEventBridgeCommand}
    */
+  updateSubscriptionsToEventBridge(): Promise<UpdateSubscriptionsToEventBridgeCommandOutput>;
   updateSubscriptionsToEventBridge(
     args: UpdateSubscriptionsToEventBridgeCommandInput,
     options?: __HttpHandlerOptions

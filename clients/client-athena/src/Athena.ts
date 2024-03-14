@@ -971,6 +971,7 @@ export interface Athena {
   /**
    * @see {@link ListApplicationDPUSizesCommand}
    */
+  listApplicationDPUSizes(): Promise<ListApplicationDPUSizesCommandOutput>;
   listApplicationDPUSizes(
     args: ListApplicationDPUSizesCommandInput,
     options?: __HttpHandlerOptions
@@ -1005,6 +1006,7 @@ export interface Athena {
   /**
    * @see {@link ListCapacityReservationsCommand}
    */
+  listCapacityReservations(): Promise<ListCapacityReservationsCommandOutput>;
   listCapacityReservations(
     args: ListCapacityReservationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1033,6 +1035,7 @@ export interface Athena {
   /**
    * @see {@link ListDataCatalogsCommand}
    */
+  listDataCatalogs(): Promise<ListDataCatalogsCommandOutput>;
   listDataCatalogs(
     args: ListDataCatalogsCommandInput,
     options?: __HttpHandlerOptions
@@ -1050,6 +1053,7 @@ export interface Athena {
   /**
    * @see {@link ListEngineVersionsCommand}
    */
+  listEngineVersions(): Promise<ListEngineVersionsCommandOutput>;
   listEngineVersions(
     args: ListEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1078,6 +1082,7 @@ export interface Athena {
   /**
    * @see {@link ListNamedQueriesCommand}
    */
+  listNamedQueries(): Promise<ListNamedQueriesCommandOutput>;
   listNamedQueries(
     args: ListNamedQueriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1146,6 +1151,7 @@ export interface Athena {
   /**
    * @see {@link ListQueryExecutionsCommand}
    */
+  listQueryExecutions(): Promise<ListQueryExecutionsCommandOutput>;
   listQueryExecutions(
     args: ListQueryExecutionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1208,6 +1214,7 @@ export interface Athena {
   /**
    * @see {@link ListWorkGroupsCommand}
    */
+  listWorkGroups(): Promise<ListWorkGroupsCommandOutput>;
   listWorkGroups(
     args: ListWorkGroupsCommandInput,
     options?: __HttpHandlerOptions

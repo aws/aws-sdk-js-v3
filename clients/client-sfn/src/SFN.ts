@@ -458,6 +458,7 @@ export interface SFN {
   /**
    * @see {@link ListActivitiesCommand}
    */
+  listActivities(): Promise<ListActivitiesCommandOutput>;
   listActivities(
     args: ListActivitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -472,6 +473,7 @@ export interface SFN {
   /**
    * @see {@link ListExecutionsCommand}
    */
+  listExecutions(): Promise<ListExecutionsCommandOutput>;
   listExecutions(
     args: ListExecutionsCommandInput,
     options?: __HttpHandlerOptions
@@ -514,6 +516,7 @@ export interface SFN {
   /**
    * @see {@link ListStateMachinesCommand}
    */
+  listStateMachines(): Promise<ListStateMachinesCommandOutput>;
   listStateMachines(
     args: ListStateMachinesCommandInput,
     options?: __HttpHandlerOptions

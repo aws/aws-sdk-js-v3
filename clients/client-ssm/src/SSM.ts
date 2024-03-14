@@ -1056,6 +1056,7 @@ export interface SSM {
   /**
    * @see {@link DeleteAssociationCommand}
    */
+  deleteAssociation(): Promise<DeleteAssociationCommandOutput>;
   deleteAssociation(
     args: DeleteAssociationCommandInput,
     options?: __HttpHandlerOptions
@@ -1296,6 +1297,7 @@ export interface SSM {
   /**
    * @see {@link DescribeActivationsCommand}
    */
+  describeActivations(): Promise<DescribeActivationsCommandOutput>;
   describeActivations(
     args: DescribeActivationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1313,6 +1315,7 @@ export interface SSM {
   /**
    * @see {@link DescribeAssociationCommand}
    */
+  describeAssociation(): Promise<DescribeAssociationCommandOutput>;
   describeAssociation(
     args: DescribeAssociationCommandInput,
     options?: __HttpHandlerOptions
@@ -1364,6 +1367,7 @@ export interface SSM {
   /**
    * @see {@link DescribeAutomationExecutionsCommand}
    */
+  describeAutomationExecutions(): Promise<DescribeAutomationExecutionsCommandOutput>;
   describeAutomationExecutions(
     args: DescribeAutomationExecutionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1398,6 +1402,7 @@ export interface SSM {
   /**
    * @see {@link DescribeAvailablePatchesCommand}
    */
+  describeAvailablePatches(): Promise<DescribeAvailablePatchesCommandOutput>;
   describeAvailablePatches(
     args: DescribeAvailablePatchesCommandInput,
     options?: __HttpHandlerOptions
@@ -1500,6 +1505,7 @@ export interface SSM {
   /**
    * @see {@link DescribeInstanceInformationCommand}
    */
+  describeInstanceInformation(): Promise<DescribeInstanceInformationCommandOutput>;
   describeInstanceInformation(
     args: DescribeInstanceInformationCommandInput,
     options?: __HttpHandlerOptions
@@ -1568,6 +1574,7 @@ export interface SSM {
   /**
    * @see {@link DescribeInventoryDeletionsCommand}
    */
+  describeInventoryDeletions(): Promise<DescribeInventoryDeletionsCommandOutput>;
   describeInventoryDeletions(
     args: DescribeInventoryDeletionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1636,6 +1643,7 @@ export interface SSM {
   /**
    * @see {@link DescribeMaintenanceWindowsCommand}
    */
+  describeMaintenanceWindows(): Promise<DescribeMaintenanceWindowsCommandOutput>;
   describeMaintenanceWindows(
     args: DescribeMaintenanceWindowsCommandInput,
     options?: __HttpHandlerOptions
@@ -1653,6 +1661,7 @@ export interface SSM {
   /**
    * @see {@link DescribeMaintenanceWindowScheduleCommand}
    */
+  describeMaintenanceWindowSchedule(): Promise<DescribeMaintenanceWindowScheduleCommandOutput>;
   describeMaintenanceWindowSchedule(
     args: DescribeMaintenanceWindowScheduleCommandInput,
     options?: __HttpHandlerOptions
@@ -1721,6 +1730,7 @@ export interface SSM {
   /**
    * @see {@link DescribeOpsItemsCommand}
    */
+  describeOpsItems(): Promise<DescribeOpsItemsCommandOutput>;
   describeOpsItems(
     args: DescribeOpsItemsCommandInput,
     options?: __HttpHandlerOptions
@@ -1738,6 +1748,7 @@ export interface SSM {
   /**
    * @see {@link DescribeParametersCommand}
    */
+  describeParameters(): Promise<DescribeParametersCommandOutput>;
   describeParameters(
     args: DescribeParametersCommandInput,
     options?: __HttpHandlerOptions
@@ -1755,6 +1766,7 @@ export interface SSM {
   /**
    * @see {@link DescribePatchBaselinesCommand}
    */
+  describePatchBaselines(): Promise<DescribePatchBaselinesCommandOutput>;
   describePatchBaselines(
     args: DescribePatchBaselinesCommandInput,
     options?: __HttpHandlerOptions
@@ -1772,6 +1784,7 @@ export interface SSM {
   /**
    * @see {@link DescribePatchGroupsCommand}
    */
+  describePatchGroups(): Promise<DescribePatchGroupsCommandOutput>;
   describePatchGroups(
     args: DescribePatchGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1925,6 +1938,7 @@ export interface SSM {
   /**
    * @see {@link GetDefaultPatchBaselineCommand}
    */
+  getDefaultPatchBaseline(): Promise<GetDefaultPatchBaselineCommandOutput>;
   getDefaultPatchBaseline(
     args: GetDefaultPatchBaselineCommandInput,
     options?: __HttpHandlerOptions
@@ -1970,6 +1984,7 @@ export interface SSM {
   /**
    * @see {@link GetInventoryCommand}
    */
+  getInventory(): Promise<GetInventoryCommandOutput>;
   getInventory(args: GetInventoryCommandInput, options?: __HttpHandlerOptions): Promise<GetInventoryCommandOutput>;
   getInventory(args: GetInventoryCommandInput, cb: (err: any, data?: GetInventoryCommandOutput) => void): void;
   getInventory(
@@ -1981,6 +1996,7 @@ export interface SSM {
   /**
    * @see {@link GetInventorySchemaCommand}
    */
+  getInventorySchema(): Promise<GetInventorySchemaCommandOutput>;
   getInventorySchema(
     args: GetInventorySchemaCommandInput,
     options?: __HttpHandlerOptions
@@ -2108,6 +2124,7 @@ export interface SSM {
   /**
    * @see {@link GetOpsSummaryCommand}
    */
+  getOpsSummary(): Promise<GetOpsSummaryCommandOutput>;
   getOpsSummary(args: GetOpsSummaryCommandInput, options?: __HttpHandlerOptions): Promise<GetOpsSummaryCommandOutput>;
   getOpsSummary(args: GetOpsSummaryCommandInput, cb: (err: any, data?: GetOpsSummaryCommandOutput) => void): void;
   getOpsSummary(
@@ -2260,6 +2277,7 @@ export interface SSM {
   /**
    * @see {@link ListAssociationsCommand}
    */
+  listAssociations(): Promise<ListAssociationsCommandOutput>;
   listAssociations(
     args: ListAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -2294,6 +2312,7 @@ export interface SSM {
   /**
    * @see {@link ListCommandInvocationsCommand}
    */
+  listCommandInvocations(): Promise<ListCommandInvocationsCommandOutput>;
   listCommandInvocations(
     args: ListCommandInvocationsCommandInput,
     options?: __HttpHandlerOptions
@@ -2311,6 +2330,7 @@ export interface SSM {
   /**
    * @see {@link ListCommandsCommand}
    */
+  listCommands(): Promise<ListCommandsCommandOutput>;
   listCommands(args: ListCommandsCommandInput, options?: __HttpHandlerOptions): Promise<ListCommandsCommandOutput>;
   listCommands(args: ListCommandsCommandInput, cb: (err: any, data?: ListCommandsCommandOutput) => void): void;
   listCommands(
@@ -2322,6 +2342,7 @@ export interface SSM {
   /**
    * @see {@link ListComplianceItemsCommand}
    */
+  listComplianceItems(): Promise<ListComplianceItemsCommandOutput>;
   listComplianceItems(
     args: ListComplianceItemsCommandInput,
     options?: __HttpHandlerOptions
@@ -2339,6 +2360,7 @@ export interface SSM {
   /**
    * @see {@link ListComplianceSummariesCommand}
    */
+  listComplianceSummaries(): Promise<ListComplianceSummariesCommandOutput>;
   listComplianceSummaries(
     args: ListComplianceSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -2373,6 +2395,7 @@ export interface SSM {
   /**
    * @see {@link ListDocumentsCommand}
    */
+  listDocuments(): Promise<ListDocumentsCommandOutput>;
   listDocuments(args: ListDocumentsCommandInput, options?: __HttpHandlerOptions): Promise<ListDocumentsCommandOutput>;
   listDocuments(args: ListDocumentsCommandInput, cb: (err: any, data?: ListDocumentsCommandOutput) => void): void;
   listDocuments(
@@ -2418,6 +2441,7 @@ export interface SSM {
   /**
    * @see {@link ListOpsItemEventsCommand}
    */
+  listOpsItemEvents(): Promise<ListOpsItemEventsCommandOutput>;
   listOpsItemEvents(
     args: ListOpsItemEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -2435,6 +2459,7 @@ export interface SSM {
   /**
    * @see {@link ListOpsItemRelatedItemsCommand}
    */
+  listOpsItemRelatedItems(): Promise<ListOpsItemRelatedItemsCommandOutput>;
   listOpsItemRelatedItems(
     args: ListOpsItemRelatedItemsCommandInput,
     options?: __HttpHandlerOptions
@@ -2452,6 +2477,7 @@ export interface SSM {
   /**
    * @see {@link ListOpsMetadataCommand}
    */
+  listOpsMetadata(): Promise<ListOpsMetadataCommandOutput>;
   listOpsMetadata(
     args: ListOpsMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -2466,6 +2492,7 @@ export interface SSM {
   /**
    * @see {@link ListResourceComplianceSummariesCommand}
    */
+  listResourceComplianceSummaries(): Promise<ListResourceComplianceSummariesCommandOutput>;
   listResourceComplianceSummaries(
     args: ListResourceComplianceSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -2483,6 +2510,7 @@ export interface SSM {
   /**
    * @see {@link ListResourceDataSyncCommand}
    */
+  listResourceDataSync(): Promise<ListResourceDataSyncCommandOutput>;
   listResourceDataSync(
     args: ListResourceDataSyncCommandInput,
     options?: __HttpHandlerOptions

@@ -663,6 +663,7 @@ export interface MediaTailor {
   /**
    * @see {@link ListChannelsCommand}
    */
+  listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
   listChannels(
@@ -688,6 +689,7 @@ export interface MediaTailor {
   /**
    * @see {@link ListPlaybackConfigurationsCommand}
    */
+  listPlaybackConfigurations(): Promise<ListPlaybackConfigurationsCommandOutput>;
   listPlaybackConfigurations(
     args: ListPlaybackConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -722,6 +724,7 @@ export interface MediaTailor {
   /**
    * @see {@link ListSourceLocationsCommand}
    */
+  listSourceLocations(): Promise<ListSourceLocationsCommandOutput>;
   listSourceLocations(
     args: ListSourceLocationsCommandInput,
     options?: __HttpHandlerOptions

@@ -93,6 +93,7 @@ export interface JsonProtocol {
   /**
    * @see {@link DatetimeOffsetsCommand}
    */
+  datetimeOffsets(): Promise<DatetimeOffsetsCommandOutput>;
   datetimeOffsets(
     args: DatetimeOffsetsCommandInput,
     options?: __HttpHandlerOptions
@@ -107,6 +108,7 @@ export interface JsonProtocol {
   /**
    * @see {@link EmptyOperationCommand}
    */
+  emptyOperation(): Promise<EmptyOperationCommandOutput>;
   emptyOperation(
     args: EmptyOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -121,6 +123,7 @@ export interface JsonProtocol {
   /**
    * @see {@link EndpointOperationCommand}
    */
+  endpointOperation(): Promise<EndpointOperationCommandOutput>;
   endpointOperation(
     args: EndpointOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -155,6 +158,7 @@ export interface JsonProtocol {
   /**
    * @see {@link FractionalSecondsCommand}
    */
+  fractionalSeconds(): Promise<FractionalSecondsCommandOutput>;
   fractionalSeconds(
     args: FractionalSecondsCommandInput,
     options?: __HttpHandlerOptions
@@ -172,6 +176,7 @@ export interface JsonProtocol {
   /**
    * @see {@link GreetingWithErrorsCommand}
    */
+  greetingWithErrors(): Promise<GreetingWithErrorsCommandOutput>;
   greetingWithErrors(
     args: GreetingWithErrorsCommandInput,
     options?: __HttpHandlerOptions
@@ -189,6 +194,7 @@ export interface JsonProtocol {
   /**
    * @see {@link HostWithPathOperationCommand}
    */
+  hostWithPathOperation(): Promise<HostWithPathOperationCommandOutput>;
   hostWithPathOperation(
     args: HostWithPathOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -206,6 +212,7 @@ export interface JsonProtocol {
   /**
    * @see {@link JsonEnumsCommand}
    */
+  jsonEnums(): Promise<JsonEnumsCommandOutput>;
   jsonEnums(args: JsonEnumsCommandInput, options?: __HttpHandlerOptions): Promise<JsonEnumsCommandOutput>;
   jsonEnums(args: JsonEnumsCommandInput, cb: (err: any, data?: JsonEnumsCommandOutput) => void): void;
   jsonEnums(
@@ -217,6 +224,7 @@ export interface JsonProtocol {
   /**
    * @see {@link JsonUnionsCommand}
    */
+  jsonUnions(): Promise<JsonUnionsCommandOutput>;
   jsonUnions(args: JsonUnionsCommandInput, options?: __HttpHandlerOptions): Promise<JsonUnionsCommandOutput>;
   jsonUnions(args: JsonUnionsCommandInput, cb: (err: any, data?: JsonUnionsCommandOutput) => void): void;
   jsonUnions(
@@ -228,6 +236,7 @@ export interface JsonProtocol {
   /**
    * @see {@link KitchenSinkOperationCommand}
    */
+  kitchenSinkOperation(): Promise<KitchenSinkOperationCommandOutput>;
   kitchenSinkOperation(
     args: KitchenSinkOperationCommandInput,
     options?: __HttpHandlerOptions
@@ -245,6 +254,7 @@ export interface JsonProtocol {
   /**
    * @see {@link NullOperationCommand}
    */
+  nullOperation(): Promise<NullOperationCommandOutput>;
   nullOperation(args: NullOperationCommandInput, options?: __HttpHandlerOptions): Promise<NullOperationCommandOutput>;
   nullOperation(args: NullOperationCommandInput, cb: (err: any, data?: NullOperationCommandOutput) => void): void;
   nullOperation(
@@ -256,6 +266,7 @@ export interface JsonProtocol {
   /**
    * @see {@link OperationWithOptionalInputOutputCommand}
    */
+  operationWithOptionalInputOutput(): Promise<OperationWithOptionalInputOutputCommandOutput>;
   operationWithOptionalInputOutput(
     args: OperationWithOptionalInputOutputCommandInput,
     options?: __HttpHandlerOptions
@@ -273,6 +284,7 @@ export interface JsonProtocol {
   /**
    * @see {@link PutAndGetInlineDocumentsCommand}
    */
+  putAndGetInlineDocuments(): Promise<PutAndGetInlineDocumentsCommandOutput>;
   putAndGetInlineDocuments(
     args: PutAndGetInlineDocumentsCommandInput,
     options?: __HttpHandlerOptions
@@ -290,6 +302,7 @@ export interface JsonProtocol {
   /**
    * @see {@link PutWithContentEncodingCommand}
    */
+  putWithContentEncoding(): Promise<PutWithContentEncodingCommandOutput>;
   putWithContentEncoding(
     args: PutWithContentEncodingCommandInput,
     options?: __HttpHandlerOptions
@@ -307,6 +320,7 @@ export interface JsonProtocol {
   /**
    * @see {@link SimpleScalarPropertiesCommand}
    */
+  simpleScalarProperties(): Promise<SimpleScalarPropertiesCommandOutput>;
   simpleScalarProperties(
     args: SimpleScalarPropertiesCommandInput,
     options?: __HttpHandlerOptions

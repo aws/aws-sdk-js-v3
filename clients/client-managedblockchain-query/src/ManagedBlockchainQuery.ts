@@ -59,6 +59,7 @@ export interface ManagedBlockchainQuery {
   /**
    * @see {@link BatchGetTokenBalanceCommand}
    */
+  batchGetTokenBalance(): Promise<BatchGetTokenBalanceCommandOutput>;
   batchGetTokenBalance(
     args: BatchGetTokenBalanceCommandInput,
     options?: __HttpHandlerOptions

@@ -197,6 +197,7 @@ export interface IoT1ClickDevicesService {
   /**
    * @see {@link ListDevicesCommand}
    */
+  listDevices(): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   listDevices(

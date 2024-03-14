@@ -253,6 +253,7 @@ export interface MediaPackage {
   /**
    * @see {@link ListChannelsCommand}
    */
+  listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
   listChannels(
@@ -264,6 +265,7 @@ export interface MediaPackage {
   /**
    * @see {@link ListHarvestJobsCommand}
    */
+  listHarvestJobs(): Promise<ListHarvestJobsCommandOutput>;
   listHarvestJobs(
     args: ListHarvestJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -278,6 +280,7 @@ export interface MediaPackage {
   /**
    * @see {@link ListOriginEndpointsCommand}
    */
+  listOriginEndpoints(): Promise<ListOriginEndpointsCommandOutput>;
   listOriginEndpoints(
     args: ListOriginEndpointsCommandInput,
     options?: __HttpHandlerOptions

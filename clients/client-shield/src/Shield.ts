@@ -321,6 +321,7 @@ export interface Shield {
   /**
    * @see {@link CreateSubscriptionCommand}
    */
+  createSubscription(): Promise<CreateSubscriptionCommandOutput>;
   createSubscription(
     args: CreateSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -372,6 +373,7 @@ export interface Shield {
   /**
    * @see {@link DeleteSubscriptionCommand}
    */
+  deleteSubscription(): Promise<DeleteSubscriptionCommandOutput>;
   deleteSubscription(
     args: DeleteSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -403,6 +405,7 @@ export interface Shield {
   /**
    * @see {@link DescribeAttackStatisticsCommand}
    */
+  describeAttackStatistics(): Promise<DescribeAttackStatisticsCommandOutput>;
   describeAttackStatistics(
     args: DescribeAttackStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -420,6 +423,7 @@ export interface Shield {
   /**
    * @see {@link DescribeDRTAccessCommand}
    */
+  describeDRTAccess(): Promise<DescribeDRTAccessCommandOutput>;
   describeDRTAccess(
     args: DescribeDRTAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -437,6 +441,7 @@ export interface Shield {
   /**
    * @see {@link DescribeEmergencyContactSettingsCommand}
    */
+  describeEmergencyContactSettings(): Promise<DescribeEmergencyContactSettingsCommandOutput>;
   describeEmergencyContactSettings(
     args: DescribeEmergencyContactSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -454,6 +459,7 @@ export interface Shield {
   /**
    * @see {@link DescribeProtectionCommand}
    */
+  describeProtection(): Promise<DescribeProtectionCommandOutput>;
   describeProtection(
     args: DescribeProtectionCommandInput,
     options?: __HttpHandlerOptions
@@ -488,6 +494,7 @@ export interface Shield {
   /**
    * @see {@link DescribeSubscriptionCommand}
    */
+  describeSubscription(): Promise<DescribeSubscriptionCommandOutput>;
   describeSubscription(
     args: DescribeSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -522,6 +529,7 @@ export interface Shield {
   /**
    * @see {@link DisableProactiveEngagementCommand}
    */
+  disableProactiveEngagement(): Promise<DisableProactiveEngagementCommandOutput>;
   disableProactiveEngagement(
     args: DisableProactiveEngagementCommandInput,
     options?: __HttpHandlerOptions
@@ -556,6 +564,7 @@ export interface Shield {
   /**
    * @see {@link DisassociateDRTRoleCommand}
    */
+  disassociateDRTRole(): Promise<DisassociateDRTRoleCommandOutput>;
   disassociateDRTRole(
     args: DisassociateDRTRoleCommandInput,
     options?: __HttpHandlerOptions
@@ -607,6 +616,7 @@ export interface Shield {
   /**
    * @see {@link EnableProactiveEngagementCommand}
    */
+  enableProactiveEngagement(): Promise<EnableProactiveEngagementCommandOutput>;
   enableProactiveEngagement(
     args: EnableProactiveEngagementCommandInput,
     options?: __HttpHandlerOptions
@@ -624,6 +634,7 @@ export interface Shield {
   /**
    * @see {@link GetSubscriptionStateCommand}
    */
+  getSubscriptionState(): Promise<GetSubscriptionStateCommandOutput>;
   getSubscriptionState(
     args: GetSubscriptionStateCommandInput,
     options?: __HttpHandlerOptions
@@ -641,6 +652,7 @@ export interface Shield {
   /**
    * @see {@link ListAttacksCommand}
    */
+  listAttacks(): Promise<ListAttacksCommandOutput>;
   listAttacks(args: ListAttacksCommandInput, options?: __HttpHandlerOptions): Promise<ListAttacksCommandOutput>;
   listAttacks(args: ListAttacksCommandInput, cb: (err: any, data?: ListAttacksCommandOutput) => void): void;
   listAttacks(
@@ -652,6 +664,7 @@ export interface Shield {
   /**
    * @see {@link ListProtectionGroupsCommand}
    */
+  listProtectionGroups(): Promise<ListProtectionGroupsCommandOutput>;
   listProtectionGroups(
     args: ListProtectionGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -669,6 +682,7 @@ export interface Shield {
   /**
    * @see {@link ListProtectionsCommand}
    */
+  listProtections(): Promise<ListProtectionsCommandOutput>;
   listProtections(
     args: ListProtectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -756,6 +770,7 @@ export interface Shield {
   /**
    * @see {@link UpdateEmergencyContactSettingsCommand}
    */
+  updateEmergencyContactSettings(): Promise<UpdateEmergencyContactSettingsCommandOutput>;
   updateEmergencyContactSettings(
     args: UpdateEmergencyContactSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -790,6 +805,7 @@ export interface Shield {
   /**
    * @see {@link UpdateSubscriptionCommand}
    */
+  updateSubscription(): Promise<UpdateSubscriptionCommandOutput>;
   updateSubscription(
     args: UpdateSubscriptionCommandInput,
     options?: __HttpHandlerOptions

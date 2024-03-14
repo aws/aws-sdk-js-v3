@@ -756,6 +756,7 @@ export interface SES {
   /**
    * @see {@link DescribeActiveReceiptRuleSetCommand}
    */
+  describeActiveReceiptRuleSet(): Promise<DescribeActiveReceiptRuleSetCommandOutput>;
   describeActiveReceiptRuleSet(
     args: DescribeActiveReceiptRuleSetCommandInput,
     options?: __HttpHandlerOptions
@@ -824,6 +825,7 @@ export interface SES {
   /**
    * @see {@link GetAccountSendingEnabledCommand}
    */
+  getAccountSendingEnabled(): Promise<GetAccountSendingEnabledCommandOutput>;
   getAccountSendingEnabled(
     args: GetAccountSendingEnabledCommandInput,
     options?: __HttpHandlerOptions
@@ -943,6 +945,7 @@ export interface SES {
   /**
    * @see {@link GetSendQuotaCommand}
    */
+  getSendQuota(): Promise<GetSendQuotaCommandOutput>;
   getSendQuota(args: GetSendQuotaCommandInput, options?: __HttpHandlerOptions): Promise<GetSendQuotaCommandOutput>;
   getSendQuota(args: GetSendQuotaCommandInput, cb: (err: any, data?: GetSendQuotaCommandOutput) => void): void;
   getSendQuota(
@@ -954,6 +957,7 @@ export interface SES {
   /**
    * @see {@link GetSendStatisticsCommand}
    */
+  getSendStatistics(): Promise<GetSendStatisticsCommandOutput>;
   getSendStatistics(
     args: GetSendStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -982,6 +986,7 @@ export interface SES {
   /**
    * @see {@link ListConfigurationSetsCommand}
    */
+  listConfigurationSets(): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -999,6 +1004,7 @@ export interface SES {
   /**
    * @see {@link ListCustomVerificationEmailTemplatesCommand}
    */
+  listCustomVerificationEmailTemplates(): Promise<ListCustomVerificationEmailTemplatesCommandOutput>;
   listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1016,6 +1022,7 @@ export interface SES {
   /**
    * @see {@link ListIdentitiesCommand}
    */
+  listIdentities(): Promise<ListIdentitiesCommandOutput>;
   listIdentities(
     args: ListIdentitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -1047,6 +1054,7 @@ export interface SES {
   /**
    * @see {@link ListReceiptFiltersCommand}
    */
+  listReceiptFilters(): Promise<ListReceiptFiltersCommandOutput>;
   listReceiptFilters(
     args: ListReceiptFiltersCommandInput,
     options?: __HttpHandlerOptions
@@ -1064,6 +1072,7 @@ export interface SES {
   /**
    * @see {@link ListReceiptRuleSetsCommand}
    */
+  listReceiptRuleSets(): Promise<ListReceiptRuleSetsCommandOutput>;
   listReceiptRuleSets(
     args: ListReceiptRuleSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1081,6 +1090,7 @@ export interface SES {
   /**
    * @see {@link ListTemplatesCommand}
    */
+  listTemplates(): Promise<ListTemplatesCommandOutput>;
   listTemplates(args: ListTemplatesCommandInput, options?: __HttpHandlerOptions): Promise<ListTemplatesCommandOutput>;
   listTemplates(args: ListTemplatesCommandInput, cb: (err: any, data?: ListTemplatesCommandOutput) => void): void;
   listTemplates(
@@ -1092,6 +1102,7 @@ export interface SES {
   /**
    * @see {@link ListVerifiedEmailAddressesCommand}
    */
+  listVerifiedEmailAddresses(): Promise<ListVerifiedEmailAddressesCommandOutput>;
   listVerifiedEmailAddresses(
     args: ListVerifiedEmailAddressesCommandInput,
     options?: __HttpHandlerOptions
@@ -1244,6 +1255,7 @@ export interface SES {
   /**
    * @see {@link SetActiveReceiptRuleSetCommand}
    */
+  setActiveReceiptRuleSet(): Promise<SetActiveReceiptRuleSetCommandOutput>;
   setActiveReceiptRuleSet(
     args: SetActiveReceiptRuleSetCommandInput,
     options?: __HttpHandlerOptions
@@ -1380,6 +1392,7 @@ export interface SES {
   /**
    * @see {@link UpdateAccountSendingEnabledCommand}
    */
+  updateAccountSendingEnabled(): Promise<UpdateAccountSendingEnabledCommandOutput>;
   updateAccountSendingEnabled(
     args: UpdateAccountSendingEnabledCommandInput,
     options?: __HttpHandlerOptions

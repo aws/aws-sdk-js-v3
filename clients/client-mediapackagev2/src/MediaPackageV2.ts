@@ -347,6 +347,7 @@ export interface MediaPackageV2 {
   /**
    * @see {@link ListChannelGroupsCommand}
    */
+  listChannelGroups(): Promise<ListChannelGroupsCommandOutput>;
   listChannelGroups(
     args: ListChannelGroupsCommandInput,
     options?: __HttpHandlerOptions

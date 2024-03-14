@@ -405,6 +405,7 @@ export interface LookoutMetrics {
   /**
    * @see {@link GetSampleDataCommand}
    */
+  getSampleData(): Promise<GetSampleDataCommandOutput>;
   getSampleData(args: GetSampleDataCommandInput, options?: __HttpHandlerOptions): Promise<GetSampleDataCommandOutput>;
   getSampleData(args: GetSampleDataCommandInput, cb: (err: any, data?: GetSampleDataCommandOutput) => void): void;
   getSampleData(
@@ -416,6 +417,7 @@ export interface LookoutMetrics {
   /**
    * @see {@link ListAlertsCommand}
    */
+  listAlerts(): Promise<ListAlertsCommandOutput>;
   listAlerts(args: ListAlertsCommandInput, options?: __HttpHandlerOptions): Promise<ListAlertsCommandOutput>;
   listAlerts(args: ListAlertsCommandInput, cb: (err: any, data?: ListAlertsCommandOutput) => void): void;
   listAlerts(
@@ -427,6 +429,7 @@ export interface LookoutMetrics {
   /**
    * @see {@link ListAnomalyDetectorsCommand}
    */
+  listAnomalyDetectors(): Promise<ListAnomalyDetectorsCommandOutput>;
   listAnomalyDetectors(
     args: ListAnomalyDetectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -495,6 +498,7 @@ export interface LookoutMetrics {
   /**
    * @see {@link ListMetricSetsCommand}
    */
+  listMetricSets(): Promise<ListMetricSetsCommandOutput>;
   listMetricSets(
     args: ListMetricSetsCommandInput,
     options?: __HttpHandlerOptions

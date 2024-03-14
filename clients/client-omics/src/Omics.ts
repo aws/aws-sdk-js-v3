@@ -1135,6 +1135,7 @@ export interface Omics {
   /**
    * @see {@link ListAnnotationImportJobsCommand}
    */
+  listAnnotationImportJobs(): Promise<ListAnnotationImportJobsCommandOutput>;
   listAnnotationImportJobs(
     args: ListAnnotationImportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1152,6 +1153,7 @@ export interface Omics {
   /**
    * @see {@link ListAnnotationStoresCommand}
    */
+  listAnnotationStores(): Promise<ListAnnotationStoresCommandOutput>;
   listAnnotationStores(
     args: ListAnnotationStoresCommandInput,
     options?: __HttpHandlerOptions
@@ -1313,6 +1315,7 @@ export interface Omics {
   /**
    * @see {@link ListReferenceStoresCommand}
    */
+  listReferenceStores(): Promise<ListReferenceStoresCommandOutput>;
   listReferenceStores(
     args: ListReferenceStoresCommandInput,
     options?: __HttpHandlerOptions
@@ -1330,6 +1333,7 @@ export interface Omics {
   /**
    * @see {@link ListRunGroupsCommand}
    */
+  listRunGroups(): Promise<ListRunGroupsCommandOutput>;
   listRunGroups(args: ListRunGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunGroupsCommandOutput>;
   listRunGroups(args: ListRunGroupsCommandInput, cb: (err: any, data?: ListRunGroupsCommandOutput) => void): void;
   listRunGroups(
@@ -1341,6 +1345,7 @@ export interface Omics {
   /**
    * @see {@link ListRunsCommand}
    */
+  listRuns(): Promise<ListRunsCommandOutput>;
   listRuns(args: ListRunsCommandInput, options?: __HttpHandlerOptions): Promise<ListRunsCommandOutput>;
   listRuns(args: ListRunsCommandInput, cb: (err: any, data?: ListRunsCommandOutput) => void): void;
   listRuns(
@@ -1363,6 +1368,7 @@ export interface Omics {
   /**
    * @see {@link ListSequenceStoresCommand}
    */
+  listSequenceStores(): Promise<ListSequenceStoresCommandOutput>;
   listSequenceStores(
     args: ListSequenceStoresCommandInput,
     options?: __HttpHandlerOptions
@@ -1408,6 +1414,7 @@ export interface Omics {
   /**
    * @see {@link ListVariantImportJobsCommand}
    */
+  listVariantImportJobs(): Promise<ListVariantImportJobsCommandOutput>;
   listVariantImportJobs(
     args: ListVariantImportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1425,6 +1432,7 @@ export interface Omics {
   /**
    * @see {@link ListVariantStoresCommand}
    */
+  listVariantStores(): Promise<ListVariantStoresCommandOutput>;
   listVariantStores(
     args: ListVariantStoresCommandInput,
     options?: __HttpHandlerOptions
@@ -1442,6 +1450,7 @@ export interface Omics {
   /**
    * @see {@link ListWorkflowsCommand}
    */
+  listWorkflows(): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
   listWorkflows(

@@ -599,6 +599,7 @@ export interface BedrockAgent {
   /**
    * @see {@link ListAgentsCommand}
    */
+  listAgents(): Promise<ListAgentsCommandOutput>;
   listAgents(args: ListAgentsCommandInput, options?: __HttpHandlerOptions): Promise<ListAgentsCommandOutput>;
   listAgents(args: ListAgentsCommandInput, cb: (err: any, data?: ListAgentsCommandOutput) => void): void;
   listAgents(
@@ -658,6 +659,7 @@ export interface BedrockAgent {
   /**
    * @see {@link ListKnowledgeBasesCommand}
    */
+  listKnowledgeBases(): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
     options?: __HttpHandlerOptions

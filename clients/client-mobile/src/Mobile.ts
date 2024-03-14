@@ -61,6 +61,7 @@ export interface Mobile {
   /**
    * @see {@link CreateProjectCommand}
    */
+  createProject(): Promise<CreateProjectCommandOutput>;
   createProject(args: CreateProjectCommandInput, options?: __HttpHandlerOptions): Promise<CreateProjectCommandOutput>;
   createProject(args: CreateProjectCommandInput, cb: (err: any, data?: CreateProjectCommandOutput) => void): void;
   createProject(
@@ -133,6 +134,7 @@ export interface Mobile {
   /**
    * @see {@link ListBundlesCommand}
    */
+  listBundles(): Promise<ListBundlesCommandOutput>;
   listBundles(args: ListBundlesCommandInput, options?: __HttpHandlerOptions): Promise<ListBundlesCommandOutput>;
   listBundles(args: ListBundlesCommandInput, cb: (err: any, data?: ListBundlesCommandOutput) => void): void;
   listBundles(
@@ -144,6 +146,7 @@ export interface Mobile {
   /**
    * @see {@link ListProjectsCommand}
    */
+  listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   listProjects(

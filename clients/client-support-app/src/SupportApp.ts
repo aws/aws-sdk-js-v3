@@ -88,6 +88,7 @@ export interface SupportApp {
   /**
    * @see {@link DeleteAccountAliasCommand}
    */
+  deleteAccountAlias(): Promise<DeleteAccountAliasCommandOutput>;
   deleteAccountAlias(
     args: DeleteAccountAliasCommandInput,
     options?: __HttpHandlerOptions
@@ -139,6 +140,7 @@ export interface SupportApp {
   /**
    * @see {@link GetAccountAliasCommand}
    */
+  getAccountAlias(): Promise<GetAccountAliasCommandOutput>;
   getAccountAlias(
     args: GetAccountAliasCommandInput,
     options?: __HttpHandlerOptions
@@ -153,6 +155,7 @@ export interface SupportApp {
   /**
    * @see {@link ListSlackChannelConfigurationsCommand}
    */
+  listSlackChannelConfigurations(): Promise<ListSlackChannelConfigurationsCommandOutput>;
   listSlackChannelConfigurations(
     args: ListSlackChannelConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -170,6 +173,7 @@ export interface SupportApp {
   /**
    * @see {@link ListSlackWorkspaceConfigurationsCommand}
    */
+  listSlackWorkspaceConfigurations(): Promise<ListSlackWorkspaceConfigurationsCommandOutput>;
   listSlackWorkspaceConfigurations(
     args: ListSlackWorkspaceConfigurationsCommandInput,
     options?: __HttpHandlerOptions

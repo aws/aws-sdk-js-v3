@@ -337,6 +337,7 @@ export interface Drs {
   /**
    * @see {@link CreateLaunchConfigurationTemplateCommand}
    */
+  createLaunchConfigurationTemplate(): Promise<CreateLaunchConfigurationTemplateCommandOutput>;
   createLaunchConfigurationTemplate(
     args: CreateLaunchConfigurationTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -518,6 +519,7 @@ export interface Drs {
   /**
    * @see {@link DescribeJobsCommand}
    */
+  describeJobs(): Promise<DescribeJobsCommandOutput>;
   describeJobs(args: DescribeJobsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobsCommandOutput>;
   describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
   describeJobs(
@@ -529,6 +531,7 @@ export interface Drs {
   /**
    * @see {@link DescribeLaunchConfigurationTemplatesCommand}
    */
+  describeLaunchConfigurationTemplates(): Promise<DescribeLaunchConfigurationTemplatesCommandOutput>;
   describeLaunchConfigurationTemplates(
     args: DescribeLaunchConfigurationTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -546,6 +549,7 @@ export interface Drs {
   /**
    * @see {@link DescribeRecoveryInstancesCommand}
    */
+  describeRecoveryInstances(): Promise<DescribeRecoveryInstancesCommandOutput>;
   describeRecoveryInstances(
     args: DescribeRecoveryInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -580,6 +584,7 @@ export interface Drs {
   /**
    * @see {@link DescribeReplicationConfigurationTemplatesCommand}
    */
+  describeReplicationConfigurationTemplates(): Promise<DescribeReplicationConfigurationTemplatesCommandOutput>;
   describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -597,6 +602,7 @@ export interface Drs {
   /**
    * @see {@link DescribeSourceNetworksCommand}
    */
+  describeSourceNetworks(): Promise<DescribeSourceNetworksCommandOutput>;
   describeSourceNetworks(
     args: DescribeSourceNetworksCommandInput,
     options?: __HttpHandlerOptions
@@ -614,6 +620,7 @@ export interface Drs {
   /**
    * @see {@link DescribeSourceServersCommand}
    */
+  describeSourceServers(): Promise<DescribeSourceServersCommandOutput>;
   describeSourceServers(
     args: DescribeSourceServersCommandInput,
     options?: __HttpHandlerOptions
@@ -733,6 +740,7 @@ export interface Drs {
   /**
    * @see {@link InitializeServiceCommand}
    */
+  initializeService(): Promise<InitializeServiceCommandOutput>;
   initializeService(
     args: InitializeServiceCommandInput,
     options?: __HttpHandlerOptions
@@ -784,6 +792,7 @@ export interface Drs {
   /**
    * @see {@link ListStagingAccountsCommand}
    */
+  listStagingAccounts(): Promise<ListStagingAccountsCommandOutput>;
   listStagingAccounts(
     args: ListStagingAccountsCommandInput,
     options?: __HttpHandlerOptions

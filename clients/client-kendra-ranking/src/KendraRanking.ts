@@ -108,6 +108,7 @@ export interface KendraRanking {
   /**
    * @see {@link ListRescoreExecutionPlansCommand}
    */
+  listRescoreExecutionPlans(): Promise<ListRescoreExecutionPlansCommandOutput>;
   listRescoreExecutionPlans(
     args: ListRescoreExecutionPlansCommandInput,
     options?: __HttpHandlerOptions

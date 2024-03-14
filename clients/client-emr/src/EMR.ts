@@ -497,6 +497,7 @@ export interface EMR {
   /**
    * @see {@link DescribeJobFlowsCommand}
    */
+  describeJobFlows(): Promise<DescribeJobFlowsCommandOutput>;
   describeJobFlows(
     args: DescribeJobFlowsCommandInput,
     options?: __HttpHandlerOptions
@@ -531,6 +532,7 @@ export interface EMR {
   /**
    * @see {@link DescribeReleaseLabelCommand}
    */
+  describeReleaseLabel(): Promise<DescribeReleaseLabelCommandOutput>;
   describeReleaseLabel(
     args: DescribeReleaseLabelCommandInput,
     options?: __HttpHandlerOptions
@@ -607,6 +609,7 @@ export interface EMR {
   /**
    * @see {@link GetBlockPublicAccessConfigurationCommand}
    */
+  getBlockPublicAccessConfiguration(): Promise<GetBlockPublicAccessConfigurationCommandOutput>;
   getBlockPublicAccessConfiguration(
     args: GetBlockPublicAccessConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -692,6 +695,7 @@ export interface EMR {
   /**
    * @see {@link ListClustersCommand}
    */
+  listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   listClusters(
@@ -748,6 +752,7 @@ export interface EMR {
   /**
    * @see {@link ListNotebookExecutionsCommand}
    */
+  listNotebookExecutions(): Promise<ListNotebookExecutionsCommandOutput>;
   listNotebookExecutions(
     args: ListNotebookExecutionsCommandInput,
     options?: __HttpHandlerOptions
@@ -765,6 +770,7 @@ export interface EMR {
   /**
    * @see {@link ListReleaseLabelsCommand}
    */
+  listReleaseLabels(): Promise<ListReleaseLabelsCommandOutput>;
   listReleaseLabels(
     args: ListReleaseLabelsCommandInput,
     options?: __HttpHandlerOptions
@@ -782,6 +788,7 @@ export interface EMR {
   /**
    * @see {@link ListSecurityConfigurationsCommand}
    */
+  listSecurityConfigurations(): Promise<ListSecurityConfigurationsCommandOutput>;
   listSecurityConfigurations(
     args: ListSecurityConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -810,6 +817,7 @@ export interface EMR {
   /**
    * @see {@link ListStudiosCommand}
    */
+  listStudios(): Promise<ListStudiosCommandOutput>;
   listStudios(args: ListStudiosCommandInput, options?: __HttpHandlerOptions): Promise<ListStudiosCommandOutput>;
   listStudios(args: ListStudiosCommandInput, cb: (err: any, data?: ListStudiosCommandOutput) => void): void;
   listStudios(
@@ -821,6 +829,7 @@ export interface EMR {
   /**
    * @see {@link ListStudioSessionMappingsCommand}
    */
+  listStudioSessionMappings(): Promise<ListStudioSessionMappingsCommandOutput>;
   listStudioSessionMappings(
     args: ListStudioSessionMappingsCommandInput,
     options?: __HttpHandlerOptions
@@ -883,6 +892,7 @@ export interface EMR {
   /**
    * @see {@link ModifyInstanceGroupsCommand}
    */
+  modifyInstanceGroups(): Promise<ModifyInstanceGroupsCommandOutput>;
   modifyInstanceGroups(
     args: ModifyInstanceGroupsCommandInput,
     options?: __HttpHandlerOptions

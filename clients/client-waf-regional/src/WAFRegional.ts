@@ -907,6 +907,7 @@ export interface WAFRegional {
   /**
    * @see {@link GetChangeTokenCommand}
    */
+  getChangeToken(): Promise<GetChangeTokenCommandOutput>;
   getChangeToken(
     args: GetChangeTokenCommandInput,
     options?: __HttpHandlerOptions
@@ -1180,6 +1181,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListActivatedRulesInRuleGroupCommand}
    */
+  listActivatedRulesInRuleGroup(): Promise<ListActivatedRulesInRuleGroupCommandOutput>;
   listActivatedRulesInRuleGroup(
     args: ListActivatedRulesInRuleGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -1197,6 +1199,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListByteMatchSetsCommand}
    */
+  listByteMatchSets(): Promise<ListByteMatchSetsCommandOutput>;
   listByteMatchSets(
     args: ListByteMatchSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1214,6 +1217,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListGeoMatchSetsCommand}
    */
+  listGeoMatchSets(): Promise<ListGeoMatchSetsCommandOutput>;
   listGeoMatchSets(
     args: ListGeoMatchSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1231,6 +1235,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListIPSetsCommand}
    */
+  listIPSets(): Promise<ListIPSetsCommandOutput>;
   listIPSets(args: ListIPSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListIPSetsCommandOutput>;
   listIPSets(args: ListIPSetsCommandInput, cb: (err: any, data?: ListIPSetsCommandOutput) => void): void;
   listIPSets(
@@ -1242,6 +1247,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListLoggingConfigurationsCommand}
    */
+  listLoggingConfigurations(): Promise<ListLoggingConfigurationsCommandOutput>;
   listLoggingConfigurations(
     args: ListLoggingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1259,6 +1265,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListRateBasedRulesCommand}
    */
+  listRateBasedRules(): Promise<ListRateBasedRulesCommandOutput>;
   listRateBasedRules(
     args: ListRateBasedRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -1276,6 +1283,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListRegexMatchSetsCommand}
    */
+  listRegexMatchSets(): Promise<ListRegexMatchSetsCommandOutput>;
   listRegexMatchSets(
     args: ListRegexMatchSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1293,6 +1301,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListRegexPatternSetsCommand}
    */
+  listRegexPatternSets(): Promise<ListRegexPatternSetsCommandOutput>;
   listRegexPatternSets(
     args: ListRegexPatternSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1327,6 +1336,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListRuleGroupsCommand}
    */
+  listRuleGroups(): Promise<ListRuleGroupsCommandOutput>;
   listRuleGroups(
     args: ListRuleGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1341,6 +1351,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListRulesCommand}
    */
+  listRules(): Promise<ListRulesCommandOutput>;
   listRules(args: ListRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListRulesCommandOutput>;
   listRules(args: ListRulesCommandInput, cb: (err: any, data?: ListRulesCommandOutput) => void): void;
   listRules(
@@ -1352,6 +1363,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListSizeConstraintSetsCommand}
    */
+  listSizeConstraintSets(): Promise<ListSizeConstraintSetsCommandOutput>;
   listSizeConstraintSets(
     args: ListSizeConstraintSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1369,6 +1381,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListSqlInjectionMatchSetsCommand}
    */
+  listSqlInjectionMatchSets(): Promise<ListSqlInjectionMatchSetsCommandOutput>;
   listSqlInjectionMatchSets(
     args: ListSqlInjectionMatchSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1386,6 +1399,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListSubscribedRuleGroupsCommand}
    */
+  listSubscribedRuleGroups(): Promise<ListSubscribedRuleGroupsCommandOutput>;
   listSubscribedRuleGroups(
     args: ListSubscribedRuleGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1420,6 +1434,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListWebACLsCommand}
    */
+  listWebACLs(): Promise<ListWebACLsCommandOutput>;
   listWebACLs(args: ListWebACLsCommandInput, options?: __HttpHandlerOptions): Promise<ListWebACLsCommandOutput>;
   listWebACLs(args: ListWebACLsCommandInput, cb: (err: any, data?: ListWebACLsCommandOutput) => void): void;
   listWebACLs(
@@ -1431,6 +1446,7 @@ export interface WAFRegional {
   /**
    * @see {@link ListXssMatchSetsCommand}
    */
+  listXssMatchSets(): Promise<ListXssMatchSetsCommandOutput>;
   listXssMatchSets(
     args: ListXssMatchSetsCommandInput,
     options?: __HttpHandlerOptions

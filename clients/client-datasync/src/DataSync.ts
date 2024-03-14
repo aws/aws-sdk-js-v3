@@ -925,6 +925,7 @@ export interface DataSync {
   /**
    * @see {@link ListAgentsCommand}
    */
+  listAgents(): Promise<ListAgentsCommandOutput>;
   listAgents(args: ListAgentsCommandInput, options?: __HttpHandlerOptions): Promise<ListAgentsCommandOutput>;
   listAgents(args: ListAgentsCommandInput, cb: (err: any, data?: ListAgentsCommandOutput) => void): void;
   listAgents(
@@ -936,6 +937,7 @@ export interface DataSync {
   /**
    * @see {@link ListDiscoveryJobsCommand}
    */
+  listDiscoveryJobs(): Promise<ListDiscoveryJobsCommandOutput>;
   listDiscoveryJobs(
     args: ListDiscoveryJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -953,6 +955,7 @@ export interface DataSync {
   /**
    * @see {@link ListLocationsCommand}
    */
+  listLocations(): Promise<ListLocationsCommandOutput>;
   listLocations(args: ListLocationsCommandInput, options?: __HttpHandlerOptions): Promise<ListLocationsCommandOutput>;
   listLocations(args: ListLocationsCommandInput, cb: (err: any, data?: ListLocationsCommandOutput) => void): void;
   listLocations(
@@ -964,6 +967,7 @@ export interface DataSync {
   /**
    * @see {@link ListStorageSystemsCommand}
    */
+  listStorageSystems(): Promise<ListStorageSystemsCommandOutput>;
   listStorageSystems(
     args: ListStorageSystemsCommandInput,
     options?: __HttpHandlerOptions
@@ -998,6 +1002,7 @@ export interface DataSync {
   /**
    * @see {@link ListTaskExecutionsCommand}
    */
+  listTaskExecutions(): Promise<ListTaskExecutionsCommandOutput>;
   listTaskExecutions(
     args: ListTaskExecutionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1015,6 +1020,7 @@ export interface DataSync {
   /**
    * @see {@link ListTasksCommand}
    */
+  listTasks(): Promise<ListTasksCommandOutput>;
   listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
   listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
   listTasks(

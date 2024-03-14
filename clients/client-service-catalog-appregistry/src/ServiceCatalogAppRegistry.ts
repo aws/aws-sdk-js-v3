@@ -338,6 +338,7 @@ export interface ServiceCatalogAppRegistry {
   /**
    * @see {@link GetConfigurationCommand}
    */
+  getConfiguration(): Promise<GetConfigurationCommandOutput>;
   getConfiguration(
     args: GetConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -355,6 +356,7 @@ export interface ServiceCatalogAppRegistry {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -406,6 +408,7 @@ export interface ServiceCatalogAppRegistry {
   /**
    * @see {@link ListAttributeGroupsCommand}
    */
+  listAttributeGroups(): Promise<ListAttributeGroupsCommandOutput>;
   listAttributeGroups(
     args: ListAttributeGroupsCommandInput,
     options?: __HttpHandlerOptions

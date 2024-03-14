@@ -959,6 +959,7 @@ export interface Backup {
   /**
    * @see {@link DescribeGlobalSettingsCommand}
    */
+  describeGlobalSettings(): Promise<DescribeGlobalSettingsCommandOutput>;
   describeGlobalSettings(
     args: DescribeGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1010,6 +1011,7 @@ export interface Backup {
   /**
    * @see {@link DescribeRegionSettingsCommand}
    */
+  describeRegionSettings(): Promise<DescribeRegionSettingsCommandOutput>;
   describeRegionSettings(
     args: DescribeRegionSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1321,6 +1323,7 @@ export interface Backup {
   /**
    * @see {@link GetSupportedResourceTypesCommand}
    */
+  getSupportedResourceTypes(): Promise<GetSupportedResourceTypesCommandOutput>;
   getSupportedResourceTypes(
     args: GetSupportedResourceTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -1338,6 +1341,7 @@ export interface Backup {
   /**
    * @see {@link ListBackupJobsCommand}
    */
+  listBackupJobs(): Promise<ListBackupJobsCommandOutput>;
   listBackupJobs(
     args: ListBackupJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1352,6 +1356,7 @@ export interface Backup {
   /**
    * @see {@link ListBackupJobSummariesCommand}
    */
+  listBackupJobSummaries(): Promise<ListBackupJobSummariesCommandOutput>;
   listBackupJobSummaries(
     args: ListBackupJobSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -1369,6 +1374,7 @@ export interface Backup {
   /**
    * @see {@link ListBackupPlansCommand}
    */
+  listBackupPlans(): Promise<ListBackupPlansCommandOutput>;
   listBackupPlans(
     args: ListBackupPlansCommandInput,
     options?: __HttpHandlerOptions
@@ -1383,6 +1389,7 @@ export interface Backup {
   /**
    * @see {@link ListBackupPlanTemplatesCommand}
    */
+  listBackupPlanTemplates(): Promise<ListBackupPlanTemplatesCommandOutput>;
   listBackupPlanTemplates(
     args: ListBackupPlanTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1434,6 +1441,7 @@ export interface Backup {
   /**
    * @see {@link ListBackupVaultsCommand}
    */
+  listBackupVaults(): Promise<ListBackupVaultsCommandOutput>;
   listBackupVaults(
     args: ListBackupVaultsCommandInput,
     options?: __HttpHandlerOptions
@@ -1451,6 +1459,7 @@ export interface Backup {
   /**
    * @see {@link ListCopyJobsCommand}
    */
+  listCopyJobs(): Promise<ListCopyJobsCommandOutput>;
   listCopyJobs(args: ListCopyJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListCopyJobsCommandOutput>;
   listCopyJobs(args: ListCopyJobsCommandInput, cb: (err: any, data?: ListCopyJobsCommandOutput) => void): void;
   listCopyJobs(
@@ -1462,6 +1471,7 @@ export interface Backup {
   /**
    * @see {@link ListCopyJobSummariesCommand}
    */
+  listCopyJobSummaries(): Promise<ListCopyJobSummariesCommandOutput>;
   listCopyJobSummaries(
     args: ListCopyJobSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -1479,6 +1489,7 @@ export interface Backup {
   /**
    * @see {@link ListFrameworksCommand}
    */
+  listFrameworks(): Promise<ListFrameworksCommandOutput>;
   listFrameworks(
     args: ListFrameworksCommandInput,
     options?: __HttpHandlerOptions
@@ -1493,6 +1504,7 @@ export interface Backup {
   /**
    * @see {@link ListLegalHoldsCommand}
    */
+  listLegalHolds(): Promise<ListLegalHoldsCommandOutput>;
   listLegalHolds(
     args: ListLegalHoldsCommandInput,
     options?: __HttpHandlerOptions
@@ -1507,6 +1519,7 @@ export interface Backup {
   /**
    * @see {@link ListProtectedResourcesCommand}
    */
+  listProtectedResources(): Promise<ListProtectedResourcesCommandOutput>;
   listProtectedResources(
     args: ListProtectedResourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -1592,6 +1605,7 @@ export interface Backup {
   /**
    * @see {@link ListReportJobsCommand}
    */
+  listReportJobs(): Promise<ListReportJobsCommandOutput>;
   listReportJobs(
     args: ListReportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1606,6 +1620,7 @@ export interface Backup {
   /**
    * @see {@link ListReportPlansCommand}
    */
+  listReportPlans(): Promise<ListReportPlansCommandOutput>;
   listReportPlans(
     args: ListReportPlansCommandInput,
     options?: __HttpHandlerOptions
@@ -1620,6 +1635,7 @@ export interface Backup {
   /**
    * @see {@link ListRestoreJobsCommand}
    */
+  listRestoreJobs(): Promise<ListRestoreJobsCommandOutput>;
   listRestoreJobs(
     args: ListRestoreJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1651,6 +1667,7 @@ export interface Backup {
   /**
    * @see {@link ListRestoreJobSummariesCommand}
    */
+  listRestoreJobSummaries(): Promise<ListRestoreJobSummariesCommandOutput>;
   listRestoreJobSummaries(
     args: ListRestoreJobSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -1668,6 +1685,7 @@ export interface Backup {
   /**
    * @see {@link ListRestoreTestingPlansCommand}
    */
+  listRestoreTestingPlans(): Promise<ListRestoreTestingPlansCommandOutput>;
   listRestoreTestingPlans(
     args: ListRestoreTestingPlansCommandInput,
     options?: __HttpHandlerOptions
@@ -1898,6 +1916,7 @@ export interface Backup {
   /**
    * @see {@link UpdateGlobalSettingsCommand}
    */
+  updateGlobalSettings(): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1932,6 +1951,7 @@ export interface Backup {
   /**
    * @see {@link UpdateRegionSettingsCommand}
    */
+  updateRegionSettings(): Promise<UpdateRegionSettingsCommandOutput>;
   updateRegionSettings(
     args: UpdateRegionSettingsCommandInput,
     options?: __HttpHandlerOptions

@@ -397,6 +397,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeACLsCommand}
    */
+  describeACLs(): Promise<DescribeACLsCommandOutput>;
   describeACLs(args: DescribeACLsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeACLsCommandOutput>;
   describeACLs(args: DescribeACLsCommandInput, cb: (err: any, data?: DescribeACLsCommandOutput) => void): void;
   describeACLs(
@@ -408,6 +409,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeClustersCommand}
    */
+  describeClusters(): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -425,6 +427,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeEngineVersionsCommand}
    */
+  describeEngineVersions(): Promise<DescribeEngineVersionsCommandOutput>;
   describeEngineVersions(
     args: DescribeEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -442,6 +445,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -456,6 +460,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeParameterGroupsCommand}
    */
+  describeParameterGroups(): Promise<DescribeParameterGroupsCommandOutput>;
   describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -490,6 +495,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeReservedNodesCommand}
    */
+  describeReservedNodes(): Promise<DescribeReservedNodesCommandOutput>;
   describeReservedNodes(
     args: DescribeReservedNodesCommandInput,
     options?: __HttpHandlerOptions
@@ -507,6 +513,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeReservedNodesOfferingsCommand}
    */
+  describeReservedNodesOfferings(): Promise<DescribeReservedNodesOfferingsCommandOutput>;
   describeReservedNodesOfferings(
     args: DescribeReservedNodesOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -524,6 +531,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeServiceUpdatesCommand}
    */
+  describeServiceUpdates(): Promise<DescribeServiceUpdatesCommandOutput>;
   describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
     options?: __HttpHandlerOptions
@@ -541,6 +549,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeSnapshotsCommand}
    */
+  describeSnapshots(): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -558,6 +567,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeSubnetGroupsCommand}
    */
+  describeSubnetGroups(): Promise<DescribeSubnetGroupsCommandOutput>;
   describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -575,6 +585,7 @@ export interface MemoryDB {
   /**
    * @see {@link DescribeUsersCommand}
    */
+  describeUsers(): Promise<DescribeUsersCommandOutput>;
   describeUsers(args: DescribeUsersCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUsersCommandOutput>;
   describeUsers(args: DescribeUsersCommandInput, cb: (err: any, data?: DescribeUsersCommandOutput) => void): void;
   describeUsers(

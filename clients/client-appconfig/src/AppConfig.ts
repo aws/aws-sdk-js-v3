@@ -632,6 +632,7 @@ export interface AppConfig {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -680,6 +681,7 @@ export interface AppConfig {
   /**
    * @see {@link ListDeploymentStrategiesCommand}
    */
+  listDeploymentStrategies(): Promise<ListDeploymentStrategiesCommandOutput>;
   listDeploymentStrategies(
     args: ListDeploymentStrategiesCommandInput,
     options?: __HttpHandlerOptions
@@ -714,6 +716,7 @@ export interface AppConfig {
   /**
    * @see {@link ListExtensionAssociationsCommand}
    */
+  listExtensionAssociations(): Promise<ListExtensionAssociationsCommandOutput>;
   listExtensionAssociations(
     args: ListExtensionAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -731,6 +734,7 @@ export interface AppConfig {
   /**
    * @see {@link ListExtensionsCommand}
    */
+  listExtensions(): Promise<ListExtensionsCommandOutput>;
   listExtensions(
     args: ListExtensionsCommandInput,
     options?: __HttpHandlerOptions

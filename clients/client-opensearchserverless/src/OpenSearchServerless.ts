@@ -229,6 +229,7 @@ export interface OpenSearchServerless {
   /**
    * @see {@link BatchGetCollectionCommand}
    */
+  batchGetCollection(): Promise<BatchGetCollectionCommandOutput>;
   batchGetCollection(
     args: BatchGetCollectionCommandInput,
     options?: __HttpHandlerOptions
@@ -515,6 +516,7 @@ export interface OpenSearchServerless {
   /**
    * @see {@link GetAccountSettingsCommand}
    */
+  getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -532,6 +534,7 @@ export interface OpenSearchServerless {
   /**
    * @see {@link GetPoliciesStatsCommand}
    */
+  getPoliciesStats(): Promise<GetPoliciesStatsCommandOutput>;
   getPoliciesStats(
     args: GetPoliciesStatsCommandInput,
     options?: __HttpHandlerOptions
@@ -600,6 +603,7 @@ export interface OpenSearchServerless {
   /**
    * @see {@link ListCollectionsCommand}
    */
+  listCollections(): Promise<ListCollectionsCommandOutput>;
   listCollections(
     args: ListCollectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -682,6 +686,7 @@ export interface OpenSearchServerless {
   /**
    * @see {@link ListVpcEndpointsCommand}
    */
+  listVpcEndpoints(): Promise<ListVpcEndpointsCommandOutput>;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -738,6 +743,7 @@ export interface OpenSearchServerless {
   /**
    * @see {@link UpdateAccountSettingsCommand}
    */
+  updateAccountSettings(): Promise<UpdateAccountSettingsCommandOutput>;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
