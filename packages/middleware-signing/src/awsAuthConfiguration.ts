@@ -209,7 +209,7 @@ export const resolveAwsAuthConfig = <T>(
         input.signingRegion = originalInputSigningRegion || signingRegion;
         input.signingName = originalInputSigningName || signingService || input.serviceId;
       } else {
-        // update client's singing region and signing service config if they are resolved.
+        // update client's signing region and signing service config if they are resolved.
         // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
         input.signingRegion = input.signingRegion || signingRegion;
         // signing name resolving order:
