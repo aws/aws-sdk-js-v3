@@ -78,14 +78,14 @@ export const getSsecPlugin = (config: PreviouslyResolved): Pluggable<any, any> =
   },
 });
 
-function isValidBase64EncodedSSECustomerKey(str: string, options: PreviouslyResolved) {
+export function isValidBase64EncodedSSECustomerKey(str: string, options: PreviouslyResolved) {
   const base64Regex = /^(?:[A-Za-z0-9+/]{4})*([A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$/;
 
   if (!base64Regex.test(str)) return false;
 
   try {
     const decodedBytes = options.base64Decoder(str);
-    if (decodedBytes.length !== 32) return false;
+    return decodedBytes.length === 32;
   } catch {
     return false;
   }
