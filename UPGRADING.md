@@ -68,7 +68,7 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
   });
   ```
 
-  It can also be an async function that returnsb the credentials object.
+  It can also be an async function that returns the credentials object.
 
   See [v3 reference for AwsAuthInputConfig credentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_signing.awsauthinputconfig-1.html#credentials).
 
