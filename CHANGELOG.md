@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.534.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.533.0...v3.534.0) (2024-03-14)
+
+
+### Bug Fixes
+
+* **middleware-signing:** attempt secondary authscheme selection during request signing ([#5895](https://github.com/aws/aws-sdk-js-v3/issues/5895)) ([5e6af3f](https://github.com/aws/aws-sdk-js-v3/commit/5e6af3fe67e75c7a39b76a5f353cf46a44a05cd2))
+
+
+### Features
+
+* **client-ec2-instance-connect:** This release includes a new exception type "SerialConsoleSessionUnsupportedException" for SendSerialConsoleSSHPublicKey API. ([0bce168](https://github.com/aws/aws-sdk-js-v3/commit/0bce1686dc1f376c570324810440e811d1053d8a))
+* **client-fis:** This release adds support for previewing target resources before running a FIS experiment. It also adds resource ARNs for actions, experiments, and experiment templates to API responses. ([4620a92](https://github.com/aws/aws-sdk-js-v3/commit/4620a92f2d3dda176f1f3d827fbffd3cdbfc94af))
+* **client-timestream-influxdb:** This is the initial SDK release for Amazon Timestream for InfluxDB. Amazon Timestream for InfluxDB is a new time-series database engine that makes it easy for application developers and DevOps teams to run InfluxDB databases on AWS for near real-time time-series applications using open source APIs. ([0ca0d28](https://github.com/aws/aws-sdk-js-v3/commit/0ca0d28e7b08de8c540e315d7e77a47cd6fc9fe9))
+
+
+
+
+
 # [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
 
 

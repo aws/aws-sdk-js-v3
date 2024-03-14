@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.534.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.533.0...v3.534.0) (2024-03-14)
+
+
+### Features
+
+* **client-ec2-instance-connect:** This release includes a new exception type "SerialConsoleSessionUnsupportedException" for SendSerialConsoleSSHPublicKey API. ([0bce168](https://github.com/aws/aws-sdk-js-v3/commit/0bce1686dc1f376c570324810440e811d1053d8a))
+
+
+
+
+
 # [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-ec2-instance-connect

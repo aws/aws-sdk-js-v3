@@ -50,7 +50,7 @@
 |@aws-sdk/node-http-handler|3.370.0|14.4 KB|N/A|N/A|N/A|
 |@aws-sdk/polly-request-presigner|3.495.0|23.3 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/s3-presigned-post|3.496.0|27.4 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
-|@aws-sdk/s3-request-presigner|3.529.1|32.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
+|@aws-sdk/s3-request-presigner|3.533.0|32.1 KB|✅(5.88.2)|✅(3.26.3)|✅(0.18.15)|
 |@aws-sdk/signature-v4|3.370.0|14.4 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|
 |@aws-sdk/signature-v4-crt|3.525.0|55.7 KB|N/A|N/A|N/A|
 |@aws-sdk/smithy-client|3.370.0|18.8 KB|✅(5.77.0)|✅(3.20.2)|✅(0.17.15)|

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.534.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.533.0...v3.534.0) (2024-03-14)
+
+
+### Features
+
+* **client-fis:** This release adds support for previewing target resources before running a FIS experiment. It also adds resource ARNs for actions, experiments, and experiment templates to API responses. ([4620a92](https://github.com/aws/aws-sdk-js-v3/commit/4620a92f2d3dda176f1f3d827fbffd3cdbfc94af))
+
+
+
+
+
 # [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-fis

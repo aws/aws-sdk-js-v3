@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.534.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.533.0...v3.534.0) (2024-03-14)
+
+
+### Bug Fixes
+
+* **middleware-signing:** attempt secondary authscheme selection during request signing ([#5895](https://github.com/aws/aws-sdk-js-v3/issues/5895)) ([5e6af3f](https://github.com/aws/aws-sdk-js-v3/commit/5e6af3fe67e75c7a39b76a5f353cf46a44a05cd2))
+
+
+
+
+
 # [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
 
 **Note:** Version bump only for package @aws-sdk/middleware-signing
