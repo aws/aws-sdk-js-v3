@@ -10,6 +10,7 @@ import {
   HttpRequest as IHttpRequest,
   Pluggable,
   RelativeMiddlewareOptions,
+  RequestSigner,
 } from "@smithy/types";
 
 import { AwsAuthResolvedConfig } from "./awsAuthConfiguration";
@@ -25,14 +26,40 @@ export const awsAuthMiddleware =
       if (!HttpRequest.isInstance(args.request)) return next(args);
 
       // TODO(identityandauth): call authScheme resolver
-      const authScheme: AuthScheme | undefined = context.endpointV2?.properties?.authSchemes?.[0];
+      let authScheme: AuthScheme | undefined;
+      let signer: RequestSigner | undefined;
+
+      const firstAuthScheme = context.endpointV2?.properties?.authSchemes?.[0];
+      const secondAuthScheme = context.endpointV2?.properties?.authSchemes?.[1];
+      const firstAuthSchemeIsSigv4a = firstAuthScheme?.name === "sigv4a";
+
+      if (firstAuthSchemeIsSigv4a && secondAuthScheme) {
+        signer = await options.signer((authScheme = firstAuthScheme));
+        const uncheckedSigner = signer as any;
+        const sigv4aAvailable = (() => {
+          if (typeof uncheckedSigner?.getSigv4aSigner === "function") {
+            if (uncheckedSigner?.signerOptions?.runtime !== "node") {
+              return false;
+            }
+            try {
+              uncheckedSigner.getSigv4aSigner();
+              return true;
+            } catch (e: unknown) {}
+          }
+          return false;
+        })();
+        if (!sigv4aAvailable) {
+          signer = await options.signer((authScheme = secondAuthScheme));
+        }
+      } else {
+        signer = await options.signer((authScheme = firstAuthScheme));
+      }
+
+      let signedRequest: IHttpRequest;
 
       const multiRegionOverride: string | undefined =
         authScheme?.name === "sigv4a" ? authScheme?.signingRegionSet?.join(",") : undefined;
 
-      const signer = await options.signer(authScheme);
-
-      let signedRequest: IHttpRequest;
       const signingOptions = {
         signingDate: getSkewCorrectedDate(options.systemClockOffset),
         signingRegion: multiRegionOverride || context["signing_region"],
