@@ -35,9 +35,43 @@ This list is indexed by [v2 config parameters](https://docs.aws.amazon.com/AWSJa
   - **v2**: An offset value in milliseconds to apply to all signing times.
   - **v3**: No change.
 - [`credentials`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#credentials-property)
+
   - **v2**: The AWS credentials to sign requests with.
-  - **v3**: No change. It can also be an async function that returns credentials.
-    See [v3 reference for AwsAuthInputConfig credentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_signing.awsauthinputconfig-1.html#credentials).
+
+  ```js
+  const client = new AWS.S3({
+    credentials: {
+      /*
+      accessKeyId: string,
+      secretAccessKey: string,
+      expireTime: Date,
+      expired: boolean,
+      sessionToken?: string;
+      */
+    },
+  });
+  ```
+
+  - **v3**: The credential object structure has changed:
+
+  ```js
+  const client = new S3({
+    credentials: {
+      /*
+      accessKeyId: string;
+      secretAccessKey: string;
+      expiration?: Date;
+      sessionToken?: string;
+      credentialScope?: string;
+      */
+    },
+  });
+  ```
+
+  It can also be an async function that returnsb the credentials object.
+
+  See [v3 reference for AwsAuthInputConfig credentials](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/interfaces/_aws_sdk_middleware_signing.awsauthinputconfig-1.html#credentials).
+
 - [`endpointCacheSize`](https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Config.html#endpointCacheSize-property)
   - **v2**: The size of the global cache storing endpoints from endpoint discovery operations.
   - **v3**: No change.
@@ -573,10 +607,10 @@ In v3, the similar utility function is available in [`@aws-sdk/polly-request-pre
 
 ### Amazon S3
 
-Streaming vs. buffered responses: the JSv3 SDK prefers not to buffer potentially large responses. This is commonly encountered in S3's GetObject operation, which returned a `Buffer` in JSv2, but 
+Streaming vs. buffered responses: the JSv3 SDK prefers not to buffer potentially large responses. This is commonly encountered in S3's GetObject operation, which returned a `Buffer` in JSv2, but
 returns a `Stream` in JSv3.
 
-For Node.js, you must consume the stream or garbage collect the client or its request handler to keep the connections open to new traffic by freeing sockets. 
+For Node.js, you must consume the stream or garbage collect the client or its request handler to keep the connections open to new traffic by freeing sockets.
 
 ```ts
 // v2
@@ -642,7 +676,7 @@ const region = "...";
 
 ### Amazon SQS
 
-When using a custom `QueueUrl` in SQS operations that have this as an input parameter, in JSv2 
+When using a custom `QueueUrl` in SQS operations that have this as an input parameter, in JSv2
 it was possible to supply a custom `QueueUrl` which would override the SQS Client's default endpoint.
 
 #### Mutli-region messages
@@ -669,11 +703,11 @@ for (const { region, url } of queues) {
   };
   await sqsClients[region].sendMessage(params);
 }
-```  
+```
 
 #### Custom endpoint
 
-In JSv3, when using a custom endpoint, i.e. one that differs from the default public SQS endpoints, you 
+In JSv3, when using a custom endpoint, i.e. one that differs from the default public SQS endpoints, you
 should always set the endpoint on the SQS Client as well as the `QueueUrl` field.
 
 ```ts
@@ -703,6 +737,6 @@ const sqs = new SQS({
 
 await sqs.sendMessage({
   QueueUrl: "https://sqs.us-west-2.amazonaws.com/1234567/MyQueue",
-  Message: "hello"
+  Message: "hello",
 });
 ```
