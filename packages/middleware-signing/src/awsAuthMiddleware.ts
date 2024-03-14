@@ -49,10 +49,7 @@ export const awsAuthMiddleware =
           return false;
         })();
         if (!sigv4aAvailable) {
-          signer = await (options.signer as (authScheme?: AuthScheme, override?: boolean) => Promise<RequestSigner>)(
-            (authScheme = secondAuthScheme),
-            true
-          );
+          signer = await options.signer((authScheme = secondAuthScheme));
         }
       } else {
         signer = await options.signer((authScheme = firstAuthScheme));

@@ -182,15 +182,7 @@ export const resolveAwsAuthConfig = <T>(
     // This branch is for endpoints V2.
     // Handle endpoints v2 that resolved per-command
     // TODO: need total refactor for reference auth architecture.
-    const originalInputSigningRegion = input.signingRegion;
-    const originalInputSigningName = input.signingName;
-
-    /**
-     * The [overwrite=false] parameter is private to the awsAuthMiddleware implementation.
-     * We need to overwrite the input signingRegion if it was set during
-     * the search for a compatible signer.
-     */
-    signer = async (authScheme?: AuthScheme, overwrite = false) => {
+    signer = async (authScheme?: AuthScheme) => {
       authScheme = Object.assign(
         {},
         {
@@ -202,25 +194,30 @@ export const resolveAwsAuthConfig = <T>(
         authScheme
       );
 
+      const isSigv4a = authScheme?.name === "sigv4a";
+
       const signingRegion = authScheme.signingRegion;
       const signingService = authScheme.signingName;
 
-      if (overwrite) {
-        input.signingRegion = originalInputSigningRegion || signingRegion;
-        input.signingName = originalInputSigningName || signingService || input.serviceId;
+      let regionForSigner: string | undefined;
+
+      if (isSigv4a) {
+        regionForSigner = input.signingRegion || signingRegion;
       } else {
         // update client's signing region and signing service config if they are resolved.
         // signing region resolving order: user supplied signingRegion -> endpoints.json inferred region -> client region
         input.signingRegion = input.signingRegion || signingRegion;
-        // signing name resolving order:
-        // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
-        input.signingName = input.signingName || signingService || input.serviceId;
+        regionForSigner = input.signingRegion;
       }
+
+      // signing name resolving order:
+      // user supplied signingName -> endpoints.json inferred (credential scope -> model arnNamespace) -> model service id
+      input.signingName = input.signingName || signingService || input.serviceId;
 
       const params: SignatureV4Init & SignatureV4CryptoInit = {
         ...input,
         credentials: normalizedCreds,
-        region: input.signingRegion,
+        region: regionForSigner,
         service: input.signingName,
         sha256,
         uriEscapePath: signingEscapePath,
