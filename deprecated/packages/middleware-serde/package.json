@@ -22,7 +22,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@smithy/middleware-serde": "^1.0.1",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "engines": {
     "node": ">=14.0.0"

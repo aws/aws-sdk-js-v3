@@ -22,7 +22,7 @@
   "dependencies": {
     "@smithy/util-defaults-mode-browser": "^1.0.1",
     "bowser": "^2.11.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-sdk/smithy-client": "*",

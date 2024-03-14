@@ -23,7 +23,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@smithy/middleware-retry": "^1.0.3",
-    "tslib": "^2.5.0",
+    "tslib": "^2.6.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {

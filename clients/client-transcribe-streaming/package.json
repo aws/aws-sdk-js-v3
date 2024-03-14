@@ -65,7 +65,7 @@
     "@smithy/util-endpoints": "^1.1.5",
     "@smithy/util-retry": "^2.1.4",
     "@smithy/util-utf8": "^2.2.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@smithy/service-client-documentation-generator": "^2.1.1",

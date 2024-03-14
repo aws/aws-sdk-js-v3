@@ -22,7 +22,7 @@
   "module": "./dist-es/index.js",
   "dependencies": {
     "@smithy/util-hex-encoding": "^1.0.1",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "types": "./dist-types/index.d.ts",
   "engines": {

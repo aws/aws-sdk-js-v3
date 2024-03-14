@@ -79,7 +79,7 @@
     "@smithy/util-stream": "^2.1.5",
     "@smithy/util-utf8": "^2.2.0",
     "@smithy/util-waiter": "^2.1.4",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-sdk/signature-v4-crt": "*",

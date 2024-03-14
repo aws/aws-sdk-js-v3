@@ -4,7 +4,7 @@
   "description": "Shared utilities for client waiters for the AWS SDK",
   "dependencies": {
     "@smithy/util-waiter": "^1.0.1",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "private": true,
   "scripts": {

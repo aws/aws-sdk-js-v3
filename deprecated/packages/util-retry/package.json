@@ -27,7 +27,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@smithy/util-retry": "^1.0.3",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-sdk/types": "*",

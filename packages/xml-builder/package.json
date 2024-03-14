@@ -4,7 +4,7 @@
   "description": "XML builder for the AWS SDK",
   "dependencies": {
     "@smithy/types": "^2.11.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "scripts": {
     "build": "concurrently 'yarn:build:cjs' 'yarn:build:es' 'yarn:build:types'",

@@ -22,7 +22,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "@smithy/util-stream": "^1.0.1",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@types/node": "^14.14.31",

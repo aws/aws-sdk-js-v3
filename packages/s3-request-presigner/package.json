@@ -28,7 +28,7 @@
     "@smithy/protocol-http": "^3.2.2",
     "@smithy/smithy-client": "^2.4.5",
     "@smithy/types": "^2.11.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@aws-sdk/client-s3": "*",

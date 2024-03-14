@@ -24,7 +24,7 @@
     "@aws-sdk/types": "*",
     "@smithy/protocol-http": "^3.2.2",
     "@smithy/types": "^2.11.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "engines": {
     "node": ">=14.0.0"

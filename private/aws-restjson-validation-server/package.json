@@ -42,7 +42,7 @@
     "@smithy/util-defaults-mode-browser": "^2.1.7",
     "@smithy/util-defaults-mode-node": "^2.2.7",
     "@smithy/util-utf8": "^2.2.0",
-    "tslib": "^2.5.0"
+    "tslib": "^2.6.2"
   },
   "devDependencies": {
     "@smithy/service-client-documentation-generator": "^2.1.1",

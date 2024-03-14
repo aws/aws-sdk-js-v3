@@ -59,7 +59,7 @@
     "@smithy/util-retry": "^2.1.4",
     "@smithy/util-utf8": "^2.2.0",
     "@smithy/util-waiter": "^2.1.4",
-    "tslib": "^2.5.0",
+    "tslib": "^2.6.2",
     "uuid": "^9.0.1"
   },
   "devDependencies": {
