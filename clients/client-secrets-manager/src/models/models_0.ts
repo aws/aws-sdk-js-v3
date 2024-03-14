@@ -134,7 +134,7 @@ export interface BatchGetSecretValueRequest {
    * <p>The number of results to include in the response.</p>
    *          <p>If there are more results available, in the response, Secrets Manager includes <code>NextToken</code>.
    *     To get the next results, call <code>BatchGetSecretValue</code> again with the value from
-   *     <code>NextToken</code>.</p>
+   *     <code>NextToken</code>. To use this parameter, you must also use the <code>Filters</code> parameter.</p>
    */
   MaxResults?: number;
 
@@ -1021,6 +1021,7 @@ export interface DescribeSecretResponse {
   /**
    * @public
    * <p>The next rotation is scheduled to occur on or before this date. If the secret isn't configured for rotation or rotation has been disabled, Secrets Manager returns null. If rotation fails, Secrets Manager retries the entire rotation process multiple times. If rotation is unsuccessful, this date may be in the past.</p>
+   *          <p>This date represents the latest date that rotation will occur, but it is not an approximate rotation date. In some cases, for example if you turn off automatic rotation and then turn it back on, the next rotation may occur much sooner than this date.</p>
    */
   NextRotationDate?: Date;
 
