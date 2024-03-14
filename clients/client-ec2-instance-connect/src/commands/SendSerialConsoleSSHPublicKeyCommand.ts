@@ -99,6 +99,9 @@ export interface SendSerialConsoleSSHPublicKeyCommandOutput
  * @throws {@link SerialConsoleSessionUnavailableException} (server fault)
  *  <p>Unable to start a serial console session. Please try again.</p>
  *
+ * @throws {@link SerialConsoleSessionUnsupportedException} (client fault)
+ *  <p>Your instance's BIOS version is unsupported for serial console connection. Reboot your instance to update its BIOS, and then try again to connect.</p>
+ *
  * @throws {@link ServiceException} (server fault)
  *  <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
  *

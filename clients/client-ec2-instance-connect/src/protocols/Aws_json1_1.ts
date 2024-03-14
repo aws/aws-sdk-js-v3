@@ -32,6 +32,7 @@ import {
   SerialConsoleAccessDisabledException,
   SerialConsoleSessionLimitExceededException,
   SerialConsoleSessionUnavailableException,
+  SerialConsoleSessionUnsupportedException,
   ServiceException,
   ThrottlingException,
 } from "../models/models_0";
@@ -139,6 +140,9 @@ const de_CommandError = async (output: __HttpResponse, context: __SerdeContext):
     case "SerialConsoleSessionUnavailableException":
     case "com.amazonaws.ec2instanceconnect#SerialConsoleSessionUnavailableException":
       throw await de_SerialConsoleSessionUnavailableExceptionRes(parsedOutput, context);
+    case "SerialConsoleSessionUnsupportedException":
+    case "com.amazonaws.ec2instanceconnect#SerialConsoleSessionUnsupportedException":
+      throw await de_SerialConsoleSessionUnsupportedExceptionRes(parsedOutput, context);
     case "ServiceException":
     case "com.amazonaws.ec2instanceconnect#ServiceException":
       throw await de_ServiceExceptionRes(parsedOutput, context);
@@ -297,6 +301,22 @@ const de_SerialConsoleSessionUnavailableExceptionRes = async (
 };
 
 /**
+ * deserializeAws_json1_1SerialConsoleSessionUnsupportedExceptionRes
+ */
+const de_SerialConsoleSessionUnsupportedExceptionRes = async (
+  parsedOutput: any,
+  context: __SerdeContext
+): Promise<SerialConsoleSessionUnsupportedException> => {
+  const body = parsedOutput.body;
+  const deserialized: any = _json(body);
+  const exception = new SerialConsoleSessionUnsupportedException({
+    $metadata: deserializeMetadata(parsedOutput),
+    ...deserialized,
+  });
+  return __decorateServiceException(exception, body);
+};
+
+/**
  * deserializeAws_json1_1ServiceExceptionRes
  */
 const de_ServiceExceptionRes = async (parsedOutput: any, context: __SerdeContext): Promise<ServiceException> => {
@@ -347,6 +367,8 @@ const de_ThrottlingExceptionRes = async (parsedOutput: any, context: __SerdeCont
 // de_SerialConsoleSessionLimitExceededException omitted.
 
 // de_SerialConsoleSessionUnavailableException omitted.
+
+// de_SerialConsoleSessionUnsupportedException omitted.
 
 // de_ServiceException omitted.
 

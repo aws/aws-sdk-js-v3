@@ -251,6 +251,28 @@ export class SerialConsoleSessionUnavailableException extends __BaseException {
 
 /**
  * @public
+ * <p>Your instance's BIOS version is unsupported for serial console connection. Reboot your instance to update its BIOS, and then try again to connect.</p>
+ */
+export class SerialConsoleSessionUnsupportedException extends __BaseException {
+  readonly name: "SerialConsoleSessionUnsupportedException" = "SerialConsoleSessionUnsupportedException";
+  readonly $fault: "client" = "client";
+  Message?: string;
+  /**
+   * @internal
+   */
+  constructor(opts: __ExceptionOptionType<SerialConsoleSessionUnsupportedException, __BaseException>) {
+    super({
+      name: "SerialConsoleSessionUnsupportedException",
+      $fault: "client",
+      ...opts,
+    });
+    Object.setPrototypeOf(this, SerialConsoleSessionUnsupportedException.prototype);
+    this.Message = opts.Message;
+  }
+}
+
+/**
+ * @public
  * <p>The service encountered an error. Follow the instructions in the error message and try again.</p>
  */
 export class ServiceException extends __BaseException {
