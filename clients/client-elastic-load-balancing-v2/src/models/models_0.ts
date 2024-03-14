@@ -3626,6 +3626,11 @@ export interface LoadBalancerAttribute {
    *             </li>
    *             <li>
    *                <p>
+   *                   <code>client_keep_alive.seconds</code> - The client keep alive value, in seconds. The
+   *           valid range is 60-604800 seconds. The default is 3600 seconds.</p>
+   *             </li>
+   *             <li>
+   *                <p>
    *                   <code>connection_logs.s3.enabled</code> - Indicates whether connection logs are enabled. The
    *           value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p>
    *             </li>
