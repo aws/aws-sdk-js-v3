@@ -43,6 +43,7 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * // { // StopExperimentResponse
  * //   experiment: { // Experiment
  * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     experimentTemplateId: "STRING_VALUE",
  * //     roleArn: "STRING_VALUE",
  * //     state: { // ExperimentState
@@ -118,6 +119,7 @@ export interface StopExperimentCommandOutput extends StopExperimentResponse, __M
  * //     experimentOptions: { // ExperimentOptions
  * //       accountTargeting: "single-account" || "multi-account",
  * //       emptyTargetResolutionMode: "fail" || "skip",
+ * //       actionsMode: "skip-all" || "run-all",
  * //     },
  * //     targetAccountConfigurationsCount: Number("long"),
  * //   },

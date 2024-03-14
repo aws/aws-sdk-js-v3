@@ -38,6 +38,9 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * const input = { // StartExperimentRequest
  *   clientToken: "STRING_VALUE", // required
  *   experimentTemplateId: "STRING_VALUE", // required
+ *   experimentOptions: { // StartExperimentExperimentOptionsInput
+ *     actionsMode: "skip-all" || "run-all",
+ *   },
  *   tags: { // TagMap
  *     "<keys>": "STRING_VALUE",
  *   },
@@ -47,6 +50,7 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * // { // StartExperimentResponse
  * //   experiment: { // Experiment
  * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     experimentTemplateId: "STRING_VALUE",
  * //     roleArn: "STRING_VALUE",
  * //     state: { // ExperimentState
@@ -122,6 +126,7 @@ export interface StartExperimentCommandOutput extends StartExperimentResponse, _
  * //     experimentOptions: { // ExperimentOptions
  * //       accountTargeting: "single-account" || "multi-account",
  * //       emptyTargetResolutionMode: "fail" || "skip",
+ * //       actionsMode: "skip-all" || "run-all",
  * //     },
  * //     targetAccountConfigurationsCount: Number("long"),
  * //   },

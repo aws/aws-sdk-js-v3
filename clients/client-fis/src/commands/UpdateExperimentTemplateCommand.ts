@@ -102,6 +102,7 @@ export interface UpdateExperimentTemplateCommandOutput extends UpdateExperimentT
  * // { // UpdateExperimentTemplateResponse
  * //   experimentTemplate: { // ExperimentTemplate
  * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     targets: { // ExperimentTemplateTargetMap
  * //       "<keys>": { // ExperimentTemplateTarget

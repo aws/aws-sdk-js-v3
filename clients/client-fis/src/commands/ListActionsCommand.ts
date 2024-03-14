@@ -45,6 +45,7 @@ export interface ListActionsCommandOutput extends ListActionsResponse, __Metadat
  * //   actions: [ // ActionSummaryList
  * //     { // ActionSummary
  * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       targets: { // ActionTargetMap
  * //         "<keys>": { // ActionTarget

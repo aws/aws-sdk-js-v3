@@ -50,7 +50,7 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  *             </li>
  *          </ul>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-templates.html">experiment templates</a>
- *          in the <i>Fault Injection Simulator User Guide</i>.</p>
+ *          in the <i>Fault Injection Service User Guide</i>.</p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -128,6 +128,7 @@ export interface CreateExperimentTemplateCommandOutput extends CreateExperimentT
  * // { // CreateExperimentTemplateResponse
  * //   experimentTemplate: { // ExperimentTemplate
  * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     targets: { // ExperimentTemplateTargetMap
  * //       "<keys>": { // ExperimentTemplateTarget

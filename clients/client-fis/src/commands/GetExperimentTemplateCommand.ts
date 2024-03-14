@@ -43,6 +43,7 @@ export interface GetExperimentTemplateCommandOutput extends GetExperimentTemplat
  * // { // GetExperimentTemplateResponse
  * //   experimentTemplate: { // ExperimentTemplate
  * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     targets: { // ExperimentTemplateTargetMap
  * //       "<keys>": { // ExperimentTemplateTarget

@@ -43,6 +43,7 @@ export interface GetActionCommandOutput extends GetActionResponse, __MetadataBea
  * // { // GetActionResponse
  * //   action: { // Action
  * //     id: "STRING_VALUE",
+ * //     arn: "STRING_VALUE",
  * //     description: "STRING_VALUE",
  * //     parameters: { // ActionParameterMap
  * //       "<keys>": { // ActionParameter

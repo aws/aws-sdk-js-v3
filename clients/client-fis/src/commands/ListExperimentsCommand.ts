@@ -38,6 +38,7 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * const input = { // ListExperimentsRequest
  *   maxResults: Number("int"),
  *   nextToken: "STRING_VALUE",
+ *   experimentTemplateId: "STRING_VALUE",
  * };
  * const command = new ListExperimentsCommand(input);
  * const response = await client.send(command);
@@ -45,6 +46,7 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * //   experiments: [ // ExperimentSummaryList
  * //     { // ExperimentSummary
  * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
  * //       experimentTemplateId: "STRING_VALUE",
  * //       state: { // ExperimentState
  * //         status: "pending" || "initiating" || "running" || "completed" || "stopping" || "stopped" || "failed",
@@ -53,6 +55,11 @@ export interface ListExperimentsCommandOutput extends ListExperimentsResponse, _
  * //       creationTime: new Date("TIMESTAMP"),
  * //       tags: { // TagMap
  * //         "<keys>": "STRING_VALUE",
+ * //       },
+ * //       experimentOptions: { // ExperimentOptions
+ * //         accountTargeting: "single-account" || "multi-account",
+ * //         emptyTargetResolutionMode: "fail" || "skip",
+ * //         actionsMode: "skip-all" || "run-all",
  * //       },
  * //     },
  * //   ],

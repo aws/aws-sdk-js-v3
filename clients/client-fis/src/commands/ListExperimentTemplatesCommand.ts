@@ -45,6 +45,7 @@ export interface ListExperimentTemplatesCommandOutput extends ListExperimentTemp
  * //   experimentTemplates: [ // ExperimentTemplateSummaryList
  * //     { // ExperimentTemplateSummary
  * //       id: "STRING_VALUE",
+ * //       arn: "STRING_VALUE",
  * //       description: "STRING_VALUE",
  * //       creationTime: new Date("TIMESTAMP"),
  * //       lastUpdateTime: new Date("TIMESTAMP"),

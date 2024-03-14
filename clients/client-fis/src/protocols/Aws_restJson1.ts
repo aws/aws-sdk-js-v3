@@ -115,6 +115,7 @@ import {
   ExperimentTemplateTargetInputFilter,
   ResourceNotFoundException,
   ServiceQuotaExceededException,
+  StartExperimentExperimentOptionsInput,
   UpdateExperimentTemplateActionInputItem,
   UpdateExperimentTemplateExperimentOptionsInput,
   UpdateExperimentTemplateLogConfigurationInput,
@@ -363,6 +364,7 @@ export const se_ListExperimentsCommand = async (
   const query: any = map({
     [_mR]: [() => input.maxResults !== void 0, () => input[_mR]!.toString()],
     [_nT]: [, input[_nT]!],
+    [_eTI]: [, input[_eTI]!],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -478,6 +480,7 @@ export const se_StartExperimentCommand = async (
   body = JSON.stringify(
     take(input, {
       clientToken: [true, (_) => _ ?? generateIdempotencyToken()],
+      experimentOptions: (_) => _json(_),
       experimentTemplateId: [],
       tags: (_) => _json(_),
     })
@@ -1244,6 +1247,8 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 
 // se_ResourceArnList omitted.
 
+// se_StartExperimentExperimentOptionsInput omitted.
+
 // se_TagMap omitted.
 
 // se_UpdateExperimentTemplateActionInputItem omitted.
@@ -1282,6 +1287,7 @@ const de_ValidationExceptionRes = async (parsedOutput: any, context: __SerdeCont
 const de_Experiment = (output: any, context: __SerdeContext): Experiment => {
   return take(output, {
     actions: (_: any) => de_ExperimentActionMap(_, context),
+    arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     endTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     experimentOptions: _json,
@@ -1354,7 +1360,9 @@ const de_ExperimentActionMap = (output: any, context: __SerdeContext): Record<st
  */
 const de_ExperimentSummary = (output: any, context: __SerdeContext): ExperimentSummary => {
   return take(output, {
+    arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
+    experimentOptions: _json,
     experimentTemplateId: __expectString,
     id: __expectString,
     state: _json,
@@ -1398,6 +1406,7 @@ const de_ExperimentSummaryList = (output: any, context: __SerdeContext): Experim
 const de_ExperimentTemplate = (output: any, context: __SerdeContext): ExperimentTemplate => {
   return take(output, {
     actions: _json,
+    arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     experimentOptions: _json,
@@ -1439,6 +1448,7 @@ const de_ExperimentTemplate = (output: any, context: __SerdeContext): Experiment
  */
 const de_ExperimentTemplateSummary = (output: any, context: __SerdeContext): ExperimentTemplateSummary => {
   return take(output, {
+    arn: __expectString,
     creationTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     description: __expectString,
     id: __expectString,
@@ -1516,6 +1526,7 @@ const isSerializableHeaderValue = (value: any): boolean =>
   (!Object.getOwnPropertyNames(value).includes("length") || value.length != 0) &&
   (!Object.getOwnPropertyNames(value).includes("size") || value.size != 0);
 
+const _eTI = "experimentTemplateId";
 const _mR = "maxResults";
 const _nT = "nextToken";
 const _tK = "tagKeys";

@@ -36,7 +36,7 @@ export interface CreateTargetAccountConfigurationCommandOutput
  * <p>Creates a target account configuration for the experiment template. A target account configuration
  *       is required when <code>accountTargeting</code> of <code>experimentOptions</code> is set to <code>multi-account</code>.
  *       For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/experiment-options.html">experiment options</a>
- *       in the <i>Fault Injection Simulator User Guide</i>.
+ *       in the <i>Fault Injection Service User Guide</i>.
  *       </p>
  * @example
  * Use a bare-bones client and the command you need to make an API call.

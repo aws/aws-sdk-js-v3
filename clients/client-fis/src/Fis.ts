@@ -512,8 +512,8 @@ export interface Fis {
 
 /**
  * @public
- * <p>Fault Injection Simulator is a managed service that enables you to perform fault injection
- *            experiments on your Amazon Web Services workloads. For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">Fault Injection Simulator User Guide</a>.</p>
+ * <p>Fault Injection Service is a managed service that enables you to perform fault injection
+ *            experiments on your Amazon Web Services workloads. For more information, see the <a href="https://docs.aws.amazon.com/fis/latest/userguide/">Fault Injection Service User Guide</a>.</p>
  */
 export class Fis extends FisClient implements Fis {}
 createAggregatedClient(commands, Fis);

@@ -50,7 +50,7 @@ export interface ActionTarget {
 /**
  * @public
  * <p>Describes an action. For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/fis-actions-reference.html">FIS actions</a>
- *          in the <i>Fault Injection Simulator User Guide</i>.</p>
+ *          in the <i>Fault Injection Service User Guide</i>.</p>
  */
 export interface Action {
   /**
@@ -58,6 +58,12 @@ export interface Action {
    * <p>The ID of the action.</p>
    */
   id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   */
+  arn?: string;
 
   /**
    * @public
@@ -86,6 +92,20 @@ export interface Action {
 
 /**
  * @public
+ * @enum
+ */
+export const ActionsMode = {
+  RUN_ALL: "run-all",
+  SKIP_ALL: "skip-all",
+} as const;
+
+/**
+ * @public
+ */
+export type ActionsMode = (typeof ActionsMode)[keyof typeof ActionsMode];
+
+/**
+ * @public
  * <p>Provides a summary of an action.</p>
  */
 export interface ActionSummary {
@@ -94,6 +114,12 @@ export interface ActionSummary {
    * <p>The ID of the action.</p>
    */
   id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the action.</p>
+   */
+  arn?: string;
 
   /**
    * @public
@@ -138,7 +164,7 @@ export class ConflictException extends __BaseException {
  * @public
  * <p>Specifies an action for an experiment template.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/actions.html">Actions</a>
- *          in the <i>Fault Injection Simulator User Guide</i>.</p>
+ *          in the <i>Fault Injection Service User Guide</i>.</p>
  */
 export interface CreateExperimentTemplateActionInput {
   /**
@@ -283,7 +309,7 @@ export interface CreateExperimentTemplateStopConditionInput {
  * @public
  * <p>Specifies a filter used for the target resource input in an experiment template.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/targets.html#target-filters">Resource filters</a>
- *          in the <i>Fault Injection Simulator User Guide</i>.</p>
+ *          in the <i>Fault Injection Service User Guide</i>.</p>
  */
 export interface ExperimentTemplateTargetInputFilter {
   /**
@@ -304,7 +330,7 @@ export interface ExperimentTemplateTargetInputFilter {
  * <p>Specifies a target for an experiment. You must specify at least one Amazon Resource Name (ARN) or
  *          at least one resource tag. You cannot specify both ARNs and tags.</p>
  *          <p>For more information, see <a href="https://docs.aws.amazon.com/fis/latest/userguide/targets.html">Targets</a>
- *          in the <i>Fault Injection Simulator User Guide</i>.</p>
+ *          in the <i>Fault Injection Service User Guide</i>.</p>
  */
 export interface CreateExperimentTemplateTargetInput {
   /**
@@ -615,6 +641,12 @@ export interface ExperimentTemplate {
 
   /**
    * @public
+   * <p>The Amazon Resource Name (ARN) of the experiment template.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
    * <p>The description for the experiment template.</p>
    */
   description?: string;
@@ -769,7 +801,7 @@ export interface CreateTargetAccountConfigurationRequest {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId: string | undefined;
 
@@ -799,7 +831,7 @@ export interface TargetAccountConfiguration {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId?: string;
 
@@ -855,7 +887,7 @@ export interface DeleteTargetAccountConfigurationRequest {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId: string | undefined;
 }
@@ -980,6 +1012,12 @@ export interface ExperimentOptions {
    * <p>The empty target resolution mode for an experiment.</p>
    */
   emptyTargetResolutionMode?: EmptyTargetResolutionMode;
+
+  /**
+   * @public
+   * <p>The actions mode of the experiment that is set from the StartExperiment API command.</p>
+   */
+  actionsMode?: ActionsMode;
 }
 
 /**
@@ -1164,6 +1202,12 @@ export interface Experiment {
 
   /**
    * @public
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
    * <p>The ID of the experiment template.</p>
    */
   experimentTemplateId?: string;
@@ -1254,6 +1298,12 @@ export interface ExperimentSummary {
 
   /**
    * @public
+   * <p>The Amazon Resource Name (ARN) of the experiment.</p>
+   */
+  arn?: string;
+
+  /**
+   * @public
    * <p>The ID of the experiment template.</p>
    */
   experimentTemplateId?: string;
@@ -1275,6 +1325,12 @@ export interface ExperimentSummary {
    * <p>The tags for the experiment.</p>
    */
   tags?: Record<string, string>;
+
+  /**
+   * @public
+   * <p>The experiment options for the experiment.</p>
+   */
+  experimentOptions?: ExperimentOptions;
 }
 
 /**
@@ -1290,7 +1346,7 @@ export interface ExperimentTargetAccountConfiguration {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId?: string;
 
@@ -1314,7 +1370,7 @@ export interface ExperimentTargetAccountConfigurationSummary {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId?: string;
 
@@ -1335,6 +1391,12 @@ export interface ExperimentTemplateSummary {
    * <p>The ID of the experiment template.</p>
    */
   id?: string;
+
+  /**
+   * @public
+   * <p>The Amazon Resource Name (ARN) of the experiment template.</p>
+   */
+  arn?: string;
 
   /**
    * @public
@@ -1417,7 +1479,7 @@ export interface GetExperimentTargetAccountConfigurationRequest {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId: string | undefined;
 }
@@ -1467,7 +1529,7 @@ export interface GetTargetAccountConfigurationRequest {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId: string | undefined;
 }
@@ -1669,6 +1731,12 @@ export interface ListExperimentsRequest {
    * <p>The token for the next page of results.</p>
    */
   nextToken?: string;
+
+  /**
+   * @public
+   * <p>The ID of the experiment template.</p>
+   */
+  experimentTemplateId?: string;
 }
 
 /**
@@ -1816,7 +1884,7 @@ export interface TargetAccountConfigurationSummary {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId?: string;
 
@@ -1899,6 +1967,18 @@ export interface ListTargetResourceTypesResponse {
 
 /**
  * @public
+ * <p>Specifies experiment options for running an experiment.</p>
+ */
+export interface StartExperimentExperimentOptionsInput {
+  /**
+   * @public
+   * <p>Specifies the actions mode for experiment options.</p>
+   */
+  actionsMode?: ActionsMode;
+}
+
+/**
+ * @public
  */
 export interface StartExperimentRequest {
   /**
@@ -1912,6 +1992,12 @@ export interface StartExperimentRequest {
    * <p>The ID of the experiment template.</p>
    */
   experimentTemplateId: string | undefined;
+
+  /**
+   * @public
+   * <p>The experiment options for running the experiment.</p>
+   */
+  experimentOptions?: StartExperimentExperimentOptionsInput;
 
   /**
    * @public
@@ -2207,7 +2293,7 @@ export interface UpdateTargetAccountConfigurationRequest {
 
   /**
    * @public
-   * <p>The AWS account ID of the target account.</p>
+   * <p>The Amazon Web Services account ID of the target account.</p>
    */
   accountId: string | undefined;
 
