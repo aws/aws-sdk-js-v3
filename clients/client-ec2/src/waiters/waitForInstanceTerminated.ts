@@ -67,9 +67,6 @@ const checkState = async (client: EC2Client, input: DescribeInstancesCommandInpu
     } catch (e) {}
   } catch (exception) {
     reason = exception;
-    if (exception.name && exception.name == "UnauthorizedOperation") {
-      return { state: WaiterState.FAILURE, reason };
-    }
   }
   return { state: WaiterState.RETRY, reason };
 };
