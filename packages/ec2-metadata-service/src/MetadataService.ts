@@ -1,8 +1,9 @@
 import { HttpRequest } from "@aws-sdk/protocol-http";
 import { HttpHandlerOptions } from "@aws-sdk/types";
+import { loadConfig } from "@smithy/node-config-provider";
 import { NodeHttpHandler } from "@smithy/node-http-handler";
 import { sdkStreamMixin } from "@smithy/util-stream";
-import { loadConfig } from "@smithy/node-config-provider";
+
 import { ENDPOINT_SELECTORS, IMDSv1_DISABLED_SELECTORS } from "./ConfigLoaders";
 import { MetadataServiceOptions } from "./MetadataServiceOptions";
 
@@ -33,23 +34,37 @@ export class MetadataService {
   async request(
     path: string,
     options: { method?: string; headers?: Record<string, string> },
-    withToken?: boolean
+    withToken?: boolean // withToken should be set to true, if the request is to be made in accordance with IMDSv2
   ): Promise<string> {
     const { endpoint, ec2MetadataV1Disabled } = await this.config;
-    if (this.disableFetchToken && !withToken && ec2MetadataV1Disabled) {
-      throw new Error(
-        "In IMDSv1 fallback mode and ec2MetadataV1Disabled option is set to true, no request can be made."
-      );
-    }
     const handler = new NodeHttpHandler();
     const endpointUrl = new URL(endpoint);
-    const headers = options.headers || {}; // Using provided headers or default to an empty object
+    const headers = options.headers || {};
+
+    if (this.disableFetchToken && withToken) {
+      throw new Error("The disableFetchToken option and the withToken argument are both set to true.");
+    }
     /**
-     * Make request with token.
+     * If IMDSv1 is disabled and disableFetchToken is true, throw an error
+     * Refer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html
+     */
+    if (this.disableFetchToken && ec2MetadataV1Disabled) {
+      throw new Error("IMDSv1 is disabled and fetching token is disabled, cannot make the request.");
+    }
+    /**
+     * Make request with token if disableFetchToken is not true and withToken is true.
      * Note that making the request call with token will result in an additional request to fetch the token.
      */
-    if (withToken) {
-      headers["x-aws-ec2-metadata-token"] = await this.fetchMetadataToken();
+    if (withToken && !this.disableFetchToken) {
+      try {
+        headers["x-aws-ec2-metadata-token"] = await this.fetchMetadataToken();
+      } catch (err) {
+        if (ec2MetadataV1Disabled) {
+          // If IMDSv1 is disabled and token fetch fails (IMDSv2 fails), rethrow the error
+          throw err;
+        }
+        // If token fetch fails and IMDSv1 is not disabled, proceed without token (IMDSv1 fallback)
+      }
     }
     const request = new HttpRequest({
       method: options.method || "GET", // Default to GET if no method is specified
@@ -75,8 +90,6 @@ export class MetadataService {
     /**
      * Refer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-metadata-v2-how-it-works.html
      */
-
-    // Define the request to fetch the metadata token
     const { endpoint } = await this.config;
     const handler = new NodeHttpHandler();
     const endpointUrl = new URL(endpoint);
