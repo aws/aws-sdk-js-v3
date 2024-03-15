@@ -48,6 +48,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
  *   ResourceArn: "STRING_VALUE", // required
  *   NextToken: "STRING_VALUE",
  *   MaxResults: Number("int"),
+ *   ManagedByAWSBackupOnly: true || false,
  * };
  * const command = new ListRecoveryPointsByResourceCommand(input);
  * const response = await client.send(command);
@@ -65,6 +66,7 @@ export interface ListRecoveryPointsByResourceCommandOutput
  * //       IsParent: true || false,
  * //       ParentRecoveryPointArn: "STRING_VALUE",
  * //       ResourceName: "STRING_VALUE",
+ * //       VaultType: "BACKUP_VAULT" || "LOGICALLY_AIR_GAPPED_BACKUP_VAULT",
  * //     },
  * //   ],
  * // };

@@ -2136,6 +2136,9 @@ export interface FrameworkControl {
    * <p>The scope of a control. The control scope defines what the control will evaluate. Three
    *          examples of control scopes are: a specific backup plan, all backup plans with a specific
    *          tag, or all backup plans.</p>
+   *          <p>For more information, see <a href="https://docs.aws.amazon.com/aws-backup/latest/devguide/API_ControlScope.html">
+   *                <code>ControlScope</code>.</a>
+   *          </p>
    * @public
    */
   ControlScope?: ControlScope;
@@ -5550,6 +5553,16 @@ export interface ListBackupJobsInput {
 
   /**
    * <p>Returns only backup jobs that are in the specified state.</p>
+   *          <p>
+   *             <code>Completed with issues</code> is a status found only in the Backup
+   *          console. For API, this status refers to jobs with a state of <code>COMPLETED</code> and a
+   *          <code>MessageCategory</code> with a value other than <code>SUCCESS</code>; that is, the
+   *          status is completed but comes with a status message.</p>
+   *          <p>To obtain the job count for
+   *          <code>Completed with issues</code>, run two GET requests, and subtract the second,
+   *          smaller number:</p>
+   *          <p>GET /backup-jobs/?state=COMPLETED</p>
+   *          <p>GET /backup-jobs/?messageCategory=SUCCESS&state=COMPLETED</p>
    * @public
    */
   ByState?: BackupJobState;
@@ -5736,12 +5749,22 @@ export interface ListBackupJobSummariesInput {
   AccountId?: string;
 
   /**
-   * <p>This parameter returns the job count for jobs
-   *          with the specified state.</p>
+   * <p>This parameter returns the job count for jobs with the specified state.</p>
    *          <p>The the value ANY returns count of all states.</p>
    *          <p>
-   *             <code>AGGREGATE_ALL</code> aggregates job counts
-   *          for all states and returns the sum.</p>
+   *             <code>AGGREGATE_ALL</code> aggregates job counts for all states and returns the
+   *          sum.</p>
+   *          <p>
+   *             <code>Completed with issues</code> is a status found only in the Backup
+   *          console. For API, this status refers to jobs with a state of <code>COMPLETED</code> and a
+   *             <code>MessageCategory</code> with a value other than <code>SUCCESS</code>; that is, the
+   *          status is completed but comes with a status message. To obtain the job count for
+   *             <code>Completed with issues</code>, run two GET requests, and subtract the second,
+   *          smaller number:</p>
+   *          <p>GET
+   *          /audit/backup-job-summaries?AggregationPeriod=FOURTEEN_DAYS&State=COMPLETED</p>
+   *          <p>GET
+   *          /audit/backup-job-summaries?AggregationPeriod=FOURTEEN_DAYS&MessageCategory=SUCCESS&State=COMPLETED</p>
    * @public
    */
   State?: BackupJobStatus;
@@ -7229,6 +7252,18 @@ export interface ListRecoveryPointsByResourceInput {
    * @public
    */
   MaxResults?: number;
+
+  /**
+   * <p>This attribute filters recovery points based on ownership.</p>
+   *          <p>If this is
+   *          set to <code>TRUE</code>, the response will contain recovery points associated
+   *          with the selected resources that are managed by Backup.</p>
+   *          <p>If this is set to <code>FALSE</code>, the response will contain all
+   *          recovery points associated with the selected resource.</p>
+   *          <p>Type: Boolean</p>
+   * @public
+   */
+  ManagedByAWSBackupOnly?: boolean;
 }
 
 /**
@@ -7306,6 +7341,13 @@ export interface RecoveryPointByResource {
    * @public
    */
   ResourceName?: string;
+
+  /**
+   * <p>This is the type of vault in which the described recovery point is
+   *          stored.</p>
+   * @public
+   */
+  VaultType?: VaultType;
 }
 
 /**

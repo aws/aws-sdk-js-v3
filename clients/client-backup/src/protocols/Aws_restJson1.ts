@@ -1584,6 +1584,7 @@ export const se_ListRecoveryPointsByResourceCommand = async (
   const query: any = map({
     [_nT]: [, input[_NT]!],
     [_mR]: [() => input.MaxResults !== void 0, () => input[_MR]!.toString()],
+    [_mBAWSBO]: [() => input.ManagedByAWSBackupOnly !== void 0, () => input[_MBAWSBO]!.toString()],
   });
   let body: any;
   b.m("GET").h(headers).q(query).b(body);
@@ -5118,6 +5119,7 @@ const de_RecoveryPointByResource = (output: any, context: __SerdeContext): Recov
     ResourceName: __expectString,
     Status: __expectString,
     StatusMessage: __expectString,
+    VaultType: __expectString,
   }) as any;
 };
 
@@ -5447,6 +5449,7 @@ const _CA = "CreationAfter";
 const _CB = "CreationBefore";
 const _CD = "CancelDescription";
 const _ID = "IncludeDeleted";
+const _MBAWSBO = "ManagedByAWSBackupOnly";
 const _MC = "MessageCategory";
 const _MR = "MaxResults";
 const _NT = "NextToken";
@@ -5468,6 +5471,7 @@ const _cBo = "completeBefore";
 const _cD = "cancelDescription";
 const _dVA = "destinationVaultArn";
 const _iD = "includeDeleted";
+const _mBAWSBO = "managedByAWSBackupOnly";
 const _mC = "messageCategory";
 const _mR = "maxResults";
 const _nT = "nextToken";
