@@ -113,7 +113,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -143,7 +145,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -173,7 +177,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -203,7 +209,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -239,7 +247,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -275,7 +285,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -305,7 +317,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -335,7 +349,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -365,7 +381,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -395,7 +413,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -425,7 +445,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -461,7 +483,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
@@ -491,7 +515,9 @@ export class DynamoDBDocument extends DynamoDBDocumentClient {
     if (typeof optionsOrCb === "function") {
       this.send(command, optionsOrCb);
     } else if (typeof cb === "function") {
-      if (typeof optionsOrCb !== "object") throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      if (typeof optionsOrCb !== "object") {
+        throw new Error(`Expect http options but get ${typeof optionsOrCb}`);
+      }
       this.send(command, optionsOrCb || {}, cb);
     } else {
       return this.send(command, optionsOrCb);
