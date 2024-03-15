@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
+
+
+### Features
+
+* **client-connect:** This release adds Hierarchy based Access Control fields to Security Profile public APIs and adds support for UserAttributeFilter to SearchUsers API. ([7fbd215](https://github.com/aws/aws-sdk-js-v3/commit/7fbd215fff050bdb6dfed6297f573c5b59c72325))
+
+
+
+
+
 # [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-connect

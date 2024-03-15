@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
+
+
+### Features
+
+* **client-backup:** This release introduces a boolean attribute ManagedByAWSBackupOnly as part of ListRecoveryPointsByResource api to filter the recovery points based on ownership. This attribute can be used to filter out the recovery points protected by AWSBackup. ([7077749](https://github.com/aws/aws-sdk-js-v3/commit/70777499ecd0112a004602700c8677e328e7a84d))
+* **client-codebuild:** AWS CodeBuild now supports overflow behavior on Reserved Capacity. ([9cfb002](https://github.com/aws/aws-sdk-js-v3/commit/9cfb00229c280c4cadbb507778acaf15d7f8ed7a))
+* **client-connect:** This release adds Hierarchy based Access Control fields to Security Profile public APIs and adds support for UserAttributeFilter to SearchUsers API. ([7fbd215](https://github.com/aws/aws-sdk-js-v3/commit/7fbd215fff050bdb6dfed6297f573c5b59c72325))
+* **client-ec2:** Add media accelerator and neuron device information on the describe instance types API. ([1d943e0](https://github.com/aws/aws-sdk-js-v3/commit/1d943e009b635ec2e87809553ddd2b8ae8e514ca))
+* **client-kinesis-analytics-v2:** Support for Flink 1.18 in Managed Service for Apache Flink ([d93457b](https://github.com/aws/aws-sdk-js-v3/commit/d93457b7f5c7983f6f9e4be7f27ada3b10077207))
+* **client-sagemaker:** Adds m6i, m6id, m7i, c6i, c6id, c7i, r6i r6id, r7i, p5 instance type support to Sagemaker Notebook Instances and miscellaneous wording fixes for previous Sagemaker documentation. ([4ae23c7](https://github.com/aws/aws-sdk-js-v3/commit/4ae23c7efeafabdb632a5952382950fe70d8158d))
+* **client-workspaces-thin-client:** Removed unused parameter kmsKeyArn from UpdateDeviceRequest ([b6e079d](https://github.com/aws/aws-sdk-js-v3/commit/b6e079dc2e4cb1c42f84b592f4dd12fff564f1cb))
+* **clients:** update client endpoints as of 2024-03-15 ([fc7fd78](https://github.com/aws/aws-sdk-js-v3/commit/fc7fd7850a503c8293eb0b0a8988df94d9355ba1))
+
+
+
+
+
 # [3.534.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.533.0...v3.534.0) (2024-03-14)
 
 

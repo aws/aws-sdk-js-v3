@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
+
+
+### Features
+
+* **client-sagemaker:** Adds m6i, m6id, m7i, c6i, c6id, c7i, r6i r6id, r7i, p5 instance type support to Sagemaker Notebook Instances and miscellaneous wording fixes for previous Sagemaker documentation. ([4ae23c7](https://github.com/aws/aws-sdk-js-v3/commit/4ae23c7efeafabdb632a5952382950fe70d8158d))
+
+
+
+
+
 # [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-sagemaker

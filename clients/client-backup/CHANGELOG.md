@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.535.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.534.0...v3.535.0) (2024-03-15)
+
+
+### Features
+
+* **client-backup:** This release introduces a boolean attribute ManagedByAWSBackupOnly as part of ListRecoveryPointsByResource api to filter the recovery points based on ownership. This attribute can be used to filter out the recovery points protected by AWSBackup. ([7077749](https://github.com/aws/aws-sdk-js-v3/commit/70777499ecd0112a004602700c8677e328e7a84d))
+
+
+
+
+
 # [3.533.0](https://github.com/aws/aws-sdk-js-v3/compare/v3.532.0...v3.533.0) (2024-03-13)
 
 **Note:** Version bump only for package @aws-sdk/client-backup
