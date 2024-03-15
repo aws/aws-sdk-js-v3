@@ -24,7 +24,7 @@ export interface MetadataServiceOptions {
    */
   profile?: string;
   /**
-   * when true, metadata service will not fetch token
+   * when true, metadata service will not fetch token, which indicates usage of IMDSv1
    */
   disableFetchToken?: false;
 }

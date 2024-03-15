@@ -31,19 +31,11 @@ export class MetadataService {
     this.disableFetchToken = options?.disableFetchToken || false;
   }
 
-  async request(
-    path: string,
-    options: { method?: string; headers?: Record<string, string> },
-    withToken?: boolean // withToken should be set to true, if the request is to be made in accordance with IMDSv2
-  ): Promise<string> {
+  async request(path: string, options: { method?: string; headers?: Record<string, string> }): Promise<string> {
     const { endpoint, ec2MetadataV1Disabled } = await this.config;
     const handler = new NodeHttpHandler();
-    const endpointUrl = new URL(endpoint);
+    const endpointUrl = new URL(endpoint!);
     const headers = options.headers || {};
-
-    if (this.disableFetchToken && withToken) {
-      throw new Error("The disableFetchToken option and the withToken argument are both set to true.");
-    }
     /**
      * If IMDSv1 is disabled and disableFetchToken is true, throw an error
      * Refer: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configuring-instance-metadata-service.html
@@ -52,10 +44,10 @@ export class MetadataService {
       throw new Error("IMDSv1 is disabled and fetching token is disabled, cannot make the request.");
     }
     /**
-     * Make request with token if disableFetchToken is not true and withToken is true.
+     * Make request with token if disableFetchToken is not true (IMDSv2).
      * Note that making the request call with token will result in an additional request to fetch the token.
      */
-    if (withToken && !this.disableFetchToken) {
+    if (!this.disableFetchToken) {
       try {
         headers["x-aws-ec2-metadata-token"] = await this.fetchMetadataToken();
       } catch (err) {
@@ -65,7 +57,7 @@ export class MetadataService {
         }
         // If token fetch fails and IMDSv1 is not disabled, proceed without token (IMDSv1 fallback)
       }
-    }
+    } // else, IMDSv1 fallback mode
     const request = new HttpRequest({
       method: options.method || "GET", // Default to GET if no method is specified
       headers: headers,
@@ -92,7 +84,7 @@ export class MetadataService {
      */
     const { endpoint } = await this.config;
     const handler = new NodeHttpHandler();
-    const endpointUrl = new URL(endpoint);
+    const endpointUrl = new URL(endpoint!);
     const tokenRequest = new HttpRequest({
       method: "PUT",
       headers: {
@@ -111,6 +103,12 @@ export class MetadataService {
         throw new Error(`Failed to fetch metadata token with status code ${response.statusCode}`);
       }
     } catch (error) {
+      if (error?.statusCode === 400) {
+        throw new Error(`Error fetching metadata token: ${error}`);
+      } else if (error.message === "TimeoutError" || [403, 404, 405].includes(error.statusCode)) {
+        this.disableFetchToken = true; // as per JSv2 and fromInstanceMetadata implementations
+        throw new Error(`Error fetching metadata token: ${error}. disableFetchToken is enabled`);
+      }
       throw new Error(`Error fetching metadata token: ${error}`);
     }
   }

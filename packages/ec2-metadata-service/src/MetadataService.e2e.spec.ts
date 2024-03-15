@@ -1,5 +1,6 @@
-import { MetadataService } from "./MetadataService";
 import { fromInstanceMetadata } from "@aws-sdk/credential-providers";
+
+import { MetadataService } from "./MetadataService";
 
 describe("MetadataService E2E Tests", () => {
   let metadataService;
@@ -15,7 +16,8 @@ describe("MetadataService E2E Tests", () => {
     }
     console.log("Metadata Service availability: ", metadataServiceAvailable);
     metadataService = new MetadataService({});
-    console.log("IMDS Endpoint: ", metadataService.endpoint);
+    const config = await metadataService.config;
+    console.log("IMDS Endpoint: ", config.endpoint);
   });
 
   it("should fetch metadata token successfully", async () => {
@@ -29,11 +31,25 @@ describe("MetadataService E2E Tests", () => {
     expect(token.length).toBeGreaterThan(0);
   });
 
-  it("should fetch instance ID successfully", async () => {
+  it("should fetch metadata successfully with token", async () => {
     if (!metadataServiceAvailable) {
       return;
     }
-    const metadata = await metadataService.request("/latest/meta-data/", {}, false);
+    const metadata = await metadataService.request("/latest/meta-data/", {});
+    expect(metadata).toBeDefined();
+    expect(typeof metadata).toBe("string");
+    const lines = metadata.split("\n").map((line) => line.trim());
+    expect(lines.length).toBeGreaterThan(5);
+    expect(lines).toContain("instance-id");
+    expect(lines).toContain("services/");
+  });
+
+  it("should fetch metadata successfully (without token -- disableFetchToken set to true)", async () => {
+    if (!metadataServiceAvailable) {
+      return;
+    }
+    metadataService.disableFetchToken = true; // make request without token
+    const metadata = await metadataService.request("/latest/meta-data/", {});
     expect(metadata).toBeDefined();
     expect(typeof metadata).toBe("string");
     expect(metadata.length).toBeGreaterThan(0);
@@ -43,16 +59,39 @@ describe("MetadataService E2E Tests", () => {
     expect(lines).toContain("services/");
   });
 
-  it("should fetch instance ID successfully with token", async () => {
+  it("should handle TimeoutError by falling back to IMDSv1", async () => {
     if (!metadataServiceAvailable) {
       return;
     }
-    const metadata = await metadataService.request("/latest/meta-data/", {}, true);
+    jest.spyOn(metadataService, "fetchMetadataToken").mockImplementation(async () => {
+      throw { name: "TimeoutError" }; // Simulating TimeoutError
+    });
+    // Attempt to fetch metadata, expecting IMDSv1 fallback (request without token)
+    const metadata = await metadataService.request("/latest/meta-data/", {});
     expect(metadata).toBeDefined();
     expect(typeof metadata).toBe("string");
     const lines = metadata.split("\n").map((line) => line.trim());
     expect(lines.length).toBeGreaterThan(5);
     expect(lines).toContain("instance-id");
     expect(lines).toContain("services/");
+  });
+
+  it("should handle specific error codes by falling back to IMDSv1", async () => {
+    if (!metadataServiceAvailable) {
+      return;
+    }
+    const httpErrors = [403, 404, 405];
+    for (const errorCode of httpErrors) {
+      jest.spyOn(metadataService, "fetchMetadataToken").mockImplementationOnce(async () => {
+        throw { statusCode: errorCode };
+      });
+      const metadata = await metadataService.request("/latest/meta-data/", {});
+      expect(metadata).toBeDefined();
+      expect(typeof metadata).toBe("string");
+      const lines = metadata.split("\n").map((line) => line.trim());
+      expect(lines.length).toBeGreaterThan(5);
+      expect(lines).toContain("instance-id");
+      expect(lines).toContain("services/");
+    }
   });
 });
