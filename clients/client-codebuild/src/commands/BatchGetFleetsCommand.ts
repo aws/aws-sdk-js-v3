@@ -68,6 +68,7 @@ export interface BatchGetFleetsCommandOutput extends BatchGetFleetsOutput, __Met
  * //         maxCapacity: Number("int"),
  * //         desiredCapacity: Number("int"),
  * //       },
+ * //       overflowBehavior: "QUEUE" || "ON_DEMAND",
  * //       tags: [ // TagList
  * //         { // Tag
  * //           key: "STRING_VALUE",

@@ -49,6 +49,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  *     ],
  *     maxCapacity: Number("int"),
  *   },
+ *   overflowBehavior: "QUEUE" || "ON_DEMAND",
  *   tags: [ // TagList
  *     { // Tag
  *       key: "STRING_VALUE",
@@ -84,6 +85,7 @@ export interface CreateFleetCommandOutput extends CreateFleetOutput, __MetadataB
  * //       maxCapacity: Number("int"),
  * //       desiredCapacity: Number("int"),
  * //     },
+ * //     overflowBehavior: "QUEUE" || "ON_DEMAND",
  * //     tags: [ // TagList
  * //       { // Tag
  * //         key: "STRING_VALUE",

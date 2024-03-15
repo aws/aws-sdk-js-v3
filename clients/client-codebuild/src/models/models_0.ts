@@ -2699,6 +2699,20 @@ export interface BatchGetFleetsInput {
  * @public
  * @enum
  */
+export const FleetOverflowBehavior = {
+  ON_DEMAND: "ON_DEMAND",
+  QUEUE: "QUEUE",
+} as const;
+
+/**
+ * @public
+ */
+export type FleetOverflowBehavior = (typeof FleetOverflowBehavior)[keyof typeof FleetOverflowBehavior];
+
+/**
+ * @public
+ * @enum
+ */
 export const FleetScalingType = {
   TARGET_TRACKING_SCALING: "TARGET_TRACKING_SCALING",
 } as const;
@@ -3045,6 +3059,21 @@ export interface Fleet {
    * @public
    */
   scalingConfiguration?: ScalingConfigurationOutput;
+
+  /**
+   * <p>The compute fleet overflow behavior.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For overflow behavior <code>QUEUE</code>, your overflow builds need to wait on
+   *                     the existing fleet instance to become available.</p>
+   *             </li>
+   *             <li>
+   *                <p>For overflow behavior <code>ON_DEMAND</code>, your overflow builds run on CodeBuild on-demand.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  overflowBehavior?: FleetOverflowBehavior;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>
@@ -4503,6 +4532,21 @@ export interface CreateFleetInput {
    * @public
    */
   scalingConfiguration?: ScalingConfigurationInput;
+
+  /**
+   * <p>The compute fleet overflow behavior.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For overflow behavior <code>QUEUE</code>, your overflow builds need to wait on
+   *                     the existing fleet instance to become available.</p>
+   *             </li>
+   *             <li>
+   *                <p>For overflow behavior <code>ON_DEMAND</code>, your overflow builds run on CodeBuild on-demand.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  overflowBehavior?: FleetOverflowBehavior;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>
@@ -7620,6 +7664,21 @@ export interface UpdateFleetInput {
    * @public
    */
   scalingConfiguration?: ScalingConfigurationInput;
+
+  /**
+   * <p>The compute fleet overflow behavior.</p>
+   *          <ul>
+   *             <li>
+   *                <p>For overflow behavior <code>QUEUE</code>, your overflow builds need to wait on
+   *                     the existing fleet instance to become available.</p>
+   *             </li>
+   *             <li>
+   *                <p>For overflow behavior <code>ON_DEMAND</code>, your overflow builds run on CodeBuild on-demand.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  overflowBehavior?: FleetOverflowBehavior;
 
   /**
    * <p>A list of tag key and value pairs associated with this compute fleet.</p>

@@ -2045,6 +2045,7 @@ const se_CreateFleetInput = (input: CreateFleetInput, context: __SerdeContext): 
     computeType: [],
     environmentType: [],
     name: [],
+    overflowBehavior: [],
     scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
     tags: _json,
   });
@@ -2252,6 +2253,7 @@ const se_UpdateFleetInput = (input: UpdateFleetInput, context: __SerdeContext): 
     baseCapacity: [],
     computeType: [],
     environmentType: [],
+    overflowBehavior: [],
     scalingConfiguration: (_) => se_ScalingConfigurationInput(_, context),
     tags: _json,
   });
@@ -2714,6 +2716,7 @@ const de_Fleet = (output: any, context: __SerdeContext): Fleet => {
     id: __expectString,
     lastModified: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),
     name: __expectString,
+    overflowBehavior: __expectString,
     scalingConfiguration: (_: any) => de_ScalingConfigurationOutput(_, context),
     status: _json,
     tags: _json,
