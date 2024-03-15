@@ -1,7 +1,7 @@
 // smithy-typescript generated code
 /* eslint-disable */
 /**
- * <p>Amazon WorkSpaces Thin Client is a affordable device built to work with Amazon Web Services End User
+ * <p>Amazon WorkSpaces Thin Client is an affordable device built to work with Amazon Web Services End User
  *             Computing (EUC) virtual desktops to provide users with a complete cloud desktop
  *             solution. WorkSpaces Thin Client is a compact device designed to connect up to two monitors and USB
  *             devices like a keyboard, mouse, headset, and webcam. To maximize endpoint security, WorkSpaces Thin Client

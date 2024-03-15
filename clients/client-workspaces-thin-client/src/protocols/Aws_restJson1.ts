@@ -449,7 +449,6 @@ export const se_UpdateDeviceCommand = async (
   body = JSON.stringify(
     take(input, {
       desiredSoftwareSetId: [],
-      kmsKeyArn: [],
       name: [],
       softwareSetUpdateSchedule: [],
     })

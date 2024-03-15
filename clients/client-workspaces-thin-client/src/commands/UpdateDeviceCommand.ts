@@ -48,7 +48,6 @@ export interface UpdateDeviceCommandOutput extends UpdateDeviceResponse, __Metad
  *   name: "STRING_VALUE",
  *   desiredSoftwareSetId: "STRING_VALUE",
  *   softwareSetUpdateSchedule: "USE_MAINTENANCE_WINDOW" || "APPLY_IMMEDIATELY",
- *   kmsKeyArn: "STRING_VALUE",
  * };
  * const command = new UpdateDeviceCommand(input);
  * const response = await client.send(command);

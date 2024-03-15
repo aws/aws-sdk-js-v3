@@ -1606,13 +1606,6 @@ export interface UpdateDeviceRequest {
    * @public
    */
   softwareSetUpdateSchedule?: SoftwareSetUpdateSchedule;
-
-  /**
-   * <p>The Amazon Resource Name (ARN) of the Key Management Service key to use for the
-   *             update.</p>
-   * @public
-   */
-  kmsKeyArn?: string;
 }
 
 /**
