@@ -31,7 +31,6 @@ export interface GetSessionTokenCommandInput extends GetSessionTokenRequest {}
 export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of temporary credentials for an Amazon Web Services account or IAM user.
  *          The credentials consist of an access key ID, a secret access key, and a security token.
  *          Typically, you use <code>GetSessionToken</code> if you want to use MFA to protect
@@ -131,6 +130,7 @@ export interface GetSessionTokenCommandOutput extends GetSessionTokenResponse, _
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * @public
  * @example To get temporary credentials for an IAM user or an AWS account
  * ```javascript
  * //

@@ -32,7 +32,6 @@ export interface AssumeRoleWithWebIdentityCommandInput extends AssumeRoleWithWeb
 export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWebIdentityResponse, __MetadataBearer {}
 
 /**
- * @public
  * <p>Returns a set of temporary security credentials for users who have been authenticated in
  *          a mobile or web application with a web identity provider. Example providers include the
  *          OAuth 2.0 providers Login with Amazon and Facebook, or any OpenID Connect-compatible
@@ -258,6 +257,7 @@ export interface AssumeRoleWithWebIdentityCommandOutput extends AssumeRoleWithWe
  * @throws {@link STSServiceException}
  * <p>Base exception class for all service exceptions from STS service.</p>
  *
+ * @public
  * @example To assume a role as an OpenID Connect-federated user
  * ```javascript
  * //
