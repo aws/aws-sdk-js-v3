@@ -29,7 +29,7 @@
     "@aws-sdk/types": "*",
     "@smithy/fetch-http-handler": "^2.5.0",
     "@smithy/node-http-handler": "^2.5.0",
-    "@smithy/property-provider": "^2.1.4",
+    "@smithy/property-provider": "^2.2.0",
     "@smithy/protocol-http": "^3.3.0",
     "@smithy/smithy-client": "^2.5.0",
     "@smithy/types": "^2.12.0",

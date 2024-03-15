@@ -23,7 +23,7 @@
     "@aws-sdk/middleware-sdk-s3": "*",
     "@aws-sdk/types": "*",
     "@smithy/protocol-http": "^3.3.0",
-    "@smithy/signature-v4": "^2.1.4",
+    "@smithy/signature-v4": "^2.2.0",
     "@smithy/types": "^2.12.0",
     "tslib": "^2.6.2"
   },
