@@ -32,7 +32,7 @@ export interface SendChannelMessageCommandOutput extends SendChannelMessageRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by SendChannelMessage in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Sends a message to a particular channel that the member is a part of.</p>
  *          <note>

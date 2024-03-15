@@ -33,7 +33,7 @@ export interface CreateMeetingCommandOutput extends CreateMeetingResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateMeeting in the Amazon Chime SDK Meetings Namespace
  *
  * <p>Creates a new Amazon Chime SDK meeting in the specified media Region with no initial attendees. For more information about specifying media Regions, see
  * <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/chime-sdk-meetings-regions.html">Amazon Chime SDK Media Regions</a>

@@ -33,7 +33,7 @@ export interface AssociateContactWithAddressBookCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Associates a contact with a given address book.</p>
  * @example

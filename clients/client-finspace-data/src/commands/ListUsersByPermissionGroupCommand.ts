@@ -32,7 +32,7 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Lists details of all the users in a specific permission group.</p>
  * @example

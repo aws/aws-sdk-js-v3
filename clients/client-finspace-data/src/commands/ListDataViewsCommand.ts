@@ -28,7 +28,7 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Lists all available Dataviews for a Dataset.</p>
  * @example

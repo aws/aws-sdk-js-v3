@@ -32,7 +32,7 @@ export interface DescribeChannelMembershipCommandOutput extends DescribeChannelM
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DescribeChannelMembership in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Returns the full details of a user's channel membership.</p>
  *          <note>

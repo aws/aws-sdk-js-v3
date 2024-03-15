@@ -39,7 +39,7 @@ export interface ListChannelsModeratedByAppInstanceUserCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListChannelsModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace
  *
  * <p>A list of the channels moderated by an <code>AppInstanceUser</code>.</p>
  *          <note>

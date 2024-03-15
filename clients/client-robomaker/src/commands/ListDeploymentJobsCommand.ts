@@ -28,7 +28,7 @@ export interface ListDeploymentJobsCommandOutput extends ListDeploymentJobsRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  *
  * <p>Returns a list of deployment jobs for a fleet. You can optionally provide filters to retrieve specific deployment jobs.</p>
  *          <important>

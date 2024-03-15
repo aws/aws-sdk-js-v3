@@ -28,7 +28,7 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Asynchronously uploads one or more entity definitions to the user's namespace. The <code>document</code> parameter is required if
  *       <code>syncWithPublicNamespace</code> and <code>deleteExistingEntites</code> are false. If the <code>syncWithPublicNamespace</code> parameter  is set to

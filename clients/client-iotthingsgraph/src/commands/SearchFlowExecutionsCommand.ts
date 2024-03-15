@@ -28,7 +28,7 @@ export interface SearchFlowExecutionsCommandOutput extends SearchFlowExecutionsR
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Searches for AWS IoT Things Graph workflow execution instances.</p>
  * @example

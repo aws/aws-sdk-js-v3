@@ -28,7 +28,7 @@ export interface GetDataViewCommandOutput extends GetDataViewResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Gets information about a Dataview.</p>
  * @example

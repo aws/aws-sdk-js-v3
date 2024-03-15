@@ -28,7 +28,7 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated Use ListTagsForResource.
  *
  * <note>
  *             <p>DEPRECATED - The <code>DescribeTags</code> action is deprecated and not maintained. To view

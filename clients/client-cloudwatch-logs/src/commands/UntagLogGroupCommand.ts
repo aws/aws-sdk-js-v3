@@ -28,7 +28,7 @@ export interface UntagLogGroupCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Please use the generic tagging API UntagResource
  *
  * <important>
  *             <p>The UntagLogGroup operation is on the path to deprecation. We recommend that you use

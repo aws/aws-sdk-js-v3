@@ -33,7 +33,7 @@ export interface PutAppInstanceRetentionSettingsCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by PutAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace
  *
  * <p>Sets the amount of time in days that a given <code>AppInstance</code> retains data.</p>
  *          <important>

@@ -33,7 +33,7 @@ export interface GetAppInstanceRetentionSettingsCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetAppInstanceRetentionSettings in the Amazon Chime SDK Identity Namespace
  *
  * <p>Gets the retention settings for an <code>AppInstance</code>.</p>
  *          <important>

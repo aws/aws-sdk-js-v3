@@ -28,7 +28,7 @@ export interface UpdateChannelReadMarkerCommandOutput extends UpdateChannelReadM
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateChannelReadMarker in the Amazon Chime SDK Messaging Namespace
  *
  * <p>The details of the time when a user last read messages in a channel.</p>
  *          <note>

@@ -28,7 +28,7 @@ export interface DescribeEndpointsCommandOutput extends DescribeEndpointsRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated DescribeEndpoints and account specific endpoints are no longer required. We recommend that you send your requests directly to the regional endpoint instead.
  *
  * Send an request with an empty body to the regional API endpoint to get your account API endpoint.
  * @example

@@ -28,7 +28,7 @@ export interface GetUploadStatusCommandOutput extends GetUploadStatusResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Gets the status of the specified upload.</p>
  * @example

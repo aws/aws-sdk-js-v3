@@ -33,7 +33,7 @@ export interface StartSmartHomeApplianceDiscoveryCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Initiates the discovery of any smart home appliances associated with the
  *          room.</p>

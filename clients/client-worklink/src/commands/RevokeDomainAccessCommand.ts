@@ -28,7 +28,7 @@ export interface RevokeDomainAccessCommandOutput extends RevokeDomainAccessRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Moves a domain to INACTIVE status if it was in the ACTIVE status.</p>
  * @example

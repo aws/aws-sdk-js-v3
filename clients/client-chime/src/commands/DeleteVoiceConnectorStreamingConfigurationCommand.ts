@@ -32,7 +32,7 @@ export interface DeleteVoiceConnectorStreamingConfigurationCommandOutput extends
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteVoiceConnectorStreamingConfiguration in the Amazon Chime SDK Voice Namespace
  *
  * <p>Deletes the streaming configuration for the specified Amazon Chime Voice Connector.</p>
  *          <important>

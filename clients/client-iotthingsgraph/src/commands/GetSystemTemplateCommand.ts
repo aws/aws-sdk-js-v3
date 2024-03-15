@@ -28,7 +28,7 @@ export interface GetSystemTemplateCommandOutput extends GetSystemTemplateRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Gets a system.</p>
  * @example

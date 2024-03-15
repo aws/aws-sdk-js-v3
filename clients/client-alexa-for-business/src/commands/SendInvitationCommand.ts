@@ -28,7 +28,7 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
  *          days or until you call this operation again, whichever comes first. </p>

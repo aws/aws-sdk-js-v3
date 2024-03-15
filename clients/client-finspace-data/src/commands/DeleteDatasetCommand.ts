@@ -28,7 +28,7 @@ export interface DeleteDatasetCommandOutput extends DeleteDatasetResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Deletes a FinSpace Dataset.</p>
  * @example

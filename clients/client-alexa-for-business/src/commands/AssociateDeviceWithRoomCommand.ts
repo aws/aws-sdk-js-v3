@@ -28,7 +28,7 @@ export interface AssociateDeviceWithRoomCommandOutput extends AssociateDeviceWit
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Associates a device with a given room. This applies all the settings from the room
  *          profile to the device, and all the skills in any skill groups added to that room. This

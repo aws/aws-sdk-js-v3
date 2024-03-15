@@ -28,7 +28,7 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Removes metadata tags from a specified resource.</p>
  * @example

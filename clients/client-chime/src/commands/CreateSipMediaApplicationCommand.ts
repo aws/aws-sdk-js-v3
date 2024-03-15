@@ -33,7 +33,7 @@ export interface CreateSipMediaApplicationCommandOutput extends CreateSipMediaAp
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateSipMediaApplication in the Amazon Chime SDK Voice Namespace
  *
  * <p>Creates a SIP media application.</p>
  *          <important>

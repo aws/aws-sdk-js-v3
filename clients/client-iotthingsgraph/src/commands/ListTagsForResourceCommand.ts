@@ -28,7 +28,7 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Lists all tags on an AWS IoT Things Graph resource.</p>
  * @example

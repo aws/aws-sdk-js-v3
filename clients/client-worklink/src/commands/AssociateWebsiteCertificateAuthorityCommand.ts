@@ -36,7 +36,7 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
  *             certificates used by associated websites within the company network.</p>

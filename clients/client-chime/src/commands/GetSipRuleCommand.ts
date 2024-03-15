@@ -28,7 +28,7 @@ export interface GetSipRuleCommandOutput extends GetSipRuleResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetSipRule in the Amazon Chime SDK Voice Namespace
  *
  * <p>Retrieves the details of a SIP rule, such as the rule ID, name, triggers, and target endpoints.</p>
  *          <important>

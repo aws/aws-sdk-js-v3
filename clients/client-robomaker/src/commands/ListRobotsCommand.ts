@@ -28,7 +28,7 @@ export interface ListRobotsCommandOutput extends ListRobotsResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  *
  * <p>Returns a list of robots. You can optionally provide filters to retrieve specific robots.</p>
  *          <important>

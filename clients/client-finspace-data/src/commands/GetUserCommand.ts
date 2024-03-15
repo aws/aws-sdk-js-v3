@@ -28,7 +28,7 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Retrieves details for a specific user.</p>
  * @example

@@ -33,7 +33,7 @@ export interface DescribeAuditStreamConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Describes the configuration for delivering audit streams to the customer account.</p>
  * @example

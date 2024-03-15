@@ -28,7 +28,7 @@ export interface GetVoiceConnectorCommandOutput extends GetVoiceConnectorRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnector in the Amazon Chime SDK Voice Namespace
  *
  * <p>Retrieves details for the specified Amazon Chime Voice Connector, such as timestamps,name, outbound host, and encryption requirements.</p>
  *          <important>

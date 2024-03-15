@@ -33,7 +33,7 @@ export interface CreateMediaCapturePipelineCommandOutput extends CreateMediaCapt
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateMediaCapturePipeline in the Amazon Chime SDK Media Pipelines Namespace
  *
  * <p>Creates a media capture pipeline.</p>
  *          <important>

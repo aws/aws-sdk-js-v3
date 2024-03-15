@@ -38,7 +38,7 @@ export interface DescribeChannelMembershipForAppInstanceUserCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DescribeChannelMembershipForAppInstanceUser in the Amazon Chime SDK Messaging Namespace
  *
  * <p> Returns the details of a channel based on the membership of the specified
  *             <code>AppInstanceUser</code>.</p>

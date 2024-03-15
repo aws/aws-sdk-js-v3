@@ -32,7 +32,7 @@ export interface ListMeetingTagsCommandOutput extends ListMeetingTagsResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated Use ListTagsForResource in the Amazon Chime SDK Meetings Namespace.
  *
  * <p>Lists the tags applied to an Amazon Chime SDK meeting resource.</p>
  *          <important>

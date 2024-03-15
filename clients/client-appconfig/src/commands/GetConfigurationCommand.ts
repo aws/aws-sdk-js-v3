@@ -36,7 +36,7 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
 
 /**
  * @public
- * @deprecated
+ * @deprecated This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.
  *
  * <p>(Deprecated) Retrieves the latest deployed configuration.</p>
  *          <important>

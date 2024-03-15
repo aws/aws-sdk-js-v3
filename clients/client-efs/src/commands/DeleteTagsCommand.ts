@@ -28,7 +28,7 @@ export interface DeleteTagsCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Use UntagResource.
  *
  * <note>
  *             <p>DEPRECATED - <code>DeleteTags</code> is deprecated and not maintained. To remove tags from EFS

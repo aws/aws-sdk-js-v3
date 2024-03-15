@@ -33,7 +33,7 @@ export interface ListChannelModeratorsCommandOutput extends ListChannelModerator
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListChannelModerators in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Lists all the moderators for a channel.</p>
  *          <note>

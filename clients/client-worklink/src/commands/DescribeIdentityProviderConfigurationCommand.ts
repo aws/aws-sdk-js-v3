@@ -37,7 +37,7 @@ export interface DescribeIdentityProviderConfigurationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Describes the identity provider configuration of the specified fleet.</p>
  * @example

@@ -28,7 +28,7 @@ export interface CreateAddressBookCommandOutput extends CreateAddressBookRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Creates an address book with the specified details.</p>
  * @example

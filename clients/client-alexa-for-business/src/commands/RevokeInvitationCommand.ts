@@ -28,7 +28,7 @@ export interface RevokeInvitationCommandOutput extends RevokeInvitationResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Revokes an invitation and invalidates the enrollment URL.</p>
  * @example

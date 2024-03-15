@@ -38,7 +38,7 @@ export interface DescribeChannelModeratedByAppInstanceUserCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DescribeChannelModeratedByAppInstanceUser in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Returns the full details of a channel moderated by the specified
  *             <code>AppInstanceUser</code>.</p>

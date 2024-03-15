@@ -36,7 +36,7 @@ export interface DisassociateContactFromAddressBookCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Disassociates a contact from a given address book.</p>
  * @example

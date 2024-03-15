@@ -32,7 +32,7 @@ export interface DetectEntitiesCommandOutput extends DetectEntitiesResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is deprecated, use DetectEntitiesV2 instead.
  *
  * <p>The <code>DetectEntities</code> operation is deprecated. You should use the <a>DetectEntitiesV2</a> operation instead.</p>
  *          <p>Inspects the clinical text for a variety of medical entities and returns specific

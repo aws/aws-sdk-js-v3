@@ -28,7 +28,7 @@ export interface PublishMetricsCommandOutput extends PublishMetricsOutput, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated This API is for internal use and not meant for public use, and is no longer available.
  *
  * <p>
  *             <b>Internal only</b>. Publishes environment health metrics to Amazon CloudWatch.</p>

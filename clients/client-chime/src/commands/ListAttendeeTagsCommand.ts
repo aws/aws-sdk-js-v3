@@ -32,7 +32,7 @@ export interface ListAttendeeTagsCommandOutput extends ListAttendeeTagsResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Attendee Tags are not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
  *
  * <p>Lists the tags applied to an Amazon Chime SDK attendee resource.</p>
  *          <important>

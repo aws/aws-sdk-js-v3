@@ -28,7 +28,7 @@ export interface AssociateDomainCommandOutput extends AssociateDomainResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Specifies a domain to be associated to Amazon WorkLink.</p>
  * @example

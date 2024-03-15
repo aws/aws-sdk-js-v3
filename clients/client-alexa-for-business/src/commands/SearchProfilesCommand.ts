@@ -28,7 +28,7 @@ export interface SearchProfilesCommandOutput extends SearchProfilesResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Searches room profiles and lists the ones that meet a set of filter
  *          criteria.</p>

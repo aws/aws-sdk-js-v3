@@ -1911,7 +1911,7 @@ export interface AlexaForBusiness {
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Alexa for Business has been retired and is no longer supported.</p>
  */

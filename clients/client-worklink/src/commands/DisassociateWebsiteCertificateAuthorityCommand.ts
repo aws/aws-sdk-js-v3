@@ -37,7 +37,7 @@ export interface DisassociateWebsiteCertificateAuthorityCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Removes a certificate authority (CA).</p>
  * @example

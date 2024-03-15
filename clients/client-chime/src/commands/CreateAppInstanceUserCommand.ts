@@ -32,7 +32,7 @@ export interface CreateAppInstanceUserCommandOutput extends CreateAppInstanceUse
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateAppInstanceUser in the Amazon Chime SDK Identity Namespace
  *
  * <p>Creates a user under an Amazon Chime <code>AppInstance</code>. The request consists of a unique <code>appInstanceUserId</code> and
  * <code>Name</code> for that user.</p>

@@ -28,7 +28,7 @@ export interface UntagMeetingCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Use UntagResource in the Amazon Chime SDK Meetings Namespace.
  *
  * <p>Untags the specified tags from the specified Amazon Chime SDK meeting.</p>
  *          <important>

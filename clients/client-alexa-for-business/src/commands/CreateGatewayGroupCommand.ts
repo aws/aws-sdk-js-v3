@@ -28,7 +28,7 @@ export interface CreateGatewayGroupCommandOutput extends CreateGatewayGroupRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Creates a gateway group with the specified details.</p>
  * @example

@@ -28,7 +28,7 @@ export interface TagResourceCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by TagResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces
  *
  * <p>Applies the specified tags to the specified Amazon Chime SDK meeting resource.</p>
  *          <important>

@@ -28,7 +28,7 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Configures the email template for the user enrollment invitation with the specified
  *          attributes.</p>

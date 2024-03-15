@@ -32,7 +32,7 @@ export interface CreateNetworkProfileCommandOutput extends CreateNetworkProfileR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Creates a network profile with the specified details.</p>
  * @example

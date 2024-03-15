@@ -28,7 +28,7 @@ export interface DeleteProfileCommandOutput extends DeleteProfileResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes a room profile by the profile ARN.</p>
  * @example

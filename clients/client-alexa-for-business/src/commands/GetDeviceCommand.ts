@@ -28,7 +28,7 @@ export interface GetDeviceCommandOutput extends GetDeviceResponse, __MetadataBea
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets the details of a device by device ARN.</p>
  * @example

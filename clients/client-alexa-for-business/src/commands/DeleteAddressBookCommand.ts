@@ -28,7 +28,7 @@ export interface DeleteAddressBookCommandOutput extends DeleteAddressBookRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes an address book by the address book ARN.</p>
  * @example

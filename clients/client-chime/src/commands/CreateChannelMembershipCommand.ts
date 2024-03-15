@@ -32,7 +32,7 @@ export interface CreateChannelMembershipCommandOutput extends CreateChannelMembe
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateChannelMembership in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Adds a user to a channel. The <code>InvitedBy</code> response field is derived from the
  *          request header. A channel member can:</p>

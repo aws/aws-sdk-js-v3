@@ -28,7 +28,7 @@ export interface DeleteNetworkProfileCommandOutput extends DeleteNetworkProfileR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes a network profile by the network profile ARN.</p>
  * @example

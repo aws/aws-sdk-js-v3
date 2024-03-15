@@ -28,7 +28,7 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes room skill parameter details by room, skill, and parameter key ID.</p>
  * @example

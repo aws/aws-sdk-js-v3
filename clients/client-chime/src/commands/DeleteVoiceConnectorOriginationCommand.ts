@@ -31,7 +31,7 @@ export interface DeleteVoiceConnectorOriginationCommandOutput extends __Metadata
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteVoiceConnectorOrigination in the Amazon Chime SDK Voice Namespace
  *
  * <p>Deletes the origination settings for the specified Amazon Chime Voice Connector.</p>
  *          <note>

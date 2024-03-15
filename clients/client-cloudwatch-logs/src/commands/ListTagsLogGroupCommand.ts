@@ -28,7 +28,7 @@ export interface ListTagsLogGroupCommandOutput extends ListTagsLogGroupResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Please use the generic tagging API ListTagsForResource
  *
  * <important>
  *             <p>The ListTagsLogGroup operation is on the path to deprecation. We recommend that you use

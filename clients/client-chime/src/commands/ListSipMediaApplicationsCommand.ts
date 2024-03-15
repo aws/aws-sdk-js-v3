@@ -32,7 +32,7 @@ export interface ListSipMediaApplicationsCommandOutput extends ListSipMediaAppli
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListSipMediaApplications in the Amazon Chime SDK Voice Namespace
  *
  * <p>Lists the SIP media applications under the administrator's AWS account.</p>
  *          <important>

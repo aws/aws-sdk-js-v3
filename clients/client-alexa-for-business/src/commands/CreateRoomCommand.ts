@@ -28,7 +28,7 @@ export interface CreateRoomCommandOutput extends CreateRoomResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Creates a room with the specified details.</p>
  * @example

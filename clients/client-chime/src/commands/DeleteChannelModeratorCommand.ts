@@ -28,7 +28,7 @@ export interface DeleteChannelModeratorCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteChannelModerator in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Deletes a channel moderator.</p>
  *          <note>

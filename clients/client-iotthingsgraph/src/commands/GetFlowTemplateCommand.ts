@@ -28,7 +28,7 @@ export interface GetFlowTemplateCommandOutput extends GetFlowTemplateResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Gets the latest version of the <code>DefinitionDocument</code> and <code>FlowTemplateSummary</code> for the specified workflow.</p>
  * @example

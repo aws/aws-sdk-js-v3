@@ -28,7 +28,7 @@ export interface RedactChannelMessageCommandOutput extends RedactChannelMessageR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by RedactChannelMessage in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Redacts message content, but not metadata. The message exists in the back end, but the
  *          action returns null content, and the state shows as redacted.</p>

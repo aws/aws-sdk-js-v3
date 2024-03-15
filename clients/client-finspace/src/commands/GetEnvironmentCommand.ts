@@ -28,7 +28,7 @@ export interface GetEnvironmentCommandOutput extends GetEnvironmentResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Returns the FinSpace environment object.</p>
  * @example

@@ -28,7 +28,7 @@ export interface CreateFleetCommandOutput extends CreateFleetResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Creates a fleet. A fleet consists of resources and the configuration that delivers
  *             associated websites to authorized users who download and set up the Amazon WorkLink app.</p>

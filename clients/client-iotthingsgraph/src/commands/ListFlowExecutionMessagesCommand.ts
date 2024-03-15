@@ -28,7 +28,7 @@ export interface ListFlowExecutionMessagesCommandOutput extends ListFlowExecutio
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Returns a list of objects that contain information about events in a flow execution.</p>
  * @example

@@ -28,7 +28,7 @@ export interface DeleteSkillAuthorizationCommandOutput extends DeleteSkillAuthor
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Unlinks a third-party account from a skill.</p>
  * @example

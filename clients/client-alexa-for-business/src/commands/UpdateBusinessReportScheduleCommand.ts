@@ -33,7 +33,7 @@ export interface UpdateBusinessReportScheduleCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates the configuration of the report delivery schedule with the specified schedule
  *          ARN.</p>

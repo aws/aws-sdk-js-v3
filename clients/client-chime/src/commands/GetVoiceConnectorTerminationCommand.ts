@@ -37,7 +37,7 @@ export interface GetVoiceConnectorTerminationCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnectorTermination in the Amazon Chime SDK Voice Namespace
  *
  * <p>Retrieves termination setting details for the specified Amazon Chime Voice Connector.</p>
  *          <important>

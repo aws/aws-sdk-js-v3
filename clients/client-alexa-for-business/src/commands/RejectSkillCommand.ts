@@ -28,7 +28,7 @@ export interface RejectSkillCommandOutput extends RejectSkillResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Disassociates a skill from the organization under a user's AWS account. If the skill
  *          is a private skill, it moves to an AcceptStatus of PENDING. Any private or public skill

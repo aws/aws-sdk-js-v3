@@ -32,7 +32,7 @@ export interface CreateChannelCommandOutput extends CreateChannelResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateChannel in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Creates a channel to which you can add users and send messages.</p>
  *          <p>

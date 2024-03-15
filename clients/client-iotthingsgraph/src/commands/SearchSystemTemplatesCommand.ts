@@ -28,7 +28,7 @@ export interface SearchSystemTemplatesCommandOutput extends SearchSystemTemplate
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Searches for summary information about systems in the user's account. You can filter by the ID of a workflow to return only systems that use the specified workflow.</p>
  * @example

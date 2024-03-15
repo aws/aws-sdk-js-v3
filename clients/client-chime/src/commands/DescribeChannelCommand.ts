@@ -32,7 +32,7 @@ export interface DescribeChannelCommandOutput extends DescribeChannelResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DescribeChannel in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Returns the full details of a channel in an Amazon Chime
  *          <code>AppInstance</code>.</p>

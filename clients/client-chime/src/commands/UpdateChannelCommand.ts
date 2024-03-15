@@ -32,7 +32,7 @@ export interface UpdateChannelCommandOutput extends UpdateChannelResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateChannel in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Update a channel's attributes.</p>
  *          <p>

@@ -32,7 +32,7 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace
  *
  * <p>Promotes an <code>AppInstanceUser</code> to an <code>AppInstanceAdmin</code>. The promoted user can perform the following actions. </p>
  *          <important>

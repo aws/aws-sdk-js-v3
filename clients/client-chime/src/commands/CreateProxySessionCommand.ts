@@ -33,7 +33,7 @@ export interface CreateProxySessionCommandOutput extends CreateProxySessionRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateProxySession in the Amazon Chime SDK Voice Namespace
  *
  * <p>Creates a proxy session on the specified Amazon Chime Voice Connector for the specified participant phone numbers.</p>
  *          <important>

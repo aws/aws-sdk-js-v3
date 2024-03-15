@@ -33,7 +33,7 @@ export interface DisassociateFromMasterAccountCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is deprecated, use DisassociateFromAdministratorAccount instead
  *
  * <p>Disassociates the current GuardDuty member account from its administrator account.</p>
  *          <p>When you

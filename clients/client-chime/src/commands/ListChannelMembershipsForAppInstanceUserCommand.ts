@@ -39,7 +39,7 @@ export interface ListChannelMembershipsForAppInstanceUserCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListChannelMembershipsForAppInstanceUser in the Amazon Chime SDK Messaging Namespace
  *
  * <p> Lists all channels that a particular <code>AppInstanceUser</code> is a part of. Only an
  *             <code>AppInstanceAdmin</code> can call the API with a user ARN that is not their own. </p>

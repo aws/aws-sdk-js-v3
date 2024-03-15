@@ -28,7 +28,7 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only
  *          entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the

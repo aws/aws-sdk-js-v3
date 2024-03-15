@@ -38,7 +38,7 @@ export interface GetAppInstanceStreamingConfigurationsCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Gets the streaming settings for an <code>AppInstance</code>.</p>
  *          <important>

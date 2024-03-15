@@ -28,7 +28,7 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Lists all of the smart home appliances associated with a room.</p>
  * @example

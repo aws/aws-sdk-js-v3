@@ -28,7 +28,7 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Lists all of the active Datasets that a user has access to.</p>
  * @example

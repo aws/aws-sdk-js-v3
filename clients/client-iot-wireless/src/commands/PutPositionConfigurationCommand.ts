@@ -28,7 +28,7 @@ export interface PutPositionConfigurationCommandOutput extends PutPositionConfig
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is no longer supported.
  *
  * <p>Put position configuration for a given resource.</p>
  *          <important>

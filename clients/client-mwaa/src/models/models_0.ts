@@ -988,7 +988,7 @@ export interface ListTagsForResourceOutput {
 
 /**
  * @public
- * @deprecated
+ * @deprecated This type is for internal use and not meant for public use. Data set for this type will be ignored.
  *
  * <p>
  *             <b>Internal only</b>. Represents the dimensions of a metric. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
@@ -1011,7 +1011,7 @@ export interface Dimension {
 
 /**
  * @public
- * @deprecated
+ * @deprecated This type is for internal use and not meant for public use. Data set for this type will be ignored.
  *
  * <p>
  *             <b>Internal only</b>. Represents a set of statistics that describe a specific metric. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>
@@ -1087,7 +1087,7 @@ export type Unit = (typeof Unit)[keyof typeof Unit];
 
 /**
  * @public
- * @deprecated
+ * @deprecated This type is for internal use and not meant for public use. Data set for this type will be ignored.
  *
  * <p>
  *             <b>Internal only</b>. Collects Apache Airflow metrics. To learn more about the metrics published to Amazon CloudWatch, see <a href="https://docs.aws.amazon.com/mwaa/latest/userguide/cw-metrics.html">Amazon MWAA performance metrics in Amazon CloudWatch</a>.</p>

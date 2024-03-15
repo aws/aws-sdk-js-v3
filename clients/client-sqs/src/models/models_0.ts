@@ -975,7 +975,7 @@ export interface DeleteMessageRequest {
 
 /**
  * @public
- * @deprecated
+ * @deprecated exception has been included in ReceiptHandleIsInvalid
  *
  * <p>The specified receipt handle isn't valid for the current version.</p>
  */

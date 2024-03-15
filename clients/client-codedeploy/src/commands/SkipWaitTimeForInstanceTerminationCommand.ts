@@ -31,7 +31,7 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.
  *
  * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
  *             instances immediately after the traffic routing is complete.</p>

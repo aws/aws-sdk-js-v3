@@ -28,7 +28,7 @@ export interface CreateProfileCommandOutput extends CreateProfileResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Creates a new room profile with the specified details.</p>
  * @example

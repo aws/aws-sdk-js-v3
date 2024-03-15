@@ -33,7 +33,7 @@ export interface PutVoiceConnectorProxyCommandOutput extends PutVoiceConnectorPr
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by PutVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace
  *
  * <p>Puts the specified proxy configuration to the specified Amazon Chime Voice Connector.</p>
  *          <important>

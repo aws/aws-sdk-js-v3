@@ -32,7 +32,7 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Create a new FinSpace environment.</p>
  * @example

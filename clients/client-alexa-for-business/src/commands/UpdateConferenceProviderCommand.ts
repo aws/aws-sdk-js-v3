@@ -28,7 +28,7 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates an existing conference provider's settings.</p>
  * @example

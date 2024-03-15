@@ -28,7 +28,7 @@ export interface CreateSystemInstanceCommandOutput extends CreateSystemInstanceR
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Creates a system instance. </p>
  *          <p>This action validates the system instance, prepares the deployment-related resources. For Greengrass deployments, it updates the Greengrass group that is

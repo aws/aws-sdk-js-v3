@@ -33,7 +33,7 @@ export interface ListChannelMessagesCommandOutput extends ListChannelMessagesRes
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListChannelMessages in the Amazon Chime SDK Messaging Namespace
  *
  * <p>List all the messages in a channel. Returns a paginated list of
  *             <code>ChannelMessages</code>. By default, sorted by creation timestamp in descending

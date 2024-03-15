@@ -28,7 +28,7 @@ export interface DescribeFleetCommandOutput extends DescribeFleetResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Support for the AWS RoboMaker application deployment feature has ended. For additional information, see https://docs.aws.amazon.com/robomaker/latest/dg/fleets.html.
  *
  * <p>Describes a fleet.</p>
  *          <important>

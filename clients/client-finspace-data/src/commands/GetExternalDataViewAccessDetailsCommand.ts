@@ -37,7 +37,7 @@ export interface GetExternalDataViewAccessDetailsCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Returns the credentials to access the external Dataview from an S3 location. To call this API:</p>
  *          <ul>

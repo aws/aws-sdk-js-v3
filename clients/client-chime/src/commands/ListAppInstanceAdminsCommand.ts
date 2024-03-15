@@ -33,7 +33,7 @@ export interface ListAppInstanceAdminsCommandOutput extends ListAppInstanceAdmin
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListAppInstanceAdmins in the Amazon Chime SDK Identity Namespace
  *
  * <p>Returns a list of the administrators in the <code>AppInstance</code>.</p>
  *          <important>

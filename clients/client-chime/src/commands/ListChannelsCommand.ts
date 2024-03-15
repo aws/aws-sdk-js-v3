@@ -33,7 +33,7 @@ export interface ListChannelsCommandOutput extends ListChannelsResponse, __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListChannels in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Lists all Channels created under a single Chime App as a paginated list. You can specify
  *          filters to narrow results.</p>

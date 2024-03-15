@@ -36,7 +36,7 @@ export interface DisassociateUserFromPermissionGroupCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Removes a user from a permission group.</p>
  * @example

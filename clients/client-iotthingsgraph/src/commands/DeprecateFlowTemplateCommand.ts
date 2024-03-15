@@ -28,7 +28,7 @@ export interface DeprecateFlowTemplateCommandOutput extends DeprecateFlowTemplat
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Deprecates the specified workflow. This action marks the workflow for deletion. Deprecated flows can't be deployed, but existing deployments will continue to run.</p>
  * @example

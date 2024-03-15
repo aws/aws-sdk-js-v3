@@ -28,7 +28,7 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is deprecated, use AcceptAdministratorInvitation instead
  *
  * <p>Accepts the invitation to be monitored by a GuardDuty administrator account.</p>
  * @example

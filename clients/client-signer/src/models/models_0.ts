@@ -1852,7 +1852,7 @@ export interface StartSigningJobResponse {
 
 /**
  * @public
- * @deprecated
+ * @deprecated Instead of this error, TooManyRequestsException should be used.
  *
  * <p>The request was denied due to request throttling.</p>
  * 		       <p>Instead of this error, <code>TooManyRequestsException</code> should be used.</p>

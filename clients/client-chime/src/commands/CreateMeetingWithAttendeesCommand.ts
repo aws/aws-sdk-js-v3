@@ -33,7 +33,7 @@ export interface CreateMeetingWithAttendeesCommandOutput extends CreateMeetingWi
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by CreateMeetingWithAttendees in the Amazon Chime SDK Meetings Namespace
  *
  * <p>
  * Creates a new Amazon Chime SDK meeting in the specified media Region, with attendees. For more information about specifying media Regions, see

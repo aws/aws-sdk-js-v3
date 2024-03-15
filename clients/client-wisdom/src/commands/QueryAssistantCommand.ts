@@ -33,7 +33,7 @@ export interface QueryAssistantCommandOutput extends QueryAssistantResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated QueryAssistant API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.
  *
  * <p>Performs a manual search against the specified assistant. To retrieve recommendations for
  *       an assistant, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_GetRecommendations.html">GetRecommendations</a>.

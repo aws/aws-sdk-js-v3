@@ -28,7 +28,7 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>
  *             <b>Greengrass and Cloud Deployments</b>

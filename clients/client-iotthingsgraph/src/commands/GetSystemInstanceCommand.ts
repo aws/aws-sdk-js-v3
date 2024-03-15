@@ -28,7 +28,7 @@ export interface GetSystemInstanceCommandOutput extends GetSystemInstanceRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Gets a system instance.</p>
  * @example

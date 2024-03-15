@@ -28,7 +28,7 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes a contact by the contact ARN.</p>
  * @example

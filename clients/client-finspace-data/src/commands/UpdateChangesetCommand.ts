@@ -28,7 +28,7 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Updates a FinSpace Changeset.</p>
  * @example

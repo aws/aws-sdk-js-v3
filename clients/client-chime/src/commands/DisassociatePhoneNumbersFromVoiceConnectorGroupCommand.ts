@@ -38,7 +38,7 @@ export interface DisassociatePhoneNumbersFromVoiceConnectorGroupCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DisassociatePhoneNumbersFromVoiceConnectorGroup in the Amazon Chime SDK Voice Namespace
  *
  * <p>Disassociates the specified phone numbers from the specified Amazon Chime Voice Connector group.</p>
  *          <important>

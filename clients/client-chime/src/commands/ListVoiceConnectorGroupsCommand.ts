@@ -28,7 +28,7 @@ export interface ListVoiceConnectorGroupsCommandOutput extends ListVoiceConnecto
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListVoiceConnectorGroups in the Amazon Chime SDK Voice Namespace
  *
  * <p>Lists the Amazon Chime Voice Connector groups for the administrator's AWS account.</p>
  *          <important>

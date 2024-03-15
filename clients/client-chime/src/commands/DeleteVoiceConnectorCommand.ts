@@ -28,7 +28,7 @@ export interface DeleteVoiceConnectorCommandOutput extends __MetadataBearer {}
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DeleteVoiceConnector in the Amazon Chime SDK Voice Namespace
  *
  * <p>Deletes the specified Amazon Chime Voice Connector. Any phone numbers associated with the
  *             Amazon Chime Voice Connector must be disassociated from it before it can be

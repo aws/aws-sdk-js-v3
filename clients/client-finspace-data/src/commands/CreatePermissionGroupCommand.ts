@@ -32,7 +32,7 @@ export interface CreatePermissionGroupCommandOutput extends CreatePermissionGrou
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Creates a group of permissions for various actions that a user can perform in FinSpace.</p>
  * @example

@@ -28,7 +28,7 @@ export interface UpdateEnvironmentCommandOutput extends UpdateEnvironmentRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Update your FinSpace environment.</p>
  * @example

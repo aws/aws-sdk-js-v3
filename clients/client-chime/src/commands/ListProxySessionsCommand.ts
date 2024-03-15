@@ -32,7 +32,7 @@ export interface ListProxySessionsCommandOutput extends ListProxySessionsRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListProxySessions in the Amazon Chime SDK Voice Namespace
  *
  * <p>Lists the proxy sessions for the specified Amazon Chime Voice Connector.</p>
  *          <important>

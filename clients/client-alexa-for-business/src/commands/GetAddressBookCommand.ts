@@ -28,7 +28,7 @@ export interface GetAddressBookCommandOutput extends GetAddressBookResponse, __M
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets address the book details by the address book ARN.</p>
  * @example

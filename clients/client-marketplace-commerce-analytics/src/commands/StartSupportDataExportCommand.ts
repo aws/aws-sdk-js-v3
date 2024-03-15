@@ -32,7 +32,7 @@ export interface StartSupportDataExportCommandOutput extends StartSupportDataExp
 
 /**
  * @public
- * @deprecated
+ * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
  *
  * <i>This target has been deprecated.</i> Given a data set type and a from date, asynchronously publishes the requested customer support data
  *         to the specified S3 bucket and notifies the specified SNS topic once the data is available. Returns a unique request

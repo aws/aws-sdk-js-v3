@@ -28,7 +28,7 @@ export interface PutConferencePreferenceCommandOutput extends PutConferencePrefe
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Sets the conference preferences on a specific conference provider at the account
  *          level.</p>

@@ -32,7 +32,7 @@ export interface DescribeChannelBanCommandOutput extends DescribeChannelBanRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DescribeChannelBan in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Returns the full details of a channel ban.</p>
  *          <note>

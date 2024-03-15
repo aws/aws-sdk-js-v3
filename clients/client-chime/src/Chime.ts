@@ -4060,7 +4060,7 @@ export interface Chime {
 
 /**
  * @public
- * @deprecated
+ * @deprecated This namespace has been deprecated
  *
  * <important>
  *             <p>

@@ -32,7 +32,7 @@ export interface CreateContactCommandOutput extends CreateContactResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Creates a contact with the specified details.</p>
  * @example

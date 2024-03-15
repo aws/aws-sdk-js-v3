@@ -32,7 +32,7 @@ export interface GetProxySessionCommandOutput extends GetProxySessionResponse, _
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetProxySession in the Amazon Chime SDK Voice Namespace
  *
  * <p>Gets the specified proxy session details for the specified Amazon Chime Voice Connector.</p>
  *          <important>

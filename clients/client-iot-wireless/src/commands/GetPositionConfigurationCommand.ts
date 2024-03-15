@@ -28,7 +28,7 @@ export interface GetPositionConfigurationCommandOutput extends GetPositionConfig
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is no longer supported.
  *
  * <p>Get position configuration for a given resource.</p>
  *          <important>

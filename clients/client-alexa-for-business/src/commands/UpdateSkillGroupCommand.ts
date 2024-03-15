@@ -28,7 +28,7 @@ export interface UpdateSkillGroupCommandOutput extends UpdateSkillGroupResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates skill group details by skill group ARN.</p>
  * @example

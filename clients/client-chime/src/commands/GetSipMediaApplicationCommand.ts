@@ -32,7 +32,7 @@ export interface GetSipMediaApplicationCommandOutput extends GetSipMediaApplicat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetSipMediaApplication in the Amazon Chime SDK Voice Namespace
  *
  * <p>Retrieves the information for a SIP media application, including name, AWS Region, and endpoints.</p>
  *          <important>

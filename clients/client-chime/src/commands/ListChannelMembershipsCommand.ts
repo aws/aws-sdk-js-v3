@@ -33,7 +33,7 @@ export interface ListChannelMembershipsCommandOutput extends ListChannelMembersh
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListChannelMemberships in the Amazon Chime SDK Messaging Namespace
  *
  * <p>Lists all channel memberships in a channel.</p>
  *          <note>

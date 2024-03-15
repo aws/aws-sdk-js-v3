@@ -28,7 +28,7 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Removes a device from Alexa For Business.</p>
  * @example

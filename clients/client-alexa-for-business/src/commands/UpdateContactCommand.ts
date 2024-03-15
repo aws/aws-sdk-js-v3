@@ -32,7 +32,7 @@ export interface UpdateContactCommandOutput extends UpdateContactResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates the contact details by the contact ARN.</p>
  * @example

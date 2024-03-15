@@ -28,7 +28,7 @@ export interface RegisterAVSDeviceCommandOutput extends RegisterAVSDeviceRespons
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Registers an Alexa-enabled device built by an Original Equipment Manufacturer (OEM)
  *          using Alexa Voice Service (AVS).</p>

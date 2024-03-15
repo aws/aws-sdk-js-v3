@@ -36,7 +36,7 @@ export interface ListWebsiteAuthorizationProvidersCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Retrieves a list of website authorization providers associated with a specified fleet.</p>
  * @example

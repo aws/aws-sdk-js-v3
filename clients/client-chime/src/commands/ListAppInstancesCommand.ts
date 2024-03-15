@@ -33,7 +33,7 @@ export interface ListAppInstancesCommandOutput extends ListAppInstancesResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by ListAppInstances in the Amazon Chime SDK Identity Namespace
  *
  * <p>Lists all Amazon Chime <code>AppInstance</code>s created under a single AWS account.</p>
  *          <important>

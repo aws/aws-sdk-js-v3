@@ -32,7 +32,7 @@ export interface UpdatePermissionGroupCommandOutput extends UpdatePermissionGrou
 
 /**
  * @public
- * @deprecated
+ * @deprecated This method will be discontinued.
  *
  * <p>Modifies the details of a permission group. You cannot modify a <code>permissionGroupID</code>.</p>
  * @example

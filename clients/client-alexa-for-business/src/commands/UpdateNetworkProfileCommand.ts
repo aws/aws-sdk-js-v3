@@ -32,7 +32,7 @@ export interface UpdateNetworkProfileCommandOutput extends UpdateNetworkProfileR
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates a network profile by the network profile ARN.</p>
  * @example

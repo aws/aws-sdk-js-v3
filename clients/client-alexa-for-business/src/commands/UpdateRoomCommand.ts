@@ -28,7 +28,7 @@ export interface UpdateRoomCommandOutput extends UpdateRoomResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Updates room details by room ARN.</p>
  * @example

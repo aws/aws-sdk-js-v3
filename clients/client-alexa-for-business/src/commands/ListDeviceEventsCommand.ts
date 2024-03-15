@@ -28,7 +28,7 @@ export interface ListDeviceEventsCommandOutput extends ListDeviceEventsResponse,
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Lists the device event history, including device connection status, for up to 30
  *          days.</p>

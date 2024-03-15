@@ -28,7 +28,7 @@ export interface ListSkillsCommandOutput extends ListSkillsResponse, __MetadataB
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Lists all enabled skills in a specific skill group.</p>
  * @example

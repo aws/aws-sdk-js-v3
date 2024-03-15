@@ -32,7 +32,7 @@ export interface UpdateProxySessionCommandOutput extends UpdateProxySessionRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by UpdateProxySession in the Amazon Chime SDK Voice Namespace
  *
  * <p>Updates the specified proxy session details, such as voice or SMS capabilities.</p>
  *          <important>

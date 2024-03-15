@@ -28,7 +28,7 @@ export interface GetRoomSkillParameterCommandOutput extends GetRoomSkillParamete
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Gets room skill parameter details by room, skill, and parameter key ARN.</p>
  * @example

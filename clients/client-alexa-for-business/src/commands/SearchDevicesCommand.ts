@@ -28,7 +28,7 @@ export interface SearchDevicesCommandOutput extends SearchDevicesResponse, __Met
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Searches devices and lists the ones that meet a set of filter criteria.</p>
  * @example

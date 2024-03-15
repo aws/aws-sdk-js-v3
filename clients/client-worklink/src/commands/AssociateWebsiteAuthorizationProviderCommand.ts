@@ -37,7 +37,7 @@ export interface AssociateWebsiteAuthorizationProviderCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Associates a website authorization provider with a specified fleet. This is used to authorize users against associated websites in the company network.</p>
  * @example

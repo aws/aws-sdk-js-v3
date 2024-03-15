@@ -32,7 +32,7 @@ export interface GetVoiceConnectorProxyCommandOutput extends GetVoiceConnectorPr
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by GetVoiceConnectorProxy in the Amazon Chime SDK Voice Namespace
  *
  * <p>Gets the proxy configuration details for the specified Amazon Chime Voice Connector.</p>
  *          <important>

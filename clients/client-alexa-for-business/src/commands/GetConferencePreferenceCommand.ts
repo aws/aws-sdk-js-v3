@@ -28,7 +28,7 @@ export interface GetConferencePreferenceCommandOutput extends GetConferencePrefe
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Retrieves the existing conference preferences.</p>
  * @example

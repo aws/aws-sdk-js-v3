@@ -33,7 +33,7 @@ export interface DeleteBusinessReportScheduleCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Alexa For Business is no longer supported
  *
  * <p>Deletes the recurring report delivery schedule with the specified schedule
  *          ARN.</p>

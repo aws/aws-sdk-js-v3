@@ -28,7 +28,7 @@ export interface DescribeFleetMetadataCommandOutput extends DescribeFleetMetadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  *
  * <p>Provides basic information for the specified fleet, excluding identity provider,
  *             networking, and device configuration details.</p>

@@ -32,7 +32,7 @@ export interface DescribeAppInstanceAdminCommandOutput extends DescribeAppInstan
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by DescribeAppInstanceAdmin in the Amazon Chime SDK Identity Namespace
  *
  * <p>Returns the full details of an <code>AppInstanceAdmin</code>.</p>
  *          <important>

@@ -39,7 +39,7 @@ export interface PutAppInstanceStreamingConfigurationsCommandOutput
 
 /**
  * @public
- * @deprecated
+ * @deprecated Replaced by PutAppInstanceStreamingConfigurations in the Amazon Chime SDK Messaging Namespace
  *
  * <p>The data streaming configurations of an <code>AppInstance</code>.</p>
  *          <important>

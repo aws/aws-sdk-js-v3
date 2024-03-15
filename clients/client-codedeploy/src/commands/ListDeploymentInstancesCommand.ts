@@ -28,7 +28,7 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
 
 /**
  * @public
- * @deprecated
+ * @deprecated This operation is deprecated, use ListDeploymentTargets instead.
  *
  * <note>
  *             <p> The newer <code>BatchGetDeploymentTargets</code> should be used instead because

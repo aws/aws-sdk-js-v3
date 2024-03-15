@@ -28,7 +28,7 @@ export interface GetEntitiesCommandOutput extends GetEntitiesResponse, __Metadat
 
 /**
  * @public
- * @deprecated
+ * @deprecated since: 2022-08-30
  *
  * <p>Gets definitions of the specified entities. Uses the latest version of the user's namespace by default. This API returns the
  *       following TDM entities.</p>

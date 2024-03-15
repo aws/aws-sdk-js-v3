@@ -32,7 +32,7 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
 
 /**
  * @public
- * @deprecated
+ * @deprecated GetRecommendations API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.
  *
  * <p>Retrieves recommendations for the specified session. To avoid retrieving the same
  *       recommendations in subsequent calls, use <a href="https://docs.aws.amazon.com/amazon-q-connect/latest/APIReference/API_NotifyRecommendationsReceived.html">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the
