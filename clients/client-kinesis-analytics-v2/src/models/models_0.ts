@@ -1714,9 +1714,9 @@ export type ConfigurationType = (typeof ConfigurationType)[keyof typeof Configur
  * <p>Describes an application's checkpointing configuration. Checkpointing is the process of persisting application state for fault
  *       tolerance.
  *       For more information, see
- *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/concepts/programming-model.html#checkpoints-for-fault-tolerance">
+ *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
  *         Checkpoints for Fault Tolerance</a> in the
- *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink Documentation</a>.</p>
+ *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink Documentation</a>.</p>
  * @public
  */
 export interface CheckpointConfiguration {
@@ -1772,7 +1772,7 @@ export interface CheckpointConfiguration {
    * <p>Describes the minimum time in milliseconds after a checkpoint operation completes that a
    *       new checkpoint operation can start. If a checkpoint operation takes longer than the
    *         <code>CheckpointInterval</code>, the application otherwise performs continual checkpoint
-   *       operations. For more information, see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/state/large_state_tuning.html#tuning-checkpointing"> Tuning Checkpointing</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
+   *       operations. For more information, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/state/large_state_tuning/#tuning-checkpointing"> Tuning Checkpointing</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink
    *         Documentation</a>.</p>
    *          <note>
    *             <p>If <code>CheckpointConfiguration.ConfigurationType</code> is <code>DEFAULT</code>,
@@ -1846,7 +1846,7 @@ export interface MonitoringConfiguration {
 /**
  * <p>Describes parameters for how a Managed Service for Apache Flink application
  *       executes multiple tasks simultaneously. For more information about parallelism,
- *       see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/dev/parallel.html">Parallel Execution</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
+ *       see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/dev/parallel.html">Parallel Execution</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink
  *         Documentation</a>.</p>
  * @public
  */
@@ -1894,9 +1894,9 @@ export interface FlinkApplicationConfiguration {
    * <p>Describes an application's checkpointing configuration. Checkpointing is the
    *       process of persisting application state for fault tolerance.
    *       For more information, see
-   *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/concepts/programming-model.html#checkpoints-for-fault-tolerance">
+   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/dev/datastream/fault-tolerance/checkpointing/#enabling-and-configuring-checkpointing">
    *         Checkpoints for Fault Tolerance</a> in the
-   *       <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink Documentation</a>. </p>
+   *       <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink Documentation</a>. </p>
    * @public
    */
   CheckpointConfiguration?: CheckpointConfiguration;
@@ -2338,7 +2338,7 @@ export interface FlinkApplicationConfigurationDescription {
   ParallelismConfigurationDescription?: ParallelismConfigurationDescription;
 
   /**
-   * <p>The job plan for an application. For more information about the job plan, see <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/internals/job_scheduling.html">Jobs and Scheduling</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
+   * <p>The job plan for an application. For more information about the job plan, see <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/internals/job_scheduling.html">Jobs and Scheduling</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink
    *         Documentation</a>. To retrieve the job plan for the application, use the <a>DescribeApplicationRequest$IncludeAdditionalDetails</a> parameter of the <a>DescribeApplication</a> operation.</p>
    * @public
    */
@@ -2391,8 +2391,8 @@ export interface FlinkRunConfiguration {
    *      This will happen if the program is updated between snapshots to remove stateful parameters, and
    *      state data in the snapshot no longer
    *      corresponds to valid application data. For more information, see
-   *      <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/ops/state/savepoints.html#allowing-non-restored-state">
-   *        Allowing Non-Restored State</a> in the <a href="https://ci.apache.org/projects/flink/flink-docs-release-1.8/">Apache Flink
+   *      <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/docs/ops/state/savepoints/#allowing-non-restored-state">
+   *        Allowing Non-Restored State</a> in the <a href="https://nightlies.apache.org/flink/flink-docs-release-1.18/">Apache Flink
    *          documentation</a>.</p>
    *          <note>
    *             <p>This value defaults to <code>false</code>. If you update your application without
@@ -3372,6 +3372,7 @@ export const RuntimeEnvironment = {
   FLINK_1_11: "FLINK-1_11",
   FLINK_1_13: "FLINK-1_13",
   FLINK_1_15: "FLINK-1_15",
+  FLINK_1_18: "FLINK-1_18",
   FLINK_1_6: "FLINK-1_6",
   FLINK_1_8: "FLINK-1_8",
   SQL_1_0: "SQL-1_0",
