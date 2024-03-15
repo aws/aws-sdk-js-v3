@@ -32,7 +32,7 @@ export interface HeadBucketCommandOutput extends HeadBucketOutput, __MetadataBea
  *          <p>If the bucket does not exist or you do not have permission to access it, the
  *             <code>HEAD</code> request returns a generic <code>400 Bad Request</code>, <code>403
  *             Forbidden</code> or <code>404 Not Found</code> code. A message body is not included, so
- *          you cannot determine the exception beyond these error codes.</p>
+ *          you cannot determine the exception beyond these HTTP response codes.</p>
  *          <note>
  *             <p>
  *                <b>Directory buckets </b> - You must make requests for this API operation to the Zonal endpoint. These endpoints support virtual-hosted-style requests in the format <code>https://<i>bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-express-Regions-and-Zones.html">Regional and Zonal endpoints</a> in the

@@ -52,7 +52,9 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *          </note>
  *          <p>Both the
  *       Region that you want to copy the object from and the Region that you want to copy the
- *       object to must be enabled for your account.</p>
+ *       object to must be enabled for your account. For more information about how to enable a Region for your account, see <a href="https://docs.aws.amazon.com/accounts/latest/reference/manage-acct-regions.html#manage-acct-regions-enable-standalone">Enable
+ *          or disable a Region for standalone accounts</a> in the
+ *          <i>Amazon Web Services Account Management Guide</i>.</p>
  *          <important>
  *             <p>Amazon S3 transfer acceleration does not support cross-Region copies. If you request a
  *             cross-Region copy using a transfer acceleration endpoint, you get a <code>400 Bad
@@ -91,7 +93,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                         <li>
  *                            <p>If the destination bucket is a general purpose bucket, you must have
  *                                  <b>
- *                                  <code>s3:PubObject</code>
+ *                                  <code>s3:PutObject</code>
  *                               </b>
  *                               permission to write the object copy to the destination bucket. </p>
  *                         </li>
@@ -147,7 +149,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *                            <p>If the error occurs during the copy operation, the error response is
  *                            embedded in the <code>200 OK</code> response. For example, in a cross-region copy, you
  *                            may encounter throttling and receive a <code>200 OK</code> response.
- *                            For more information, see <a href="repost.aws/knowledge-center/s3-resolve-200-internalerror">Resolve
+ *                            For more information, see <a href="https://repost.aws/knowledge-center/s3-resolve-200-internalerror">Resolve
  *                            the Error 200 response when copying objects to Amazon S3</a>.
  *                            The <code>200 OK</code> status code means the copy was accepted, but
  *                            it doesn't mean the copy is complete. Another example is
@@ -169,7 +171,7 @@ export interface CopyObjectCommandOutput extends CopyObjectOutput, __MetadataBea
  *             <dd>
  *                <p>The copy request charge is based on the storage class and Region that you specify for
  *                   the destination object. The request can also result in a data retrieval charge for the
- *                   source if the source storage class bills for data retrieval. For pricing information, see
+ *                   source if the source storage class bills for data retrieval. If the copy source is in a different region, the data transfer is billed to the copy source account. For pricing information, see
  *                   <a href="http://aws.amazon.com/s3/pricing/">Amazon S3 pricing</a>.</p>
  *             </dd>
  *             <dt>HTTP Host header syntax</dt>

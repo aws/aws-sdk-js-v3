@@ -57,7 +57,7 @@ export interface CompleteMultipartUploadCommandOutput extends CompleteMultipartU
  *          request as appropriate). If the condition persists, the SDKs throw an exception (or, for
  *          the SDKs that don't use exceptions, they return an error). </p>
  *          <p>Note that if <code>CompleteMultipartUpload</code> fails, applications should be prepared
- *          to retry the failed requests. For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best
+ *          to retry any failed requests (including 500 error responses). For more information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/ErrorBestPractices.html">Amazon S3 Error Best
  *          Practices</a>.</p>
  *          <important>
  *             <p>You can't use <code>Content-Type: application/x-www-form-urlencoded</code> for the

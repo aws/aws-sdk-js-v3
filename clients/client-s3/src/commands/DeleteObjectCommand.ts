@@ -30,12 +30,13 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  * <p>Removes an object from a bucket. The behavior depends on the bucket's versioning state: </p>
  *          <ul>
  *             <li>
- *                <p>If versioning is enabled, the operation removes the null version (if there is one) of an object and inserts a delete marker,
- *             which becomes the latest version of the object. If there isn't a null version, Amazon S3 does
- *             not remove any objects but will still respond that the command was successful.</p>
+ *                <p>If bucket versioning is not enabled, the operation permanently deletes the object.</p>
  *             </li>
  *             <li>
- *                <p>If versioning is suspended or not enabled, the operation permanently deletes the object.</p>
+ *                <p>If bucket versioning is enabled, the operation inserts a delete marker, which becomes the current version of the object. To permanently delete an object in a versioned bucket, you must include the object’s <code>versionId</code> in the request. For more information about versioning-enabled buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectVersions.html">Deleting object versions from a versioning-enabled bucket</a>.</p>
+ *             </li>
+ *             <li>
+ *                <p>If bucket versioning is suspended, the operation removes the object that has a null <code>versionId</code>, if there is one, and inserts a delete marker that becomes the current version of the object. If there isn't an object with a null <code>versionId</code>, and all versions of the object have a <code>versionId</code>, Amazon S3 does not remove the object and only inserts a delete marker. To permanently delete an object that has a <code>versionId</code>, you must include the object’s <code>versionId</code> in the request. For more information about versioning-suspended buckets, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/DeletingObjectsfromVersioningSuspendedBuckets.html">Deleting objects from versioning-suspended buckets</a>.</p>
  *             </li>
  *          </ul>
  *          <note>
@@ -95,7 +96,7 @@ export interface DeleteObjectCommandOutput extends DeleteObjectOutput, __Metadat
  *                            <p>
  *                               <b>
  *                                  <code>s3:DeleteObjectVersion</code>
- *                               </b> - To delete a specific version of an object from a versiong-enabled bucket, you must have the <code>s3:DeleteObjectVersion</code> permission.</p>
+ *                               </b> - To delete a specific version of an object from a versioning-enabled bucket, you must have the <code>s3:DeleteObjectVersion</code> permission.</p>
  *                         </li>
  *                      </ul>
  *                   </li>

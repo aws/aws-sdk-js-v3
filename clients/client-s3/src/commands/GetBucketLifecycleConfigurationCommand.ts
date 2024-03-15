@@ -36,12 +36,12 @@ export interface GetBucketLifecycleConfigurationCommandOutput
  *             <p>This operation is not supported by directory buckets.</p>
  *          </note>
  *          <note>
- *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
- *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
+ *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an object key name prefix, one or more object tags, object size, or any combination of these. Accordingly, this section describes the latest API. The previous version of the API supported filtering based only on an object key name prefix, which is supported for backward compatibility.
+ *             For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a>. Accordingly,
  *             this section describes the latest API. The response describes the new filter element
  *             that you can use to specify a filter to select a subset of objects to which the rule
  *             applies. If you are using a previous version of the lifecycle configuration, it still
- *             works. For the earlier action, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_GetBucketLifecycle.html">GetBucketLifecycle</a>.</p>
+ *             works. For the earlier action, </p>
  *          </note>
  *          <p>Returns the lifecycle configuration information set on the bucket. For information about
  *          lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html">Object Lifecycle

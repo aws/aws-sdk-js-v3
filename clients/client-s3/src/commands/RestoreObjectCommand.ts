@@ -37,10 +37,6 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *          <ul>
  *             <li>
  *                <p>
- *                   <code>select</code> - Perform a select query on an archived object</p>
- *             </li>
- *             <li>
- *                <p>
  *                   <code>restore an archive</code> - Restore an archived object</p>
  *             </li>
  *          </ul>
@@ -63,60 +59,6 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                   <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/serv-side-encryption.html">Protecting Data Using Server-Side Encryption</a> in the
  *                   <i>Amazon S3 User Guide</i>
  *                </p>
- *             </li>
- *          </ul>
- *          <p>Define the SQL expression for the <code>SELECT</code> type of restoration for your query
- *          in the request body's <code>SelectParameters</code> structure. You can use expressions like
- *          the following examples.</p>
- *          <ul>
- *             <li>
- *                <p>The following expression returns all records from the specified object.</p>
- *                <p>
- *                   <code>SELECT * FROM Object</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>Assuming that you are not using any headers for data stored in the object, you can
- *                specify columns with positional headers.</p>
- *                <p>
- *                   <code>SELECT s._1, s._2 FROM Object s WHERE s._3 > 100</code>
- *                </p>
- *             </li>
- *             <li>
- *                <p>If you have headers and you set the <code>fileHeaderInfo</code> in the
- *                   <code>CSV</code> structure in the request body to <code>USE</code>, you can
- *                specify headers in the query. (If you set the <code>fileHeaderInfo</code> field to
- *                   <code>IGNORE</code>, the first row is skipped for the query.) You cannot mix
- *                ordinal positions with header column names. </p>
- *                <p>
- *                   <code>SELECT s.Id, s.FirstName, s.SSN FROM S3Object s</code>
- *                </p>
- *             </li>
- *          </ul>
- *          <p>When making a select request, you can also do the following:</p>
- *          <ul>
- *             <li>
- *                <p>To expedite your queries, specify the <code>Expedited</code> tier. For more
- *                information about tiers, see "Restoring Archives," later in this topic.</p>
- *             </li>
- *             <li>
- *                <p>Specify details about the data serialization format of both the input object that
- *                is being queried and the serialization of the CSV-encoded query results.</p>
- *             </li>
- *          </ul>
- *          <p>The following are additional important facts about the select feature:</p>
- *          <ul>
- *             <li>
- *                <p>The output results are new Amazon S3 objects. Unlike archive retrievals, they are
- *                stored until explicitly deleted-manually or through a lifecycle configuration.</p>
- *             </li>
- *             <li>
- *                <p>You can issue more than one select request on the same Amazon S3 object. Amazon S3 doesn't
- *                duplicate requests, so avoid issuing duplicate requests.</p>
- *             </li>
- *             <li>
- *                <p> Amazon S3 accepts a select request even if the object has already been restored. A
- *                select request doesn’t return error response <code>409</code>.</p>
  *             </li>
  *          </ul>
  *          <dl>
@@ -234,8 +176,7 @@ export interface RestoreObjectCommandOutput extends RestoreObjectOutput, __Metad
  *                         </li>
  *                         <li>
  *                            <p>
- *                               <i>Cause: Object restore is already in progress. (This error
- *                                  does not apply to SELECT type requests.)</i>
+ *                               <i>Cause: Object restore is already in progress.</i>
  *                            </p>
  *                         </li>
  *                         <li>

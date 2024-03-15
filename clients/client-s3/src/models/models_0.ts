@@ -72,7 +72,7 @@ export interface AbortMultipartUploadRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -623,7 +623,7 @@ export interface CompleteMultipartUploadRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -1070,7 +1070,7 @@ export interface CopyObjectRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -1901,7 +1901,7 @@ export interface LocationInfo {
 
   /**
    * <p>The name of the location where the bucket will be created.</p>
-   *          <p>For directory buckets, the AZ ID of the Availability Zone where the bucket will be created. An example AZ ID value is <code>usw2-az2</code>.</p>
+   *          <p>For directory buckets, the name of the location is the AZ ID of the Availability Zone where the bucket will be created. An example AZ ID value is <code>usw2-az1</code>.</p>
    * @public
    */
   Name?: string;
@@ -2025,7 +2025,7 @@ export interface CreateBucketRequest {
    *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
    *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must also follow the format <code>
    *                <i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
    *          </p>
    * @public
    */
@@ -2289,7 +2289,7 @@ export interface CreateMultipartUploadRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -2949,7 +2949,7 @@ export interface DeleteBucketRequest {
    *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
    *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must also follow the format <code>
    *                <i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
    *          </p>
    * @public
    */
@@ -3148,7 +3148,7 @@ export interface DeleteBucketPolicyRequest {
    *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
    *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must also follow the format <code>
    *                <i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
    *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>
@@ -3270,7 +3270,7 @@ export interface DeleteObjectRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -5378,7 +5378,7 @@ export interface DeleteObjectsRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -6039,7 +6039,7 @@ export interface ServerSideEncryptionByDefault {
   /**
    * <p>Amazon Web Services Key Management Service (KMS) customer Amazon Web Services KMS key ID to use for the default
    *          encryption. This parameter is allowed if and only if <code>SSEAlgorithm</code> is set to
-   *             <code>aws:kms</code>.</p>
+   *          <code>aws:kms</code> or <code>aws:kms:dsse</code>.</p>
    *          <p>You can specify the key ID, key alias, or the Amazon Resource Name (ARN) of the KMS
    *          key.</p>
    *          <ul>
@@ -6658,8 +6658,8 @@ export interface LifecycleRuleAndOperator {
 
 /**
  * <p>The <code>Filter</code> is used to identify objects that a Lifecycle Rule applies to. A
- *             <code>Filter</code> must have exactly one of <code>Prefix</code>, <code>Tag</code>, or
- *             <code>And</code> specified.</p>
+ *          <code>Filter</code> can have exactly one of <code>Prefix</code>, <code>Tag</code>, <code>ObjectSizeGreaterThan</code>, <code>ObjectSizeLessThan</code>, or
+ *          <code>And</code> specified. If the <code>Filter</code> element is left empty, the Lifecycle Rule applies to all objects in the bucket.</p>
  * @public
  */
 export type LifecycleRuleFilter =
@@ -7489,8 +7489,7 @@ export const FilterRuleName = {
 export type FilterRuleName = (typeof FilterRuleName)[keyof typeof FilterRuleName];
 
 /**
- * <p>Specifies the Amazon S3 object key name to filter on and whether to filter on the suffix or
- *          prefix of the key name.</p>
+ * <p>Specifies the Amazon S3 object key name to filter on. An object key name is the name assigned to an object in your Amazon S3 bucket. You specify whether to filter on the suffix or prefix of the object key name. A prefix is a specific string of characters at the beginning of an object key name, which you can use to organize objects. For example, you can start the key names of related objects with a prefix, such as <code>2023-</code> or  <code>engineering/</code>. Then, you can use <code>FilterRule</code> to find objects in a bucket with key names that have the same prefix. A suffix is similar to a prefix, but it is at the end of the object key name instead of at the beginning.</p>
  * @public
  */
 export interface FilterRule {
@@ -7780,7 +7779,7 @@ export interface GetBucketPolicyRequest {
    *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
    *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must also follow the format <code>
    *                <i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
    *          </p>
    *          <p>
    *             <b>Access points</b> - When you use this API operation with an access point, provide the alias of the access point in place of the bucket name.</p>
@@ -9219,7 +9218,7 @@ export interface GetObjectRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -9884,7 +9883,7 @@ export interface GetObjectAttributesRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -10508,7 +10507,7 @@ export interface HeadBucketOutput {
 
   /**
    * <p>The name of the location where the bucket will be created.</p>
-   *          <p>For directory buckets, the AZ ID of the Availability Zone where the bucket is created. An example AZ ID value is <code>usw2-az2</code>.</p>
+   *          <p>For directory buckets, the AZ ID of the Availability Zone where the bucket is created. An example AZ ID value is <code>usw2-az1</code>.</p>
    *          <note>
    *             <p>This functionality is only supported by directory buckets.</p>
    *          </note>
@@ -10545,7 +10544,7 @@ export interface HeadBucketRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -10981,7 +10980,7 @@ export interface HeadObjectRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -11630,7 +11629,11 @@ export interface ListMultipartUploadsOutput {
   KeyMarker?: string;
 
   /**
-   * <p>Upload ID after which listing began.</p>
+   * <p>Together with key-marker, specifies the multipart upload after which listing should
+   *          begin. If key-marker is not specified, the upload-id-marker parameter is ignored.
+   *          Otherwise, any multipart uploads for a key equal to the key-marker might be included in the
+   *          list only if they have an upload ID lexicographically greater than the specified
+   *          <code>upload-id-marker</code>.</p>
    *          <note>
    *             <p>This functionality is not supported for directory buckets.</p>
    *          </note>
@@ -11744,7 +11747,7 @@ export interface ListMultipartUploadsRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -12120,7 +12123,9 @@ export interface ListObjectsOutput {
   CommonPrefixes?: CommonPrefix[];
 
   /**
-   * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+   * <p>Encoding type used by Amazon S3 to encode object keys in the response. If using
+   *             <code>url</code>, non-ASCII characters used in an object's key name will be URL encoded.
+   *          For example, the object test_file(3).png will appear as test_file%283%29.png.</p>
    * @public
    */
   EncodingType?: EncodingType;
@@ -12159,7 +12164,7 @@ export interface ListObjectsRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -12391,7 +12396,7 @@ export interface ListObjectsV2Request {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -12429,7 +12434,9 @@ export interface ListObjectsV2Request {
   Delimiter?: string;
 
   /**
-   * <p>Encoding type used by Amazon S3 to encode object keys in the response.</p>
+   * <p>Encoding type used by Amazon S3 to encode object keys in the response. If using
+   *          <code>url</code>, non-ASCII characters used in an object's key name will be URL encoded.
+   *          For example, the object test_file(3).png will appear as test_file%283%29.png.</p>
    * @public
    */
   EncodingType?: EncodingType;
@@ -12954,9 +12961,8 @@ export interface ListPartsOutput {
   UploadId?: string;
 
   /**
-   * <p>When a list is truncated, this element specifies the last part in the list, as well as
-   *          the value to use for the part-number-marker request parameter in a subsequent
-   *          request.</p>
+   * <p>Specifies the part after which listing should begin. Only parts with higher part numbers
+   *          will be listed.</p>
    * @public
    */
   PartNumberMarker?: string;
@@ -13049,7 +13055,7 @@ export interface ListPartsRequest {
    *             <b>Directory buckets</b> - When you use this operation with a directory bucket, you must use virtual-hosted-style requests in the format <code>
    *                <i>Bucket_name</i>.s3express-<i>az_id</i>.<i>region</i>.amazonaws.com</code>. Path-style requests are not supported.  Directory bucket names must be unique in the chosen Availability Zone. Bucket names must follow the format <code>
    *                <i>bucket_base_name</i>--<i>az-id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming
    *          restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming
    *             rules</a> in the <i>Amazon S3 User Guide</i>.</p>
    *          <p>
@@ -13694,7 +13700,7 @@ export interface PutBucketPolicyRequest {
    *             <b>Directory buckets </b> - When you use this operation with a directory bucket, you must use path-style requests in the format <code>https://s3express-control.<i>region_code</i>.amazonaws.com/<i>bucket-name</i>
    *             </code>. Virtual-hosted-style requests aren't supported. Directory bucket names must be unique in the chosen Availability Zone. Bucket names must also follow the format <code>
    *                <i>bucket_base_name</i>--<i>az_id</i>--x-s3</code> (for example, <code>
-   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az2</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
+   *                <i>DOC-EXAMPLE-BUCKET</i>--<i>usw2-az1</i>--x-s3</code>). For information about bucket naming restrictions, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/directory-bucket-naming-rules.html">Directory bucket naming rules</a> in the <i>Amazon S3 User Guide</i>
    *          </p>
    * <p>Note: To supply the Multi-region Access Point (MRAP) to Bucket, you need to install the "@aws-sdk/signature-v4-crt" package to your project dependencies.
    * For more information, please go to https://github.com/aws/aws-sdk-js-v3#known-issues</p>

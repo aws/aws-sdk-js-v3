@@ -40,11 +40,8 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *          lifecycle configuration. For information about lifecycle configuration, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-lifecycle-mgmt.html">Managing
  *             your storage lifecycle</a>.</p>
  *          <note>
- *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an
- *             object key name prefix, one or more object tags, or a combination of both. Accordingly,
- *             this section describes the latest API. The previous version of the API supported
- *             filtering based only on an object key name prefix, which is supported for backward
- *             compatibility. For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.</p>
+ *             <p>Bucket lifecycle configuration now supports specifying a lifecycle rule using an object key name prefix, one or more object tags, object size, or any combination of these. Accordingly, this section describes the latest API. The previous version of the API supported filtering based only on an object key name prefix, which is supported for backward compatibility.
+ *             For the related API description, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/API_PutBucketLifecycle.html">PutBucketLifecycle</a>.</p>
  *          </note>
  *          <dl>
  *             <dt>Rules</dt>
@@ -55,9 +52,7 @@ export interface PutBucketLifecycleConfigurationCommandOutput extends __Metadata
  *                   Each rule consists of the following:</p>
  *                <ul>
  *                   <li>
- *                      <p>A filter identifying a subset of objects to which the rule applies. The
- *                         filter can be based on a key name prefix, object tags, or a combination of
- *                         both.</p>
+ *                      <p>A filter identifying a subset of objects to which the rule applies. The filter can be based on a key name prefix, object tags, object size, or any combination of these.</p>
  *                   </li>
  *                   <li>
  *                      <p>A status indicating whether the rule is in effect.</p>

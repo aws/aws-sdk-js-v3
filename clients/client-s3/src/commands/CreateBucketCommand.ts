@@ -94,13 +94,22 @@ export interface CreateBucketCommandOutput extends CreateBucketOutput, __Metadat
  *                               <code>x-amz-object-ownership</code> header, then the
  *                               <code>s3:PutBucketOwnershipControls</code> permission is required.</p>
  *                            <important>
- *                               <p>If your <code>CreateBucket</code> request sets <code>BucketOwnerEnforced</code> for
- *                                  Amazon S3 Object Ownership and specifies a bucket ACL that provides access to an external
- *                                  Amazon Web Services account, your request fails with a <code>400</code> error and returns the
- *                                  <code>InvalidBucketAcLWithObjectOwnership</code> error code. For more information,
- *                                  see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-ownership-existing-bucket.html">Setting Object
- *                                     Ownership on an existing bucket </a> in the <i>Amazon S3 User Guide</i>.
- *                               </p>
+ *                               <p> To set an ACL on a bucket as part of a
+ *                                     <code>CreateBucket</code> request, you must explicitly set S3
+ *                                  Object Ownership for the bucket to a different value than the
+ *                                  default, <code>BucketOwnerEnforced</code>. Additionally, if your
+ *                                  desired bucket ACL grants public access, you must first create the
+ *                                  bucket (without the bucket ACL) and then explicitly disable Block
+ *                                  Public Access on the bucket before using <code>PutBucketAcl</code>
+ *                                  to set the ACL. If you try to create a bucket with a public ACL,
+ *                                  the request will fail. </p>
+ *                               <p> For the majority of modern use cases in S3, we recommend
+ *                                  that you keep all Block Public Access settings enabled and keep
+ *                                  ACLs disabled. If you would like to share data with users outside
+ *                                  of your account, you can use bucket policies as needed. For more
+ *                                  information, see <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/about-object-ownership.html">Controlling ownership of objects and disabling ACLs for your
+ *                                     bucket </a> and <a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-control-block-public-access.html">Blocking public access to your Amazon S3 storage </a> in
+ *                                  the <i>Amazon S3 User Guide</i>. </p>
  *                            </important>
  *                         </li>
  *                         <li>

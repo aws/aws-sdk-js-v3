@@ -84,7 +84,7 @@ export interface UploadPartCopyCommandOutput extends UploadPartCopyOutput, __Met
  *                         </li>
  *                         <li>
  *                            <p>If the destination bucket is a general purpose bucket, you must have the <b>
- *                                  <code>s3:PubObject</code>
+ *                                  <code>s3:PutObject</code>
  *                               </b> permission to write the object copy to the destination bucket.
  *                            </p>
  *                         </li>
