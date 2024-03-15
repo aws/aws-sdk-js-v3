@@ -568,6 +568,7 @@ export interface Wisdom {
   /**
    * @see {@link ListAssistantsCommand}
    */
+  listAssistants(): Promise<ListAssistantsCommandOutput>;
   listAssistants(
     args: ListAssistantsCommandInput,
     options?: __HttpHandlerOptions
@@ -607,6 +608,7 @@ export interface Wisdom {
   /**
    * @see {@link ListKnowledgeBasesCommand}
    */
+  listKnowledgeBases(): Promise<ListKnowledgeBasesCommandOutput>;
   listKnowledgeBases(
     args: ListKnowledgeBasesCommandInput,
     options?: __HttpHandlerOptions

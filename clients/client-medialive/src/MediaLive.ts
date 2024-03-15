@@ -374,6 +374,7 @@ export interface MediaLive {
   /**
    * @see {@link BatchDeleteCommand}
    */
+  batchDelete(): Promise<BatchDeleteCommandOutput>;
   batchDelete(args: BatchDeleteCommandInput, options?: __HttpHandlerOptions): Promise<BatchDeleteCommandOutput>;
   batchDelete(args: BatchDeleteCommandInput, cb: (err: any, data?: BatchDeleteCommandOutput) => void): void;
   batchDelete(
@@ -385,6 +386,7 @@ export interface MediaLive {
   /**
    * @see {@link BatchStartCommand}
    */
+  batchStart(): Promise<BatchStartCommandOutput>;
   batchStart(args: BatchStartCommandInput, options?: __HttpHandlerOptions): Promise<BatchStartCommandOutput>;
   batchStart(args: BatchStartCommandInput, cb: (err: any, data?: BatchStartCommandOutput) => void): void;
   batchStart(
@@ -396,6 +398,7 @@ export interface MediaLive {
   /**
    * @see {@link BatchStopCommand}
    */
+  batchStop(): Promise<BatchStopCommandOutput>;
   batchStop(args: BatchStopCommandInput, options?: __HttpHandlerOptions): Promise<BatchStopCommandOutput>;
   batchStop(args: BatchStopCommandInput, cb: (err: any, data?: BatchStopCommandOutput) => void): void;
   batchStop(
@@ -441,6 +444,7 @@ export interface MediaLive {
   /**
    * @see {@link ClaimDeviceCommand}
    */
+  claimDevice(): Promise<ClaimDeviceCommandOutput>;
   claimDevice(args: ClaimDeviceCommandInput, options?: __HttpHandlerOptions): Promise<ClaimDeviceCommandOutput>;
   claimDevice(args: ClaimDeviceCommandInput, cb: (err: any, data?: ClaimDeviceCommandOutput) => void): void;
   claimDevice(
@@ -452,6 +456,7 @@ export interface MediaLive {
   /**
    * @see {@link CreateChannelCommand}
    */
+  createChannel(): Promise<CreateChannelCommandOutput>;
   createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
   createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
   createChannel(
@@ -463,6 +468,7 @@ export interface MediaLive {
   /**
    * @see {@link CreateInputCommand}
    */
+  createInput(): Promise<CreateInputCommandOutput>;
   createInput(args: CreateInputCommandInput, options?: __HttpHandlerOptions): Promise<CreateInputCommandOutput>;
   createInput(args: CreateInputCommandInput, cb: (err: any, data?: CreateInputCommandOutput) => void): void;
   createInput(
@@ -474,6 +480,7 @@ export interface MediaLive {
   /**
    * @see {@link CreateInputSecurityGroupCommand}
    */
+  createInputSecurityGroup(): Promise<CreateInputSecurityGroupCommandOutput>;
   createInputSecurityGroup(
     args: CreateInputSecurityGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -662,6 +669,7 @@ export interface MediaLive {
   /**
    * @see {@link DescribeAccountConfigurationCommand}
    */
+  describeAccountConfiguration(): Promise<DescribeAccountConfigurationCommandOutput>;
   describeAccountConfiguration(
     args: DescribeAccountConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -857,6 +865,7 @@ export interface MediaLive {
   /**
    * @see {@link ListChannelsCommand}
    */
+  listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
   listChannels(
@@ -868,6 +877,7 @@ export interface MediaLive {
   /**
    * @see {@link ListInputDevicesCommand}
    */
+  listInputDevices(): Promise<ListInputDevicesCommandOutput>;
   listInputDevices(
     args: ListInputDevicesCommandInput,
     options?: __HttpHandlerOptions
@@ -902,6 +912,7 @@ export interface MediaLive {
   /**
    * @see {@link ListInputsCommand}
    */
+  listInputs(): Promise<ListInputsCommandOutput>;
   listInputs(args: ListInputsCommandInput, options?: __HttpHandlerOptions): Promise<ListInputsCommandOutput>;
   listInputs(args: ListInputsCommandInput, cb: (err: any, data?: ListInputsCommandOutput) => void): void;
   listInputs(
@@ -913,6 +924,7 @@ export interface MediaLive {
   /**
    * @see {@link ListInputSecurityGroupsCommand}
    */
+  listInputSecurityGroups(): Promise<ListInputSecurityGroupsCommandOutput>;
   listInputSecurityGroups(
     args: ListInputSecurityGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -930,6 +942,7 @@ export interface MediaLive {
   /**
    * @see {@link ListMultiplexesCommand}
    */
+  listMultiplexes(): Promise<ListMultiplexesCommandOutput>;
   listMultiplexes(
     args: ListMultiplexesCommandInput,
     options?: __HttpHandlerOptions
@@ -961,6 +974,7 @@ export interface MediaLive {
   /**
    * @see {@link ListOfferingsCommand}
    */
+  listOfferings(): Promise<ListOfferingsCommandOutput>;
   listOfferings(args: ListOfferingsCommandInput, options?: __HttpHandlerOptions): Promise<ListOfferingsCommandOutput>;
   listOfferings(args: ListOfferingsCommandInput, cb: (err: any, data?: ListOfferingsCommandOutput) => void): void;
   listOfferings(
@@ -972,6 +986,7 @@ export interface MediaLive {
   /**
    * @see {@link ListReservationsCommand}
    */
+  listReservations(): Promise<ListReservationsCommandOutput>;
   listReservations(
     args: ListReservationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1186,6 +1201,7 @@ export interface MediaLive {
   /**
    * @see {@link UpdateAccountConfigurationCommand}
    */
+  updateAccountConfiguration(): Promise<UpdateAccountConfigurationCommandOutput>;
   updateAccountConfiguration(
     args: UpdateAccountConfigurationCommandInput,
     options?: __HttpHandlerOptions

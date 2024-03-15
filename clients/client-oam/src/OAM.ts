@@ -155,6 +155,7 @@ export interface OAM {
   /**
    * @see {@link ListLinksCommand}
    */
+  listLinks(): Promise<ListLinksCommandOutput>;
   listLinks(args: ListLinksCommandInput, options?: __HttpHandlerOptions): Promise<ListLinksCommandOutput>;
   listLinks(args: ListLinksCommandInput, cb: (err: any, data?: ListLinksCommandOutput) => void): void;
   listLinks(
@@ -166,6 +167,7 @@ export interface OAM {
   /**
    * @see {@link ListSinksCommand}
    */
+  listSinks(): Promise<ListSinksCommandOutput>;
   listSinks(args: ListSinksCommandInput, options?: __HttpHandlerOptions): Promise<ListSinksCommandOutput>;
   listSinks(args: ListSinksCommandInput, cb: (err: any, data?: ListSinksCommandOutput) => void): void;
   listSinks(

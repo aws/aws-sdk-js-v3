@@ -798,6 +798,7 @@ export interface ApiGatewayV2 {
   /**
    * @see {@link GetApisCommand}
    */
+  getApis(): Promise<GetApisCommandOutput>;
   getApis(args: GetApisCommandInput, options?: __HttpHandlerOptions): Promise<GetApisCommandOutput>;
   getApis(args: GetApisCommandInput, cb: (err: any, data?: GetApisCommandOutput) => void): void;
   getApis(
@@ -870,6 +871,7 @@ export interface ApiGatewayV2 {
   /**
    * @see {@link GetDomainNamesCommand}
    */
+  getDomainNames(): Promise<GetDomainNamesCommandOutput>;
   getDomainNames(
     args: GetDomainNamesCommandInput,
     options?: __HttpHandlerOptions
@@ -1085,6 +1087,7 @@ export interface ApiGatewayV2 {
   /**
    * @see {@link GetVpcLinksCommand}
    */
+  getVpcLinks(): Promise<GetVpcLinksCommandOutput>;
   getVpcLinks(args: GetVpcLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinksCommandOutput>;
   getVpcLinks(args: GetVpcLinksCommandInput, cb: (err: any, data?: GetVpcLinksCommandOutput) => void): void;
   getVpcLinks(

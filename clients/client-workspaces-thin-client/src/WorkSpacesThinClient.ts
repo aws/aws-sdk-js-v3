@@ -196,6 +196,7 @@ export interface WorkSpacesThinClient {
   /**
    * @see {@link ListDevicesCommand}
    */
+  listDevices(): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   listDevices(
@@ -207,6 +208,7 @@ export interface WorkSpacesThinClient {
   /**
    * @see {@link ListEnvironmentsCommand}
    */
+  listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -224,6 +226,7 @@ export interface WorkSpacesThinClient {
   /**
    * @see {@link ListSoftwareSetsCommand}
    */
+  listSoftwareSets(): Promise<ListSoftwareSetsCommandOutput>;
   listSoftwareSets(
     args: ListSoftwareSetsCommandInput,
     options?: __HttpHandlerOptions

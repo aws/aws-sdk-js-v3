@@ -265,6 +265,7 @@ export interface QLDB {
   /**
    * @see {@link ListJournalS3ExportsCommand}
    */
+  listJournalS3Exports(): Promise<ListJournalS3ExportsCommandOutput>;
   listJournalS3Exports(
     args: ListJournalS3ExportsCommandInput,
     options?: __HttpHandlerOptions
@@ -299,6 +300,7 @@ export interface QLDB {
   /**
    * @see {@link ListLedgersCommand}
    */
+  listLedgers(): Promise<ListLedgersCommandOutput>;
   listLedgers(args: ListLedgersCommandInput, options?: __HttpHandlerOptions): Promise<ListLedgersCommandOutput>;
   listLedgers(args: ListLedgersCommandInput, cb: (err: any, data?: ListLedgersCommandOutput) => void): void;
   listLedgers(

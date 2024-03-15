@@ -218,6 +218,7 @@ export interface PaymentCryptography {
   /**
    * @see {@link ListAliasesCommand}
    */
+  listAliases(): Promise<ListAliasesCommandOutput>;
   listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
   listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
   listAliases(
@@ -229,6 +230,7 @@ export interface PaymentCryptography {
   /**
    * @see {@link ListKeysCommand}
    */
+  listKeys(): Promise<ListKeysCommandOutput>;
   listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
   listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
   listKeys(

@@ -274,6 +274,7 @@ export interface ECRPUBLIC {
   /**
    * @see {@link DescribeRegistriesCommand}
    */
+  describeRegistries(): Promise<DescribeRegistriesCommandOutput>;
   describeRegistries(
     args: DescribeRegistriesCommandInput,
     options?: __HttpHandlerOptions
@@ -291,6 +292,7 @@ export interface ECRPUBLIC {
   /**
    * @see {@link DescribeRepositoriesCommand}
    */
+  describeRepositories(): Promise<DescribeRepositoriesCommandOutput>;
   describeRepositories(
     args: DescribeRepositoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -308,6 +310,7 @@ export interface ECRPUBLIC {
   /**
    * @see {@link GetAuthorizationTokenCommand}
    */
+  getAuthorizationToken(): Promise<GetAuthorizationTokenCommandOutput>;
   getAuthorizationToken(
     args: GetAuthorizationTokenCommandInput,
     options?: __HttpHandlerOptions
@@ -325,6 +328,7 @@ export interface ECRPUBLIC {
   /**
    * @see {@link GetRegistryCatalogDataCommand}
    */
+  getRegistryCatalogData(): Promise<GetRegistryCatalogDataCommandOutput>;
   getRegistryCatalogData(
     args: GetRegistryCatalogDataCommandInput,
     options?: __HttpHandlerOptions
@@ -421,6 +425,7 @@ export interface ECRPUBLIC {
   /**
    * @see {@link PutRegistryCatalogDataCommand}
    */
+  putRegistryCatalogData(): Promise<PutRegistryCatalogDataCommandOutput>;
   putRegistryCatalogData(
     args: PutRegistryCatalogDataCommandInput,
     options?: __HttpHandlerOptions

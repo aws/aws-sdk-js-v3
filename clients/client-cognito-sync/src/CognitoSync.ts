@@ -237,6 +237,7 @@ export interface CognitoSync {
   /**
    * @see {@link ListIdentityPoolUsageCommand}
    */
+  listIdentityPoolUsage(): Promise<ListIdentityPoolUsageCommandOutput>;
   listIdentityPoolUsage(
     args: ListIdentityPoolUsageCommandInput,
     options?: __HttpHandlerOptions

@@ -130,6 +130,7 @@ export interface Firehose {
   /**
    * @see {@link ListDeliveryStreamsCommand}
    */
+  listDeliveryStreams(): Promise<ListDeliveryStreamsCommandOutput>;
   listDeliveryStreams(
     args: ListDeliveryStreamsCommandInput,
     options?: __HttpHandlerOptions

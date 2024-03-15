@@ -899,6 +899,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeAggregationAuthorizationsCommand}
    */
+  describeAggregationAuthorizations(): Promise<DescribeAggregationAuthorizationsCommandOutput>;
   describeAggregationAuthorizations(
     args: DescribeAggregationAuthorizationsCommandInput,
     options?: __HttpHandlerOptions
@@ -916,6 +917,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeComplianceByConfigRuleCommand}
    */
+  describeComplianceByConfigRule(): Promise<DescribeComplianceByConfigRuleCommandOutput>;
   describeComplianceByConfigRule(
     args: DescribeComplianceByConfigRuleCommandInput,
     options?: __HttpHandlerOptions
@@ -933,6 +935,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeComplianceByResourceCommand}
    */
+  describeComplianceByResource(): Promise<DescribeComplianceByResourceCommandOutput>;
   describeComplianceByResource(
     args: DescribeComplianceByResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -950,6 +953,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeConfigRuleEvaluationStatusCommand}
    */
+  describeConfigRuleEvaluationStatus(): Promise<DescribeConfigRuleEvaluationStatusCommandOutput>;
   describeConfigRuleEvaluationStatus(
     args: DescribeConfigRuleEvaluationStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -967,6 +971,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeConfigRulesCommand}
    */
+  describeConfigRules(): Promise<DescribeConfigRulesCommandOutput>;
   describeConfigRules(
     args: DescribeConfigRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -984,6 +989,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeConfigurationAggregatorsCommand}
    */
+  describeConfigurationAggregators(): Promise<DescribeConfigurationAggregatorsCommandOutput>;
   describeConfigurationAggregators(
     args: DescribeConfigurationAggregatorsCommandInput,
     options?: __HttpHandlerOptions
@@ -1018,6 +1024,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeConfigurationRecordersCommand}
    */
+  describeConfigurationRecorders(): Promise<DescribeConfigurationRecordersCommandOutput>;
   describeConfigurationRecorders(
     args: DescribeConfigurationRecordersCommandInput,
     options?: __HttpHandlerOptions
@@ -1035,6 +1042,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeConfigurationRecorderStatusCommand}
    */
+  describeConfigurationRecorderStatus(): Promise<DescribeConfigurationRecorderStatusCommandOutput>;
   describeConfigurationRecorderStatus(
     args: DescribeConfigurationRecorderStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -1069,6 +1077,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeConformancePacksCommand}
    */
+  describeConformancePacks(): Promise<DescribeConformancePacksCommandOutput>;
   describeConformancePacks(
     args: DescribeConformancePacksCommandInput,
     options?: __HttpHandlerOptions
@@ -1086,6 +1095,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeConformancePackStatusCommand}
    */
+  describeConformancePackStatus(): Promise<DescribeConformancePackStatusCommandOutput>;
   describeConformancePackStatus(
     args: DescribeConformancePackStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -1103,6 +1113,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeDeliveryChannelsCommand}
    */
+  describeDeliveryChannels(): Promise<DescribeDeliveryChannelsCommandOutput>;
   describeDeliveryChannels(
     args: DescribeDeliveryChannelsCommandInput,
     options?: __HttpHandlerOptions
@@ -1120,6 +1131,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeDeliveryChannelStatusCommand}
    */
+  describeDeliveryChannelStatus(): Promise<DescribeDeliveryChannelStatusCommandOutput>;
   describeDeliveryChannelStatus(
     args: DescribeDeliveryChannelStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -1137,6 +1149,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeOrganizationConfigRulesCommand}
    */
+  describeOrganizationConfigRules(): Promise<DescribeOrganizationConfigRulesCommandOutput>;
   describeOrganizationConfigRules(
     args: DescribeOrganizationConfigRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -1154,6 +1167,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeOrganizationConfigRuleStatusesCommand}
    */
+  describeOrganizationConfigRuleStatuses(): Promise<DescribeOrganizationConfigRuleStatusesCommandOutput>;
   describeOrganizationConfigRuleStatuses(
     args: DescribeOrganizationConfigRuleStatusesCommandInput,
     options?: __HttpHandlerOptions
@@ -1171,6 +1185,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeOrganizationConformancePacksCommand}
    */
+  describeOrganizationConformancePacks(): Promise<DescribeOrganizationConformancePacksCommandOutput>;
   describeOrganizationConformancePacks(
     args: DescribeOrganizationConformancePacksCommandInput,
     options?: __HttpHandlerOptions
@@ -1188,6 +1203,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeOrganizationConformancePackStatusesCommand}
    */
+  describeOrganizationConformancePackStatuses(): Promise<DescribeOrganizationConformancePackStatusesCommandOutput>;
   describeOrganizationConformancePackStatuses(
     args: DescribeOrganizationConformancePackStatusesCommandInput,
     options?: __HttpHandlerOptions
@@ -1205,6 +1221,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribePendingAggregationRequestsCommand}
    */
+  describePendingAggregationRequests(): Promise<DescribePendingAggregationRequestsCommandOutput>;
   describePendingAggregationRequests(
     args: DescribePendingAggregationRequestsCommandInput,
     options?: __HttpHandlerOptions
@@ -1273,6 +1290,7 @@ export interface ConfigService {
   /**
    * @see {@link DescribeRetentionConfigurationsCommand}
    */
+  describeRetentionConfigurations(): Promise<DescribeRetentionConfigurationsCommandOutput>;
   describeRetentionConfigurations(
     args: DescribeRetentionConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1392,6 +1410,7 @@ export interface ConfigService {
   /**
    * @see {@link GetComplianceDetailsByResourceCommand}
    */
+  getComplianceDetailsByResource(): Promise<GetComplianceDetailsByResourceCommandOutput>;
   getComplianceDetailsByResource(
     args: GetComplianceDetailsByResourceCommandInput,
     options?: __HttpHandlerOptions
@@ -1409,6 +1428,7 @@ export interface ConfigService {
   /**
    * @see {@link GetComplianceSummaryByConfigRuleCommand}
    */
+  getComplianceSummaryByConfigRule(): Promise<GetComplianceSummaryByConfigRuleCommandOutput>;
   getComplianceSummaryByConfigRule(
     args: GetComplianceSummaryByConfigRuleCommandInput,
     options?: __HttpHandlerOptions
@@ -1426,6 +1446,7 @@ export interface ConfigService {
   /**
    * @see {@link GetComplianceSummaryByResourceTypeCommand}
    */
+  getComplianceSummaryByResourceType(): Promise<GetComplianceSummaryByResourceTypeCommandOutput>;
   getComplianceSummaryByResourceType(
     args: GetComplianceSummaryByResourceTypeCommandInput,
     options?: __HttpHandlerOptions
@@ -1477,6 +1498,7 @@ export interface ConfigService {
   /**
    * @see {@link GetCustomRulePolicyCommand}
    */
+  getCustomRulePolicy(): Promise<GetCustomRulePolicyCommandOutput>;
   getCustomRulePolicy(
     args: GetCustomRulePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -1494,6 +1516,7 @@ export interface ConfigService {
   /**
    * @see {@link GetDiscoveredResourceCountsCommand}
    */
+  getDiscoveredResourceCounts(): Promise<GetDiscoveredResourceCountsCommandOutput>;
   getDiscoveredResourceCounts(
     args: GetDiscoveredResourceCountsCommandInput,
     options?: __HttpHandlerOptions
@@ -1627,6 +1650,7 @@ export interface ConfigService {
   /**
    * @see {@link ListConformancePackComplianceScoresCommand}
    */
+  listConformancePackComplianceScores(): Promise<ListConformancePackComplianceScoresCommandOutput>;
   listConformancePackComplianceScores(
     args: ListConformancePackComplianceScoresCommandInput,
     options?: __HttpHandlerOptions
@@ -1661,6 +1685,7 @@ export interface ConfigService {
   /**
    * @see {@link ListResourceEvaluationsCommand}
    */
+  listResourceEvaluations(): Promise<ListResourceEvaluationsCommandOutput>;
   listResourceEvaluations(
     args: ListResourceEvaluationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1678,6 +1703,7 @@ export interface ConfigService {
   /**
    * @see {@link ListStoredQueriesCommand}
    */
+  listStoredQueries(): Promise<ListStoredQueriesCommandOutput>;
   listStoredQueries(
     args: ListStoredQueriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1989,6 +2015,7 @@ export interface ConfigService {
   /**
    * @see {@link StartConfigRulesEvaluationCommand}
    */
+  startConfigRulesEvaluation(): Promise<StartConfigRulesEvaluationCommandOutput>;
   startConfigRulesEvaluation(
     args: StartConfigRulesEvaluationCommandInput,
     options?: __HttpHandlerOptions

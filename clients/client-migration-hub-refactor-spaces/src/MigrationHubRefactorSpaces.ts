@@ -343,6 +343,7 @@ export interface MigrationHubRefactorSpaces {
   /**
    * @see {@link ListEnvironmentsCommand}
    */
+  listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
     options?: __HttpHandlerOptions

@@ -53,6 +53,7 @@ export interface KinesisVideoArchivedMedia {
   /**
    * @see {@link GetDASHStreamingSessionURLCommand}
    */
+  getDASHStreamingSessionURL(): Promise<GetDASHStreamingSessionURLCommandOutput>;
   getDASHStreamingSessionURL(
     args: GetDASHStreamingSessionURLCommandInput,
     options?: __HttpHandlerOptions
@@ -70,6 +71,7 @@ export interface KinesisVideoArchivedMedia {
   /**
    * @see {@link GetHLSStreamingSessionURLCommand}
    */
+  getHLSStreamingSessionURL(): Promise<GetHLSStreamingSessionURLCommandOutput>;
   getHLSStreamingSessionURL(
     args: GetHLSStreamingSessionURLCommandInput,
     options?: __HttpHandlerOptions
@@ -115,6 +117,7 @@ export interface KinesisVideoArchivedMedia {
   /**
    * @see {@link ListFragmentsCommand}
    */
+  listFragments(): Promise<ListFragmentsCommandOutput>;
   listFragments(args: ListFragmentsCommandInput, options?: __HttpHandlerOptions): Promise<ListFragmentsCommandOutput>;
   listFragments(args: ListFragmentsCommandInput, cb: (err: any, data?: ListFragmentsCommandOutput) => void): void;
   listFragments(

@@ -38,6 +38,7 @@ export interface LicenseManagerLinuxSubscriptions {
   /**
    * @see {@link GetServiceSettingsCommand}
    */
+  getServiceSettings(): Promise<GetServiceSettingsCommandOutput>;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -55,6 +56,7 @@ export interface LicenseManagerLinuxSubscriptions {
   /**
    * @see {@link ListLinuxSubscriptionInstancesCommand}
    */
+  listLinuxSubscriptionInstances(): Promise<ListLinuxSubscriptionInstancesCommandOutput>;
   listLinuxSubscriptionInstances(
     args: ListLinuxSubscriptionInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -72,6 +74,7 @@ export interface LicenseManagerLinuxSubscriptions {
   /**
    * @see {@link ListLinuxSubscriptionsCommand}
    */
+  listLinuxSubscriptions(): Promise<ListLinuxSubscriptionsCommandOutput>;
   listLinuxSubscriptions(
     args: ListLinuxSubscriptionsCommandInput,
     options?: __HttpHandlerOptions

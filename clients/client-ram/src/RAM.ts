@@ -398,6 +398,7 @@ export interface RAM {
   /**
    * @see {@link EnableSharingWithAwsOrganizationCommand}
    */
+  enableSharingWithAwsOrganization(): Promise<EnableSharingWithAwsOrganizationCommandOutput>;
   enableSharingWithAwsOrganization(
     args: EnableSharingWithAwsOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -460,6 +461,7 @@ export interface RAM {
   /**
    * @see {@link GetResourceShareInvitationsCommand}
    */
+  getResourceShareInvitations(): Promise<GetResourceShareInvitationsCommandOutput>;
   getResourceShareInvitations(
     args: GetResourceShareInvitationsCommandInput,
     options?: __HttpHandlerOptions
@@ -511,6 +513,7 @@ export interface RAM {
   /**
    * @see {@link ListPermissionAssociationsCommand}
    */
+  listPermissionAssociations(): Promise<ListPermissionAssociationsCommandOutput>;
   listPermissionAssociations(
     args: ListPermissionAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -528,6 +531,7 @@ export interface RAM {
   /**
    * @see {@link ListPermissionsCommand}
    */
+  listPermissions(): Promise<ListPermissionsCommandOutput>;
   listPermissions(
     args: ListPermissionsCommandInput,
     options?: __HttpHandlerOptions
@@ -573,6 +577,7 @@ export interface RAM {
   /**
    * @see {@link ListReplacePermissionAssociationsWorkCommand}
    */
+  listReplacePermissionAssociationsWork(): Promise<ListReplacePermissionAssociationsWorkCommandOutput>;
   listReplacePermissionAssociationsWork(
     args: ListReplacePermissionAssociationsWorkCommandInput,
     options?: __HttpHandlerOptions
@@ -618,6 +623,7 @@ export interface RAM {
   /**
    * @see {@link ListResourceTypesCommand}
    */
+  listResourceTypes(): Promise<ListResourceTypesCommandOutput>;
   listResourceTypes(
     args: ListResourceTypesCommandInput,
     options?: __HttpHandlerOptions

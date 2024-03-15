@@ -167,6 +167,7 @@ export interface SnowDeviceManagement {
   /**
    * @see {@link ListDevicesCommand}
    */
+  listDevices(): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   listDevices(
@@ -209,6 +210,7 @@ export interface SnowDeviceManagement {
   /**
    * @see {@link ListTasksCommand}
    */
+  listTasks(): Promise<ListTasksCommandOutput>;
   listTasks(args: ListTasksCommandInput, options?: __HttpHandlerOptions): Promise<ListTasksCommandOutput>;
   listTasks(args: ListTasksCommandInput, cb: (err: any, data?: ListTasksCommandOutput) => void): void;
   listTasks(

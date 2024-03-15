@@ -615,6 +615,7 @@ export interface APIGateway {
   /**
    * @see {@link CreateApiKeyCommand}
    */
+  createApiKey(): Promise<CreateApiKeyCommandOutput>;
   createApiKey(args: CreateApiKeyCommandInput, options?: __HttpHandlerOptions): Promise<CreateApiKeyCommandOutput>;
   createApiKey(args: CreateApiKeyCommandInput, cb: (err: any, data?: CreateApiKeyCommandOutput) => void): void;
   createApiKey(
@@ -1180,6 +1181,7 @@ export interface APIGateway {
   /**
    * @see {@link GenerateClientCertificateCommand}
    */
+  generateClientCertificate(): Promise<GenerateClientCertificateCommandOutput>;
   generateClientCertificate(
     args: GenerateClientCertificateCommandInput,
     options?: __HttpHandlerOptions
@@ -1197,6 +1199,7 @@ export interface APIGateway {
   /**
    * @see {@link GetAccountCommand}
    */
+  getAccount(): Promise<GetAccountCommandOutput>;
   getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
   getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
   getAccount(
@@ -1219,6 +1222,7 @@ export interface APIGateway {
   /**
    * @see {@link GetApiKeysCommand}
    */
+  getApiKeys(): Promise<GetApiKeysCommandOutput>;
   getApiKeys(args: GetApiKeysCommandInput, options?: __HttpHandlerOptions): Promise<GetApiKeysCommandOutput>;
   getApiKeys(args: GetApiKeysCommandInput, cb: (err: any, data?: GetApiKeysCommandOutput) => void): void;
   getApiKeys(
@@ -1306,6 +1310,7 @@ export interface APIGateway {
   /**
    * @see {@link GetClientCertificatesCommand}
    */
+  getClientCertificates(): Promise<GetClientCertificatesCommandOutput>;
   getClientCertificates(
     args: GetClientCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1427,6 +1432,7 @@ export interface APIGateway {
   /**
    * @see {@link GetDomainNamesCommand}
    */
+  getDomainNames(): Promise<GetDomainNamesCommandOutput>;
   getDomainNames(
     args: GetDomainNamesCommandInput,
     options?: __HttpHandlerOptions
@@ -1651,6 +1657,7 @@ export interface APIGateway {
   /**
    * @see {@link GetRestApisCommand}
    */
+  getRestApis(): Promise<GetRestApisCommandOutput>;
   getRestApis(args: GetRestApisCommandInput, options?: __HttpHandlerOptions): Promise<GetRestApisCommandOutput>;
   getRestApis(args: GetRestApisCommandInput, cb: (err: any, data?: GetRestApisCommandOutput) => void): void;
   getRestApis(
@@ -1684,6 +1691,7 @@ export interface APIGateway {
   /**
    * @see {@link GetSdkTypesCommand}
    */
+  getSdkTypes(): Promise<GetSdkTypesCommandOutput>;
   getSdkTypes(args: GetSdkTypesCommandInput, options?: __HttpHandlerOptions): Promise<GetSdkTypesCommandOutput>;
   getSdkTypes(args: GetSdkTypesCommandInput, cb: (err: any, data?: GetSdkTypesCommandOutput) => void): void;
   getSdkTypes(
@@ -1781,6 +1789,7 @@ export interface APIGateway {
   /**
    * @see {@link GetUsagePlansCommand}
    */
+  getUsagePlans(): Promise<GetUsagePlansCommandOutput>;
   getUsagePlans(args: GetUsagePlansCommandInput, options?: __HttpHandlerOptions): Promise<GetUsagePlansCommandOutput>;
   getUsagePlans(args: GetUsagePlansCommandInput, cb: (err: any, data?: GetUsagePlansCommandOutput) => void): void;
   getUsagePlans(
@@ -1803,6 +1812,7 @@ export interface APIGateway {
   /**
    * @see {@link GetVpcLinksCommand}
    */
+  getVpcLinks(): Promise<GetVpcLinksCommandOutput>;
   getVpcLinks(args: GetVpcLinksCommandInput, options?: __HttpHandlerOptions): Promise<GetVpcLinksCommandOutput>;
   getVpcLinks(args: GetVpcLinksCommandInput, cb: (err: any, data?: GetVpcLinksCommandOutput) => void): void;
   getVpcLinks(
@@ -1996,6 +2006,7 @@ export interface APIGateway {
   /**
    * @see {@link UpdateAccountCommand}
    */
+  updateAccount(): Promise<UpdateAccountCommandOutput>;
   updateAccount(args: UpdateAccountCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAccountCommandOutput>;
   updateAccount(args: UpdateAccountCommandInput, cb: (err: any, data?: UpdateAccountCommandOutput) => void): void;
   updateAccount(

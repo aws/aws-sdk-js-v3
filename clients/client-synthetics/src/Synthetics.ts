@@ -166,6 +166,7 @@ export interface Synthetics {
   /**
    * @see {@link DescribeCanariesCommand}
    */
+  describeCanaries(): Promise<DescribeCanariesCommandOutput>;
   describeCanaries(
     args: DescribeCanariesCommandInput,
     options?: __HttpHandlerOptions
@@ -183,6 +184,7 @@ export interface Synthetics {
   /**
    * @see {@link DescribeCanariesLastRunCommand}
    */
+  describeCanariesLastRun(): Promise<DescribeCanariesLastRunCommandOutput>;
   describeCanariesLastRun(
     args: DescribeCanariesLastRunCommandInput,
     options?: __HttpHandlerOptions
@@ -200,6 +202,7 @@ export interface Synthetics {
   /**
    * @see {@link DescribeRuntimeVersionsCommand}
    */
+  describeRuntimeVersions(): Promise<DescribeRuntimeVersionsCommandOutput>;
   describeRuntimeVersions(
     args: DescribeRuntimeVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -301,6 +304,7 @@ export interface Synthetics {
   /**
    * @see {@link ListGroupsCommand}
    */
+  listGroups(): Promise<ListGroupsCommandOutput>;
   listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
   listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   listGroups(

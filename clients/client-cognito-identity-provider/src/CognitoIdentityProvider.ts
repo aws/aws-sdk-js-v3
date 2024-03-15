@@ -1018,6 +1018,7 @@ export interface CognitoIdentityProvider {
   /**
    * @see {@link AssociateSoftwareTokenCommand}
    */
+  associateSoftwareToken(): Promise<AssociateSoftwareTokenCommandOutput>;
   associateSoftwareToken(
     args: AssociateSoftwareTokenCommandInput,
     options?: __HttpHandlerOptions

@@ -59,6 +59,7 @@ export interface PinpointSMSVoice {
   /**
    * @see {@link CreateConfigurationSetCommand}
    */
+  createConfigurationSet(): Promise<CreateConfigurationSetCommandOutput>;
   createConfigurationSet(
     args: CreateConfigurationSetCommandInput,
     options?: __HttpHandlerOptions
@@ -144,6 +145,7 @@ export interface PinpointSMSVoice {
   /**
    * @see {@link ListConfigurationSetsCommand}
    */
+  listConfigurationSets(): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -161,6 +163,7 @@ export interface PinpointSMSVoice {
   /**
    * @see {@link SendVoiceMessageCommand}
    */
+  sendVoiceMessage(): Promise<SendVoiceMessageCommandOutput>;
   sendVoiceMessage(
     args: SendVoiceMessageCommandInput,
     options?: __HttpHandlerOptions

@@ -445,6 +445,7 @@ export interface SSMIncidents {
   /**
    * @see {@link ListIncidentRecordsCommand}
    */
+  listIncidentRecords(): Promise<ListIncidentRecordsCommandOutput>;
   listIncidentRecords(
     args: ListIncidentRecordsCommandInput,
     options?: __HttpHandlerOptions
@@ -479,6 +480,7 @@ export interface SSMIncidents {
   /**
    * @see {@link ListReplicationSetsCommand}
    */
+  listReplicationSets(): Promise<ListReplicationSetsCommandOutput>;
   listReplicationSets(
     args: ListReplicationSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -496,6 +498,7 @@ export interface SSMIncidents {
   /**
    * @see {@link ListResponsePlansCommand}
    */
+  listResponsePlans(): Promise<ListResponsePlansCommandOutput>;
   listResponsePlans(
     args: ListResponsePlansCommandInput,
     options?: __HttpHandlerOptions

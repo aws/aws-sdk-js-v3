@@ -844,6 +844,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeDBClusterEndpointsCommand}
    */
+  describeDBClusterEndpoints(): Promise<DescribeDBClusterEndpointsCommandOutput>;
   describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -861,6 +862,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeDBClusterParameterGroupsCommand}
    */
+  describeDBClusterParameterGroups(): Promise<DescribeDBClusterParameterGroupsCommandOutput>;
   describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -895,6 +897,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeDBClustersCommand}
    */
+  describeDBClusters(): Promise<DescribeDBClustersCommandOutput>;
   describeDBClusters(
     args: DescribeDBClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -929,6 +932,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeDBClusterSnapshotsCommand}
    */
+  describeDBClusterSnapshots(): Promise<DescribeDBClusterSnapshotsCommandOutput>;
   describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -946,6 +950,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeDBEngineVersionsCommand}
    */
+  describeDBEngineVersions(): Promise<DescribeDBEngineVersionsCommandOutput>;
   describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -963,6 +968,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeDBInstancesCommand}
    */
+  describeDBInstances(): Promise<DescribeDBInstancesCommandOutput>;
   describeDBInstances(
     args: DescribeDBInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -980,6 +986,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeDBParameterGroupsCommand}
    */
+  describeDBParameterGroups(): Promise<DescribeDBParameterGroupsCommandOutput>;
   describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1014,6 +1021,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeDBSubnetGroupsCommand}
    */
+  describeDBSubnetGroups(): Promise<DescribeDBSubnetGroupsCommandOutput>;
   describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1065,6 +1073,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeEventCategoriesCommand}
    */
+  describeEventCategories(): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1082,6 +1091,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -1096,6 +1106,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeEventSubscriptionsCommand}
    */
+  describeEventSubscriptions(): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1113,6 +1124,7 @@ export interface Neptune {
   /**
    * @see {@link DescribeGlobalClustersCommand}
    */
+  describeGlobalClusters(): Promise<DescribeGlobalClustersCommandOutput>;
   describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -1147,6 +1159,7 @@ export interface Neptune {
   /**
    * @see {@link DescribePendingMaintenanceActionsCommand}
    */
+  describePendingMaintenanceActions(): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1181,6 +1194,7 @@ export interface Neptune {
   /**
    * @see {@link FailoverDBClusterCommand}
    */
+  failoverDBCluster(): Promise<FailoverDBClusterCommandOutput>;
   failoverDBCluster(
     args: FailoverDBClusterCommandInput,
     options?: __HttpHandlerOptions

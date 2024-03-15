@@ -210,6 +210,7 @@ export interface Mq {
   /**
    * @see {@link DescribeBrokerEngineTypesCommand}
    */
+  describeBrokerEngineTypes(): Promise<DescribeBrokerEngineTypesCommandOutput>;
   describeBrokerEngineTypes(
     args: DescribeBrokerEngineTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -227,6 +228,7 @@ export interface Mq {
   /**
    * @see {@link DescribeBrokerInstanceOptionsCommand}
    */
+  describeBrokerInstanceOptions(): Promise<DescribeBrokerInstanceOptionsCommandOutput>;
   describeBrokerInstanceOptions(
     args: DescribeBrokerInstanceOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -289,6 +291,7 @@ export interface Mq {
   /**
    * @see {@link ListBrokersCommand}
    */
+  listBrokers(): Promise<ListBrokersCommandOutput>;
   listBrokers(args: ListBrokersCommandInput, options?: __HttpHandlerOptions): Promise<ListBrokersCommandOutput>;
   listBrokers(args: ListBrokersCommandInput, cb: (err: any, data?: ListBrokersCommandOutput) => void): void;
   listBrokers(
@@ -317,6 +320,7 @@ export interface Mq {
   /**
    * @see {@link ListConfigurationsCommand}
    */
+  listConfigurations(): Promise<ListConfigurationsCommandOutput>;
   listConfigurations(
     args: ListConfigurationsCommandInput,
     options?: __HttpHandlerOptions

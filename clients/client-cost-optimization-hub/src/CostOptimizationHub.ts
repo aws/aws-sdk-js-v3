@@ -53,6 +53,7 @@ export interface CostOptimizationHub {
   /**
    * @see {@link GetPreferencesCommand}
    */
+  getPreferences(): Promise<GetPreferencesCommandOutput>;
   getPreferences(
     args: GetPreferencesCommandInput,
     options?: __HttpHandlerOptions
@@ -84,6 +85,7 @@ export interface CostOptimizationHub {
   /**
    * @see {@link ListEnrollmentStatusesCommand}
    */
+  listEnrollmentStatuses(): Promise<ListEnrollmentStatusesCommandOutput>;
   listEnrollmentStatuses(
     args: ListEnrollmentStatusesCommandInput,
     options?: __HttpHandlerOptions
@@ -101,6 +103,7 @@ export interface CostOptimizationHub {
   /**
    * @see {@link ListRecommendationsCommand}
    */
+  listRecommendations(): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -152,6 +155,7 @@ export interface CostOptimizationHub {
   /**
    * @see {@link UpdatePreferencesCommand}
    */
+  updatePreferences(): Promise<UpdatePreferencesCommandOutput>;
   updatePreferences(
     args: UpdatePreferencesCommandInput,
     options?: __HttpHandlerOptions

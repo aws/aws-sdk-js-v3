@@ -482,6 +482,7 @@ export interface ChimeSDKMediaPipelines {
   /**
    * @see {@link ListMediaCapturePipelinesCommand}
    */
+  listMediaCapturePipelines(): Promise<ListMediaCapturePipelinesCommandOutput>;
   listMediaCapturePipelines(
     args: ListMediaCapturePipelinesCommandInput,
     options?: __HttpHandlerOptions
@@ -499,6 +500,7 @@ export interface ChimeSDKMediaPipelines {
   /**
    * @see {@link ListMediaInsightsPipelineConfigurationsCommand}
    */
+  listMediaInsightsPipelineConfigurations(): Promise<ListMediaInsightsPipelineConfigurationsCommandOutput>;
   listMediaInsightsPipelineConfigurations(
     args: ListMediaInsightsPipelineConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -516,6 +518,7 @@ export interface ChimeSDKMediaPipelines {
   /**
    * @see {@link ListMediaPipelineKinesisVideoStreamPoolsCommand}
    */
+  listMediaPipelineKinesisVideoStreamPools(): Promise<ListMediaPipelineKinesisVideoStreamPoolsCommandOutput>;
   listMediaPipelineKinesisVideoStreamPools(
     args: ListMediaPipelineKinesisVideoStreamPoolsCommandInput,
     options?: __HttpHandlerOptions
@@ -533,6 +536,7 @@ export interface ChimeSDKMediaPipelines {
   /**
    * @see {@link ListMediaPipelinesCommand}
    */
+  listMediaPipelines(): Promise<ListMediaPipelinesCommandOutput>;
   listMediaPipelines(
     args: ListMediaPipelinesCommandInput,
     options?: __HttpHandlerOptions

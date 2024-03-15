@@ -392,6 +392,7 @@ export interface ElasticLoadBalancing {
   /**
    * @see {@link DescribeAccountLimitsCommand}
    */
+  describeAccountLimits(): Promise<DescribeAccountLimitsCommandOutput>;
   describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -443,6 +444,7 @@ export interface ElasticLoadBalancing {
   /**
    * @see {@link DescribeLoadBalancerPoliciesCommand}
    */
+  describeLoadBalancerPolicies(): Promise<DescribeLoadBalancerPoliciesCommandOutput>;
   describeLoadBalancerPolicies(
     args: DescribeLoadBalancerPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -460,6 +462,7 @@ export interface ElasticLoadBalancing {
   /**
    * @see {@link DescribeLoadBalancerPolicyTypesCommand}
    */
+  describeLoadBalancerPolicyTypes(): Promise<DescribeLoadBalancerPolicyTypesCommandOutput>;
   describeLoadBalancerPolicyTypes(
     args: DescribeLoadBalancerPolicyTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -477,6 +480,7 @@ export interface ElasticLoadBalancing {
   /**
    * @see {@link DescribeLoadBalancersCommand}
    */
+  describeLoadBalancers(): Promise<DescribeLoadBalancersCommandOutput>;
   describeLoadBalancers(
     args: DescribeLoadBalancersCommandInput,
     options?: __HttpHandlerOptions

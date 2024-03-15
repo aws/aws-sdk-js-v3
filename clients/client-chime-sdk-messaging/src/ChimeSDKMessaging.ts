@@ -740,6 +740,7 @@ export interface ChimeSDKMessaging {
   /**
    * @see {@link GetMessagingSessionEndpointCommand}
    */
+  getMessagingSessionEndpoint(): Promise<GetMessagingSessionEndpointCommandOutput>;
   getMessagingSessionEndpoint(
     args: GetMessagingSessionEndpointCommandInput,
     options?: __HttpHandlerOptions

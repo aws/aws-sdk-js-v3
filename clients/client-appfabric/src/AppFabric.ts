@@ -214,6 +214,7 @@ export interface AppFabric {
   /**
    * @see {@link CreateAppBundleCommand}
    */
+  createAppBundle(): Promise<CreateAppBundleCommandOutput>;
   createAppBundle(
     args: CreateAppBundleCommandInput,
     options?: __HttpHandlerOptions
@@ -394,6 +395,7 @@ export interface AppFabric {
   /**
    * @see {@link ListAppBundlesCommand}
    */
+  listAppBundles(): Promise<ListAppBundlesCommandOutput>;
   listAppBundles(
     args: ListAppBundlesCommandInput,
     options?: __HttpHandlerOptions

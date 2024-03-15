@@ -611,6 +611,7 @@ export interface GameLift {
   /**
    * @see {@link CreateBuildCommand}
    */
+  createBuild(): Promise<CreateBuildCommandOutput>;
   createBuild(args: CreateBuildCommandInput, options?: __HttpHandlerOptions): Promise<CreateBuildCommandOutput>;
   createBuild(args: CreateBuildCommandInput, cb: (err: any, data?: CreateBuildCommandOutput) => void): void;
   createBuild(
@@ -783,6 +784,7 @@ export interface GameLift {
   /**
    * @see {@link CreateScriptCommand}
    */
+  createScript(): Promise<CreateScriptCommandOutput>;
   createScript(args: CreateScriptCommandInput, options?: __HttpHandlerOptions): Promise<CreateScriptCommandOutput>;
   createScript(args: CreateScriptCommandInput, cb: (err: any, data?: CreateScriptCommandOutput) => void): void;
   createScript(
@@ -1092,6 +1094,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeEC2InstanceLimitsCommand}
    */
+  describeEC2InstanceLimits(): Promise<DescribeEC2InstanceLimitsCommandOutput>;
   describeEC2InstanceLimits(
     args: DescribeEC2InstanceLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -1109,6 +1112,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeFleetAttributesCommand}
    */
+  describeFleetAttributes(): Promise<DescribeFleetAttributesCommandOutput>;
   describeFleetAttributes(
     args: DescribeFleetAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -1126,6 +1130,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeFleetCapacityCommand}
    */
+  describeFleetCapacity(): Promise<DescribeFleetCapacityCommandOutput>;
   describeFleetCapacity(
     args: DescribeFleetCapacityCommandInput,
     options?: __HttpHandlerOptions
@@ -1228,6 +1233,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeFleetUtilizationCommand}
    */
+  describeFleetUtilization(): Promise<DescribeFleetUtilizationCommandOutput>;
   describeFleetUtilization(
     args: DescribeFleetUtilizationCommandInput,
     options?: __HttpHandlerOptions
@@ -1296,6 +1302,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeGameSessionDetailsCommand}
    */
+  describeGameSessionDetails(): Promise<DescribeGameSessionDetailsCommandOutput>;
   describeGameSessionDetails(
     args: DescribeGameSessionDetailsCommandInput,
     options?: __HttpHandlerOptions
@@ -1330,6 +1337,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeGameSessionQueuesCommand}
    */
+  describeGameSessionQueues(): Promise<DescribeGameSessionQueuesCommandOutput>;
   describeGameSessionQueues(
     args: DescribeGameSessionQueuesCommandInput,
     options?: __HttpHandlerOptions
@@ -1347,6 +1355,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeGameSessionsCommand}
    */
+  describeGameSessions(): Promise<DescribeGameSessionsCommandOutput>;
   describeGameSessions(
     args: DescribeGameSessionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1398,6 +1407,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeMatchmakingConfigurationsCommand}
    */
+  describeMatchmakingConfigurations(): Promise<DescribeMatchmakingConfigurationsCommandOutput>;
   describeMatchmakingConfigurations(
     args: DescribeMatchmakingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1415,6 +1425,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeMatchmakingRuleSetsCommand}
    */
+  describeMatchmakingRuleSets(): Promise<DescribeMatchmakingRuleSetsCommandOutput>;
   describeMatchmakingRuleSets(
     args: DescribeMatchmakingRuleSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1432,6 +1443,7 @@ export interface GameLift {
   /**
    * @see {@link DescribePlayerSessionsCommand}
    */
+  describePlayerSessions(): Promise<DescribePlayerSessionsCommandOutput>;
   describePlayerSessions(
     args: DescribePlayerSessionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1497,6 +1509,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeVpcPeeringAuthorizationsCommand}
    */
+  describeVpcPeeringAuthorizations(): Promise<DescribeVpcPeeringAuthorizationsCommandOutput>;
   describeVpcPeeringAuthorizations(
     args: DescribeVpcPeeringAuthorizationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1514,6 +1527,7 @@ export interface GameLift {
   /**
    * @see {@link DescribeVpcPeeringConnectionsCommand}
    */
+  describeVpcPeeringConnections(): Promise<DescribeVpcPeeringConnectionsCommandOutput>;
   describeVpcPeeringConnections(
     args: DescribeVpcPeeringConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1599,6 +1613,7 @@ export interface GameLift {
   /**
    * @see {@link ListAliasesCommand}
    */
+  listAliases(): Promise<ListAliasesCommandOutput>;
   listAliases(args: ListAliasesCommandInput, options?: __HttpHandlerOptions): Promise<ListAliasesCommandOutput>;
   listAliases(args: ListAliasesCommandInput, cb: (err: any, data?: ListAliasesCommandOutput) => void): void;
   listAliases(
@@ -1610,6 +1625,7 @@ export interface GameLift {
   /**
    * @see {@link ListBuildsCommand}
    */
+  listBuilds(): Promise<ListBuildsCommandOutput>;
   listBuilds(args: ListBuildsCommandInput, options?: __HttpHandlerOptions): Promise<ListBuildsCommandOutput>;
   listBuilds(args: ListBuildsCommandInput, cb: (err: any, data?: ListBuildsCommandOutput) => void): void;
   listBuilds(
@@ -1632,6 +1648,7 @@ export interface GameLift {
   /**
    * @see {@link ListFleetsCommand}
    */
+  listFleets(): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   listFleets(
@@ -1643,6 +1660,7 @@ export interface GameLift {
   /**
    * @see {@link ListGameServerGroupsCommand}
    */
+  listGameServerGroups(): Promise<ListGameServerGroupsCommandOutput>;
   listGameServerGroups(
     args: ListGameServerGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1674,6 +1692,7 @@ export interface GameLift {
   /**
    * @see {@link ListLocationsCommand}
    */
+  listLocations(): Promise<ListLocationsCommandOutput>;
   listLocations(args: ListLocationsCommandInput, options?: __HttpHandlerOptions): Promise<ListLocationsCommandOutput>;
   listLocations(args: ListLocationsCommandInput, cb: (err: any, data?: ListLocationsCommandOutput) => void): void;
   listLocations(
@@ -1685,6 +1704,7 @@ export interface GameLift {
   /**
    * @see {@link ListScriptsCommand}
    */
+  listScripts(): Promise<ListScriptsCommandOutput>;
   listScripts(args: ListScriptsCommandInput, options?: __HttpHandlerOptions): Promise<ListScriptsCommandOutput>;
   listScripts(args: ListScriptsCommandInput, cb: (err: any, data?: ListScriptsCommandOutput) => void): void;
   listScripts(
@@ -1806,6 +1826,7 @@ export interface GameLift {
   /**
    * @see {@link SearchGameSessionsCommand}
    */
+  searchGameSessions(): Promise<SearchGameSessionsCommandOutput>;
   searchGameSessions(
     args: SearchGameSessionsCommandInput,
     options?: __HttpHandlerOptions

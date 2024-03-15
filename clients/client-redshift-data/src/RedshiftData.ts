@@ -178,6 +178,7 @@ export interface RedshiftData {
   /**
    * @see {@link ListStatementsCommand}
    */
+  listStatements(): Promise<ListStatementsCommandOutput>;
   listStatements(
     args: ListStatementsCommandInput,
     options?: __HttpHandlerOptions

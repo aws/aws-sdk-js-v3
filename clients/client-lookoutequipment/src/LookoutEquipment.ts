@@ -624,6 +624,7 @@ export interface LookoutEquipment {
   /**
    * @see {@link ListDataIngestionJobsCommand}
    */
+  listDataIngestionJobs(): Promise<ListDataIngestionJobsCommandOutput>;
   listDataIngestionJobs(
     args: ListDataIngestionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -641,6 +642,7 @@ export interface LookoutEquipment {
   /**
    * @see {@link ListDatasetsCommand}
    */
+  listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   listDatasets(
@@ -686,6 +688,7 @@ export interface LookoutEquipment {
   /**
    * @see {@link ListInferenceSchedulersCommand}
    */
+  listInferenceSchedulers(): Promise<ListInferenceSchedulersCommandOutput>;
   listInferenceSchedulers(
     args: ListInferenceSchedulersCommandInput,
     options?: __HttpHandlerOptions
@@ -703,6 +706,7 @@ export interface LookoutEquipment {
   /**
    * @see {@link ListLabelGroupsCommand}
    */
+  listLabelGroups(): Promise<ListLabelGroupsCommandOutput>;
   listLabelGroups(
     args: ListLabelGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -728,6 +732,7 @@ export interface LookoutEquipment {
   /**
    * @see {@link ListModelsCommand}
    */
+  listModels(): Promise<ListModelsCommandOutput>;
   listModels(args: ListModelsCommandInput, options?: __HttpHandlerOptions): Promise<ListModelsCommandOutput>;
   listModels(args: ListModelsCommandInput, cb: (err: any, data?: ListModelsCommandOutput) => void): void;
   listModels(
@@ -756,6 +761,7 @@ export interface LookoutEquipment {
   /**
    * @see {@link ListRetrainingSchedulersCommand}
    */
+  listRetrainingSchedulers(): Promise<ListRetrainingSchedulersCommandOutput>;
   listRetrainingSchedulers(
     args: ListRetrainingSchedulersCommandInput,
     options?: __HttpHandlerOptions

@@ -454,6 +454,7 @@ export interface IoTTwinMaker {
   /**
    * @see {@link GetPricingPlanCommand}
    */
+  getPricingPlan(): Promise<GetPricingPlanCommandOutput>;
   getPricingPlan(
     args: GetPricingPlanCommandInput,
     options?: __HttpHandlerOptions
@@ -664,6 +665,7 @@ export interface IoTTwinMaker {
   /**
    * @see {@link ListWorkspacesCommand}
    */
+  listWorkspaces(): Promise<ListWorkspacesCommandOutput>;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
     options?: __HttpHandlerOptions

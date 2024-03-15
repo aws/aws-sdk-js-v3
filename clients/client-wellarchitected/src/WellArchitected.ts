@@ -829,6 +829,7 @@ export interface WellArchitected {
   /**
    * @see {@link GetProfileTemplateCommand}
    */
+  getProfileTemplate(): Promise<GetProfileTemplateCommandOutput>;
   getProfileTemplate(
     args: GetProfileTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -964,6 +965,7 @@ export interface WellArchitected {
   /**
    * @see {@link ListLensesCommand}
    */
+  listLenses(): Promise<ListLensesCommandOutput>;
   listLenses(args: ListLensesCommandInput, options?: __HttpHandlerOptions): Promise<ListLensesCommandOutput>;
   listLenses(args: ListLensesCommandInput, cb: (err: any, data?: ListLensesCommandOutput) => void): void;
   listLenses(
@@ -1034,6 +1036,7 @@ export interface WellArchitected {
   /**
    * @see {@link ListNotificationsCommand}
    */
+  listNotifications(): Promise<ListNotificationsCommandOutput>;
   listNotifications(
     args: ListNotificationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1051,6 +1054,7 @@ export interface WellArchitected {
   /**
    * @see {@link ListProfileNotificationsCommand}
    */
+  listProfileNotifications(): Promise<ListProfileNotificationsCommandOutput>;
   listProfileNotifications(
     args: ListProfileNotificationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1068,6 +1072,7 @@ export interface WellArchitected {
   /**
    * @see {@link ListProfilesCommand}
    */
+  listProfiles(): Promise<ListProfilesCommandOutput>;
   listProfiles(args: ListProfilesCommandInput, options?: __HttpHandlerOptions): Promise<ListProfilesCommandOutput>;
   listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
   listProfiles(
@@ -1113,6 +1118,7 @@ export interface WellArchitected {
   /**
    * @see {@link ListReviewTemplatesCommand}
    */
+  listReviewTemplates(): Promise<ListReviewTemplatesCommandOutput>;
   listReviewTemplates(
     args: ListReviewTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1130,6 +1136,7 @@ export interface WellArchitected {
   /**
    * @see {@link ListShareInvitationsCommand}
    */
+  listShareInvitations(): Promise<ListShareInvitationsCommandOutput>;
   listShareInvitations(
     args: ListShareInvitationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1181,6 +1188,7 @@ export interface WellArchitected {
   /**
    * @see {@link ListWorkloadsCommand}
    */
+  listWorkloads(): Promise<ListWorkloadsCommandOutput>;
   listWorkloads(args: ListWorkloadsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkloadsCommandOutput>;
   listWorkloads(args: ListWorkloadsCommandInput, cb: (err: any, data?: ListWorkloadsCommandOutput) => void): void;
   listWorkloads(
@@ -1242,6 +1250,7 @@ export interface WellArchitected {
   /**
    * @see {@link UpdateGlobalSettingsCommand}
    */
+  updateGlobalSettings(): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions

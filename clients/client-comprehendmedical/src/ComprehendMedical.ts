@@ -319,6 +319,7 @@ export interface ComprehendMedical {
   /**
    * @see {@link ListEntitiesDetectionV2JobsCommand}
    */
+  listEntitiesDetectionV2Jobs(): Promise<ListEntitiesDetectionV2JobsCommandOutput>;
   listEntitiesDetectionV2Jobs(
     args: ListEntitiesDetectionV2JobsCommandInput,
     options?: __HttpHandlerOptions
@@ -336,6 +337,7 @@ export interface ComprehendMedical {
   /**
    * @see {@link ListICD10CMInferenceJobsCommand}
    */
+  listICD10CMInferenceJobs(): Promise<ListICD10CMInferenceJobsCommandOutput>;
   listICD10CMInferenceJobs(
     args: ListICD10CMInferenceJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -353,6 +355,7 @@ export interface ComprehendMedical {
   /**
    * @see {@link ListPHIDetectionJobsCommand}
    */
+  listPHIDetectionJobs(): Promise<ListPHIDetectionJobsCommandOutput>;
   listPHIDetectionJobs(
     args: ListPHIDetectionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -370,6 +373,7 @@ export interface ComprehendMedical {
   /**
    * @see {@link ListRxNormInferenceJobsCommand}
    */
+  listRxNormInferenceJobs(): Promise<ListRxNormInferenceJobsCommandOutput>;
   listRxNormInferenceJobs(
     args: ListRxNormInferenceJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -387,6 +391,7 @@ export interface ComprehendMedical {
   /**
    * @see {@link ListSNOMEDCTInferenceJobsCommand}
    */
+  listSNOMEDCTInferenceJobs(): Promise<ListSNOMEDCTInferenceJobsCommandOutput>;
   listSNOMEDCTInferenceJobs(
     args: ListSNOMEDCTInferenceJobsCommandInput,
     options?: __HttpHandlerOptions

@@ -197,6 +197,7 @@ export interface CloudHSM {
   /**
    * @see {@link DescribeHsmCommand}
    */
+  describeHsm(): Promise<DescribeHsmCommandOutput>;
   describeHsm(args: DescribeHsmCommandInput, options?: __HttpHandlerOptions): Promise<DescribeHsmCommandOutput>;
   describeHsm(args: DescribeHsmCommandInput, cb: (err: any, data?: DescribeHsmCommandOutput) => void): void;
   describeHsm(
@@ -208,6 +209,7 @@ export interface CloudHSM {
   /**
    * @see {@link DescribeLunaClientCommand}
    */
+  describeLunaClient(): Promise<DescribeLunaClientCommandOutput>;
   describeLunaClient(
     args: DescribeLunaClientCommandInput,
     options?: __HttpHandlerOptions
@@ -236,6 +238,7 @@ export interface CloudHSM {
   /**
    * @see {@link ListAvailableZonesCommand}
    */
+  listAvailableZones(): Promise<ListAvailableZonesCommandOutput>;
   listAvailableZones(
     args: ListAvailableZonesCommandInput,
     options?: __HttpHandlerOptions
@@ -253,6 +256,7 @@ export interface CloudHSM {
   /**
    * @see {@link ListHapgsCommand}
    */
+  listHapgs(): Promise<ListHapgsCommandOutput>;
   listHapgs(args: ListHapgsCommandInput, options?: __HttpHandlerOptions): Promise<ListHapgsCommandOutput>;
   listHapgs(args: ListHapgsCommandInput, cb: (err: any, data?: ListHapgsCommandOutput) => void): void;
   listHapgs(
@@ -264,6 +268,7 @@ export interface CloudHSM {
   /**
    * @see {@link ListHsmsCommand}
    */
+  listHsms(): Promise<ListHsmsCommandOutput>;
   listHsms(args: ListHsmsCommandInput, options?: __HttpHandlerOptions): Promise<ListHsmsCommandOutput>;
   listHsms(args: ListHsmsCommandInput, cb: (err: any, data?: ListHsmsCommandOutput) => void): void;
   listHsms(
@@ -275,6 +280,7 @@ export interface CloudHSM {
   /**
    * @see {@link ListLunaClientsCommand}
    */
+  listLunaClients(): Promise<ListLunaClientsCommandOutput>;
   listLunaClients(
     args: ListLunaClientsCommandInput,
     options?: __HttpHandlerOptions

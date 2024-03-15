@@ -546,6 +546,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link AssociateDeviceWithRoomCommand}
    */
+  associateDeviceWithRoom(): Promise<AssociateDeviceWithRoomCommandOutput>;
   associateDeviceWithRoom(
     args: AssociateDeviceWithRoomCommandInput,
     options?: __HttpHandlerOptions
@@ -563,6 +564,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link AssociateSkillGroupWithRoomCommand}
    */
+  associateSkillGroupWithRoom(): Promise<AssociateSkillGroupWithRoomCommandOutput>;
   associateSkillGroupWithRoom(
     args: AssociateSkillGroupWithRoomCommandInput,
     options?: __HttpHandlerOptions
@@ -884,6 +886,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link DeleteProfileCommand}
    */
+  deleteProfile(): Promise<DeleteProfileCommandOutput>;
   deleteProfile(args: DeleteProfileCommandInput, options?: __HttpHandlerOptions): Promise<DeleteProfileCommandOutput>;
   deleteProfile(args: DeleteProfileCommandInput, cb: (err: any, data?: DeleteProfileCommandOutput) => void): void;
   deleteProfile(
@@ -895,6 +898,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link DeleteRoomCommand}
    */
+  deleteRoom(): Promise<DeleteRoomCommandOutput>;
   deleteRoom(args: DeleteRoomCommandInput, options?: __HttpHandlerOptions): Promise<DeleteRoomCommandOutput>;
   deleteRoom(args: DeleteRoomCommandInput, cb: (err: any, data?: DeleteRoomCommandOutput) => void): void;
   deleteRoom(
@@ -940,6 +944,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link DeleteSkillGroupCommand}
    */
+  deleteSkillGroup(): Promise<DeleteSkillGroupCommandOutput>;
   deleteSkillGroup(
     args: DeleteSkillGroupCommandInput,
     options?: __HttpHandlerOptions
@@ -985,6 +990,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link DisassociateDeviceFromRoomCommand}
    */
+  disassociateDeviceFromRoom(): Promise<DisassociateDeviceFromRoomCommandOutput>;
   disassociateDeviceFromRoom(
     args: DisassociateDeviceFromRoomCommandInput,
     options?: __HttpHandlerOptions
@@ -1036,6 +1042,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link DisassociateSkillGroupFromRoomCommand}
    */
+  disassociateSkillGroupFromRoom(): Promise<DisassociateSkillGroupFromRoomCommandOutput>;
   disassociateSkillGroupFromRoom(
     args: DisassociateSkillGroupFromRoomCommandInput,
     options?: __HttpHandlerOptions
@@ -1084,6 +1091,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link GetConferencePreferenceCommand}
    */
+  getConferencePreference(): Promise<GetConferencePreferenceCommandOutput>;
   getConferencePreference(
     args: GetConferencePreferenceCommandInput,
     options?: __HttpHandlerOptions
@@ -1129,6 +1137,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link GetDeviceCommand}
    */
+  getDevice(): Promise<GetDeviceCommandOutput>;
   getDevice(args: GetDeviceCommandInput, options?: __HttpHandlerOptions): Promise<GetDeviceCommandOutput>;
   getDevice(args: GetDeviceCommandInput, cb: (err: any, data?: GetDeviceCommandOutput) => void): void;
   getDevice(
@@ -1165,6 +1174,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link GetInvitationConfigurationCommand}
    */
+  getInvitationConfiguration(): Promise<GetInvitationConfigurationCommandOutput>;
   getInvitationConfiguration(
     args: GetInvitationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1199,6 +1209,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link GetProfileCommand}
    */
+  getProfile(): Promise<GetProfileCommandOutput>;
   getProfile(args: GetProfileCommandInput, options?: __HttpHandlerOptions): Promise<GetProfileCommandOutput>;
   getProfile(args: GetProfileCommandInput, cb: (err: any, data?: GetProfileCommandOutput) => void): void;
   getProfile(
@@ -1210,6 +1221,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link GetRoomCommand}
    */
+  getRoom(): Promise<GetRoomCommandOutput>;
   getRoom(args: GetRoomCommandInput, options?: __HttpHandlerOptions): Promise<GetRoomCommandOutput>;
   getRoom(args: GetRoomCommandInput, cb: (err: any, data?: GetRoomCommandOutput) => void): void;
   getRoom(
@@ -1238,6 +1250,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link GetSkillGroupCommand}
    */
+  getSkillGroup(): Promise<GetSkillGroupCommandOutput>;
   getSkillGroup(args: GetSkillGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetSkillGroupCommandOutput>;
   getSkillGroup(args: GetSkillGroupCommandInput, cb: (err: any, data?: GetSkillGroupCommandOutput) => void): void;
   getSkillGroup(
@@ -1249,6 +1262,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link ListBusinessReportSchedulesCommand}
    */
+  listBusinessReportSchedules(): Promise<ListBusinessReportSchedulesCommandOutput>;
   listBusinessReportSchedules(
     args: ListBusinessReportSchedulesCommandInput,
     options?: __HttpHandlerOptions
@@ -1266,6 +1280,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link ListConferenceProvidersCommand}
    */
+  listConferenceProviders(): Promise<ListConferenceProvidersCommandOutput>;
   listConferenceProviders(
     args: ListConferenceProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -1300,6 +1315,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link ListGatewayGroupsCommand}
    */
+  listGatewayGroups(): Promise<ListGatewayGroupsCommandOutput>;
   listGatewayGroups(
     args: ListGatewayGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1317,6 +1333,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link ListGatewaysCommand}
    */
+  listGateways(): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
   listGateways(
@@ -1328,6 +1345,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link ListSkillsCommand}
    */
+  listSkills(): Promise<ListSkillsCommandOutput>;
   listSkills(args: ListSkillsCommandInput, options?: __HttpHandlerOptions): Promise<ListSkillsCommandOutput>;
   listSkills(args: ListSkillsCommandInput, cb: (err: any, data?: ListSkillsCommandOutput) => void): void;
   listSkills(
@@ -1339,6 +1357,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link ListSkillsStoreCategoriesCommand}
    */
+  listSkillsStoreCategories(): Promise<ListSkillsStoreCategoriesCommandOutput>;
   listSkillsStoreCategories(
     args: ListSkillsStoreCategoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1508,6 +1527,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link RevokeInvitationCommand}
    */
+  revokeInvitation(): Promise<RevokeInvitationCommandOutput>;
   revokeInvitation(
     args: RevokeInvitationCommandInput,
     options?: __HttpHandlerOptions
@@ -1525,6 +1545,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SearchAddressBooksCommand}
    */
+  searchAddressBooks(): Promise<SearchAddressBooksCommandOutput>;
   searchAddressBooks(
     args: SearchAddressBooksCommandInput,
     options?: __HttpHandlerOptions
@@ -1542,6 +1563,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SearchContactsCommand}
    */
+  searchContacts(): Promise<SearchContactsCommandOutput>;
   searchContacts(
     args: SearchContactsCommandInput,
     options?: __HttpHandlerOptions
@@ -1556,6 +1578,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SearchDevicesCommand}
    */
+  searchDevices(): Promise<SearchDevicesCommandOutput>;
   searchDevices(args: SearchDevicesCommandInput, options?: __HttpHandlerOptions): Promise<SearchDevicesCommandOutput>;
   searchDevices(args: SearchDevicesCommandInput, cb: (err: any, data?: SearchDevicesCommandOutput) => void): void;
   searchDevices(
@@ -1567,6 +1590,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SearchNetworkProfilesCommand}
    */
+  searchNetworkProfiles(): Promise<SearchNetworkProfilesCommandOutput>;
   searchNetworkProfiles(
     args: SearchNetworkProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1584,6 +1608,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SearchProfilesCommand}
    */
+  searchProfiles(): Promise<SearchProfilesCommandOutput>;
   searchProfiles(
     args: SearchProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1598,6 +1623,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SearchRoomsCommand}
    */
+  searchRooms(): Promise<SearchRoomsCommandOutput>;
   searchRooms(args: SearchRoomsCommandInput, options?: __HttpHandlerOptions): Promise<SearchRoomsCommandOutput>;
   searchRooms(args: SearchRoomsCommandInput, cb: (err: any, data?: SearchRoomsCommandOutput) => void): void;
   searchRooms(
@@ -1609,6 +1635,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SearchSkillGroupsCommand}
    */
+  searchSkillGroups(): Promise<SearchSkillGroupsCommandOutput>;
   searchSkillGroups(
     args: SearchSkillGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1626,6 +1653,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SearchUsersCommand}
    */
+  searchUsers(): Promise<SearchUsersCommandOutput>;
   searchUsers(args: SearchUsersCommandInput, options?: __HttpHandlerOptions): Promise<SearchUsersCommandOutput>;
   searchUsers(args: SearchUsersCommandInput, cb: (err: any, data?: SearchUsersCommandOutput) => void): void;
   searchUsers(
@@ -1654,6 +1682,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link SendInvitationCommand}
    */
+  sendInvitation(): Promise<SendInvitationCommandOutput>;
   sendInvitation(
     args: SendInvitationCommandInput,
     options?: __HttpHandlerOptions
@@ -1783,6 +1812,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link UpdateDeviceCommand}
    */
+  updateDevice(): Promise<UpdateDeviceCommandOutput>;
   updateDevice(args: UpdateDeviceCommandInput, options?: __HttpHandlerOptions): Promise<UpdateDeviceCommandOutput>;
   updateDevice(args: UpdateDeviceCommandInput, cb: (err: any, data?: UpdateDeviceCommandOutput) => void): void;
   updateDevice(
@@ -1839,6 +1869,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link UpdateProfileCommand}
    */
+  updateProfile(): Promise<UpdateProfileCommandOutput>;
   updateProfile(args: UpdateProfileCommandInput, options?: __HttpHandlerOptions): Promise<UpdateProfileCommandOutput>;
   updateProfile(args: UpdateProfileCommandInput, cb: (err: any, data?: UpdateProfileCommandOutput) => void): void;
   updateProfile(
@@ -1850,6 +1881,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link UpdateRoomCommand}
    */
+  updateRoom(): Promise<UpdateRoomCommandOutput>;
   updateRoom(args: UpdateRoomCommandInput, options?: __HttpHandlerOptions): Promise<UpdateRoomCommandOutput>;
   updateRoom(args: UpdateRoomCommandInput, cb: (err: any, data?: UpdateRoomCommandOutput) => void): void;
   updateRoom(
@@ -1861,6 +1893,7 @@ export interface AlexaForBusiness {
   /**
    * @see {@link UpdateSkillGroupCommand}
    */
+  updateSkillGroup(): Promise<UpdateSkillGroupCommandOutput>;
   updateSkillGroup(
     args: UpdateSkillGroupCommandInput,
     options?: __HttpHandlerOptions

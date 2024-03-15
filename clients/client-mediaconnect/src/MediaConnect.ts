@@ -588,6 +588,7 @@ export interface MediaConnect {
   /**
    * @see {@link ListBridgesCommand}
    */
+  listBridges(): Promise<ListBridgesCommandOutput>;
   listBridges(args: ListBridgesCommandInput, options?: __HttpHandlerOptions): Promise<ListBridgesCommandOutput>;
   listBridges(args: ListBridgesCommandInput, cb: (err: any, data?: ListBridgesCommandOutput) => void): void;
   listBridges(
@@ -599,6 +600,7 @@ export interface MediaConnect {
   /**
    * @see {@link ListEntitlementsCommand}
    */
+  listEntitlements(): Promise<ListEntitlementsCommandOutput>;
   listEntitlements(
     args: ListEntitlementsCommandInput,
     options?: __HttpHandlerOptions
@@ -616,6 +618,7 @@ export interface MediaConnect {
   /**
    * @see {@link ListFlowsCommand}
    */
+  listFlows(): Promise<ListFlowsCommandOutput>;
   listFlows(args: ListFlowsCommandInput, options?: __HttpHandlerOptions): Promise<ListFlowsCommandOutput>;
   listFlows(args: ListFlowsCommandInput, cb: (err: any, data?: ListFlowsCommandOutput) => void): void;
   listFlows(
@@ -627,6 +630,7 @@ export interface MediaConnect {
   /**
    * @see {@link ListGatewayInstancesCommand}
    */
+  listGatewayInstances(): Promise<ListGatewayInstancesCommandOutput>;
   listGatewayInstances(
     args: ListGatewayInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -644,6 +648,7 @@ export interface MediaConnect {
   /**
    * @see {@link ListGatewaysCommand}
    */
+  listGateways(): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, options?: __HttpHandlerOptions): Promise<ListGatewaysCommandOutput>;
   listGateways(args: ListGatewaysCommandInput, cb: (err: any, data?: ListGatewaysCommandOutput) => void): void;
   listGateways(
@@ -655,6 +660,7 @@ export interface MediaConnect {
   /**
    * @see {@link ListOfferingsCommand}
    */
+  listOfferings(): Promise<ListOfferingsCommandOutput>;
   listOfferings(args: ListOfferingsCommandInput, options?: __HttpHandlerOptions): Promise<ListOfferingsCommandOutput>;
   listOfferings(args: ListOfferingsCommandInput, cb: (err: any, data?: ListOfferingsCommandOutput) => void): void;
   listOfferings(
@@ -666,6 +672,7 @@ export interface MediaConnect {
   /**
    * @see {@link ListReservationsCommand}
    */
+  listReservations(): Promise<ListReservationsCommandOutput>;
   listReservations(
     args: ListReservationsCommandInput,
     options?: __HttpHandlerOptions

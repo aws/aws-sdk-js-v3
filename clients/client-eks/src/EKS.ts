@@ -644,6 +644,7 @@ export interface EKS {
   /**
    * @see {@link DescribeAddonVersionsCommand}
    */
+  describeAddonVersions(): Promise<DescribeAddonVersionsCommandOutput>;
   describeAddonVersions(
     args: DescribeAddonVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -839,6 +840,7 @@ export interface EKS {
   /**
    * @see {@link ListAccessPoliciesCommand}
    */
+  listAccessPolicies(): Promise<ListAccessPoliciesCommandOutput>;
   listAccessPolicies(
     args: ListAccessPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -884,6 +886,7 @@ export interface EKS {
   /**
    * @see {@link ListClustersCommand}
    */
+  listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   listClusters(
@@ -895,6 +898,7 @@ export interface EKS {
   /**
    * @see {@link ListEksAnywhereSubscriptionsCommand}
    */
+  listEksAnywhereSubscriptions(): Promise<ListEksAnywhereSubscriptionsCommandOutput>;
   listEksAnywhereSubscriptions(
     args: ListEksAnywhereSubscriptionsCommandInput,
     options?: __HttpHandlerOptions

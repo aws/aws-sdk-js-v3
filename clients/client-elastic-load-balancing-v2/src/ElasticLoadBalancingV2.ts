@@ -465,6 +465,7 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DescribeAccountLimitsCommand}
    */
+  describeAccountLimits(): Promise<DescribeAccountLimitsCommandOutput>;
   describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -499,6 +500,7 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DescribeListenersCommand}
    */
+  describeListeners(): Promise<DescribeListenersCommandOutput>;
   describeListeners(
     args: DescribeListenersCommandInput,
     options?: __HttpHandlerOptions
@@ -533,6 +535,7 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DescribeLoadBalancersCommand}
    */
+  describeLoadBalancers(): Promise<DescribeLoadBalancersCommandOutput>;
   describeLoadBalancers(
     args: DescribeLoadBalancersCommandInput,
     options?: __HttpHandlerOptions
@@ -550,6 +553,7 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DescribeRulesCommand}
    */
+  describeRules(): Promise<DescribeRulesCommandOutput>;
   describeRules(args: DescribeRulesCommandInput, options?: __HttpHandlerOptions): Promise<DescribeRulesCommandOutput>;
   describeRules(args: DescribeRulesCommandInput, cb: (err: any, data?: DescribeRulesCommandOutput) => void): void;
   describeRules(
@@ -561,6 +565,7 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DescribeSSLPoliciesCommand}
    */
+  describeSSLPolicies(): Promise<DescribeSSLPoliciesCommandOutput>;
   describeSSLPolicies(
     args: DescribeSSLPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -606,6 +611,7 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DescribeTargetGroupsCommand}
    */
+  describeTargetGroups(): Promise<DescribeTargetGroupsCommandOutput>;
   describeTargetGroups(
     args: DescribeTargetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -674,6 +680,7 @@ export interface ElasticLoadBalancingV2 {
   /**
    * @see {@link DescribeTrustStoresCommand}
    */
+  describeTrustStores(): Promise<DescribeTrustStoresCommandOutput>;
   describeTrustStores(
     args: DescribeTrustStoresCommandInput,
     options?: __HttpHandlerOptions

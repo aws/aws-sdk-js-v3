@@ -89,6 +89,7 @@ export interface DLM {
   /**
    * @see {@link GetLifecyclePoliciesCommand}
    */
+  getLifecyclePolicies(): Promise<GetLifecyclePoliciesCommandOutput>;
   getLifecyclePolicies(
     args: GetLifecyclePoliciesCommandInput,
     options?: __HttpHandlerOptions

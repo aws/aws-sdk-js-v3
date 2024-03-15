@@ -166,6 +166,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link DescribeRecommendationExportJobsCommand}
    */
+  describeRecommendationExportJobs(): Promise<DescribeRecommendationExportJobsCommandOutput>;
   describeRecommendationExportJobs(
     args: DescribeRecommendationExportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -285,6 +286,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetAutoScalingGroupRecommendationsCommand}
    */
+  getAutoScalingGroupRecommendations(): Promise<GetAutoScalingGroupRecommendationsCommandOutput>;
   getAutoScalingGroupRecommendations(
     args: GetAutoScalingGroupRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -302,6 +304,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetEBSVolumeRecommendationsCommand}
    */
+  getEBSVolumeRecommendations(): Promise<GetEBSVolumeRecommendationsCommandOutput>;
   getEBSVolumeRecommendations(
     args: GetEBSVolumeRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -319,6 +322,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetEC2InstanceRecommendationsCommand}
    */
+  getEC2InstanceRecommendations(): Promise<GetEC2InstanceRecommendationsCommandOutput>;
   getEC2InstanceRecommendations(
     args: GetEC2InstanceRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -370,6 +374,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetECSServiceRecommendationsCommand}
    */
+  getECSServiceRecommendations(): Promise<GetECSServiceRecommendationsCommandOutput>;
   getECSServiceRecommendations(
     args: GetECSServiceRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -404,6 +409,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetEnrollmentStatusCommand}
    */
+  getEnrollmentStatus(): Promise<GetEnrollmentStatusCommandOutput>;
   getEnrollmentStatus(
     args: GetEnrollmentStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -421,6 +427,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetEnrollmentStatusesForOrganizationCommand}
    */
+  getEnrollmentStatusesForOrganization(): Promise<GetEnrollmentStatusesForOrganizationCommandOutput>;
   getEnrollmentStatusesForOrganization(
     args: GetEnrollmentStatusesForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -438,6 +445,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetLambdaFunctionRecommendationsCommand}
    */
+  getLambdaFunctionRecommendations(): Promise<GetLambdaFunctionRecommendationsCommandOutput>;
   getLambdaFunctionRecommendations(
     args: GetLambdaFunctionRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -455,6 +463,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetLicenseRecommendationsCommand}
    */
+  getLicenseRecommendations(): Promise<GetLicenseRecommendationsCommandOutput>;
   getLicenseRecommendations(
     args: GetLicenseRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -489,6 +498,7 @@ export interface ComputeOptimizer {
   /**
    * @see {@link GetRecommendationSummariesCommand}
    */
+  getRecommendationSummaries(): Promise<GetRecommendationSummariesCommandOutput>;
   getRecommendationSummaries(
     args: GetRecommendationSummariesCommandInput,
     options?: __HttpHandlerOptions

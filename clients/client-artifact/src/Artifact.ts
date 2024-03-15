@@ -39,6 +39,7 @@ export interface Artifact {
   /**
    * @see {@link GetAccountSettingsCommand}
    */
+  getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -101,6 +102,7 @@ export interface Artifact {
   /**
    * @see {@link ListReportsCommand}
    */
+  listReports(): Promise<ListReportsCommandOutput>;
   listReports(args: ListReportsCommandInput, options?: __HttpHandlerOptions): Promise<ListReportsCommandOutput>;
   listReports(args: ListReportsCommandInput, cb: (err: any, data?: ListReportsCommandOutput) => void): void;
   listReports(
@@ -112,6 +114,7 @@ export interface Artifact {
   /**
    * @see {@link PutAccountSettingsCommand}
    */
+  putAccountSettings(): Promise<PutAccountSettingsCommandOutput>;
   putAccountSettings(
     args: PutAccountSettingsCommandInput,
     options?: __HttpHandlerOptions

@@ -197,6 +197,7 @@ export interface Snowball {
   /**
    * @see {@link CreateJobCommand}
    */
+  createJob(): Promise<CreateJobCommandOutput>;
   createJob(args: CreateJobCommandInput, options?: __HttpHandlerOptions): Promise<CreateJobCommandOutput>;
   createJob(args: CreateJobCommandInput, cb: (err: any, data?: CreateJobCommandOutput) => void): void;
   createJob(
@@ -256,6 +257,7 @@ export interface Snowball {
   /**
    * @see {@link DescribeAddressesCommand}
    */
+  describeAddresses(): Promise<DescribeAddressesCommandOutput>;
   describeAddresses(
     args: DescribeAddressesCommandInput,
     options?: __HttpHandlerOptions
@@ -346,6 +348,7 @@ export interface Snowball {
   /**
    * @see {@link GetSnowballUsageCommand}
    */
+  getSnowballUsage(): Promise<GetSnowballUsageCommandOutput>;
   getSnowballUsage(
     args: GetSnowballUsageCommandInput,
     options?: __HttpHandlerOptions
@@ -394,6 +397,7 @@ export interface Snowball {
   /**
    * @see {@link ListClustersCommand}
    */
+  listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   listClusters(
@@ -405,6 +409,7 @@ export interface Snowball {
   /**
    * @see {@link ListCompatibleImagesCommand}
    */
+  listCompatibleImages(): Promise<ListCompatibleImagesCommandOutput>;
   listCompatibleImages(
     args: ListCompatibleImagesCommandInput,
     options?: __HttpHandlerOptions
@@ -422,6 +427,7 @@ export interface Snowball {
   /**
    * @see {@link ListJobsCommand}
    */
+  listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   listJobs(
@@ -433,6 +439,7 @@ export interface Snowball {
   /**
    * @see {@link ListLongTermPricingCommand}
    */
+  listLongTermPricing(): Promise<ListLongTermPricingCommandOutput>;
   listLongTermPricing(
     args: ListLongTermPricingCommandInput,
     options?: __HttpHandlerOptions
@@ -450,6 +457,7 @@ export interface Snowball {
   /**
    * @see {@link ListPickupLocationsCommand}
    */
+  listPickupLocations(): Promise<ListPickupLocationsCommandOutput>;
   listPickupLocations(
     args: ListPickupLocationsCommandInput,
     options?: __HttpHandlerOptions

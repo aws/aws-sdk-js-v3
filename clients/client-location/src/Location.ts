@@ -844,6 +844,7 @@ export interface Location {
   /**
    * @see {@link ListGeofenceCollectionsCommand}
    */
+  listGeofenceCollections(): Promise<ListGeofenceCollectionsCommandOutput>;
   listGeofenceCollections(
     args: ListGeofenceCollectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -872,6 +873,7 @@ export interface Location {
   /**
    * @see {@link ListKeysCommand}
    */
+  listKeys(): Promise<ListKeysCommandOutput>;
   listKeys(args: ListKeysCommandInput, options?: __HttpHandlerOptions): Promise<ListKeysCommandOutput>;
   listKeys(args: ListKeysCommandInput, cb: (err: any, data?: ListKeysCommandOutput) => void): void;
   listKeys(
@@ -883,6 +885,7 @@ export interface Location {
   /**
    * @see {@link ListMapsCommand}
    */
+  listMaps(): Promise<ListMapsCommandOutput>;
   listMaps(args: ListMapsCommandInput, options?: __HttpHandlerOptions): Promise<ListMapsCommandOutput>;
   listMaps(args: ListMapsCommandInput, cb: (err: any, data?: ListMapsCommandOutput) => void): void;
   listMaps(
@@ -894,6 +897,7 @@ export interface Location {
   /**
    * @see {@link ListPlaceIndexesCommand}
    */
+  listPlaceIndexes(): Promise<ListPlaceIndexesCommandOutput>;
   listPlaceIndexes(
     args: ListPlaceIndexesCommandInput,
     options?: __HttpHandlerOptions
@@ -911,6 +915,7 @@ export interface Location {
   /**
    * @see {@link ListRouteCalculatorsCommand}
    */
+  listRouteCalculators(): Promise<ListRouteCalculatorsCommandOutput>;
   listRouteCalculators(
     args: ListRouteCalculatorsCommandInput,
     options?: __HttpHandlerOptions
@@ -962,6 +967,7 @@ export interface Location {
   /**
    * @see {@link ListTrackersCommand}
    */
+  listTrackers(): Promise<ListTrackersCommandOutput>;
   listTrackers(args: ListTrackersCommandInput, options?: __HttpHandlerOptions): Promise<ListTrackersCommandOutput>;
   listTrackers(args: ListTrackersCommandInput, cb: (err: any, data?: ListTrackersCommandOutput) => void): void;
   listTrackers(

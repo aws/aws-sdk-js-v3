@@ -841,6 +841,7 @@ export interface CodeCommit {
   /**
    * @see {@link GetBranchCommand}
    */
+  getBranch(): Promise<GetBranchCommandOutput>;
   getBranch(args: GetBranchCommandInput, options?: __HttpHandlerOptions): Promise<GetBranchCommandOutput>;
   getBranch(args: GetBranchCommandInput, cb: (err: any, data?: GetBranchCommandOutput) => void): void;
   getBranch(
@@ -1082,6 +1083,7 @@ export interface CodeCommit {
   /**
    * @see {@link ListApprovalRuleTemplatesCommand}
    */
+  listApprovalRuleTemplates(): Promise<ListApprovalRuleTemplatesCommandOutput>;
   listApprovalRuleTemplates(
     args: ListApprovalRuleTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1161,6 +1163,7 @@ export interface CodeCommit {
   /**
    * @see {@link ListRepositoriesCommand}
    */
+  listRepositories(): Promise<ListRepositoriesCommandOutput>;
   listRepositories(
     args: ListRepositoriesCommandInput,
     options?: __HttpHandlerOptions

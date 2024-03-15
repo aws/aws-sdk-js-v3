@@ -291,6 +291,7 @@ export interface SQS {
   /**
    * @see {@link ListQueuesCommand}
    */
+  listQueues(): Promise<ListQueuesCommandOutput>;
   listQueues(args: ListQueuesCommandInput, options?: __HttpHandlerOptions): Promise<ListQueuesCommandOutput>;
   listQueues(args: ListQueuesCommandInput, cb: (err: any, data?: ListQueuesCommandOutput) => void): void;
   listQueues(

@@ -858,6 +858,7 @@ export interface GuardDuty {
   /**
    * @see {@link GetInvitationsCountCommand}
    */
+  getInvitationsCount(): Promise<GetInvitationsCountCommandOutput>;
   getInvitationsCount(
     args: GetInvitationsCountCommandInput,
     options?: __HttpHandlerOptions
@@ -948,6 +949,7 @@ export interface GuardDuty {
   /**
    * @see {@link GetOrganizationStatisticsCommand}
    */
+  getOrganizationStatistics(): Promise<GetOrganizationStatisticsCommandOutput>;
   getOrganizationStatistics(
     args: GetOrganizationStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -1038,6 +1040,7 @@ export interface GuardDuty {
   /**
    * @see {@link ListDetectorsCommand}
    */
+  listDetectors(): Promise<ListDetectorsCommandOutput>;
   listDetectors(args: ListDetectorsCommandInput, options?: __HttpHandlerOptions): Promise<ListDetectorsCommandOutput>;
   listDetectors(args: ListDetectorsCommandInput, cb: (err: any, data?: ListDetectorsCommandOutput) => void): void;
   listDetectors(
@@ -1071,6 +1074,7 @@ export interface GuardDuty {
   /**
    * @see {@link ListInvitationsCommand}
    */
+  listInvitations(): Promise<ListInvitationsCommandOutput>;
   listInvitations(
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1107,6 +1111,7 @@ export interface GuardDuty {
   /**
    * @see {@link ListOrganizationAdminAccountsCommand}
    */
+  listOrganizationAdminAccounts(): Promise<ListOrganizationAdminAccountsCommandOutput>;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
     options?: __HttpHandlerOptions

@@ -367,6 +367,7 @@ export interface CostExplorer {
   /**
    * @see {@link GetAnomalyMonitorsCommand}
    */
+  getAnomalyMonitors(): Promise<GetAnomalyMonitorsCommandOutput>;
   getAnomalyMonitors(
     args: GetAnomalyMonitorsCommandInput,
     options?: __HttpHandlerOptions
@@ -384,6 +385,7 @@ export interface CostExplorer {
   /**
    * @see {@link GetAnomalySubscriptionsCommand}
    */
+  getAnomalySubscriptions(): Promise<GetAnomalySubscriptionsCommandOutput>;
   getAnomalySubscriptions(
     args: GetAnomalySubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -678,6 +680,7 @@ export interface CostExplorer {
   /**
    * @see {@link ListCostAllocationTagsCommand}
    */
+  listCostAllocationTags(): Promise<ListCostAllocationTagsCommandOutput>;
   listCostAllocationTags(
     args: ListCostAllocationTagsCommandInput,
     options?: __HttpHandlerOptions
@@ -695,6 +698,7 @@ export interface CostExplorer {
   /**
    * @see {@link ListCostCategoryDefinitionsCommand}
    */
+  listCostCategoryDefinitions(): Promise<ListCostCategoryDefinitionsCommandOutput>;
   listCostCategoryDefinitions(
     args: ListCostCategoryDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -712,6 +716,7 @@ export interface CostExplorer {
   /**
    * @see {@link ListSavingsPlansPurchaseRecommendationGenerationCommand}
    */
+  listSavingsPlansPurchaseRecommendationGeneration(): Promise<ListSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
   listSavingsPlansPurchaseRecommendationGeneration(
     args: ListSavingsPlansPurchaseRecommendationGenerationCommandInput,
     options?: __HttpHandlerOptions
@@ -763,6 +768,7 @@ export interface CostExplorer {
   /**
    * @see {@link StartSavingsPlansPurchaseRecommendationGenerationCommand}
    */
+  startSavingsPlansPurchaseRecommendationGeneration(): Promise<StartSavingsPlansPurchaseRecommendationGenerationCommandOutput>;
   startSavingsPlansPurchaseRecommendationGeneration(
     args: StartSavingsPlansPurchaseRecommendationGenerationCommandInput,
     options?: __HttpHandlerOptions

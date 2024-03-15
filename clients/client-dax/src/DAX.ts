@@ -232,6 +232,7 @@ export interface DAX {
   /**
    * @see {@link DescribeClustersCommand}
    */
+  describeClusters(): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -249,6 +250,7 @@ export interface DAX {
   /**
    * @see {@link DescribeDefaultParametersCommand}
    */
+  describeDefaultParameters(): Promise<DescribeDefaultParametersCommandOutput>;
   describeDefaultParameters(
     args: DescribeDefaultParametersCommandInput,
     options?: __HttpHandlerOptions
@@ -266,6 +268,7 @@ export interface DAX {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -280,6 +283,7 @@ export interface DAX {
   /**
    * @see {@link DescribeParameterGroupsCommand}
    */
+  describeParameterGroups(): Promise<DescribeParameterGroupsCommandOutput>;
   describeParameterGroups(
     args: DescribeParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -314,6 +318,7 @@ export interface DAX {
   /**
    * @see {@link DescribeSubnetGroupsCommand}
    */
+  describeSubnetGroups(): Promise<DescribeSubnetGroupsCommandOutput>;
   describeSubnetGroups(
     args: DescribeSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions

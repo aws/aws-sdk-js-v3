@@ -222,6 +222,7 @@ export interface Tnb {
   /**
    * @see {@link CreateSolFunctionPackageCommand}
    */
+  createSolFunctionPackage(): Promise<CreateSolFunctionPackageCommandOutput>;
   createSolFunctionPackage(
     args: CreateSolFunctionPackageCommandInput,
     options?: __HttpHandlerOptions
@@ -256,6 +257,7 @@ export interface Tnb {
   /**
    * @see {@link CreateSolNetworkPackageCommand}
    */
+  createSolNetworkPackage(): Promise<CreateSolNetworkPackageCommandOutput>;
   createSolNetworkPackage(
     args: CreateSolNetworkPackageCommandInput,
     options?: __HttpHandlerOptions
@@ -494,6 +496,7 @@ export interface Tnb {
   /**
    * @see {@link ListSolFunctionInstancesCommand}
    */
+  listSolFunctionInstances(): Promise<ListSolFunctionInstancesCommandOutput>;
   listSolFunctionInstances(
     args: ListSolFunctionInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -511,6 +514,7 @@ export interface Tnb {
   /**
    * @see {@link ListSolFunctionPackagesCommand}
    */
+  listSolFunctionPackages(): Promise<ListSolFunctionPackagesCommandOutput>;
   listSolFunctionPackages(
     args: ListSolFunctionPackagesCommandInput,
     options?: __HttpHandlerOptions
@@ -528,6 +532,7 @@ export interface Tnb {
   /**
    * @see {@link ListSolNetworkInstancesCommand}
    */
+  listSolNetworkInstances(): Promise<ListSolNetworkInstancesCommandOutput>;
   listSolNetworkInstances(
     args: ListSolNetworkInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -545,6 +550,7 @@ export interface Tnb {
   /**
    * @see {@link ListSolNetworkOperationsCommand}
    */
+  listSolNetworkOperations(): Promise<ListSolNetworkOperationsCommandOutput>;
   listSolNetworkOperations(
     args: ListSolNetworkOperationsCommandInput,
     options?: __HttpHandlerOptions
@@ -562,6 +568,7 @@ export interface Tnb {
   /**
    * @see {@link ListSolNetworkPackagesCommand}
    */
+  listSolNetworkPackages(): Promise<ListSolNetworkPackagesCommandOutput>;
   listSolNetworkPackages(
     args: ListSolNetworkPackagesCommandInput,
     options?: __HttpHandlerOptions

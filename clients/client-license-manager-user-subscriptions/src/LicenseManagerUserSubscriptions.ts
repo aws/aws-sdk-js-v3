@@ -125,6 +125,7 @@ export interface LicenseManagerUserSubscriptions {
   /**
    * @see {@link ListIdentityProvidersCommand}
    */
+  listIdentityProviders(): Promise<ListIdentityProvidersCommandOutput>;
   listIdentityProviders(
     args: ListIdentityProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -142,6 +143,7 @@ export interface LicenseManagerUserSubscriptions {
   /**
    * @see {@link ListInstancesCommand}
    */
+  listInstances(): Promise<ListInstancesCommandOutput>;
   listInstances(args: ListInstancesCommandInput, options?: __HttpHandlerOptions): Promise<ListInstancesCommandOutput>;
   listInstances(args: ListInstancesCommandInput, cb: (err: any, data?: ListInstancesCommandOutput) => void): void;
   listInstances(

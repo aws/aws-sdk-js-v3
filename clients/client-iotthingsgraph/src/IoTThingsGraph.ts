@@ -298,6 +298,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link DeleteNamespaceCommand}
    */
+  deleteNamespace(): Promise<DeleteNamespaceCommandOutput>;
   deleteNamespace(
     args: DeleteNamespaceCommandInput,
     options?: __HttpHandlerOptions
@@ -312,6 +313,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link DeleteSystemInstanceCommand}
    */
+  deleteSystemInstance(): Promise<DeleteSystemInstanceCommandOutput>;
   deleteSystemInstance(
     args: DeleteSystemInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -346,6 +348,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link DeploySystemInstanceCommand}
    */
+  deploySystemInstance(): Promise<DeploySystemInstanceCommandOutput>;
   deploySystemInstance(
     args: DeploySystemInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -397,6 +400,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link DescribeNamespaceCommand}
    */
+  describeNamespace(): Promise<DescribeNamespaceCommandOutput>;
   describeNamespace(
     args: DescribeNamespaceCommandInput,
     options?: __HttpHandlerOptions
@@ -473,6 +477,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link GetNamespaceDeletionStatusCommand}
    */
+  getNamespaceDeletionStatus(): Promise<GetNamespaceDeletionStatusCommandOutput>;
   getNamespaceDeletionStatus(
     args: GetNamespaceDeletionStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -620,6 +625,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link SearchFlowTemplatesCommand}
    */
+  searchFlowTemplates(): Promise<SearchFlowTemplatesCommandOutput>;
   searchFlowTemplates(
     args: SearchFlowTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -637,6 +643,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link SearchSystemInstancesCommand}
    */
+  searchSystemInstances(): Promise<SearchSystemInstancesCommandOutput>;
   searchSystemInstances(
     args: SearchSystemInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -654,6 +661,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link SearchSystemTemplatesCommand}
    */
+  searchSystemTemplates(): Promise<SearchSystemTemplatesCommandOutput>;
   searchSystemTemplates(
     args: SearchSystemTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -693,6 +701,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link UndeploySystemInstanceCommand}
    */
+  undeploySystemInstance(): Promise<UndeploySystemInstanceCommandOutput>;
   undeploySystemInstance(
     args: UndeploySystemInstanceCommandInput,
     options?: __HttpHandlerOptions
@@ -755,6 +764,7 @@ export interface IoTThingsGraph {
   /**
    * @see {@link UploadEntityDefinitionsCommand}
    */
+  uploadEntityDefinitions(): Promise<UploadEntityDefinitionsCommandOutput>;
   uploadEntityDefinitions(
     args: UploadEntityDefinitionsCommandInput,
     options?: __HttpHandlerOptions

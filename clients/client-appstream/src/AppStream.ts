@@ -700,6 +700,7 @@ export interface AppStream {
   /**
    * @see {@link CreateUsageReportSubscriptionCommand}
    */
+  createUsageReportSubscription(): Promise<CreateUsageReportSubscriptionCommandOutput>;
   createUsageReportSubscription(
     args: CreateUsageReportSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -877,6 +878,7 @@ export interface AppStream {
   /**
    * @see {@link DeleteUsageReportSubscriptionCommand}
    */
+  deleteUsageReportSubscription(): Promise<DeleteUsageReportSubscriptionCommandOutput>;
   deleteUsageReportSubscription(
     args: DeleteUsageReportSubscriptionCommandInput,
     options?: __HttpHandlerOptions
@@ -905,6 +907,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeAppBlockBuilderAppBlockAssociationsCommand}
    */
+  describeAppBlockBuilderAppBlockAssociations(): Promise<DescribeAppBlockBuilderAppBlockAssociationsCommandOutput>;
   describeAppBlockBuilderAppBlockAssociations(
     args: DescribeAppBlockBuilderAppBlockAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -922,6 +925,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeAppBlockBuildersCommand}
    */
+  describeAppBlockBuilders(): Promise<DescribeAppBlockBuildersCommandOutput>;
   describeAppBlockBuilders(
     args: DescribeAppBlockBuildersCommandInput,
     options?: __HttpHandlerOptions
@@ -939,6 +943,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeAppBlocksCommand}
    */
+  describeAppBlocks(): Promise<DescribeAppBlocksCommandOutput>;
   describeAppBlocks(
     args: DescribeAppBlocksCommandInput,
     options?: __HttpHandlerOptions
@@ -956,6 +961,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeApplicationFleetAssociationsCommand}
    */
+  describeApplicationFleetAssociations(): Promise<DescribeApplicationFleetAssociationsCommandOutput>;
   describeApplicationFleetAssociations(
     args: DescribeApplicationFleetAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -973,6 +979,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeApplicationsCommand}
    */
+  describeApplications(): Promise<DescribeApplicationsCommandOutput>;
   describeApplications(
     args: DescribeApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -990,6 +997,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeDirectoryConfigsCommand}
    */
+  describeDirectoryConfigs(): Promise<DescribeDirectoryConfigsCommandOutput>;
   describeDirectoryConfigs(
     args: DescribeDirectoryConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -1024,6 +1032,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeFleetsCommand}
    */
+  describeFleets(): Promise<DescribeFleetsCommandOutput>;
   describeFleets(
     args: DescribeFleetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1038,6 +1047,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeImageBuildersCommand}
    */
+  describeImageBuilders(): Promise<DescribeImageBuildersCommandOutput>;
   describeImageBuilders(
     args: DescribeImageBuildersCommandInput,
     options?: __HttpHandlerOptions
@@ -1072,6 +1082,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeImagesCommand}
    */
+  describeImages(): Promise<DescribeImagesCommandOutput>;
   describeImages(
     args: DescribeImagesCommandInput,
     options?: __HttpHandlerOptions
@@ -1103,6 +1114,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeStacksCommand}
    */
+  describeStacks(): Promise<DescribeStacksCommandOutput>;
   describeStacks(
     args: DescribeStacksCommandInput,
     options?: __HttpHandlerOptions
@@ -1117,6 +1129,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeUsageReportSubscriptionsCommand}
    */
+  describeUsageReportSubscriptions(): Promise<DescribeUsageReportSubscriptionsCommandOutput>;
   describeUsageReportSubscriptions(
     args: DescribeUsageReportSubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1145,6 +1158,7 @@ export interface AppStream {
   /**
    * @see {@link DescribeUserStackAssociationsCommand}
    */
+  describeUserStackAssociations(): Promise<DescribeUserStackAssociationsCommandOutput>;
   describeUserStackAssociations(
     args: DescribeUserStackAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1511,6 +1525,7 @@ export interface AppStream {
   /**
    * @see {@link UpdateFleetCommand}
    */
+  updateFleet(): Promise<UpdateFleetCommandOutput>;
   updateFleet(args: UpdateFleetCommandInput, options?: __HttpHandlerOptions): Promise<UpdateFleetCommandOutput>;
   updateFleet(args: UpdateFleetCommandInput, cb: (err: any, data?: UpdateFleetCommandOutput) => void): void;
   updateFleet(

@@ -598,6 +598,7 @@ export interface RoboMaker {
   /**
    * @see {@link CreateWorldTemplateCommand}
    */
+  createWorldTemplate(): Promise<CreateWorldTemplateCommandOutput>;
   createWorldTemplate(
     args: CreateWorldTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -871,6 +872,7 @@ export interface RoboMaker {
   /**
    * @see {@link GetWorldTemplateBodyCommand}
    */
+  getWorldTemplateBody(): Promise<GetWorldTemplateBodyCommandOutput>;
   getWorldTemplateBody(
     args: GetWorldTemplateBodyCommandInput,
     options?: __HttpHandlerOptions
@@ -888,6 +890,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListDeploymentJobsCommand}
    */
+  listDeploymentJobs(): Promise<ListDeploymentJobsCommandOutput>;
   listDeploymentJobs(
     args: ListDeploymentJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -905,6 +908,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListFleetsCommand}
    */
+  listFleets(): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   listFleets(
@@ -916,6 +920,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListRobotApplicationsCommand}
    */
+  listRobotApplications(): Promise<ListRobotApplicationsCommandOutput>;
   listRobotApplications(
     args: ListRobotApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -933,6 +938,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListRobotsCommand}
    */
+  listRobots(): Promise<ListRobotsCommandOutput>;
   listRobots(args: ListRobotsCommandInput, options?: __HttpHandlerOptions): Promise<ListRobotsCommandOutput>;
   listRobots(args: ListRobotsCommandInput, cb: (err: any, data?: ListRobotsCommandOutput) => void): void;
   listRobots(
@@ -944,6 +950,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListSimulationApplicationsCommand}
    */
+  listSimulationApplications(): Promise<ListSimulationApplicationsCommandOutput>;
   listSimulationApplications(
     args: ListSimulationApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -961,6 +968,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListSimulationJobBatchesCommand}
    */
+  listSimulationJobBatches(): Promise<ListSimulationJobBatchesCommandOutput>;
   listSimulationJobBatches(
     args: ListSimulationJobBatchesCommandInput,
     options?: __HttpHandlerOptions
@@ -978,6 +986,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListSimulationJobsCommand}
    */
+  listSimulationJobs(): Promise<ListSimulationJobsCommandOutput>;
   listSimulationJobs(
     args: ListSimulationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1012,6 +1021,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListWorldExportJobsCommand}
    */
+  listWorldExportJobs(): Promise<ListWorldExportJobsCommandOutput>;
   listWorldExportJobs(
     args: ListWorldExportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1029,6 +1039,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListWorldGenerationJobsCommand}
    */
+  listWorldGenerationJobs(): Promise<ListWorldGenerationJobsCommandOutput>;
   listWorldGenerationJobs(
     args: ListWorldGenerationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1046,6 +1057,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListWorldsCommand}
    */
+  listWorlds(): Promise<ListWorldsCommandOutput>;
   listWorlds(args: ListWorldsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorldsCommandOutput>;
   listWorlds(args: ListWorldsCommandInput, cb: (err: any, data?: ListWorldsCommandOutput) => void): void;
   listWorlds(
@@ -1057,6 +1069,7 @@ export interface RoboMaker {
   /**
    * @see {@link ListWorldTemplatesCommand}
    */
+  listWorldTemplates(): Promise<ListWorldTemplatesCommandOutput>;
   listWorldTemplates(
     args: ListWorldTemplatesCommandInput,
     options?: __HttpHandlerOptions

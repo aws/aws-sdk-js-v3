@@ -165,6 +165,7 @@ export interface Scheduler {
   /**
    * @see {@link ListScheduleGroupsCommand}
    */
+  listScheduleGroups(): Promise<ListScheduleGroupsCommandOutput>;
   listScheduleGroups(
     args: ListScheduleGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -182,6 +183,7 @@ export interface Scheduler {
   /**
    * @see {@link ListSchedulesCommand}
    */
+  listSchedules(): Promise<ListSchedulesCommandOutput>;
   listSchedules(args: ListSchedulesCommandInput, options?: __HttpHandlerOptions): Promise<ListSchedulesCommandOutput>;
   listSchedules(args: ListSchedulesCommandInput, cb: (err: any, data?: ListSchedulesCommandOutput) => void): void;
   listSchedules(

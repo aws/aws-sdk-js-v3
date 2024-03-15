@@ -281,6 +281,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link DescribeAgentsCommand}
    */
+  describeAgents(): Promise<DescribeAgentsCommandOutput>;
   describeAgents(
     args: DescribeAgentsCommandInput,
     options?: __HttpHandlerOptions
@@ -329,6 +330,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link DescribeContinuousExportsCommand}
    */
+  describeContinuousExports(): Promise<DescribeContinuousExportsCommandOutput>;
   describeContinuousExports(
     args: DescribeContinuousExportsCommandInput,
     options?: __HttpHandlerOptions
@@ -346,6 +348,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link DescribeExportConfigurationsCommand}
    */
+  describeExportConfigurations(): Promise<DescribeExportConfigurationsCommandOutput>;
   describeExportConfigurations(
     args: DescribeExportConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -363,6 +366,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link DescribeExportTasksCommand}
    */
+  describeExportTasks(): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -380,6 +384,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link DescribeImportTasksCommand}
    */
+  describeImportTasks(): Promise<DescribeImportTasksCommandOutput>;
   describeImportTasks(
     args: DescribeImportTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -397,6 +402,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link DescribeTagsCommand}
    */
+  describeTags(): Promise<DescribeTagsCommandOutput>;
   describeTags(args: DescribeTagsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTagsCommandOutput>;
   describeTags(args: DescribeTagsCommandInput, cb: (err: any, data?: DescribeTagsCommandOutput) => void): void;
   describeTags(
@@ -425,6 +431,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link ExportConfigurationsCommand}
    */
+  exportConfigurations(): Promise<ExportConfigurationsCommandOutput>;
   exportConfigurations(
     args: ExportConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -442,6 +449,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link GetDiscoverySummaryCommand}
    */
+  getDiscoverySummary(): Promise<GetDiscoverySummaryCommandOutput>;
   getDiscoverySummary(
     args: GetDiscoverySummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -510,6 +518,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link StartContinuousExportCommand}
    */
+  startContinuousExport(): Promise<StartContinuousExportCommandOutput>;
   startContinuousExport(
     args: StartContinuousExportCommandInput,
     options?: __HttpHandlerOptions
@@ -544,6 +553,7 @@ export interface ApplicationDiscoveryService {
   /**
    * @see {@link StartExportTaskCommand}
    */
+  startExportTask(): Promise<StartExportTaskCommandOutput>;
   startExportTask(
     args: StartExportTaskCommandInput,
     options?: __HttpHandlerOptions

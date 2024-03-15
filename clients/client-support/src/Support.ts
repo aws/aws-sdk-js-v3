@@ -161,6 +161,7 @@ export interface Support {
   /**
    * @see {@link DescribeCasesCommand}
    */
+  describeCases(): Promise<DescribeCasesCommandOutput>;
   describeCases(args: DescribeCasesCommandInput, options?: __HttpHandlerOptions): Promise<DescribeCasesCommandOutput>;
   describeCases(args: DescribeCasesCommandInput, cb: (err: any, data?: DescribeCasesCommandOutput) => void): void;
   describeCases(
@@ -206,6 +207,7 @@ export interface Support {
   /**
    * @see {@link DescribeServicesCommand}
    */
+  describeServices(): Promise<DescribeServicesCommandOutput>;
   describeServices(
     args: DescribeServicesCommandInput,
     options?: __HttpHandlerOptions
@@ -223,6 +225,7 @@ export interface Support {
   /**
    * @see {@link DescribeSeverityLevelsCommand}
    */
+  describeSeverityLevels(): Promise<DescribeSeverityLevelsCommandOutput>;
   describeSeverityLevels(
     args: DescribeSeverityLevelsCommandInput,
     options?: __HttpHandlerOptions
@@ -342,6 +345,7 @@ export interface Support {
   /**
    * @see {@link ResolveCaseCommand}
    */
+  resolveCase(): Promise<ResolveCaseCommandOutput>;
   resolveCase(args: ResolveCaseCommandInput, options?: __HttpHandlerOptions): Promise<ResolveCaseCommandOutput>;
   resolveCase(args: ResolveCaseCommandInput, cb: (err: any, data?: ResolveCaseCommandOutput) => void): void;
   resolveCase(

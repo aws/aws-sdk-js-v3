@@ -421,6 +421,7 @@ export interface IoTAnalytics {
   /**
    * @see {@link DescribeLoggingOptionsCommand}
    */
+  describeLoggingOptions(): Promise<DescribeLoggingOptionsCommandOutput>;
   describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -472,6 +473,7 @@ export interface IoTAnalytics {
   /**
    * @see {@link ListChannelsCommand}
    */
+  listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
   listChannels(
@@ -500,6 +502,7 @@ export interface IoTAnalytics {
   /**
    * @see {@link ListDatasetsCommand}
    */
+  listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   listDatasets(
@@ -511,6 +514,7 @@ export interface IoTAnalytics {
   /**
    * @see {@link ListDatastoresCommand}
    */
+  listDatastores(): Promise<ListDatastoresCommandOutput>;
   listDatastores(
     args: ListDatastoresCommandInput,
     options?: __HttpHandlerOptions
@@ -525,6 +529,7 @@ export interface IoTAnalytics {
   /**
    * @see {@link ListPipelinesCommand}
    */
+  listPipelines(): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
   listPipelines(

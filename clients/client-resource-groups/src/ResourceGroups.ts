@@ -98,6 +98,7 @@ export interface ResourceGroups {
   /**
    * @see {@link DeleteGroupCommand}
    */
+  deleteGroup(): Promise<DeleteGroupCommandOutput>;
   deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
   deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
   deleteGroup(
@@ -109,6 +110,7 @@ export interface ResourceGroups {
   /**
    * @see {@link GetAccountSettingsCommand}
    */
+  getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -126,6 +128,7 @@ export interface ResourceGroups {
   /**
    * @see {@link GetGroupCommand}
    */
+  getGroup(): Promise<GetGroupCommandOutput>;
   getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
   getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
   getGroup(
@@ -137,6 +140,7 @@ export interface ResourceGroups {
   /**
    * @see {@link GetGroupConfigurationCommand}
    */
+  getGroupConfiguration(): Promise<GetGroupConfigurationCommandOutput>;
   getGroupConfiguration(
     args: GetGroupConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -154,6 +158,7 @@ export interface ResourceGroups {
   /**
    * @see {@link GetGroupQueryCommand}
    */
+  getGroupQuery(): Promise<GetGroupQueryCommandOutput>;
   getGroupQuery(args: GetGroupQueryCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupQueryCommandOutput>;
   getGroupQuery(args: GetGroupQueryCommandInput, cb: (err: any, data?: GetGroupQueryCommandOutput) => void): void;
   getGroupQuery(
@@ -190,6 +195,7 @@ export interface ResourceGroups {
   /**
    * @see {@link ListGroupResourcesCommand}
    */
+  listGroupResources(): Promise<ListGroupResourcesCommandOutput>;
   listGroupResources(
     args: ListGroupResourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -207,6 +213,7 @@ export interface ResourceGroups {
   /**
    * @see {@link ListGroupsCommand}
    */
+  listGroups(): Promise<ListGroupsCommandOutput>;
   listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
   listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   listGroups(
@@ -218,6 +225,7 @@ export interface ResourceGroups {
   /**
    * @see {@link PutGroupConfigurationCommand}
    */
+  putGroupConfiguration(): Promise<PutGroupConfigurationCommandOutput>;
   putGroupConfiguration(
     args: PutGroupConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -284,6 +292,7 @@ export interface ResourceGroups {
   /**
    * @see {@link UpdateAccountSettingsCommand}
    */
+  updateAccountSettings(): Promise<UpdateAccountSettingsCommandOutput>;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -301,6 +310,7 @@ export interface ResourceGroups {
   /**
    * @see {@link UpdateGroupCommand}
    */
+  updateGroup(): Promise<UpdateGroupCommandOutput>;
   updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
   updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
   updateGroup(

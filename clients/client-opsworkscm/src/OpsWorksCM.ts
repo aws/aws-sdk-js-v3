@@ -176,6 +176,7 @@ export interface OpsWorksCM {
   /**
    * @see {@link DescribeAccountAttributesCommand}
    */
+  describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -193,6 +194,7 @@ export interface OpsWorksCM {
   /**
    * @see {@link DescribeBackupsCommand}
    */
+  describeBackups(): Promise<DescribeBackupsCommandOutput>;
   describeBackups(
     args: DescribeBackupsCommandInput,
     options?: __HttpHandlerOptions
@@ -238,6 +240,7 @@ export interface OpsWorksCM {
   /**
    * @see {@link DescribeServersCommand}
    */
+  describeServers(): Promise<DescribeServersCommandOutput>;
   describeServers(
     args: DescribeServersCommandInput,
     options?: __HttpHandlerOptions

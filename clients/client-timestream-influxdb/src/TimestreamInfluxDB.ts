@@ -152,6 +152,7 @@ export interface TimestreamInfluxDB {
   /**
    * @see {@link ListDbInstancesCommand}
    */
+  listDbInstances(): Promise<ListDbInstancesCommandOutput>;
   listDbInstances(
     args: ListDbInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -166,6 +167,7 @@ export interface TimestreamInfluxDB {
   /**
    * @see {@link ListDbParameterGroupsCommand}
    */
+  listDbParameterGroups(): Promise<ListDbParameterGroupsCommandOutput>;
   listDbParameterGroups(
     args: ListDbParameterGroupsCommandInput,
     options?: __HttpHandlerOptions

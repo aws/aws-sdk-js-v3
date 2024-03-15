@@ -135,6 +135,7 @@ export interface CodestarNotifications {
   /**
    * @see {@link ListEventTypesCommand}
    */
+  listEventTypes(): Promise<ListEventTypesCommandOutput>;
   listEventTypes(
     args: ListEventTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -149,6 +150,7 @@ export interface CodestarNotifications {
   /**
    * @see {@link ListNotificationRulesCommand}
    */
+  listNotificationRules(): Promise<ListNotificationRulesCommandOutput>;
   listNotificationRules(
     args: ListNotificationRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -183,6 +185,7 @@ export interface CodestarNotifications {
   /**
    * @see {@link ListTargetsCommand}
    */
+  listTargets(): Promise<ListTargetsCommandOutput>;
   listTargets(args: ListTargetsCommandInput, options?: __HttpHandlerOptions): Promise<ListTargetsCommandOutput>;
   listTargets(args: ListTargetsCommandInput, cb: (err: any, data?: ListTargetsCommandOutput) => void): void;
   listTargets(

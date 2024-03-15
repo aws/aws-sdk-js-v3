@@ -1034,6 +1034,7 @@ export interface Personalize {
   /**
    * @see {@link ListBatchInferenceJobsCommand}
    */
+  listBatchInferenceJobs(): Promise<ListBatchInferenceJobsCommandOutput>;
   listBatchInferenceJobs(
     args: ListBatchInferenceJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1051,6 +1052,7 @@ export interface Personalize {
   /**
    * @see {@link ListBatchSegmentJobsCommand}
    */
+  listBatchSegmentJobs(): Promise<ListBatchSegmentJobsCommandOutput>;
   listBatchSegmentJobs(
     args: ListBatchSegmentJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1068,6 +1070,7 @@ export interface Personalize {
   /**
    * @see {@link ListCampaignsCommand}
    */
+  listCampaigns(): Promise<ListCampaignsCommandOutput>;
   listCampaigns(args: ListCampaignsCommandInput, options?: __HttpHandlerOptions): Promise<ListCampaignsCommandOutput>;
   listCampaigns(args: ListCampaignsCommandInput, cb: (err: any, data?: ListCampaignsCommandOutput) => void): void;
   listCampaigns(
@@ -1079,6 +1082,7 @@ export interface Personalize {
   /**
    * @see {@link ListDatasetExportJobsCommand}
    */
+  listDatasetExportJobs(): Promise<ListDatasetExportJobsCommandOutput>;
   listDatasetExportJobs(
     args: ListDatasetExportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1096,6 +1100,7 @@ export interface Personalize {
   /**
    * @see {@link ListDatasetGroupsCommand}
    */
+  listDatasetGroups(): Promise<ListDatasetGroupsCommandOutput>;
   listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1113,6 +1118,7 @@ export interface Personalize {
   /**
    * @see {@link ListDatasetImportJobsCommand}
    */
+  listDatasetImportJobs(): Promise<ListDatasetImportJobsCommandOutput>;
   listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1130,6 +1136,7 @@ export interface Personalize {
   /**
    * @see {@link ListDatasetsCommand}
    */
+  listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   listDatasets(
@@ -1141,6 +1148,7 @@ export interface Personalize {
   /**
    * @see {@link ListEventTrackersCommand}
    */
+  listEventTrackers(): Promise<ListEventTrackersCommandOutput>;
   listEventTrackers(
     args: ListEventTrackersCommandInput,
     options?: __HttpHandlerOptions
@@ -1158,6 +1166,7 @@ export interface Personalize {
   /**
    * @see {@link ListFiltersCommand}
    */
+  listFilters(): Promise<ListFiltersCommandOutput>;
   listFilters(args: ListFiltersCommandInput, options?: __HttpHandlerOptions): Promise<ListFiltersCommandOutput>;
   listFilters(args: ListFiltersCommandInput, cb: (err: any, data?: ListFiltersCommandOutput) => void): void;
   listFilters(
@@ -1169,6 +1178,7 @@ export interface Personalize {
   /**
    * @see {@link ListMetricAttributionMetricsCommand}
    */
+  listMetricAttributionMetrics(): Promise<ListMetricAttributionMetricsCommandOutput>;
   listMetricAttributionMetrics(
     args: ListMetricAttributionMetricsCommandInput,
     options?: __HttpHandlerOptions
@@ -1186,6 +1196,7 @@ export interface Personalize {
   /**
    * @see {@link ListMetricAttributionsCommand}
    */
+  listMetricAttributions(): Promise<ListMetricAttributionsCommandOutput>;
   listMetricAttributions(
     args: ListMetricAttributionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1203,6 +1214,7 @@ export interface Personalize {
   /**
    * @see {@link ListRecipesCommand}
    */
+  listRecipes(): Promise<ListRecipesCommandOutput>;
   listRecipes(args: ListRecipesCommandInput, options?: __HttpHandlerOptions): Promise<ListRecipesCommandOutput>;
   listRecipes(args: ListRecipesCommandInput, cb: (err: any, data?: ListRecipesCommandOutput) => void): void;
   listRecipes(
@@ -1214,6 +1226,7 @@ export interface Personalize {
   /**
    * @see {@link ListRecommendersCommand}
    */
+  listRecommenders(): Promise<ListRecommendersCommandOutput>;
   listRecommenders(
     args: ListRecommendersCommandInput,
     options?: __HttpHandlerOptions
@@ -1231,6 +1244,7 @@ export interface Personalize {
   /**
    * @see {@link ListSchemasCommand}
    */
+  listSchemas(): Promise<ListSchemasCommandOutput>;
   listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
   listSchemas(args: ListSchemasCommandInput, cb: (err: any, data?: ListSchemasCommandOutput) => void): void;
   listSchemas(
@@ -1242,6 +1256,7 @@ export interface Personalize {
   /**
    * @see {@link ListSolutionsCommand}
    */
+  listSolutions(): Promise<ListSolutionsCommandOutput>;
   listSolutions(args: ListSolutionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSolutionsCommandOutput>;
   listSolutions(args: ListSolutionsCommandInput, cb: (err: any, data?: ListSolutionsCommandOutput) => void): void;
   listSolutions(
@@ -1253,6 +1268,7 @@ export interface Personalize {
   /**
    * @see {@link ListSolutionVersionsCommand}
    */
+  listSolutionVersions(): Promise<ListSolutionVersionsCommandOutput>;
   listSolutionVersions(
     args: ListSolutionVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1382,6 +1398,7 @@ export interface Personalize {
   /**
    * @see {@link UpdateMetricAttributionCommand}
    */
+  updateMetricAttribution(): Promise<UpdateMetricAttributionCommandOutput>;
   updateMetricAttribution(
     args: UpdateMetricAttributionCommandInput,
     options?: __HttpHandlerOptions

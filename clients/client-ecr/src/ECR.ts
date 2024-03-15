@@ -404,6 +404,7 @@ export interface ECR {
   /**
    * @see {@link DeleteRegistryPolicyCommand}
    */
+  deleteRegistryPolicy(): Promise<DeleteRegistryPolicyCommandOutput>;
   deleteRegistryPolicy(
     args: DeleteRegistryPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -503,6 +504,7 @@ export interface ECR {
   /**
    * @see {@link DescribePullThroughCacheRulesCommand}
    */
+  describePullThroughCacheRules(): Promise<DescribePullThroughCacheRulesCommandOutput>;
   describePullThroughCacheRules(
     args: DescribePullThroughCacheRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -520,6 +522,7 @@ export interface ECR {
   /**
    * @see {@link DescribeRegistryCommand}
    */
+  describeRegistry(): Promise<DescribeRegistryCommandOutput>;
   describeRegistry(
     args: DescribeRegistryCommandInput,
     options?: __HttpHandlerOptions
@@ -537,6 +540,7 @@ export interface ECR {
   /**
    * @see {@link DescribeRepositoriesCommand}
    */
+  describeRepositories(): Promise<DescribeRepositoriesCommandOutput>;
   describeRepositories(
     args: DescribeRepositoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -554,6 +558,7 @@ export interface ECR {
   /**
    * @see {@link GetAuthorizationTokenCommand}
    */
+  getAuthorizationToken(): Promise<GetAuthorizationTokenCommandOutput>;
   getAuthorizationToken(
     args: GetAuthorizationTokenCommandInput,
     options?: __HttpHandlerOptions
@@ -622,6 +627,7 @@ export interface ECR {
   /**
    * @see {@link GetRegistryPolicyCommand}
    */
+  getRegistryPolicy(): Promise<GetRegistryPolicyCommandOutput>;
   getRegistryPolicy(
     args: GetRegistryPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -639,6 +645,7 @@ export interface ECR {
   /**
    * @see {@link GetRegistryScanningConfigurationCommand}
    */
+  getRegistryScanningConfiguration(): Promise<GetRegistryScanningConfigurationCommandOutput>;
   getRegistryScanningConfiguration(
     args: GetRegistryScanningConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -797,6 +804,7 @@ export interface ECR {
   /**
    * @see {@link PutRegistryScanningConfigurationCommand}
    */
+  putRegistryScanningConfiguration(): Promise<PutRegistryScanningConfigurationCommandOutput>;
   putRegistryScanningConfiguration(
     args: PutRegistryScanningConfigurationCommandInput,
     options?: __HttpHandlerOptions

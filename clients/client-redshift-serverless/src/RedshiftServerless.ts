@@ -621,6 +621,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link GetCredentialsCommand}
    */
+  getCredentials(): Promise<GetCredentialsCommandOutput>;
   getCredentials(
     args: GetCredentialsCommandInput,
     options?: __HttpHandlerOptions
@@ -731,6 +732,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link GetSnapshotCommand}
    */
+  getSnapshot(): Promise<GetSnapshotCommandOutput>;
   getSnapshot(args: GetSnapshotCommandInput, options?: __HttpHandlerOptions): Promise<GetSnapshotCommandOutput>;
   getSnapshot(args: GetSnapshotCommandInput, cb: (err: any, data?: GetSnapshotCommandOutput) => void): void;
   getSnapshot(
@@ -781,6 +783,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListCustomDomainAssociationsCommand}
    */
+  listCustomDomainAssociations(): Promise<ListCustomDomainAssociationsCommandOutput>;
   listCustomDomainAssociations(
     args: ListCustomDomainAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -798,6 +801,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListEndpointAccessCommand}
    */
+  listEndpointAccess(): Promise<ListEndpointAccessCommandOutput>;
   listEndpointAccess(
     args: ListEndpointAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -815,6 +819,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListNamespacesCommand}
    */
+  listNamespaces(): Promise<ListNamespacesCommandOutput>;
   listNamespaces(
     args: ListNamespacesCommandInput,
     options?: __HttpHandlerOptions
@@ -829,6 +834,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListRecoveryPointsCommand}
    */
+  listRecoveryPoints(): Promise<ListRecoveryPointsCommandOutput>;
   listRecoveryPoints(
     args: ListRecoveryPointsCommandInput,
     options?: __HttpHandlerOptions
@@ -846,6 +852,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListScheduledActionsCommand}
    */
+  listScheduledActions(): Promise<ListScheduledActionsCommandOutput>;
   listScheduledActions(
     args: ListScheduledActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -863,6 +870,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListSnapshotCopyConfigurationsCommand}
    */
+  listSnapshotCopyConfigurations(): Promise<ListSnapshotCopyConfigurationsCommandOutput>;
   listSnapshotCopyConfigurations(
     args: ListSnapshotCopyConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -880,6 +888,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListSnapshotsCommand}
    */
+  listSnapshots(): Promise<ListSnapshotsCommandOutput>;
   listSnapshots(args: ListSnapshotsCommandInput, options?: __HttpHandlerOptions): Promise<ListSnapshotsCommandOutput>;
   listSnapshots(args: ListSnapshotsCommandInput, cb: (err: any, data?: ListSnapshotsCommandOutput) => void): void;
   listSnapshots(
@@ -891,6 +900,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListTableRestoreStatusCommand}
    */
+  listTableRestoreStatus(): Promise<ListTableRestoreStatusCommandOutput>;
   listTableRestoreStatus(
     args: ListTableRestoreStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -925,6 +935,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListUsageLimitsCommand}
    */
+  listUsageLimits(): Promise<ListUsageLimitsCommandOutput>;
   listUsageLimits(
     args: ListUsageLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -939,6 +950,7 @@ export interface RedshiftServerless {
   /**
    * @see {@link ListWorkgroupsCommand}
    */
+  listWorkgroups(): Promise<ListWorkgroupsCommandOutput>;
   listWorkgroups(
     args: ListWorkgroupsCommandInput,
     options?: __HttpHandlerOptions

@@ -134,6 +134,7 @@ export interface STS {
   /**
    * @see {@link GetCallerIdentityCommand}
    */
+  getCallerIdentity(): Promise<GetCallerIdentityCommandOutput>;
   getCallerIdentity(
     args: GetCallerIdentityCommandInput,
     options?: __HttpHandlerOptions
@@ -168,6 +169,7 @@ export interface STS {
   /**
    * @see {@link GetSessionTokenCommand}
    */
+  getSessionToken(): Promise<GetSessionTokenCommandOutput>;
   getSessionToken(
     args: GetSessionTokenCommandInput,
     options?: __HttpHandlerOptions

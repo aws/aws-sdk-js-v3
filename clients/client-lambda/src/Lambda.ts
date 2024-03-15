@@ -624,6 +624,7 @@ export interface Lambda {
   /**
    * @see {@link GetAccountSettingsCommand}
    */
+  getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -925,6 +926,7 @@ export interface Lambda {
   /**
    * @see {@link ListCodeSigningConfigsCommand}
    */
+  listCodeSigningConfigs(): Promise<ListCodeSigningConfigsCommandOutput>;
   listCodeSigningConfigs(
     args: ListCodeSigningConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -942,6 +944,7 @@ export interface Lambda {
   /**
    * @see {@link ListEventSourceMappingsCommand}
    */
+  listEventSourceMappings(): Promise<ListEventSourceMappingsCommandOutput>;
   listEventSourceMappings(
     args: ListEventSourceMappingsCommandInput,
     options?: __HttpHandlerOptions
@@ -976,6 +979,7 @@ export interface Lambda {
   /**
    * @see {@link ListFunctionsCommand}
    */
+  listFunctions(): Promise<ListFunctionsCommandOutput>;
   listFunctions(args: ListFunctionsCommandInput, options?: __HttpHandlerOptions): Promise<ListFunctionsCommandOutput>;
   listFunctions(args: ListFunctionsCommandInput, cb: (err: any, data?: ListFunctionsCommandOutput) => void): void;
   listFunctions(
@@ -1021,6 +1025,7 @@ export interface Lambda {
   /**
    * @see {@link ListLayersCommand}
    */
+  listLayers(): Promise<ListLayersCommandOutput>;
   listLayers(args: ListLayersCommandInput, options?: __HttpHandlerOptions): Promise<ListLayersCommandOutput>;
   listLayers(args: ListLayersCommandInput, cb: (err: any, data?: ListLayersCommandOutput) => void): void;
   listLayers(

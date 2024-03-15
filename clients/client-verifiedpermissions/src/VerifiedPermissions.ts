@@ -416,6 +416,7 @@ export interface VerifiedPermissions {
   /**
    * @see {@link ListPolicyStoresCommand}
    */
+  listPolicyStores(): Promise<ListPolicyStoresCommandOutput>;
   listPolicyStores(
     args: ListPolicyStoresCommandInput,
     options?: __HttpHandlerOptions

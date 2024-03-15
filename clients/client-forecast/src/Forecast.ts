@@ -1074,6 +1074,7 @@ export interface Forecast {
   /**
    * @see {@link ListDatasetGroupsCommand}
    */
+  listDatasetGroups(): Promise<ListDatasetGroupsCommandOutput>;
   listDatasetGroups(
     args: ListDatasetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1091,6 +1092,7 @@ export interface Forecast {
   /**
    * @see {@link ListDatasetImportJobsCommand}
    */
+  listDatasetImportJobs(): Promise<ListDatasetImportJobsCommandOutput>;
   listDatasetImportJobs(
     args: ListDatasetImportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1108,6 +1110,7 @@ export interface Forecast {
   /**
    * @see {@link ListDatasetsCommand}
    */
+  listDatasets(): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, options?: __HttpHandlerOptions): Promise<ListDatasetsCommandOutput>;
   listDatasets(args: ListDatasetsCommandInput, cb: (err: any, data?: ListDatasetsCommandOutput) => void): void;
   listDatasets(
@@ -1119,6 +1122,7 @@ export interface Forecast {
   /**
    * @see {@link ListExplainabilitiesCommand}
    */
+  listExplainabilities(): Promise<ListExplainabilitiesCommandOutput>;
   listExplainabilities(
     args: ListExplainabilitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -1136,6 +1140,7 @@ export interface Forecast {
   /**
    * @see {@link ListExplainabilityExportsCommand}
    */
+  listExplainabilityExports(): Promise<ListExplainabilityExportsCommandOutput>;
   listExplainabilityExports(
     args: ListExplainabilityExportsCommandInput,
     options?: __HttpHandlerOptions
@@ -1153,6 +1158,7 @@ export interface Forecast {
   /**
    * @see {@link ListForecastExportJobsCommand}
    */
+  listForecastExportJobs(): Promise<ListForecastExportJobsCommandOutput>;
   listForecastExportJobs(
     args: ListForecastExportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1170,6 +1176,7 @@ export interface Forecast {
   /**
    * @see {@link ListForecastsCommand}
    */
+  listForecasts(): Promise<ListForecastsCommandOutput>;
   listForecasts(args: ListForecastsCommandInput, options?: __HttpHandlerOptions): Promise<ListForecastsCommandOutput>;
   listForecasts(args: ListForecastsCommandInput, cb: (err: any, data?: ListForecastsCommandOutput) => void): void;
   listForecasts(
@@ -1198,6 +1205,7 @@ export interface Forecast {
   /**
    * @see {@link ListMonitorsCommand}
    */
+  listMonitors(): Promise<ListMonitorsCommandOutput>;
   listMonitors(args: ListMonitorsCommandInput, options?: __HttpHandlerOptions): Promise<ListMonitorsCommandOutput>;
   listMonitors(args: ListMonitorsCommandInput, cb: (err: any, data?: ListMonitorsCommandOutput) => void): void;
   listMonitors(
@@ -1209,6 +1217,7 @@ export interface Forecast {
   /**
    * @see {@link ListPredictorBacktestExportJobsCommand}
    */
+  listPredictorBacktestExportJobs(): Promise<ListPredictorBacktestExportJobsCommandOutput>;
   listPredictorBacktestExportJobs(
     args: ListPredictorBacktestExportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1226,6 +1235,7 @@ export interface Forecast {
   /**
    * @see {@link ListPredictorsCommand}
    */
+  listPredictors(): Promise<ListPredictorsCommandOutput>;
   listPredictors(
     args: ListPredictorsCommandInput,
     options?: __HttpHandlerOptions
@@ -1257,6 +1267,7 @@ export interface Forecast {
   /**
    * @see {@link ListWhatIfAnalysesCommand}
    */
+  listWhatIfAnalyses(): Promise<ListWhatIfAnalysesCommandOutput>;
   listWhatIfAnalyses(
     args: ListWhatIfAnalysesCommandInput,
     options?: __HttpHandlerOptions
@@ -1274,6 +1285,7 @@ export interface Forecast {
   /**
    * @see {@link ListWhatIfForecastExportsCommand}
    */
+  listWhatIfForecastExports(): Promise<ListWhatIfForecastExportsCommandOutput>;
   listWhatIfForecastExports(
     args: ListWhatIfForecastExportsCommandInput,
     options?: __HttpHandlerOptions
@@ -1291,6 +1303,7 @@ export interface Forecast {
   /**
    * @see {@link ListWhatIfForecastsCommand}
    */
+  listWhatIfForecasts(): Promise<ListWhatIfForecastsCommandOutput>;
   listWhatIfForecasts(
     args: ListWhatIfForecastsCommandInput,
     options?: __HttpHandlerOptions

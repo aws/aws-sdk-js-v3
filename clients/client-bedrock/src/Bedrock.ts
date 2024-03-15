@@ -178,6 +178,7 @@ export interface Bedrock {
   /**
    * @see {@link DeleteModelInvocationLoggingConfigurationCommand}
    */
+  deleteModelInvocationLoggingConfiguration(): Promise<DeleteModelInvocationLoggingConfigurationCommandOutput>;
   deleteModelInvocationLoggingConfiguration(
     args: DeleteModelInvocationLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -260,6 +261,7 @@ export interface Bedrock {
   /**
    * @see {@link GetModelInvocationLoggingConfigurationCommand}
    */
+  getModelInvocationLoggingConfiguration(): Promise<GetModelInvocationLoggingConfigurationCommandOutput>;
   getModelInvocationLoggingConfiguration(
     args: GetModelInvocationLoggingConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -294,6 +296,7 @@ export interface Bedrock {
   /**
    * @see {@link ListCustomModelsCommand}
    */
+  listCustomModels(): Promise<ListCustomModelsCommandOutput>;
   listCustomModels(
     args: ListCustomModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -311,6 +314,7 @@ export interface Bedrock {
   /**
    * @see {@link ListFoundationModelsCommand}
    */
+  listFoundationModels(): Promise<ListFoundationModelsCommandOutput>;
   listFoundationModels(
     args: ListFoundationModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -328,6 +332,7 @@ export interface Bedrock {
   /**
    * @see {@link ListModelCustomizationJobsCommand}
    */
+  listModelCustomizationJobs(): Promise<ListModelCustomizationJobsCommandOutput>;
   listModelCustomizationJobs(
     args: ListModelCustomizationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -345,6 +350,7 @@ export interface Bedrock {
   /**
    * @see {@link ListProvisionedModelThroughputsCommand}
    */
+  listProvisionedModelThroughputs(): Promise<ListProvisionedModelThroughputsCommandOutput>;
   listProvisionedModelThroughputs(
     args: ListProvisionedModelThroughputsCommandInput,
     options?: __HttpHandlerOptions

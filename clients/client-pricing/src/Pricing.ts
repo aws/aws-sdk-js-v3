@@ -37,6 +37,7 @@ export interface Pricing {
   /**
    * @see {@link DescribeServicesCommand}
    */
+  describeServices(): Promise<DescribeServicesCommandOutput>;
   describeServices(
     args: DescribeServicesCommandInput,
     options?: __HttpHandlerOptions

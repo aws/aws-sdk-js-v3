@@ -55,6 +55,7 @@ export interface ResourceGroupsTaggingAPI {
   /**
    * @see {@link DescribeReportCreationCommand}
    */
+  describeReportCreation(): Promise<DescribeReportCreationCommandOutput>;
   describeReportCreation(
     args: DescribeReportCreationCommandInput,
     options?: __HttpHandlerOptions
@@ -72,6 +73,7 @@ export interface ResourceGroupsTaggingAPI {
   /**
    * @see {@link GetComplianceSummaryCommand}
    */
+  getComplianceSummary(): Promise<GetComplianceSummaryCommandOutput>;
   getComplianceSummary(
     args: GetComplianceSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -89,6 +91,7 @@ export interface ResourceGroupsTaggingAPI {
   /**
    * @see {@link GetResourcesCommand}
    */
+  getResources(): Promise<GetResourcesCommandOutput>;
   getResources(args: GetResourcesCommandInput, options?: __HttpHandlerOptions): Promise<GetResourcesCommandOutput>;
   getResources(args: GetResourcesCommandInput, cb: (err: any, data?: GetResourcesCommandOutput) => void): void;
   getResources(
@@ -100,6 +103,7 @@ export interface ResourceGroupsTaggingAPI {
   /**
    * @see {@link GetTagKeysCommand}
    */
+  getTagKeys(): Promise<GetTagKeysCommandOutput>;
   getTagKeys(args: GetTagKeysCommandInput, options?: __HttpHandlerOptions): Promise<GetTagKeysCommandOutput>;
   getTagKeys(args: GetTagKeysCommandInput, cb: (err: any, data?: GetTagKeysCommandOutput) => void): void;
   getTagKeys(

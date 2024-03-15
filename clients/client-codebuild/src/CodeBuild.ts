@@ -649,6 +649,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListBuildBatchesCommand}
    */
+  listBuildBatches(): Promise<ListBuildBatchesCommandOutput>;
   listBuildBatches(
     args: ListBuildBatchesCommandInput,
     options?: __HttpHandlerOptions
@@ -666,6 +667,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListBuildBatchesForProjectCommand}
    */
+  listBuildBatchesForProject(): Promise<ListBuildBatchesForProjectCommandOutput>;
   listBuildBatchesForProject(
     args: ListBuildBatchesForProjectCommandInput,
     options?: __HttpHandlerOptions
@@ -683,6 +685,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListBuildsCommand}
    */
+  listBuilds(): Promise<ListBuildsCommandOutput>;
   listBuilds(args: ListBuildsCommandInput, options?: __HttpHandlerOptions): Promise<ListBuildsCommandOutput>;
   listBuilds(args: ListBuildsCommandInput, cb: (err: any, data?: ListBuildsCommandOutput) => void): void;
   listBuilds(
@@ -711,6 +714,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListCuratedEnvironmentImagesCommand}
    */
+  listCuratedEnvironmentImages(): Promise<ListCuratedEnvironmentImagesCommandOutput>;
   listCuratedEnvironmentImages(
     args: ListCuratedEnvironmentImagesCommandInput,
     options?: __HttpHandlerOptions
@@ -728,6 +732,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListFleetsCommand}
    */
+  listFleets(): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   listFleets(
@@ -739,6 +744,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListProjectsCommand}
    */
+  listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   listProjects(
@@ -750,6 +756,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListReportGroupsCommand}
    */
+  listReportGroups(): Promise<ListReportGroupsCommandOutput>;
   listReportGroups(
     args: ListReportGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -767,6 +774,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListReportsCommand}
    */
+  listReports(): Promise<ListReportsCommandOutput>;
   listReports(args: ListReportsCommandInput, options?: __HttpHandlerOptions): Promise<ListReportsCommandOutput>;
   listReports(args: ListReportsCommandInput, cb: (err: any, data?: ListReportsCommandOutput) => void): void;
   listReports(
@@ -795,6 +803,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListSharedProjectsCommand}
    */
+  listSharedProjects(): Promise<ListSharedProjectsCommandOutput>;
   listSharedProjects(
     args: ListSharedProjectsCommandInput,
     options?: __HttpHandlerOptions
@@ -812,6 +821,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListSharedReportGroupsCommand}
    */
+  listSharedReportGroups(): Promise<ListSharedReportGroupsCommandOutput>;
   listSharedReportGroups(
     args: ListSharedReportGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -829,6 +839,7 @@ export interface CodeBuild {
   /**
    * @see {@link ListSourceCredentialsCommand}
    */
+  listSourceCredentials(): Promise<ListSourceCredentialsCommandOutput>;
   listSourceCredentials(
     args: ListSourceCredentialsCommandInput,
     options?: __HttpHandlerOptions
@@ -863,6 +874,7 @@ export interface CodeBuild {
   /**
    * @see {@link RetryBuildCommand}
    */
+  retryBuild(): Promise<RetryBuildCommandOutput>;
   retryBuild(args: RetryBuildCommandInput, options?: __HttpHandlerOptions): Promise<RetryBuildCommandOutput>;
   retryBuild(args: RetryBuildCommandInput, cb: (err: any, data?: RetryBuildCommandOutput) => void): void;
   retryBuild(
@@ -874,6 +886,7 @@ export interface CodeBuild {
   /**
    * @see {@link RetryBuildBatchCommand}
    */
+  retryBuildBatch(): Promise<RetryBuildBatchCommandOutput>;
   retryBuildBatch(
     args: RetryBuildBatchCommandInput,
     options?: __HttpHandlerOptions

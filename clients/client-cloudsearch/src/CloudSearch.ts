@@ -384,6 +384,7 @@ export interface CloudSearch {
   /**
    * @see {@link DescribeDomainsCommand}
    */
+  describeDomains(): Promise<DescribeDomainsCommandOutput>;
   describeDomains(
     args: DescribeDomainsCommandInput,
     options?: __HttpHandlerOptions
@@ -497,6 +498,7 @@ export interface CloudSearch {
   /**
    * @see {@link ListDomainNamesCommand}
    */
+  listDomainNames(): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
     options?: __HttpHandlerOptions

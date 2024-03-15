@@ -236,6 +236,7 @@ export interface Signer {
   /**
    * @see {@link ListSigningJobsCommand}
    */
+  listSigningJobs(): Promise<ListSigningJobsCommandOutput>;
   listSigningJobs(
     args: ListSigningJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -250,6 +251,7 @@ export interface Signer {
   /**
    * @see {@link ListSigningPlatformsCommand}
    */
+  listSigningPlatforms(): Promise<ListSigningPlatformsCommandOutput>;
   listSigningPlatforms(
     args: ListSigningPlatformsCommandInput,
     options?: __HttpHandlerOptions
@@ -267,6 +269,7 @@ export interface Signer {
   /**
    * @see {@link ListSigningProfilesCommand}
    */
+  listSigningProfiles(): Promise<ListSigningProfilesCommandOutput>;
   listSigningProfiles(
     args: ListSigningProfilesCommandInput,
     options?: __HttpHandlerOptions

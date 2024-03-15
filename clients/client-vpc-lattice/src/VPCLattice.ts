@@ -776,6 +776,7 @@ export interface VPCLattice {
   /**
    * @see {@link ListServiceNetworksCommand}
    */
+  listServiceNetworks(): Promise<ListServiceNetworksCommandOutput>;
   listServiceNetworks(
     args: ListServiceNetworksCommandInput,
     options?: __HttpHandlerOptions
@@ -793,6 +794,7 @@ export interface VPCLattice {
   /**
    * @see {@link ListServiceNetworkServiceAssociationsCommand}
    */
+  listServiceNetworkServiceAssociations(): Promise<ListServiceNetworkServiceAssociationsCommandOutput>;
   listServiceNetworkServiceAssociations(
     args: ListServiceNetworkServiceAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -810,6 +812,7 @@ export interface VPCLattice {
   /**
    * @see {@link ListServiceNetworkVpcAssociationsCommand}
    */
+  listServiceNetworkVpcAssociations(): Promise<ListServiceNetworkVpcAssociationsCommandOutput>;
   listServiceNetworkVpcAssociations(
     args: ListServiceNetworkVpcAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -827,6 +830,7 @@ export interface VPCLattice {
   /**
    * @see {@link ListServicesCommand}
    */
+  listServices(): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
   listServices(
@@ -855,6 +859,7 @@ export interface VPCLattice {
   /**
    * @see {@link ListTargetGroupsCommand}
    */
+  listTargetGroups(): Promise<ListTargetGroupsCommandOutput>;
   listTargetGroups(
     args: ListTargetGroupsCommandInput,
     options?: __HttpHandlerOptions

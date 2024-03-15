@@ -420,6 +420,7 @@ export interface Inspector {
   /**
    * @see {@link DescribeCrossAccountAccessRoleCommand}
    */
+  describeCrossAccountAccessRole(): Promise<DescribeCrossAccountAccessRoleCommandOutput>;
   describeCrossAccountAccessRole(
     args: DescribeCrossAccountAccessRoleCommandInput,
     options?: __HttpHandlerOptions
@@ -573,6 +574,7 @@ export interface Inspector {
   /**
    * @see {@link ListAssessmentRunsCommand}
    */
+  listAssessmentRuns(): Promise<ListAssessmentRunsCommandOutput>;
   listAssessmentRuns(
     args: ListAssessmentRunsCommandInput,
     options?: __HttpHandlerOptions
@@ -590,6 +592,7 @@ export interface Inspector {
   /**
    * @see {@link ListAssessmentTargetsCommand}
    */
+  listAssessmentTargets(): Promise<ListAssessmentTargetsCommandOutput>;
   listAssessmentTargets(
     args: ListAssessmentTargetsCommandInput,
     options?: __HttpHandlerOptions
@@ -607,6 +610,7 @@ export interface Inspector {
   /**
    * @see {@link ListAssessmentTemplatesCommand}
    */
+  listAssessmentTemplates(): Promise<ListAssessmentTemplatesCommandOutput>;
   listAssessmentTemplates(
     args: ListAssessmentTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -624,6 +628,7 @@ export interface Inspector {
   /**
    * @see {@link ListEventSubscriptionsCommand}
    */
+  listEventSubscriptions(): Promise<ListEventSubscriptionsCommandOutput>;
   listEventSubscriptions(
     args: ListEventSubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -655,6 +660,7 @@ export interface Inspector {
   /**
    * @see {@link ListFindingsCommand}
    */
+  listFindings(): Promise<ListFindingsCommandOutput>;
   listFindings(args: ListFindingsCommandInput, options?: __HttpHandlerOptions): Promise<ListFindingsCommandOutput>;
   listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
   listFindings(
@@ -666,6 +672,7 @@ export interface Inspector {
   /**
    * @see {@link ListRulesPackagesCommand}
    */
+  listRulesPackages(): Promise<ListRulesPackagesCommandOutput>;
   listRulesPackages(
     args: ListRulesPackagesCommandInput,
     options?: __HttpHandlerOptions

@@ -212,6 +212,7 @@ export interface ApplicationInsights {
   /**
    * @see {@link CreateApplicationCommand}
    */
+  createApplication(): Promise<CreateApplicationCommandOutput>;
   createApplication(
     args: CreateApplicationCommandInput,
     options?: __HttpHandlerOptions
@@ -458,6 +459,7 @@ export interface ApplicationInsights {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -489,6 +491,7 @@ export interface ApplicationInsights {
   /**
    * @see {@link ListConfigurationHistoryCommand}
    */
+  listConfigurationHistory(): Promise<ListConfigurationHistoryCommandOutput>;
   listConfigurationHistory(
     args: ListConfigurationHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -537,6 +540,7 @@ export interface ApplicationInsights {
   /**
    * @see {@link ListProblemsCommand}
    */
+  listProblems(): Promise<ListProblemsCommandOutput>;
   listProblems(args: ListProblemsCommandInput, options?: __HttpHandlerOptions): Promise<ListProblemsCommandOutput>;
   listProblems(args: ListProblemsCommandInput, cb: (err: any, data?: ListProblemsCommandOutput) => void): void;
   listProblems(

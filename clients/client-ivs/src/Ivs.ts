@@ -245,6 +245,7 @@ export interface Ivs {
   /**
    * @see {@link CreateChannelCommand}
    */
+  createChannel(): Promise<CreateChannelCommandOutput>;
   createChannel(args: CreateChannelCommandInput, options?: __HttpHandlerOptions): Promise<CreateChannelCommandOutput>;
   createChannel(args: CreateChannelCommandInput, cb: (err: any, data?: CreateChannelCommandOutput) => void): void;
   createChannel(
@@ -256,6 +257,7 @@ export interface Ivs {
   /**
    * @see {@link CreatePlaybackRestrictionPolicyCommand}
    */
+  createPlaybackRestrictionPolicy(): Promise<CreatePlaybackRestrictionPolicyCommandOutput>;
   createPlaybackRestrictionPolicy(
     args: CreatePlaybackRestrictionPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -498,6 +500,7 @@ export interface Ivs {
   /**
    * @see {@link ListChannelsCommand}
    */
+  listChannels(): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, options?: __HttpHandlerOptions): Promise<ListChannelsCommandOutput>;
   listChannels(args: ListChannelsCommandInput, cb: (err: any, data?: ListChannelsCommandOutput) => void): void;
   listChannels(
@@ -509,6 +512,7 @@ export interface Ivs {
   /**
    * @see {@link ListPlaybackKeyPairsCommand}
    */
+  listPlaybackKeyPairs(): Promise<ListPlaybackKeyPairsCommandOutput>;
   listPlaybackKeyPairs(
     args: ListPlaybackKeyPairsCommandInput,
     options?: __HttpHandlerOptions
@@ -526,6 +530,7 @@ export interface Ivs {
   /**
    * @see {@link ListPlaybackRestrictionPoliciesCommand}
    */
+  listPlaybackRestrictionPolicies(): Promise<ListPlaybackRestrictionPoliciesCommandOutput>;
   listPlaybackRestrictionPolicies(
     args: ListPlaybackRestrictionPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -543,6 +548,7 @@ export interface Ivs {
   /**
    * @see {@link ListRecordingConfigurationsCommand}
    */
+  listRecordingConfigurations(): Promise<ListRecordingConfigurationsCommandOutput>;
   listRecordingConfigurations(
     args: ListRecordingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -574,6 +580,7 @@ export interface Ivs {
   /**
    * @see {@link ListStreamsCommand}
    */
+  listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
   listStreams(

@@ -452,6 +452,7 @@ export interface SNS {
   /**
    * @see {@link GetSMSAttributesCommand}
    */
+  getSMSAttributes(): Promise<GetSMSAttributesCommandOutput>;
   getSMSAttributes(
     args: GetSMSAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -469,6 +470,7 @@ export interface SNS {
   /**
    * @see {@link GetSMSSandboxAccountStatusCommand}
    */
+  getSMSSandboxAccountStatus(): Promise<GetSMSSandboxAccountStatusCommandOutput>;
   getSMSSandboxAccountStatus(
     args: GetSMSSandboxAccountStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -537,6 +539,7 @@ export interface SNS {
   /**
    * @see {@link ListOriginationNumbersCommand}
    */
+  listOriginationNumbers(): Promise<ListOriginationNumbersCommandOutput>;
   listOriginationNumbers(
     args: ListOriginationNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -554,6 +557,7 @@ export interface SNS {
   /**
    * @see {@link ListPhoneNumbersOptedOutCommand}
    */
+  listPhoneNumbersOptedOut(): Promise<ListPhoneNumbersOptedOutCommandOutput>;
   listPhoneNumbersOptedOut(
     args: ListPhoneNumbersOptedOutCommandInput,
     options?: __HttpHandlerOptions
@@ -571,6 +575,7 @@ export interface SNS {
   /**
    * @see {@link ListPlatformApplicationsCommand}
    */
+  listPlatformApplications(): Promise<ListPlatformApplicationsCommandOutput>;
   listPlatformApplications(
     args: ListPlatformApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -588,6 +593,7 @@ export interface SNS {
   /**
    * @see {@link ListSMSSandboxPhoneNumbersCommand}
    */
+  listSMSSandboxPhoneNumbers(): Promise<ListSMSSandboxPhoneNumbersCommandOutput>;
   listSMSSandboxPhoneNumbers(
     args: ListSMSSandboxPhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -605,6 +611,7 @@ export interface SNS {
   /**
    * @see {@link ListSubscriptionsCommand}
    */
+  listSubscriptions(): Promise<ListSubscriptionsCommandOutput>;
   listSubscriptions(
     args: ListSubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -656,6 +663,7 @@ export interface SNS {
   /**
    * @see {@link ListTopicsCommand}
    */
+  listTopics(): Promise<ListTopicsCommandOutput>;
   listTopics(args: ListTopicsCommandInput, options?: __HttpHandlerOptions): Promise<ListTopicsCommandOutput>;
   listTopics(args: ListTopicsCommandInput, cb: (err: any, data?: ListTopicsCommandOutput) => void): void;
   listTopics(

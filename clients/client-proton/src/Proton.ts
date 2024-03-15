@@ -1000,6 +1000,7 @@ export interface Proton {
   /**
    * @see {@link GetAccountSettingsCommand}
    */
+  getAccountSettings(): Promise<GetAccountSettingsCommandOutput>;
   getAccountSettings(
     args: GetAccountSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1132,6 +1133,7 @@ export interface Proton {
   /**
    * @see {@link GetResourcesSummaryCommand}
    */
+  getResourcesSummary(): Promise<GetResourcesSummaryCommandOutput>;
   getResourcesSummary(
     args: GetResourcesSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -1330,6 +1332,7 @@ export interface Proton {
   /**
    * @see {@link ListComponentsCommand}
    */
+  listComponents(): Promise<ListComponentsCommandOutput>;
   listComponents(
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1344,6 +1347,7 @@ export interface Proton {
   /**
    * @see {@link ListDeploymentsCommand}
    */
+  listDeployments(): Promise<ListDeploymentsCommandOutput>;
   listDeployments(
     args: ListDeploymentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1409,6 +1413,7 @@ export interface Proton {
   /**
    * @see {@link ListEnvironmentsCommand}
    */
+  listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1426,6 +1431,7 @@ export interface Proton {
   /**
    * @see {@link ListEnvironmentTemplatesCommand}
    */
+  listEnvironmentTemplates(): Promise<ListEnvironmentTemplatesCommandOutput>;
   listEnvironmentTemplates(
     args: ListEnvironmentTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1460,6 +1466,7 @@ export interface Proton {
   /**
    * @see {@link ListRepositoriesCommand}
    */
+  listRepositories(): Promise<ListRepositoriesCommandOutput>;
   listRepositories(
     args: ListRepositoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -1528,6 +1535,7 @@ export interface Proton {
   /**
    * @see {@link ListServiceInstancesCommand}
    */
+  listServiceInstances(): Promise<ListServiceInstancesCommandOutput>;
   listServiceInstances(
     args: ListServiceInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -1579,6 +1587,7 @@ export interface Proton {
   /**
    * @see {@link ListServicesCommand}
    */
+  listServices(): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
   listServices(
@@ -1590,6 +1599,7 @@ export interface Proton {
   /**
    * @see {@link ListServiceTemplatesCommand}
    */
+  listServiceTemplates(): Promise<ListServiceTemplatesCommandOutput>;
   listServiceTemplates(
     args: ListServiceTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1697,6 +1707,7 @@ export interface Proton {
   /**
    * @see {@link UpdateAccountSettingsCommand}
    */
+  updateAccountSettings(): Promise<UpdateAccountSettingsCommandOutput>;
   updateAccountSettings(
     args: UpdateAccountSettingsCommandInput,
     options?: __HttpHandlerOptions

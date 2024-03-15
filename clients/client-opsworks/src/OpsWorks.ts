@@ -695,6 +695,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeAgentVersionsCommand}
    */
+  describeAgentVersions(): Promise<DescribeAgentVersionsCommandOutput>;
   describeAgentVersions(
     args: DescribeAgentVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -712,6 +713,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeAppsCommand}
    */
+  describeApps(): Promise<DescribeAppsCommandOutput>;
   describeApps(args: DescribeAppsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeAppsCommandOutput>;
   describeApps(args: DescribeAppsCommandInput, cb: (err: any, data?: DescribeAppsCommandOutput) => void): void;
   describeApps(
@@ -723,6 +725,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeCommandsCommand}
    */
+  describeCommands(): Promise<DescribeCommandsCommandOutput>;
   describeCommands(
     args: DescribeCommandsCommandInput,
     options?: __HttpHandlerOptions
@@ -740,6 +743,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeDeploymentsCommand}
    */
+  describeDeployments(): Promise<DescribeDeploymentsCommandOutput>;
   describeDeployments(
     args: DescribeDeploymentsCommandInput,
     options?: __HttpHandlerOptions
@@ -757,6 +761,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeEcsClustersCommand}
    */
+  describeEcsClusters(): Promise<DescribeEcsClustersCommandOutput>;
   describeEcsClusters(
     args: DescribeEcsClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -774,6 +779,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeElasticIpsCommand}
    */
+  describeElasticIps(): Promise<DescribeElasticIpsCommandOutput>;
   describeElasticIps(
     args: DescribeElasticIpsCommandInput,
     options?: __HttpHandlerOptions
@@ -791,6 +797,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeElasticLoadBalancersCommand}
    */
+  describeElasticLoadBalancers(): Promise<DescribeElasticLoadBalancersCommandOutput>;
   describeElasticLoadBalancers(
     args: DescribeElasticLoadBalancersCommandInput,
     options?: __HttpHandlerOptions
@@ -808,6 +815,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeInstancesCommand}
    */
+  describeInstances(): Promise<DescribeInstancesCommandOutput>;
   describeInstances(
     args: DescribeInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -825,6 +833,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeLayersCommand}
    */
+  describeLayers(): Promise<DescribeLayersCommandOutput>;
   describeLayers(
     args: DescribeLayersCommandInput,
     options?: __HttpHandlerOptions
@@ -856,6 +865,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeMyUserProfileCommand}
    */
+  describeMyUserProfile(): Promise<DescribeMyUserProfileCommandOutput>;
   describeMyUserProfile(
     args: DescribeMyUserProfileCommandInput,
     options?: __HttpHandlerOptions
@@ -873,6 +883,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeOperatingSystemsCommand}
    */
+  describeOperatingSystems(): Promise<DescribeOperatingSystemsCommandOutput>;
   describeOperatingSystems(
     args: DescribeOperatingSystemsCommandInput,
     options?: __HttpHandlerOptions
@@ -890,6 +901,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribePermissionsCommand}
    */
+  describePermissions(): Promise<DescribePermissionsCommandOutput>;
   describePermissions(
     args: DescribePermissionsCommandInput,
     options?: __HttpHandlerOptions
@@ -907,6 +919,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeRaidArraysCommand}
    */
+  describeRaidArrays(): Promise<DescribeRaidArraysCommandOutput>;
   describeRaidArrays(
     args: DescribeRaidArraysCommandInput,
     options?: __HttpHandlerOptions
@@ -941,6 +954,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeServiceErrorsCommand}
    */
+  describeServiceErrors(): Promise<DescribeServiceErrorsCommandOutput>;
   describeServiceErrors(
     args: DescribeServiceErrorsCommandInput,
     options?: __HttpHandlerOptions
@@ -975,6 +989,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeStacksCommand}
    */
+  describeStacks(): Promise<DescribeStacksCommandOutput>;
   describeStacks(
     args: DescribeStacksCommandInput,
     options?: __HttpHandlerOptions
@@ -1023,6 +1038,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeUserProfilesCommand}
    */
+  describeUserProfiles(): Promise<DescribeUserProfilesCommandOutput>;
   describeUserProfiles(
     args: DescribeUserProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -1040,6 +1056,7 @@ export interface OpsWorks {
   /**
    * @see {@link DescribeVolumesCommand}
    */
+  describeVolumes(): Promise<DescribeVolumesCommandOutput>;
   describeVolumes(
     args: DescribeVolumesCommandInput,
     options?: __HttpHandlerOptions
@@ -1415,6 +1432,7 @@ export interface OpsWorks {
   /**
    * @see {@link UpdateMyUserProfileCommand}
    */
+  updateMyUserProfile(): Promise<UpdateMyUserProfileCommandOutput>;
   updateMyUserProfile(
     args: UpdateMyUserProfileCommandInput,
     options?: __HttpHandlerOptions

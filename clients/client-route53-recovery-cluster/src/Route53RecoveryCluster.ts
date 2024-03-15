@@ -52,6 +52,7 @@ export interface Route53RecoveryCluster {
   /**
    * @see {@link ListRoutingControlsCommand}
    */
+  listRoutingControls(): Promise<ListRoutingControlsCommandOutput>;
   listRoutingControls(
     args: ListRoutingControlsCommandInput,
     options?: __HttpHandlerOptions

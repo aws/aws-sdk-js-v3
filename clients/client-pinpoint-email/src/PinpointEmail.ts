@@ -404,6 +404,7 @@ export interface PinpointEmail {
   /**
    * @see {@link GetAccountCommand}
    */
+  getAccount(): Promise<GetAccountCommandOutput>;
   getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
   getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
   getAccount(
@@ -480,6 +481,7 @@ export interface PinpointEmail {
   /**
    * @see {@link GetDedicatedIpsCommand}
    */
+  getDedicatedIps(): Promise<GetDedicatedIpsCommandOutput>;
   getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
     options?: __HttpHandlerOptions
@@ -494,6 +496,7 @@ export interface PinpointEmail {
   /**
    * @see {@link GetDeliverabilityDashboardOptionsCommand}
    */
+  getDeliverabilityDashboardOptions(): Promise<GetDeliverabilityDashboardOptionsCommandOutput>;
   getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -579,6 +582,7 @@ export interface PinpointEmail {
   /**
    * @see {@link ListConfigurationSetsCommand}
    */
+  listConfigurationSets(): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -596,6 +600,7 @@ export interface PinpointEmail {
   /**
    * @see {@link ListDedicatedIpPoolsCommand}
    */
+  listDedicatedIpPools(): Promise<ListDedicatedIpPoolsCommandOutput>;
   listDedicatedIpPools(
     args: ListDedicatedIpPoolsCommandInput,
     options?: __HttpHandlerOptions
@@ -613,6 +618,7 @@ export interface PinpointEmail {
   /**
    * @see {@link ListDeliverabilityTestReportsCommand}
    */
+  listDeliverabilityTestReports(): Promise<ListDeliverabilityTestReportsCommandOutput>;
   listDeliverabilityTestReports(
     args: ListDeliverabilityTestReportsCommandInput,
     options?: __HttpHandlerOptions
@@ -647,6 +653,7 @@ export interface PinpointEmail {
   /**
    * @see {@link ListEmailIdentitiesCommand}
    */
+  listEmailIdentities(): Promise<ListEmailIdentitiesCommandOutput>;
   listEmailIdentities(
     args: ListEmailIdentitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -681,6 +688,7 @@ export interface PinpointEmail {
   /**
    * @see {@link PutAccountDedicatedIpWarmupAttributesCommand}
    */
+  putAccountDedicatedIpWarmupAttributes(): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput>;
   putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -698,6 +706,7 @@ export interface PinpointEmail {
   /**
    * @see {@link PutAccountSendingAttributesCommand}
    */
+  putAccountSendingAttributes(): Promise<PutAccountSendingAttributesCommandOutput>;
   putAccountSendingAttributes(
     args: PutAccountSendingAttributesCommandInput,
     options?: __HttpHandlerOptions

@@ -17,6 +17,7 @@ export interface FreeTier {
   /**
    * @see {@link GetFreeTierUsageCommand}
    */
+  getFreeTierUsage(): Promise<GetFreeTierUsageCommandOutput>;
   getFreeTierUsage(
     args: GetFreeTierUsageCommandInput,
     options?: __HttpHandlerOptions

@@ -735,6 +735,7 @@ export interface Resiliencehub {
   /**
    * @see {@link ListAppAssessmentsCommand}
    */
+  listAppAssessments(): Promise<ListAppAssessmentsCommandOutput>;
   listAppAssessments(
     args: ListAppAssessmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -803,6 +804,7 @@ export interface Resiliencehub {
   /**
    * @see {@link ListAppsCommand}
    */
+  listApps(): Promise<ListAppsCommandOutput>;
   listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
   listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
   listApps(
@@ -896,6 +898,7 @@ export interface Resiliencehub {
   /**
    * @see {@link ListResiliencyPoliciesCommand}
    */
+  listResiliencyPolicies(): Promise<ListResiliencyPoliciesCommandOutput>;
   listResiliencyPolicies(
     args: ListResiliencyPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -930,6 +933,7 @@ export interface Resiliencehub {
   /**
    * @see {@link ListSuggestedResiliencyPoliciesCommand}
    */
+  listSuggestedResiliencyPolicies(): Promise<ListSuggestedResiliencyPoliciesCommandOutput>;
   listSuggestedResiliencyPolicies(
     args: ListSuggestedResiliencyPoliciesCommandInput,
     options?: __HttpHandlerOptions

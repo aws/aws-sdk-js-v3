@@ -482,6 +482,7 @@ export interface Macie2 {
   /**
    * @see {@link BatchGetCustomDataIdentifiersCommand}
    */
+  batchGetCustomDataIdentifiers(): Promise<BatchGetCustomDataIdentifiersCommandOutput>;
   batchGetCustomDataIdentifiers(
     args: BatchGetCustomDataIdentifiersCommandInput,
     options?: __HttpHandlerOptions
@@ -592,6 +593,7 @@ export interface Macie2 {
   /**
    * @see {@link CreateSampleFindingsCommand}
    */
+  createSampleFindings(): Promise<CreateSampleFindingsCommandOutput>;
   createSampleFindings(
     args: CreateSampleFindingsCommandInput,
     options?: __HttpHandlerOptions
@@ -702,6 +704,7 @@ export interface Macie2 {
   /**
    * @see {@link DescribeBucketsCommand}
    */
+  describeBuckets(): Promise<DescribeBucketsCommandOutput>;
   describeBuckets(
     args: DescribeBucketsCommandInput,
     options?: __HttpHandlerOptions
@@ -733,6 +736,7 @@ export interface Macie2 {
   /**
    * @see {@link DescribeOrganizationConfigurationCommand}
    */
+  describeOrganizationConfiguration(): Promise<DescribeOrganizationConfigurationCommandOutput>;
   describeOrganizationConfiguration(
     args: DescribeOrganizationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -750,6 +754,7 @@ export interface Macie2 {
   /**
    * @see {@link DisableMacieCommand}
    */
+  disableMacie(): Promise<DisableMacieCommandOutput>;
   disableMacie(args: DisableMacieCommandInput, options?: __HttpHandlerOptions): Promise<DisableMacieCommandOutput>;
   disableMacie(args: DisableMacieCommandInput, cb: (err: any, data?: DisableMacieCommandOutput) => void): void;
   disableMacie(
@@ -778,6 +783,7 @@ export interface Macie2 {
   /**
    * @see {@link DisassociateFromAdministratorAccountCommand}
    */
+  disassociateFromAdministratorAccount(): Promise<DisassociateFromAdministratorAccountCommandOutput>;
   disassociateFromAdministratorAccount(
     args: DisassociateFromAdministratorAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -795,6 +801,7 @@ export interface Macie2 {
   /**
    * @see {@link DisassociateFromMasterAccountCommand}
    */
+  disassociateFromMasterAccount(): Promise<DisassociateFromMasterAccountCommandOutput>;
   disassociateFromMasterAccount(
     args: DisassociateFromMasterAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -829,6 +836,7 @@ export interface Macie2 {
   /**
    * @see {@link EnableMacieCommand}
    */
+  enableMacie(): Promise<EnableMacieCommandOutput>;
   enableMacie(args: EnableMacieCommandInput, options?: __HttpHandlerOptions): Promise<EnableMacieCommandOutput>;
   enableMacie(args: EnableMacieCommandInput, cb: (err: any, data?: EnableMacieCommandOutput) => void): void;
   enableMacie(
@@ -857,6 +865,7 @@ export interface Macie2 {
   /**
    * @see {@link GetAdministratorAccountCommand}
    */
+  getAdministratorAccount(): Promise<GetAdministratorAccountCommandOutput>;
   getAdministratorAccount(
     args: GetAdministratorAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -885,6 +894,7 @@ export interface Macie2 {
   /**
    * @see {@link GetAutomatedDiscoveryConfigurationCommand}
    */
+  getAutomatedDiscoveryConfiguration(): Promise<GetAutomatedDiscoveryConfigurationCommandOutput>;
   getAutomatedDiscoveryConfiguration(
     args: GetAutomatedDiscoveryConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -902,6 +912,7 @@ export interface Macie2 {
   /**
    * @see {@link GetBucketStatisticsCommand}
    */
+  getBucketStatistics(): Promise<GetBucketStatisticsCommandOutput>;
   getBucketStatistics(
     args: GetBucketStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -919,6 +930,7 @@ export interface Macie2 {
   /**
    * @see {@link GetClassificationExportConfigurationCommand}
    */
+  getClassificationExportConfiguration(): Promise<GetClassificationExportConfigurationCommandOutput>;
   getClassificationExportConfiguration(
     args: GetClassificationExportConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -998,6 +1010,7 @@ export interface Macie2 {
   /**
    * @see {@link GetFindingsPublicationConfigurationCommand}
    */
+  getFindingsPublicationConfiguration(): Promise<GetFindingsPublicationConfigurationCommandOutput>;
   getFindingsPublicationConfiguration(
     args: GetFindingsPublicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1032,6 +1045,7 @@ export interface Macie2 {
   /**
    * @see {@link GetInvitationsCountCommand}
    */
+  getInvitationsCount(): Promise<GetInvitationsCountCommandOutput>;
   getInvitationsCount(
     args: GetInvitationsCountCommandInput,
     options?: __HttpHandlerOptions
@@ -1049,6 +1063,7 @@ export interface Macie2 {
   /**
    * @see {@link GetMacieSessionCommand}
    */
+  getMacieSession(): Promise<GetMacieSessionCommandOutput>;
   getMacieSession(
     args: GetMacieSessionCommandInput,
     options?: __HttpHandlerOptions
@@ -1063,6 +1078,7 @@ export interface Macie2 {
   /**
    * @see {@link GetMasterAccountCommand}
    */
+  getMasterAccount(): Promise<GetMasterAccountCommandOutput>;
   getMasterAccount(
     args: GetMasterAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -1108,6 +1124,7 @@ export interface Macie2 {
   /**
    * @see {@link GetRevealConfigurationCommand}
    */
+  getRevealConfiguration(): Promise<GetRevealConfigurationCommandOutput>;
   getRevealConfiguration(
     args: GetRevealConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1176,6 +1193,7 @@ export interface Macie2 {
   /**
    * @see {@link GetUsageStatisticsCommand}
    */
+  getUsageStatistics(): Promise<GetUsageStatisticsCommandOutput>;
   getUsageStatistics(
     args: GetUsageStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -1193,6 +1211,7 @@ export interface Macie2 {
   /**
    * @see {@link GetUsageTotalsCommand}
    */
+  getUsageTotals(): Promise<GetUsageTotalsCommandOutput>;
   getUsageTotals(
     args: GetUsageTotalsCommandInput,
     options?: __HttpHandlerOptions
@@ -1207,6 +1226,7 @@ export interface Macie2 {
   /**
    * @see {@link ListAllowListsCommand}
    */
+  listAllowLists(): Promise<ListAllowListsCommandOutput>;
   listAllowLists(
     args: ListAllowListsCommandInput,
     options?: __HttpHandlerOptions
@@ -1221,6 +1241,7 @@ export interface Macie2 {
   /**
    * @see {@link ListClassificationJobsCommand}
    */
+  listClassificationJobs(): Promise<ListClassificationJobsCommandOutput>;
   listClassificationJobs(
     args: ListClassificationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1238,6 +1259,7 @@ export interface Macie2 {
   /**
    * @see {@link ListClassificationScopesCommand}
    */
+  listClassificationScopes(): Promise<ListClassificationScopesCommandOutput>;
   listClassificationScopes(
     args: ListClassificationScopesCommandInput,
     options?: __HttpHandlerOptions
@@ -1255,6 +1277,7 @@ export interface Macie2 {
   /**
    * @see {@link ListCustomDataIdentifiersCommand}
    */
+  listCustomDataIdentifiers(): Promise<ListCustomDataIdentifiersCommandOutput>;
   listCustomDataIdentifiers(
     args: ListCustomDataIdentifiersCommandInput,
     options?: __HttpHandlerOptions
@@ -1272,6 +1295,7 @@ export interface Macie2 {
   /**
    * @see {@link ListFindingsCommand}
    */
+  listFindings(): Promise<ListFindingsCommandOutput>;
   listFindings(args: ListFindingsCommandInput, options?: __HttpHandlerOptions): Promise<ListFindingsCommandOutput>;
   listFindings(args: ListFindingsCommandInput, cb: (err: any, data?: ListFindingsCommandOutput) => void): void;
   listFindings(
@@ -1283,6 +1307,7 @@ export interface Macie2 {
   /**
    * @see {@link ListFindingsFiltersCommand}
    */
+  listFindingsFilters(): Promise<ListFindingsFiltersCommandOutput>;
   listFindingsFilters(
     args: ListFindingsFiltersCommandInput,
     options?: __HttpHandlerOptions
@@ -1300,6 +1325,7 @@ export interface Macie2 {
   /**
    * @see {@link ListInvitationsCommand}
    */
+  listInvitations(): Promise<ListInvitationsCommandOutput>;
   listInvitations(
     args: ListInvitationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1314,6 +1340,7 @@ export interface Macie2 {
   /**
    * @see {@link ListManagedDataIdentifiersCommand}
    */
+  listManagedDataIdentifiers(): Promise<ListManagedDataIdentifiersCommandOutput>;
   listManagedDataIdentifiers(
     args: ListManagedDataIdentifiersCommandInput,
     options?: __HttpHandlerOptions
@@ -1331,6 +1358,7 @@ export interface Macie2 {
   /**
    * @see {@link ListMembersCommand}
    */
+  listMembers(): Promise<ListMembersCommandOutput>;
   listMembers(args: ListMembersCommandInput, options?: __HttpHandlerOptions): Promise<ListMembersCommandOutput>;
   listMembers(args: ListMembersCommandInput, cb: (err: any, data?: ListMembersCommandOutput) => void): void;
   listMembers(
@@ -1342,6 +1370,7 @@ export interface Macie2 {
   /**
    * @see {@link ListOrganizationAdminAccountsCommand}
    */
+  listOrganizationAdminAccounts(): Promise<ListOrganizationAdminAccountsCommandOutput>;
   listOrganizationAdminAccounts(
     args: ListOrganizationAdminAccountsCommandInput,
     options?: __HttpHandlerOptions
@@ -1393,6 +1422,7 @@ export interface Macie2 {
   /**
    * @see {@link ListSensitivityInspectionTemplatesCommand}
    */
+  listSensitivityInspectionTemplates(): Promise<ListSensitivityInspectionTemplatesCommandOutput>;
   listSensitivityInspectionTemplates(
     args: ListSensitivityInspectionTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1444,6 +1474,7 @@ export interface Macie2 {
   /**
    * @see {@link PutFindingsPublicationConfigurationCommand}
    */
+  putFindingsPublicationConfiguration(): Promise<PutFindingsPublicationConfigurationCommandOutput>;
   putFindingsPublicationConfiguration(
     args: PutFindingsPublicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -1461,6 +1492,7 @@ export interface Macie2 {
   /**
    * @see {@link SearchResourcesCommand}
    */
+  searchResources(): Promise<SearchResourcesCommandOutput>;
   searchResources(
     args: SearchResourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -1596,6 +1628,7 @@ export interface Macie2 {
   /**
    * @see {@link UpdateMacieSessionCommand}
    */
+  updateMacieSession(): Promise<UpdateMacieSessionCommandOutput>;
   updateMacieSession(
     args: UpdateMacieSessionCommandInput,
     options?: __HttpHandlerOptions

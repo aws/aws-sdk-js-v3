@@ -512,6 +512,7 @@ export interface AmplifyBackend {
   /**
    * @see {@link ListS3BucketsCommand}
    */
+  listS3Buckets(): Promise<ListS3BucketsCommandOutput>;
   listS3Buckets(args: ListS3BucketsCommandInput, options?: __HttpHandlerOptions): Promise<ListS3BucketsCommandOutput>;
   listS3Buckets(args: ListS3BucketsCommandInput, cb: (err: any, data?: ListS3BucketsCommandOutput) => void): void;
   listS3Buckets(

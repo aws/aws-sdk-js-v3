@@ -345,6 +345,7 @@ export interface RolesAnywhere {
   /**
    * @see {@link ListCrlsCommand}
    */
+  listCrls(): Promise<ListCrlsCommandOutput>;
   listCrls(args: ListCrlsCommandInput, options?: __HttpHandlerOptions): Promise<ListCrlsCommandOutput>;
   listCrls(args: ListCrlsCommandInput, cb: (err: any, data?: ListCrlsCommandOutput) => void): void;
   listCrls(
@@ -356,6 +357,7 @@ export interface RolesAnywhere {
   /**
    * @see {@link ListProfilesCommand}
    */
+  listProfiles(): Promise<ListProfilesCommandOutput>;
   listProfiles(args: ListProfilesCommandInput, options?: __HttpHandlerOptions): Promise<ListProfilesCommandOutput>;
   listProfiles(args: ListProfilesCommandInput, cb: (err: any, data?: ListProfilesCommandOutput) => void): void;
   listProfiles(
@@ -367,6 +369,7 @@ export interface RolesAnywhere {
   /**
    * @see {@link ListSubjectsCommand}
    */
+  listSubjects(): Promise<ListSubjectsCommandOutput>;
   listSubjects(args: ListSubjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListSubjectsCommandOutput>;
   listSubjects(args: ListSubjectsCommandInput, cb: (err: any, data?: ListSubjectsCommandOutput) => void): void;
   listSubjects(
@@ -395,6 +398,7 @@ export interface RolesAnywhere {
   /**
    * @see {@link ListTrustAnchorsCommand}
    */
+  listTrustAnchors(): Promise<ListTrustAnchorsCommandOutput>;
   listTrustAnchors(
     args: ListTrustAnchorsCommandInput,
     options?: __HttpHandlerOptions

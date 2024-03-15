@@ -496,6 +496,7 @@ export interface Panorama {
   /**
    * @see {@link ListApplicationInstancesCommand}
    */
+  listApplicationInstances(): Promise<ListApplicationInstancesCommandOutput>;
   listApplicationInstances(
     args: ListApplicationInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -513,6 +514,7 @@ export interface Panorama {
   /**
    * @see {@link ListDevicesCommand}
    */
+  listDevices(): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   listDevices(
@@ -524,6 +526,7 @@ export interface Panorama {
   /**
    * @see {@link ListDevicesJobsCommand}
    */
+  listDevicesJobs(): Promise<ListDevicesJobsCommandOutput>;
   listDevicesJobs(
     args: ListDevicesJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -538,6 +541,7 @@ export interface Panorama {
   /**
    * @see {@link ListNodeFromTemplateJobsCommand}
    */
+  listNodeFromTemplateJobs(): Promise<ListNodeFromTemplateJobsCommandOutput>;
   listNodeFromTemplateJobs(
     args: ListNodeFromTemplateJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -555,6 +559,7 @@ export interface Panorama {
   /**
    * @see {@link ListNodesCommand}
    */
+  listNodes(): Promise<ListNodesCommandOutput>;
   listNodes(args: ListNodesCommandInput, options?: __HttpHandlerOptions): Promise<ListNodesCommandOutput>;
   listNodes(args: ListNodesCommandInput, cb: (err: any, data?: ListNodesCommandOutput) => void): void;
   listNodes(
@@ -566,6 +571,7 @@ export interface Panorama {
   /**
    * @see {@link ListPackageImportJobsCommand}
    */
+  listPackageImportJobs(): Promise<ListPackageImportJobsCommandOutput>;
   listPackageImportJobs(
     args: ListPackageImportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -583,6 +589,7 @@ export interface Panorama {
   /**
    * @see {@link ListPackagesCommand}
    */
+  listPackages(): Promise<ListPackagesCommandOutput>;
   listPackages(args: ListPackagesCommandInput, options?: __HttpHandlerOptions): Promise<ListPackagesCommandOutput>;
   listPackages(args: ListPackagesCommandInput, cb: (err: any, data?: ListPackagesCommandOutput) => void): void;
   listPackages(

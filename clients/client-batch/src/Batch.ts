@@ -263,6 +263,7 @@ export interface Batch {
   /**
    * @see {@link DescribeComputeEnvironmentsCommand}
    */
+  describeComputeEnvironments(): Promise<DescribeComputeEnvironmentsCommandOutput>;
   describeComputeEnvironments(
     args: DescribeComputeEnvironmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -280,6 +281,7 @@ export interface Batch {
   /**
    * @see {@link DescribeJobDefinitionsCommand}
    */
+  describeJobDefinitions(): Promise<DescribeJobDefinitionsCommandOutput>;
   describeJobDefinitions(
     args: DescribeJobDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -297,6 +299,7 @@ export interface Batch {
   /**
    * @see {@link DescribeJobQueuesCommand}
    */
+  describeJobQueues(): Promise<DescribeJobQueuesCommandOutput>;
   describeJobQueues(
     args: DescribeJobQueuesCommandInput,
     options?: __HttpHandlerOptions
@@ -342,6 +345,7 @@ export interface Batch {
   /**
    * @see {@link ListJobsCommand}
    */
+  listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   listJobs(
@@ -353,6 +357,7 @@ export interface Batch {
   /**
    * @see {@link ListSchedulingPoliciesCommand}
    */
+  listSchedulingPolicies(): Promise<ListSchedulingPoliciesCommandOutput>;
   listSchedulingPolicies(
     args: ListSchedulingPoliciesCommandInput,
     options?: __HttpHandlerOptions

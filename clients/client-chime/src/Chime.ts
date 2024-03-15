@@ -2412,6 +2412,7 @@ export interface Chime {
   /**
    * @see {@link GetGlobalSettingsCommand}
    */
+  getGlobalSettings(): Promise<GetGlobalSettingsCommandOutput>;
   getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -2457,6 +2458,7 @@ export interface Chime {
   /**
    * @see {@link GetMessagingSessionEndpointCommand}
    */
+  getMessagingSessionEndpoint(): Promise<GetMessagingSessionEndpointCommandOutput>;
   getMessagingSessionEndpoint(
     args: GetMessagingSessionEndpointCommandInput,
     options?: __HttpHandlerOptions
@@ -2505,6 +2507,7 @@ export interface Chime {
   /**
    * @see {@link GetPhoneNumberSettingsCommand}
    */
+  getPhoneNumberSettings(): Promise<GetPhoneNumberSettingsCommandOutput>;
   getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -2798,6 +2801,7 @@ export interface Chime {
   /**
    * @see {@link ListAccountsCommand}
    */
+  listAccounts(): Promise<ListAccountsCommandOutput>;
   listAccounts(args: ListAccountsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccountsCommandOutput>;
   listAccounts(args: ListAccountsCommandInput, cb: (err: any, data?: ListAccountsCommandOutput) => void): void;
   listAccounts(
@@ -2826,6 +2830,7 @@ export interface Chime {
   /**
    * @see {@link ListAppInstancesCommand}
    */
+  listAppInstances(): Promise<ListAppInstancesCommandOutput>;
   listAppInstances(
     args: ListAppInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -2930,6 +2935,7 @@ export interface Chime {
   /**
    * @see {@link ListChannelMembershipsForAppInstanceUserCommand}
    */
+  listChannelMembershipsForAppInstanceUser(): Promise<ListChannelMembershipsForAppInstanceUserCommandOutput>;
   listChannelMembershipsForAppInstanceUser(
     args: ListChannelMembershipsForAppInstanceUserCommandInput,
     options?: __HttpHandlerOptions
@@ -2992,6 +2998,7 @@ export interface Chime {
   /**
    * @see {@link ListChannelsModeratedByAppInstanceUserCommand}
    */
+  listChannelsModeratedByAppInstanceUser(): Promise<ListChannelsModeratedByAppInstanceUserCommandOutput>;
   listChannelsModeratedByAppInstanceUser(
     args: ListChannelsModeratedByAppInstanceUserCommandInput,
     options?: __HttpHandlerOptions
@@ -3009,6 +3016,7 @@ export interface Chime {
   /**
    * @see {@link ListMediaCapturePipelinesCommand}
    */
+  listMediaCapturePipelines(): Promise<ListMediaCapturePipelinesCommandOutput>;
   listMediaCapturePipelines(
     args: ListMediaCapturePipelinesCommandInput,
     options?: __HttpHandlerOptions
@@ -3026,6 +3034,7 @@ export interface Chime {
   /**
    * @see {@link ListMeetingsCommand}
    */
+  listMeetings(): Promise<ListMeetingsCommandOutput>;
   listMeetings(args: ListMeetingsCommandInput, options?: __HttpHandlerOptions): Promise<ListMeetingsCommandOutput>;
   listMeetings(args: ListMeetingsCommandInput, cb: (err: any, data?: ListMeetingsCommandOutput) => void): void;
   listMeetings(
@@ -3051,6 +3060,7 @@ export interface Chime {
   /**
    * @see {@link ListPhoneNumberOrdersCommand}
    */
+  listPhoneNumberOrders(): Promise<ListPhoneNumberOrdersCommandOutput>;
   listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
     options?: __HttpHandlerOptions
@@ -3068,6 +3078,7 @@ export interface Chime {
   /**
    * @see {@link ListPhoneNumbersCommand}
    */
+  listPhoneNumbers(): Promise<ListPhoneNumbersCommandOutput>;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -3130,6 +3141,7 @@ export interface Chime {
   /**
    * @see {@link ListSipMediaApplicationsCommand}
    */
+  listSipMediaApplications(): Promise<ListSipMediaApplicationsCommandOutput>;
   listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -3147,6 +3159,7 @@ export interface Chime {
   /**
    * @see {@link ListSipRulesCommand}
    */
+  listSipRules(): Promise<ListSipRulesCommandOutput>;
   listSipRules(args: ListSipRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListSipRulesCommandOutput>;
   listSipRules(args: ListSipRulesCommandInput, cb: (err: any, data?: ListSipRulesCommandOutput) => void): void;
   listSipRules(
@@ -3203,6 +3216,7 @@ export interface Chime {
   /**
    * @see {@link ListVoiceConnectorGroupsCommand}
    */
+  listVoiceConnectorGroups(): Promise<ListVoiceConnectorGroupsCommandOutput>;
   listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -3220,6 +3234,7 @@ export interface Chime {
   /**
    * @see {@link ListVoiceConnectorsCommand}
    */
+  listVoiceConnectors(): Promise<ListVoiceConnectorsCommandOutput>;
   listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -3571,6 +3586,7 @@ export interface Chime {
   /**
    * @see {@link SearchAvailablePhoneNumbersCommand}
    */
+  searchAvailablePhoneNumbers(): Promise<SearchAvailablePhoneNumbersCommandOutput>;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -3823,6 +3839,7 @@ export interface Chime {
   /**
    * @see {@link UpdateGlobalSettingsCommand}
    */
+  updateGlobalSettings(): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions

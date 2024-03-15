@@ -69,6 +69,7 @@ export interface DynamoDBStreams {
   /**
    * @see {@link ListStreamsCommand}
    */
+  listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
   listStreams(

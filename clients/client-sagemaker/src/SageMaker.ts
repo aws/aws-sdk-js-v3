@@ -2411,6 +2411,7 @@ export interface SageMaker {
   /**
    * @see {@link CreateModelPackageCommand}
    */
+  createModelPackage(): Promise<CreateModelPackageCommandOutput>;
   createModelPackage(
     args: CreateModelPackageCommandInput,
     options?: __HttpHandlerOptions
@@ -2777,6 +2778,7 @@ export interface SageMaker {
   /**
    * @see {@link DeleteArtifactCommand}
    */
+  deleteArtifact(): Promise<DeleteArtifactCommandOutput>;
   deleteArtifact(
     args: DeleteArtifactCommandInput,
     options?: __HttpHandlerOptions
@@ -4464,6 +4466,7 @@ export interface SageMaker {
   /**
    * @see {@link DisableSagemakerServicecatalogPortfolioCommand}
    */
+  disableSagemakerServicecatalogPortfolio(): Promise<DisableSagemakerServicecatalogPortfolioCommandOutput>;
   disableSagemakerServicecatalogPortfolio(
     args: DisableSagemakerServicecatalogPortfolioCommandInput,
     options?: __HttpHandlerOptions
@@ -4498,6 +4501,7 @@ export interface SageMaker {
   /**
    * @see {@link EnableSagemakerServicecatalogPortfolioCommand}
    */
+  enableSagemakerServicecatalogPortfolio(): Promise<EnableSagemakerServicecatalogPortfolioCommandOutput>;
   enableSagemakerServicecatalogPortfolio(
     args: EnableSagemakerServicecatalogPortfolioCommandInput,
     options?: __HttpHandlerOptions
@@ -4566,6 +4570,7 @@ export interface SageMaker {
   /**
    * @see {@link GetSagemakerServicecatalogPortfolioStatusCommand}
    */
+  getSagemakerServicecatalogPortfolioStatus(): Promise<GetSagemakerServicecatalogPortfolioStatusCommandOutput>;
   getSagemakerServicecatalogPortfolioStatus(
     args: GetSagemakerServicecatalogPortfolioStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -4634,6 +4639,7 @@ export interface SageMaker {
   /**
    * @see {@link ListActionsCommand}
    */
+  listActions(): Promise<ListActionsCommandOutput>;
   listActions(args: ListActionsCommandInput, options?: __HttpHandlerOptions): Promise<ListActionsCommandOutput>;
   listActions(args: ListActionsCommandInput, cb: (err: any, data?: ListActionsCommandOutput) => void): void;
   listActions(
@@ -4645,6 +4651,7 @@ export interface SageMaker {
   /**
    * @see {@link ListAlgorithmsCommand}
    */
+  listAlgorithms(): Promise<ListAlgorithmsCommandOutput>;
   listAlgorithms(
     args: ListAlgorithmsCommandInput,
     options?: __HttpHandlerOptions
@@ -4670,6 +4677,7 @@ export interface SageMaker {
   /**
    * @see {@link ListAppImageConfigsCommand}
    */
+  listAppImageConfigs(): Promise<ListAppImageConfigsCommandOutput>;
   listAppImageConfigs(
     args: ListAppImageConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -4687,6 +4695,7 @@ export interface SageMaker {
   /**
    * @see {@link ListAppsCommand}
    */
+  listApps(): Promise<ListAppsCommandOutput>;
   listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
   listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
   listApps(
@@ -4698,6 +4707,7 @@ export interface SageMaker {
   /**
    * @see {@link ListArtifactsCommand}
    */
+  listArtifacts(): Promise<ListArtifactsCommandOutput>;
   listArtifacts(args: ListArtifactsCommandInput, options?: __HttpHandlerOptions): Promise<ListArtifactsCommandOutput>;
   listArtifacts(args: ListArtifactsCommandInput, cb: (err: any, data?: ListArtifactsCommandOutput) => void): void;
   listArtifacts(
@@ -4709,6 +4719,7 @@ export interface SageMaker {
   /**
    * @see {@link ListAssociationsCommand}
    */
+  listAssociations(): Promise<ListAssociationsCommandOutput>;
   listAssociations(
     args: ListAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -4726,6 +4737,7 @@ export interface SageMaker {
   /**
    * @see {@link ListAutoMLJobsCommand}
    */
+  listAutoMLJobs(): Promise<ListAutoMLJobsCommandOutput>;
   listAutoMLJobs(
     args: ListAutoMLJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -4774,6 +4786,7 @@ export interface SageMaker {
   /**
    * @see {@link ListClustersCommand}
    */
+  listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   listClusters(
@@ -4785,6 +4798,7 @@ export interface SageMaker {
   /**
    * @see {@link ListCodeRepositoriesCommand}
    */
+  listCodeRepositories(): Promise<ListCodeRepositoriesCommandOutput>;
   listCodeRepositories(
     args: ListCodeRepositoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -4802,6 +4816,7 @@ export interface SageMaker {
   /**
    * @see {@link ListCompilationJobsCommand}
    */
+  listCompilationJobs(): Promise<ListCompilationJobsCommandOutput>;
   listCompilationJobs(
     args: ListCompilationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -4819,6 +4834,7 @@ export interface SageMaker {
   /**
    * @see {@link ListContextsCommand}
    */
+  listContexts(): Promise<ListContextsCommandOutput>;
   listContexts(args: ListContextsCommandInput, options?: __HttpHandlerOptions): Promise<ListContextsCommandOutput>;
   listContexts(args: ListContextsCommandInput, cb: (err: any, data?: ListContextsCommandOutput) => void): void;
   listContexts(
@@ -4830,6 +4846,7 @@ export interface SageMaker {
   /**
    * @see {@link ListDataQualityJobDefinitionsCommand}
    */
+  listDataQualityJobDefinitions(): Promise<ListDataQualityJobDefinitionsCommandOutput>;
   listDataQualityJobDefinitions(
     args: ListDataQualityJobDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -4847,6 +4864,7 @@ export interface SageMaker {
   /**
    * @see {@link ListDeviceFleetsCommand}
    */
+  listDeviceFleets(): Promise<ListDeviceFleetsCommandOutput>;
   listDeviceFleets(
     args: ListDeviceFleetsCommandInput,
     options?: __HttpHandlerOptions
@@ -4864,6 +4882,7 @@ export interface SageMaker {
   /**
    * @see {@link ListDevicesCommand}
    */
+  listDevices(): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, options?: __HttpHandlerOptions): Promise<ListDevicesCommandOutput>;
   listDevices(args: ListDevicesCommandInput, cb: (err: any, data?: ListDevicesCommandOutput) => void): void;
   listDevices(
@@ -4875,6 +4894,7 @@ export interface SageMaker {
   /**
    * @see {@link ListDomainsCommand}
    */
+  listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
   listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
   listDomains(
@@ -4886,6 +4906,7 @@ export interface SageMaker {
   /**
    * @see {@link ListEdgeDeploymentPlansCommand}
    */
+  listEdgeDeploymentPlans(): Promise<ListEdgeDeploymentPlansCommandOutput>;
   listEdgeDeploymentPlans(
     args: ListEdgeDeploymentPlansCommandInput,
     options?: __HttpHandlerOptions
@@ -4903,6 +4924,7 @@ export interface SageMaker {
   /**
    * @see {@link ListEdgePackagingJobsCommand}
    */
+  listEdgePackagingJobs(): Promise<ListEdgePackagingJobsCommandOutput>;
   listEdgePackagingJobs(
     args: ListEdgePackagingJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -4920,6 +4942,7 @@ export interface SageMaker {
   /**
    * @see {@link ListEndpointConfigsCommand}
    */
+  listEndpointConfigs(): Promise<ListEndpointConfigsCommandOutput>;
   listEndpointConfigs(
     args: ListEndpointConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -4937,6 +4960,7 @@ export interface SageMaker {
   /**
    * @see {@link ListEndpointsCommand}
    */
+  listEndpoints(): Promise<ListEndpointsCommandOutput>;
   listEndpoints(args: ListEndpointsCommandInput, options?: __HttpHandlerOptions): Promise<ListEndpointsCommandOutput>;
   listEndpoints(args: ListEndpointsCommandInput, cb: (err: any, data?: ListEndpointsCommandOutput) => void): void;
   listEndpoints(
@@ -4948,6 +4972,7 @@ export interface SageMaker {
   /**
    * @see {@link ListExperimentsCommand}
    */
+  listExperiments(): Promise<ListExperimentsCommandOutput>;
   listExperiments(
     args: ListExperimentsCommandInput,
     options?: __HttpHandlerOptions
@@ -4962,6 +4987,7 @@ export interface SageMaker {
   /**
    * @see {@link ListFeatureGroupsCommand}
    */
+  listFeatureGroups(): Promise<ListFeatureGroupsCommandOutput>;
   listFeatureGroups(
     args: ListFeatureGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -4979,6 +5005,7 @@ export interface SageMaker {
   /**
    * @see {@link ListFlowDefinitionsCommand}
    */
+  listFlowDefinitions(): Promise<ListFlowDefinitionsCommandOutput>;
   listFlowDefinitions(
     args: ListFlowDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -5027,6 +5054,7 @@ export interface SageMaker {
   /**
    * @see {@link ListHubsCommand}
    */
+  listHubs(): Promise<ListHubsCommandOutput>;
   listHubs(args: ListHubsCommandInput, options?: __HttpHandlerOptions): Promise<ListHubsCommandOutput>;
   listHubs(args: ListHubsCommandInput, cb: (err: any, data?: ListHubsCommandOutput) => void): void;
   listHubs(
@@ -5038,6 +5066,7 @@ export interface SageMaker {
   /**
    * @see {@link ListHumanTaskUisCommand}
    */
+  listHumanTaskUis(): Promise<ListHumanTaskUisCommandOutput>;
   listHumanTaskUis(
     args: ListHumanTaskUisCommandInput,
     options?: __HttpHandlerOptions
@@ -5055,6 +5084,7 @@ export interface SageMaker {
   /**
    * @see {@link ListHyperParameterTuningJobsCommand}
    */
+  listHyperParameterTuningJobs(): Promise<ListHyperParameterTuningJobsCommandOutput>;
   listHyperParameterTuningJobs(
     args: ListHyperParameterTuningJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -5072,6 +5102,7 @@ export interface SageMaker {
   /**
    * @see {@link ListImagesCommand}
    */
+  listImages(): Promise<ListImagesCommandOutput>;
   listImages(args: ListImagesCommandInput, options?: __HttpHandlerOptions): Promise<ListImagesCommandOutput>;
   listImages(args: ListImagesCommandInput, cb: (err: any, data?: ListImagesCommandOutput) => void): void;
   listImages(
@@ -5100,6 +5131,7 @@ export interface SageMaker {
   /**
    * @see {@link ListInferenceComponentsCommand}
    */
+  listInferenceComponents(): Promise<ListInferenceComponentsCommandOutput>;
   listInferenceComponents(
     args: ListInferenceComponentsCommandInput,
     options?: __HttpHandlerOptions
@@ -5117,6 +5149,7 @@ export interface SageMaker {
   /**
    * @see {@link ListInferenceExperimentsCommand}
    */
+  listInferenceExperiments(): Promise<ListInferenceExperimentsCommandOutput>;
   listInferenceExperiments(
     args: ListInferenceExperimentsCommandInput,
     options?: __HttpHandlerOptions
@@ -5134,6 +5167,7 @@ export interface SageMaker {
   /**
    * @see {@link ListInferenceRecommendationsJobsCommand}
    */
+  listInferenceRecommendationsJobs(): Promise<ListInferenceRecommendationsJobsCommandOutput>;
   listInferenceRecommendationsJobs(
     args: ListInferenceRecommendationsJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -5168,6 +5202,7 @@ export interface SageMaker {
   /**
    * @see {@link ListLabelingJobsCommand}
    */
+  listLabelingJobs(): Promise<ListLabelingJobsCommandOutput>;
   listLabelingJobs(
     args: ListLabelingJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -5202,6 +5237,7 @@ export interface SageMaker {
   /**
    * @see {@link ListLineageGroupsCommand}
    */
+  listLineageGroups(): Promise<ListLineageGroupsCommandOutput>;
   listLineageGroups(
     args: ListLineageGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -5219,6 +5255,7 @@ export interface SageMaker {
   /**
    * @see {@link ListModelBiasJobDefinitionsCommand}
    */
+  listModelBiasJobDefinitions(): Promise<ListModelBiasJobDefinitionsCommandOutput>;
   listModelBiasJobDefinitions(
     args: ListModelBiasJobDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -5253,6 +5290,7 @@ export interface SageMaker {
   /**
    * @see {@link ListModelCardsCommand}
    */
+  listModelCards(): Promise<ListModelCardsCommandOutput>;
   listModelCards(
     args: ListModelCardsCommandInput,
     options?: __HttpHandlerOptions
@@ -5284,6 +5322,7 @@ export interface SageMaker {
   /**
    * @see {@link ListModelExplainabilityJobDefinitionsCommand}
    */
+  listModelExplainabilityJobDefinitions(): Promise<ListModelExplainabilityJobDefinitionsCommandOutput>;
   listModelExplainabilityJobDefinitions(
     args: ListModelExplainabilityJobDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -5301,6 +5340,7 @@ export interface SageMaker {
   /**
    * @see {@link ListModelMetadataCommand}
    */
+  listModelMetadata(): Promise<ListModelMetadataCommandOutput>;
   listModelMetadata(
     args: ListModelMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -5318,6 +5358,7 @@ export interface SageMaker {
   /**
    * @see {@link ListModelPackageGroupsCommand}
    */
+  listModelPackageGroups(): Promise<ListModelPackageGroupsCommandOutput>;
   listModelPackageGroups(
     args: ListModelPackageGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -5335,6 +5376,7 @@ export interface SageMaker {
   /**
    * @see {@link ListModelPackagesCommand}
    */
+  listModelPackages(): Promise<ListModelPackagesCommandOutput>;
   listModelPackages(
     args: ListModelPackagesCommandInput,
     options?: __HttpHandlerOptions
@@ -5352,6 +5394,7 @@ export interface SageMaker {
   /**
    * @see {@link ListModelQualityJobDefinitionsCommand}
    */
+  listModelQualityJobDefinitions(): Promise<ListModelQualityJobDefinitionsCommandOutput>;
   listModelQualityJobDefinitions(
     args: ListModelQualityJobDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -5369,6 +5412,7 @@ export interface SageMaker {
   /**
    * @see {@link ListModelsCommand}
    */
+  listModels(): Promise<ListModelsCommandOutput>;
   listModels(args: ListModelsCommandInput, options?: __HttpHandlerOptions): Promise<ListModelsCommandOutput>;
   listModels(args: ListModelsCommandInput, cb: (err: any, data?: ListModelsCommandOutput) => void): void;
   listModels(
@@ -5380,6 +5424,7 @@ export interface SageMaker {
   /**
    * @see {@link ListMonitoringAlertHistoryCommand}
    */
+  listMonitoringAlertHistory(): Promise<ListMonitoringAlertHistoryCommandOutput>;
   listMonitoringAlertHistory(
     args: ListMonitoringAlertHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -5414,6 +5459,7 @@ export interface SageMaker {
   /**
    * @see {@link ListMonitoringExecutionsCommand}
    */
+  listMonitoringExecutions(): Promise<ListMonitoringExecutionsCommandOutput>;
   listMonitoringExecutions(
     args: ListMonitoringExecutionsCommandInput,
     options?: __HttpHandlerOptions
@@ -5431,6 +5477,7 @@ export interface SageMaker {
   /**
    * @see {@link ListMonitoringSchedulesCommand}
    */
+  listMonitoringSchedules(): Promise<ListMonitoringSchedulesCommandOutput>;
   listMonitoringSchedules(
     args: ListMonitoringSchedulesCommandInput,
     options?: __HttpHandlerOptions
@@ -5448,6 +5495,7 @@ export interface SageMaker {
   /**
    * @see {@link ListNotebookInstanceLifecycleConfigsCommand}
    */
+  listNotebookInstanceLifecycleConfigs(): Promise<ListNotebookInstanceLifecycleConfigsCommandOutput>;
   listNotebookInstanceLifecycleConfigs(
     args: ListNotebookInstanceLifecycleConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -5465,6 +5513,7 @@ export interface SageMaker {
   /**
    * @see {@link ListNotebookInstancesCommand}
    */
+  listNotebookInstances(): Promise<ListNotebookInstancesCommandOutput>;
   listNotebookInstances(
     args: ListNotebookInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -5499,6 +5548,7 @@ export interface SageMaker {
   /**
    * @see {@link ListPipelineExecutionStepsCommand}
    */
+  listPipelineExecutionSteps(): Promise<ListPipelineExecutionStepsCommandOutput>;
   listPipelineExecutionSteps(
     args: ListPipelineExecutionStepsCommandInput,
     options?: __HttpHandlerOptions
@@ -5533,6 +5583,7 @@ export interface SageMaker {
   /**
    * @see {@link ListPipelinesCommand}
    */
+  listPipelines(): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, options?: __HttpHandlerOptions): Promise<ListPipelinesCommandOutput>;
   listPipelines(args: ListPipelinesCommandInput, cb: (err: any, data?: ListPipelinesCommandOutput) => void): void;
   listPipelines(
@@ -5544,6 +5595,7 @@ export interface SageMaker {
   /**
    * @see {@link ListProcessingJobsCommand}
    */
+  listProcessingJobs(): Promise<ListProcessingJobsCommandOutput>;
   listProcessingJobs(
     args: ListProcessingJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -5561,6 +5613,7 @@ export interface SageMaker {
   /**
    * @see {@link ListProjectsCommand}
    */
+  listProjects(): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, options?: __HttpHandlerOptions): Promise<ListProjectsCommandOutput>;
   listProjects(args: ListProjectsCommandInput, cb: (err: any, data?: ListProjectsCommandOutput) => void): void;
   listProjects(
@@ -5572,6 +5625,7 @@ export interface SageMaker {
   /**
    * @see {@link ListResourceCatalogsCommand}
    */
+  listResourceCatalogs(): Promise<ListResourceCatalogsCommandOutput>;
   listResourceCatalogs(
     args: ListResourceCatalogsCommandInput,
     options?: __HttpHandlerOptions
@@ -5589,6 +5643,7 @@ export interface SageMaker {
   /**
    * @see {@link ListSpacesCommand}
    */
+  listSpaces(): Promise<ListSpacesCommandOutput>;
   listSpaces(args: ListSpacesCommandInput, options?: __HttpHandlerOptions): Promise<ListSpacesCommandOutput>;
   listSpaces(args: ListSpacesCommandInput, cb: (err: any, data?: ListSpacesCommandOutput) => void): void;
   listSpaces(
@@ -5617,6 +5672,7 @@ export interface SageMaker {
   /**
    * @see {@link ListStudioLifecycleConfigsCommand}
    */
+  listStudioLifecycleConfigs(): Promise<ListStudioLifecycleConfigsCommandOutput>;
   listStudioLifecycleConfigs(
     args: ListStudioLifecycleConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -5634,6 +5690,7 @@ export interface SageMaker {
   /**
    * @see {@link ListSubscribedWorkteamsCommand}
    */
+  listSubscribedWorkteams(): Promise<ListSubscribedWorkteamsCommandOutput>;
   listSubscribedWorkteams(
     args: ListSubscribedWorkteamsCommandInput,
     options?: __HttpHandlerOptions
@@ -5662,6 +5719,7 @@ export interface SageMaker {
   /**
    * @see {@link ListTrainingJobsCommand}
    */
+  listTrainingJobs(): Promise<ListTrainingJobsCommandOutput>;
   listTrainingJobs(
     args: ListTrainingJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -5696,6 +5754,7 @@ export interface SageMaker {
   /**
    * @see {@link ListTransformJobsCommand}
    */
+  listTransformJobs(): Promise<ListTransformJobsCommandOutput>;
   listTransformJobs(
     args: ListTransformJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -5713,6 +5772,7 @@ export interface SageMaker {
   /**
    * @see {@link ListTrialComponentsCommand}
    */
+  listTrialComponents(): Promise<ListTrialComponentsCommandOutput>;
   listTrialComponents(
     args: ListTrialComponentsCommandInput,
     options?: __HttpHandlerOptions
@@ -5730,6 +5790,7 @@ export interface SageMaker {
   /**
    * @see {@link ListTrialsCommand}
    */
+  listTrials(): Promise<ListTrialsCommandOutput>;
   listTrials(args: ListTrialsCommandInput, options?: __HttpHandlerOptions): Promise<ListTrialsCommandOutput>;
   listTrials(args: ListTrialsCommandInput, cb: (err: any, data?: ListTrialsCommandOutput) => void): void;
   listTrials(
@@ -5741,6 +5802,7 @@ export interface SageMaker {
   /**
    * @see {@link ListUserProfilesCommand}
    */
+  listUserProfiles(): Promise<ListUserProfilesCommandOutput>;
   listUserProfiles(
     args: ListUserProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -5758,6 +5820,7 @@ export interface SageMaker {
   /**
    * @see {@link ListWorkforcesCommand}
    */
+  listWorkforces(): Promise<ListWorkforcesCommandOutput>;
   listWorkforces(
     args: ListWorkforcesCommandInput,
     options?: __HttpHandlerOptions
@@ -5772,6 +5835,7 @@ export interface SageMaker {
   /**
    * @see {@link ListWorkteamsCommand}
    */
+  listWorkteams(): Promise<ListWorkteamsCommandOutput>;
   listWorkteams(args: ListWorkteamsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkteamsCommandOutput>;
   listWorkteams(args: ListWorkteamsCommandInput, cb: (err: any, data?: ListWorkteamsCommandOutput) => void): void;
   listWorkteams(
@@ -5800,6 +5864,7 @@ export interface SageMaker {
   /**
    * @see {@link QueryLineageCommand}
    */
+  queryLineage(): Promise<QueryLineageCommandOutput>;
   queryLineage(args: QueryLineageCommandInput, options?: __HttpHandlerOptions): Promise<QueryLineageCommandOutput>;
   queryLineage(args: QueryLineageCommandInput, cb: (err: any, data?: QueryLineageCommandOutput) => void): void;
   queryLineage(

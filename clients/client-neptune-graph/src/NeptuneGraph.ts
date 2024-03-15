@@ -360,6 +360,7 @@ export interface NeptuneGraph {
   /**
    * @see {@link ListGraphsCommand}
    */
+  listGraphs(): Promise<ListGraphsCommandOutput>;
   listGraphs(args: ListGraphsCommandInput, options?: __HttpHandlerOptions): Promise<ListGraphsCommandOutput>;
   listGraphs(args: ListGraphsCommandInput, cb: (err: any, data?: ListGraphsCommandOutput) => void): void;
   listGraphs(
@@ -371,6 +372,7 @@ export interface NeptuneGraph {
   /**
    * @see {@link ListGraphSnapshotsCommand}
    */
+  listGraphSnapshots(): Promise<ListGraphSnapshotsCommandOutput>;
   listGraphSnapshots(
     args: ListGraphSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -388,6 +390,7 @@ export interface NeptuneGraph {
   /**
    * @see {@link ListImportTasksCommand}
    */
+  listImportTasks(): Promise<ListImportTasksCommandOutput>;
   listImportTasks(
     args: ListImportTasksCommandInput,
     options?: __HttpHandlerOptions

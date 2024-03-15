@@ -299,6 +299,7 @@ export interface Grafana {
   /**
    * @see {@link ListVersionsCommand}
    */
+  listVersions(): Promise<ListVersionsCommandOutput>;
   listVersions(args: ListVersionsCommandInput, options?: __HttpHandlerOptions): Promise<ListVersionsCommandOutput>;
   listVersions(args: ListVersionsCommandInput, cb: (err: any, data?: ListVersionsCommandOutput) => void): void;
   listVersions(
@@ -310,6 +311,7 @@ export interface Grafana {
   /**
    * @see {@link ListWorkspacesCommand}
    */
+  listWorkspaces(): Promise<ListWorkspacesCommandOutput>;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
     options?: __HttpHandlerOptions

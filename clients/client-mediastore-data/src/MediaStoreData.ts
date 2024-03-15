@@ -65,6 +65,7 @@ export interface MediaStoreData {
   /**
    * @see {@link ListItemsCommand}
    */
+  listItems(): Promise<ListItemsCommandOutput>;
   listItems(args: ListItemsCommandInput, options?: __HttpHandlerOptions): Promise<ListItemsCommandOutput>;
   listItems(args: ListItemsCommandInput, cb: (err: any, data?: ListItemsCommandOutput) => void): void;
   listItems(

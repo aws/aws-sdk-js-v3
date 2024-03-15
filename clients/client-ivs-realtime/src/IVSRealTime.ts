@@ -149,6 +149,7 @@ export interface IVSRealTime {
   /**
    * @see {@link CreateEncoderConfigurationCommand}
    */
+  createEncoderConfiguration(): Promise<CreateEncoderConfigurationCommandOutput>;
   createEncoderConfiguration(
     args: CreateEncoderConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -183,6 +184,7 @@ export interface IVSRealTime {
   /**
    * @see {@link CreateStageCommand}
    */
+  createStage(): Promise<CreateStageCommandOutput>;
   createStage(args: CreateStageCommandInput, options?: __HttpHandlerOptions): Promise<CreateStageCommandOutput>;
   createStage(args: CreateStageCommandInput, cb: (err: any, data?: CreateStageCommandOutput) => void): void;
   createStage(
@@ -360,6 +362,7 @@ export interface IVSRealTime {
   /**
    * @see {@link ListCompositionsCommand}
    */
+  listCompositions(): Promise<ListCompositionsCommandOutput>;
   listCompositions(
     args: ListCompositionsCommandInput,
     options?: __HttpHandlerOptions
@@ -377,6 +380,7 @@ export interface IVSRealTime {
   /**
    * @see {@link ListEncoderConfigurationsCommand}
    */
+  listEncoderConfigurations(): Promise<ListEncoderConfigurationsCommandOutput>;
   listEncoderConfigurations(
     args: ListEncoderConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -428,6 +432,7 @@ export interface IVSRealTime {
   /**
    * @see {@link ListStagesCommand}
    */
+  listStages(): Promise<ListStagesCommandOutput>;
   listStages(args: ListStagesCommandInput, options?: __HttpHandlerOptions): Promise<ListStagesCommandOutput>;
   listStages(args: ListStagesCommandInput, cb: (err: any, data?: ListStagesCommandOutput) => void): void;
   listStages(
@@ -456,6 +461,7 @@ export interface IVSRealTime {
   /**
    * @see {@link ListStorageConfigurationsCommand}
    */
+  listStorageConfigurations(): Promise<ListStorageConfigurationsCommandOutput>;
   listStorageConfigurations(
     args: ListStorageConfigurationsCommandInput,
     options?: __HttpHandlerOptions

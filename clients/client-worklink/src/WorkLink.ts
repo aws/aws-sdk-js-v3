@@ -454,6 +454,7 @@ export interface WorkLink {
   /**
    * @see {@link ListFleetsCommand}
    */
+  listFleets(): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   listFleets(

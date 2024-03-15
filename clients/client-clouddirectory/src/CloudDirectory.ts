@@ -839,6 +839,7 @@ export interface CloudDirectory {
   /**
    * @see {@link ListDevelopmentSchemaArnsCommand}
    */
+  listDevelopmentSchemaArns(): Promise<ListDevelopmentSchemaArnsCommandOutput>;
   listDevelopmentSchemaArns(
     args: ListDevelopmentSchemaArnsCommandInput,
     options?: __HttpHandlerOptions
@@ -856,6 +857,7 @@ export interface CloudDirectory {
   /**
    * @see {@link ListDirectoriesCommand}
    */
+  listDirectories(): Promise<ListDirectoriesCommandOutput>;
   listDirectories(
     args: ListDirectoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -929,6 +931,7 @@ export interface CloudDirectory {
   /**
    * @see {@link ListManagedSchemaArnsCommand}
    */
+  listManagedSchemaArns(): Promise<ListManagedSchemaArnsCommandOutput>;
   listManagedSchemaArns(
     args: ListManagedSchemaArnsCommandInput,
     options?: __HttpHandlerOptions
@@ -1065,6 +1068,7 @@ export interface CloudDirectory {
   /**
    * @see {@link ListPublishedSchemaArnsCommand}
    */
+  listPublishedSchemaArns(): Promise<ListPublishedSchemaArnsCommandOutput>;
   listPublishedSchemaArns(
     args: ListPublishedSchemaArnsCommandInput,
     options?: __HttpHandlerOptions

@@ -493,6 +493,7 @@ export interface Mgn {
   /**
    * @see {@link CreateLaunchConfigurationTemplateCommand}
    */
+  createLaunchConfigurationTemplate(): Promise<CreateLaunchConfigurationTemplateCommandOutput>;
   createLaunchConfigurationTemplate(
     args: CreateLaunchConfigurationTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -676,6 +677,7 @@ export interface Mgn {
   /**
    * @see {@link DescribeJobsCommand}
    */
+  describeJobs(): Promise<DescribeJobsCommandOutput>;
   describeJobs(args: DescribeJobsCommandInput, options?: __HttpHandlerOptions): Promise<DescribeJobsCommandOutput>;
   describeJobs(args: DescribeJobsCommandInput, cb: (err: any, data?: DescribeJobsCommandOutput) => void): void;
   describeJobs(
@@ -687,6 +689,7 @@ export interface Mgn {
   /**
    * @see {@link DescribeLaunchConfigurationTemplatesCommand}
    */
+  describeLaunchConfigurationTemplates(): Promise<DescribeLaunchConfigurationTemplatesCommandOutput>;
   describeLaunchConfigurationTemplates(
     args: DescribeLaunchConfigurationTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -704,6 +707,7 @@ export interface Mgn {
   /**
    * @see {@link DescribeReplicationConfigurationTemplatesCommand}
    */
+  describeReplicationConfigurationTemplates(): Promise<DescribeReplicationConfigurationTemplatesCommandOutput>;
   describeReplicationConfigurationTemplates(
     args: DescribeReplicationConfigurationTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -721,6 +725,7 @@ export interface Mgn {
   /**
    * @see {@link DescribeSourceServersCommand}
    */
+  describeSourceServers(): Promise<DescribeSourceServersCommandOutput>;
   describeSourceServers(
     args: DescribeSourceServersCommandInput,
     options?: __HttpHandlerOptions
@@ -738,6 +743,7 @@ export interface Mgn {
   /**
    * @see {@link DescribeVcenterClientsCommand}
    */
+  describeVcenterClients(): Promise<DescribeVcenterClientsCommandOutput>;
   describeVcenterClients(
     args: DescribeVcenterClientsCommandInput,
     options?: __HttpHandlerOptions
@@ -854,6 +860,7 @@ export interface Mgn {
   /**
    * @see {@link InitializeServiceCommand}
    */
+  initializeService(): Promise<InitializeServiceCommandOutput>;
   initializeService(
     args: InitializeServiceCommandInput,
     options?: __HttpHandlerOptions
@@ -871,6 +878,7 @@ export interface Mgn {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -888,6 +896,7 @@ export interface Mgn {
   /**
    * @see {@link ListConnectorsCommand}
    */
+  listConnectors(): Promise<ListConnectorsCommandOutput>;
   listConnectors(
     args: ListConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -919,6 +928,7 @@ export interface Mgn {
   /**
    * @see {@link ListExportsCommand}
    */
+  listExports(): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
   listExports(
@@ -947,6 +957,7 @@ export interface Mgn {
   /**
    * @see {@link ListImportsCommand}
    */
+  listImports(): Promise<ListImportsCommandOutput>;
   listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
   listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
   listImports(
@@ -958,6 +969,7 @@ export interface Mgn {
   /**
    * @see {@link ListManagedAccountsCommand}
    */
+  listManagedAccounts(): Promise<ListManagedAccountsCommandOutput>;
   listManagedAccounts(
     args: ListManagedAccountsCommandInput,
     options?: __HttpHandlerOptions
@@ -1026,6 +1038,7 @@ export interface Mgn {
   /**
    * @see {@link ListWavesCommand}
    */
+  listWaves(): Promise<ListWavesCommandOutput>;
   listWaves(args: ListWavesCommandInput, options?: __HttpHandlerOptions): Promise<ListWavesCommandOutput>;
   listWaves(args: ListWavesCommandInput, cb: (err: any, data?: ListWavesCommandOutput) => void): void;
   listWaves(

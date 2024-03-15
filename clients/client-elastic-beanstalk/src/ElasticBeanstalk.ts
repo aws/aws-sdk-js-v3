@@ -293,6 +293,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link AbortEnvironmentUpdateCommand}
    */
+  abortEnvironmentUpdate(): Promise<AbortEnvironmentUpdateCommandOutput>;
   abortEnvironmentUpdate(
     args: AbortEnvironmentUpdateCommandInput,
     options?: __HttpHandlerOptions
@@ -361,6 +362,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link ComposeEnvironmentsCommand}
    */
+  composeEnvironments(): Promise<ComposeEnvironmentsCommandOutput>;
   composeEnvironments(
     args: ComposeEnvironmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -463,6 +465,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link CreateStorageLocationCommand}
    */
+  createStorageLocation(): Promise<CreateStorageLocationCommandOutput>;
   createStorageLocation(
     args: CreateStorageLocationCommandInput,
     options?: __HttpHandlerOptions
@@ -548,6 +551,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DeletePlatformVersionCommand}
    */
+  deletePlatformVersion(): Promise<DeletePlatformVersionCommandOutput>;
   deletePlatformVersion(
     args: DeletePlatformVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -565,6 +569,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeAccountAttributesCommand}
    */
+  describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -582,6 +587,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeApplicationsCommand}
    */
+  describeApplications(): Promise<DescribeApplicationsCommandOutput>;
   describeApplications(
     args: DescribeApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -599,6 +605,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeApplicationVersionsCommand}
    */
+  describeApplicationVersions(): Promise<DescribeApplicationVersionsCommandOutput>;
   describeApplicationVersions(
     args: DescribeApplicationVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -616,6 +623,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeConfigurationOptionsCommand}
    */
+  describeConfigurationOptions(): Promise<DescribeConfigurationOptionsCommandOutput>;
   describeConfigurationOptions(
     args: DescribeConfigurationOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -650,6 +658,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeEnvironmentHealthCommand}
    */
+  describeEnvironmentHealth(): Promise<DescribeEnvironmentHealthCommandOutput>;
   describeEnvironmentHealth(
     args: DescribeEnvironmentHealthCommandInput,
     options?: __HttpHandlerOptions
@@ -667,6 +676,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeEnvironmentManagedActionHistoryCommand}
    */
+  describeEnvironmentManagedActionHistory(): Promise<DescribeEnvironmentManagedActionHistoryCommandOutput>;
   describeEnvironmentManagedActionHistory(
     args: DescribeEnvironmentManagedActionHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -684,6 +694,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeEnvironmentManagedActionsCommand}
    */
+  describeEnvironmentManagedActions(): Promise<DescribeEnvironmentManagedActionsCommandOutput>;
   describeEnvironmentManagedActions(
     args: DescribeEnvironmentManagedActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -701,6 +712,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeEnvironmentResourcesCommand}
    */
+  describeEnvironmentResources(): Promise<DescribeEnvironmentResourcesCommandOutput>;
   describeEnvironmentResources(
     args: DescribeEnvironmentResourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -718,6 +730,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeEnvironmentsCommand}
    */
+  describeEnvironments(): Promise<DescribeEnvironmentsCommandOutput>;
   describeEnvironments(
     args: DescribeEnvironmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -735,6 +748,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -749,6 +763,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribeInstancesHealthCommand}
    */
+  describeInstancesHealth(): Promise<DescribeInstancesHealthCommandOutput>;
   describeInstancesHealth(
     args: DescribeInstancesHealthCommandInput,
     options?: __HttpHandlerOptions
@@ -766,6 +781,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link DescribePlatformVersionCommand}
    */
+  describePlatformVersion(): Promise<DescribePlatformVersionCommandOutput>;
   describePlatformVersion(
     args: DescribePlatformVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -800,6 +816,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link ListAvailableSolutionStacksCommand}
    */
+  listAvailableSolutionStacks(): Promise<ListAvailableSolutionStacksCommandOutput>;
   listAvailableSolutionStacks(
     args: ListAvailableSolutionStacksCommandInput,
     options?: __HttpHandlerOptions
@@ -817,6 +834,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link ListPlatformBranchesCommand}
    */
+  listPlatformBranches(): Promise<ListPlatformBranchesCommandOutput>;
   listPlatformBranches(
     args: ListPlatformBranchesCommandInput,
     options?: __HttpHandlerOptions
@@ -834,6 +852,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link ListPlatformVersionsCommand}
    */
+  listPlatformVersions(): Promise<ListPlatformVersionsCommandOutput>;
   listPlatformVersions(
     args: ListPlatformVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -868,6 +887,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link RebuildEnvironmentCommand}
    */
+  rebuildEnvironment(): Promise<RebuildEnvironmentCommandOutput>;
   rebuildEnvironment(
     args: RebuildEnvironmentCommandInput,
     options?: __HttpHandlerOptions
@@ -902,6 +922,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link RestartAppServerCommand}
    */
+  restartAppServer(): Promise<RestartAppServerCommandOutput>;
   restartAppServer(
     args: RestartAppServerCommandInput,
     options?: __HttpHandlerOptions
@@ -936,6 +957,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link SwapEnvironmentCNAMEsCommand}
    */
+  swapEnvironmentCNAMEs(): Promise<SwapEnvironmentCNAMEsCommandOutput>;
   swapEnvironmentCNAMEs(
     args: SwapEnvironmentCNAMEsCommandInput,
     options?: __HttpHandlerOptions
@@ -953,6 +975,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link TerminateEnvironmentCommand}
    */
+  terminateEnvironment(): Promise<TerminateEnvironmentCommandOutput>;
   terminateEnvironment(
     args: TerminateEnvironmentCommandInput,
     options?: __HttpHandlerOptions
@@ -1038,6 +1061,7 @@ export interface ElasticBeanstalk {
   /**
    * @see {@link UpdateEnvironmentCommand}
    */
+  updateEnvironment(): Promise<UpdateEnvironmentCommandOutput>;
   updateEnvironment(
     args: UpdateEnvironmentCommandInput,
     options?: __HttpHandlerOptions

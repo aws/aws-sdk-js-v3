@@ -480,6 +480,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link DeleteElasticsearchServiceRoleCommand}
    */
+  deleteElasticsearchServiceRole(): Promise<DeleteElasticsearchServiceRoleCommandOutput>;
   deleteElasticsearchServiceRole(
     args: DeleteElasticsearchServiceRoleCommandInput,
     options?: __HttpHandlerOptions
@@ -661,6 +662,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link DescribeInboundCrossClusterSearchConnectionsCommand}
    */
+  describeInboundCrossClusterSearchConnections(): Promise<DescribeInboundCrossClusterSearchConnectionsCommandOutput>;
   describeInboundCrossClusterSearchConnections(
     args: DescribeInboundCrossClusterSearchConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -678,6 +680,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link DescribeOutboundCrossClusterSearchConnectionsCommand}
    */
+  describeOutboundCrossClusterSearchConnections(): Promise<DescribeOutboundCrossClusterSearchConnectionsCommandOutput>;
   describeOutboundCrossClusterSearchConnections(
     args: DescribeOutboundCrossClusterSearchConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -695,6 +698,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link DescribePackagesCommand}
    */
+  describePackages(): Promise<DescribePackagesCommandOutput>;
   describePackages(
     args: DescribePackagesCommandInput,
     options?: __HttpHandlerOptions
@@ -712,6 +716,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link DescribeReservedElasticsearchInstanceOfferingsCommand}
    */
+  describeReservedElasticsearchInstanceOfferings(): Promise<DescribeReservedElasticsearchInstanceOfferingsCommandOutput>;
   describeReservedElasticsearchInstanceOfferings(
     args: DescribeReservedElasticsearchInstanceOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -729,6 +734,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link DescribeReservedElasticsearchInstancesCommand}
    */
+  describeReservedElasticsearchInstances(): Promise<DescribeReservedElasticsearchInstancesCommandOutput>;
   describeReservedElasticsearchInstances(
     args: DescribeReservedElasticsearchInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -780,6 +786,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link GetCompatibleElasticsearchVersionsCommand}
    */
+  getCompatibleElasticsearchVersions(): Promise<GetCompatibleElasticsearchVersionsCommandOutput>;
   getCompatibleElasticsearchVersions(
     args: GetCompatibleElasticsearchVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -848,6 +855,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link ListDomainNamesCommand}
    */
+  listDomainNames(): Promise<ListDomainNamesCommandOutput>;
   listDomainNames(
     args: ListDomainNamesCommandInput,
     options?: __HttpHandlerOptions
@@ -896,6 +904,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link ListElasticsearchVersionsCommand}
    */
+  listElasticsearchVersions(): Promise<ListElasticsearchVersionsCommandOutput>;
   listElasticsearchVersions(
     args: ListElasticsearchVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -958,6 +967,7 @@ export interface ElasticsearchService {
   /**
    * @see {@link ListVpcEndpointsCommand}
    */
+  listVpcEndpoints(): Promise<ListVpcEndpointsCommandOutput>;
   listVpcEndpoints(
     args: ListVpcEndpointsCommandInput,
     options?: __HttpHandlerOptions

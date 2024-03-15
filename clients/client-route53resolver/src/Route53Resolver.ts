@@ -1058,6 +1058,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListFirewallConfigsCommand}
    */
+  listFirewallConfigs(): Promise<ListFirewallConfigsCommandOutput>;
   listFirewallConfigs(
     args: ListFirewallConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -1075,6 +1076,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListFirewallDomainListsCommand}
    */
+  listFirewallDomainLists(): Promise<ListFirewallDomainListsCommandOutput>;
   listFirewallDomainLists(
     args: ListFirewallDomainListsCommandInput,
     options?: __HttpHandlerOptions
@@ -1109,6 +1111,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListFirewallRuleGroupAssociationsCommand}
    */
+  listFirewallRuleGroupAssociations(): Promise<ListFirewallRuleGroupAssociationsCommandOutput>;
   listFirewallRuleGroupAssociations(
     args: ListFirewallRuleGroupAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1126,6 +1129,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListFirewallRuleGroupsCommand}
    */
+  listFirewallRuleGroups(): Promise<ListFirewallRuleGroupsCommandOutput>;
   listFirewallRuleGroups(
     args: ListFirewallRuleGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1160,6 +1164,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListOutpostResolversCommand}
    */
+  listOutpostResolvers(): Promise<ListOutpostResolversCommandOutput>;
   listOutpostResolvers(
     args: ListOutpostResolversCommandInput,
     options?: __HttpHandlerOptions
@@ -1177,6 +1182,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListResolverConfigsCommand}
    */
+  listResolverConfigs(): Promise<ListResolverConfigsCommandOutput>;
   listResolverConfigs(
     args: ListResolverConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -1194,6 +1200,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListResolverDnssecConfigsCommand}
    */
+  listResolverDnssecConfigs(): Promise<ListResolverDnssecConfigsCommandOutput>;
   listResolverDnssecConfigs(
     args: ListResolverDnssecConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -1228,6 +1235,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListResolverEndpointsCommand}
    */
+  listResolverEndpoints(): Promise<ListResolverEndpointsCommandOutput>;
   listResolverEndpoints(
     args: ListResolverEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -1245,6 +1253,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListResolverQueryLogConfigAssociationsCommand}
    */
+  listResolverQueryLogConfigAssociations(): Promise<ListResolverQueryLogConfigAssociationsCommandOutput>;
   listResolverQueryLogConfigAssociations(
     args: ListResolverQueryLogConfigAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1262,6 +1271,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListResolverQueryLogConfigsCommand}
    */
+  listResolverQueryLogConfigs(): Promise<ListResolverQueryLogConfigsCommandOutput>;
   listResolverQueryLogConfigs(
     args: ListResolverQueryLogConfigsCommandInput,
     options?: __HttpHandlerOptions
@@ -1279,6 +1289,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListResolverRuleAssociationsCommand}
    */
+  listResolverRuleAssociations(): Promise<ListResolverRuleAssociationsCommandOutput>;
   listResolverRuleAssociations(
     args: ListResolverRuleAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1296,6 +1307,7 @@ export interface Route53Resolver {
   /**
    * @see {@link ListResolverRulesCommand}
    */
+  listResolverRules(): Promise<ListResolverRulesCommandOutput>;
   listResolverRules(
     args: ListResolverRulesCommandInput,
     options?: __HttpHandlerOptions

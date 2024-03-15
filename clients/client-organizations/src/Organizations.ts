@@ -403,6 +403,7 @@ export interface Organizations {
   /**
    * @see {@link CreateOrganizationCommand}
    */
+  createOrganization(): Promise<CreateOrganizationCommandOutput>;
   createOrganization(
     args: CreateOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -465,6 +466,7 @@ export interface Organizations {
   /**
    * @see {@link DeleteOrganizationCommand}
    */
+  deleteOrganization(): Promise<DeleteOrganizationCommandOutput>;
   deleteOrganization(
     args: DeleteOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -510,6 +512,7 @@ export interface Organizations {
   /**
    * @see {@link DeleteResourcePolicyCommand}
    */
+  deleteResourcePolicy(): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -609,6 +612,7 @@ export interface Organizations {
   /**
    * @see {@link DescribeOrganizationCommand}
    */
+  describeOrganization(): Promise<DescribeOrganizationCommandOutput>;
   describeOrganization(
     args: DescribeOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -657,6 +661,7 @@ export interface Organizations {
   /**
    * @see {@link DescribeResourcePolicyCommand}
    */
+  describeResourcePolicy(): Promise<DescribeResourcePolicyCommandOutput>;
   describeResourcePolicy(
     args: DescribeResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -719,6 +724,7 @@ export interface Organizations {
   /**
    * @see {@link EnableAllFeaturesCommand}
    */
+  enableAllFeatures(): Promise<EnableAllFeaturesCommandOutput>;
   enableAllFeatures(
     args: EnableAllFeaturesCommandInput,
     options?: __HttpHandlerOptions
@@ -787,6 +793,7 @@ export interface Organizations {
   /**
    * @see {@link LeaveOrganizationCommand}
    */
+  leaveOrganization(): Promise<LeaveOrganizationCommandOutput>;
   leaveOrganization(
     args: LeaveOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -804,6 +811,7 @@ export interface Organizations {
   /**
    * @see {@link ListAccountsCommand}
    */
+  listAccounts(): Promise<ListAccountsCommandOutput>;
   listAccounts(args: ListAccountsCommandInput, options?: __HttpHandlerOptions): Promise<ListAccountsCommandOutput>;
   listAccounts(args: ListAccountsCommandInput, cb: (err: any, data?: ListAccountsCommandOutput) => void): void;
   listAccounts(
@@ -832,6 +840,7 @@ export interface Organizations {
   /**
    * @see {@link ListAWSServiceAccessForOrganizationCommand}
    */
+  listAWSServiceAccessForOrganization(): Promise<ListAWSServiceAccessForOrganizationCommandOutput>;
   listAWSServiceAccessForOrganization(
     args: ListAWSServiceAccessForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -860,6 +869,7 @@ export interface Organizations {
   /**
    * @see {@link ListCreateAccountStatusCommand}
    */
+  listCreateAccountStatus(): Promise<ListCreateAccountStatusCommandOutput>;
   listCreateAccountStatus(
     args: ListCreateAccountStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -877,6 +887,7 @@ export interface Organizations {
   /**
    * @see {@link ListDelegatedAdministratorsCommand}
    */
+  listDelegatedAdministrators(): Promise<ListDelegatedAdministratorsCommandOutput>;
   listDelegatedAdministrators(
     args: ListDelegatedAdministratorsCommandInput,
     options?: __HttpHandlerOptions
@@ -911,6 +922,7 @@ export interface Organizations {
   /**
    * @see {@link ListHandshakesForAccountCommand}
    */
+  listHandshakesForAccount(): Promise<ListHandshakesForAccountCommandOutput>;
   listHandshakesForAccount(
     args: ListHandshakesForAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -928,6 +940,7 @@ export interface Organizations {
   /**
    * @see {@link ListHandshakesForOrganizationCommand}
    */
+  listHandshakesForOrganization(): Promise<ListHandshakesForOrganizationCommandOutput>;
   listHandshakesForOrganization(
     args: ListHandshakesForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -1001,6 +1014,7 @@ export interface Organizations {
   /**
    * @see {@link ListRootsCommand}
    */
+  listRoots(): Promise<ListRootsCommandOutput>;
   listRoots(args: ListRootsCommandInput, options?: __HttpHandlerOptions): Promise<ListRootsCommandOutput>;
   listRoots(args: ListRootsCommandInput, cb: (err: any, data?: ListRootsCommandOutput) => void): void;
   listRoots(

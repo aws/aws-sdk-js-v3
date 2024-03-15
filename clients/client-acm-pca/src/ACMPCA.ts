@@ -360,6 +360,7 @@ export interface ACMPCA {
   /**
    * @see {@link ListCertificateAuthoritiesCommand}
    */
+  listCertificateAuthorities(): Promise<ListCertificateAuthoritiesCommandOutput>;
   listCertificateAuthorities(
     args: ListCertificateAuthoritiesCommandInput,
     options?: __HttpHandlerOptions

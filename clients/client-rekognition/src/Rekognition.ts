@@ -487,6 +487,7 @@ export interface Rekognition {
   /**
    * @see {@link CreateFaceLivenessSessionCommand}
    */
+  createFaceLivenessSession(): Promise<CreateFaceLivenessSessionCommandOutput>;
   createFaceLivenessSession(
     args: CreateFaceLivenessSessionCommandInput,
     options?: __HttpHandlerOptions
@@ -703,6 +704,7 @@ export interface Rekognition {
   /**
    * @see {@link DescribeProjectsCommand}
    */
+  describeProjects(): Promise<DescribeProjectsCommandOutput>;
   describeProjects(
     args: DescribeProjectsCommandInput,
     options?: __HttpHandlerOptions
@@ -1064,6 +1066,7 @@ export interface Rekognition {
   /**
    * @see {@link ListCollectionsCommand}
    */
+  listCollections(): Promise<ListCollectionsCommandOutput>;
   listCollections(
     args: ListCollectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1123,6 +1126,7 @@ export interface Rekognition {
   /**
    * @see {@link ListMediaAnalysisJobsCommand}
    */
+  listMediaAnalysisJobs(): Promise<ListMediaAnalysisJobsCommandOutput>;
   listMediaAnalysisJobs(
     args: ListMediaAnalysisJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1157,6 +1161,7 @@ export interface Rekognition {
   /**
    * @see {@link ListStreamProcessorsCommand}
    */
+  listStreamProcessors(): Promise<ListStreamProcessorsCommandOutput>;
   listStreamProcessors(
     args: ListStreamProcessorsCommandInput,
     options?: __HttpHandlerOptions

@@ -1534,6 +1534,7 @@ export interface Glue {
   /**
    * @see {@link CreateClassifierCommand}
    */
+  createClassifier(): Promise<CreateClassifierCommandOutput>;
   createClassifier(
     args: CreateClassifierCommandInput,
     options?: __HttpHandlerOptions
@@ -1728,6 +1729,7 @@ export interface Glue {
   /**
    * @see {@link CreateScriptCommand}
    */
+  createScript(): Promise<CreateScriptCommandOutput>;
   createScript(args: CreateScriptCommandInput, options?: __HttpHandlerOptions): Promise<CreateScriptCommandOutput>;
   createScript(args: CreateScriptCommandInput, cb: (err: any, data?: CreateScriptCommandOutput) => void): void;
   createScript(
@@ -2068,6 +2070,7 @@ export interface Glue {
   /**
    * @see {@link DeleteResourcePolicyCommand}
    */
+  deleteResourcePolicy(): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -2270,6 +2273,7 @@ export interface Glue {
   /**
    * @see {@link GetCatalogImportStatusCommand}
    */
+  getCatalogImportStatus(): Promise<GetCatalogImportStatusCommandOutput>;
   getCatalogImportStatus(
     args: GetCatalogImportStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -2298,6 +2302,7 @@ export interface Glue {
   /**
    * @see {@link GetClassifiersCommand}
    */
+  getClassifiers(): Promise<GetClassifiersCommandOutput>;
   getClassifiers(
     args: GetClassifiersCommandInput,
     options?: __HttpHandlerOptions
@@ -2391,6 +2396,7 @@ export interface Glue {
   /**
    * @see {@link GetConnectionsCommand}
    */
+  getConnections(): Promise<GetConnectionsCommandOutput>;
   getConnections(
     args: GetConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2416,6 +2422,7 @@ export interface Glue {
   /**
    * @see {@link GetCrawlerMetricsCommand}
    */
+  getCrawlerMetrics(): Promise<GetCrawlerMetricsCommandOutput>;
   getCrawlerMetrics(
     args: GetCrawlerMetricsCommandInput,
     options?: __HttpHandlerOptions
@@ -2433,6 +2440,7 @@ export interface Glue {
   /**
    * @see {@link GetCrawlersCommand}
    */
+  getCrawlers(): Promise<GetCrawlersCommandOutput>;
   getCrawlers(args: GetCrawlersCommandInput, options?: __HttpHandlerOptions): Promise<GetCrawlersCommandOutput>;
   getCrawlers(args: GetCrawlersCommandInput, cb: (err: any, data?: GetCrawlersCommandOutput) => void): void;
   getCrawlers(
@@ -2472,6 +2480,7 @@ export interface Glue {
   /**
    * @see {@link GetDatabasesCommand}
    */
+  getDatabases(): Promise<GetDatabasesCommandOutput>;
   getDatabases(args: GetDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabasesCommandOutput>;
   getDatabases(args: GetDatabasesCommandInput, cb: (err: any, data?: GetDatabasesCommandOutput) => void): void;
   getDatabases(
@@ -2483,6 +2492,7 @@ export interface Glue {
   /**
    * @see {@link GetDataCatalogEncryptionSettingsCommand}
    */
+  getDataCatalogEncryptionSettings(): Promise<GetDataCatalogEncryptionSettingsCommandOutput>;
   getDataCatalogEncryptionSettings(
     args: GetDataCatalogEncryptionSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -2500,6 +2510,7 @@ export interface Glue {
   /**
    * @see {@link GetDataflowGraphCommand}
    */
+  getDataflowGraph(): Promise<GetDataflowGraphCommandOutput>;
   getDataflowGraph(
     args: GetDataflowGraphCommandInput,
     options?: __HttpHandlerOptions
@@ -2599,6 +2610,7 @@ export interface Glue {
   /**
    * @see {@link GetDevEndpointsCommand}
    */
+  getDevEndpoints(): Promise<GetDevEndpointsCommandOutput>;
   getDevEndpoints(
     args: GetDevEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -2660,6 +2672,7 @@ export interface Glue {
   /**
    * @see {@link GetJobsCommand}
    */
+  getJobs(): Promise<GetJobsCommandOutput>;
   getJobs(args: GetJobsCommandInput, options?: __HttpHandlerOptions): Promise<GetJobsCommandOutput>;
   getJobs(args: GetJobsCommandInput, cb: (err: any, data?: GetJobsCommandOutput) => void): void;
   getJobs(
@@ -2718,6 +2731,7 @@ export interface Glue {
   /**
    * @see {@link GetMLTransformsCommand}
    */
+  getMLTransforms(): Promise<GetMLTransformsCommandOutput>;
   getMLTransforms(
     args: GetMLTransformsCommandInput,
     options?: __HttpHandlerOptions
@@ -2793,6 +2807,7 @@ export interface Glue {
   /**
    * @see {@link GetResourcePoliciesCommand}
    */
+  getResourcePolicies(): Promise<GetResourcePoliciesCommandOutput>;
   getResourcePolicies(
     args: GetResourcePoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -2810,6 +2825,7 @@ export interface Glue {
   /**
    * @see {@link GetResourcePolicyCommand}
    */
+  getResourcePolicy(): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -2855,6 +2871,7 @@ export interface Glue {
   /**
    * @see {@link GetSchemaVersionCommand}
    */
+  getSchemaVersion(): Promise<GetSchemaVersionCommandOutput>;
   getSchemaVersion(
     args: GetSchemaVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -2906,6 +2923,7 @@ export interface Glue {
   /**
    * @see {@link GetSecurityConfigurationsCommand}
    */
+  getSecurityConfigurations(): Promise<GetSecurityConfigurationsCommandOutput>;
   getSecurityConfigurations(
     args: GetSecurityConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -3037,6 +3055,7 @@ export interface Glue {
   /**
    * @see {@link GetTriggersCommand}
    */
+  getTriggers(): Promise<GetTriggersCommandOutput>;
   getTriggers(args: GetTriggersCommandInput, options?: __HttpHandlerOptions): Promise<GetTriggersCommandOutput>;
   getTriggers(args: GetTriggersCommandInput, cb: (err: any, data?: GetTriggersCommandOutput) => void): void;
   getTriggers(
@@ -3189,6 +3208,7 @@ export interface Glue {
   /**
    * @see {@link ImportCatalogToGlueCommand}
    */
+  importCatalogToGlue(): Promise<ImportCatalogToGlueCommandOutput>;
   importCatalogToGlue(
     args: ImportCatalogToGlueCommandInput,
     options?: __HttpHandlerOptions
@@ -3206,6 +3226,7 @@ export interface Glue {
   /**
    * @see {@link ListBlueprintsCommand}
    */
+  listBlueprints(): Promise<ListBlueprintsCommandOutput>;
   listBlueprints(
     args: ListBlueprintsCommandInput,
     options?: __HttpHandlerOptions
@@ -3220,6 +3241,7 @@ export interface Glue {
   /**
    * @see {@link ListColumnStatisticsTaskRunsCommand}
    */
+  listColumnStatisticsTaskRuns(): Promise<ListColumnStatisticsTaskRunsCommandOutput>;
   listColumnStatisticsTaskRuns(
     args: ListColumnStatisticsTaskRunsCommandInput,
     options?: __HttpHandlerOptions
@@ -3237,6 +3259,7 @@ export interface Glue {
   /**
    * @see {@link ListCrawlersCommand}
    */
+  listCrawlers(): Promise<ListCrawlersCommandOutput>;
   listCrawlers(args: ListCrawlersCommandInput, options?: __HttpHandlerOptions): Promise<ListCrawlersCommandOutput>;
   listCrawlers(args: ListCrawlersCommandInput, cb: (err: any, data?: ListCrawlersCommandOutput) => void): void;
   listCrawlers(
@@ -3259,6 +3282,7 @@ export interface Glue {
   /**
    * @see {@link ListCustomEntityTypesCommand}
    */
+  listCustomEntityTypes(): Promise<ListCustomEntityTypesCommandOutput>;
   listCustomEntityTypes(
     args: ListCustomEntityTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -3276,6 +3300,7 @@ export interface Glue {
   /**
    * @see {@link ListDataQualityResultsCommand}
    */
+  listDataQualityResults(): Promise<ListDataQualityResultsCommandOutput>;
   listDataQualityResults(
     args: ListDataQualityResultsCommandInput,
     options?: __HttpHandlerOptions
@@ -3293,6 +3318,7 @@ export interface Glue {
   /**
    * @see {@link ListDataQualityRuleRecommendationRunsCommand}
    */
+  listDataQualityRuleRecommendationRuns(): Promise<ListDataQualityRuleRecommendationRunsCommandOutput>;
   listDataQualityRuleRecommendationRuns(
     args: ListDataQualityRuleRecommendationRunsCommandInput,
     options?: __HttpHandlerOptions
@@ -3310,6 +3336,7 @@ export interface Glue {
   /**
    * @see {@link ListDataQualityRulesetEvaluationRunsCommand}
    */
+  listDataQualityRulesetEvaluationRuns(): Promise<ListDataQualityRulesetEvaluationRunsCommandOutput>;
   listDataQualityRulesetEvaluationRuns(
     args: ListDataQualityRulesetEvaluationRunsCommandInput,
     options?: __HttpHandlerOptions
@@ -3327,6 +3354,7 @@ export interface Glue {
   /**
    * @see {@link ListDataQualityRulesetsCommand}
    */
+  listDataQualityRulesets(): Promise<ListDataQualityRulesetsCommandOutput>;
   listDataQualityRulesets(
     args: ListDataQualityRulesetsCommandInput,
     options?: __HttpHandlerOptions
@@ -3344,6 +3372,7 @@ export interface Glue {
   /**
    * @see {@link ListDevEndpointsCommand}
    */
+  listDevEndpoints(): Promise<ListDevEndpointsCommandOutput>;
   listDevEndpoints(
     args: ListDevEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -3361,6 +3390,7 @@ export interface Glue {
   /**
    * @see {@link ListJobsCommand}
    */
+  listJobs(): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, options?: __HttpHandlerOptions): Promise<ListJobsCommandOutput>;
   listJobs(args: ListJobsCommandInput, cb: (err: any, data?: ListJobsCommandOutput) => void): void;
   listJobs(
@@ -3372,6 +3402,7 @@ export interface Glue {
   /**
    * @see {@link ListMLTransformsCommand}
    */
+  listMLTransforms(): Promise<ListMLTransformsCommandOutput>;
   listMLTransforms(
     args: ListMLTransformsCommandInput,
     options?: __HttpHandlerOptions
@@ -3389,6 +3420,7 @@ export interface Glue {
   /**
    * @see {@link ListRegistriesCommand}
    */
+  listRegistries(): Promise<ListRegistriesCommandOutput>;
   listRegistries(
     args: ListRegistriesCommandInput,
     options?: __HttpHandlerOptions
@@ -3403,6 +3435,7 @@ export interface Glue {
   /**
    * @see {@link ListSchemasCommand}
    */
+  listSchemas(): Promise<ListSchemasCommandOutput>;
   listSchemas(args: ListSchemasCommandInput, options?: __HttpHandlerOptions): Promise<ListSchemasCommandOutput>;
   listSchemas(args: ListSchemasCommandInput, cb: (err: any, data?: ListSchemasCommandOutput) => void): void;
   listSchemas(
@@ -3431,6 +3464,7 @@ export interface Glue {
   /**
    * @see {@link ListSessionsCommand}
    */
+  listSessions(): Promise<ListSessionsCommandOutput>;
   listSessions(args: ListSessionsCommandInput, options?: __HttpHandlerOptions): Promise<ListSessionsCommandOutput>;
   listSessions(args: ListSessionsCommandInput, cb: (err: any, data?: ListSessionsCommandOutput) => void): void;
   listSessions(
@@ -3473,6 +3507,7 @@ export interface Glue {
   /**
    * @see {@link ListTriggersCommand}
    */
+  listTriggers(): Promise<ListTriggersCommandOutput>;
   listTriggers(args: ListTriggersCommandInput, options?: __HttpHandlerOptions): Promise<ListTriggersCommandOutput>;
   listTriggers(args: ListTriggersCommandInput, cb: (err: any, data?: ListTriggersCommandOutput) => void): void;
   listTriggers(
@@ -3484,6 +3519,7 @@ export interface Glue {
   /**
    * @see {@link ListWorkflowsCommand}
    */
+  listWorkflows(): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, options?: __HttpHandlerOptions): Promise<ListWorkflowsCommandOutput>;
   listWorkflows(args: ListWorkflowsCommandInput, cb: (err: any, data?: ListWorkflowsCommandOutput) => void): void;
   listWorkflows(
@@ -3563,6 +3599,7 @@ export interface Glue {
   /**
    * @see {@link QuerySchemaVersionMetadataCommand}
    */
+  querySchemaVersionMetadata(): Promise<QuerySchemaVersionMetadataCommandOutput>;
   querySchemaVersionMetadata(
     args: QuerySchemaVersionMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -3659,6 +3696,7 @@ export interface Glue {
   /**
    * @see {@link SearchTablesCommand}
    */
+  searchTables(): Promise<SearchTablesCommandOutput>;
   searchTables(args: SearchTablesCommandInput, options?: __HttpHandlerOptions): Promise<SearchTablesCommandOutput>;
   searchTables(args: SearchTablesCommandInput, cb: (err: any, data?: SearchTablesCommandOutput) => void): void;
   searchTables(
@@ -3990,6 +4028,7 @@ export interface Glue {
   /**
    * @see {@link UpdateClassifierCommand}
    */
+  updateClassifier(): Promise<UpdateClassifierCommandOutput>;
   updateClassifier(
     args: UpdateClassifierCommandInput,
     options?: __HttpHandlerOptions
@@ -4145,6 +4184,7 @@ export interface Glue {
   /**
    * @see {@link UpdateJobFromSourceControlCommand}
    */
+  updateJobFromSourceControl(): Promise<UpdateJobFromSourceControlCommandOutput>;
   updateJobFromSourceControl(
     args: UpdateJobFromSourceControlCommandInput,
     options?: __HttpHandlerOptions
@@ -4218,6 +4258,7 @@ export interface Glue {
   /**
    * @see {@link UpdateSourceControlFromJobCommand}
    */
+  updateSourceControlFromJob(): Promise<UpdateSourceControlFromJobCommandOutput>;
   updateSourceControlFromJob(
     args: UpdateSourceControlFromJobCommandInput,
     options?: __HttpHandlerOptions

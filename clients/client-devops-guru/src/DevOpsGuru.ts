@@ -217,6 +217,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link DescribeAccountHealthCommand}
    */
+  describeAccountHealth(): Promise<DescribeAccountHealthCommandOutput>;
   describeAccountHealth(
     args: DescribeAccountHealthCommandInput,
     options?: __HttpHandlerOptions
@@ -265,6 +266,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link DescribeEventSourcesConfigCommand}
    */
+  describeEventSourcesConfig(): Promise<DescribeEventSourcesConfigCommandOutput>;
   describeEventSourcesConfig(
     args: DescribeEventSourcesConfigCommandInput,
     options?: __HttpHandlerOptions
@@ -282,6 +284,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link DescribeFeedbackCommand}
    */
+  describeFeedback(): Promise<DescribeFeedbackCommandOutput>;
   describeFeedback(
     args: DescribeFeedbackCommandInput,
     options?: __HttpHandlerOptions
@@ -313,6 +316,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link DescribeOrganizationHealthCommand}
    */
+  describeOrganizationHealth(): Promise<DescribeOrganizationHealthCommandOutput>;
   describeOrganizationHealth(
     args: DescribeOrganizationHealthCommandInput,
     options?: __HttpHandlerOptions
@@ -381,6 +385,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link DescribeServiceIntegrationCommand}
    */
+  describeServiceIntegration(): Promise<DescribeServiceIntegrationCommandOutput>;
   describeServiceIntegration(
     args: DescribeServiceIntegrationCommandInput,
     options?: __HttpHandlerOptions
@@ -398,6 +403,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link GetCostEstimationCommand}
    */
+  getCostEstimation(): Promise<GetCostEstimationCommandOutput>;
   getCostEstimation(
     args: GetCostEstimationCommandInput,
     options?: __HttpHandlerOptions
@@ -488,6 +494,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link ListMonitoredResourcesCommand}
    */
+  listMonitoredResources(): Promise<ListMonitoredResourcesCommandOutput>;
   listMonitoredResources(
     args: ListMonitoredResourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -505,6 +512,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link ListNotificationChannelsCommand}
    */
+  listNotificationChannels(): Promise<ListNotificationChannelsCommandOutput>;
   listNotificationChannels(
     args: ListNotificationChannelsCommandInput,
     options?: __HttpHandlerOptions
@@ -556,6 +564,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link PutFeedbackCommand}
    */
+  putFeedback(): Promise<PutFeedbackCommandOutput>;
   putFeedback(args: PutFeedbackCommandInput, options?: __HttpHandlerOptions): Promise<PutFeedbackCommandOutput>;
   putFeedback(args: PutFeedbackCommandInput, cb: (err: any, data?: PutFeedbackCommandOutput) => void): void;
   putFeedback(
@@ -632,6 +641,7 @@ export interface DevOpsGuru {
   /**
    * @see {@link UpdateEventSourcesConfigCommand}
    */
+  updateEventSourcesConfig(): Promise<UpdateEventSourcesConfigCommandOutput>;
   updateEventSourcesConfig(
     args: UpdateEventSourcesConfigCommandInput,
     options?: __HttpHandlerOptions

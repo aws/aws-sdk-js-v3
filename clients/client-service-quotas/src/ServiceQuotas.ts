@@ -121,6 +121,7 @@ export interface ServiceQuotas {
   /**
    * @see {@link AssociateServiceQuotaTemplateCommand}
    */
+  associateServiceQuotaTemplate(): Promise<AssociateServiceQuotaTemplateCommandOutput>;
   associateServiceQuotaTemplate(
     args: AssociateServiceQuotaTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -155,6 +156,7 @@ export interface ServiceQuotas {
   /**
    * @see {@link DisassociateServiceQuotaTemplateCommand}
    */
+  disassociateServiceQuotaTemplate(): Promise<DisassociateServiceQuotaTemplateCommandOutput>;
   disassociateServiceQuotaTemplate(
     args: DisassociateServiceQuotaTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -172,6 +174,7 @@ export interface ServiceQuotas {
   /**
    * @see {@link GetAssociationForServiceQuotaTemplateCommand}
    */
+  getAssociationForServiceQuotaTemplate(): Promise<GetAssociationForServiceQuotaTemplateCommandOutput>;
   getAssociationForServiceQuotaTemplate(
     args: GetAssociationForServiceQuotaTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -271,6 +274,7 @@ export interface ServiceQuotas {
   /**
    * @see {@link ListRequestedServiceQuotaChangeHistoryCommand}
    */
+  listRequestedServiceQuotaChangeHistory(): Promise<ListRequestedServiceQuotaChangeHistoryCommandOutput>;
   listRequestedServiceQuotaChangeHistory(
     args: ListRequestedServiceQuotaChangeHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -305,6 +309,7 @@ export interface ServiceQuotas {
   /**
    * @see {@link ListServiceQuotaIncreaseRequestsInTemplateCommand}
    */
+  listServiceQuotaIncreaseRequestsInTemplate(): Promise<ListServiceQuotaIncreaseRequestsInTemplateCommandOutput>;
   listServiceQuotaIncreaseRequestsInTemplate(
     args: ListServiceQuotaIncreaseRequestsInTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -339,6 +344,7 @@ export interface ServiceQuotas {
   /**
    * @see {@link ListServicesCommand}
    */
+  listServices(): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
   listServices(

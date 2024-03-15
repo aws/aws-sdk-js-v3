@@ -368,6 +368,7 @@ export interface Neptunedata {
   /**
    * @see {@link CreateMLEndpointCommand}
    */
+  createMLEndpoint(): Promise<CreateMLEndpointCommandOutput>;
   createMLEndpoint(
     args: CreateMLEndpointCommandInput,
     options?: __HttpHandlerOptions
@@ -402,6 +403,7 @@ export interface Neptunedata {
   /**
    * @see {@link DeletePropertygraphStatisticsCommand}
    */
+  deletePropertygraphStatistics(): Promise<DeletePropertygraphStatisticsCommandOutput>;
   deletePropertygraphStatistics(
     args: DeletePropertygraphStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -419,6 +421,7 @@ export interface Neptunedata {
   /**
    * @see {@link DeleteSparqlStatisticsCommand}
    */
+  deleteSparqlStatistics(): Promise<DeleteSparqlStatisticsCommandOutput>;
   deleteSparqlStatistics(
     args: DeleteSparqlStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -538,6 +541,7 @@ export interface Neptunedata {
   /**
    * @see {@link GetEngineStatusCommand}
    */
+  getEngineStatus(): Promise<GetEngineStatusCommandOutput>;
   getEngineStatus(
     args: GetEngineStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -665,6 +669,7 @@ export interface Neptunedata {
   /**
    * @see {@link GetPropertygraphStatisticsCommand}
    */
+  getPropertygraphStatistics(): Promise<GetPropertygraphStatisticsCommandOutput>;
   getPropertygraphStatistics(
     args: GetPropertygraphStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -682,6 +687,7 @@ export interface Neptunedata {
   /**
    * @see {@link GetPropertygraphStreamCommand}
    */
+  getPropertygraphStream(): Promise<GetPropertygraphStreamCommandOutput>;
   getPropertygraphStream(
     args: GetPropertygraphStreamCommandInput,
     options?: __HttpHandlerOptions
@@ -699,6 +705,7 @@ export interface Neptunedata {
   /**
    * @see {@link GetPropertygraphSummaryCommand}
    */
+  getPropertygraphSummary(): Promise<GetPropertygraphSummaryCommandOutput>;
   getPropertygraphSummary(
     args: GetPropertygraphSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -716,6 +723,7 @@ export interface Neptunedata {
   /**
    * @see {@link GetRDFGraphSummaryCommand}
    */
+  getRDFGraphSummary(): Promise<GetRDFGraphSummaryCommandOutput>;
   getRDFGraphSummary(
     args: GetRDFGraphSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -733,6 +741,7 @@ export interface Neptunedata {
   /**
    * @see {@link GetSparqlStatisticsCommand}
    */
+  getSparqlStatistics(): Promise<GetSparqlStatisticsCommandOutput>;
   getSparqlStatistics(
     args: GetSparqlStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -750,6 +759,7 @@ export interface Neptunedata {
   /**
    * @see {@link GetSparqlStreamCommand}
    */
+  getSparqlStream(): Promise<GetSparqlStreamCommandOutput>;
   getSparqlStream(
     args: GetSparqlStreamCommandInput,
     options?: __HttpHandlerOptions
@@ -764,6 +774,7 @@ export interface Neptunedata {
   /**
    * @see {@link ListGremlinQueriesCommand}
    */
+  listGremlinQueries(): Promise<ListGremlinQueriesCommandOutput>;
   listGremlinQueries(
     args: ListGremlinQueriesCommandInput,
     options?: __HttpHandlerOptions
@@ -781,6 +792,7 @@ export interface Neptunedata {
   /**
    * @see {@link ListLoaderJobsCommand}
    */
+  listLoaderJobs(): Promise<ListLoaderJobsCommandOutput>;
   listLoaderJobs(
     args: ListLoaderJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -795,6 +807,7 @@ export interface Neptunedata {
   /**
    * @see {@link ListMLDataProcessingJobsCommand}
    */
+  listMLDataProcessingJobs(): Promise<ListMLDataProcessingJobsCommandOutput>;
   listMLDataProcessingJobs(
     args: ListMLDataProcessingJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -812,6 +825,7 @@ export interface Neptunedata {
   /**
    * @see {@link ListMLEndpointsCommand}
    */
+  listMLEndpoints(): Promise<ListMLEndpointsCommandOutput>;
   listMLEndpoints(
     args: ListMLEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -826,6 +840,7 @@ export interface Neptunedata {
   /**
    * @see {@link ListMLModelTrainingJobsCommand}
    */
+  listMLModelTrainingJobs(): Promise<ListMLModelTrainingJobsCommandOutput>;
   listMLModelTrainingJobs(
     args: ListMLModelTrainingJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -843,6 +858,7 @@ export interface Neptunedata {
   /**
    * @see {@link ListMLModelTransformJobsCommand}
    */
+  listMLModelTransformJobs(): Promise<ListMLModelTransformJobsCommandOutput>;
   listMLModelTransformJobs(
     args: ListMLModelTransformJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -860,6 +876,7 @@ export interface Neptunedata {
   /**
    * @see {@link ListOpenCypherQueriesCommand}
    */
+  listOpenCypherQueries(): Promise<ListOpenCypherQueriesCommandOutput>;
   listOpenCypherQueries(
     args: ListOpenCypherQueriesCommandInput,
     options?: __HttpHandlerOptions
@@ -877,6 +894,7 @@ export interface Neptunedata {
   /**
    * @see {@link ManagePropertygraphStatisticsCommand}
    */
+  managePropertygraphStatistics(): Promise<ManagePropertygraphStatisticsCommandOutput>;
   managePropertygraphStatistics(
     args: ManagePropertygraphStatisticsCommandInput,
     options?: __HttpHandlerOptions
@@ -894,6 +912,7 @@ export interface Neptunedata {
   /**
    * @see {@link ManageSparqlStatisticsCommand}
    */
+  manageSparqlStatistics(): Promise<ManageSparqlStatisticsCommandOutput>;
   manageSparqlStatistics(
     args: ManageSparqlStatisticsCommandInput,
     options?: __HttpHandlerOptions

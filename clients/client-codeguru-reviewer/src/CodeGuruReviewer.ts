@@ -241,6 +241,7 @@ export interface CodeGuruReviewer {
   /**
    * @see {@link ListRepositoryAssociationsCommand}
    */
+  listRepositoryAssociations(): Promise<ListRepositoryAssociationsCommandOutput>;
   listRepositoryAssociations(
     args: ListRepositoryAssociationsCommandInput,
     options?: __HttpHandlerOptions

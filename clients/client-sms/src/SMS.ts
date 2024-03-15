@@ -193,6 +193,7 @@ export interface SMS {
   /**
    * @see {@link CreateAppCommand}
    */
+  createApp(): Promise<CreateAppCommandOutput>;
   createApp(args: CreateAppCommandInput, options?: __HttpHandlerOptions): Promise<CreateAppCommandOutput>;
   createApp(args: CreateAppCommandInput, cb: (err: any, data?: CreateAppCommandOutput) => void): void;
   createApp(
@@ -221,6 +222,7 @@ export interface SMS {
   /**
    * @see {@link DeleteAppCommand}
    */
+  deleteApp(): Promise<DeleteAppCommandOutput>;
   deleteApp(args: DeleteAppCommandInput, options?: __HttpHandlerOptions): Promise<DeleteAppCommandOutput>;
   deleteApp(args: DeleteAppCommandInput, cb: (err: any, data?: DeleteAppCommandOutput) => void): void;
   deleteApp(
@@ -232,6 +234,7 @@ export interface SMS {
   /**
    * @see {@link DeleteAppLaunchConfigurationCommand}
    */
+  deleteAppLaunchConfiguration(): Promise<DeleteAppLaunchConfigurationCommandOutput>;
   deleteAppLaunchConfiguration(
     args: DeleteAppLaunchConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -249,6 +252,7 @@ export interface SMS {
   /**
    * @see {@link DeleteAppReplicationConfigurationCommand}
    */
+  deleteAppReplicationConfiguration(): Promise<DeleteAppReplicationConfigurationCommandOutput>;
   deleteAppReplicationConfiguration(
     args: DeleteAppReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -300,6 +304,7 @@ export interface SMS {
   /**
    * @see {@link DeleteServerCatalogCommand}
    */
+  deleteServerCatalog(): Promise<DeleteServerCatalogCommandOutput>;
   deleteServerCatalog(
     args: DeleteServerCatalogCommandInput,
     options?: __HttpHandlerOptions
@@ -334,6 +339,7 @@ export interface SMS {
   /**
    * @see {@link GenerateChangeSetCommand}
    */
+  generateChangeSet(): Promise<GenerateChangeSetCommandOutput>;
   generateChangeSet(
     args: GenerateChangeSetCommandInput,
     options?: __HttpHandlerOptions
@@ -351,6 +357,7 @@ export interface SMS {
   /**
    * @see {@link GenerateTemplateCommand}
    */
+  generateTemplate(): Promise<GenerateTemplateCommandOutput>;
   generateTemplate(
     args: GenerateTemplateCommandInput,
     options?: __HttpHandlerOptions
@@ -368,6 +375,7 @@ export interface SMS {
   /**
    * @see {@link GetAppCommand}
    */
+  getApp(): Promise<GetAppCommandOutput>;
   getApp(args: GetAppCommandInput, options?: __HttpHandlerOptions): Promise<GetAppCommandOutput>;
   getApp(args: GetAppCommandInput, cb: (err: any, data?: GetAppCommandOutput) => void): void;
   getApp(
@@ -379,6 +387,7 @@ export interface SMS {
   /**
    * @see {@link GetAppLaunchConfigurationCommand}
    */
+  getAppLaunchConfiguration(): Promise<GetAppLaunchConfigurationCommandOutput>;
   getAppLaunchConfiguration(
     args: GetAppLaunchConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -396,6 +405,7 @@ export interface SMS {
   /**
    * @see {@link GetAppReplicationConfigurationCommand}
    */
+  getAppReplicationConfiguration(): Promise<GetAppReplicationConfigurationCommandOutput>;
   getAppReplicationConfiguration(
     args: GetAppReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -447,6 +457,7 @@ export interface SMS {
   /**
    * @see {@link GetConnectorsCommand}
    */
+  getConnectors(): Promise<GetConnectorsCommandOutput>;
   getConnectors(args: GetConnectorsCommandInput, options?: __HttpHandlerOptions): Promise<GetConnectorsCommandOutput>;
   getConnectors(args: GetConnectorsCommandInput, cb: (err: any, data?: GetConnectorsCommandOutput) => void): void;
   getConnectors(
@@ -458,6 +469,7 @@ export interface SMS {
   /**
    * @see {@link GetReplicationJobsCommand}
    */
+  getReplicationJobs(): Promise<GetReplicationJobsCommandOutput>;
   getReplicationJobs(
     args: GetReplicationJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -492,6 +504,7 @@ export interface SMS {
   /**
    * @see {@link GetServersCommand}
    */
+  getServers(): Promise<GetServersCommandOutput>;
   getServers(args: GetServersCommandInput, options?: __HttpHandlerOptions): Promise<GetServersCommandOutput>;
   getServers(args: GetServersCommandInput, cb: (err: any, data?: GetServersCommandOutput) => void): void;
   getServers(
@@ -503,6 +516,7 @@ export interface SMS {
   /**
    * @see {@link ImportAppCatalogCommand}
    */
+  importAppCatalog(): Promise<ImportAppCatalogCommandOutput>;
   importAppCatalog(
     args: ImportAppCatalogCommandInput,
     options?: __HttpHandlerOptions
@@ -520,6 +534,7 @@ export interface SMS {
   /**
    * @see {@link ImportServerCatalogCommand}
    */
+  importServerCatalog(): Promise<ImportServerCatalogCommandOutput>;
   importServerCatalog(
     args: ImportServerCatalogCommandInput,
     options?: __HttpHandlerOptions
@@ -537,6 +552,7 @@ export interface SMS {
   /**
    * @see {@link LaunchAppCommand}
    */
+  launchApp(): Promise<LaunchAppCommandOutput>;
   launchApp(args: LaunchAppCommandInput, options?: __HttpHandlerOptions): Promise<LaunchAppCommandOutput>;
   launchApp(args: LaunchAppCommandInput, cb: (err: any, data?: LaunchAppCommandOutput) => void): void;
   launchApp(
@@ -548,6 +564,7 @@ export interface SMS {
   /**
    * @see {@link ListAppsCommand}
    */
+  listApps(): Promise<ListAppsCommandOutput>;
   listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
   listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
   listApps(
@@ -576,6 +593,7 @@ export interface SMS {
   /**
    * @see {@link PutAppLaunchConfigurationCommand}
    */
+  putAppLaunchConfiguration(): Promise<PutAppLaunchConfigurationCommandOutput>;
   putAppLaunchConfiguration(
     args: PutAppLaunchConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -593,6 +611,7 @@ export interface SMS {
   /**
    * @see {@link PutAppReplicationConfigurationCommand}
    */
+  putAppReplicationConfiguration(): Promise<PutAppReplicationConfigurationCommandOutput>;
   putAppReplicationConfiguration(
     args: PutAppReplicationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -627,6 +646,7 @@ export interface SMS {
   /**
    * @see {@link StartAppReplicationCommand}
    */
+  startAppReplication(): Promise<StartAppReplicationCommandOutput>;
   startAppReplication(
     args: StartAppReplicationCommandInput,
     options?: __HttpHandlerOptions
@@ -678,6 +698,7 @@ export interface SMS {
   /**
    * @see {@link StopAppReplicationCommand}
    */
+  stopAppReplication(): Promise<StopAppReplicationCommandOutput>;
   stopAppReplication(
     args: StopAppReplicationCommandInput,
     options?: __HttpHandlerOptions
@@ -695,6 +716,7 @@ export interface SMS {
   /**
    * @see {@link TerminateAppCommand}
    */
+  terminateApp(): Promise<TerminateAppCommandOutput>;
   terminateApp(args: TerminateAppCommandInput, options?: __HttpHandlerOptions): Promise<TerminateAppCommandOutput>;
   terminateApp(args: TerminateAppCommandInput, cb: (err: any, data?: TerminateAppCommandOutput) => void): void;
   terminateApp(
@@ -706,6 +728,7 @@ export interface SMS {
   /**
    * @see {@link UpdateAppCommand}
    */
+  updateApp(): Promise<UpdateAppCommandOutput>;
   updateApp(args: UpdateAppCommandInput, options?: __HttpHandlerOptions): Promise<UpdateAppCommandOutput>;
   updateApp(args: UpdateAppCommandInput, cb: (err: any, data?: UpdateAppCommandOutput) => void): void;
   updateApp(

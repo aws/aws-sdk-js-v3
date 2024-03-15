@@ -934,6 +934,7 @@ export interface SESv2 {
   /**
    * @see {@link GetAccountCommand}
    */
+  getAccount(): Promise<GetAccountCommandOutput>;
   getAccount(args: GetAccountCommandInput, options?: __HttpHandlerOptions): Promise<GetAccountCommandOutput>;
   getAccount(args: GetAccountCommandInput, cb: (err: any, data?: GetAccountCommandOutput) => void): void;
   getAccount(
@@ -1069,6 +1070,7 @@ export interface SESv2 {
   /**
    * @see {@link GetDedicatedIpsCommand}
    */
+  getDedicatedIps(): Promise<GetDedicatedIpsCommandOutput>;
   getDedicatedIps(
     args: GetDedicatedIpsCommandInput,
     options?: __HttpHandlerOptions
@@ -1083,6 +1085,7 @@ export interface SESv2 {
   /**
    * @see {@link GetDeliverabilityDashboardOptionsCommand}
    */
+  getDeliverabilityDashboardOptions(): Promise<GetDeliverabilityDashboardOptionsCommandOutput>;
   getDeliverabilityDashboardOptions(
     args: GetDeliverabilityDashboardOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1258,6 +1261,7 @@ export interface SESv2 {
   /**
    * @see {@link ListConfigurationSetsCommand}
    */
+  listConfigurationSets(): Promise<ListConfigurationSetsCommandOutput>;
   listConfigurationSets(
     args: ListConfigurationSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -1275,6 +1279,7 @@ export interface SESv2 {
   /**
    * @see {@link ListContactListsCommand}
    */
+  listContactLists(): Promise<ListContactListsCommandOutput>;
   listContactLists(
     args: ListContactListsCommandInput,
     options?: __HttpHandlerOptions
@@ -1303,6 +1308,7 @@ export interface SESv2 {
   /**
    * @see {@link ListCustomVerificationEmailTemplatesCommand}
    */
+  listCustomVerificationEmailTemplates(): Promise<ListCustomVerificationEmailTemplatesCommandOutput>;
   listCustomVerificationEmailTemplates(
     args: ListCustomVerificationEmailTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1320,6 +1326,7 @@ export interface SESv2 {
   /**
    * @see {@link ListDedicatedIpPoolsCommand}
    */
+  listDedicatedIpPools(): Promise<ListDedicatedIpPoolsCommandOutput>;
   listDedicatedIpPools(
     args: ListDedicatedIpPoolsCommandInput,
     options?: __HttpHandlerOptions
@@ -1337,6 +1344,7 @@ export interface SESv2 {
   /**
    * @see {@link ListDeliverabilityTestReportsCommand}
    */
+  listDeliverabilityTestReports(): Promise<ListDeliverabilityTestReportsCommandOutput>;
   listDeliverabilityTestReports(
     args: ListDeliverabilityTestReportsCommandInput,
     options?: __HttpHandlerOptions
@@ -1371,6 +1379,7 @@ export interface SESv2 {
   /**
    * @see {@link ListEmailIdentitiesCommand}
    */
+  listEmailIdentities(): Promise<ListEmailIdentitiesCommandOutput>;
   listEmailIdentities(
     args: ListEmailIdentitiesCommandInput,
     options?: __HttpHandlerOptions
@@ -1388,6 +1397,7 @@ export interface SESv2 {
   /**
    * @see {@link ListEmailTemplatesCommand}
    */
+  listEmailTemplates(): Promise<ListEmailTemplatesCommandOutput>;
   listEmailTemplates(
     args: ListEmailTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1405,6 +1415,7 @@ export interface SESv2 {
   /**
    * @see {@link ListExportJobsCommand}
    */
+  listExportJobs(): Promise<ListExportJobsCommandOutput>;
   listExportJobs(
     args: ListExportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1419,6 +1430,7 @@ export interface SESv2 {
   /**
    * @see {@link ListImportJobsCommand}
    */
+  listImportJobs(): Promise<ListImportJobsCommandOutput>;
   listImportJobs(
     args: ListImportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -1433,6 +1445,7 @@ export interface SESv2 {
   /**
    * @see {@link ListRecommendationsCommand}
    */
+  listRecommendations(): Promise<ListRecommendationsCommandOutput>;
   listRecommendations(
     args: ListRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1450,6 +1463,7 @@ export interface SESv2 {
   /**
    * @see {@link ListSuppressedDestinationsCommand}
    */
+  listSuppressedDestinations(): Promise<ListSuppressedDestinationsCommandOutput>;
   listSuppressedDestinations(
     args: ListSuppressedDestinationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1484,6 +1498,7 @@ export interface SESv2 {
   /**
    * @see {@link PutAccountDedicatedIpWarmupAttributesCommand}
    */
+  putAccountDedicatedIpWarmupAttributes(): Promise<PutAccountDedicatedIpWarmupAttributesCommandOutput>;
   putAccountDedicatedIpWarmupAttributes(
     args: PutAccountDedicatedIpWarmupAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -1518,6 +1533,7 @@ export interface SESv2 {
   /**
    * @see {@link PutAccountSendingAttributesCommand}
    */
+  putAccountSendingAttributes(): Promise<PutAccountSendingAttributesCommandOutput>;
   putAccountSendingAttributes(
     args: PutAccountSendingAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -1535,6 +1551,7 @@ export interface SESv2 {
   /**
    * @see {@link PutAccountSuppressionAttributesCommand}
    */
+  putAccountSuppressionAttributes(): Promise<PutAccountSuppressionAttributesCommandOutput>;
   putAccountSuppressionAttributes(
     args: PutAccountSuppressionAttributesCommandInput,
     options?: __HttpHandlerOptions

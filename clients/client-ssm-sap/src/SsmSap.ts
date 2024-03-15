@@ -145,6 +145,7 @@ export interface SsmSap {
   /**
    * @see {@link GetApplicationCommand}
    */
+  getApplication(): Promise<GetApplicationCommandOutput>;
   getApplication(
     args: GetApplicationCommandInput,
     options?: __HttpHandlerOptions
@@ -170,6 +171,7 @@ export interface SsmSap {
   /**
    * @see {@link GetDatabaseCommand}
    */
+  getDatabase(): Promise<GetDatabaseCommandOutput>;
   getDatabase(args: GetDatabaseCommandInput, options?: __HttpHandlerOptions): Promise<GetDatabaseCommandOutput>;
   getDatabase(args: GetDatabaseCommandInput, cb: (err: any, data?: GetDatabaseCommandOutput) => void): void;
   getDatabase(
@@ -209,6 +211,7 @@ export interface SsmSap {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -226,6 +229,7 @@ export interface SsmSap {
   /**
    * @see {@link ListComponentsCommand}
    */
+  listComponents(): Promise<ListComponentsCommandOutput>;
   listComponents(
     args: ListComponentsCommandInput,
     options?: __HttpHandlerOptions
@@ -240,6 +244,7 @@ export interface SsmSap {
   /**
    * @see {@link ListDatabasesCommand}
    */
+  listDatabases(): Promise<ListDatabasesCommandOutput>;
   listDatabases(args: ListDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<ListDatabasesCommandOutput>;
   listDatabases(args: ListDatabasesCommandInput, cb: (err: any, data?: ListDatabasesCommandOutput) => void): void;
   listDatabases(

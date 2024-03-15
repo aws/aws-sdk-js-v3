@@ -242,6 +242,7 @@ export interface CloudWatch {
   /**
    * @see {@link DeleteAnomalyDetectorCommand}
    */
+  deleteAnomalyDetector(): Promise<DeleteAnomalyDetectorCommandOutput>;
   deleteAnomalyDetector(
     args: DeleteAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions
@@ -310,6 +311,7 @@ export interface CloudWatch {
   /**
    * @see {@link DescribeAlarmHistoryCommand}
    */
+  describeAlarmHistory(): Promise<DescribeAlarmHistoryCommandOutput>;
   describeAlarmHistory(
     args: DescribeAlarmHistoryCommandInput,
     options?: __HttpHandlerOptions
@@ -327,6 +329,7 @@ export interface CloudWatch {
   /**
    * @see {@link DescribeAlarmsCommand}
    */
+  describeAlarms(): Promise<DescribeAlarmsCommandOutput>;
   describeAlarms(
     args: DescribeAlarmsCommandInput,
     options?: __HttpHandlerOptions
@@ -358,6 +361,7 @@ export interface CloudWatch {
   /**
    * @see {@link DescribeAnomalyDetectorsCommand}
    */
+  describeAnomalyDetectors(): Promise<DescribeAnomalyDetectorsCommandOutput>;
   describeAnomalyDetectors(
     args: DescribeAnomalyDetectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -375,6 +379,7 @@ export interface CloudWatch {
   /**
    * @see {@link DescribeInsightRulesCommand}
    */
+  describeInsightRules(): Promise<DescribeInsightRulesCommandOutput>;
   describeInsightRules(
     args: DescribeInsightRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -547,6 +552,7 @@ export interface CloudWatch {
   /**
    * @see {@link ListDashboardsCommand}
    */
+  listDashboards(): Promise<ListDashboardsCommandOutput>;
   listDashboards(
     args: ListDashboardsCommandInput,
     options?: __HttpHandlerOptions
@@ -578,6 +584,7 @@ export interface CloudWatch {
   /**
    * @see {@link ListMetricsCommand}
    */
+  listMetrics(): Promise<ListMetricsCommandOutput>;
   listMetrics(args: ListMetricsCommandInput, options?: __HttpHandlerOptions): Promise<ListMetricsCommandOutput>;
   listMetrics(args: ListMetricsCommandInput, cb: (err: any, data?: ListMetricsCommandOutput) => void): void;
   listMetrics(
@@ -589,6 +596,7 @@ export interface CloudWatch {
   /**
    * @see {@link ListMetricStreamsCommand}
    */
+  listMetricStreams(): Promise<ListMetricStreamsCommandOutput>;
   listMetricStreams(
     args: ListMetricStreamsCommandInput,
     options?: __HttpHandlerOptions
@@ -623,6 +631,7 @@ export interface CloudWatch {
   /**
    * @see {@link PutAnomalyDetectorCommand}
    */
+  putAnomalyDetector(): Promise<PutAnomalyDetectorCommandOutput>;
   putAnomalyDetector(
     args: PutAnomalyDetectorCommandInput,
     options?: __HttpHandlerOptions

@@ -156,6 +156,7 @@ export interface SimSpaceWeaver {
   /**
    * @see {@link ListSimulationsCommand}
    */
+  listSimulations(): Promise<ListSimulationsCommandOutput>;
   listSimulations(
     args: ListSimulationsCommandInput,
     options?: __HttpHandlerOptions

@@ -1085,6 +1085,7 @@ export interface Kendra {
   /**
    * @see {@link ListIndicesCommand}
    */
+  listIndices(): Promise<ListIndicesCommandOutput>;
   listIndices(args: ListIndicesCommandInput, options?: __HttpHandlerOptions): Promise<ListIndicesCommandOutput>;
   listIndices(args: ListIndicesCommandInput, cb: (err: any, data?: ListIndicesCommandOutput) => void): void;
   listIndices(

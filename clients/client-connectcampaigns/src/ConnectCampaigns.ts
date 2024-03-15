@@ -286,6 +286,7 @@ export interface ConnectCampaigns {
   /**
    * @see {@link ListCampaignsCommand}
    */
+  listCampaigns(): Promise<ListCampaignsCommandOutput>;
   listCampaigns(args: ListCampaignsCommandInput, options?: __HttpHandlerOptions): Promise<ListCampaignsCommandOutput>;
   listCampaigns(args: ListCampaignsCommandInput, cb: (err: any, data?: ListCampaignsCommandOutput) => void): void;
   listCampaigns(

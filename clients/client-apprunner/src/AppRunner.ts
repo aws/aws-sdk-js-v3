@@ -554,6 +554,7 @@ export interface AppRunner {
   /**
    * @see {@link ListAutoScalingConfigurationsCommand}
    */
+  listAutoScalingConfigurations(): Promise<ListAutoScalingConfigurationsCommandOutput>;
   listAutoScalingConfigurations(
     args: ListAutoScalingConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -571,6 +572,7 @@ export interface AppRunner {
   /**
    * @see {@link ListConnectionsCommand}
    */
+  listConnections(): Promise<ListConnectionsCommandOutput>;
   listConnections(
     args: ListConnectionsCommandInput,
     options?: __HttpHandlerOptions
@@ -585,6 +587,7 @@ export interface AppRunner {
   /**
    * @see {@link ListObservabilityConfigurationsCommand}
    */
+  listObservabilityConfigurations(): Promise<ListObservabilityConfigurationsCommandOutput>;
   listObservabilityConfigurations(
     args: ListObservabilityConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -616,6 +619,7 @@ export interface AppRunner {
   /**
    * @see {@link ListServicesCommand}
    */
+  listServices(): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, options?: __HttpHandlerOptions): Promise<ListServicesCommandOutput>;
   listServices(args: ListServicesCommandInput, cb: (err: any, data?: ListServicesCommandOutput) => void): void;
   listServices(
@@ -661,6 +665,7 @@ export interface AppRunner {
   /**
    * @see {@link ListVpcConnectorsCommand}
    */
+  listVpcConnectors(): Promise<ListVpcConnectorsCommandOutput>;
   listVpcConnectors(
     args: ListVpcConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -678,6 +683,7 @@ export interface AppRunner {
   /**
    * @see {@link ListVpcIngressConnectionsCommand}
    */
+  listVpcIngressConnections(): Promise<ListVpcIngressConnectionsCommandOutput>;
   listVpcIngressConnections(
     args: ListVpcIngressConnectionsCommandInput,
     options?: __HttpHandlerOptions

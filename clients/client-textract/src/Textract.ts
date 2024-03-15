@@ -374,6 +374,7 @@ export interface Textract {
   /**
    * @see {@link ListAdaptersCommand}
    */
+  listAdapters(): Promise<ListAdaptersCommandOutput>;
   listAdapters(args: ListAdaptersCommandInput, options?: __HttpHandlerOptions): Promise<ListAdaptersCommandOutput>;
   listAdapters(args: ListAdaptersCommandInput, cb: (err: any, data?: ListAdaptersCommandOutput) => void): void;
   listAdapters(
@@ -385,6 +386,7 @@ export interface Textract {
   /**
    * @see {@link ListAdapterVersionsCommand}
    */
+  listAdapterVersions(): Promise<ListAdapterVersionsCommandOutput>;
   listAdapterVersions(
     args: ListAdapterVersionsCommandInput,
     options?: __HttpHandlerOptions

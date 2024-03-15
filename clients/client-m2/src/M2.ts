@@ -448,6 +448,7 @@ export interface M2 {
   /**
    * @see {@link GetSignedBluinsightsUrlCommand}
    */
+  getSignedBluinsightsUrl(): Promise<GetSignedBluinsightsUrlCommandOutput>;
   getSignedBluinsightsUrl(
     args: GetSignedBluinsightsUrlCommandInput,
     options?: __HttpHandlerOptions
@@ -465,6 +466,7 @@ export interface M2 {
   /**
    * @see {@link ListApplicationsCommand}
    */
+  listApplications(): Promise<ListApplicationsCommandOutput>;
   listApplications(
     args: ListApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -575,6 +577,7 @@ export interface M2 {
   /**
    * @see {@link ListEngineVersionsCommand}
    */
+  listEngineVersions(): Promise<ListEngineVersionsCommandOutput>;
   listEngineVersions(
     args: ListEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -592,6 +595,7 @@ export interface M2 {
   /**
    * @see {@link ListEnvironmentsCommand}
    */
+  listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
     options?: __HttpHandlerOptions

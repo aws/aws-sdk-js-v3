@@ -688,6 +688,7 @@ export interface Finspace {
   /**
    * @see {@link ListEnvironmentsCommand}
    */
+  listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -781,6 +782,7 @@ export interface Finspace {
   /**
    * @see {@link ListKxEnvironmentsCommand}
    */
+  listKxEnvironments(): Promise<ListKxEnvironmentsCommandOutput>;
   listKxEnvironments(
     args: ListKxEnvironmentsCommandInput,
     options?: __HttpHandlerOptions

@@ -325,6 +325,7 @@ export interface FMS {
   /**
    * @see {@link DeleteNotificationChannelCommand}
    */
+  deleteNotificationChannel(): Promise<DeleteNotificationChannelCommandOutput>;
   deleteNotificationChannel(
     args: DeleteNotificationChannelCommandInput,
     options?: __HttpHandlerOptions
@@ -387,6 +388,7 @@ export interface FMS {
   /**
    * @see {@link DisassociateAdminAccountCommand}
    */
+  disassociateAdminAccount(): Promise<DisassociateAdminAccountCommandOutput>;
   disassociateAdminAccount(
     args: DisassociateAdminAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -421,6 +423,7 @@ export interface FMS {
   /**
    * @see {@link GetAdminAccountCommand}
    */
+  getAdminAccount(): Promise<GetAdminAccountCommandOutput>;
   getAdminAccount(
     args: GetAdminAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -474,6 +477,7 @@ export interface FMS {
   /**
    * @see {@link GetNotificationChannelCommand}
    */
+  getNotificationChannel(): Promise<GetNotificationChannelCommandOutput>;
   getNotificationChannel(
     args: GetNotificationChannelCommandInput,
     options?: __HttpHandlerOptions
@@ -584,6 +588,7 @@ export interface FMS {
   /**
    * @see {@link ListAdminAccountsForOrganizationCommand}
    */
+  listAdminAccountsForOrganization(): Promise<ListAdminAccountsForOrganizationCommandOutput>;
   listAdminAccountsForOrganization(
     args: ListAdminAccountsForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -601,6 +606,7 @@ export interface FMS {
   /**
    * @see {@link ListAdminsManagingAccountCommand}
    */
+  listAdminsManagingAccount(): Promise<ListAdminsManagingAccountCommandOutput>;
   listAdminsManagingAccount(
     args: ListAdminsManagingAccountCommandInput,
     options?: __HttpHandlerOptions
@@ -663,6 +669,7 @@ export interface FMS {
   /**
    * @see {@link ListMemberAccountsCommand}
    */
+  listMemberAccounts(): Promise<ListMemberAccountsCommandOutput>;
   listMemberAccounts(
     args: ListMemberAccountsCommandInput,
     options?: __HttpHandlerOptions
@@ -680,6 +687,7 @@ export interface FMS {
   /**
    * @see {@link ListPoliciesCommand}
    */
+  listPolicies(): Promise<ListPoliciesCommandOutput>;
   listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
   listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
   listPolicies(
@@ -725,6 +733,7 @@ export interface FMS {
   /**
    * @see {@link ListResourceSetsCommand}
    */
+  listResourceSets(): Promise<ListResourceSetsCommandOutput>;
   listResourceSets(
     args: ListResourceSetsCommandInput,
     options?: __HttpHandlerOptions

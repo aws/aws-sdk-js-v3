@@ -718,6 +718,7 @@ export interface WAFV2 {
   /**
    * @see {@link GetRuleGroupCommand}
    */
+  getRuleGroup(): Promise<GetRuleGroupCommandOutput>;
   getRuleGroup(args: GetRuleGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetRuleGroupCommandOutput>;
   getRuleGroup(args: GetRuleGroupCommandInput, cb: (err: any, data?: GetRuleGroupCommandOutput) => void): void;
   getRuleGroup(

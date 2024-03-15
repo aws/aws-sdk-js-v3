@@ -396,6 +396,7 @@ export interface VoiceID {
   /**
    * @see {@link ListDomainsCommand}
    */
+  listDomains(): Promise<ListDomainsCommandOutput>;
   listDomains(args: ListDomainsCommandInput, options?: __HttpHandlerOptions): Promise<ListDomainsCommandOutput>;
   listDomains(args: ListDomainsCommandInput, cb: (err: any, data?: ListDomainsCommandOutput) => void): void;
   listDomains(

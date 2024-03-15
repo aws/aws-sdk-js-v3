@@ -225,6 +225,7 @@ export interface Amp {
   /**
    * @see {@link CreateWorkspaceCommand}
    */
+  createWorkspace(): Promise<CreateWorkspaceCommandOutput>;
   createWorkspace(
     args: CreateWorkspaceCommandInput,
     options?: __HttpHandlerOptions
@@ -397,6 +398,7 @@ export interface Amp {
   /**
    * @see {@link GetDefaultScraperConfigurationCommand}
    */
+  getDefaultScraperConfiguration(): Promise<GetDefaultScraperConfigurationCommandOutput>;
   getDefaultScraperConfiguration(
     args: GetDefaultScraperConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -431,6 +433,7 @@ export interface Amp {
   /**
    * @see {@link ListScrapersCommand}
    */
+  listScrapers(): Promise<ListScrapersCommandOutput>;
   listScrapers(args: ListScrapersCommandInput, options?: __HttpHandlerOptions): Promise<ListScrapersCommandOutput>;
   listScrapers(args: ListScrapersCommandInput, cb: (err: any, data?: ListScrapersCommandOutput) => void): void;
   listScrapers(
@@ -459,6 +462,7 @@ export interface Amp {
   /**
    * @see {@link ListWorkspacesCommand}
    */
+  listWorkspaces(): Promise<ListWorkspacesCommandOutput>;
   listWorkspaces(
     args: ListWorkspacesCommandInput,
     options?: __HttpHandlerOptions

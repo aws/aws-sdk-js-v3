@@ -111,6 +111,7 @@ export interface CodeGuruSecurity {
   /**
    * @see {@link GetAccountConfigurationCommand}
    */
+  getAccountConfiguration(): Promise<GetAccountConfigurationCommandOutput>;
   getAccountConfiguration(
     args: GetAccountConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -184,6 +185,7 @@ export interface CodeGuruSecurity {
   /**
    * @see {@link ListScansCommand}
    */
+  listScans(): Promise<ListScansCommandOutput>;
   listScans(args: ListScansCommandInput, options?: __HttpHandlerOptions): Promise<ListScansCommandOutput>;
   listScans(args: ListScansCommandInput, cb: (err: any, data?: ListScansCommandOutput) => void): void;
   listScans(

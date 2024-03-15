@@ -335,6 +335,7 @@ export interface FSx {
   /**
    * @see {@link CreateBackupCommand}
    */
+  createBackup(): Promise<CreateBackupCommandOutput>;
   createBackup(args: CreateBackupCommandInput, options?: __HttpHandlerOptions): Promise<CreateBackupCommandOutput>;
   createBackup(args: CreateBackupCommandInput, cb: (err: any, data?: CreateBackupCommandOutput) => void): void;
   createBackup(
@@ -588,6 +589,7 @@ export interface FSx {
   /**
    * @see {@link DescribeBackupsCommand}
    */
+  describeBackups(): Promise<DescribeBackupsCommandOutput>;
   describeBackups(
     args: DescribeBackupsCommandInput,
     options?: __HttpHandlerOptions
@@ -602,6 +604,7 @@ export interface FSx {
   /**
    * @see {@link DescribeDataRepositoryAssociationsCommand}
    */
+  describeDataRepositoryAssociations(): Promise<DescribeDataRepositoryAssociationsCommandOutput>;
   describeDataRepositoryAssociations(
     args: DescribeDataRepositoryAssociationsCommandInput,
     options?: __HttpHandlerOptions
@@ -619,6 +622,7 @@ export interface FSx {
   /**
    * @see {@link DescribeDataRepositoryTasksCommand}
    */
+  describeDataRepositoryTasks(): Promise<DescribeDataRepositoryTasksCommandOutput>;
   describeDataRepositoryTasks(
     args: DescribeDataRepositoryTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -636,6 +640,7 @@ export interface FSx {
   /**
    * @see {@link DescribeFileCachesCommand}
    */
+  describeFileCaches(): Promise<DescribeFileCachesCommandOutput>;
   describeFileCaches(
     args: DescribeFileCachesCommandInput,
     options?: __HttpHandlerOptions
@@ -670,6 +675,7 @@ export interface FSx {
   /**
    * @see {@link DescribeFileSystemsCommand}
    */
+  describeFileSystems(): Promise<DescribeFileSystemsCommandOutput>;
   describeFileSystems(
     args: DescribeFileSystemsCommandInput,
     options?: __HttpHandlerOptions
@@ -687,6 +693,7 @@ export interface FSx {
   /**
    * @see {@link DescribeSharedVpcConfigurationCommand}
    */
+  describeSharedVpcConfiguration(): Promise<DescribeSharedVpcConfigurationCommandOutput>;
   describeSharedVpcConfiguration(
     args: DescribeSharedVpcConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -704,6 +711,7 @@ export interface FSx {
   /**
    * @see {@link DescribeSnapshotsCommand}
    */
+  describeSnapshots(): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -721,6 +729,7 @@ export interface FSx {
   /**
    * @see {@link DescribeStorageVirtualMachinesCommand}
    */
+  describeStorageVirtualMachines(): Promise<DescribeStorageVirtualMachinesCommandOutput>;
   describeStorageVirtualMachines(
     args: DescribeStorageVirtualMachinesCommandInput,
     options?: __HttpHandlerOptions
@@ -738,6 +747,7 @@ export interface FSx {
   /**
    * @see {@link DescribeVolumesCommand}
    */
+  describeVolumes(): Promise<DescribeVolumesCommandOutput>;
   describeVolumes(
     args: DescribeVolumesCommandInput,
     options?: __HttpHandlerOptions
@@ -907,6 +917,7 @@ export interface FSx {
   /**
    * @see {@link UpdateSharedVpcConfigurationCommand}
    */
+  updateSharedVpcConfiguration(): Promise<UpdateSharedVpcConfigurationCommandOutput>;
   updateSharedVpcConfiguration(
     args: UpdateSharedVpcConfigurationCommandInput,
     options?: __HttpHandlerOptions

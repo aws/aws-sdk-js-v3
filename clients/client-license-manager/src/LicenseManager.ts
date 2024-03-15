@@ -630,6 +630,7 @@ export interface LicenseManager {
   /**
    * @see {@link GetServiceSettingsCommand}
    */
+  getServiceSettings(): Promise<GetServiceSettingsCommandOutput>;
   getServiceSettings(
     args: GetServiceSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -664,6 +665,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListDistributedGrantsCommand}
    */
+  listDistributedGrants(): Promise<ListDistributedGrantsCommandOutput>;
   listDistributedGrants(
     args: ListDistributedGrantsCommandInput,
     options?: __HttpHandlerOptions
@@ -698,6 +700,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListLicenseConfigurationsCommand}
    */
+  listLicenseConfigurations(): Promise<ListLicenseConfigurationsCommandOutput>;
   listLicenseConfigurations(
     args: ListLicenseConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -715,6 +718,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListLicenseConversionTasksCommand}
    */
+  listLicenseConversionTasks(): Promise<ListLicenseConversionTasksCommandOutput>;
   listLicenseConversionTasks(
     args: ListLicenseConversionTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -732,6 +736,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListLicenseManagerReportGeneratorsCommand}
    */
+  listLicenseManagerReportGenerators(): Promise<ListLicenseManagerReportGeneratorsCommandOutput>;
   listLicenseManagerReportGenerators(
     args: ListLicenseManagerReportGeneratorsCommandInput,
     options?: __HttpHandlerOptions
@@ -749,6 +754,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListLicensesCommand}
    */
+  listLicenses(): Promise<ListLicensesCommandOutput>;
   listLicenses(args: ListLicensesCommandInput, options?: __HttpHandlerOptions): Promise<ListLicensesCommandOutput>;
   listLicenses(args: ListLicensesCommandInput, cb: (err: any, data?: ListLicensesCommandOutput) => void): void;
   listLicenses(
@@ -794,6 +800,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListReceivedGrantsCommand}
    */
+  listReceivedGrants(): Promise<ListReceivedGrantsCommandOutput>;
   listReceivedGrants(
     args: ListReceivedGrantsCommandInput,
     options?: __HttpHandlerOptions
@@ -828,6 +835,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListReceivedLicensesCommand}
    */
+  listReceivedLicenses(): Promise<ListReceivedLicensesCommandOutput>;
   listReceivedLicenses(
     args: ListReceivedLicensesCommandInput,
     options?: __HttpHandlerOptions
@@ -845,6 +853,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListReceivedLicensesForOrganizationCommand}
    */
+  listReceivedLicensesForOrganization(): Promise<ListReceivedLicensesForOrganizationCommandOutput>;
   listReceivedLicensesForOrganization(
     args: ListReceivedLicensesForOrganizationCommandInput,
     options?: __HttpHandlerOptions
@@ -862,6 +871,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListResourceInventoryCommand}
    */
+  listResourceInventory(): Promise<ListResourceInventoryCommandOutput>;
   listResourceInventory(
     args: ListResourceInventoryCommandInput,
     options?: __HttpHandlerOptions
@@ -896,6 +906,7 @@ export interface LicenseManager {
   /**
    * @see {@link ListTokensCommand}
    */
+  listTokens(): Promise<ListTokensCommandOutput>;
   listTokens(args: ListTokensCommandInput, options?: __HttpHandlerOptions): Promise<ListTokensCommandOutput>;
   listTokens(args: ListTokensCommandInput, cb: (err: any, data?: ListTokensCommandOutput) => void): void;
   listTokens(
@@ -1008,6 +1019,7 @@ export interface LicenseManager {
   /**
    * @see {@link UpdateServiceSettingsCommand}
    */
+  updateServiceSettings(): Promise<UpdateServiceSettingsCommandOutput>;
   updateServiceSettings(
     args: UpdateServiceSettingsCommandInput,
     options?: __HttpHandlerOptions

@@ -206,6 +206,7 @@ export interface TimestreamWrite {
   /**
    * @see {@link DescribeEndpointsCommand}
    */
+  describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -234,6 +235,7 @@ export interface TimestreamWrite {
   /**
    * @see {@link ListBatchLoadTasksCommand}
    */
+  listBatchLoadTasks(): Promise<ListBatchLoadTasksCommandOutput>;
   listBatchLoadTasks(
     args: ListBatchLoadTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -251,6 +253,7 @@ export interface TimestreamWrite {
   /**
    * @see {@link ListDatabasesCommand}
    */
+  listDatabases(): Promise<ListDatabasesCommandOutput>;
   listDatabases(args: ListDatabasesCommandInput, options?: __HttpHandlerOptions): Promise<ListDatabasesCommandOutput>;
   listDatabases(args: ListDatabasesCommandInput, cb: (err: any, data?: ListDatabasesCommandOutput) => void): void;
   listDatabases(
@@ -262,6 +265,7 @@ export interface TimestreamWrite {
   /**
    * @see {@link ListTablesCommand}
    */
+  listTables(): Promise<ListTablesCommandOutput>;
   listTables(args: ListTablesCommandInput, options?: __HttpHandlerOptions): Promise<ListTablesCommandOutput>;
   listTables(args: ListTablesCommandInput, cb: (err: any, data?: ListTablesCommandOutput) => void): void;
   listTables(

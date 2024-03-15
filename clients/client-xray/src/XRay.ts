@@ -205,6 +205,7 @@ export interface XRay {
   /**
    * @see {@link DeleteGroupCommand}
    */
+  deleteGroup(): Promise<DeleteGroupCommandOutput>;
   deleteGroup(args: DeleteGroupCommandInput, options?: __HttpHandlerOptions): Promise<DeleteGroupCommandOutput>;
   deleteGroup(args: DeleteGroupCommandInput, cb: (err: any, data?: DeleteGroupCommandOutput) => void): void;
   deleteGroup(
@@ -233,6 +234,7 @@ export interface XRay {
   /**
    * @see {@link DeleteSamplingRuleCommand}
    */
+  deleteSamplingRule(): Promise<DeleteSamplingRuleCommandOutput>;
   deleteSamplingRule(
     args: DeleteSamplingRuleCommandInput,
     options?: __HttpHandlerOptions
@@ -250,6 +252,7 @@ export interface XRay {
   /**
    * @see {@link GetEncryptionConfigCommand}
    */
+  getEncryptionConfig(): Promise<GetEncryptionConfigCommandOutput>;
   getEncryptionConfig(
     args: GetEncryptionConfigCommandInput,
     options?: __HttpHandlerOptions
@@ -267,6 +270,7 @@ export interface XRay {
   /**
    * @see {@link GetGroupCommand}
    */
+  getGroup(): Promise<GetGroupCommandOutput>;
   getGroup(args: GetGroupCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupCommandOutput>;
   getGroup(args: GetGroupCommandInput, cb: (err: any, data?: GetGroupCommandOutput) => void): void;
   getGroup(
@@ -278,6 +282,7 @@ export interface XRay {
   /**
    * @see {@link GetGroupsCommand}
    */
+  getGroups(): Promise<GetGroupsCommandOutput>;
   getGroups(args: GetGroupsCommandInput, options?: __HttpHandlerOptions): Promise<GetGroupsCommandOutput>;
   getGroups(args: GetGroupsCommandInput, cb: (err: any, data?: GetGroupsCommandOutput) => void): void;
   getGroups(
@@ -351,6 +356,7 @@ export interface XRay {
   /**
    * @see {@link GetSamplingRulesCommand}
    */
+  getSamplingRules(): Promise<GetSamplingRulesCommandOutput>;
   getSamplingRules(
     args: GetSamplingRulesCommandInput,
     options?: __HttpHandlerOptions
@@ -368,6 +374,7 @@ export interface XRay {
   /**
    * @see {@link GetSamplingStatisticSummariesCommand}
    */
+  getSamplingStatisticSummaries(): Promise<GetSamplingStatisticSummariesCommandOutput>;
   getSamplingStatisticSummaries(
     args: GetSamplingStatisticSummariesCommandInput,
     options?: __HttpHandlerOptions
@@ -461,6 +468,7 @@ export interface XRay {
   /**
    * @see {@link ListResourcePoliciesCommand}
    */
+  listResourcePolicies(): Promise<ListResourcePoliciesCommandOutput>;
   listResourcePolicies(
     args: ListResourcePoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -585,6 +593,7 @@ export interface XRay {
   /**
    * @see {@link UpdateGroupCommand}
    */
+  updateGroup(): Promise<UpdateGroupCommandOutput>;
   updateGroup(args: UpdateGroupCommandInput, options?: __HttpHandlerOptions): Promise<UpdateGroupCommandOutput>;
   updateGroup(args: UpdateGroupCommandInput, cb: (err: any, data?: UpdateGroupCommandOutput) => void): void;
   updateGroup(

@@ -236,6 +236,7 @@ export interface CodeGuruProfiler {
   /**
    * @see {@link GetFindingsReportAccountSummaryCommand}
    */
+  getFindingsReportAccountSummary(): Promise<GetFindingsReportAccountSummaryCommandOutput>;
   getFindingsReportAccountSummary(
     args: GetFindingsReportAccountSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -343,6 +344,7 @@ export interface CodeGuruProfiler {
   /**
    * @see {@link ListProfilingGroupsCommand}
    */
+  listProfilingGroups(): Promise<ListProfilingGroupsCommandOutput>;
   listProfilingGroups(
     args: ListProfilingGroupsCommandInput,
     options?: __HttpHandlerOptions

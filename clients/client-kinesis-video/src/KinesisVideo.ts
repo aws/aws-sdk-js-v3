@@ -203,6 +203,7 @@ export interface KinesisVideo {
   /**
    * @see {@link DeleteEdgeConfigurationCommand}
    */
+  deleteEdgeConfiguration(): Promise<DeleteEdgeConfigurationCommandOutput>;
   deleteEdgeConfiguration(
     args: DeleteEdgeConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -248,6 +249,7 @@ export interface KinesisVideo {
   /**
    * @see {@link DescribeEdgeConfigurationCommand}
    */
+  describeEdgeConfiguration(): Promise<DescribeEdgeConfigurationCommandOutput>;
   describeEdgeConfiguration(
     args: DescribeEdgeConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -265,6 +267,7 @@ export interface KinesisVideo {
   /**
    * @see {@link DescribeImageGenerationConfigurationCommand}
    */
+  describeImageGenerationConfiguration(): Promise<DescribeImageGenerationConfigurationCommandOutput>;
   describeImageGenerationConfiguration(
     args: DescribeImageGenerationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -282,6 +285,7 @@ export interface KinesisVideo {
   /**
    * @see {@link DescribeMappedResourceConfigurationCommand}
    */
+  describeMappedResourceConfiguration(): Promise<DescribeMappedResourceConfigurationCommandOutput>;
   describeMappedResourceConfiguration(
     args: DescribeMappedResourceConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -299,6 +303,7 @@ export interface KinesisVideo {
   /**
    * @see {@link DescribeMediaStorageConfigurationCommand}
    */
+  describeMediaStorageConfiguration(): Promise<DescribeMediaStorageConfigurationCommandOutput>;
   describeMediaStorageConfiguration(
     args: DescribeMediaStorageConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -316,6 +321,7 @@ export interface KinesisVideo {
   /**
    * @see {@link DescribeNotificationConfigurationCommand}
    */
+  describeNotificationConfiguration(): Promise<DescribeNotificationConfigurationCommandOutput>;
   describeNotificationConfiguration(
     args: DescribeNotificationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -333,6 +339,7 @@ export interface KinesisVideo {
   /**
    * @see {@link DescribeSignalingChannelCommand}
    */
+  describeSignalingChannel(): Promise<DescribeSignalingChannelCommandOutput>;
   describeSignalingChannel(
     args: DescribeSignalingChannelCommandInput,
     options?: __HttpHandlerOptions
@@ -350,6 +357,7 @@ export interface KinesisVideo {
   /**
    * @see {@link DescribeStreamCommand}
    */
+  describeStream(): Promise<DescribeStreamCommandOutput>;
   describeStream(
     args: DescribeStreamCommandInput,
     options?: __HttpHandlerOptions
@@ -412,6 +420,7 @@ export interface KinesisVideo {
   /**
    * @see {@link ListSignalingChannelsCommand}
    */
+  listSignalingChannels(): Promise<ListSignalingChannelsCommandOutput>;
   listSignalingChannels(
     args: ListSignalingChannelsCommandInput,
     options?: __HttpHandlerOptions
@@ -429,6 +438,7 @@ export interface KinesisVideo {
   /**
    * @see {@link ListStreamsCommand}
    */
+  listStreams(): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, options?: __HttpHandlerOptions): Promise<ListStreamsCommandOutput>;
   listStreams(args: ListStreamsCommandInput, cb: (err: any, data?: ListStreamsCommandOutput) => void): void;
   listStreams(
@@ -457,6 +467,7 @@ export interface KinesisVideo {
   /**
    * @see {@link ListTagsForStreamCommand}
    */
+  listTagsForStream(): Promise<ListTagsForStreamCommandOutput>;
   listTagsForStream(
     args: ListTagsForStreamCommandInput,
     options?: __HttpHandlerOptions
@@ -552,6 +563,7 @@ export interface KinesisVideo {
   /**
    * @see {@link UpdateImageGenerationConfigurationCommand}
    */
+  updateImageGenerationConfiguration(): Promise<UpdateImageGenerationConfigurationCommandOutput>;
   updateImageGenerationConfiguration(
     args: UpdateImageGenerationConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -586,6 +598,7 @@ export interface KinesisVideo {
   /**
    * @see {@link UpdateNotificationConfigurationCommand}
    */
+  updateNotificationConfiguration(): Promise<UpdateNotificationConfigurationCommandOutput>;
   updateNotificationConfiguration(
     args: UpdateNotificationConfigurationCommandInput,
     options?: __HttpHandlerOptions

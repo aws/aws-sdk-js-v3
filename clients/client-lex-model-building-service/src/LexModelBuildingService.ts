@@ -456,6 +456,7 @@ export interface LexModelBuildingService {
   /**
    * @see {@link GetBotsCommand}
    */
+  getBots(): Promise<GetBotsCommandOutput>;
   getBots(args: GetBotsCommandInput, options?: __HttpHandlerOptions): Promise<GetBotsCommandOutput>;
   getBots(args: GetBotsCommandInput, cb: (err: any, data?: GetBotsCommandOutput) => void): void;
   getBots(
@@ -498,6 +499,7 @@ export interface LexModelBuildingService {
   /**
    * @see {@link GetBuiltinIntentsCommand}
    */
+  getBuiltinIntents(): Promise<GetBuiltinIntentsCommandOutput>;
   getBuiltinIntents(
     args: GetBuiltinIntentsCommandInput,
     options?: __HttpHandlerOptions
@@ -515,6 +517,7 @@ export interface LexModelBuildingService {
   /**
    * @see {@link GetBuiltinSlotTypesCommand}
    */
+  getBuiltinSlotTypes(): Promise<GetBuiltinSlotTypesCommandOutput>;
   getBuiltinSlotTypes(
     args: GetBuiltinSlotTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -565,6 +568,7 @@ export interface LexModelBuildingService {
   /**
    * @see {@link GetIntentsCommand}
    */
+  getIntents(): Promise<GetIntentsCommandOutput>;
   getIntents(args: GetIntentsCommandInput, options?: __HttpHandlerOptions): Promise<GetIntentsCommandOutput>;
   getIntents(args: GetIntentsCommandInput, cb: (err: any, data?: GetIntentsCommandOutput) => void): void;
   getIntents(
@@ -604,6 +608,7 @@ export interface LexModelBuildingService {
   /**
    * @see {@link GetMigrationsCommand}
    */
+  getMigrations(): Promise<GetMigrationsCommandOutput>;
   getMigrations(args: GetMigrationsCommandInput, options?: __HttpHandlerOptions): Promise<GetMigrationsCommandOutput>;
   getMigrations(args: GetMigrationsCommandInput, cb: (err: any, data?: GetMigrationsCommandOutput) => void): void;
   getMigrations(
@@ -626,6 +631,7 @@ export interface LexModelBuildingService {
   /**
    * @see {@link GetSlotTypesCommand}
    */
+  getSlotTypes(): Promise<GetSlotTypesCommandOutput>;
   getSlotTypes(args: GetSlotTypesCommandInput, options?: __HttpHandlerOptions): Promise<GetSlotTypesCommandOutput>;
   getSlotTypes(args: GetSlotTypesCommandInput, cb: (err: any, data?: GetSlotTypesCommandOutput) => void): void;
   getSlotTypes(

@@ -946,6 +946,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeCacheClustersCommand}
    */
+  describeCacheClusters(): Promise<DescribeCacheClustersCommandOutput>;
   describeCacheClusters(
     args: DescribeCacheClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -963,6 +964,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeCacheEngineVersionsCommand}
    */
+  describeCacheEngineVersions(): Promise<DescribeCacheEngineVersionsCommandOutput>;
   describeCacheEngineVersions(
     args: DescribeCacheEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -980,6 +982,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeCacheParameterGroupsCommand}
    */
+  describeCacheParameterGroups(): Promise<DescribeCacheParameterGroupsCommandOutput>;
   describeCacheParameterGroups(
     args: DescribeCacheParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1014,6 +1017,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeCacheSecurityGroupsCommand}
    */
+  describeCacheSecurityGroups(): Promise<DescribeCacheSecurityGroupsCommandOutput>;
   describeCacheSecurityGroups(
     args: DescribeCacheSecurityGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1031,6 +1035,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeCacheSubnetGroupsCommand}
    */
+  describeCacheSubnetGroups(): Promise<DescribeCacheSubnetGroupsCommandOutput>;
   describeCacheSubnetGroups(
     args: DescribeCacheSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1065,6 +1070,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -1079,6 +1085,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeGlobalReplicationGroupsCommand}
    */
+  describeGlobalReplicationGroups(): Promise<DescribeGlobalReplicationGroupsCommandOutput>;
   describeGlobalReplicationGroups(
     args: DescribeGlobalReplicationGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1096,6 +1103,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeReplicationGroupsCommand}
    */
+  describeReplicationGroups(): Promise<DescribeReplicationGroupsCommandOutput>;
   describeReplicationGroups(
     args: DescribeReplicationGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1113,6 +1121,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeReservedCacheNodesCommand}
    */
+  describeReservedCacheNodes(): Promise<DescribeReservedCacheNodesCommandOutput>;
   describeReservedCacheNodes(
     args: DescribeReservedCacheNodesCommandInput,
     options?: __HttpHandlerOptions
@@ -1130,6 +1139,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeReservedCacheNodesOfferingsCommand}
    */
+  describeReservedCacheNodesOfferings(): Promise<DescribeReservedCacheNodesOfferingsCommandOutput>;
   describeReservedCacheNodesOfferings(
     args: DescribeReservedCacheNodesOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1147,6 +1157,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeServerlessCachesCommand}
    */
+  describeServerlessCaches(): Promise<DescribeServerlessCachesCommandOutput>;
   describeServerlessCaches(
     args: DescribeServerlessCachesCommandInput,
     options?: __HttpHandlerOptions
@@ -1164,6 +1175,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeServerlessCacheSnapshotsCommand}
    */
+  describeServerlessCacheSnapshots(): Promise<DescribeServerlessCacheSnapshotsCommandOutput>;
   describeServerlessCacheSnapshots(
     args: DescribeServerlessCacheSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -1181,6 +1193,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeServiceUpdatesCommand}
    */
+  describeServiceUpdates(): Promise<DescribeServiceUpdatesCommandOutput>;
   describeServiceUpdates(
     args: DescribeServiceUpdatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1198,6 +1211,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeSnapshotsCommand}
    */
+  describeSnapshots(): Promise<DescribeSnapshotsCommandOutput>;
   describeSnapshots(
     args: DescribeSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -1215,6 +1229,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeUpdateActionsCommand}
    */
+  describeUpdateActions(): Promise<DescribeUpdateActionsCommandOutput>;
   describeUpdateActions(
     args: DescribeUpdateActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1232,6 +1247,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeUserGroupsCommand}
    */
+  describeUserGroups(): Promise<DescribeUserGroupsCommandOutput>;
   describeUserGroups(
     args: DescribeUserGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1249,6 +1265,7 @@ export interface ElastiCache {
   /**
    * @see {@link DescribeUsersCommand}
    */
+  describeUsers(): Promise<DescribeUsersCommandOutput>;
   describeUsers(args: DescribeUsersCommandInput, options?: __HttpHandlerOptions): Promise<DescribeUsersCommandOutput>;
   describeUsers(args: DescribeUsersCommandInput, cb: (err: any, data?: DescribeUsersCommandOutput) => void): void;
   describeUsers(
@@ -1345,6 +1362,7 @@ export interface ElastiCache {
   /**
    * @see {@link ListAllowedNodeTypeModificationsCommand}
    */
+  listAllowedNodeTypeModifications(): Promise<ListAllowedNodeTypeModificationsCommandOutput>;
   listAllowedNodeTypeModifications(
     args: ListAllowedNodeTypeModificationsCommandInput,
     options?: __HttpHandlerOptions

@@ -518,6 +518,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link CreateRegistrationAttachmentCommand}
    */
+  createRegistrationAttachment(): Promise<CreateRegistrationAttachmentCommandOutput>;
   createRegistrationAttachment(
     args: CreateRegistrationAttachmentCommandInput,
     options?: __HttpHandlerOptions
@@ -744,6 +745,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DeleteTextMessageSpendLimitOverrideCommand}
    */
+  deleteTextMessageSpendLimitOverride(): Promise<DeleteTextMessageSpendLimitOverrideCommandOutput>;
   deleteTextMessageSpendLimitOverride(
     args: DeleteTextMessageSpendLimitOverrideCommandInput,
     options?: __HttpHandlerOptions
@@ -778,6 +780,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DeleteVoiceMessageSpendLimitOverrideCommand}
    */
+  deleteVoiceMessageSpendLimitOverride(): Promise<DeleteVoiceMessageSpendLimitOverrideCommandOutput>;
   deleteVoiceMessageSpendLimitOverride(
     args: DeleteVoiceMessageSpendLimitOverrideCommandInput,
     options?: __HttpHandlerOptions
@@ -795,6 +798,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeAccountAttributesCommand}
    */
+  describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -812,6 +816,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeAccountLimitsCommand}
    */
+  describeAccountLimits(): Promise<DescribeAccountLimitsCommandOutput>;
   describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -829,6 +834,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeConfigurationSetsCommand}
    */
+  describeConfigurationSets(): Promise<DescribeConfigurationSetsCommandOutput>;
   describeConfigurationSets(
     args: DescribeConfigurationSetsCommandInput,
     options?: __HttpHandlerOptions
@@ -880,6 +886,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeOptOutListsCommand}
    */
+  describeOptOutLists(): Promise<DescribeOptOutListsCommandOutput>;
   describeOptOutLists(
     args: DescribeOptOutListsCommandInput,
     options?: __HttpHandlerOptions
@@ -897,6 +904,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribePhoneNumbersCommand}
    */
+  describePhoneNumbers(): Promise<DescribePhoneNumbersCommandOutput>;
   describePhoneNumbers(
     args: DescribePhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -914,6 +922,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribePoolsCommand}
    */
+  describePools(): Promise<DescribePoolsCommandOutput>;
   describePools(args: DescribePoolsCommandInput, options?: __HttpHandlerOptions): Promise<DescribePoolsCommandOutput>;
   describePools(args: DescribePoolsCommandInput, cb: (err: any, data?: DescribePoolsCommandOutput) => void): void;
   describePools(
@@ -925,6 +934,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeRegistrationAttachmentsCommand}
    */
+  describeRegistrationAttachments(): Promise<DescribeRegistrationAttachmentsCommandOutput>;
   describeRegistrationAttachments(
     args: DescribeRegistrationAttachmentsCommandInput,
     options?: __HttpHandlerOptions
@@ -976,6 +986,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeRegistrationsCommand}
    */
+  describeRegistrations(): Promise<DescribeRegistrationsCommandOutput>;
   describeRegistrations(
     args: DescribeRegistrationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1010,6 +1021,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeRegistrationTypeDefinitionsCommand}
    */
+  describeRegistrationTypeDefinitions(): Promise<DescribeRegistrationTypeDefinitionsCommandOutput>;
   describeRegistrationTypeDefinitions(
     args: DescribeRegistrationTypeDefinitionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1044,6 +1056,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeSenderIdsCommand}
    */
+  describeSenderIds(): Promise<DescribeSenderIdsCommandOutput>;
   describeSenderIds(
     args: DescribeSenderIdsCommandInput,
     options?: __HttpHandlerOptions
@@ -1061,6 +1074,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeSpendLimitsCommand}
    */
+  describeSpendLimits(): Promise<DescribeSpendLimitsCommandOutput>;
   describeSpendLimits(
     args: DescribeSpendLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -1078,6 +1092,7 @@ export interface PinpointSMSVoiceV2 {
   /**
    * @see {@link DescribeVerifiedDestinationNumbersCommand}
    */
+  describeVerifiedDestinationNumbers(): Promise<DescribeVerifiedDestinationNumbersCommandOutput>;
   describeVerifiedDestinationNumbers(
     args: DescribeVerifiedDestinationNumbersCommandInput,
     options?: __HttpHandlerOptions

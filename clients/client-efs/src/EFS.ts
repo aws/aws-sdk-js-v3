@@ -360,6 +360,7 @@ export interface EFS {
   /**
    * @see {@link DescribeAccessPointsCommand}
    */
+  describeAccessPoints(): Promise<DescribeAccessPointsCommandOutput>;
   describeAccessPoints(
     args: DescribeAccessPointsCommandInput,
     options?: __HttpHandlerOptions
@@ -377,6 +378,7 @@ export interface EFS {
   /**
    * @see {@link DescribeAccountPreferencesCommand}
    */
+  describeAccountPreferences(): Promise<DescribeAccountPreferencesCommandOutput>;
   describeAccountPreferences(
     args: DescribeAccountPreferencesCommandInput,
     options?: __HttpHandlerOptions
@@ -428,6 +430,7 @@ export interface EFS {
   /**
    * @see {@link DescribeFileSystemsCommand}
    */
+  describeFileSystems(): Promise<DescribeFileSystemsCommandOutput>;
   describeFileSystems(
     args: DescribeFileSystemsCommandInput,
     options?: __HttpHandlerOptions
@@ -462,6 +465,7 @@ export interface EFS {
   /**
    * @see {@link DescribeMountTargetsCommand}
    */
+  describeMountTargets(): Promise<DescribeMountTargetsCommandOutput>;
   describeMountTargets(
     args: DescribeMountTargetsCommandInput,
     options?: __HttpHandlerOptions
@@ -496,6 +500,7 @@ export interface EFS {
   /**
    * @see {@link DescribeReplicationConfigurationsCommand}
    */
+  describeReplicationConfigurations(): Promise<DescribeReplicationConfigurationsCommandOutput>;
   describeReplicationConfigurations(
     args: DescribeReplicationConfigurationsCommandInput,
     options?: __HttpHandlerOptions

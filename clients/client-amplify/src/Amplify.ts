@@ -452,6 +452,7 @@ export interface Amplify {
   /**
    * @see {@link ListAppsCommand}
    */
+  listApps(): Promise<ListAppsCommandOutput>;
   listApps(args: ListAppsCommandInput, options?: __HttpHandlerOptions): Promise<ListAppsCommandOutput>;
   listApps(args: ListAppsCommandInput, cb: (err: any, data?: ListAppsCommandOutput) => void): void;
   listApps(

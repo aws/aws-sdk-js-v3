@@ -122,6 +122,7 @@ export interface TimestreamQuery {
   /**
    * @see {@link DescribeEndpointsCommand}
    */
+  describeEndpoints(): Promise<DescribeEndpointsCommandOutput>;
   describeEndpoints(
     args: DescribeEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -173,6 +174,7 @@ export interface TimestreamQuery {
   /**
    * @see {@link ListScheduledQueriesCommand}
    */
+  listScheduledQueries(): Promise<ListScheduledQueriesCommandOutput>;
   listScheduledQueries(
     args: ListScheduledQueriesCommandInput,
     options?: __HttpHandlerOptions

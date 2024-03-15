@@ -650,6 +650,7 @@ export interface Transcribe {
   /**
    * @see {@link ListCallAnalyticsCategoriesCommand}
    */
+  listCallAnalyticsCategories(): Promise<ListCallAnalyticsCategoriesCommandOutput>;
   listCallAnalyticsCategories(
     args: ListCallAnalyticsCategoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -667,6 +668,7 @@ export interface Transcribe {
   /**
    * @see {@link ListCallAnalyticsJobsCommand}
    */
+  listCallAnalyticsJobs(): Promise<ListCallAnalyticsJobsCommandOutput>;
   listCallAnalyticsJobs(
     args: ListCallAnalyticsJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -684,6 +686,7 @@ export interface Transcribe {
   /**
    * @see {@link ListLanguageModelsCommand}
    */
+  listLanguageModels(): Promise<ListLanguageModelsCommandOutput>;
   listLanguageModels(
     args: ListLanguageModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -701,6 +704,7 @@ export interface Transcribe {
   /**
    * @see {@link ListMedicalScribeJobsCommand}
    */
+  listMedicalScribeJobs(): Promise<ListMedicalScribeJobsCommandOutput>;
   listMedicalScribeJobs(
     args: ListMedicalScribeJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -718,6 +722,7 @@ export interface Transcribe {
   /**
    * @see {@link ListMedicalTranscriptionJobsCommand}
    */
+  listMedicalTranscriptionJobs(): Promise<ListMedicalTranscriptionJobsCommandOutput>;
   listMedicalTranscriptionJobs(
     args: ListMedicalTranscriptionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -735,6 +740,7 @@ export interface Transcribe {
   /**
    * @see {@link ListMedicalVocabulariesCommand}
    */
+  listMedicalVocabularies(): Promise<ListMedicalVocabulariesCommandOutput>;
   listMedicalVocabularies(
     args: ListMedicalVocabulariesCommandInput,
     options?: __HttpHandlerOptions
@@ -769,6 +775,7 @@ export interface Transcribe {
   /**
    * @see {@link ListTranscriptionJobsCommand}
    */
+  listTranscriptionJobs(): Promise<ListTranscriptionJobsCommandOutput>;
   listTranscriptionJobs(
     args: ListTranscriptionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -786,6 +793,7 @@ export interface Transcribe {
   /**
    * @see {@link ListVocabulariesCommand}
    */
+  listVocabularies(): Promise<ListVocabulariesCommandOutput>;
   listVocabularies(
     args: ListVocabulariesCommandInput,
     options?: __HttpHandlerOptions
@@ -803,6 +811,7 @@ export interface Transcribe {
   /**
    * @see {@link ListVocabularyFiltersCommand}
    */
+  listVocabularyFilters(): Promise<ListVocabularyFiltersCommandOutput>;
   listVocabularyFilters(
     args: ListVocabularyFiltersCommandInput,
     options?: __HttpHandlerOptions

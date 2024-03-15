@@ -299,6 +299,7 @@ export interface IoTEvents {
   /**
    * @see {@link DescribeLoggingOptionsCommand}
    */
+  describeLoggingOptions(): Promise<DescribeLoggingOptionsCommandOutput>;
   describeLoggingOptions(
     args: DescribeLoggingOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -333,6 +334,7 @@ export interface IoTEvents {
   /**
    * @see {@link ListAlarmModelsCommand}
    */
+  listAlarmModels(): Promise<ListAlarmModelsCommandOutput>;
   listAlarmModels(
     args: ListAlarmModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -364,6 +366,7 @@ export interface IoTEvents {
   /**
    * @see {@link ListDetectorModelsCommand}
    */
+  listDetectorModels(): Promise<ListDetectorModelsCommandOutput>;
   listDetectorModels(
     args: ListDetectorModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -415,6 +418,7 @@ export interface IoTEvents {
   /**
    * @see {@link ListInputsCommand}
    */
+  listInputs(): Promise<ListInputsCommandOutput>;
   listInputs(args: ListInputsCommandInput, options?: __HttpHandlerOptions): Promise<ListInputsCommandOutput>;
   listInputs(args: ListInputsCommandInput, cb: (err: any, data?: ListInputsCommandOutput) => void): void;
   listInputs(

@@ -990,6 +990,7 @@ export interface IAM {
   /**
    * @see {@link CreateAccessKeyCommand}
    */
+  createAccessKey(): Promise<CreateAccessKeyCommandOutput>;
   createAccessKey(
     args: CreateAccessKeyCommandInput,
     options?: __HttpHandlerOptions
@@ -1249,6 +1250,7 @@ export interface IAM {
   /**
    * @see {@link DeleteAccountPasswordPolicyCommand}
    */
+  deleteAccountPasswordPolicy(): Promise<DeleteAccountPasswordPolicyCommandOutput>;
   deleteAccountPasswordPolicy(
     args: DeleteAccountPasswordPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -1647,6 +1649,7 @@ export interface IAM {
   /**
    * @see {@link GenerateCredentialReportCommand}
    */
+  generateCredentialReport(): Promise<GenerateCredentialReportCommandOutput>;
   generateCredentialReport(
     args: GenerateCredentialReportCommandInput,
     options?: __HttpHandlerOptions
@@ -1715,6 +1718,7 @@ export interface IAM {
   /**
    * @see {@link GetAccountAuthorizationDetailsCommand}
    */
+  getAccountAuthorizationDetails(): Promise<GetAccountAuthorizationDetailsCommandOutput>;
   getAccountAuthorizationDetails(
     args: GetAccountAuthorizationDetailsCommandInput,
     options?: __HttpHandlerOptions
@@ -1732,6 +1736,7 @@ export interface IAM {
   /**
    * @see {@link GetAccountPasswordPolicyCommand}
    */
+  getAccountPasswordPolicy(): Promise<GetAccountPasswordPolicyCommandOutput>;
   getAccountPasswordPolicy(
     args: GetAccountPasswordPolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -1749,6 +1754,7 @@ export interface IAM {
   /**
    * @see {@link GetAccountSummaryCommand}
    */
+  getAccountSummary(): Promise<GetAccountSummaryCommandOutput>;
   getAccountSummary(
     args: GetAccountSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -1800,6 +1806,7 @@ export interface IAM {
   /**
    * @see {@link GetCredentialReportCommand}
    */
+  getCredentialReport(): Promise<GetCredentialReportCommandOutput>;
   getCredentialReport(
     args: GetCredentialReportCommandInput,
     options?: __HttpHandlerOptions
@@ -2064,6 +2071,7 @@ export interface IAM {
   /**
    * @see {@link GetUserCommand}
    */
+  getUser(): Promise<GetUserCommandOutput>;
   getUser(args: GetUserCommandInput, options?: __HttpHandlerOptions): Promise<GetUserCommandOutput>;
   getUser(args: GetUserCommandInput, cb: (err: any, data?: GetUserCommandOutput) => void): void;
   getUser(
@@ -2086,6 +2094,7 @@ export interface IAM {
   /**
    * @see {@link ListAccessKeysCommand}
    */
+  listAccessKeys(): Promise<ListAccessKeysCommandOutput>;
   listAccessKeys(
     args: ListAccessKeysCommandInput,
     options?: __HttpHandlerOptions
@@ -2100,6 +2109,7 @@ export interface IAM {
   /**
    * @see {@link ListAccountAliasesCommand}
    */
+  listAccountAliases(): Promise<ListAccountAliasesCommandOutput>;
   listAccountAliases(
     args: ListAccountAliasesCommandInput,
     options?: __HttpHandlerOptions
@@ -2202,6 +2212,7 @@ export interface IAM {
   /**
    * @see {@link ListGroupsCommand}
    */
+  listGroups(): Promise<ListGroupsCommandOutput>;
   listGroups(args: ListGroupsCommandInput, options?: __HttpHandlerOptions): Promise<ListGroupsCommandOutput>;
   listGroups(args: ListGroupsCommandInput, cb: (err: any, data?: ListGroupsCommandOutput) => void): void;
   listGroups(
@@ -2230,6 +2241,7 @@ export interface IAM {
   /**
    * @see {@link ListInstanceProfilesCommand}
    */
+  listInstanceProfiles(): Promise<ListInstanceProfilesCommandOutput>;
   listInstanceProfiles(
     args: ListInstanceProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -2281,6 +2293,7 @@ export interface IAM {
   /**
    * @see {@link ListMFADevicesCommand}
    */
+  listMFADevices(): Promise<ListMFADevicesCommandOutput>;
   listMFADevices(
     args: ListMFADevicesCommandInput,
     options?: __HttpHandlerOptions
@@ -2312,6 +2325,7 @@ export interface IAM {
   /**
    * @see {@link ListOpenIDConnectProvidersCommand}
    */
+  listOpenIDConnectProviders(): Promise<ListOpenIDConnectProvidersCommandOutput>;
   listOpenIDConnectProviders(
     args: ListOpenIDConnectProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -2346,6 +2360,7 @@ export interface IAM {
   /**
    * @see {@link ListPoliciesCommand}
    */
+  listPolicies(): Promise<ListPoliciesCommandOutput>;
   listPolicies(args: ListPoliciesCommandInput, options?: __HttpHandlerOptions): Promise<ListPoliciesCommandOutput>;
   listPolicies(args: ListPoliciesCommandInput, cb: (err: any, data?: ListPoliciesCommandOutput) => void): void;
   listPolicies(
@@ -2422,6 +2437,7 @@ export interface IAM {
   /**
    * @see {@link ListRolesCommand}
    */
+  listRoles(): Promise<ListRolesCommandOutput>;
   listRoles(args: ListRolesCommandInput, options?: __HttpHandlerOptions): Promise<ListRolesCommandOutput>;
   listRoles(args: ListRolesCommandInput, cb: (err: any, data?: ListRolesCommandOutput) => void): void;
   listRoles(
@@ -2444,6 +2460,7 @@ export interface IAM {
   /**
    * @see {@link ListSAMLProvidersCommand}
    */
+  listSAMLProviders(): Promise<ListSAMLProvidersCommandOutput>;
   listSAMLProviders(
     args: ListSAMLProvidersCommandInput,
     options?: __HttpHandlerOptions
@@ -2478,6 +2495,7 @@ export interface IAM {
   /**
    * @see {@link ListServerCertificatesCommand}
    */
+  listServerCertificates(): Promise<ListServerCertificatesCommandOutput>;
   listServerCertificates(
     args: ListServerCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -2512,6 +2530,7 @@ export interface IAM {
   /**
    * @see {@link ListServiceSpecificCredentialsCommand}
    */
+  listServiceSpecificCredentials(): Promise<ListServiceSpecificCredentialsCommandOutput>;
   listServiceSpecificCredentials(
     args: ListServiceSpecificCredentialsCommandInput,
     options?: __HttpHandlerOptions
@@ -2529,6 +2548,7 @@ export interface IAM {
   /**
    * @see {@link ListSigningCertificatesCommand}
    */
+  listSigningCertificates(): Promise<ListSigningCertificatesCommandOutput>;
   listSigningCertificates(
     args: ListSigningCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -2546,6 +2566,7 @@ export interface IAM {
   /**
    * @see {@link ListSSHPublicKeysCommand}
    */
+  listSSHPublicKeys(): Promise<ListSSHPublicKeysCommandOutput>;
   listSSHPublicKeys(
     args: ListSSHPublicKeysCommandInput,
     options?: __HttpHandlerOptions
@@ -2580,6 +2601,7 @@ export interface IAM {
   /**
    * @see {@link ListUsersCommand}
    */
+  listUsers(): Promise<ListUsersCommandOutput>;
   listUsers(args: ListUsersCommandInput, options?: __HttpHandlerOptions): Promise<ListUsersCommandOutput>;
   listUsers(args: ListUsersCommandInput, cb: (err: any, data?: ListUsersCommandOutput) => void): void;
   listUsers(
@@ -2602,6 +2624,7 @@ export interface IAM {
   /**
    * @see {@link ListVirtualMFADevicesCommand}
    */
+  listVirtualMFADevices(): Promise<ListVirtualMFADevicesCommandOutput>;
   listVirtualMFADevices(
     args: ListVirtualMFADevicesCommandInput,
     options?: __HttpHandlerOptions
@@ -3077,6 +3100,7 @@ export interface IAM {
   /**
    * @see {@link UpdateAccountPasswordPolicyCommand}
    */
+  updateAccountPasswordPolicy(): Promise<UpdateAccountPasswordPolicyCommandOutput>;
   updateAccountPasswordPolicy(
     args: UpdateAccountPasswordPolicyCommandInput,
     options?: __HttpHandlerOptions

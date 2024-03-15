@@ -671,6 +671,7 @@ export interface Kafka {
   /**
    * @see {@link GetCompatibleKafkaVersionsCommand}
    */
+  getCompatibleKafkaVersions(): Promise<GetCompatibleKafkaVersionsCommandOutput>;
   getCompatibleKafkaVersions(
     args: GetCompatibleKafkaVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -739,6 +740,7 @@ export interface Kafka {
   /**
    * @see {@link ListClustersCommand}
    */
+  listClusters(): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, options?: __HttpHandlerOptions): Promise<ListClustersCommandOutput>;
   listClusters(args: ListClustersCommandInput, cb: (err: any, data?: ListClustersCommandOutput) => void): void;
   listClusters(
@@ -750,6 +752,7 @@ export interface Kafka {
   /**
    * @see {@link ListClustersV2Command}
    */
+  listClustersV2(): Promise<ListClustersV2CommandOutput>;
   listClustersV2(
     args: ListClustersV2CommandInput,
     options?: __HttpHandlerOptions
@@ -781,6 +784,7 @@ export interface Kafka {
   /**
    * @see {@link ListConfigurationsCommand}
    */
+  listConfigurations(): Promise<ListConfigurationsCommandOutput>;
   listConfigurations(
     args: ListConfigurationsCommandInput,
     options?: __HttpHandlerOptions
@@ -798,6 +802,7 @@ export interface Kafka {
   /**
    * @see {@link ListKafkaVersionsCommand}
    */
+  listKafkaVersions(): Promise<ListKafkaVersionsCommandOutput>;
   listKafkaVersions(
     args: ListKafkaVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -826,6 +831,7 @@ export interface Kafka {
   /**
    * @see {@link ListReplicatorsCommand}
    */
+  listReplicators(): Promise<ListReplicatorsCommandOutput>;
   listReplicators(
     args: ListReplicatorsCommandInput,
     options?: __HttpHandlerOptions
@@ -874,6 +880,7 @@ export interface Kafka {
   /**
    * @see {@link ListVpcConnectionsCommand}
    */
+  listVpcConnections(): Promise<ListVpcConnectionsCommandOutput>;
   listVpcConnections(
     args: ListVpcConnectionsCommandInput,
     options?: __HttpHandlerOptions

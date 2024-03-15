@@ -262,6 +262,7 @@ export interface Schemas {
   /**
    * @see {@link DeleteResourcePolicyCommand}
    */
+  deleteResourcePolicy(): Promise<DeleteResourcePolicyCommandOutput>;
   deleteResourcePolicy(
     args: DeleteResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -417,6 +418,7 @@ export interface Schemas {
   /**
    * @see {@link GetResourcePolicyCommand}
    */
+  getResourcePolicy(): Promise<GetResourcePolicyCommandOutput>;
   getResourcePolicy(
     args: GetResourcePolicyCommandInput,
     options?: __HttpHandlerOptions
@@ -434,6 +436,7 @@ export interface Schemas {
   /**
    * @see {@link ListDiscoverersCommand}
    */
+  listDiscoverers(): Promise<ListDiscoverersCommandOutput>;
   listDiscoverers(
     args: ListDiscoverersCommandInput,
     options?: __HttpHandlerOptions
@@ -448,6 +451,7 @@ export interface Schemas {
   /**
    * @see {@link ListRegistriesCommand}
    */
+  listRegistries(): Promise<ListRegistriesCommandOutput>;
   listRegistries(
     args: ListRegistriesCommandInput,
     options?: __HttpHandlerOptions

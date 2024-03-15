@@ -803,6 +803,7 @@ export interface LexModelsV2 {
   /**
    * @see {@link CreateUploadUrlCommand}
    */
+  createUploadUrl(): Promise<CreateUploadUrlCommandOutput>;
   createUploadUrl(
     args: CreateUploadUrlCommandInput,
     options?: __HttpHandlerOptions
@@ -1453,6 +1454,7 @@ export interface LexModelsV2 {
   /**
    * @see {@link ListBotsCommand}
    */
+  listBots(): Promise<ListBotsCommandOutput>;
   listBots(args: ListBotsCommandInput, options?: __HttpHandlerOptions): Promise<ListBotsCommandOutput>;
   listBots(args: ListBotsCommandInput, cb: (err: any, data?: ListBotsCommandOutput) => void): void;
   listBots(
@@ -1546,6 +1548,7 @@ export interface LexModelsV2 {
   /**
    * @see {@link ListExportsCommand}
    */
+  listExports(): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
   listExports(
@@ -1557,6 +1560,7 @@ export interface LexModelsV2 {
   /**
    * @see {@link ListImportsCommand}
    */
+  listImports(): Promise<ListImportsCommandOutput>;
   listImports(args: ListImportsCommandInput, options?: __HttpHandlerOptions): Promise<ListImportsCommandOutput>;
   listImports(args: ListImportsCommandInput, cb: (err: any, data?: ListImportsCommandOutput) => void): void;
   listImports(
@@ -1734,6 +1738,7 @@ export interface LexModelsV2 {
   /**
    * @see {@link ListTestExecutionsCommand}
    */
+  listTestExecutions(): Promise<ListTestExecutionsCommandOutput>;
   listTestExecutions(
     args: ListTestExecutionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1768,6 +1773,7 @@ export interface LexModelsV2 {
   /**
    * @see {@link ListTestSetsCommand}
    */
+  listTestSets(): Promise<ListTestSetsCommandOutput>;
   listTestSets(args: ListTestSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListTestSetsCommandOutput>;
   listTestSets(args: ListTestSetsCommandInput, cb: (err: any, data?: ListTestSetsCommandOutput) => void): void;
   listTestSets(

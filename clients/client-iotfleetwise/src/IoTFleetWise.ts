@@ -561,6 +561,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link GetEncryptionConfigurationCommand}
    */
+  getEncryptionConfiguration(): Promise<GetEncryptionConfigurationCommandOutput>;
   getEncryptionConfiguration(
     args: GetEncryptionConfigurationCommandInput,
     options?: __HttpHandlerOptions
@@ -589,6 +590,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link GetLoggingOptionsCommand}
    */
+  getLoggingOptions(): Promise<GetLoggingOptionsCommandOutput>;
   getLoggingOptions(
     args: GetLoggingOptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -623,6 +625,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link GetRegisterAccountStatusCommand}
    */
+  getRegisterAccountStatus(): Promise<GetRegisterAccountStatusCommandOutput>;
   getRegisterAccountStatus(
     args: GetRegisterAccountStatusCommandInput,
     options?: __HttpHandlerOptions
@@ -719,6 +722,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link ListCampaignsCommand}
    */
+  listCampaigns(): Promise<ListCampaignsCommandOutput>;
   listCampaigns(args: ListCampaignsCommandInput, options?: __HttpHandlerOptions): Promise<ListCampaignsCommandOutput>;
   listCampaigns(args: ListCampaignsCommandInput, cb: (err: any, data?: ListCampaignsCommandOutput) => void): void;
   listCampaigns(
@@ -747,6 +751,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link ListDecoderManifestsCommand}
    */
+  listDecoderManifests(): Promise<ListDecoderManifestsCommandOutput>;
   listDecoderManifests(
     args: ListDecoderManifestsCommandInput,
     options?: __HttpHandlerOptions
@@ -781,6 +786,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link ListFleetsCommand}
    */
+  listFleets(): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, options?: __HttpHandlerOptions): Promise<ListFleetsCommandOutput>;
   listFleets(args: ListFleetsCommandInput, cb: (err: any, data?: ListFleetsCommandOutput) => void): void;
   listFleets(
@@ -826,6 +832,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link ListModelManifestsCommand}
    */
+  listModelManifests(): Promise<ListModelManifestsCommandOutput>;
   listModelManifests(
     args: ListModelManifestsCommandInput,
     options?: __HttpHandlerOptions
@@ -860,6 +867,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link ListSignalCatalogsCommand}
    */
+  listSignalCatalogs(): Promise<ListSignalCatalogsCommandOutput>;
   listSignalCatalogs(
     args: ListSignalCatalogsCommandInput,
     options?: __HttpHandlerOptions
@@ -894,6 +902,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link ListVehiclesCommand}
    */
+  listVehicles(): Promise<ListVehiclesCommandOutput>;
   listVehicles(args: ListVehiclesCommandInput, options?: __HttpHandlerOptions): Promise<ListVehiclesCommandOutput>;
   listVehicles(args: ListVehiclesCommandInput, cb: (err: any, data?: ListVehiclesCommandOutput) => void): void;
   listVehicles(
@@ -956,6 +965,7 @@ export interface IoTFleetWise {
   /**
    * @see {@link RegisterAccountCommand}
    */
+  registerAccount(): Promise<RegisterAccountCommandOutput>;
   registerAccount(
     args: RegisterAccountCommandInput,
     options?: __HttpHandlerOptions

@@ -992,6 +992,7 @@ export interface CleanRooms {
   /**
    * @see {@link ListCollaborationsCommand}
    */
+  listCollaborations(): Promise<ListCollaborationsCommandOutput>;
   listCollaborations(
     args: ListCollaborationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1043,6 +1044,7 @@ export interface CleanRooms {
   /**
    * @see {@link ListConfiguredTablesCommand}
    */
+  listConfiguredTables(): Promise<ListConfiguredTablesCommandOutput>;
   listConfiguredTables(
     args: ListConfiguredTablesCommandInput,
     options?: __HttpHandlerOptions
@@ -1071,6 +1073,7 @@ export interface CleanRooms {
   /**
    * @see {@link ListMembershipsCommand}
    */
+  listMemberships(): Promise<ListMembershipsCommandOutput>;
   listMemberships(
     args: ListMembershipsCommandInput,
     options?: __HttpHandlerOptions

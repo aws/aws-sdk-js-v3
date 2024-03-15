@@ -391,6 +391,7 @@ export interface EntityResolution {
   /**
    * @see {@link ListIdMappingWorkflowsCommand}
    */
+  listIdMappingWorkflows(): Promise<ListIdMappingWorkflowsCommandOutput>;
   listIdMappingWorkflows(
     args: ListIdMappingWorkflowsCommandInput,
     options?: __HttpHandlerOptions
@@ -425,6 +426,7 @@ export interface EntityResolution {
   /**
    * @see {@link ListMatchingWorkflowsCommand}
    */
+  listMatchingWorkflows(): Promise<ListMatchingWorkflowsCommandOutput>;
   listMatchingWorkflows(
     args: ListMatchingWorkflowsCommandInput,
     options?: __HttpHandlerOptions
@@ -442,6 +444,7 @@ export interface EntityResolution {
   /**
    * @see {@link ListProviderServicesCommand}
    */
+  listProviderServices(): Promise<ListProviderServicesCommandOutput>;
   listProviderServices(
     args: ListProviderServicesCommandInput,
     options?: __HttpHandlerOptions
@@ -459,6 +462,7 @@ export interface EntityResolution {
   /**
    * @see {@link ListSchemaMappingsCommand}
    */
+  listSchemaMappings(): Promise<ListSchemaMappingsCommandOutput>;
   listSchemaMappings(
     args: ListSchemaMappingsCommandInput,
     options?: __HttpHandlerOptions

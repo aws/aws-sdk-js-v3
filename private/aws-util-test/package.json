@@ -17,8 +17,8 @@
   "sideEffects": false,
   "dependencies": {
     "@aws-sdk/aws-protocoltests-json": "*",
-    "@smithy/protocol-http": "^3.2.2",
-    "@smithy/types": "^2.11.0",
+    "@smithy/protocol-http": "^3.3.0",
+    "@smithy/types": "^2.12.0",
     "tslib": "^2.6.2"
   },
   "devDependencies": {

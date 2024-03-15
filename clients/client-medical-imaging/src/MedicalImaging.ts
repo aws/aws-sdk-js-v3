@@ -231,6 +231,7 @@ export interface MedicalImaging {
   /**
    * @see {@link ListDatastoresCommand}
    */
+  listDatastores(): Promise<ListDatastoresCommandOutput>;
   listDatastores(
     args: ListDatastoresCommandInput,
     options?: __HttpHandlerOptions

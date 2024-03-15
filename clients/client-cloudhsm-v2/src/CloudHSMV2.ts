@@ -157,6 +157,7 @@ export interface CloudHSMV2 {
   /**
    * @see {@link DescribeBackupsCommand}
    */
+  describeBackups(): Promise<DescribeBackupsCommandOutput>;
   describeBackups(
     args: DescribeBackupsCommandInput,
     options?: __HttpHandlerOptions
@@ -171,6 +172,7 @@ export interface CloudHSMV2 {
   /**
    * @see {@link DescribeClustersCommand}
    */
+  describeClusters(): Promise<DescribeClustersCommandOutput>;
   describeClusters(
     args: DescribeClustersCommandInput,
     options?: __HttpHandlerOptions

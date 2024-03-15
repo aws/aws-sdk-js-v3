@@ -14,6 +14,7 @@ export interface EchoService {
   /**
    * @see {@link EchoCommand}
    */
+  echo(): Promise<EchoCommandOutput>;
   echo(args: EchoCommandInput, options?: __HttpHandlerOptions): Promise<EchoCommandOutput>;
   echo(args: EchoCommandInput, cb: (err: any, data?: EchoCommandOutput) => void): void;
   echo(args: EchoCommandInput, options: __HttpHandlerOptions, cb: (err: any, data?: EchoCommandOutput) => void): void;

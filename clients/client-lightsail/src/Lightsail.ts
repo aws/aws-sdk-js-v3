@@ -1115,6 +1115,7 @@ export interface Lightsail {
   /**
    * @see {@link CreateContainerServiceRegistryLoginCommand}
    */
+  createContainerServiceRegistryLogin(): Promise<CreateContainerServiceRegistryLoginCommandOutput>;
   createContainerServiceRegistryLogin(
     args: CreateContainerServiceRegistryLoginCommandInput,
     options?: __HttpHandlerOptions
@@ -1535,6 +1536,7 @@ export interface Lightsail {
   /**
    * @see {@link DeleteDistributionCommand}
    */
+  deleteDistribution(): Promise<DeleteDistributionCommandOutput>;
   deleteDistribution(
     args: DeleteDistributionCommandInput,
     options?: __HttpHandlerOptions
@@ -1777,6 +1779,7 @@ export interface Lightsail {
   /**
    * @see {@link DownloadDefaultKeyPairCommand}
    */
+  downloadDefaultKeyPair(): Promise<DownloadDefaultKeyPairCommandOutput>;
   downloadDefaultKeyPair(
     args: DownloadDefaultKeyPairCommandInput,
     options?: __HttpHandlerOptions
@@ -1819,6 +1822,7 @@ export interface Lightsail {
   /**
    * @see {@link GetActiveNamesCommand}
    */
+  getActiveNames(): Promise<GetActiveNamesCommandOutput>;
   getActiveNames(
     args: GetActiveNamesCommandInput,
     options?: __HttpHandlerOptions
@@ -1833,6 +1837,7 @@ export interface Lightsail {
   /**
    * @see {@link GetAlarmsCommand}
    */
+  getAlarms(): Promise<GetAlarmsCommandOutput>;
   getAlarms(args: GetAlarmsCommandInput, options?: __HttpHandlerOptions): Promise<GetAlarmsCommandOutput>;
   getAlarms(args: GetAlarmsCommandInput, cb: (err: any, data?: GetAlarmsCommandOutput) => void): void;
   getAlarms(
@@ -1861,6 +1866,7 @@ export interface Lightsail {
   /**
    * @see {@link GetBlueprintsCommand}
    */
+  getBlueprints(): Promise<GetBlueprintsCommandOutput>;
   getBlueprints(args: GetBlueprintsCommandInput, options?: __HttpHandlerOptions): Promise<GetBlueprintsCommandOutput>;
   getBlueprints(args: GetBlueprintsCommandInput, cb: (err: any, data?: GetBlueprintsCommandOutput) => void): void;
   getBlueprints(
@@ -1889,6 +1895,7 @@ export interface Lightsail {
   /**
    * @see {@link GetBucketBundlesCommand}
    */
+  getBucketBundles(): Promise<GetBucketBundlesCommandOutput>;
   getBucketBundles(
     args: GetBucketBundlesCommandInput,
     options?: __HttpHandlerOptions
@@ -1923,6 +1930,7 @@ export interface Lightsail {
   /**
    * @see {@link GetBucketsCommand}
    */
+  getBuckets(): Promise<GetBucketsCommandOutput>;
   getBuckets(args: GetBucketsCommandInput, options?: __HttpHandlerOptions): Promise<GetBucketsCommandOutput>;
   getBuckets(args: GetBucketsCommandInput, cb: (err: any, data?: GetBucketsCommandOutput) => void): void;
   getBuckets(
@@ -1934,6 +1942,7 @@ export interface Lightsail {
   /**
    * @see {@link GetBundlesCommand}
    */
+  getBundles(): Promise<GetBundlesCommandOutput>;
   getBundles(args: GetBundlesCommandInput, options?: __HttpHandlerOptions): Promise<GetBundlesCommandOutput>;
   getBundles(args: GetBundlesCommandInput, cb: (err: any, data?: GetBundlesCommandOutput) => void): void;
   getBundles(
@@ -1945,6 +1954,7 @@ export interface Lightsail {
   /**
    * @see {@link GetCertificatesCommand}
    */
+  getCertificates(): Promise<GetCertificatesCommandOutput>;
   getCertificates(
     args: GetCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1959,6 +1969,7 @@ export interface Lightsail {
   /**
    * @see {@link GetCloudFormationStackRecordsCommand}
    */
+  getCloudFormationStackRecords(): Promise<GetCloudFormationStackRecordsCommandOutput>;
   getCloudFormationStackRecords(
     args: GetCloudFormationStackRecordsCommandInput,
     options?: __HttpHandlerOptions
@@ -1976,6 +1987,7 @@ export interface Lightsail {
   /**
    * @see {@link GetContactMethodsCommand}
    */
+  getContactMethods(): Promise<GetContactMethodsCommandOutput>;
   getContactMethods(
     args: GetContactMethodsCommandInput,
     options?: __HttpHandlerOptions
@@ -1993,6 +2005,7 @@ export interface Lightsail {
   /**
    * @see {@link GetContainerAPIMetadataCommand}
    */
+  getContainerAPIMetadata(): Promise<GetContainerAPIMetadataCommandOutput>;
   getContainerAPIMetadata(
     args: GetContainerAPIMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -2075,6 +2088,7 @@ export interface Lightsail {
   /**
    * @see {@link GetContainerServicePowersCommand}
    */
+  getContainerServicePowers(): Promise<GetContainerServicePowersCommandOutput>;
   getContainerServicePowers(
     args: GetContainerServicePowersCommandInput,
     options?: __HttpHandlerOptions
@@ -2092,6 +2106,7 @@ export interface Lightsail {
   /**
    * @see {@link GetContainerServicesCommand}
    */
+  getContainerServices(): Promise<GetContainerServicesCommandOutput>;
   getContainerServices(
     args: GetContainerServicesCommandInput,
     options?: __HttpHandlerOptions
@@ -2134,6 +2149,7 @@ export interface Lightsail {
   /**
    * @see {@link GetDisksCommand}
    */
+  getDisks(): Promise<GetDisksCommandOutput>;
   getDisks(args: GetDisksCommandInput, options?: __HttpHandlerOptions): Promise<GetDisksCommandOutput>;
   getDisks(args: GetDisksCommandInput, cb: (err: any, data?: GetDisksCommandOutput) => void): void;
   getDisks(
@@ -2159,6 +2175,7 @@ export interface Lightsail {
   /**
    * @see {@link GetDiskSnapshotsCommand}
    */
+  getDiskSnapshots(): Promise<GetDiskSnapshotsCommandOutput>;
   getDiskSnapshots(
     args: GetDiskSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -2176,6 +2193,7 @@ export interface Lightsail {
   /**
    * @see {@link GetDistributionBundlesCommand}
    */
+  getDistributionBundles(): Promise<GetDistributionBundlesCommandOutput>;
   getDistributionBundles(
     args: GetDistributionBundlesCommandInput,
     options?: __HttpHandlerOptions
@@ -2193,6 +2211,7 @@ export interface Lightsail {
   /**
    * @see {@link GetDistributionLatestCacheResetCommand}
    */
+  getDistributionLatestCacheReset(): Promise<GetDistributionLatestCacheResetCommandOutput>;
   getDistributionLatestCacheReset(
     args: GetDistributionLatestCacheResetCommandInput,
     options?: __HttpHandlerOptions
@@ -2227,6 +2246,7 @@ export interface Lightsail {
   /**
    * @see {@link GetDistributionsCommand}
    */
+  getDistributions(): Promise<GetDistributionsCommandOutput>;
   getDistributions(
     args: GetDistributionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2255,6 +2275,7 @@ export interface Lightsail {
   /**
    * @see {@link GetDomainsCommand}
    */
+  getDomains(): Promise<GetDomainsCommandOutput>;
   getDomains(args: GetDomainsCommandInput, options?: __HttpHandlerOptions): Promise<GetDomainsCommandOutput>;
   getDomains(args: GetDomainsCommandInput, cb: (err: any, data?: GetDomainsCommandOutput) => void): void;
   getDomains(
@@ -2266,6 +2287,7 @@ export interface Lightsail {
   /**
    * @see {@link GetExportSnapshotRecordsCommand}
    */
+  getExportSnapshotRecords(): Promise<GetExportSnapshotRecordsCommandOutput>;
   getExportSnapshotRecords(
     args: GetExportSnapshotRecordsCommandInput,
     options?: __HttpHandlerOptions
@@ -2345,6 +2367,7 @@ export interface Lightsail {
   /**
    * @see {@link GetInstancesCommand}
    */
+  getInstances(): Promise<GetInstancesCommandOutput>;
   getInstances(args: GetInstancesCommandInput, options?: __HttpHandlerOptions): Promise<GetInstancesCommandOutput>;
   getInstances(args: GetInstancesCommandInput, cb: (err: any, data?: GetInstancesCommandOutput) => void): void;
   getInstances(
@@ -2373,6 +2396,7 @@ export interface Lightsail {
   /**
    * @see {@link GetInstanceSnapshotsCommand}
    */
+  getInstanceSnapshots(): Promise<GetInstanceSnapshotsCommandOutput>;
   getInstanceSnapshots(
     args: GetInstanceSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -2418,6 +2442,7 @@ export interface Lightsail {
   /**
    * @see {@link GetKeyPairsCommand}
    */
+  getKeyPairs(): Promise<GetKeyPairsCommandOutput>;
   getKeyPairs(args: GetKeyPairsCommandInput, options?: __HttpHandlerOptions): Promise<GetKeyPairsCommandOutput>;
   getKeyPairs(args: GetKeyPairsCommandInput, cb: (err: any, data?: GetKeyPairsCommandOutput) => void): void;
   getKeyPairs(
@@ -2460,6 +2485,7 @@ export interface Lightsail {
   /**
    * @see {@link GetLoadBalancersCommand}
    */
+  getLoadBalancers(): Promise<GetLoadBalancersCommandOutput>;
   getLoadBalancers(
     args: GetLoadBalancersCommandInput,
     options?: __HttpHandlerOptions
@@ -2494,6 +2520,7 @@ export interface Lightsail {
   /**
    * @see {@link GetLoadBalancerTlsPoliciesCommand}
    */
+  getLoadBalancerTlsPolicies(): Promise<GetLoadBalancerTlsPoliciesCommandOutput>;
   getLoadBalancerTlsPolicies(
     args: GetLoadBalancerTlsPoliciesCommandInput,
     options?: __HttpHandlerOptions
@@ -2522,6 +2549,7 @@ export interface Lightsail {
   /**
    * @see {@link GetOperationsCommand}
    */
+  getOperations(): Promise<GetOperationsCommandOutput>;
   getOperations(args: GetOperationsCommandInput, options?: __HttpHandlerOptions): Promise<GetOperationsCommandOutput>;
   getOperations(args: GetOperationsCommandInput, cb: (err: any, data?: GetOperationsCommandOutput) => void): void;
   getOperations(
@@ -2550,6 +2578,7 @@ export interface Lightsail {
   /**
    * @see {@link GetRegionsCommand}
    */
+  getRegions(): Promise<GetRegionsCommandOutput>;
   getRegions(args: GetRegionsCommandInput, options?: __HttpHandlerOptions): Promise<GetRegionsCommandOutput>;
   getRegions(args: GetRegionsCommandInput, cb: (err: any, data?: GetRegionsCommandOutput) => void): void;
   getRegions(
@@ -2578,6 +2607,7 @@ export interface Lightsail {
   /**
    * @see {@link GetRelationalDatabaseBlueprintsCommand}
    */
+  getRelationalDatabaseBlueprints(): Promise<GetRelationalDatabaseBlueprintsCommandOutput>;
   getRelationalDatabaseBlueprints(
     args: GetRelationalDatabaseBlueprintsCommandInput,
     options?: __HttpHandlerOptions
@@ -2595,6 +2625,7 @@ export interface Lightsail {
   /**
    * @see {@link GetRelationalDatabaseBundlesCommand}
    */
+  getRelationalDatabaseBundles(): Promise<GetRelationalDatabaseBundlesCommandOutput>;
   getRelationalDatabaseBundles(
     args: GetRelationalDatabaseBundlesCommandInput,
     options?: __HttpHandlerOptions
@@ -2714,6 +2745,7 @@ export interface Lightsail {
   /**
    * @see {@link GetRelationalDatabasesCommand}
    */
+  getRelationalDatabases(): Promise<GetRelationalDatabasesCommandOutput>;
   getRelationalDatabases(
     args: GetRelationalDatabasesCommandInput,
     options?: __HttpHandlerOptions
@@ -2748,6 +2780,7 @@ export interface Lightsail {
   /**
    * @see {@link GetRelationalDatabaseSnapshotsCommand}
    */
+  getRelationalDatabaseSnapshots(): Promise<GetRelationalDatabaseSnapshotsCommandOutput>;
   getRelationalDatabaseSnapshots(
     args: GetRelationalDatabaseSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -2790,6 +2823,7 @@ export interface Lightsail {
   /**
    * @see {@link GetStaticIpsCommand}
    */
+  getStaticIps(): Promise<GetStaticIpsCommandOutput>;
   getStaticIps(args: GetStaticIpsCommandInput, options?: __HttpHandlerOptions): Promise<GetStaticIpsCommandOutput>;
   getStaticIps(args: GetStaticIpsCommandInput, cb: (err: any, data?: GetStaticIpsCommandOutput) => void): void;
   getStaticIps(
@@ -2812,6 +2846,7 @@ export interface Lightsail {
   /**
    * @see {@link IsVpcPeeredCommand}
    */
+  isVpcPeered(): Promise<IsVpcPeeredCommandOutput>;
   isVpcPeered(args: IsVpcPeeredCommandInput, options?: __HttpHandlerOptions): Promise<IsVpcPeeredCommandOutput>;
   isVpcPeered(args: IsVpcPeeredCommandInput, cb: (err: any, data?: IsVpcPeeredCommandOutput) => void): void;
   isVpcPeered(
@@ -2840,6 +2875,7 @@ export interface Lightsail {
   /**
    * @see {@link PeerVpcCommand}
    */
+  peerVpc(): Promise<PeerVpcCommandOutput>;
   peerVpc(args: PeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<PeerVpcCommandOutput>;
   peerVpc(args: PeerVpcCommandInput, cb: (err: any, data?: PeerVpcCommandOutput) => void): void;
   peerVpc(
@@ -2941,6 +2977,7 @@ export interface Lightsail {
   /**
    * @see {@link ResetDistributionCacheCommand}
    */
+  resetDistributionCache(): Promise<ResetDistributionCacheCommandOutput>;
   resetDistributionCache(
     args: ResetDistributionCacheCommandInput,
     options?: __HttpHandlerOptions
@@ -3132,6 +3169,7 @@ export interface Lightsail {
   /**
    * @see {@link UnpeerVpcCommand}
    */
+  unpeerVpc(): Promise<UnpeerVpcCommandOutput>;
   unpeerVpc(args: UnpeerVpcCommandInput, options?: __HttpHandlerOptions): Promise<UnpeerVpcCommandOutput>;
   unpeerVpc(args: UnpeerVpcCommandInput, cb: (err: any, data?: UnpeerVpcCommandOutput) => void): void;
   unpeerVpc(
@@ -3216,6 +3254,7 @@ export interface Lightsail {
   /**
    * @see {@link UpdateDistributionBundleCommand}
    */
+  updateDistributionBundle(): Promise<UpdateDistributionBundleCommandOutput>;
   updateDistributionBundle(
     args: UpdateDistributionBundleCommandInput,
     options?: __HttpHandlerOptions

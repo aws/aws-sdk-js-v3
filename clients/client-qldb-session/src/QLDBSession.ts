@@ -13,6 +13,7 @@ export interface QLDBSession {
   /**
    * @see {@link SendCommandCommand}
    */
+  sendCommand(): Promise<SendCommandCommandOutput>;
   sendCommand(args: SendCommandCommandInput, options?: __HttpHandlerOptions): Promise<SendCommandCommandOutput>;
   sendCommand(args: SendCommandCommandInput, cb: (err: any, data?: SendCommandCommandOutput) => void): void;
   sendCommand(

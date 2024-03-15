@@ -457,6 +457,7 @@ export interface CloudFormation {
   /**
    * @see {@link ActivateOrganizationsAccessCommand}
    */
+  activateOrganizationsAccess(): Promise<ActivateOrganizationsAccessCommandOutput>;
   activateOrganizationsAccess(
     args: ActivateOrganizationsAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -474,6 +475,7 @@ export interface CloudFormation {
   /**
    * @see {@link ActivateTypeCommand}
    */
+  activateType(): Promise<ActivateTypeCommandOutput>;
   activateType(args: ActivateTypeCommandInput, options?: __HttpHandlerOptions): Promise<ActivateTypeCommandOutput>;
   activateType(args: ActivateTypeCommandInput, cb: (err: any, data?: ActivateTypeCommandOutput) => void): void;
   activateType(
@@ -609,6 +611,7 @@ export interface CloudFormation {
   /**
    * @see {@link DeactivateOrganizationsAccessCommand}
    */
+  deactivateOrganizationsAccess(): Promise<DeactivateOrganizationsAccessCommandOutput>;
   deactivateOrganizationsAccess(
     args: DeactivateOrganizationsAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -626,6 +629,7 @@ export interface CloudFormation {
   /**
    * @see {@link DeactivateTypeCommand}
    */
+  deactivateType(): Promise<DeactivateTypeCommandOutput>;
   deactivateType(
     args: DeactivateTypeCommandInput,
     options?: __HttpHandlerOptions
@@ -713,6 +717,7 @@ export interface CloudFormation {
   /**
    * @see {@link DeregisterTypeCommand}
    */
+  deregisterType(): Promise<DeregisterTypeCommandOutput>;
   deregisterType(
     args: DeregisterTypeCommandInput,
     options?: __HttpHandlerOptions
@@ -727,6 +732,7 @@ export interface CloudFormation {
   /**
    * @see {@link DescribeAccountLimitsCommand}
    */
+  describeAccountLimits(): Promise<DescribeAccountLimitsCommandOutput>;
   describeAccountLimits(
     args: DescribeAccountLimitsCommandInput,
     options?: __HttpHandlerOptions
@@ -795,6 +801,7 @@ export interface CloudFormation {
   /**
    * @see {@link DescribeOrganizationsAccessCommand}
    */
+  describeOrganizationsAccess(): Promise<DescribeOrganizationsAccessCommandOutput>;
   describeOrganizationsAccess(
     args: DescribeOrganizationsAccessCommandInput,
     options?: __HttpHandlerOptions
@@ -812,6 +819,7 @@ export interface CloudFormation {
   /**
    * @see {@link DescribePublisherCommand}
    */
+  describePublisher(): Promise<DescribePublisherCommandOutput>;
   describePublisher(
     args: DescribePublisherCommandInput,
     options?: __HttpHandlerOptions
@@ -863,6 +871,7 @@ export interface CloudFormation {
   /**
    * @see {@link DescribeStackEventsCommand}
    */
+  describeStackEvents(): Promise<DescribeStackEventsCommandOutput>;
   describeStackEvents(
     args: DescribeStackEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -931,6 +940,7 @@ export interface CloudFormation {
   /**
    * @see {@link DescribeStackResourcesCommand}
    */
+  describeStackResources(): Promise<DescribeStackResourcesCommandOutput>;
   describeStackResources(
     args: DescribeStackResourcesCommandInput,
     options?: __HttpHandlerOptions
@@ -948,6 +958,7 @@ export interface CloudFormation {
   /**
    * @see {@link DescribeStacksCommand}
    */
+  describeStacks(): Promise<DescribeStacksCommandOutput>;
   describeStacks(
     args: DescribeStacksCommandInput,
     options?: __HttpHandlerOptions
@@ -996,6 +1007,7 @@ export interface CloudFormation {
   /**
    * @see {@link DescribeTypeCommand}
    */
+  describeType(): Promise<DescribeTypeCommandOutput>;
   describeType(args: DescribeTypeCommandInput, options?: __HttpHandlerOptions): Promise<DescribeTypeCommandOutput>;
   describeType(args: DescribeTypeCommandInput, cb: (err: any, data?: DescribeTypeCommandOutput) => void): void;
   describeType(
@@ -1075,6 +1087,7 @@ export interface CloudFormation {
   /**
    * @see {@link EstimateTemplateCostCommand}
    */
+  estimateTemplateCost(): Promise<EstimateTemplateCostCommandOutput>;
   estimateTemplateCost(
     args: EstimateTemplateCostCommandInput,
     options?: __HttpHandlerOptions
@@ -1140,6 +1153,7 @@ export interface CloudFormation {
   /**
    * @see {@link GetTemplateCommand}
    */
+  getTemplate(): Promise<GetTemplateCommandOutput>;
   getTemplate(args: GetTemplateCommandInput, options?: __HttpHandlerOptions): Promise<GetTemplateCommandOutput>;
   getTemplate(args: GetTemplateCommandInput, cb: (err: any, data?: GetTemplateCommandOutput) => void): void;
   getTemplate(
@@ -1151,6 +1165,7 @@ export interface CloudFormation {
   /**
    * @see {@link GetTemplateSummaryCommand}
    */
+  getTemplateSummary(): Promise<GetTemplateSummaryCommandOutput>;
   getTemplateSummary(
     args: GetTemplateSummaryCommandInput,
     options?: __HttpHandlerOptions
@@ -1199,6 +1214,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListExportsCommand}
    */
+  listExports(): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, options?: __HttpHandlerOptions): Promise<ListExportsCommandOutput>;
   listExports(args: ListExportsCommandInput, cb: (err: any, data?: ListExportsCommandOutput) => void): void;
   listExports(
@@ -1210,6 +1226,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListGeneratedTemplatesCommand}
    */
+  listGeneratedTemplates(): Promise<ListGeneratedTemplatesCommandOutput>;
   listGeneratedTemplates(
     args: ListGeneratedTemplatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1272,6 +1289,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListResourceScansCommand}
    */
+  listResourceScans(): Promise<ListResourceScansCommandOutput>;
   listResourceScans(
     args: ListResourceScansCommandInput,
     options?: __HttpHandlerOptions
@@ -1340,6 +1358,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListStacksCommand}
    */
+  listStacks(): Promise<ListStacksCommandOutput>;
   listStacks(args: ListStacksCommandInput, options?: __HttpHandlerOptions): Promise<ListStacksCommandOutput>;
   listStacks(args: ListStacksCommandInput, cb: (err: any, data?: ListStacksCommandOutput) => void): void;
   listStacks(
@@ -1385,6 +1404,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListStackSetsCommand}
    */
+  listStackSets(): Promise<ListStackSetsCommandOutput>;
   listStackSets(args: ListStackSetsCommandInput, options?: __HttpHandlerOptions): Promise<ListStackSetsCommandOutput>;
   listStackSets(args: ListStackSetsCommandInput, cb: (err: any, data?: ListStackSetsCommandOutput) => void): void;
   listStackSets(
@@ -1396,6 +1416,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListTypeRegistrationsCommand}
    */
+  listTypeRegistrations(): Promise<ListTypeRegistrationsCommandOutput>;
   listTypeRegistrations(
     args: ListTypeRegistrationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1413,6 +1434,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListTypesCommand}
    */
+  listTypes(): Promise<ListTypesCommandOutput>;
   listTypes(args: ListTypesCommandInput, options?: __HttpHandlerOptions): Promise<ListTypesCommandOutput>;
   listTypes(args: ListTypesCommandInput, cb: (err: any, data?: ListTypesCommandOutput) => void): void;
   listTypes(
@@ -1424,6 +1446,7 @@ export interface CloudFormation {
   /**
    * @see {@link ListTypeVersionsCommand}
    */
+  listTypeVersions(): Promise<ListTypeVersionsCommandOutput>;
   listTypeVersions(
     args: ListTypeVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1441,6 +1464,7 @@ export interface CloudFormation {
   /**
    * @see {@link PublishTypeCommand}
    */
+  publishType(): Promise<PublishTypeCommandOutput>;
   publishType(args: PublishTypeCommandInput, options?: __HttpHandlerOptions): Promise<PublishTypeCommandOutput>;
   publishType(args: PublishTypeCommandInput, cb: (err: any, data?: PublishTypeCommandOutput) => void): void;
   publishType(
@@ -1469,6 +1493,7 @@ export interface CloudFormation {
   /**
    * @see {@link RegisterPublisherCommand}
    */
+  registerPublisher(): Promise<RegisterPublisherCommandOutput>;
   registerPublisher(
     args: RegisterPublisherCommandInput,
     options?: __HttpHandlerOptions
@@ -1539,6 +1564,7 @@ export interface CloudFormation {
   /**
    * @see {@link SetTypeDefaultVersionCommand}
    */
+  setTypeDefaultVersion(): Promise<SetTypeDefaultVersionCommandOutput>;
   setTypeDefaultVersion(
     args: SetTypeDefaultVersionCommandInput,
     options?: __HttpHandlerOptions
@@ -1570,6 +1596,7 @@ export interface CloudFormation {
   /**
    * @see {@link StartResourceScanCommand}
    */
+  startResourceScan(): Promise<StartResourceScanCommandOutput>;
   startResourceScan(
     args: StartResourceScanCommandInput,
     options?: __HttpHandlerOptions
@@ -1604,6 +1631,7 @@ export interface CloudFormation {
   /**
    * @see {@link TestTypeCommand}
    */
+  testType(): Promise<TestTypeCommandOutput>;
   testType(args: TestTypeCommandInput, options?: __HttpHandlerOptions): Promise<TestTypeCommandOutput>;
   testType(args: TestTypeCommandInput, cb: (err: any, data?: TestTypeCommandOutput) => void): void;
   testType(
@@ -1691,6 +1719,7 @@ export interface CloudFormation {
   /**
    * @see {@link ValidateTemplateCommand}
    */
+  validateTemplate(): Promise<ValidateTemplateCommandOutput>;
   validateTemplate(
     args: ValidateTemplateCommandInput,
     options?: __HttpHandlerOptions

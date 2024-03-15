@@ -1042,6 +1042,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link GetGlobalSettingsCommand}
    */
+  getGlobalSettings(): Promise<GetGlobalSettingsCommandOutput>;
   getGlobalSettings(
     args: GetGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1090,6 +1091,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link GetPhoneNumberSettingsCommand}
    */
+  getPhoneNumberSettings(): Promise<GetPhoneNumberSettingsCommandOutput>;
   getPhoneNumberSettings(
     args: GetPhoneNumberSettingsCommandInput,
     options?: __HttpHandlerOptions
@@ -1401,6 +1403,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link ListAvailableVoiceConnectorRegionsCommand}
    */
+  listAvailableVoiceConnectorRegions(): Promise<ListAvailableVoiceConnectorRegionsCommandOutput>;
   listAvailableVoiceConnectorRegions(
     args: ListAvailableVoiceConnectorRegionsCommandInput,
     options?: __HttpHandlerOptions
@@ -1418,6 +1421,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link ListPhoneNumberOrdersCommand}
    */
+  listPhoneNumberOrders(): Promise<ListPhoneNumberOrdersCommandOutput>;
   listPhoneNumberOrders(
     args: ListPhoneNumberOrdersCommandInput,
     options?: __HttpHandlerOptions
@@ -1435,6 +1439,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link ListPhoneNumbersCommand}
    */
+  listPhoneNumbers(): Promise<ListPhoneNumbersCommandOutput>;
   listPhoneNumbers(
     args: ListPhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -1469,6 +1474,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link ListSipMediaApplicationsCommand}
    */
+  listSipMediaApplications(): Promise<ListSipMediaApplicationsCommandOutput>;
   listSipMediaApplications(
     args: ListSipMediaApplicationsCommandInput,
     options?: __HttpHandlerOptions
@@ -1486,6 +1492,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link ListSipRulesCommand}
    */
+  listSipRules(): Promise<ListSipRulesCommandOutput>;
   listSipRules(args: ListSipRulesCommandInput, options?: __HttpHandlerOptions): Promise<ListSipRulesCommandOutput>;
   listSipRules(args: ListSipRulesCommandInput, cb: (err: any, data?: ListSipRulesCommandOutput) => void): void;
   listSipRules(
@@ -1531,6 +1538,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link ListVoiceConnectorGroupsCommand}
    */
+  listVoiceConnectorGroups(): Promise<ListVoiceConnectorGroupsCommandOutput>;
   listVoiceConnectorGroups(
     args: ListVoiceConnectorGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1548,6 +1556,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link ListVoiceConnectorsCommand}
    */
+  listVoiceConnectors(): Promise<ListVoiceConnectorsCommandOutput>;
   listVoiceConnectors(
     args: ListVoiceConnectorsCommandInput,
     options?: __HttpHandlerOptions
@@ -1582,6 +1591,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link ListVoiceProfileDomainsCommand}
    */
+  listVoiceProfileDomains(): Promise<ListVoiceProfileDomainsCommandOutput>;
   listVoiceProfileDomains(
     args: ListVoiceProfileDomainsCommandInput,
     options?: __HttpHandlerOptions
@@ -1786,6 +1796,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link SearchAvailablePhoneNumbersCommand}
    */
+  searchAvailablePhoneNumbers(): Promise<SearchAvailablePhoneNumbersCommandOutput>;
   searchAvailablePhoneNumbers(
     args: SearchAvailablePhoneNumbersCommandInput,
     options?: __HttpHandlerOptions
@@ -1893,6 +1904,7 @@ export interface ChimeSDKVoice {
   /**
    * @see {@link UpdateGlobalSettingsCommand}
    */
+  updateGlobalSettings(): Promise<UpdateGlobalSettingsCommandOutput>;
   updateGlobalSettings(
     args: UpdateGlobalSettingsCommandInput,
     options?: __HttpHandlerOptions

@@ -444,6 +444,7 @@ export interface GroundStation {
   /**
    * @see {@link ListConfigsCommand}
    */
+  listConfigs(): Promise<ListConfigsCommandOutput>;
   listConfigs(args: ListConfigsCommandInput, options?: __HttpHandlerOptions): Promise<ListConfigsCommandOutput>;
   listConfigs(args: ListConfigsCommandInput, cb: (err: any, data?: ListConfigsCommandOutput) => void): void;
   listConfigs(
@@ -466,6 +467,7 @@ export interface GroundStation {
   /**
    * @see {@link ListDataflowEndpointGroupsCommand}
    */
+  listDataflowEndpointGroups(): Promise<ListDataflowEndpointGroupsCommandOutput>;
   listDataflowEndpointGroups(
     args: ListDataflowEndpointGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -497,6 +499,7 @@ export interface GroundStation {
   /**
    * @see {@link ListGroundStationsCommand}
    */
+  listGroundStations(): Promise<ListGroundStationsCommandOutput>;
   listGroundStations(
     args: ListGroundStationsCommandInput,
     options?: __HttpHandlerOptions
@@ -514,6 +517,7 @@ export interface GroundStation {
   /**
    * @see {@link ListMissionProfilesCommand}
    */
+  listMissionProfiles(): Promise<ListMissionProfilesCommandOutput>;
   listMissionProfiles(
     args: ListMissionProfilesCommandInput,
     options?: __HttpHandlerOptions
@@ -531,6 +535,7 @@ export interface GroundStation {
   /**
    * @see {@link ListSatellitesCommand}
    */
+  listSatellites(): Promise<ListSatellitesCommandOutput>;
   listSatellites(
     args: ListSatellitesCommandInput,
     options?: __HttpHandlerOptions

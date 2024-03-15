@@ -153,6 +153,7 @@ export interface Cloud9 {
   /**
    * @see {@link DescribeEnvironmentMembershipsCommand}
    */
+  describeEnvironmentMemberships(): Promise<DescribeEnvironmentMembershipsCommandOutput>;
   describeEnvironmentMemberships(
     args: DescribeEnvironmentMembershipsCommandInput,
     options?: __HttpHandlerOptions
@@ -204,6 +205,7 @@ export interface Cloud9 {
   /**
    * @see {@link ListEnvironmentsCommand}
    */
+  listEnvironments(): Promise<ListEnvironmentsCommandOutput>;
   listEnvironments(
     args: ListEnvironmentsCommandInput,
     options?: __HttpHandlerOptions

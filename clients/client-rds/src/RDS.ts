@@ -1455,6 +1455,7 @@ export interface RDS {
   /**
    * @see {@link CreateGlobalClusterCommand}
    */
+  createGlobalCluster(): Promise<CreateGlobalClusterCommandOutput>;
   createGlobalCluster(
     args: CreateGlobalClusterCommandInput,
     options?: __HttpHandlerOptions
@@ -1656,6 +1657,7 @@ export interface RDS {
   /**
    * @see {@link DeleteDBInstanceAutomatedBackupCommand}
    */
+  deleteDBInstanceAutomatedBackup(): Promise<DeleteDBInstanceAutomatedBackupCommandOutput>;
   deleteDBInstanceAutomatedBackup(
     args: DeleteDBInstanceAutomatedBackupCommandInput,
     options?: __HttpHandlerOptions
@@ -1888,6 +1890,7 @@ export interface RDS {
   /**
    * @see {@link DescribeAccountAttributesCommand}
    */
+  describeAccountAttributes(): Promise<DescribeAccountAttributesCommandOutput>;
   describeAccountAttributes(
     args: DescribeAccountAttributesCommandInput,
     options?: __HttpHandlerOptions
@@ -1905,6 +1908,7 @@ export interface RDS {
   /**
    * @see {@link DescribeBlueGreenDeploymentsCommand}
    */
+  describeBlueGreenDeployments(): Promise<DescribeBlueGreenDeploymentsCommandOutput>;
   describeBlueGreenDeployments(
     args: DescribeBlueGreenDeploymentsCommandInput,
     options?: __HttpHandlerOptions
@@ -1922,6 +1926,7 @@ export interface RDS {
   /**
    * @see {@link DescribeCertificatesCommand}
    */
+  describeCertificates(): Promise<DescribeCertificatesCommandOutput>;
   describeCertificates(
     args: DescribeCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -1939,6 +1944,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBClusterAutomatedBackupsCommand}
    */
+  describeDBClusterAutomatedBackups(): Promise<DescribeDBClusterAutomatedBackupsCommandOutput>;
   describeDBClusterAutomatedBackups(
     args: DescribeDBClusterAutomatedBackupsCommandInput,
     options?: __HttpHandlerOptions
@@ -1973,6 +1979,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBClusterEndpointsCommand}
    */
+  describeDBClusterEndpoints(): Promise<DescribeDBClusterEndpointsCommandOutput>;
   describeDBClusterEndpoints(
     args: DescribeDBClusterEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -1990,6 +1997,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBClusterParameterGroupsCommand}
    */
+  describeDBClusterParameterGroups(): Promise<DescribeDBClusterParameterGroupsCommandOutput>;
   describeDBClusterParameterGroups(
     args: DescribeDBClusterParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -2024,6 +2032,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBClustersCommand}
    */
+  describeDBClusters(): Promise<DescribeDBClustersCommandOutput>;
   describeDBClusters(
     args: DescribeDBClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -2058,6 +2067,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBClusterSnapshotsCommand}
    */
+  describeDBClusterSnapshots(): Promise<DescribeDBClusterSnapshotsCommandOutput>;
   describeDBClusterSnapshots(
     args: DescribeDBClusterSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -2075,6 +2085,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBEngineVersionsCommand}
    */
+  describeDBEngineVersions(): Promise<DescribeDBEngineVersionsCommandOutput>;
   describeDBEngineVersions(
     args: DescribeDBEngineVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2092,6 +2103,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBInstanceAutomatedBackupsCommand}
    */
+  describeDBInstanceAutomatedBackups(): Promise<DescribeDBInstanceAutomatedBackupsCommandOutput>;
   describeDBInstanceAutomatedBackups(
     args: DescribeDBInstanceAutomatedBackupsCommandInput,
     options?: __HttpHandlerOptions
@@ -2109,6 +2121,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBInstancesCommand}
    */
+  describeDBInstances(): Promise<DescribeDBInstancesCommandOutput>;
   describeDBInstances(
     args: DescribeDBInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -2143,6 +2156,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBParameterGroupsCommand}
    */
+  describeDBParameterGroups(): Promise<DescribeDBParameterGroupsCommandOutput>;
   describeDBParameterGroups(
     args: DescribeDBParameterGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -2177,6 +2191,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBProxiesCommand}
    */
+  describeDBProxies(): Promise<DescribeDBProxiesCommandOutput>;
   describeDBProxies(
     args: DescribeDBProxiesCommandInput,
     options?: __HttpHandlerOptions
@@ -2194,6 +2209,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBProxyEndpointsCommand}
    */
+  describeDBProxyEndpoints(): Promise<DescribeDBProxyEndpointsCommandOutput>;
   describeDBProxyEndpoints(
     args: DescribeDBProxyEndpointsCommandInput,
     options?: __HttpHandlerOptions
@@ -2245,6 +2261,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBRecommendationsCommand}
    */
+  describeDBRecommendations(): Promise<DescribeDBRecommendationsCommandOutput>;
   describeDBRecommendations(
     args: DescribeDBRecommendationsCommandInput,
     options?: __HttpHandlerOptions
@@ -2262,6 +2279,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBSecurityGroupsCommand}
    */
+  describeDBSecurityGroups(): Promise<DescribeDBSecurityGroupsCommandOutput>;
   describeDBSecurityGroups(
     args: DescribeDBSecurityGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -2279,6 +2297,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBShardGroupsCommand}
    */
+  describeDBShardGroups(): Promise<DescribeDBShardGroupsCommandOutput>;
   describeDBShardGroups(
     args: DescribeDBShardGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -2313,6 +2332,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBSnapshotsCommand}
    */
+  describeDBSnapshots(): Promise<DescribeDBSnapshotsCommandOutput>;
   describeDBSnapshots(
     args: DescribeDBSnapshotsCommandInput,
     options?: __HttpHandlerOptions
@@ -2330,6 +2350,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBSnapshotTenantDatabasesCommand}
    */
+  describeDBSnapshotTenantDatabases(): Promise<DescribeDBSnapshotTenantDatabasesCommandOutput>;
   describeDBSnapshotTenantDatabases(
     args: DescribeDBSnapshotTenantDatabasesCommandInput,
     options?: __HttpHandlerOptions
@@ -2347,6 +2368,7 @@ export interface RDS {
   /**
    * @see {@link DescribeDBSubnetGroupsCommand}
    */
+  describeDBSubnetGroups(): Promise<DescribeDBSubnetGroupsCommandOutput>;
   describeDBSubnetGroups(
     args: DescribeDBSubnetGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -2398,6 +2420,7 @@ export interface RDS {
   /**
    * @see {@link DescribeEventCategoriesCommand}
    */
+  describeEventCategories(): Promise<DescribeEventCategoriesCommandOutput>;
   describeEventCategories(
     args: DescribeEventCategoriesCommandInput,
     options?: __HttpHandlerOptions
@@ -2415,6 +2438,7 @@ export interface RDS {
   /**
    * @see {@link DescribeEventsCommand}
    */
+  describeEvents(): Promise<DescribeEventsCommandOutput>;
   describeEvents(
     args: DescribeEventsCommandInput,
     options?: __HttpHandlerOptions
@@ -2429,6 +2453,7 @@ export interface RDS {
   /**
    * @see {@link DescribeEventSubscriptionsCommand}
    */
+  describeEventSubscriptions(): Promise<DescribeEventSubscriptionsCommandOutput>;
   describeEventSubscriptions(
     args: DescribeEventSubscriptionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2446,6 +2471,7 @@ export interface RDS {
   /**
    * @see {@link DescribeExportTasksCommand}
    */
+  describeExportTasks(): Promise<DescribeExportTasksCommandOutput>;
   describeExportTasks(
     args: DescribeExportTasksCommandInput,
     options?: __HttpHandlerOptions
@@ -2463,6 +2489,7 @@ export interface RDS {
   /**
    * @see {@link DescribeGlobalClustersCommand}
    */
+  describeGlobalClusters(): Promise<DescribeGlobalClustersCommandOutput>;
   describeGlobalClusters(
     args: DescribeGlobalClustersCommandInput,
     options?: __HttpHandlerOptions
@@ -2480,6 +2507,7 @@ export interface RDS {
   /**
    * @see {@link DescribeIntegrationsCommand}
    */
+  describeIntegrations(): Promise<DescribeIntegrationsCommandOutput>;
   describeIntegrations(
     args: DescribeIntegrationsCommandInput,
     options?: __HttpHandlerOptions
@@ -2514,6 +2542,7 @@ export interface RDS {
   /**
    * @see {@link DescribeOptionGroupsCommand}
    */
+  describeOptionGroups(): Promise<DescribeOptionGroupsCommandOutput>;
   describeOptionGroups(
     args: DescribeOptionGroupsCommandInput,
     options?: __HttpHandlerOptions
@@ -2548,6 +2577,7 @@ export interface RDS {
   /**
    * @see {@link DescribePendingMaintenanceActionsCommand}
    */
+  describePendingMaintenanceActions(): Promise<DescribePendingMaintenanceActionsCommandOutput>;
   describePendingMaintenanceActions(
     args: DescribePendingMaintenanceActionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2565,6 +2595,7 @@ export interface RDS {
   /**
    * @see {@link DescribeReservedDBInstancesCommand}
    */
+  describeReservedDBInstances(): Promise<DescribeReservedDBInstancesCommandOutput>;
   describeReservedDBInstances(
     args: DescribeReservedDBInstancesCommandInput,
     options?: __HttpHandlerOptions
@@ -2582,6 +2613,7 @@ export interface RDS {
   /**
    * @see {@link DescribeReservedDBInstancesOfferingsCommand}
    */
+  describeReservedDBInstancesOfferings(): Promise<DescribeReservedDBInstancesOfferingsCommandOutput>;
   describeReservedDBInstancesOfferings(
     args: DescribeReservedDBInstancesOfferingsCommandInput,
     options?: __HttpHandlerOptions
@@ -2599,6 +2631,7 @@ export interface RDS {
   /**
    * @see {@link DescribeSourceRegionsCommand}
    */
+  describeSourceRegions(): Promise<DescribeSourceRegionsCommandOutput>;
   describeSourceRegions(
     args: DescribeSourceRegionsCommandInput,
     options?: __HttpHandlerOptions
@@ -2616,6 +2649,7 @@ export interface RDS {
   /**
    * @see {@link DescribeTenantDatabasesCommand}
    */
+  describeTenantDatabases(): Promise<DescribeTenantDatabasesCommandOutput>;
   describeTenantDatabases(
     args: DescribeTenantDatabasesCommandInput,
     options?: __HttpHandlerOptions
@@ -2752,6 +2786,7 @@ export interface RDS {
   /**
    * @see {@link ModifyActivityStreamCommand}
    */
+  modifyActivityStream(): Promise<ModifyActivityStreamCommandOutput>;
   modifyActivityStream(
     args: ModifyActivityStreamCommandInput,
     options?: __HttpHandlerOptions
@@ -2769,6 +2804,7 @@ export interface RDS {
   /**
    * @see {@link ModifyCertificatesCommand}
    */
+  modifyCertificates(): Promise<ModifyCertificatesCommandOutput>;
   modifyCertificates(
     args: ModifyCertificatesCommandInput,
     options?: __HttpHandlerOptions
@@ -3066,6 +3102,7 @@ export interface RDS {
   /**
    * @see {@link ModifyGlobalClusterCommand}
    */
+  modifyGlobalCluster(): Promise<ModifyGlobalClusterCommandOutput>;
   modifyGlobalCluster(
     args: ModifyGlobalClusterCommandInput,
     options?: __HttpHandlerOptions
@@ -3233,6 +3270,7 @@ export interface RDS {
   /**
    * @see {@link RemoveFromGlobalClusterCommand}
    */
+  removeFromGlobalCluster(): Promise<RemoveFromGlobalClusterCommandOutput>;
   removeFromGlobalCluster(
     args: RemoveFromGlobalClusterCommandInput,
     options?: __HttpHandlerOptions

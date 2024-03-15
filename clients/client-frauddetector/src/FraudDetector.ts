@@ -796,6 +796,7 @@ export interface FraudDetector {
   /**
    * @see {@link DescribeModelVersionsCommand}
    */
+  describeModelVersions(): Promise<DescribeModelVersionsCommandOutput>;
   describeModelVersions(
     args: DescribeModelVersionsCommandInput,
     options?: __HttpHandlerOptions
@@ -813,6 +814,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetBatchImportJobsCommand}
    */
+  getBatchImportJobs(): Promise<GetBatchImportJobsCommandOutput>;
   getBatchImportJobs(
     args: GetBatchImportJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -830,6 +832,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetBatchPredictionJobsCommand}
    */
+  getBatchPredictionJobs(): Promise<GetBatchPredictionJobsCommandOutput>;
   getBatchPredictionJobs(
     args: GetBatchPredictionJobsCommandInput,
     options?: __HttpHandlerOptions
@@ -864,6 +867,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetDetectorsCommand}
    */
+  getDetectors(): Promise<GetDetectorsCommandOutput>;
   getDetectors(args: GetDetectorsCommandInput, options?: __HttpHandlerOptions): Promise<GetDetectorsCommandOutput>;
   getDetectors(args: GetDetectorsCommandInput, cb: (err: any, data?: GetDetectorsCommandOutput) => void): void;
   getDetectors(
@@ -892,6 +896,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetEntityTypesCommand}
    */
+  getEntityTypes(): Promise<GetEntityTypesCommandOutput>;
   getEntityTypes(
     args: GetEntityTypesCommandInput,
     options?: __HttpHandlerOptions
@@ -951,6 +956,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetEventTypesCommand}
    */
+  getEventTypes(): Promise<GetEventTypesCommandOutput>;
   getEventTypes(args: GetEventTypesCommandInput, options?: __HttpHandlerOptions): Promise<GetEventTypesCommandOutput>;
   getEventTypes(args: GetEventTypesCommandInput, cb: (err: any, data?: GetEventTypesCommandOutput) => void): void;
   getEventTypes(
@@ -962,6 +968,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetExternalModelsCommand}
    */
+  getExternalModels(): Promise<GetExternalModelsCommandOutput>;
   getExternalModels(
     args: GetExternalModelsCommandInput,
     options?: __HttpHandlerOptions
@@ -979,6 +986,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetKMSEncryptionKeyCommand}
    */
+  getKMSEncryptionKey(): Promise<GetKMSEncryptionKeyCommandOutput>;
   getKMSEncryptionKey(
     args: GetKMSEncryptionKeyCommandInput,
     options?: __HttpHandlerOptions
@@ -996,6 +1004,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetLabelsCommand}
    */
+  getLabels(): Promise<GetLabelsCommandOutput>;
   getLabels(args: GetLabelsCommandInput, options?: __HttpHandlerOptions): Promise<GetLabelsCommandOutput>;
   getLabels(args: GetLabelsCommandInput, cb: (err: any, data?: GetLabelsCommandOutput) => void): void;
   getLabels(
@@ -1021,6 +1030,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetListsMetadataCommand}
    */
+  getListsMetadata(): Promise<GetListsMetadataCommandOutput>;
   getListsMetadata(
     args: GetListsMetadataCommandInput,
     options?: __HttpHandlerOptions
@@ -1038,6 +1048,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetModelsCommand}
    */
+  getModels(): Promise<GetModelsCommandOutput>;
   getModels(args: GetModelsCommandInput, options?: __HttpHandlerOptions): Promise<GetModelsCommandOutput>;
   getModels(args: GetModelsCommandInput, cb: (err: any, data?: GetModelsCommandOutput) => void): void;
   getModels(
@@ -1063,6 +1074,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetOutcomesCommand}
    */
+  getOutcomes(): Promise<GetOutcomesCommandOutput>;
   getOutcomes(args: GetOutcomesCommandInput, options?: __HttpHandlerOptions): Promise<GetOutcomesCommandOutput>;
   getOutcomes(args: GetOutcomesCommandInput, cb: (err: any, data?: GetOutcomesCommandOutput) => void): void;
   getOutcomes(
@@ -1085,6 +1097,7 @@ export interface FraudDetector {
   /**
    * @see {@link GetVariablesCommand}
    */
+  getVariables(): Promise<GetVariablesCommandOutput>;
   getVariables(args: GetVariablesCommandInput, options?: __HttpHandlerOptions): Promise<GetVariablesCommandOutput>;
   getVariables(args: GetVariablesCommandInput, cb: (err: any, data?: GetVariablesCommandOutput) => void): void;
   getVariables(
@@ -1096,6 +1109,7 @@ export interface FraudDetector {
   /**
    * @see {@link ListEventPredictionsCommand}
    */
+  listEventPredictions(): Promise<ListEventPredictionsCommandOutput>;
   listEventPredictions(
     args: ListEventPredictionsCommandInput,
     options?: __HttpHandlerOptions
