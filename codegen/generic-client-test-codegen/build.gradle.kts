@@ -13,10 +13,6 @@
  * permissions and limitations under the License.
  */
 
-import software.amazon.smithy.gradle.tasks.SmithyBuild
-
-val smithyVersion: String by project
-
 buildscript {
     val smithyVersion: String by project
 
@@ -30,11 +26,13 @@ buildscript {
 }
 
 plugins {
-    val smithyGradleVersion: String by project
-    id("software.amazon.smithy").version(smithyGradleVersion)
+    `java-library`
+    id("software.amazon.smithy.gradle.smithy-base")
 }
 
 dependencies {
+    val smithyVersion: String by project
+
     implementation("software.amazon.smithy:smithy-aws-protocol-tests:$smithyVersion")
     implementation("software.amazon.smithy:smithy-aws-traits:$smithyVersion")
     implementation(project(":smithy-aws-typescript-codegen"))
@@ -42,14 +40,3 @@ dependencies {
 
 // This project doesn't produce a JAR.
 tasks["jar"].enabled = false
-
-// Run the SmithyBuild task manually since this project needs the built JAR
-// from smithy-aws-typescript-codegen.
-tasks["smithyBuildJar"].enabled = false
-
-tasks.create<SmithyBuild>("buildSdk") {
-    addRuntimeClasspath = true
-}
-
-// Run the `buildSdk` automatically.
-tasks["build"].finalizedBy(tasks["buildSdk"])

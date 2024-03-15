@@ -93,7 +93,7 @@ operation OnlyCustomAuthOptional {}
 @readonly
 @http(method: "GET", uri: "/SameAsService")
 operation SameAsService {
-  output := {
-    service: String
-  }
+    output := {
+        service: String
+    }
 }
