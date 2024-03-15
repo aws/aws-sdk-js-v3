@@ -3225,10 +3225,6 @@ import {
   DescribeSpotPriceHistoryRequest,
   DescribeSpotPriceHistoryResult,
   DescribeStaleSecurityGroupsRequest,
-  DescribeStaleSecurityGroupsResult,
-  DescribeStoreImageTasksRequest,
-  DescribeStoreImageTasksResult,
-  DescribeSubnetsRequest,
   DiskInfo,
   EbsInfo,
   EbsInstanceBlockDevice,
@@ -3284,6 +3280,9 @@ import {
   LocalGatewayVirtualInterface,
   LocalGatewayVirtualInterfaceGroup,
   LockedSnapshotsInfo,
+  MediaAcceleratorInfo,
+  MediaDeviceInfo,
+  MediaDeviceMemoryInfo,
   MemoryInfo,
   Monitoring,
   MovingAddressStatus,
@@ -3291,6 +3290,10 @@ import {
   NetworkInfo,
   NetworkInsightsAccessScopeAnalysis,
   NetworkInsightsAnalysis,
+  NeuronDeviceCoreInfo,
+  NeuronDeviceInfo,
+  NeuronDeviceMemoryInfo,
+  NeuronInfo,
   NitroTpmInfo,
   PlacementGroupInfo,
   PlacementGroupStrategy,
@@ -3334,9 +3337,6 @@ import {
   SpotMaintenanceStrategies,
   SpotPlacement,
   SpotPrice,
-  StaleIpPermission,
-  StaleSecurityGroup,
-  StoreImageTaskResult,
   SupportedAdditionalProcessorFeature,
   TargetGroup,
   TargetGroupsConfig,
@@ -3352,6 +3352,10 @@ import {
   CoipAddressUsage,
   DataQuery,
   DataResponse,
+  DescribeStaleSecurityGroupsResult,
+  DescribeStoreImageTasksRequest,
+  DescribeStoreImageTasksResult,
+  DescribeSubnetsRequest,
   DescribeSubnetsResult,
   DescribeTagsRequest,
   DescribeTagsResult,
@@ -3581,11 +3585,6 @@ import {
   GetIpamDiscoveredAccountsResult,
   GetIpamDiscoveredPublicAddressesRequest,
   GetIpamDiscoveredPublicAddressesResult,
-  GetIpamDiscoveredResourceCidrsRequest,
-  GetIpamDiscoveredResourceCidrsResult,
-  GetIpamPoolAllocationsRequest,
-  GetIpamPoolAllocationsResult,
-  GetIpamPoolCidrsRequest,
   InstanceEventWindowDisassociationRequest,
   InstanceFamilyCreditSpecification,
   InstanceTypeInfoFromInstanceRequirements,
@@ -3594,7 +3593,6 @@ import {
   IpamAddressHistoryRecord,
   IpamDiscoveredAccount,
   IpamDiscoveredPublicAddress,
-  IpamDiscoveredResourceCidr,
   IpamDiscoveryFailureReason,
   IpamPublicAddressSecurityGroup,
   IpamPublicAddressTag,
@@ -3604,6 +3602,9 @@ import {
   PrivateDnsDetails,
   Purchase,
   ServiceDetail,
+  StaleIpPermission,
+  StaleSecurityGroup,
+  StoreImageTaskResult,
   TagDescription,
   TransitGatewayAttachment,
   TransitGatewayAttachmentAssociation,
@@ -3635,6 +3636,11 @@ import {
   DiskImageDetail,
   DnsServersOptionsModifyStructure,
   EbsInstanceBlockDeviceSpecification,
+  GetIpamDiscoveredResourceCidrsRequest,
+  GetIpamDiscoveredResourceCidrsResult,
+  GetIpamPoolAllocationsRequest,
+  GetIpamPoolAllocationsResult,
+  GetIpamPoolCidrsRequest,
   GetIpamPoolCidrsResult,
   GetIpamResourceCidrsRequest,
   GetIpamResourceCidrsResult,
@@ -3707,6 +3713,7 @@ import {
   InstanceMonitoring,
   InstanceRequirementsWithMetadataRequest,
   IpamCidrAuthorizationContext,
+  IpamDiscoveredResourceCidr,
   IpamResourceCidr,
   LaunchPermissionModifications,
   ListImagesInRecycleBinRequest,
@@ -3875,12 +3882,7 @@ import {
   RebootInstancesRequest,
   RegisterImageRequest,
   RegisterImageResult,
-  RegisterInstanceEventNotificationAttributesRequest,
-  RegisterInstanceEventNotificationAttributesResult,
   RegisterInstanceTagAttributeRequest,
-  RegisterTransitGatewayMulticastGroupMembersRequest,
-  RegisterTransitGatewayMulticastGroupMembersResult,
-  RegisterTransitGatewayMulticastGroupSourcesRequest,
   RemoveIpamOperatingRegion,
   RemovePrefixListEntry,
   ReservationValue,
@@ -3899,8 +3901,6 @@ import {
   TrafficMirrorSessionField,
   TransitGatewayAttachmentPropagation,
   TransitGatewayMulticastDomainAssociation,
-  TransitGatewayMulticastRegisteredGroupMembers,
-  TransitGatewayMulticastRegisteredGroupSources,
   TransitGatewayPolicyRule,
   TransitGatewayPolicyRuleMetaData,
   TransitGatewayPolicyTableEntry,
@@ -3929,6 +3929,11 @@ import {
   LaunchTemplateSpecification,
   LicenseConfigurationRequest,
   PrivateDnsNameOptionsRequest,
+  RegisterInstanceEventNotificationAttributesRequest,
+  RegisterInstanceEventNotificationAttributesResult,
+  RegisterTransitGatewayMulticastGroupMembersRequest,
+  RegisterTransitGatewayMulticastGroupMembersResult,
+  RegisterTransitGatewayMulticastGroupSourcesRequest,
   RegisterTransitGatewayMulticastGroupSourcesResult,
   RejectTransitGatewayMulticastDomainAssociationsRequest,
   RejectTransitGatewayMulticastDomainAssociationsResult,
@@ -4027,6 +4032,8 @@ import {
   TerminateInstancesRequest,
   TerminateInstancesResult,
   TransitGatewayMulticastGroup,
+  TransitGatewayMulticastRegisteredGroupMembers,
+  TransitGatewayMulticastRegisteredGroupSources,
   UnassignIpv6AddressesRequest,
   UnassignIpv6AddressesResult,
   UnassignPrivateIpAddressesRequest,
@@ -69763,6 +69770,12 @@ const de_InstanceTypeInfo = (output: any, context: __SerdeContext): InstanceType
   if (output[_nTI] != null) {
     contents[_NTI] = de_NitroTpmInfo(output[_nTI], context);
   }
+  if (output[_mAIe] != null) {
+    contents[_MAIe] = de_MediaAcceleratorInfo(output[_mAIe], context);
+  }
+  if (output[_nIeu] != null) {
+    contents[_NIeu] = de_NeuronInfo(output[_nIeu], context);
+  }
   return contents;
 };
 
@@ -72586,6 +72599,64 @@ const de_ManagedPrefixListSet = (output: any, context: __SerdeContext): ManagedP
 };
 
 /**
+ * deserializeAws_ec2MediaAcceleratorInfo
+ */
+const de_MediaAcceleratorInfo = (output: any, context: __SerdeContext): MediaAcceleratorInfo => {
+  const contents: any = {};
+  if (output.accelerators === "") {
+    contents[_Acc] = [];
+  } else if (output[_acc] != null && output[_acc][_i] != null) {
+    contents[_Acc] = de_MediaDeviceInfoList(__getArrayIfSingleItem(output[_acc][_i]), context);
+  }
+  if (output[_tMMIMB] != null) {
+    contents[_TMMIMB] = __strictParseInt32(output[_tMMIMB]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2MediaDeviceInfo
+ */
+const de_MediaDeviceInfo = (output: any, context: __SerdeContext): MediaDeviceInfo => {
+  const contents: any = {};
+  if (output[_cou] != null) {
+    contents[_Cou] = __strictParseInt32(output[_cou]) as number;
+  }
+  if (output[_n] != null) {
+    contents[_N] = __expectString(output[_n]);
+  }
+  if (output[_man] != null) {
+    contents[_Man] = __expectString(output[_man]);
+  }
+  if (output[_mIe] != null) {
+    contents[_MIe] = de_MediaDeviceMemoryInfo(output[_mIe], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2MediaDeviceInfoList
+ */
+const de_MediaDeviceInfoList = (output: any, context: __SerdeContext): MediaDeviceInfo[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_MediaDeviceInfo(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2MediaDeviceMemoryInfo
+ */
+const de_MediaDeviceMemoryInfo = (output: any, context: __SerdeContext): MediaDeviceMemoryInfo => {
+  const contents: any = {};
+  if (output[_sIMB] != null) {
+    contents[_SIMB] = __strictParseInt32(output[_sIMB]) as number;
+  }
+  return contents;
+};
+
+/**
  * deserializeAws_ec2MemoryGiBPerVCpu
  */
 const de_MemoryGiBPerVCpu = (output: any, context: __SerdeContext): MemoryGiBPerVCpu => {
@@ -74369,6 +74440,78 @@ const de_NetworkNodesList = (output: any, context: __SerdeContext): string[] => 
     .map((entry: any) => {
       return __expectString(entry) as any;
     });
+};
+
+/**
+ * deserializeAws_ec2NeuronDeviceCoreInfo
+ */
+const de_NeuronDeviceCoreInfo = (output: any, context: __SerdeContext): NeuronDeviceCoreInfo => {
+  const contents: any = {};
+  if (output[_cou] != null) {
+    contents[_Cou] = __strictParseInt32(output[_cou]) as number;
+  }
+  if (output[_ve] != null) {
+    contents[_V] = __strictParseInt32(output[_ve]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2NeuronDeviceInfo
+ */
+const de_NeuronDeviceInfo = (output: any, context: __SerdeContext): NeuronDeviceInfo => {
+  const contents: any = {};
+  if (output[_cou] != null) {
+    contents[_Cou] = __strictParseInt32(output[_cou]) as number;
+  }
+  if (output[_n] != null) {
+    contents[_N] = __expectString(output[_n]);
+  }
+  if (output[_cIor] != null) {
+    contents[_CIor] = de_NeuronDeviceCoreInfo(output[_cIor], context);
+  }
+  if (output[_mIe] != null) {
+    contents[_MIe] = de_NeuronDeviceMemoryInfo(output[_mIe], context);
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2NeuronDeviceInfoList
+ */
+const de_NeuronDeviceInfoList = (output: any, context: __SerdeContext): NeuronDeviceInfo[] => {
+  return (output || [])
+    .filter((e: any) => e != null)
+    .map((entry: any) => {
+      return de_NeuronDeviceInfo(entry, context);
+    });
+};
+
+/**
+ * deserializeAws_ec2NeuronDeviceMemoryInfo
+ */
+const de_NeuronDeviceMemoryInfo = (output: any, context: __SerdeContext): NeuronDeviceMemoryInfo => {
+  const contents: any = {};
+  if (output[_sIMB] != null) {
+    contents[_SIMB] = __strictParseInt32(output[_sIMB]) as number;
+  }
+  return contents;
+};
+
+/**
+ * deserializeAws_ec2NeuronInfo
+ */
+const de_NeuronInfo = (output: any, context: __SerdeContext): NeuronInfo => {
+  const contents: any = {};
+  if (output.neuronDevices === "") {
+    contents[_NDe] = [];
+  } else if (output[_nDe] != null && output[_nDe][_i] != null) {
+    contents[_NDe] = de_NeuronDeviceInfoList(__getArrayIfSingleItem(output[_nDe][_i]), context);
+  }
+  if (output[_tNDMIMB] != null) {
+    contents[_TNDMIMB] = __strictParseInt32(output[_tNDMIMB]) as number;
+  }
+  return contents;
 };
 
 /**
@@ -83397,6 +83540,7 @@ const _CIli = "ClientIp";
 const _CIo = "ConnectionId";
 const _CIom = "ComponentId";
 const _CIop = "CoIp";
+const _CIor = "CoreInfo";
 const _CIr = "CreateImage";
 const _CIre = "CreateIpam";
 const _CKP = "CreateKeyPair";
@@ -84534,6 +84678,7 @@ const _MAA = "ModifyAddressAttribute";
 const _MAAA = "MaintenanceAutoAppliedAfter";
 const _MAE = "MultiAttachEnabled";
 const _MAI = "MaxAggregationInterval";
+const _MAIe = "MediaAcceleratorInfo";
 const _MAS = "MovingAddressStatuses";
 const _MATV = "MoveAddressToVpc";
 const _MAZG = "ModifyAvailabilityZoneGroup";
@@ -84679,6 +84824,7 @@ const _NBGe = "NetworkBandwidthGbps";
 const _NC = "NetworkCards";
 const _NCI = "NetworkCardIndex";
 const _ND = "NoDevice";
+const _NDe = "NeuronDevices";
 const _NES = "NitroEnclavesSupport";
 const _NG = "NatGateway";
 const _NGA = "NatGatewayAddresses";
@@ -84719,6 +84865,7 @@ const _NIPet = "NetworkInterfacePermissions";
 const _NIe = "NetworkId";
 const _NIet = "NetworkInterface";
 const _NIetw = "NetworkInfo";
+const _NIeu = "NeuronInfo";
 const _NL = "NetmaskLength";
 const _NLBA = "NetworkLoadBalancerArn";
 const _NLBAe = "NetworkLoadBalancerArns";
@@ -85395,6 +85542,7 @@ const _TMFIr = "TrafficMirrorFilterIds";
 const _TMFR = "TrafficMirrorFilterRule";
 const _TMFRI = "TrafficMirrorFilterRuleId";
 const _TMFr = "TrafficMirrorFilters";
+const _TMMIMB = "TotalMediaMemoryInMiB";
 const _TMS = "TrafficMirrorSession";
 const _TMSI = "TrafficMirrorSessionId";
 const _TMSIr = "TrafficMirrorSessionIds";
@@ -85404,6 +85552,7 @@ const _TMTI = "TrafficMirrorTargetId";
 const _TMTIr = "TrafficMirrorTargetIds";
 const _TMTr = "TrafficMirrorTargets";
 const _TNC = "TargetNetworkCidr";
+const _TNDMIMB = "TotalNeuronDeviceMemoryInMiB";
 const _TNI = "TargetNetworkId";
 const _TO = "TunnelOptions";
 const _TOAT = "TransferOfferAcceptedTimestamp";
@@ -85799,6 +85948,7 @@ const _cIli = "clientId";
 const _cIo = "componentId";
 const _cIon = "connectionId";
 const _cIop = "coIp";
+const _cIor = "coreInfo";
 const _cLB = "classicLoadBalancers";
 const _cLBC = "classicLoadBalancersConfig";
 const _cLBL = "classicLoadBalancerListener";
@@ -86428,6 +86578,7 @@ const _mA = "mutualAuthentication";
 const _mAAA = "maintenanceAutoAppliedAfter";
 const _mAE = "multiAttachEnabled";
 const _mAI = "maxAggregationInterval";
+const _mAIe = "mediaAcceleratorInfo";
 const _mASS = "movingAddressStatusSet";
 const _mAa = "macAddress";
 const _mBIM = "maximumBandwidthInMbps";
@@ -86495,6 +86646,7 @@ const _nBGe = "networkBandwidthGbps";
 const _nC = "networkCards";
 const _nCI = "networkCardIndex";
 const _nD = "noDevice";
+const _nDe = "neuronDevices";
 const _nES = "nitroEnclavesSupport";
 const _nG = "natGateway";
 const _nGAS = "natGatewayAddressSet";
@@ -86529,6 +86681,7 @@ const _nIPe = "networkInterfacePermissions";
 const _nIS = "networkInterfaceSet";
 const _nIe = "networkInterface";
 const _nIet = "networkInfo";
+const _nIeu = "neuronInfo";
 const _nL = "netmaskLength";
 const _nLBA = "networkLoadBalancerArn";
 const _nLBAS = "networkLoadBalancerArnSet";
@@ -87047,12 +87200,14 @@ const _tMFI = "trafficMirrorFilterId";
 const _tMFR = "trafficMirrorFilterRule";
 const _tMFRI = "trafficMirrorFilterRuleId";
 const _tMFS = "trafficMirrorFilterSet";
+const _tMMIMB = "totalMediaMemoryInMiB";
 const _tMS = "trafficMirrorSession";
 const _tMSI = "trafficMirrorSessionId";
 const _tMSS = "trafficMirrorSessionSet";
 const _tMT = "trafficMirrorTarget";
 const _tMTI = "trafficMirrorTargetId";
 const _tMTS = "trafficMirrorTargetSet";
+const _tNDMIMB = "totalNeuronDeviceMemoryInMiB";
 const _tNI = "targetNetworkId";
 const _tOAT = "transferOfferAcceptedTimestamp";
 const _tOET = "transferOfferExpirationTimestamp";

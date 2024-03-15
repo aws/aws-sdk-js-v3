@@ -8,7 +8,6 @@ import {
   CurrencyCodeValues,
   IamInstanceProfileAssociation,
   InstanceEventWindow,
-  IpamPoolAllocation,
   IpamResourceDiscoveryAssociation,
   NatGatewayAddress,
   ResourceType,
@@ -24,6 +23,7 @@ import {
   TransitGatewayPolicyTableAssociation,
   TransitGatewayVpcAttachment,
   TrunkInterfaceAssociation,
+  UserIdGroupPair,
   VerifiedAccessInstance,
   VerifiedAccessTrustProvider,
   VerifiedAccessTrustProviderFilterSensitiveLog,
@@ -32,7 +32,7 @@ import {
   VpcPeeringConnection,
 } from "./models_0";
 
-import { DiskImageFormat, InstanceRequirementsRequest, IpamResourceTag, Subnet, VolumeType, Vpc } from "./models_1";
+import { DiskImageFormat, InstanceRequirementsRequest, Subnet, VolumeType, Vpc } from "./models_1";
 
 import {
   ConnectionNotification,
@@ -81,6 +81,409 @@ import {
 } from "./models_3";
 
 import { ArchitectureType, AttributeBooleanValue } from "./models_4";
+
+/**
+ * <p>Describes a stale rule in a security group.</p>
+ * @public
+ */
+export interface StaleIpPermission {
+  /**
+   * <p>If the protocol is TCP or UDP, this is the start of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
+   * @public
+   */
+  FromPort?: number;
+
+  /**
+   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number
+   *           (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
+   * @public
+   */
+  IpProtocol?: string;
+
+  /**
+   * <p>The IP ranges. Not applicable for stale security group rules.</p>
+   * @public
+   */
+  IpRanges?: string[];
+
+  /**
+   * <p>The prefix list IDs. Not applicable for stale security group rules.</p>
+   * @public
+   */
+  PrefixListIds?: string[];
+
+  /**
+   * <p>If the protocol is TCP or UDP, this is the end of the port range.
+   *           If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).</p>
+   * @public
+   */
+  ToPort?: number;
+
+  /**
+   * <p>The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.</p>
+   * @public
+   */
+  UserIdGroupPairs?: UserIdGroupPair[];
+}
+
+/**
+ * <p>Describes a stale security group (a security group that contains stale rules).</p>
+ * @public
+ */
+export interface StaleSecurityGroup {
+  /**
+   * <p>The description of the security group.</p>
+   * @public
+   */
+  Description?: string;
+
+  /**
+   * <p>The ID of the security group.</p>
+   * @public
+   */
+  GroupId?: string;
+
+  /**
+   * <p>The name of the security group.</p>
+   * @public
+   */
+  GroupName?: string;
+
+  /**
+   * <p>Information about the stale inbound rules in the security group.</p>
+   * @public
+   */
+  StaleIpPermissions?: StaleIpPermission[];
+
+  /**
+   * <p>Information about the stale outbound rules in the security group.</p>
+   * @public
+   */
+  StaleIpPermissionsEgress?: StaleIpPermission[];
+
+  /**
+   * <p>The ID of the VPC for the security group.</p>
+   * @public
+   */
+  VpcId?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStaleSecurityGroupsResult {
+  /**
+   * <p>The token to include in another request to get the next page of items.
+   *           If there are no additional items to return, the string is empty.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>Information about the stale security groups.</p>
+   * @public
+   */
+  StaleSecurityGroupSet?: StaleSecurityGroup[];
+}
+
+/**
+ * @public
+ */
+export interface DescribeStoreImageTasksRequest {
+  /**
+   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
+   * @public
+   */
+  ImageIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   * 			and provides an error response. If you have the required permissions, the error response is
+   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> |
+   *             <code>Completed</code> | <code>Failed</code>)</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>bucket</code> - Returns task information for tasks that targeted a specific
+   *           bucket. For the filter value, specify the bucket name.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>When you specify the <code>ImageIds</code> parameter, any filters that you specify are
+   *         ignored. To use the filters, you must remove the <code>ImageIds</code> parameter.</p>
+   *          </note>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   *          To get the next page of items, make another request with the token returned in the output.
+   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   *          <p>You cannot specify this parameter and the <code>ImageIds</code> parameter in the same
+   *       call.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * <p>The information about the AMI store task, including the progress of the task.</p>
+ * @public
+ */
+export interface StoreImageTaskResult {
+  /**
+   * <p>The ID of the AMI that is being stored.</p>
+   * @public
+   */
+  AmiId?: string;
+
+  /**
+   * <p>The time the task started.</p>
+   * @public
+   */
+  TaskStartTime?: Date;
+
+  /**
+   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
+   * @public
+   */
+  Bucket?: string;
+
+  /**
+   * <p>The name of the stored AMI object in the bucket.</p>
+   * @public
+   */
+  S3objectKey?: string;
+
+  /**
+   * <p>The progress of the task as a percentage.</p>
+   * @public
+   */
+  ProgressPercentage?: number;
+
+  /**
+   * <p>The state of the store task (<code>InProgress</code>, <code>Completed</code>, or
+   *         <code>Failed</code>).</p>
+   * @public
+   */
+  StoreTaskState?: string;
+
+  /**
+   * <p>If the tasks fails, the reason for the failure is returned. If the task succeeds,
+   *         <code>null</code> is returned.</p>
+   * @public
+   */
+  StoreTaskFailureReason?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeStoreImageTasksResult {
+  /**
+   * <p>The information about the AMI store tasks.</p>
+   * @public
+   */
+  StoreImageTaskResults?: StoreImageTaskResult[];
+
+  /**
+   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
+   *          are no more items to return.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface DescribeSubnetsRequest {
+  /**
+   * <p>The filters.</p>
+   *          <ul>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone</code> - The Availability Zone for the subnet. You can also use
+   *                     <code>availabilityZone</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.
+   *                     You can also use <code>availabilityZoneId</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>available-ip-address-count</code> - The number of IPv4 addresses in the
+   *                     subnet that are available.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block
+   *                     you specify must exactly match the subnet's CIDR block for information to be
+   *                     returned for the subnet. You can also use <code>cidr</code> or
+   *                         <code>cidrBlock</code> as the filter names.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool
+   *                     associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>default-for-az</code> - Indicates whether this is the default subnet for
+   *                     the Availability Zone (<code>true</code> | <code>false</code>). You can also use
+   *                         <code>defaultForAz</code> as the filter name.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>enable-dns64</code> - Indicates whether DNS queries made to the
+   *                     Amazon-provided DNS Resolver in this subnet should return synthetic IPv6
+   *                     addresses for IPv4-only destinations.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>enable-lni-at-device-index</code> - Indicates the device position for
+   *                     local network interfaces in this subnet. For example, <code>1</code> indicates
+   *                     local network interfaces in this subnet are the secondary network interface
+   *                     (eth1). </p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR
+   *                     block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-cidr-block-association.association-id</code> - An association ID
+   *                     for an IPv6 CIDR block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR
+   *                     block associated with the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet
+   *                         (<code>true</code> | <code>false</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>map-customer-owned-ip-on-launch</code> - Indicates whether a network
+   *                     interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>map-public-ip-on-launch</code> - Indicates whether instances launched in
+   *                     this subnet receive a public IPv4 address.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the
+   *                     subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>private-dns-name-options-on-launch.hostname-type</code> - The type of
+   *                     hostname to assign to instances in the subnet at launch. For IPv4-only and
+   *                     dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the
+   *                     instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6
+   *                     only subnets, an instance DNS name must be based on the instance ID
+   *                     (resource-name).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code>
+   *                     - Indicates whether to respond to DNS queries for instance hostnames with DNS A
+   *                     records.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code>
+   *                     - Indicates whether to respond to DNS queries for instance hostnames with DNS
+   *                     AAAA records.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>subnet-id</code> - The ID of the subnet.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
+   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
+   *             </li>
+   *             <li>
+   *                <p>
+   *                   <code>vpc-id</code> - The ID of the VPC for the subnet.</p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The IDs of the subnets.</p>
+   *          <p>Default: Describes all your subnets.</p>
+   * @public
+   */
+  SubnetIds?: string[];
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of items to return for this request.
+   * 	To get the next page of items, make another request with the token returned in the output.
+   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
 
 /**
  * @public
@@ -8384,261 +8787,6 @@ export interface GetIpamDiscoveredPublicAddressesResult {
 
   /**
    * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredResourceCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>A resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId: string | undefined;
-
-  /**
-   * <p>A resource Region.</p>
-   * @public
-   */
-  ResourceRegion: string | undefined;
-
-  /**
-   * <p>Filters.</p>
-   * @public
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * @public
- * @enum
- */
-export const IpamResourceType = {
-  eip: "eip",
-  eni: "eni",
-  ipv6_pool: "ipv6-pool",
-  public_ipv4_pool: "public-ipv4-pool",
-  subnet: "subnet",
-  vpc: "vpc",
-} as const;
-
-/**
- * @public
- */
-export type IpamResourceType = (typeof IpamResourceType)[keyof typeof IpamResourceType];
-
-/**
- * <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
- * @public
- */
-export interface IpamDiscoveredResourceCidr {
-  /**
-   * <p>The resource discovery ID.</p>
-   * @public
-   */
-  IpamResourceDiscoveryId?: string;
-
-  /**
-   * <p>The resource Region.</p>
-   * @public
-   */
-  ResourceRegion?: string;
-
-  /**
-   * <p>The resource ID.</p>
-   * @public
-   */
-  ResourceId?: string;
-
-  /**
-   * <p>The resource owner ID.</p>
-   * @public
-   */
-  ResourceOwnerId?: string;
-
-  /**
-   * <p>The resource CIDR.</p>
-   * @public
-   */
-  ResourceCidr?: string;
-
-  /**
-   * <p>The resource type.</p>
-   * @public
-   */
-  ResourceType?: IpamResourceType;
-
-  /**
-   * <p>The resource tags.</p>
-   * @public
-   */
-  ResourceTags?: IpamResourceTag[];
-
-  /**
-   * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
-   *          <ul>
-   *             <li>
-   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.
-   *          </p>
-   *             </li>
-   *             <li>
-   *                <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).
-   *          </p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  IpUsage?: number;
-
-  /**
-   * <p>The VPC ID.</p>
-   * @public
-   */
-  VpcId?: string;
-
-  /**
-   * <p>The last successful resource discovery time.</p>
-   * @public
-   */
-  SampleTime?: Date;
-}
-
-/**
- * @public
- */
-export interface GetIpamDiscoveredResourceCidrsResult {
-  /**
-   * <p>Discovered resource CIDRs.</p>
-   * @public
-   */
-  IpamDiscoveredResourceCidrs?: IpamDiscoveredResourceCidr[];
-
-  /**
-   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolAllocationsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the IPAM pool you want to see the allocations for.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>The ID of the allocation.</p>
-   * @public
-   */
-  IpamPoolAllocationId?: string;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results you would like returned per page.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolAllocationsResult {
-  /**
-   * <p>The IPAM pool allocations you want information on.</p>
-   * @public
-   */
-  IpamPoolAllocations?: IpamPoolAllocation[];
-
-  /**
-   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface GetIpamPoolCidrsRequest {
-  /**
-   * <p>A check for whether you have the required permissions for the action without actually making the request
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The ID of the IPAM pool you want the CIDR for.</p>
-   * @public
-   */
-  IpamPoolId: string | undefined;
-
-  /**
-   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
-   * @public
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The maximum number of results to return in the request.</p>
-   * @public
-   */
-  MaxResults?: number;
-
-  /**
-   * <p>The token for the next page of results.</p>
    * @public
    */
   NextToken?: string;

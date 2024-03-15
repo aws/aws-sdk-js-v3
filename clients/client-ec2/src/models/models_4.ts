@@ -22,7 +22,6 @@ import {
   SecurityGroupRule,
   Tag,
   TagSpecification,
-  UserIdGroupPair,
 } from "./models_0";
 
 import {
@@ -4126,6 +4125,66 @@ export interface InstanceStorageInfo {
 }
 
 /**
+ * <p>Describes the memory available to the media accelerator.</p>
+ * @public
+ */
+export interface MediaDeviceMemoryInfo {
+  /**
+   * <p>The size of the memory available to each media accelerator, in MiB.</p>
+   * @public
+   */
+  SizeInMiB?: number;
+}
+
+/**
+ * <p>Describes the media accelerators for the instance type.</p>
+ * @public
+ */
+export interface MediaDeviceInfo {
+  /**
+   * <p>The number of media accelerators for the instance type.</p>
+   * @public
+   */
+  Count?: number;
+
+  /**
+   * <p>The name of the media accelerator.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>The manufacturer of the media accelerator.</p>
+   * @public
+   */
+  Manufacturer?: string;
+
+  /**
+   * <p>Describes the memory available to the media accelerator.</p>
+   * @public
+   */
+  MemoryInfo?: MediaDeviceMemoryInfo;
+}
+
+/**
+ * <p>Describes the media accelerators for the instance type.</p>
+ * @public
+ */
+export interface MediaAcceleratorInfo {
+  /**
+   * <p>Describes the media accelerators for the instance type.</p>
+   * @public
+   */
+  Accelerators?: MediaDeviceInfo[];
+
+  /**
+   * <p>The total size of the memory for the media accelerators for the instance type, in MiB.</p>
+   * @public
+   */
+  TotalMediaMemoryInMiB?: number;
+}
+
+/**
  * <p>Describes the memory for the instance type.</p>
  * @public
  */
@@ -4284,6 +4343,84 @@ export interface NetworkInfo {
    * @public
    */
   EnaSrdSupported?: boolean;
+}
+
+/**
+ * <p>Describes the cores available to the neuron accelerator.</p>
+ * @public
+ */
+export interface NeuronDeviceCoreInfo {
+  /**
+   * <p>The number of cores available to the neuron accelerator.</p>
+   * @public
+   */
+  Count?: number;
+
+  /**
+   * <p>The version of the neuron accelerator.</p>
+   * @public
+   */
+  Version?: number;
+}
+
+/**
+ * <p>Describes the memory available to the neuron accelerator.</p>
+ * @public
+ */
+export interface NeuronDeviceMemoryInfo {
+  /**
+   * <p>The size of the memory available to the neuron accelerator, in MiB.</p>
+   * @public
+   */
+  SizeInMiB?: number;
+}
+
+/**
+ * <p>Describes the neuron accelerators for the instance type.</p>
+ * @public
+ */
+export interface NeuronDeviceInfo {
+  /**
+   * <p>The number of neuron accelerators for the instance type.</p>
+   * @public
+   */
+  Count?: number;
+
+  /**
+   * <p>The name of the neuron accelerator.</p>
+   * @public
+   */
+  Name?: string;
+
+  /**
+   * <p>Describes the cores available to each neuron accelerator.</p>
+   * @public
+   */
+  CoreInfo?: NeuronDeviceCoreInfo;
+
+  /**
+   * <p>Describes the memory available to each neuron accelerator.</p>
+   * @public
+   */
+  MemoryInfo?: NeuronDeviceMemoryInfo;
+}
+
+/**
+ * <p>Describes the neuron accelerators for the instance type.</p>
+ * @public
+ */
+export interface NeuronInfo {
+  /**
+   * <p>Describes the neuron accelerators for the instance type.</p>
+   * @public
+   */
+  NeuronDevices?: NeuronDeviceInfo[];
+
+  /**
+   * <p>The total size of the memory for the neuron accelerators for the instance type, in MiB.</p>
+   * @public
+   */
+  TotalNeuronDeviceMemoryInMiB?: number;
 }
 
 /**
@@ -4665,6 +4802,18 @@ export interface InstanceTypeInfo {
    * @public
    */
   NitroTpmInfo?: NitroTpmInfo;
+
+  /**
+   * <p>Describes the media accelerator settings for the instance type.</p>
+   * @public
+   */
+  MediaAcceleratorInfo?: MediaAcceleratorInfo;
+
+  /**
+   * <p>Describes the Neuron accelerator settings for the instance type.</p>
+   * @public
+   */
+  NeuronInfo?: NeuronInfo;
 }
 
 /**
@@ -11571,6 +11720,11 @@ export interface SpotFleetRequestConfigData {
    *                 <code>LaunchSpecifications</code>, you can't specify
    *                 <code>LaunchTemplateConfigs</code>. If you include On-Demand capacity in your
    *             request, you must use <code>LaunchTemplateConfigs</code>.</p>
+   *          <note>
+   *             <p>If an AMI specified in a launch specification is deregistered or disabled, no new
+   *             instances can be launched from the AMI. For fleets of type <code>maintain</code>, the
+   *             target capacity will not be maintained.</p>
+   *          </note>
    * @public
    */
   LaunchSpecifications?: SpotFleetLaunchSpecification[];
@@ -12577,409 +12731,6 @@ export interface DescribeStaleSecurityGroupsRequest {
    * @public
    */
   VpcId: string | undefined;
-}
-
-/**
- * <p>Describes a stale rule in a security group.</p>
- * @public
- */
-export interface StaleIpPermission {
-  /**
-   * <p>If the protocol is TCP or UDP, this is the start of the port range.
-   *           If the protocol is ICMP or ICMPv6, this is the ICMP type or -1 (all ICMP types).</p>
-   * @public
-   */
-  FromPort?: number;
-
-  /**
-   * <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number
-   *           (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers)</a>.</p>
-   * @public
-   */
-  IpProtocol?: string;
-
-  /**
-   * <p>The IP ranges. Not applicable for stale security group rules.</p>
-   * @public
-   */
-  IpRanges?: string[];
-
-  /**
-   * <p>The prefix list IDs. Not applicable for stale security group rules.</p>
-   * @public
-   */
-  PrefixListIds?: string[];
-
-  /**
-   * <p>If the protocol is TCP or UDP, this is the end of the port range.
-   *           If the protocol is ICMP or ICMPv6, this is the ICMP code or -1 (all ICMP codes).</p>
-   * @public
-   */
-  ToPort?: number;
-
-  /**
-   * <p>The security group pairs. Returns the ID of the referenced security group and VPC, and the ID and status of the VPC peering connection.</p>
-   * @public
-   */
-  UserIdGroupPairs?: UserIdGroupPair[];
-}
-
-/**
- * <p>Describes a stale security group (a security group that contains stale rules).</p>
- * @public
- */
-export interface StaleSecurityGroup {
-  /**
-   * <p>The description of the security group.</p>
-   * @public
-   */
-  Description?: string;
-
-  /**
-   * <p>The ID of the security group.</p>
-   * @public
-   */
-  GroupId?: string;
-
-  /**
-   * <p>The name of the security group.</p>
-   * @public
-   */
-  GroupName?: string;
-
-  /**
-   * <p>Information about the stale inbound rules in the security group.</p>
-   * @public
-   */
-  StaleIpPermissions?: StaleIpPermission[];
-
-  /**
-   * <p>Information about the stale outbound rules in the security group.</p>
-   * @public
-   */
-  StaleIpPermissionsEgress?: StaleIpPermission[];
-
-  /**
-   * <p>The ID of the VPC for the security group.</p>
-   * @public
-   */
-  VpcId?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeStaleSecurityGroupsResult {
-  /**
-   * <p>The token to include in another request to get the next page of items.
-   *           If there are no additional items to return, the string is empty.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>Information about the stale security groups.</p>
-   * @public
-   */
-  StaleSecurityGroupSet?: StaleSecurityGroup[];
-}
-
-/**
- * @public
- */
-export interface DescribeStoreImageTasksRequest {
-  /**
-   * <p>The AMI IDs for which to show progress. Up to 20 AMI IDs can be included in a request.</p>
-   * @public
-   */
-  ImageIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   * 			and provides an error response. If you have the required permissions, the error response is
-   * 			<code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>task-state</code> - Returns tasks in a certain state (<code>InProgress</code> |
-   *             <code>Completed</code> | <code>Failed</code>)</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>bucket</code> - Returns task information for tasks that targeted a specific
-   *           bucket. For the filter value, specify the bucket name.</p>
-   *             </li>
-   *          </ul>
-   *          <note>
-   *             <p>When you specify the <code>ImageIds</code> parameter, any filters that you specify are
-   *         ignored. To use the filters, you must remove the <code>ImageIds</code> parameter.</p>
-   *          </note>
-   * @public
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   *          To get the next page of items, make another request with the token returned in the output.
-   * 	        For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   *          <p>You cannot specify this parameter and the <code>ImageIds</code> parameter in the same
-   *       call.</p>
-   * @public
-   */
-  MaxResults?: number;
-}
-
-/**
- * <p>The information about the AMI store task, including the progress of the task.</p>
- * @public
- */
-export interface StoreImageTaskResult {
-  /**
-   * <p>The ID of the AMI that is being stored.</p>
-   * @public
-   */
-  AmiId?: string;
-
-  /**
-   * <p>The time the task started.</p>
-   * @public
-   */
-  TaskStartTime?: Date;
-
-  /**
-   * <p>The name of the Amazon S3 bucket that contains the stored AMI object.</p>
-   * @public
-   */
-  Bucket?: string;
-
-  /**
-   * <p>The name of the stored AMI object in the bucket.</p>
-   * @public
-   */
-  S3objectKey?: string;
-
-  /**
-   * <p>The progress of the task as a percentage.</p>
-   * @public
-   */
-  ProgressPercentage?: number;
-
-  /**
-   * <p>The state of the store task (<code>InProgress</code>, <code>Completed</code>, or
-   *         <code>Failed</code>).</p>
-   * @public
-   */
-  StoreTaskState?: string;
-
-  /**
-   * <p>If the tasks fails, the reason for the failure is returned. If the task succeeds,
-   *         <code>null</code> is returned.</p>
-   * @public
-   */
-  StoreTaskFailureReason?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeStoreImageTasksResult {
-  /**
-   * <p>The information about the AMI store tasks.</p>
-   * @public
-   */
-  StoreImageTaskResults?: StoreImageTaskResult[];
-
-  /**
-   * <p>The token to include in another request to get the next page of items. This value is <code>null</code> when there
-   *          are no more items to return.</p>
-   * @public
-   */
-  NextToken?: string;
-}
-
-/**
- * @public
- */
-export interface DescribeSubnetsRequest {
-  /**
-   * <p>The filters.</p>
-   *          <ul>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone</code> - The Availability Zone for the subnet. You can also use
-   *                     <code>availabilityZone</code> as the filter name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>availability-zone-id</code> - The ID of the Availability Zone for the subnet.
-   *                     You can also use <code>availabilityZoneId</code> as the filter name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>available-ip-address-count</code> - The number of IPv4 addresses in the
-   *                     subnet that are available.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>cidr-block</code> - The IPv4 CIDR block of the subnet. The CIDR block
-   *                     you specify must exactly match the subnet's CIDR block for information to be
-   *                     returned for the subnet. You can also use <code>cidr</code> or
-   *                         <code>cidrBlock</code> as the filter names.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>customer-owned-ipv4-pool</code> - The customer-owned IPv4 address pool
-   *                     associated with the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>default-for-az</code> - Indicates whether this is the default subnet for
-   *                     the Availability Zone (<code>true</code> | <code>false</code>). You can also use
-   *                         <code>defaultForAz</code> as the filter name.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>enable-dns64</code> - Indicates whether DNS queries made to the
-   *                     Amazon-provided DNS Resolver in this subnet should return synthetic IPv6
-   *                     addresses for IPv4-only destinations.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>enable-lni-at-device-index</code> - Indicates the device position for
-   *                     local network interfaces in this subnet. For example, <code>1</code> indicates
-   *                     local network interfaces in this subnet are the secondary network interface
-   *                     (eth1). </p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipv6-cidr-block-association.ipv6-cidr-block</code> - An IPv6 CIDR
-   *                     block associated with the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipv6-cidr-block-association.association-id</code> - An association ID
-   *                     for an IPv6 CIDR block associated with the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipv6-cidr-block-association.state</code> - The state of an IPv6 CIDR
-   *                     block associated with the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>ipv6-native</code> - Indicates whether this is an IPv6 only subnet
-   *                         (<code>true</code> | <code>false</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>map-customer-owned-ip-on-launch</code> - Indicates whether a network
-   *                     interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>map-public-ip-on-launch</code> - Indicates whether instances launched in
-   *                     this subnet receive a public IPv4 address.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>owner-id</code> - The ID of the Amazon Web Services account that owns the
-   *                     subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>private-dns-name-options-on-launch.hostname-type</code> - The type of
-   *                     hostname to assign to instances in the subnet at launch. For IPv4-only and
-   *                     dual-stack (IPv4 and IPv6) subnets, an instance DNS name can be based on the
-   *                     instance IPv4 address (ip-name) or the instance ID (resource-name). For IPv6
-   *                     only subnets, an instance DNS name must be based on the instance ID
-   *                     (resource-name).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>private-dns-name-options-on-launch.enable-resource-name-dns-a-record</code>
-   *                     - Indicates whether to respond to DNS queries for instance hostnames with DNS A
-   *                     records.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>private-dns-name-options-on-launch.enable-resource-name-dns-aaaa-record</code>
-   *                     - Indicates whether to respond to DNS queries for instance hostnames with DNS
-   *                     AAAA records.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>state</code> - The state of the subnet (<code>pending</code> | <code>available</code>).</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-arn</code> - The Amazon Resource Name (ARN) of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>subnet-id</code> - The ID of the subnet.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag</code>:<key> - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value.
-   *     For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p>
-   *             </li>
-   *             <li>
-   *                <p>
-   *                   <code>vpc-id</code> - The ID of the VPC for the subnet.</p>
-   *             </li>
-   *          </ul>
-   * @public
-   */
-  Filters?: Filter[];
-
-  /**
-   * <p>The IDs of the subnets.</p>
-   *          <p>Default: Describes all your subnets.</p>
-   * @public
-   */
-  SubnetIds?: string[];
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>The token returned from a previous paginated request. Pagination continues from the end of the items returned by the previous request.</p>
-   * @public
-   */
-  NextToken?: string;
-
-  /**
-   * <p>The maximum number of items to return for this request.
-   * 	To get the next page of items, make another request with the token returned in the output.
-   * 	For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Query-Requests.html#api-pagination">Pagination</a>.</p>
-   * @public
-   */
-  MaxResults?: number;
 }
 
 /**

@@ -203,6 +203,35 @@ export interface DescribeInstanceTypesCommandOutput extends DescribeInstanceType
  * //           "STRING_VALUE",
  * //         ],
  * //       },
+ * //       MediaAcceleratorInfo: { // MediaAcceleratorInfo
+ * //         Accelerators: [ // MediaDeviceInfoList
+ * //           { // MediaDeviceInfo
+ * //             Count: Number("int"),
+ * //             Name: "STRING_VALUE",
+ * //             Manufacturer: "STRING_VALUE",
+ * //             MemoryInfo: { // MediaDeviceMemoryInfo
+ * //               SizeInMiB: Number("int"),
+ * //             },
+ * //           },
+ * //         ],
+ * //         TotalMediaMemoryInMiB: Number("int"),
+ * //       },
+ * //       NeuronInfo: { // NeuronInfo
+ * //         NeuronDevices: [ // NeuronDeviceInfoList
+ * //           { // NeuronDeviceInfo
+ * //             Count: Number("int"),
+ * //             Name: "STRING_VALUE",
+ * //             CoreInfo: { // NeuronDeviceCoreInfo
+ * //               Count: Number("int"),
+ * //               Version: Number("int"),
+ * //             },
+ * //             MemoryInfo: { // NeuronDeviceMemoryInfo
+ * //               SizeInMiB: Number("int"),
+ * //             },
+ * //           },
+ * //         ],
+ * //         TotalNeuronDeviceMemoryInMiB: Number("int"),
+ * //       },
  * //     },
  * //   ],
  * //   NextToken: "STRING_VALUE",

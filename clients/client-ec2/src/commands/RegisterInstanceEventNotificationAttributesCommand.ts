@@ -9,7 +9,7 @@ import { commonParams } from "../endpoint/EndpointParameters";
 import {
   RegisterInstanceEventNotificationAttributesRequest,
   RegisterInstanceEventNotificationAttributesResult,
-} from "../models/models_6";
+} from "../models/models_7";
 import {
   de_RegisterInstanceEventNotificationAttributesCommand,
   se_RegisterInstanceEventNotificationAttributesCommand,

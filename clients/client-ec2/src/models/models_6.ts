@@ -21,6 +21,7 @@ import {
   HostMaintenance,
   HostRecovery,
   InstanceEventWindow,
+  IpamPoolAllocation,
   Ipv6SupportValue,
   SecurityGroupReferencingSupportValue,
   SubnetAssociation,
@@ -121,7 +122,6 @@ import {
   FpgaImageAttributeName,
   ImdsSupportValues,
   ImportImageLicenseConfigurationResponse,
-  InstanceTagNotificationAttribute,
   IpamPoolCidr,
   LaunchPermission,
   PermissionGroup,
@@ -160,7 +160,6 @@ import {
   InstanceFamilyCreditSpecification,
   IpamComplianceStatus,
   IpamOverlapStatus,
-  IpamResourceType,
   Purchase,
   SnapshotBlockPublicAccessState,
   TransitGatewayPropagationState,
@@ -168,6 +167,261 @@ import {
   VerifiedAccessInstanceLoggingConfiguration,
   VolumeModification,
 } from "./models_5";
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredResourceCidrsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>A resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId: string | undefined;
+
+  /**
+   * <p>A resource Region.</p>
+   * @public
+   */
+  ResourceRegion: string | undefined;
+
+  /**
+   * <p>Filters.</p>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+
+  /**
+   * <p>The maximum number of discovered resource CIDRs to return in one page of results.</p>
+   * @public
+   */
+  MaxResults?: number;
+}
+
+/**
+ * @public
+ * @enum
+ */
+export const IpamResourceType = {
+  eip: "eip",
+  eni: "eni",
+  ipv6_pool: "ipv6-pool",
+  public_ipv4_pool: "public-ipv4-pool",
+  subnet: "subnet",
+  vpc: "vpc",
+} as const;
+
+/**
+ * @public
+ */
+export type IpamResourceType = (typeof IpamResourceType)[keyof typeof IpamResourceType];
+
+/**
+ * <p>An IPAM discovered resource CIDR. A discovered resource is a resource CIDR monitored under a resource discovery. The following resources can be discovered: VPCs, Public IPv4 pools, VPC subnets, and Elastic IP addresses. The discovered resource CIDR is the IP address range in CIDR notation that is associated with the resource.</p>
+ * @public
+ */
+export interface IpamDiscoveredResourceCidr {
+  /**
+   * <p>The resource discovery ID.</p>
+   * @public
+   */
+  IpamResourceDiscoveryId?: string;
+
+  /**
+   * <p>The resource Region.</p>
+   * @public
+   */
+  ResourceRegion?: string;
+
+  /**
+   * <p>The resource ID.</p>
+   * @public
+   */
+  ResourceId?: string;
+
+  /**
+   * <p>The resource owner ID.</p>
+   * @public
+   */
+  ResourceOwnerId?: string;
+
+  /**
+   * <p>The resource CIDR.</p>
+   * @public
+   */
+  ResourceCidr?: string;
+
+  /**
+   * <p>The resource type.</p>
+   * @public
+   */
+  ResourceType?: IpamResourceType;
+
+  /**
+   * <p>The resource tags.</p>
+   * @public
+   */
+  ResourceTags?: IpamResourceTag[];
+
+  /**
+   * <p>The percentage of IP address space in use. To convert the decimal to a percentage, multiply the decimal by 100. Note the following:</p>
+   *          <ul>
+   *             <li>
+   *                <p>For resources that are VPCs, this is the percentage of IP address space in the VPC that's taken up by subnet CIDRs.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>For resources that are subnets, if the subnet has an IPv4 CIDR provisioned to it, this is the percentage of IPv4 address space in the subnet that's in use. If the subnet has an IPv6 CIDR provisioned to it, the percentage of IPv6 address space in use is not represented. The percentage of IPv6 address space in use cannot currently be calculated.
+   *          </p>
+   *             </li>
+   *             <li>
+   *                <p>For resources that are public IPv4 pools, this is the percentage of IP address space in the pool that's been allocated to Elastic IP addresses (EIPs).
+   *          </p>
+   *             </li>
+   *          </ul>
+   * @public
+   */
+  IpUsage?: number;
+
+  /**
+   * <p>The VPC ID.</p>
+   * @public
+   */
+  VpcId?: string;
+
+  /**
+   * <p>The last successful resource discovery time.</p>
+   * @public
+   */
+  SampleTime?: Date;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamDiscoveredResourceCidrsResult {
+  /**
+   * <p>Discovered resource CIDRs.</p>
+   * @public
+   */
+  IpamDiscoveredResourceCidrs?: IpamDiscoveredResourceCidr[];
+
+  /**
+   * <p>Specify the pagination token from a previous request to retrieve the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPoolAllocationsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the IPAM pool you want to see the allocations for.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>The ID of the allocation.</p>
+   * @public
+   */
+  IpamPoolAllocationId?: string;
+
+  /**
+   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results you would like returned per page.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPoolAllocationsResult {
+  /**
+   * <p>The IPAM pool allocations you want information on.</p>
+   * @public
+   */
+  IpamPoolAllocations?: IpamPoolAllocation[];
+
+  /**
+   * <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+   * @public
+   */
+  NextToken?: string;
+}
+
+/**
+ * @public
+ */
+export interface GetIpamPoolCidrsRequest {
+  /**
+   * <p>A check for whether you have the required permissions for the action without actually making the request
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>The ID of the IPAM pool you want the CIDR for.</p>
+   * @public
+   */
+  IpamPoolId: string | undefined;
+
+  /**
+   * <p>One or more filters for the request. For more information about filtering, see <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-usage-filter.html">Filtering CLI output</a>.</p>
+   * @public
+   */
+  Filters?: Filter[];
+
+  /**
+   * <p>The maximum number of results to return in the request.</p>
+   * @public
+   */
+  MaxResults?: number;
+
+  /**
+   * <p>The token for the next page of results.</p>
+   * @public
+   */
+  NextToken?: string;
+}
 
 /**
  * @public
@@ -9323,157 +9577,6 @@ export interface RegisterInstanceTagAttributeRequest {
    * @public
    */
   InstanceTagKeys?: string[];
-}
-
-/**
- * @public
- */
-export interface RegisterInstanceEventNotificationAttributesRequest {
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-
-  /**
-   * <p>Information about the tag keys to register.</p>
-   * @public
-   */
-  InstanceTagAttribute: RegisterInstanceTagAttributeRequest | undefined;
-}
-
-/**
- * @public
- */
-export interface RegisterInstanceEventNotificationAttributesResult {
-  /**
-   * <p>The resulting set of tag keys.</p>
-   * @public
-   */
-  InstanceTagAttribute?: InstanceTagNotificationAttribute;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupMembersRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
-   * @public
-   */
-  NetworkInterfaceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes the registered  transit gateway multicast group members.</p>
- * @public
- */
-export interface TransitGatewayMulticastRegisteredGroupMembers {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The ID of the registered network interfaces.</p>
-   * @public
-   */
-  RegisteredNetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupMembersResult {
-  /**
-   * <p>Information about the registered  transit gateway multicast group members.</p>
-   * @public
-   */
-  RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers;
-}
-
-/**
- * @public
- */
-export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId: string | undefined;
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string;
-
-  /**
-   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
-   * @public
-   */
-  NetworkInterfaceIds: string[] | undefined;
-
-  /**
-   * <p>Checks whether you have the required permissions for the action, without actually making the request,
-   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
-   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
-   * @public
-   */
-  DryRun?: boolean;
-}
-
-/**
- * <p>Describes the members registered with the  transit gateway multicast group.</p>
- * @public
- */
-export interface TransitGatewayMulticastRegisteredGroupSources {
-  /**
-   * <p>The ID of the transit gateway multicast domain.</p>
-   * @public
-   */
-  TransitGatewayMulticastDomainId?: string;
-
-  /**
-   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
-   * @public
-   */
-  RegisteredNetworkInterfaceIds?: string[];
-
-  /**
-   * <p>The IP address assigned to the  transit gateway multicast group.</p>
-   * @public
-   */
-  GroupIpAddress?: string;
 }
 
 /**

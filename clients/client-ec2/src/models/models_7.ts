@@ -41,7 +41,7 @@ import {
 
 import { SnapshotState, SSEType, TransitGatewayRoute } from "./models_2";
 
-import { ClientVpnConnectionStatus, Filter } from "./models_3";
+import { ClientVpnConnectionStatus, Filter, InstanceTagNotificationAttribute } from "./models_3";
 
 import {
   HttpTokensState,
@@ -66,9 +66,160 @@ import {
 import {
   CapacityReservationSpecification,
   InstanceMonitoring,
+  RegisterInstanceTagAttributeRequest,
   Status,
-  TransitGatewayMulticastRegisteredGroupSources,
 } from "./models_6";
+
+/**
+ * @public
+ */
+export interface RegisterInstanceEventNotificationAttributesRequest {
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+
+  /**
+   * <p>Information about the tag keys to register.</p>
+   * @public
+   */
+  InstanceTagAttribute: RegisterInstanceTagAttributeRequest | undefined;
+}
+
+/**
+ * @public
+ */
+export interface RegisterInstanceEventNotificationAttributesResult {
+  /**
+   * <p>The resulting set of tag keys.</p>
+   * @public
+   */
+  InstanceTagAttribute?: InstanceTagNotificationAttribute;
+}
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupMembersRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
+   */
+  GroupIpAddress?: string;
+
+  /**
+   * <p>The group members' network interface IDs to register with the  transit gateway multicast group.</p>
+   * @public
+   */
+  NetworkInterfaceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes the registered  transit gateway multicast group members.</p>
+ * @public
+ */
+export interface TransitGatewayMulticastRegisteredGroupMembers {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The ID of the registered network interfaces.</p>
+   * @public
+   */
+  RegisteredNetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
+   */
+  GroupIpAddress?: string;
+}
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupMembersResult {
+  /**
+   * <p>Information about the registered  transit gateway multicast group members.</p>
+   * @public
+   */
+  RegisteredMulticastGroupMembers?: TransitGatewayMulticastRegisteredGroupMembers;
+}
+
+/**
+ * @public
+ */
+export interface RegisterTransitGatewayMulticastGroupSourcesRequest {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId: string | undefined;
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
+   */
+  GroupIpAddress?: string;
+
+  /**
+   * <p>The group sources' network interface IDs to register with the  transit gateway multicast group.</p>
+   * @public
+   */
+  NetworkInterfaceIds: string[] | undefined;
+
+  /**
+   * <p>Checks whether you have the required permissions for the action, without actually making the request,
+   *    and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>.
+   *    Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+   * @public
+   */
+  DryRun?: boolean;
+}
+
+/**
+ * <p>Describes the members registered with the  transit gateway multicast group.</p>
+ * @public
+ */
+export interface TransitGatewayMulticastRegisteredGroupSources {
+  /**
+   * <p>The ID of the transit gateway multicast domain.</p>
+   * @public
+   */
+  TransitGatewayMulticastDomainId?: string;
+
+  /**
+   * <p>The IDs of the network interfaces members registered with the  transit gateway multicast group.</p>
+   * @public
+   */
+  RegisteredNetworkInterfaceIds?: string[];
+
+  /**
+   * <p>The IP address assigned to the  transit gateway multicast group.</p>
+   * @public
+   */
+  GroupIpAddress?: string;
+}
 
 /**
  * @public

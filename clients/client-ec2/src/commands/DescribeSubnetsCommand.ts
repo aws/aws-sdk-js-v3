@@ -6,8 +6,7 @@ import { MetadataBearer as __MetadataBearer } from "@smithy/types";
 
 import { EC2ClientResolvedConfig, ServiceInputTypes, ServiceOutputTypes } from "../EC2Client";
 import { commonParams } from "../endpoint/EndpointParameters";
-import { DescribeSubnetsRequest } from "../models/models_4";
-import { DescribeSubnetsResult } from "../models/models_5";
+import { DescribeSubnetsRequest, DescribeSubnetsResult } from "../models/models_5";
 import { de_DescribeSubnetsCommand, se_DescribeSubnetsCommand } from "../protocols/Aws_ec2";
 
 /**
