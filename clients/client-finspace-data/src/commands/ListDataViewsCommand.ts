@@ -28,6 +28,8 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
 
 /**
  * <p>Lists all available Dataviews for a Dataset.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -102,7 +104,6 @@ export interface ListDataViewsCommandOutput extends ListDataViewsResponse, __Met
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class ListDataViewsCommand extends $Command
   .classBuilder<

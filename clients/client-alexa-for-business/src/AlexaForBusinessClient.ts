@@ -643,8 +643,9 @@ export interface AlexaForBusinessClientResolvedConfig extends AlexaForBusinessCl
 
 /**
  * <p>Alexa for Business has been retired and is no longer supported.</p>
- * @public
+ *
  * @deprecated Alexa For Business is no longer supported
+ * @public
  */
 export class AlexaForBusinessClient extends __Client<
   __HttpHandlerOptions,

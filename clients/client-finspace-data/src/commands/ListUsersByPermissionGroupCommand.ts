@@ -32,6 +32,8 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
 
 /**
  * <p>Lists details of all the users in a specific permission group.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -90,7 +92,6 @@ export interface ListUsersByPermissionGroupCommandOutput extends ListUsersByPerm
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class ListUsersByPermissionGroupCommand extends $Command
   .classBuilder<

@@ -29,6 +29,8 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
 /**
  * <p>Configures the email template for the user enrollment invitation with the specified
  *          attributes.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -64,7 +66,6 @@ export interface PutInvitationConfigurationCommandOutput extends PutInvitationCo
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class PutInvitationConfigurationCommand extends $Command
   .classBuilder<

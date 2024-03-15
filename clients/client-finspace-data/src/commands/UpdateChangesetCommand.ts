@@ -28,6 +28,8 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
 
 /**
  * <p>Updates a FinSpace Changeset.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +85,6 @@ export interface UpdateChangesetCommandOutput extends UpdateChangesetResponse, _
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class UpdateChangesetCommand extends $Command
   .classBuilder<

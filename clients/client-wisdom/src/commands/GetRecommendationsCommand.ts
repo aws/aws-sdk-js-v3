@@ -35,6 +35,8 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  *       recommendations in subsequent calls, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_NotifyRecommendationsReceived.html">NotifyRecommendationsReceived</a>. This API supports long-polling behavior with the
  *         <code>waitTimeSeconds</code> parameter. Short poll is the default behavior and only returns
  *       recommendations already available. To perform a manual query against an assistant, use <a href="https://docs.aws.amazon.com/wisdom/latest/APIReference/API_QueryAssistant.html">QueryAssistant</a>.</p>
+ *
+ * @deprecated GetRecommendations API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -122,7 +124,6 @@ export interface GetRecommendationsCommandOutput extends GetRecommendationsRespo
  * <p>Base exception class for all service exceptions from Wisdom service.</p>
  *
  * @public
- * @deprecated GetRecommendations API will be discontinued starting June 1, 2024. To receive generative responses after March 1, 2024 you will need to create a new Assistant in the Connect console and integrate the Amazon Q in Connect JavaScript library (amazon-q-connectjs) into your applications.
  */
 export class GetRecommendationsCommand extends $Command
   .classBuilder<

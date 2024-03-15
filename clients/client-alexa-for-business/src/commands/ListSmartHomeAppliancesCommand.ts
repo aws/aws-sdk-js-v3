@@ -28,6 +28,8 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
 
 /**
  * <p>Lists all of the smart home appliances associated with a room.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -67,7 +69,6 @@ export interface ListSmartHomeAppliancesCommandOutput extends ListSmartHomeAppli
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class ListSmartHomeAppliancesCommand extends $Command
   .classBuilder<

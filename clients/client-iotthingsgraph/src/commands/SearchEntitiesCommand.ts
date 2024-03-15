@@ -28,6 +28,8 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
 
 /**
  * <p>Searches for entities of the specified type. You can search for entities in your namespace and the public namespace that you're tracking.</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -89,7 +91,6 @@ export interface SearchEntitiesCommandOutput extends SearchEntitiesResponse, __M
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class SearchEntitiesCommand extends $Command
   .classBuilder<

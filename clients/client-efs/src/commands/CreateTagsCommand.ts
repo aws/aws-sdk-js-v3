@@ -37,6 +37,8 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  *       tag to your file system, Amazon EFS returns it in the response to the <a>DescribeFileSystems</a> operation. </p>
  *          <p>This operation requires permission for the <code>elasticfilesystem:CreateTags</code>
  *       action.</p>
+ *
+ * @deprecated Use TagResource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +81,6 @@ export interface CreateTagsCommandOutput extends __MetadataBearer {}
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @public
- * @deprecated Use TagResource.
  * @example To create a new tag
  * ```javascript
  * // This operation creates a new tag for an EFS file system.

@@ -28,6 +28,8 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
 
 /**
  * <p>Removes a device from Alexa For Business.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +64,6 @@ export interface DeleteDeviceCommandOutput extends DeleteDeviceResponse, __Metad
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteDeviceCommand extends $Command
   .classBuilder<

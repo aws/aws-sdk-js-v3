@@ -35,6 +35,8 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  *                 <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
  *                 <i>Amazon Chime SDK Developer Guide</i>.</p>
  *          </important>
+ *
+ * @deprecated Replaced by StopMeetingTranscription in the Amazon Chime SDK Meetings Namespace
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,7 +86,6 @@ export interface StopMeetingTranscriptionCommandOutput extends StopMeetingTransc
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Replaced by StopMeetingTranscription in the Amazon Chime SDK Meetings Namespace
  */
 export class StopMeetingTranscriptionCommand extends $Command
   .classBuilder<

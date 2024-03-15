@@ -28,6 +28,8 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
 
 /**
  * <p>Modifies the details of the specified user. You cannot update the <code>userId</code> for a user.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +82,6 @@ export interface UpdateUserCommandOutput extends UpdateUserResponse, __MetadataB
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class UpdateUserCommand extends $Command
   .classBuilder<

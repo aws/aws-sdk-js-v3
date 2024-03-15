@@ -39,6 +39,8 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * <p>Disassociates a website authorization provider from a specified fleet. After the
  *             disassociation, users can't load any associated websites that require this authorization
  *             provider.</p>
+ *
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +85,6 @@ export interface DisassociateWebsiteAuthorizationProviderCommandOutput
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class DisassociateWebsiteAuthorizationProviderCommand extends $Command
   .classBuilder<

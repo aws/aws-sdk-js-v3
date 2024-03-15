@@ -36,6 +36,8 @@ export interface DisassociateContactFromAddressBookCommandOutput
 
 /**
  * <p>Disassociates a contact from a given address book.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -62,7 +64,6 @@ export interface DisassociateContactFromAddressBookCommandOutput
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class DisassociateContactFromAddressBookCommand extends $Command
   .classBuilder<

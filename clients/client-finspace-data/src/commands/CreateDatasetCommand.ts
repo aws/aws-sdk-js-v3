@@ -32,6 +32,8 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
 
 /**
  * <p>Creates a new FinSpace Dataset.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -112,7 +114,6 @@ export interface CreateDatasetCommandOutput extends CreateDatasetResponse, __Met
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class CreateDatasetCommand extends $Command
   .classBuilder<

@@ -30,6 +30,8 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  * <p>Creates a workflow template. Workflows can be created only in the user's namespace. (The public namespace contains only
  *          entities.) The workflow can contain only entities in the specified namespace. The workflow is validated against the entities in the
  *       latest version of the user's namespace unless another namespace version is specified in the request.</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,7 +83,6 @@ export interface CreateFlowTemplateCommandOutput extends CreateFlowTemplateRespo
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class CreateFlowTemplateCommand extends $Command
   .classBuilder<

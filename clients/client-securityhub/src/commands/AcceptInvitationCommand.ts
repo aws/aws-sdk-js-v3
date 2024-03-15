@@ -35,6 +35,8 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  *          Organizations.</p>
  *          <p>When the member account accepts the invitation, permission is granted to the administrator
  *          account to view findings generated in the member account.</p>
+ *
+ * @deprecated This API has been deprecated, use AcceptAdministratorInvitation API instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -78,7 +80,6 @@ export interface AcceptInvitationCommandOutput extends AcceptInvitationResponse,
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @deprecated This API has been deprecated, use AcceptAdministratorInvitation API instead.
  */
 export class AcceptInvitationCommand extends $Command
   .classBuilder<

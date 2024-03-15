@@ -28,6 +28,8 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
 
 /**
  * <p>Gets information about an instance as part of a deployment.</p>
+ *
+ * @deprecated This operation is deprecated, use GetDeploymentTarget instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,7 +99,6 @@ export interface GetDeploymentInstanceCommandOutput extends GetDeploymentInstanc
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  * @public
- * @deprecated This operation is deprecated, use GetDeploymentTarget instead.
  */
 export class GetDeploymentInstanceCommand extends $Command
   .classBuilder<

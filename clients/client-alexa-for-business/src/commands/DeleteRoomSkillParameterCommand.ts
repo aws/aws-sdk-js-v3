@@ -28,6 +28,8 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
 
 /**
  * <p>Deletes room skill parameter details by room, skill, and parameter key ID.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -58,7 +60,6 @@ export interface DeleteRoomSkillParameterCommandOutput extends DeleteRoomSkillPa
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteRoomSkillParameterCommand extends $Command
   .classBuilder<

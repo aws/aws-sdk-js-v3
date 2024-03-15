@@ -50,6 +50,8 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  *             </li>
  *          </ul>
  *          <p>Only an <code>AppInstanceUser</code> can be promoted to an <code>AppInstanceAdmin</code> role.</p>
+ *
+ * @deprecated Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -107,7 +109,6 @@ export interface CreateAppInstanceAdminCommandOutput extends CreateAppInstanceAd
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Replaced by CreateAppInstanceAdmin in the Amazon Chime SDK Identity Namespace
  */
 export class CreateAppInstanceAdminCommand extends $Command
   .classBuilder<

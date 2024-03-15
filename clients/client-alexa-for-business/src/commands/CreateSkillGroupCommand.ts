@@ -28,6 +28,8 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
 
 /**
  * <p>Creates a skill group with a specified name and description.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -72,7 +74,6 @@ export interface CreateSkillGroupCommandOutput extends CreateSkillGroupResponse,
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class CreateSkillGroupCommand extends $Command
   .classBuilder<

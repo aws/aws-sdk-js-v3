@@ -917,8 +917,9 @@ export interface TimeSpan {
 
 /**
  * <p>Settings for one clip in a composition. All jobs in a playlist must have the same clip settings.</p>
- * @public
+ *
  * @deprecated
+ * @public
  */
 export interface Clip {
   /**
@@ -4466,8 +4467,9 @@ export interface ReadPresetResponse {
 
 /**
  * <p> The <code>TestRoleRequest</code> structure. </p>
- * @public
+ *
  * @deprecated
+ * @public
  */
 export interface TestRoleRequest {
   /**
@@ -4497,8 +4499,9 @@ export interface TestRoleRequest {
 
 /**
  * <p>The <code>TestRoleResponse</code> structure.</p>
- * @public
+ *
  * @deprecated
+ * @public
  */
 export interface TestRoleResponse {
   /**

@@ -28,6 +28,8 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
 
 /**
  * <p>Retrieves details for a specific user.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -83,7 +85,6 @@ export interface GetUserCommandOutput extends GetUserResponse, __MetadataBearer 
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class GetUserCommand extends $Command
   .classBuilder<

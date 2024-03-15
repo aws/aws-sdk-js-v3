@@ -29,6 +29,8 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
 /**
  * <p>Makes a private skill unavailable for enrolled users and prevents them from enabling it
  *          on their devices.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -60,7 +62,6 @@ export interface DisassociateSkillFromUsersCommandOutput extends DisassociateSki
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class DisassociateSkillFromUsersCommand extends $Command
   .classBuilder<

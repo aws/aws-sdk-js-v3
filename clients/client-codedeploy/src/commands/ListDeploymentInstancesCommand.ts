@@ -34,6 +34,8 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  *                     Lambda. </p>
  *          </note>
  *          <p> Lists the instance for a deployment associated with the user or Amazon Web Services account. </p>
+ *
+ * @deprecated This operation is deprecated, use ListDeploymentTargets instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -104,7 +106,6 @@ export interface ListDeploymentInstancesCommandOutput extends ListDeploymentInst
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  * @public
- * @deprecated This operation is deprecated, use ListDeploymentTargets instead.
  */
 export class ListDeploymentInstancesCommand extends $Command
   .classBuilder<

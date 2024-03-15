@@ -30,6 +30,8 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * <p>Retrieves a list of gateway summaries. Use GetGateway to retrieve details of a specific
  *          gateway. An optional gateway group ARN can be provided to only retrieve gateway summaries
  *          of gateways that are associated with that gateway group ARN.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -68,7 +70,6 @@ export interface ListGatewaysCommandOutput extends ListGatewaysResponse, __Metad
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class ListGatewaysCommand extends $Command
   .classBuilder<

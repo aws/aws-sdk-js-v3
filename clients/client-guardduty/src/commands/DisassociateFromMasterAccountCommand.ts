@@ -39,6 +39,8 @@ export interface DisassociateFromMasterAccountCommandOutput
  *       done so that the delegated administrator can invoke the <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_InviteMembers.html">InviteMembers</a> API without the need to invoke the CreateMembers API again. To
  *       remove the details associated with a member account, the delegated administrator must invoke the
  *       <a href="https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DeleteMembers.html">DeleteMembers</a> API.</p>
+ *
+ * @deprecated This operation is deprecated, use DisassociateFromAdministratorAccount instead
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +72,6 @@ export interface DisassociateFromMasterAccountCommandOutput
  * <p>Base exception class for all service exceptions from GuardDuty service.</p>
  *
  * @public
- * @deprecated This operation is deprecated, use DisassociateFromAdministratorAccount instead
  */
 export class DisassociateFromMasterAccountCommand extends $Command
   .classBuilder<

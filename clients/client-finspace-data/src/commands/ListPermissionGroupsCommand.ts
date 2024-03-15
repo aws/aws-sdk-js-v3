@@ -32,6 +32,8 @@ export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsR
 
 /**
  * <p>Lists all available permission groups in FinSpace.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,7 +88,6 @@ export interface ListPermissionGroupsCommandOutput extends ListPermissionGroupsR
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class ListPermissionGroupsCommand extends $Command
   .classBuilder<

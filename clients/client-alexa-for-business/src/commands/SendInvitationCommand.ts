@@ -29,6 +29,8 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
 /**
  * <p>Sends an enrollment invitation email with a URL to a user. The URL is valid for 30
  *          days or until you call this operation again, whichever comes first. </p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -63,7 +65,6 @@ export interface SendInvitationCommandOutput extends SendInvitationResponse, __M
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class SendInvitationCommand extends $Command
   .classBuilder<

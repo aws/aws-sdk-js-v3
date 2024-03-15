@@ -28,6 +28,8 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
 
 /**
  * <p>Removes one or more tags from the specified resource.</p>
+ *
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +61,6 @@ export interface UntagResourceCommandOutput extends UntagResourceResponse, __Met
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class UntagResourceCommand extends $Command
   .classBuilder<

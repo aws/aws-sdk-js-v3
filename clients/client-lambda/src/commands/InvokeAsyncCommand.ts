@@ -38,6 +38,8 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  *             <p>If you do use the InvokeAsync action, note that it doesn't support the use of X-Ray active tracing. Trace ID is not
  *         propagated to the function, even if X-Ray active tracing is turned on.</p>
  *          </note>
+ *
+ * @deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -81,7 +83,6 @@ export interface InvokeAsyncCommandOutput extends InvokeAsyncResponse, __Metadat
  * <p>Base exception class for all service exceptions from Lambda service.</p>
  *
  * @public
- * @deprecated
  */
 export class InvokeAsyncCommand extends $Command
   .classBuilder<

@@ -44,6 +44,8 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  *         that your AWS CloudHSM service is configured for high availability, and consider executing this
  *         operation during a maintenance window.</p>
  *          </important>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,7 +87,6 @@ export interface ModifyHsmCommandOutput extends ModifyHsmResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class ModifyHsmCommand extends $Command
   .classBuilder<

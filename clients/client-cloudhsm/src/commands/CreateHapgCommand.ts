@@ -39,6 +39,8 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  *       Reference</a>.</p>
  *          <p>Creates a high-availability partition group. A high-availability partition group is a
  *       group of partitions that spans multiple physical HSMs.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +77,6 @@ export interface CreateHapgCommandOutput extends CreateHapgResponse, __MetadataB
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class CreateHapgCommand extends $Command
   .classBuilder<

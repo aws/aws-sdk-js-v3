@@ -32,6 +32,8 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
 
 /**
  * <p>Create a new FinSpace environment.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -105,7 +107,6 @@ export interface CreateEnvironmentCommandOutput extends CreateEnvironmentRespons
  * <p>Base exception class for all service exceptions from Finspace service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class CreateEnvironmentCommand extends $Command
   .classBuilder<

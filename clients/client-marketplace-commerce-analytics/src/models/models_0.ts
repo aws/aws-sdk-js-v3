@@ -253,8 +253,9 @@ export type SupportDataSetType = (typeof SupportDataSetType)[keyof typeof Suppor
 
 /**
  * <i>This target has been deprecated.</i> Container for the parameters to the StartSupportDataExport operation.
- * @public
+ *
  * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
+ * @public
  */
 export interface StartSupportDataExportRequest {
   /**
@@ -320,8 +321,9 @@ export interface StartSupportDataExportRequest {
 
 /**
  * <i>This target has been deprecated.</i> Container for the result of the StartSupportDataExport operation.
- * @public
+ *
  * @deprecated This target has been deprecated. As of December 2022 Product Support Connection is no longer supported.
+ * @public
  */
 export interface StartSupportDataExportResult {
   /**

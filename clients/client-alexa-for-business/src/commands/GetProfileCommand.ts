@@ -28,6 +28,8 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
 
 /**
  * <p>Gets the details of a room profile by profile ARN.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -94,7 +96,6 @@ export interface GetProfileCommandOutput extends GetProfileResponse, __MetadataB
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class GetProfileCommand extends $Command
   .classBuilder<

@@ -28,6 +28,8 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
 
 /**
  * <p>Lists all of the active Datasets that a user has access to.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -103,7 +105,6 @@ export interface ListDatasetsCommandOutput extends ListDatasetsResponse, __Metad
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class ListDatasetsCommand extends $Command
   .classBuilder<

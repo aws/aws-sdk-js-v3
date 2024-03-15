@@ -28,6 +28,8 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
 
 /**
  * <p>Deletes a conference provider.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -56,7 +58,6 @@ export interface DeleteConferenceProviderCommandOutput extends DeleteConferenceP
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteConferenceProviderCommand extends $Command
   .classBuilder<

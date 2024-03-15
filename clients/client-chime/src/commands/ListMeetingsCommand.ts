@@ -34,6 +34,8 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  *          <p>For more information about the Amazon Chime SDK, see
  *         <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/meetings-sdk.html">Using the Amazon Chime SDK</a>
  *         in the <i>Amazon Chime SDK Developer Guide</i>.</p>
+ *
+ * @deprecated ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -97,7 +99,6 @@ export interface ListMeetingsCommandOutput extends ListMeetingsResponse, __Metad
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated ListMeetings is not supported in the Amazon Chime SDK Meetings Namespace. Update your application to remove calls to this API.
  */
 export class ListMeetingsCommand extends $Command
   .classBuilder<

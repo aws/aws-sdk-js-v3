@@ -28,6 +28,8 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
 
 /**
  * <p>Updates an existing conference provider's settings.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -70,7 +72,6 @@ export interface UpdateConferenceProviderCommandOutput extends UpdateConferenceP
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class UpdateConferenceProviderCommand extends $Command
   .classBuilder<

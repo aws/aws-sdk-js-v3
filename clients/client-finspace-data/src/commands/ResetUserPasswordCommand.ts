@@ -32,6 +32,8 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
 
 /**
  * <p>Resets the password for a specified user ID and generates a temporary one. Only a superuser can reset password for other users. Resetting the password immediately invalidates the previous password associated with the user.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -80,7 +82,6 @@ export interface ResetUserPasswordCommandOutput extends ResetUserPasswordRespons
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class ResetUserPasswordCommand extends $Command
   .classBuilder<

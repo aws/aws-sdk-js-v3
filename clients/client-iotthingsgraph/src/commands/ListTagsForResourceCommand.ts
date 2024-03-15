@@ -28,6 +28,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
 
 /**
  * <p>Lists all tags on an AWS IoT Things Graph resource.</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +77,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

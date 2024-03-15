@@ -48,6 +48,8 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  *             <a href="https://docs.aws.amazon.com/chime-sdk/latest/dg/migrate-from-chm-namespace.html">Migrating from the Amazon Chime namespace</a> in the
  *             <i>Amazon Chime SDK Developer Guide</i>.</p>
  *          </important>
+ *
+ * @deprecated Replaced by ListTagsForResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -98,7 +100,6 @@ export interface ListTagsForResourceCommandOutput extends ListTagsForResourceRes
  * <p>Base exception class for all service exceptions from Chime service.</p>
  *
  * @public
- * @deprecated Replaced by ListTagsForResource in the Amazon Chime SDK Voice, Amazon Chime SDK Meetings, Amazon Chime SDK Identity, Amazon Chime SDK Messaging, and Amazon Chime SDK Media Pipelines Namespaces
  */
 export class ListTagsForResourceCommand extends $Command
   .classBuilder<

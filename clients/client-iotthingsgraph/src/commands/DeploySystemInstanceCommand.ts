@@ -39,6 +39,8 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  *          <p>Since this action creates a Greengrass deployment on the caller's behalf, the calling identity must have write permissions
  *          to the specified Greengrass group. Otherwise, the call will fail with an authorization error.</p>
  *          <p>For information about the artifacts that get added to your Greengrass core device when you use this API, see <a href="https://docs.aws.amazon.com/thingsgraph/latest/ug/iot-tg-greengrass.html">AWS IoT Things Graph and AWS IoT Greengrass</a>.</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,7 +94,6 @@ export interface DeploySystemInstanceCommandOutput extends DeploySystemInstanceR
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class DeploySystemInstanceCommand extends $Command
   .classBuilder<

@@ -28,6 +28,8 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
 
 /**
  * <p>Searches for system instances in the user's account.</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,7 +88,6 @@ export interface SearchSystemInstancesCommandOutput extends SearchSystemInstance
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class SearchSystemInstancesCommand extends $Command
   .classBuilder<

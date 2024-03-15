@@ -39,6 +39,8 @@ export interface DisassociateFromMasterAccountCommandOutput
  *          <p>This operation is only used by accounts that are not part of an organization. For
  *          organization accounts, only the administrator account can
  *          disassociate a member account.</p>
+ *
+ * @deprecated This API has been deprecated, use DisassociateFromAdministratorAccount API instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +81,6 @@ export interface DisassociateFromMasterAccountCommandOutput
  * <p>Base exception class for all service exceptions from SecurityHub service.</p>
  *
  * @public
- * @deprecated This API has been deprecated, use DisassociateFromAdministratorAccount API instead.
  */
 export class DisassociateFromMasterAccountCommand extends $Command
   .classBuilder<

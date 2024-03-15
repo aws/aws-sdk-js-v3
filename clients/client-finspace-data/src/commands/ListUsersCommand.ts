@@ -28,6 +28,8 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
 
 /**
  * <p>Lists all available users in FinSpace.</p>
+ *
+ * @deprecated This method will be discontinued.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -86,7 +88,6 @@ export interface ListUsersCommandOutput extends ListUsersResponse, __MetadataBea
  * <p>Base exception class for all service exceptions from FinspaceData service.</p>
  *
  * @public
- * @deprecated This method will be discontinued.
  */
 export class ListUsersCommand extends $Command
   .classBuilder<

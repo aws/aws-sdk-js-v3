@@ -37,6 +37,8 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
 /**
  * <p>Imports the root certificate of a certificate authority (CA) used to obtain TLS
  *             certificates used by associated websites within the company network.</p>
+ *
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,7 +86,6 @@ export interface AssociateWebsiteCertificateAuthorityCommandOutput
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class AssociateWebsiteCertificateAuthorityCommand extends $Command
   .classBuilder<

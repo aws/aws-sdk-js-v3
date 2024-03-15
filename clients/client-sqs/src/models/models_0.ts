@@ -975,8 +975,9 @@ export interface DeleteMessageRequest {
 
 /**
  * <p>The specified receipt handle isn't valid for the current version.</p>
- * @public
+ *
  * @deprecated exception has been included in ReceiptHandleIsInvalid
+ * @public
  */
 export class InvalidIdFormat extends __BaseException {
   readonly name: "InvalidIdFormat" = "InvalidIdFormat";

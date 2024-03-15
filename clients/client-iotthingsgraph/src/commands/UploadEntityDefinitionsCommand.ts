@@ -38,6 +38,8 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  *          <p>Valid entities are <code>Device</code>, <code>DeviceModel</code>, <code>Service</code>, <code>Capability</code>, <code>State</code>, <code>Action</code>, <code>Event</code>, <code>Property</code>,
  *          <code>Mapping</code>, <code>Enum</code>.
  *          </p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -79,7 +81,6 @@ export interface UploadEntityDefinitionsCommandOutput extends UploadEntityDefini
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class UploadEntityDefinitionsCommand extends $Command
   .classBuilder<

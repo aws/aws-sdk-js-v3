@@ -37,6 +37,8 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
 /**
  * <p>Retrieves a list of certificate authorities added for the current account and
  *             Region.</p>
+ *
+ * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -85,7 +87,6 @@ export interface ListWebsiteCertificateAuthoritiesCommandOutput
  * <p>Base exception class for all service exceptions from WorkLink service.</p>
  *
  * @public
- * @deprecated Amazon WorkLink is no longer supported. This will be removed in a future version of the SDK.
  */
 export class ListWebsiteCertificateAuthoritiesCommand extends $Command
   .classBuilder<

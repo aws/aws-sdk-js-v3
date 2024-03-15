@@ -36,6 +36,8 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  *          <note>
  *             <p>Intended for use by Direct Connect Partners only.</p>
  *          </note>
+ *
+ * @deprecated
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -106,7 +108,6 @@ export interface AllocateConnectionOnInterconnectCommandOutput extends Connectio
  * <p>Base exception class for all service exceptions from DirectConnect service.</p>
  *
  * @public
- * @deprecated
  */
 export class AllocateConnectionOnInterconnectCommand extends $Command
   .classBuilder<

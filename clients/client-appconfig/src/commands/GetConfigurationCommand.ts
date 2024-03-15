@@ -50,6 +50,8 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  *                </li>
  *             </ul>
  *          </important>
+ *
+ * @deprecated This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -92,7 +94,6 @@ export interface GetConfigurationCommandOutput extends GetConfigurationCommandOu
  * <p>Base exception class for all service exceptions from AppConfig service.</p>
  *
  * @public
- * @deprecated This API has been deprecated in favor of the GetLatestConfiguration API used in conjunction with StartConfigurationSession.
  * @example To retrieve configuration details
  * ```javascript
  * // The following get-configuration example returns the configuration details of the example application. On subsequent calls to get-configuration, use the client-configuration-version parameter to only update the configuration of your application if the version has changed. Only updating the configuration when the version has changed avoids excess charges incurred by calling get-configuration.

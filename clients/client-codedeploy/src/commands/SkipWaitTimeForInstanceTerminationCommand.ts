@@ -32,6 +32,8 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
 /**
  * <p>In a blue/green deployment, overrides any specified wait time and starts terminating
  *             instances immediately after the traffic routing is complete.</p>
+ *
+ * @deprecated This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -75,7 +77,6 @@ export interface SkipWaitTimeForInstanceTerminationCommandOutput extends __Metad
  * <p>Base exception class for all service exceptions from CodeDeploy service.</p>
  *
  * @public
- * @deprecated This operation is deprecated, use ContinueDeployment with DeploymentWaitType instead.
  */
 export class SkipWaitTimeForInstanceTerminationCommand extends $Command
   .classBuilder<

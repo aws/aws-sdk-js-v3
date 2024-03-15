@@ -29,6 +29,8 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
 /**
  * <p>Deletes a workflow. Any new system or deployment that contains this workflow will fail to update or deploy.
  *          Existing deployments that contain the workflow will continue to run (since they use a snapshot of the workflow taken at the time of deployment).</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +68,6 @@ export interface DeleteFlowTemplateCommandOutput extends DeleteFlowTemplateRespo
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class DeleteFlowTemplateCommand extends $Command
   .classBuilder<

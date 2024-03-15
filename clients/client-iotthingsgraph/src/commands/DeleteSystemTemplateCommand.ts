@@ -29,6 +29,8 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
 /**
  * <p>Deletes a system. New deployments can't contain the system after its deletion.
  *       Existing deployments that contain the system will continue to work because they use a snapshot of the system that is taken when it is deployed.</p>
+ *
+ * @deprecated since: 2022-08-30
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -66,7 +68,6 @@ export interface DeleteSystemTemplateCommandOutput extends DeleteSystemTemplateR
  * <p>Base exception class for all service exceptions from IoTThingsGraph service.</p>
  *
  * @public
- * @deprecated since: 2022-08-30
  */
 export class DeleteSystemTemplateCommand extends $Command
   .classBuilder<

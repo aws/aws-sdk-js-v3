@@ -37,6 +37,8 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  *       responses of a multiple-call iteration (when using pagination) is unspecified. </p>
  *          <p> This operation requires permissions for the
  *         <code>elasticfilesystem:DescribeTags</code> action. </p>
+ *
+ * @deprecated Use ListTagsForResource.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -84,7 +86,6 @@ export interface DescribeTagsCommandOutput extends DescribeTagsResponse, __Metad
  * <p>Base exception class for all service exceptions from EFS service.</p>
  *
  * @public
- * @deprecated Use ListTagsForResource.
  * @example To describe the tags for a file system
  * ```javascript
  * // This operation describes all of a file system's tags.

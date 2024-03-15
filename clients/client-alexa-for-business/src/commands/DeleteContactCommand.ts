@@ -28,6 +28,8 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
 
 /**
  * <p>Deletes a contact by the contact ARN.</p>
+ *
+ * @deprecated Alexa For Business is no longer supported
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -59,7 +61,6 @@ export interface DeleteContactCommandOutput extends DeleteContactResponse, __Met
  * <p>Base exception class for all service exceptions from AlexaForBusiness service.</p>
  *
  * @public
- * @deprecated Alexa For Business is no longer supported
  */
 export class DeleteContactCommand extends $Command
   .classBuilder<

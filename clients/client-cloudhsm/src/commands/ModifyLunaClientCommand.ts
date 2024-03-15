@@ -40,6 +40,8 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  *          <p>Modifies the certificate used by the client.</p>
  *          <p>This action can potentially start a workflow to install the new certificate on the
  *       client's HSMs.</p>
+ *
+ * @deprecated This API is deprecated.
  * @example
  * Use a bare-bones client and the command you need to make an API call.
  * ```javascript
@@ -71,7 +73,6 @@ export interface ModifyLunaClientCommandOutput extends ModifyLunaClientResponse,
  * <p>Base exception class for all service exceptions from CloudHSM service.</p>
  *
  * @public
- * @deprecated This API is deprecated.
  */
 export class ModifyLunaClientCommand extends $Command
   .classBuilder<

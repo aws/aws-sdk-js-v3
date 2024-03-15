@@ -1207,8 +1207,9 @@ export interface ChimeClientResolvedConfig extends ChimeClientResolvedConfigType
  *          <p>Administrative permissions are controlled using AWS Identity and Access Management (IAM). For more information, see
  *             <a href="https://docs.aws.amazon.com/chime/latest/ag/security-iam.html">Identity and Access Management for Amazon Chime</a>
  *             in the <i>Amazon Chime Administration Guide</i>.</p>
- * @public
+ *
  * @deprecated This namespace has been deprecated
+ * @public
  */
 export class ChimeClient extends __Client<
   __HttpHandlerOptions,
