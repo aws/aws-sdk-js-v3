@@ -15,12 +15,9 @@
 
 import software.amazon.smithy.model.Model
 import software.amazon.smithy.model.shapes.ServiceShape
-import software.amazon.smithy.model.shapes.ShapeId
 import software.amazon.smithy.model.node.Node
-import software.amazon.smithy.gradle.tasks.SmithyBuild
 import software.amazon.smithy.aws.traits.ServiceTrait
 import java.util.stream.Stream
-import kotlin.streams.toList
 
 val smithyVersion: String by project
 
@@ -38,8 +35,8 @@ buildscript {
 }
 
 plugins {
-    val smithyGradleVersion: String by project
-    id("software.amazon.smithy").version(smithyGradleVersion)
+    `java-library`
+    id("software.amazon.smithy.gradle.smithy-base")
 }
 
 dependencies {
@@ -48,24 +45,17 @@ dependencies {
     implementation("software.amazon.smithy:smithy-smoke-test-traits:$smithyVersion")
 }
 
-// This project doesn't produce a JAR.
-tasks["jar"].enabled = false
-
-// Run the SmithyBuild task manually since this project needs the built JAR
-// from smithy-aws-typescript-codegen.
-tasks["smithyBuildJar"].enabled = false
-
-tasks.create<SmithyBuild>("buildSdk") {
-    addRuntimeClasspath = true
-}
-
-configure<software.amazon.smithy.gradle.SmithyExtension> {
+smithy {
+    format.set(false)
     val clientNameProp: String? by project
     if (!(clientNameProp?.isEmpty() ?: true)) {
         smithyBuildConfigs = files("smithy-build-" + clientNameProp + ".json")
         outputDirectory = file("build-single/" + clientNameProp)
     }
 }
+
+// This project doesn't produce a JAR.
+tasks["jar"].enabled = false
 
 // Generates a smithy-build.json file by creating a new projection for every
 // JSON file found in aws-models/. The generated smithy-build.json file is
@@ -101,7 +91,7 @@ tasks.register("generate-smithy-build") {
             val clientName = sdkId.split("-").toTypedArray()
                     .map { it.capitalize() }
                     .joinToString(separator = " ")
-            var manifestOverwrites = Node.parse(
+            val manifestOverwrites = Node.parse(
                     File("smithy-aws-typescript-codegen/src/main/resources/software/amazon/smithy/aws/typescript/codegen/package.json.template")
                             .readText()
             ).expectObjectNode()
@@ -150,7 +140,5 @@ tasks.register("generate-default-configs-provider", JavaExec::class) {
     args(listOf(project.properties["defaultsModeConfigOutput"]))
 }
 
-// Run the `buildSdk` automatically.
-tasks["build"]
-        .dependsOn(tasks["generate-smithy-build"])
-        .finalizedBy(tasks["buildSdk"])
+// Ensure the smithy-build.json file is generated before smithy build is executed
+tasks["smithyBuild"].dependsOn(tasks["generate-smithy-build"])
