@@ -58,6 +58,10 @@ export interface CreateSecurityProfileCommandOutput extends CreateSecurityProfil
  *       ],
  *     },
  *   ],
+ *   HierarchyRestrictedResources: [ // HierarchyRestrictedResourceList
+ *     "STRING_VALUE",
+ *   ],
+ *   AllowedAccessControlHierarchyGroupId: "STRING_VALUE",
  * };
  * const command = new CreateSecurityProfileCommand(input);
  * const response = await client.send(command);

@@ -55,6 +55,10 @@ export interface UpdateSecurityProfileCommandOutput extends __MetadataBearer {}
  *       ],
  *     },
  *   ],
+ *   HierarchyRestrictedResources: [ // HierarchyRestrictedResourceList
+ *     "STRING_VALUE",
+ *   ],
+ *   AllowedAccessControlHierarchyGroupId: "STRING_VALUE",
  * };
  * const command = new UpdateSecurityProfileCommand(input);
  * const response = await client.send(command);

@@ -888,6 +888,19 @@ export interface SecurityProfile {
    * @public
    */
   LastModifiedRegion?: string;
+
+  /**
+   * <p>The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code>.</p>
+   * @public
+   */
+  HierarchyRestrictedResources?: string[];
+
+  /**
+   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to
+   *    resources in Amazon Connect.</p>
+   * @public
+   */
+  AllowedAccessControlHierarchyGroupId?: string;
 }
 
 /**

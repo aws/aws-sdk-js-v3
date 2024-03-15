@@ -60,6 +60,26 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  *       ],
  *       TagCondition: "<TagCondition>",
  *     },
+ *     UserAttributeFilter: { // ControlPlaneUserAttributeFilter
+ *       OrConditions: [ // AttributeOrConditionList
+ *         { // AttributeAndCondition
+ *           TagConditions: "<TagAndConditionList>",
+ *           HierarchyGroupCondition: { // HierarchyGroupCondition
+ *             Value: "STRING_VALUE",
+ *             HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *           },
+ *         },
+ *       ],
+ *       AndCondition: {
+ *         TagConditions: "<TagAndConditionList>",
+ *         HierarchyGroupCondition: {
+ *           Value: "STRING_VALUE",
+ *           HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
+ *         },
+ *       },
+ *       TagCondition: "<TagCondition>",
+ *       HierarchyGroupCondition: "<HierarchyGroupCondition>",
+ *     },
  *   },
  *   SearchCriteria: { // UserSearchCriteria
  *     OrConditions: [ // UserSearchConditionList
@@ -75,10 +95,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  *           Value: "STRING_VALUE",
  *           ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *         },
- *         HierarchyGroupCondition: { // HierarchyGroupCondition
- *           Value: "STRING_VALUE",
- *           HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
- *         },
+ *         HierarchyGroupCondition: "<HierarchyGroupCondition>",
  *       },
  *     ],
  *     AndConditions: [
@@ -89,10 +106,7 @@ export interface SearchUsersCommandOutput extends SearchUsersResponse, __Metadat
  *       Value: "STRING_VALUE",
  *       ComparisonType: "STARTS_WITH" || "CONTAINS" || "EXACT",
  *     },
- *     HierarchyGroupCondition: {
- *       Value: "STRING_VALUE",
- *       HierarchyGroupMatchType: "EXACT" || "WITH_CHILD_GROUPS",
- *     },
+ *     HierarchyGroupCondition: "<HierarchyGroupCondition>",
  *   },
  * };
  * const command = new SearchUsersCommand(input);

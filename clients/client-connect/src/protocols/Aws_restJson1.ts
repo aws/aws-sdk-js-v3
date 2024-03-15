@@ -897,6 +897,7 @@ import {
 } from "../models/models_1";
 import {
   AnswerMachineDetectionConfig,
+  AttributeAndCondition,
   ChatEvent,
   ChatMessage,
   ChatParticipantRoleConfig,
@@ -906,6 +907,7 @@ import {
   ContactSearchSummaryAgentInfo,
   ContactSearchSummaryQueueInfo,
   ControlPlaneTagFilter,
+  ControlPlaneUserAttributeFilter,
   DestinationNotAllowedException,
   DisconnectReason,
   EvaluationAnswerInput,
@@ -1849,9 +1851,11 @@ export const se_CreateSecurityProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AllowedAccessControlHierarchyGroupId: [],
       AllowedAccessControlTags: (_) => _json(_),
       Applications: (_) => _json(_),
       Description: [],
+      HierarchyRestrictedResources: (_) => _json(_),
       Permissions: (_) => _json(_),
       SecurityProfileName: [],
       TagRestrictedResources: (_) => _json(_),
@@ -6151,9 +6155,11 @@ export const se_UpdateSecurityProfileCommand = async (
   let body: any;
   body = JSON.stringify(
     take(input, {
+      AllowedAccessControlHierarchyGroupId: [],
       AllowedAccessControlTags: (_) => _json(_),
       Applications: (_) => _json(_),
       Description: [],
+      HierarchyRestrictedResources: (_) => _json(_),
       Permissions: (_) => _json(_),
       TagRestrictedResources: (_) => _json(_),
     })
@@ -11944,6 +11950,10 @@ const de_UserNotFoundExceptionRes = async (
 
 // se_AssignContactCategoryActionDefinition omitted.
 
+// se_AttributeAndCondition omitted.
+
+// se_AttributeOrConditionList omitted.
+
 // se_Attributes omitted.
 
 // se_Campaign omitted.
@@ -11975,6 +11985,8 @@ const de_UserNotFoundExceptionRes = async (
 // se_ContactTagMap omitted.
 
 // se_ControlPlaneTagFilter omitted.
+
+// se_ControlPlaneUserAttributeFilter omitted.
 
 /**
  * serializeAws_restJson1CreateCaseActionDefinition
@@ -12176,6 +12188,8 @@ const se_FieldValueUnion = (input: FieldValueUnion, context: __SerdeContext): an
 // se_HierarchyGroupIdList omitted.
 
 // se_HierarchyLevelUpdate omitted.
+
+// se_HierarchyRestrictedResourceList omitted.
 
 // se_HierarchyStructureUpdate omitted.
 
@@ -13495,6 +13509,8 @@ const de_HierarchyPath = (output: any, context: __SerdeContext): HierarchyPath =
 
 // de_HierarchyPathReference omitted.
 
+// de_HierarchyRestrictedResourceList omitted.
+
 /**
  * deserializeAws_restJson1HierarchyStructure
  */
@@ -14381,9 +14397,11 @@ const de_SecurityKeysList = (output: any, context: __SerdeContext): SecurityKey[
  */
 const de_SecurityProfile = (output: any, context: __SerdeContext): SecurityProfile => {
   return take(output, {
+    AllowedAccessControlHierarchyGroupId: __expectString,
     AllowedAccessControlTags: _json,
     Arn: __expectString,
     Description: __expectString,
+    HierarchyRestrictedResources: _json,
     Id: __expectString,
     LastModifiedRegion: __expectString,
     LastModifiedTime: (_: any) => __expectNonNull(__parseEpochTimestamp(__expectNumber(_))),

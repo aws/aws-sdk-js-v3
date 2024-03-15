@@ -58,6 +58,10 @@ export interface DescribeSecurityProfileCommandOutput extends DescribeSecurityPr
  * //     ],
  * //     LastModifiedTime: new Date("TIMESTAMP"),
  * //     LastModifiedRegion: "STRING_VALUE",
+ * //     HierarchyRestrictedResources: [ // HierarchyRestrictedResourceList
+ * //       "STRING_VALUE",
+ * //     ],
+ * //     AllowedAccessControlHierarchyGroupId: "STRING_VALUE",
  * //   },
  * // };
  *

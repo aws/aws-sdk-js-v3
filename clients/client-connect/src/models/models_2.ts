@@ -912,6 +912,74 @@ export interface HierarchyGroupCondition {
 }
 
 /**
+ * <p>A list of conditions which would be applied together with an <code>AND</code>
+ *    condition.</p>
+ * @public
+ */
+export interface AttributeAndCondition {
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition.</p>
+   * @public
+   */
+  TagConditions?: TagCondition[];
+
+  /**
+   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+   * @public
+   */
+  HierarchyGroupCondition?: HierarchyGroupCondition;
+}
+
+/**
+ * <p>An object that can be used to specify Tag conditions or Hierarchy Group conditions inside
+ *    the <code>SearchFilter</code>.</p>
+ *          <p>This accepts an <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+ *          <ul>
+ *             <li>
+ *                <p>The top level list specifies conditions that need to be applied with <code>OR</code>
+ *      operator</p>
+ *             </li>
+ *             <li>
+ *                <p>The inner list specifies conditions that need to be applied with <code>AND</code>
+ *      operator.</p>
+ *             </li>
+ *          </ul>
+ *          <note>
+ *             <p>Only one field can be populated. Maximum number of allowed Tag conditions is 25. Maximum
+ *     number of allowed Hierarchy Group conditions is 20. </p>
+ *          </note>
+ * @public
+ */
+export interface ControlPlaneUserAttributeFilter {
+  /**
+   * <p>A list of conditions which would be applied together with an <code>OR</code>
+   *    condition.</p>
+   * @public
+   */
+  OrConditions?: AttributeAndCondition[];
+
+  /**
+   * <p>A list of conditions which would be applied together with an <code>AND</code>
+   *    condition.</p>
+   * @public
+   */
+  AndCondition?: AttributeAndCondition;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a tag condition, for example, <code>HAVE
+   *     BPO = 123</code>. </p>
+   * @public
+   */
+  TagCondition?: TagCondition;
+
+  /**
+   * <p>A leaf node condition which can be used to specify a hierarchy group condition.</p>
+   * @public
+   */
+  HierarchyGroupCondition?: HierarchyGroupCondition;
+}
+
+/**
  * <p>Filters to be applied to search results.</p>
  * @public
  */
@@ -932,6 +1000,29 @@ export interface UserSearchFilter {
    * @public
    */
   TagFilter?: ControlPlaneTagFilter;
+
+  /**
+   * <p>An object that can be used to specify Tag conditions or Hierarchy Group conditions inside
+   *    the SearchFilter.</p>
+   *          <p>This accepts an <code>OR</code> of <code>AND</code> (List of List) input where:</p>
+   *          <ul>
+   *             <li>
+   *                <p>The top level list specifies conditions that need to be applied with <code>OR</code>
+   *      operator.</p>
+   *             </li>
+   *             <li>
+   *                <p>The inner list specifies conditions that need to be applied with <code>AND</code>
+   *      operator.</p>
+   *             </li>
+   *          </ul>
+   *          <note>
+   *             <p>Only one field can be populated. This object can’t be used along with TagFilter. Request
+   *     can either contain TagFilter or UserAttributeFilter if SearchFilter is specified, combination of
+   *     both is not supported and such request will throw AccessDeniedException.</p>
+   *          </note>
+   * @public
+   */
+  UserAttributeFilter?: ControlPlaneUserAttributeFilter;
 }
 
 /**
@@ -3968,6 +4059,18 @@ export interface UpdateSecurityProfileRequest {
    * @public
    */
   Applications?: Application[];
+
+  /**
+   * <p>The list of resources that a security profile applies hierarchy restrictions to in Amazon Connect. Following are acceptable ResourceNames: <code>User</code>.</p>
+   * @public
+   */
+  HierarchyRestrictedResources?: string[];
+
+  /**
+   * <p>The identifier of the hierarchy group that a security profile uses to restrict access to resources in Amazon Connect.</p>
+   * @public
+   */
+  AllowedAccessControlHierarchyGroupId?: string;
 }
 
 /**
