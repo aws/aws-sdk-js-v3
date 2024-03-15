@@ -1545,9 +1545,9 @@ export interface CreateDomainRequest {
   HomeEfsFileSystemKmsKeyId?: string;
 
   /**
-   * <p>SageMaker uses Amazon Web Services KMS to encrypt the EFS volume attached to the domain with an
-   *         Amazon Web Services managed key by default. For more control, specify a customer managed
-   *       key.</p>
+   * <p>SageMaker uses Amazon Web Services KMS to encrypt EFS and EBS volumes attached to
+   *       the domain with an Amazon Web Services managed key by default. For more control, specify a
+   *       customer managed key.</p>
    * @public
    */
   KmsKeyId?: string;
@@ -2527,6 +2527,16 @@ export interface FeatureDefinition {
    * <p>The name of a feature. The type must be a string. <code>FeatureName</code> cannot be any
    *          of the following: <code>is_deleted</code>, <code>write_time</code>,
    *             <code>api_invocation_time</code>.</p>
+   *          <p>The name:</p>
+   *          <ul>
+   *             <li>
+   *                <p>Must start and end with an alphanumeric character.</p>
+   *             </li>
+   *             <li>
+   *                <p>Can only include alphanumeric characters, underscores, and hyphens. Spaces are not
+   *                allowed.</p>
+   *             </li>
+   *          </ul>
    * @public
    */
   FeatureName: string | undefined;
@@ -2594,7 +2604,7 @@ export interface DataCatalogConfig {
 }
 
 /**
- * <p>The Amazon Simple Storage (Amazon S3) location and and security configuration for
+ * <p>The Amazon Simple Storage (Amazon S3) location and security configuration for
  *             <code>OfflineStore</code>.</p>
  * @public
  */
@@ -2933,14 +2943,15 @@ export interface ThroughputConfig {
  */
 export interface CreateFeatureGroupRequest {
   /**
-   * <p>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon Web Services Region in an Amazon Web Services account. The name:</p>
+   * <p>The name of the <code>FeatureGroup</code>. The name must be unique within an Amazon Web Services Region in an Amazon Web Services account.</p>
+   *          <p>The name:</p>
    *          <ul>
    *             <li>
    *                <p>Must start and end with an alphanumeric character.</p>
    *             </li>
    *             <li>
-   *                <p>Can only contain alphanumeric character and hyphens. Spaces are not allowed.
-   *             </p>
+   *                <p>Can only include alphanumeric characters, underscores, and hyphens. Spaces are not
+   *                allowed.</p>
    *             </li>
    *          </ul>
    * @public
@@ -5505,6 +5516,33 @@ export const _InstanceType = {
   ML_C5_4XLARGE: "ml.c5.4xlarge",
   ML_C5_9XLARGE: "ml.c5.9xlarge",
   ML_C5_XLARGE: "ml.c5.xlarge",
+  ML_C6ID_12XLARGE: "ml.c6id.12xlarge",
+  ML_C6ID_16XLARGE: "ml.c6id.16xlarge",
+  ML_C6ID_24XLARGE: "ml.c6id.24xlarge",
+  ML_C6ID_2XLARGE: "ml.c6id.2xlarge",
+  ML_C6ID_32XLARGE: "ml.c6id.32xlarge",
+  ML_C6ID_4XLARGE: "ml.c6id.4xlarge",
+  ML_C6ID_8XLARGE: "ml.c6id.8xlarge",
+  ML_C6ID_LARGE: "ml.c6id.large",
+  ML_C6ID_XLARGE: "ml.c6id.xlarge",
+  ML_C6I_12XLARGE: "ml.c6i.12xlarge",
+  ML_C6I_16XLARGE: "ml.c6i.16xlarge",
+  ML_C6I_24XLARGE: "ml.c6i.24xlarge",
+  ML_C6I_2XLARGE: "ml.c6i.2xlarge",
+  ML_C6I_32XLARGE: "ml.c6i.32xlarge",
+  ML_C6I_4XLARGE: "ml.c6i.4xlarge",
+  ML_C6I_8XLARGE: "ml.c6i.8xlarge",
+  ML_C6I_LARGE: "ml.c6i.large",
+  ML_C6I_XLARGE: "ml.c6i.xlarge",
+  ML_C7I_12XLARGE: "ml.c7i.12xlarge",
+  ML_C7I_16XLARGE: "ml.c7i.16xlarge",
+  ML_C7I_24XLARGE: "ml.c7i.24xlarge",
+  ML_C7I_2XLARGE: "ml.c7i.2xlarge",
+  ML_C7I_48XLARGE: "ml.c7i.48xlarge",
+  ML_C7I_4XLARGE: "ml.c7i.4xlarge",
+  ML_C7I_8XLARGE: "ml.c7i.8xlarge",
+  ML_C7I_LARGE: "ml.c7i.large",
+  ML_C7I_XLARGE: "ml.c7i.xlarge",
   ML_G4DN_12XLARGE: "ml.g4dn.12xlarge",
   ML_G4DN_16XLARGE: "ml.g4dn.16xlarge",
   ML_G4DN_2XLARGE: "ml.g4dn.2xlarge",
@@ -5541,6 +5579,33 @@ export const _InstanceType = {
   ML_M5_2XLARGE: "ml.m5.2xlarge",
   ML_M5_4XLARGE: "ml.m5.4xlarge",
   ML_M5_XLARGE: "ml.m5.xlarge",
+  ML_M6ID_12XLARGE: "ml.m6id.12xlarge",
+  ML_M6ID_16XLARGE: "ml.m6id.16xlarge",
+  ML_M6ID_24XLARGE: "ml.m6id.24xlarge",
+  ML_M6ID_2XLARGE: "ml.m6id.2xlarge",
+  ML_M6ID_32XLARGE: "ml.m6id.32xlarge",
+  ML_M6ID_4XLARGE: "ml.m6id.4xlarge",
+  ML_M6ID_8XLARGE: "ml.m6id.8xlarge",
+  ML_M6ID_LARGE: "ml.m6id.large",
+  ML_M6ID_XLARGE: "ml.m6id.xlarge",
+  ML_M6I_12XLARGE: "ml.m6i.12xlarge",
+  ML_M6I_16XLARGE: "ml.m6i.16xlarge",
+  ML_M6I_24XLARGE: "ml.m6i.24xlarge",
+  ML_M6I_2XLARGE: "ml.m6i.2xlarge",
+  ML_M6I_32XLARGE: "ml.m6i.32xlarge",
+  ML_M6I_4XLARGE: "ml.m6i.4xlarge",
+  ML_M6I_8XLARGE: "ml.m6i.8xlarge",
+  ML_M6I_LARGE: "ml.m6i.large",
+  ML_M6I_XLARGE: "ml.m6i.xlarge",
+  ML_M7I_12XLARGE: "ml.m7i.12xlarge",
+  ML_M7I_16XLARGE: "ml.m7i.16xlarge",
+  ML_M7I_24XLARGE: "ml.m7i.24xlarge",
+  ML_M7I_2XLARGE: "ml.m7i.2xlarge",
+  ML_M7I_48XLARGE: "ml.m7i.48xlarge",
+  ML_M7I_4XLARGE: "ml.m7i.4xlarge",
+  ML_M7I_8XLARGE: "ml.m7i.8xlarge",
+  ML_M7I_LARGE: "ml.m7i.large",
+  ML_M7I_XLARGE: "ml.m7i.xlarge",
   ML_P2_16XLARGE: "ml.p2.16xlarge",
   ML_P2_8XLARGE: "ml.p2.8xlarge",
   ML_P2_XLARGE: "ml.p2.xlarge",
@@ -5550,6 +5615,7 @@ export const _InstanceType = {
   ML_P3_8XLARGE: "ml.p3.8xlarge",
   ML_P4DE_24XLARGE: "ml.p4de.24xlarge",
   ML_P4D_24XLARGE: "ml.p4d.24xlarge",
+  ML_P5_48XLARGE: "ml.p5.48xlarge",
   ML_R5_12XLARGE: "ml.r5.12xlarge",
   ML_R5_16XLARGE: "ml.r5.16xlarge",
   ML_R5_24XLARGE: "ml.r5.24xlarge",
@@ -5558,6 +5624,33 @@ export const _InstanceType = {
   ML_R5_8XLARGE: "ml.r5.8xlarge",
   ML_R5_LARGE: "ml.r5.large",
   ML_R5_XLARGE: "ml.r5.xlarge",
+  ML_R6ID_12XLARGE: "ml.r6id.12xlarge",
+  ML_R6ID_16XLARGE: "ml.r6id.16xlarge",
+  ML_R6ID_24XLARGE: "ml.r6id.24xlarge",
+  ML_R6ID_2XLARGE: "ml.r6id.2xlarge",
+  ML_R6ID_32XLARGE: "ml.r6id.32xlarge",
+  ML_R6ID_4XLARGE: "ml.r6id.4xlarge",
+  ML_R6ID_8XLARGE: "ml.r6id.8xlarge",
+  ML_R6ID_LARGE: "ml.r6id.large",
+  ML_R6ID_XLARGE: "ml.r6id.xlarge",
+  ML_R6I_12XLARGE: "ml.r6i.12xlarge",
+  ML_R6I_16XLARGE: "ml.r6i.16xlarge",
+  ML_R6I_24XLARGE: "ml.r6i.24xlarge",
+  ML_R6I_2XLARGE: "ml.r6i.2xlarge",
+  ML_R6I_32XLARGE: "ml.r6i.32xlarge",
+  ML_R6I_4XLARGE: "ml.r6i.4xlarge",
+  ML_R6I_8XLARGE: "ml.r6i.8xlarge",
+  ML_R6I_LARGE: "ml.r6i.large",
+  ML_R6I_XLARGE: "ml.r6i.xlarge",
+  ML_R7I_12XLARGE: "ml.r7i.12xlarge",
+  ML_R7I_16XLARGE: "ml.r7i.16xlarge",
+  ML_R7I_24XLARGE: "ml.r7i.24xlarge",
+  ML_R7I_2XLARGE: "ml.r7i.2xlarge",
+  ML_R7I_48XLARGE: "ml.r7i.48xlarge",
+  ML_R7I_4XLARGE: "ml.r7i.4xlarge",
+  ML_R7I_8XLARGE: "ml.r7i.8xlarge",
+  ML_R7I_LARGE: "ml.r7i.large",
+  ML_R7I_XLARGE: "ml.r7i.xlarge",
   ML_T2_2XLARGE: "ml.t2.2xlarge",
   ML_T2_LARGE: "ml.t2.large",
   ML_T2_MEDIUM: "ml.t2.medium",

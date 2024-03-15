@@ -9746,9 +9746,11 @@ export interface ContainerDefinition {
   ModelDataSource?: ModelDataSource;
 
   /**
-   * <p>The environment variables to set in the Docker container. Each key and value in the
-   *                 <code>Environment</code> string to string map can have length of up to 1024. We
-   *             support up to 16 entries in the map. </p>
+   * <p>The environment variables to set in the Docker container.</p>
+   *          <p>The maximum length of each key and value in the <code>Environment</code> map is
+   *             1024 bytes. The maximum length of all keys and values in the map, combined, is 32 KB. If
+   *             you pass multiple containers to a <code>CreateModel</code> request, then the maximum
+   *             length of all of their maps, combined, is also 32 KB.</p>
    * @public
    */
   Environment?: Record<string, string>;
