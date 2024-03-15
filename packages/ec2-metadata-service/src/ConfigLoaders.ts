@@ -50,8 +50,10 @@ export const PROFILE_AWS_EC2_METADATA_V1_DISABLED = "ec2_metadata_v1_disabled";
  */
 export const IMDSv1_DISABLED_SELECTORS: LoadedConfigSelectors<boolean | undefined> = {
   environmentVariableSelector: (env) =>
-    env[AWS_EC2_METADATA_V1_DISABLED] && env[AWS_EC2_METADATA_V1_DISABLED] !== "false",
+    env[AWS_EC2_METADATA_V1_DISABLED] ? env[AWS_EC2_METADATA_V1_DISABLED].toLowerCase() !== "false" : undefined,
   configFileSelector: (profile) =>
-    profile[PROFILE_AWS_EC2_METADATA_V1_DISABLED] && profile[PROFILE_AWS_EC2_METADATA_V1_DISABLED] !== "false",
+    profile[PROFILE_AWS_EC2_METADATA_V1_DISABLED]
+      ? profile[PROFILE_AWS_EC2_METADATA_V1_DISABLED].toLowerCase() !== "false"
+      : undefined,
   default: false,
 };
